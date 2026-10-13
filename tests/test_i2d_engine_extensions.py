@@ -440,6 +440,19 @@ class FiniteSurfaceExtentTests(unittest.TestCase):
             else:
                 self.assertLess(state.bodies["bar"].position_m[1], 1.0)
 
+    def test_entering_the_extent_from_the_side_below_the_top_is_refused(self) -> None:
+        system = PlanarMultibodySystem(
+            (body("bar", 20.0, 0.05),), (),
+            (ContactSpec("hook", "bar", (0.0, 0.0), (0.0, 1.0), 0.4, 0.0, ContactKind.RACK,
+                         surface_point_m=(0.0, 1.0), surface_extent_m=(-0.1, 0.1)),),
+            gravity_m_s2=9.81, clock_id="ledge",
+        )
+        # Below the ledge top, moving sideways into the hook.
+        state = system.make_state({"bar": RigidBodyState((-0.3, 0.98), 0.0, (2.0, 0.0))})
+        with self.assertRaisesRegex(ConstraintSolveError, "EDGE_ENTRY_NOT_MODELED"):
+            for _ in range(200):
+                state = system.advance(state, 0.001).state
+
     def test_extent_is_validated(self) -> None:
         with self.assertRaisesRegex(DynamicsError, "nonempty interval"):
             ContactSpec("hook", "bar", (0.0, 0.0), (0.0, 1.0), 0.4, 0.0, ContactKind.RACK,

@@ -2152,6 +2152,12 @@ class PlanarMultibodySystem:
             # A contact that was touching at the start was already held to
             # v_n+ >= 0 by the impulse solve; any residual second-order
             # penetration is removed by the unilateral position projection.
+            if start.gap_m >= _OFF_SURFACE_GAP_M and end.gap_m <= 0.0:
+                # Entering a finite surface from the side, below its top, is a
+                # collision with its edge, which this contact model does not have.
+                raise ConstraintSolveError(
+                    f"EDGE_ENTRY_NOT_MODELED: {contact_id} entered its finite surface from the side"
+                )
             if start.gap_m > _CONTACT_GAP_TOLERANCE_M and end.gap_m <= 0.0:
                 fraction = start.gap_m / (start.gap_m - end.gap_m)
                 if 0.0 <= fraction <= 1.0:
