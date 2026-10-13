@@ -63,7 +63,7 @@ The new GitHub Actions workflow defines Python 3.12 standard-library jobs on Win
 
 Local verification on Windows completed with Python 3.12: `python -m unittest discover -s tests -v` ran 112 tests (110 passed, 2 SciPy-only skips); `pwsh -NoProfile -File tests/test_overnight_controller.ps1` passed all 23 assertions; CPython 3.11.9 with SciPy 1.17.1 passed both DOP853 checks. Logs are under `runs/i2/res489/`.
 
-The final two-process I1 output bundle has digest `dd29a6eceae3385d456708311e8cd4b69f4c6eb480969ad8ec30a866a3850933`; its six artifact files match byte-for-byte across processes. The I0 comparison preserved the frozen payloads; only the historical source hashes in its manifest and the already-documented RES-478 finding reason differ.
+The final two-process I1 output bundle has digest `dc5fead3d2056050c0e6fd4703749d907b7062a58fbf92380c66608f7c8f4572`; its six artifact files match byte-for-byte across processes. The I0 comparison preserved the frozen payloads; only the historical source hashes in its manifest and the already-documented RES-478 finding reason differ.
 
 ## Claim ceiling and remaining uncertainty
 

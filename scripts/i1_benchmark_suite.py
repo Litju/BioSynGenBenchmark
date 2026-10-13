@@ -174,7 +174,7 @@ def main() -> None:
         "rows": result["rows"],
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(summary, indent=1, sort_keys=True, default=str), encoding="utf-8")
+    OUT.write_bytes((json.dumps(summary, indent=1, sort_keys=True, default=str) + "\n").encode("utf-8"))
     t = result["totals"]
     print(f"evaluator gate {result['gate']}: {t['agreements']}/{t['adjudicated_claim_instances']} adjudicated instances agree")
     for d in t["disagreements"]:

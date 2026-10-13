@@ -405,7 +405,7 @@ def main() -> None:
         same = all((base / "replica-a" / f).read_bytes() == (base / "replica-b" / f).read_bytes() for f in files)
         record = {"replicas": digests, "byte_identical": same, "files": files,
                   "method": "two separate OS processes of `python -m scripts.run_i1`; every file compared byte-for-byte"}
-        (base / "reproducibility.json").write_text(json.dumps(record, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+        (base / "reproducibility.json").write_bytes((json.dumps(record, indent=1, sort_keys=True) + "\n").encode("utf-8"))
         print(json.dumps(record, indent=1))
         if not same or len(set(digests.values())) != 1:
             raise SystemExit("replicas differ")
