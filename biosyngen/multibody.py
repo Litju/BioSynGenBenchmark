@@ -25,6 +25,7 @@ _CONTACT_FORCE_TOLERANCE_N = 1e-8
 _CONTACT_IMPULSE_TOLERANCE_N_S = 1e-8
 _CONSTRAINT_TOLERANCE = 1e-9
 _IMPACT_ENERGY_TOLERANCE_J = 1e-8
+_OFF_SURFACE_GAP_M = 1.0
 
 
 class DynamicsError(ValueError):
@@ -216,6 +217,9 @@ class ContactSpec:
     plate_frame: ForcePlateFrame | None = None
     normal_frame: ContactNormalFrame = ContactNormalFrame.WORLD
     friction_group: str | None = None
+    # World surfaces only: finite extent [a, b] along the surface tangent,
+    # measured from surface_point_m. Beyond it the surface is absent.
+    surface_extent_m: tuple[float, float] | None = None
 
     def __post_init__(self) -> None:
         if self.friction_group is not None and not self.friction_group.strip():
@@ -245,12 +249,18 @@ class ContactSpec:
             _vector2(self.surface_point_m, "surface_point_m")
             if self.local_point_b_m is not None:
                 raise DynamicsError("world-surface contacts cannot declare local_point_b_m")
+            if self.surface_extent_m is not None:
+                lower, upper = _vector2(self.surface_extent_m, "surface_extent_m")
+                if not lower < upper:
+                    raise DynamicsError("surface extent must be a nonempty interval")
         else:
             if self.body_b_id == self.body_a_id or self.local_point_b_m is None:
                 raise DynamicsError("body-to-body contacts require distinct bodies and a second local point")
             _vector2(self.local_point_b_m, "local_point_b_m")
             if self.surface_point_m is not None:
                 raise DynamicsError("body-to-body contact uses body_b_id, not a world surface point")
+            if self.surface_extent_m is not None:
+                raise DynamicsError("surface extent applies only to world-surface contacts")
         if self.kind in {ContactKind.FOOT, ContactKind.HEEL, ContactKind.TOE}:
             if self.side not in {"LEFT", "RIGHT"} or not self.measurement_channel_id:
                 raise DynamicsError("foot contacts require explicit side and independent channel identity")
@@ -975,6 +985,13 @@ class PlanarMultibodySystem:
             _dot(tangent, relative_velocity)
             + frame_omega * _dot(normal, relative_position)
         )
+        gap = _dot(normal, relative_position)
+        if spec.surface_extent_m is not None:
+            along = _dot(tangent, relative_position)
+            if not spec.surface_extent_m[0] <= along <= spec.surface_extent_m[1]:
+                # Off the finite surface: nothing to touch. The sentinel keeps the
+                # point "far" so it neither activates nor triggers a crossing.
+                gap = max(gap, _OFF_SURFACE_GAP_M)
         return _ContactData(
             spec,
             point_a,
@@ -984,7 +1001,7 @@ class PlanarMultibodySystem:
             relative_velocity,
             normal,
             tangent,
-            _dot(normal, relative_position),
+            gap,
             normal_velocity,
             tangential_velocity,
             tuple(normal_j),
@@ -2222,9 +2239,11 @@ class PlanarMultibodySystem:
         current = self._states_from_vectors(q, qd, state.time_s, contact_states, state.activations)
         joint_rows = [row.jacobian for row in self._joint_rows(current)]
         contact_data = {
-            contact_id: self._contact_data(contact_id, current)
+            contact_id: data
             for contact_id, status in contact_states.items()
             if status.mode is not ContactMode.OPEN
+            for data in (self._contact_data(contact_id, current),)
+            if data.gap_m < _OFF_SURFACE_GAP_M
         }
         diagonal = self._mass_diagonal()
         inverse_mass = [1.0 / value for value in diagonal]
@@ -2298,6 +2317,8 @@ class PlanarMultibodySystem:
             if status.mode is ContactMode.OPEN:
                 continue
             data = self._contact_data(contact_id, state)
+            if data.gap_m >= _OFF_SURFACE_GAP_M:
+                continue  # slid past the end of a finite surface: released next step
             rows.append((data.normal_jacobian, data.gap_m))
             if (
                 status.mode is ContactMode.STICK

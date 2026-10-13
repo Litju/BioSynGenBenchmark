@@ -391,5 +391,60 @@ class UnilateralContactLawFalsifierTests(unittest.TestCase):
         self.assertTrue(all(state.contacts[c].mode is not ContactMode.OPEN for c in ("heel", "toe")))
 
 
+
+class FiniteSurfaceExtentTests(unittest.TestCase):
+    """RES-495: edge-bounded world surfaces (e.g. bench-press J-hooks)."""
+
+    def _block_on_ledge(self, extent=(-0.2, 0.2), vx=0.5, mu=0.0):
+        system = PlanarMultibodySystem(
+            (body("bar", 20.0, 0.05),), (),
+            (ContactSpec("hook", "bar", (0.0, 0.0), (0.0, 1.0), mu, 0.0, ContactKind.RACK,
+                         surface_point_m=(0.0, 1.0), surface_extent_m=extent),),
+            gravity_m_s2=9.81, clock_id="ledge",
+        )
+        state = system.make_state({"bar": RigidBodyState((0.0, 1.0), 0.0, (vx, 0.0))}, active_contacts=("hook",))
+        return system, state
+
+    def test_bar_slides_off_the_edge_releases_and_falls_ballistically(self) -> None:
+        system, state = self._block_on_ledge()
+        released_at = None
+        for _ in range(800):
+            step = system.advance(state, 0.001)
+            state = step.state
+            if released_at is None and state.contacts["hook"].mode is ContactMode.OPEN:
+                released_at = state.time_s
+        self.assertIsNotNone(released_at)
+        self.assertAlmostEqual(released_at, 0.2 / 0.5, delta=0.003)
+        # After leaving the ledge the bar falls freely below the (absent) surface height.
+        self.assertLess(state.bodies["bar"].position_m[1], 0.5)
+        self.assertAlmostEqual(state.bodies["bar"].velocity_m_s[0], 0.5, places=9)
+
+    def test_crossing_outside_the_extent_is_not_an_impact(self) -> None:
+        system = PlanarMultibodySystem(
+            (body("bar", 20.0, 0.05),), (),
+            (ContactSpec("hook", "bar", (0.0, 0.0), (0.0, 1.0), 0.4, 0.0, ContactKind.RACK,
+                         surface_point_m=(0.0, 1.0), surface_extent_m=(-0.1, 0.1)),),
+            gravity_m_s2=9.81, clock_id="ledge",
+        )
+        outside = system.make_state({"bar": RigidBodyState((0.5, 1.2), 0.0)})
+        inside = system.make_state({"bar": RigidBodyState((0.0, 1.2), 0.0)})
+        for state, expect_impact in ((outside, False), (inside, True)):
+            impacts = 0
+            for _ in range(400):
+                step = system.advance(state, 0.001)
+                impacts += sum(e.event_id == "CONTACT_IMPACT" for e in step.events)
+                state = step.state
+            self.assertEqual(impacts > 0, expect_impact)
+            if expect_impact:
+                self.assertAlmostEqual(state.bodies["bar"].position_m[1], 1.0, delta=1e-8)
+            else:
+                self.assertLess(state.bodies["bar"].position_m[1], 1.0)
+
+    def test_extent_is_validated(self) -> None:
+        with self.assertRaisesRegex(DynamicsError, "nonempty interval"):
+            ContactSpec("hook", "bar", (0.0, 0.0), (0.0, 1.0), 0.4, 0.0, ContactKind.RACK,
+                        surface_point_m=(0.0, 1.0), surface_extent_m=(0.1, -0.1))
+
+
 if __name__ == "__main__":
     unittest.main()
