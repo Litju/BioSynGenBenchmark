@@ -114,6 +114,13 @@ class ControlStage:
     # Fraction of a gripped load's weight in the feedforward, as a function of
     # time in stage (declared pre-tension hypothesis); 1.0 when constant.
     load_share: Callable[[float], float] | float = 1.0
+    # Joints that receive the static feedforward (None = all). A supine lifter
+    # uses only the arm joints: the standing-support feedforward does not apply.
+    feedforward_joints: tuple[str, ...] | None = None
+    # Optional time-varying reference: (model, state, elapsed) -> (posture,
+    # posture rates as a dict). Overrides the joint-space blend (e.g. a
+    # Cartesian bar path resolved by inverse kinematics).
+    reference_fn: Callable[[HumanModel, MultibodyState, float], tuple[Posture, Mapping[str, float]]] | None = None
 
     def share(self, elapsed_s: float) -> float:
         value = self.load_share(elapsed_s) if callable(self.load_share) else self.load_share
@@ -161,6 +168,8 @@ class StagedJointController:
         feedforward = (
             model.gravity_compensation(state, share) if (stage.gravity_compensation and feet_supported) else {}
         )
+        if stage.feedforward_joints is not None:
+            feedforward = {k: v for k, v in feedforward.items() if k in stage.feedforward_joints}
         balance = hip_balance = 0.0
         if feet_supported and (stage.balance_gain_n_m_per_m or stage.hip_balance_gain_n_m_per_m):
             com_x, com_vx = supported_com(model, state, share)
@@ -179,12 +188,16 @@ class StagedJointController:
         else:
             blend, blend_rate = 1.0, 0.0
         out: dict[str, float] = {}
+        override = stage.reference_fn(model, state, elapsed) if stage.reference_fn is not None else None
         for joint_id, joint, scale in joint_items(model):
             angle, rate = model.system.joint_state(state, joint_id)
             target = getattr(stage.reference, joint)
             start = self._entry_posture.get(joint_id, target)
             reference = start + blend * (target - start)
             reference_rate = blend_rate * (target - start)
+            if override is not None and joint in override[1]:
+                reference = getattr(override[0], joint)
+                reference_rate = override[1][joint]
             torque = (
                 feedforward.get(joint_id, 0.0)
                 + stage.kp_n_m_per_rad.get(joint, 0.0) * (reference - angle)
