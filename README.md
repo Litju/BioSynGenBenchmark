@@ -6,9 +6,11 @@ Keep program work products here. The sibling D:\projects\BioSynGenBenchmark-evid
 
 ## I0 implementation pilot
 
-The only authorized implementation queue is RES-475 → RES-476 → RES-477 → RES-478 → RES-479 under the [I0 Overnight Implementation Authority & Scientific Gate Contract](https://linear.app/alignerr-cmj/document/i0-overnight-implementation-authority-and-scientific-gate-contract-ad04c81bd73b). This is a bounded engineering pilot. Synthetic observations support numerical verification only; biological and real paired FORCE/LPT validation remain unestablished.
+The RES-475 → RES-476 → RES-477 → RES-478 → RES-479 queue is the completed I0 pilot under the [I0 Overnight Implementation Authority & Scientific Gate Contract](https://linear.app/alignerr-cmj/document/i0-overnight-implementation-authority-and-scientific-gate-contract-ad04c81bd73b). Its files and runs are historical regression material. The active full-system follow-on queue is RES-489 → RES-490 → RES-491 → RES-492 under parent RES-488. Synthetic observations support numerical verification only; biological and real paired FORCE/LPT validation remain unestablished.
 
-### Controller
+### Historical I0 controller
+
+`scripts/overnight.ps1` is retained for the completed I0 queue only. It does not run RES-489 → RES-492; do not start it from an active Codex agent. The current queue is being executed directly in the existing session under each live issue's acceptance criteria.
 
 The Windows PowerShell 7 controller is **scripts/overnight.ps1**. It runs in the foreground, uses one worker, enforces a six-hour wall-clock deadline, limits the session to these five issue IDs, and permits one initial attempt plus two bounded repairs per issue. It writes atomic state and concise records under **runs/overnight/<session-id>**. Ctrl+C interrupts the foreground process; resume with the printed session ID.
 
@@ -96,21 +98,42 @@ I1 audits the I0 pilot, repairs its P0 defects, and adds a forward-dynamical suc
 Reproduce (Windows, CPython 3.12, standard library only):
 
     python -m unittest discover -s tests -v          # 96 tests (2 SciPy cross-checks skip without SciPy)
-    python -m scripts.run_i1 --replicate             # figures, results, manifest; two-process digest check
+    python -m scripts.run_i1 --replicate --out runs/i2/res489/i1/run # fresh two-process digest check; preserve RES-487 files
     python -m scripts.i1_benchmark_suite             # adjudicated evaluator challenge suite
     python -m scripts.i1_provenance_sensitivity      # provenance ledger, sensitivity, counterexamples
-    python -m scripts.i1_i0_regression               # I0 artifact preservation check
+    python -m scripts.i1_i0_regression --output runs/i2/res489/i0-regression.json # preserve historical regression record
     python -m scripts.i1_optimize_control --task cmj # declared control-hypothesis search (slow)
 
 Optional independent-solver check, where SciPy is installed:
 
     py -3.11 -m unittest tests.test_i1_solver_crosscheck -v
 
-**Claim ceiling (I1):**
-- Mechanics: VERIFIED_NUMERICALLY. Human model: MODELED_NOT_EMPIRICALLY_VALIDATED.
-- BIOLOGICAL_VALIDATION=NOT_ESTABLISHED; REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED.
-- Simulated devices are SIMULATED_DEVICE_HYPOTHESIS, not vendor equivalents.
-- No parameter is SOURCE_VERIFIED.
+**Historical I1 interpretation:** numerical software checks are `NUMERICAL_VERIFICATION_ONLY`; modeled device outputs are `SIMULATED_MEASUREMENT_ONLY`; `BIOLOGICAL_VALIDATION=NOT_ESTABLISHED`; `REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED`. The RES-489 addendum below supersedes the old evaluator results for current review.
+
+## I2 full-system follow-on (RES-488; active queue RES-489 → RES-492)
+
+The binding I2 acceptance contract is the live Linear issue text and the linked [Independent I1 Source Audit & Full Protocol Coverage Gap](https://linear.app/alignerr-cmj/document/biosyngenbenchmark-independent-i1-source-audit-and-full-protocol-2718d3dfb375). Read each live issue before beginning it. RES-489 hardens the evaluator; RES-490 inventories the actual exercise/test registry read-only; RES-491 builds reusable multibody mechanics; RES-492 completes the jumping protocol family. Keep each result in Review until owner acceptance. Do not publish or merge unreviewed claims.
+
+### RES-489 evaluator contract
+
+`biosyngen_benchmark.i1` is still standard-library-only and imports no generator code. Inputs must have finite physical values, dimensioned vectors and strictly increasing kinematic/device timestamps. Duplicate or malformed samples are rejected before numerical calculations. Event/contact transitions split quadrature windows. Nested-grid differences are reported as estimates, never mathematical error bounds; unstable sampled windows return NOT_EVALUABLE. A sampled PASS is a software/numerical check and cannot rule out an aliased between-sample signal.
+
+FORCE/LPT acceptance tolerances are supplied only out of band with a `MetrologyAuthority` created by the benchmark operator from an independently admitted reference. Candidate uncertainty fields are ignored and listed as refused. The repository currently contains no admitted real FORCE/LPT calibration records, so those checks return NOT_EVALUABLE by default. The test-only authority in `tests/test_i2a_evaluator_adversarial.py` is a manufactured software fixture, not calibration evidence. `SENSOR_METROLOGY`, `BIOLOGICAL_VALIDITY` and `REAL_PAIRED_FORCE_LPT` remain NOT_EVALUABLE.
+
+The suite gate requires every adjudicated positive and negative to receive its expected decision, and every abstention control to abstain. It reports decision coverage, refusal and Wilson intervals by denominator; those intervals describe only the finite authored controls. `unseen_two_body_free_fall` is a hand-authored closed-form family outside the generator.
+
+Reproduce RES-489 without overwriting historical RES-481/485/487 outputs:
+
+    python -m unittest discover -s tests -p test_i2a_evaluator_adversarial.py -v
+    python -m scripts.i1_benchmark_suite
+    python -m scripts.i1_i0_regression --output runs/i2/res489/i0-regression.json
+    python -m scripts.run_i1 --replicate --out runs/i2/res489/i1/run
+    pwsh -NoProfile -File tests/test_overnight_controller.ps1
+    py -3.11 -m unittest tests.test_i1_solver_crosscheck -v
+
+The first command includes the before-repair regressions preserved at `runs/i2/res489/falsifiers-before-repair.txt`; the post-repair run record is `runs/i2/res489/falsifiers-after-repair.txt`. The adjudicated report is `runs/i2/res489/benchmark-suite.json`. Cross-platform CI is defined in `.github/workflows/verification.yml`; its explicit SciPy job fails if dependency installation or the independent-solver checks fail.
+
+**Permitted claim ceilings:** `NUMERICAL_VERIFICATION_ONLY`, `SIMULATED_MEASUREMENT_ONLY`, `BIOLOGICAL_VALIDATION=NOT_ESTABLISHED`, and `REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED`.
 
 ## License
 

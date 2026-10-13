@@ -1,5 +1,7 @@
 # I1 final review: Opus 5.5 scientific audit and neuromechanical rebuild (RES-480)
 
+> Historical I1 record, written before the RES-489 evaluator re-audit. The source audit linked from RES-489 found additional false-acceptance and resolution gaps; do not cite this file's old PASS counts as the current evaluator acceptance. Current contract and claim ceilings: [`docs/i2/RES489_EVALUATOR_POLICY.md`](docs/i2/RES489_EVALUATOR_POLICY.md).
+
 **Date:** 2026-10-12
 **Root:** `D:\projects\BioSynGenBenchmark`
 **Linear:** RES-481…RES-487 are In Review (not Done); the parent is In Review.

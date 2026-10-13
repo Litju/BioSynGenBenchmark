@@ -21,3 +21,7 @@ Every requested claim receives PASS, REJECTED, or NOT_EVALUABLE with a reason, s
 No thresholds here are empirical biomechanics thresholds. The included known-answer fixture derives its numerical tolerances from binary64 machine epsilon, signal scale, and the number of arithmetic operations.
 
 Every numerical claim requires a qualified clock and an independent expected clock map. A candidate-declared clock without that reference is NOT_EVALUABLE; a clock that conflicts with it is REJECTED.
+
+## RES-489 current I2 evaluator addendum
+
+This file's I0 text is a historical contract. The current evaluator policy is [RES489_EVALUATOR_POLICY.md](i2/RES489_EVALUATOR_POLICY.md). In that policy, quadrature refinement is an estimate unless a justified regularity/bandwidth premise exists; unresolved windows cause refusal. Candidate-provided FORCE/LPT uncertainty fields have no decision authority. Sensor comparisons default to NOT_EVALUABLE until an independent metrology authority is supplied out of band. Suite abstentions count against positive/negative coverage, and confidence intervals describe only the finite authored challenge cases.

@@ -1,0 +1,5 @@
+evaluator gate PASS: 69/69 adjudicated instances agree
+refuse-everything gate FAIL (16 failures)
+accept-everything gate FAIL (20 failures)
+canary: outcomes identical=True, refused=['latent_events', 'generator_parameters', 'kinematics.frames[*].phase', 'kinematics.frames[*].latent_takeoff_flag', 'force.timing_uncertainty_bound_s', 'force.zero_offset_bound_n', 'force.gain_uncertainty_bound', 'lpt.timing_uncertainty_bound_s', 'lpt.encoder_resolution_m']
+wrote D:\projects\BioSynGenBenchmark\runs\i2\res489\benchmark-suite.json
