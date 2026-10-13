@@ -12,6 +12,8 @@ import unittest
 
 from biosyngen.i1.linalg import solve
 from biosyngen.multibody import (
+    HILL_TORQUE_VELOCITY_MODEL_ID,
+    ActuatorHypothesis,
     AppliedWrench,
     ConstraintSolveError,
     ContactKind,
@@ -24,7 +26,7 @@ from biosyngen.multibody import (
     PlanarMultibodySystem,
     RigidBodyState,
 )
-from tests.test_i2c_multibody import body, point_contact
+from tests.test_i2c_multibody import body, evidence, point_contact
 
 
 def _full_kkt(system: PlanarMultibodySystem, force, rows, targets):
@@ -186,6 +188,68 @@ class FrictionPatchTests(unittest.TestCase):
                                "friction_group": "lonely"}),),
                 gravity_m_s2=9.81, clock_id="lonely-group",
             )
+
+
+class HillTorqueVelocityTests(unittest.TestCase):
+    @staticmethod
+    def _actuator(**kwargs) -> ActuatorHypothesis:
+        defaults = dict(
+            actuator_id="motor", joint_id="hinge", capacity_n_m=100.0,
+            activation_time_s=0.01, deactivation_time_s=0.04,
+            provenance=evidence("motor-capacity", 0.1),
+            model_id=HILL_TORQUE_VELOCITY_MODEL_ID, max_joint_velocity_rad_s=10.0,
+        )
+        defaults.update(kwargs)
+        return ActuatorHypothesis(**defaults)
+
+    def test_velocity_factor_matches_closed_form_branches(self) -> None:
+        actuator = self._actuator()
+        k, e = 0.25, 1.5
+        self.assertEqual(actuator.velocity_factor(1.0, 0.0), 1.0)
+        self.assertAlmostEqual(actuator.velocity_factor(1.0, 5.0), 0.5 / (1.0 + 0.5 / k), places=15)
+        self.assertAlmostEqual(actuator.velocity_factor(-1.0, -5.0), 0.5 / (1.0 + 0.5 / k), places=15)
+        self.assertEqual(actuator.velocity_factor(1.0, 10.0), 0.0)
+        self.assertEqual(actuator.velocity_factor(1.0, 25.0), 0.0)
+        c = (e - 1.0) / (2.0 * (1.0 + 1.0 / k))
+        self.assertAlmostEqual(actuator.velocity_factor(1.0, -3.0), 1.0 + (e - 1.0) * 0.3 / (0.3 + c), places=15)
+        self.assertLess(actuator.velocity_factor(1.0, -1e6), e)
+        self.assertGreater(actuator.velocity_factor(1.0, -1e6), e - 1e-6)
+        h = 1e-7
+        self.assertAlmostEqual(actuator.velocity_factor(1.0, h), actuator.velocity_factor(1.0, -h), places=5)
+        # Monotone decreasing in shortening velocity across the whole range.
+        values = [actuator.velocity_factor(1.0, w) for w in [-50 + 0.5 * i for i in range(130)]]
+        self.assertTrue(all(a >= b for a, b in zip(values, values[1:])))
+
+    def test_model_identity_must_match_declared_parameters(self) -> None:
+        with self.assertRaisesRegex(DynamicsError, "constitutive model"):
+            self._actuator(model_id="ACTIVATED_SYMMETRIC_TORQUE_CAPACITY_V1")
+        with self.assertRaisesRegex(DynamicsError, "constitutive model"):
+            self._actuator(max_joint_velocity_rad_s=None)
+        with self.assertRaisesRegex(DynamicsError, "eccentric_ratio"):
+            self._actuator(eccentric_ratio=0.8)
+
+    def test_free_hinge_approaches_but_never_exceeds_declared_max_velocity(self) -> None:
+        actuator = self._actuator(capacity_n_m=5.0)
+        system = PlanarMultibodySystem(
+            (body("base", 1000.0, 1000.0), body("link", 1.0, 0.05)),
+            (PlanarJoint("hinge", "base", "link", (0.0, 0.0), (0.0, 0.0)),),
+            (), gravity_m_s2=9.81, clock_id="hill-hinge", actuators=(actuator,),
+        )
+        state = system.make_state(
+            {"base": RigidBodyState((0.0, 0.0), 0.0), "link": RigidBodyState((0.0, 0.0), 0.0)},
+            activations={"motor": 1.0},
+        )
+        result = system.solve_accelerations(state, excitations={"motor": 1.0})
+        self.assertAlmostEqual(result.actuator_torques_n_m["motor"], 5.0, places=12)
+        peak = 0.0
+        for _ in range(2000):
+            state = system.advance(state, 0.001, excitations={"motor": 1.0}).state
+            relative = state.bodies["link"].angular_velocity_rad_s - state.bodies["base"].angular_velocity_rad_s
+            peak = max(peak, relative)
+        self.assertLess(peak, 10.0)
+        self.assertGreater(peak, 9.0)
+        torque = system.solve_accelerations(state, excitations={"motor": 1.0}).actuator_torques_n_m["motor"]
+        self.assertAlmostEqual(torque, 5.0 * actuator.velocity_factor(1.0, relative), places=12)
 
 
 def _spec_fields(spec: ContactSpec) -> dict:

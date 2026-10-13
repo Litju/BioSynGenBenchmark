@@ -340,6 +340,9 @@ class AppliedWrench:
         _finite(self.moment_n_m, "moment_n_m")
 
 
+HILL_TORQUE_VELOCITY_MODEL_ID = "ACTIVATED_TORQUE_HILL_VELOCITY_V1"
+
+
 @dataclass(frozen=True, slots=True)
 class ActuatorHypothesis:
     actuator_id: str
@@ -349,6 +352,9 @@ class ActuatorHypothesis:
     deactivation_time_s: float
     provenance: ParameterProvenance
     model_id: str = "ACTIVATED_SYMMETRIC_TORQUE_CAPACITY_V1"
+    max_joint_velocity_rad_s: float | None = None
+    hill_curvature: float = 0.25
+    eccentric_ratio: float = 1.5
 
     def __post_init__(self) -> None:
         if not self.actuator_id.strip() or not self.joint_id.strip():
@@ -361,6 +367,37 @@ class ActuatorHypothesis:
             raise DynamicsError("actuator capacity uncertainty must lie in [0, 1]")
         if not self.model_id.strip():
             raise DynamicsError("actuator constitutive model identity is required")
+        expected = HILL_TORQUE_VELOCITY_MODEL_ID if self.max_joint_velocity_rad_s is not None else "ACTIVATED_SYMMETRIC_TORQUE_CAPACITY_V1"
+        if self.model_id != expected:
+            raise DynamicsError(f"{self.actuator_id} constitutive model must be {expected} for its declared parameters")
+        if self.max_joint_velocity_rad_s is not None:
+            if _finite(self.max_joint_velocity_rad_s, "max_joint_velocity_rad_s") <= 0.0:
+                raise DynamicsError("max_joint_velocity_rad_s must be positive")
+            if _finite(self.hill_curvature, "hill_curvature") <= 0.0:
+                raise DynamicsError("hill_curvature must be positive")
+            if _finite(self.eccentric_ratio, "eccentric_ratio") < 1.0:
+                raise DynamicsError("eccentric_ratio must be at least 1")
+
+    def velocity_factor(self, activation: float, joint_velocity_rad_s: float) -> float:
+        """Hill-type torque-velocity factor (1 when no velocity model is declared).
+
+        u = joint velocity in the direction of the activated torque over the
+        declared maximum. Shortening (u >= 0): (1 - u)/(1 + u/k), zero beyond
+        u = 1. Lengthening (u < 0): 1 + (e - 1) x/(x + c) with x = -u, rising
+        to e with an initial slope twice the shortening slope. Both branches
+        equal 1 at u = 0. This is a declared constitutive hypothesis.
+        """
+        if self.max_joint_velocity_rad_s is None or activation == 0.0:
+            return 1.0
+        u = math.copysign(1.0, activation) * joint_velocity_rad_s / self.max_joint_velocity_rad_s
+        k = self.hill_curvature
+        if u >= 0.0:
+            return max(0.0, (1.0 - u) / (1.0 + u / k))
+        e = self.eccentric_ratio
+        if e == 1.0:
+            return 1.0
+        c = (e - 1.0) / (2.0 * (1.0 + 1.0 / k))
+        return 1.0 + (e - 1.0) * (-u) / (-u + c)
 
 
 @dataclass(frozen=True, slots=True)
@@ -1178,14 +1215,19 @@ class PlanarMultibodySystem:
             if isinstance(command, bool) or not isinstance(command, (int, float)) or not math.isfinite(command) or not -1.0 <= command <= 1.0:
                 raise DynamicsError(f"{actuator.actuator_id} excitation must lie in [-1, 1]")
             activation = state.activations.get(actuator.actuator_id, 0.0)
-            torque = activation * actuator.capacity_n_m
             joint = self._joint_by_id[actuator.joint_id]
+            joint_velocity = (
+                state.bodies[joint.body_b_id].angular_velocity_rad_s
+                - state.bodies[joint.body_a_id].angular_velocity_rad_s
+            )
+            factor = actuator.velocity_factor(activation, joint_velocity)
+            torque = activation * actuator.capacity_n_m * factor
             ia = self._body_slice(joint.body_a_id)[2]
             ib = self._body_slice(joint.body_b_id)[2]
             q[ia] -= torque
             q[ib] += torque
             torques[actuator.actuator_id] = torque
-            uncertain = actuator.capacity_n_m * actuator.provenance.uncertainty_fraction * activation
+            uncertain = actuator.capacity_n_m * actuator.provenance.uncertainty_fraction * activation * factor
             bounds[actuator.actuator_id] = (torque - uncertain, torque + uncertain)
         return q, torques, bounds
 
