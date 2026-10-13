@@ -27,7 +27,7 @@ Real lifters reach the rack through wrist extension and 3-D arm abduction and ex
 | Turnover, catch, recovery (refused) | TURNOVER_ONSET, CATCH_CONTACT, RECOVERY_END and REP_END are returned as NOT_IMPLEMENTED with the computed reason. `scope="FULL"` raises `CATCH_NOT_IMPLEMENTED` and lists the missing degrees of freedom. |
 | Force-template shortcut | `catch_impulse_from_force_template` always refuses (`FORBIDDEN`). |
 
-Tests (`tests/test_i2i_power_clean.py`, 6 tests) check:
+Tests (`tests/test_i2i_power_clean.py`, 5 tests) check:
 
 - the feasibility formula against independent forward kinematics;
 - infeasibility at shoulder offsets and reachability at hand offsets;

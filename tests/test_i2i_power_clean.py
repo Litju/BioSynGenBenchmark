@@ -23,7 +23,7 @@ class FrontRackFeasibilityTests(unittest.TestCase):
             r = front_rack_feasibility(rack_offset_m=offset)
             # Independent check: folding the two links by the reported elbow angle
             # puts the grip at exactly the requested distance from the shoulder.
-            gx = r.upper_arm_m - r.forearm_grip_m * math.cos(r.required_elbow_flexion_rad)
+            gx = r.upper_arm_m + r.forearm_grip_m * math.cos(r.required_elbow_flexion_rad)
             gz = r.forearm_grip_m * math.sin(r.required_elbow_flexion_rad)
             self.assertAlmostEqual(math.hypot(gx, gz), offset, places=12)
 
