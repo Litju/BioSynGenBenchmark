@@ -1615,12 +1615,20 @@ class PlanarMultibodySystem:
         if len(candidates) > 12:
             raise ConstraintSolveError("contact set enumeration refused: more than 12 touching contacts")
         for size in range(len(candidates), -1, -1):
-            for subset in combinations(candidates, size):
+            for subset, seed in (
+                (subset, seed) for subset in combinations(candidates, size) for seed in ("PREPARED", "STICK")
+            ):
+                # Two friction seeds per normal set: the prepared modes and an
+                # all-stick trial (pivoting only leaves STICK via the cone test).
                 modes = {contact_id: ContactState() for contact_id in self._contact_by_id}
                 for contact_id in subset:
                     status = initial_modes[contact_id]
-                    modes[contact_id] = status if status.mode is not ContactMode.OPEN else self._activated(state, contact_id)
-                self._harmonize_friction_groups(state, modes)
+                    if seed == "PREPARED" and status.mode is not ContactMode.OPEN:
+                        modes[contact_id] = status
+                    else:
+                        modes[contact_id] = self._activated(state, contact_id)
+                if seed == "PREPARED":
+                    self._harmonize_friction_groups(state, modes)
                 if any((modes[c].mode is not ContactMode.OPEN) != (c in subset) for c in candidates):
                     continue
                 visited: set[tuple[tuple[str, str, int], ...]] = set()
@@ -1909,10 +1917,18 @@ class PlanarMultibodySystem:
         work = after_ke - before_ke
         if work > _IMPACT_ENERGY_TOLERANCE_J:
             raise ConstraintSolveError(f"impact created kinetic energy ({work:.9g} J)")
-        normal_impulses = {contact_id: contact_impulses.get(contact_id, (0.0, 0.0))[0] for contact_id in ids}
-        tangential_impulses = {contact_id: contact_impulses.get(contact_id, (0.0, 0.0))[1] for contact_id in ids}
+        # Every contact that carries impulse in the jump is reported (impacting
+        # and already-active ones), so momentum is fully attributable.
+        reported = dict.fromkeys(ids, (0.0, 0.0))
+        reported.update(contact_impulses)
         after = self._project_positions(after, modes)
-        after = self._project_velocities(after, modes)
+        projection: dict[str, tuple[float, float]] = {}
+        after = self._project_velocities(after, modes, contact_ledger=projection)
+        for contact_id, (normal, tangential) in projection.items():
+            base = reported.get(contact_id, (0.0, 0.0))
+            reported[contact_id] = (base[0] + normal, base[1] + tangential)
+        normal_impulses = {contact_id: value[0] for contact_id, value in reported.items()}
+        tangential_impulses = {contact_id: value[1] for contact_id, value in reported.items()}
         event = ContactEvent(
             "CONTACT_IMPACT",
             ids,
