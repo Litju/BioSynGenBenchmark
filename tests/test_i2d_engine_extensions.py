@@ -6,14 +6,20 @@ complement against the full dense saddle-point matrix.
 
 from __future__ import annotations
 
+import math
 import random
 import unittest
 
 from biosyngen.i1.linalg import solve
 from biosyngen.multibody import (
+    AppliedWrench,
+    ConstraintSolveError,
     ContactKind,
     ContactMode,
+    ContactSpec,
     ContactState,
+    DynamicsError,
+    ForcePlateFrame,
     PlanarJoint,
     PlanarMultibodySystem,
     RigidBodyState,
@@ -75,6 +81,115 @@ class SchurComplementKktTests(unittest.TestCase):
             dense_x, dense_lam = _full_kkt(system, force, rows, targets)
             for a, b in zip(fast_x + fast_lam, dense_x + dense_lam):
                 self.assertAlmostEqual(a, b, delta=1e-9 * (1.0 + abs(b)))
+
+
+class FrictionPatchTests(unittest.TestCase):
+    """A rigid flat foot: heel and toe share one tangential friction row."""
+
+    MU, G, MASS = 0.6, 9.81, 3.0
+
+    def _foot(self, *, grouped: bool = True, friction_toe: float | None = None,
+              toe_surface_z: float = 0.0) -> PlanarMultibodySystem:
+        frame = ForcePlateFrame("LEFT_PLATE", "LEFT", "FZ_LEFT", (0.0, 0.0), (1.0, 0.0), (0.0, 1.0))
+        group = "left_sole" if grouped else None
+
+        def contact(contact_id, kind, local, surface, mu):
+            return ContactSpec(contact_id, "foot", local, (0.0, 1.0), mu, 0.0, kind, surface,
+                               side="LEFT", measurement_channel_id="FZ_LEFT", plate_frame=frame,
+                               friction_group=group)
+
+        return PlanarMultibodySystem(
+            (body("foot", self.MASS, 0.02),), (),
+            (
+                contact("heel", ContactKind.HEEL, (-0.1, -0.05), (-0.1, 0.0), self.MU),
+                contact("toe", ContactKind.TOE, (0.15, -0.05), (0.15, toe_surface_z),
+                        self.MU if friction_toe is None else friction_toe),
+            ),
+            gravity_m_s2=self.G, clock_id="friction-patch",
+        )
+
+    def _flat_state(self, system):
+        return system.make_state({"foot": RigidBodyState((0.0, 0.05), 0.0)}, active_contacts=("heel", "toe"))
+
+    def test_flat_foot_sticks_below_patch_capacity_with_determinate_tangential_reaction(self) -> None:
+        dt = 0.001
+        system = self._foot()
+        state = self._flat_state(system)
+        push = AppliedWrench("foot", "lateral", (0.9 * self.MU * self.MASS * self.G, 0.0))
+        for _ in range(100):
+            step = system.advance(state, dt, external_wrenches=(push,))
+            state = step.state
+            impulses = step.contact_impulses_n_s
+            total_t = impulses["heel"][1] + impulses["toe"][1]
+            self.assertAlmostEqual(total_t, -push.force_n[0] * dt, places=12)
+            # Heel/toe normal impulses balance weight and the push moment about the COM.
+            total_n = impulses["heel"][0] + impulses["toe"][0]
+            self.assertAlmostEqual(total_n, self.MASS * self.G * dt, places=12)
+            moment = (-0.1 * impulses["heel"][0] + 0.15 * impulses["toe"][0]) + 0.05 * total_t
+            self.assertAlmostEqual(moment, 0.0, places=12)
+            for name in ("heel", "toe"):
+                self.assertLessEqual(abs(impulses[name][1]), self.MU * impulses[name][0] + 1e-15)
+                self.assertIs(state.contacts[name].mode, ContactMode.STICK)
+        self.assertEqual(state.bodies["foot"].position_m, (0.0, 0.05))
+        wrench = system.solve_accelerations(state, external_wrenches=(push,)).contact_wrenches
+        self.assertAlmostEqual(wrench["heel"].tangential_force_n + wrench["toe"].tangential_force_n,
+                               -push.force_n[0], places=9)
+
+    def test_flat_foot_slides_above_summed_normal_capacity(self) -> None:
+        dt = 0.001
+        system = self._foot()
+        state = self._flat_state(system)
+        capacity = self.MU * self.MASS * self.G
+        push = AppliedWrench("foot", "lateral", (1.2 * capacity, 0.0))
+        for _ in range(50):
+            step = system.advance(state, dt, external_wrenches=(push,))
+            state = step.state
+            impulses = step.contact_impulses_n_s
+            self.assertAlmostEqual(impulses["heel"][1] + impulses["toe"][1], -capacity * dt, places=12)
+            self.assertTrue(all(state.contacts[c].mode is ContactMode.SLIDE for c in ("heel", "toe")))
+            self.assertTrue(all(state.contacts[c].slip_direction == 1 for c in ("heel", "toe")))
+        self.assertAlmostEqual(state.bodies["foot"].velocity_m_s[0], 0.2 * capacity / self.MASS * state.time_s, places=10)
+
+    def test_heel_releases_and_toe_alone_carries_the_patch_when_moment_exceeds_support(self) -> None:
+        system = self._foot()
+        state = self._flat_state(system)
+        # Moment large enough that the heel would need adhesion.
+        lift_heel = AppliedWrench("foot", "plantarflexing-moment", moment_n_m=-0.2 * self.MASS * self.G)
+        step = system.advance(state, 0.001, external_wrenches=(lift_heel,))
+        self.assertIs(step.state.contacts["heel"].mode, ContactMode.OPEN)
+        self.assertIsNot(step.state.contacts["toe"].mode, ContactMode.OPEN)
+        self.assertIn("heel", next(e for e in step.events if e.event_id == "CONTACT_RELEASE").contact_ids)
+
+    def test_ungrouped_flat_foot_and_noncoplanar_patch_fail_closed(self) -> None:
+        with self.assertRaisesRegex(ConstraintSolveError, "singular or redundant"):
+            system = self._foot(grouped=False)
+            system.advance(self._flat_state(system), 0.001)
+        tilt = math.asin(0.05 / 0.25)
+        system = self._foot(toe_surface_z=0.05)
+        # Rotate the foot so both points touch surfaces at different heights.
+        c, s = math.cos(tilt), math.sin(tilt)
+        heel_world = (-0.1, 0.0)
+        com = (heel_world[0] - (c * -0.1 - s * -0.05), heel_world[1] - (s * -0.1 + c * -0.05))
+        state = system.make_state({"foot": RigidBodyState(com, tilt)}, active_contacts=("heel", "toe"))
+        with self.assertRaisesRegex(ConstraintSolveError, "not coplanar"):
+            system.advance(state, 0.001)
+
+    def test_malformed_friction_groups_are_refused(self) -> None:
+        with self.assertRaisesRegex(DynamicsError, "must share"):
+            self._foot(friction_toe=0.3)
+        with self.assertRaisesRegex(DynamicsError, "at least two"):
+            PlanarMultibodySystem(
+                (body("foot", 1.0, 0.01),), (),
+                (point_contact("only", "foot", (0.0, 0.0), (0.0, 0.0), friction=0.5, kind=ContactKind.RACK)
+                 .__class__(**{**_spec_fields(point_contact("only", "foot", (0.0, 0.0), (0.0, 0.0),
+                                                            friction=0.5, kind=ContactKind.RACK)),
+                               "friction_group": "lonely"}),),
+                gravity_m_s2=9.81, clock_id="lonely-group",
+            )
+
+
+def _spec_fields(spec: ContactSpec) -> dict:
+    return {name: getattr(spec, name) for name in ContactSpec.__dataclass_fields__}
 
 
 if __name__ == "__main__":

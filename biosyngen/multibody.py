@@ -214,8 +214,11 @@ class ContactSpec:
     measurement_channel_id: str | None = None
     plate_frame: ForcePlateFrame | None = None
     normal_frame: ContactNormalFrame = ContactNormalFrame.WORLD
+    friction_group: str | None = None
 
     def __post_init__(self) -> None:
+        if self.friction_group is not None and not self.friction_group.strip():
+            raise DynamicsError("a declared friction group identity must be nonempty")
         if not self.contact_id.strip() or not self.body_a_id.strip():
             raise DynamicsError("contact identity and primary body ID must be nonempty")
         _vector2(self.local_point_a_m, "local_point_a_m")
@@ -589,6 +592,11 @@ def _weighted_products(
     return matrix
 
 
+def _tangent_values(value_by_key: Mapping[str, float]) -> dict[str, float]:
+    suffix = ":tangent"
+    return {key[: -len(suffix)]: value for key, value in value_by_key.items() if key.endswith(suffix)}
+
+
 class PlanarMultibodySystem:
     """COM-coordinate planar rigid bodies with revolute/weld joints and Coulomb contact.
 
@@ -669,6 +677,27 @@ class PlanarMultibodySystem:
                 raise DynamicsError(f"{contact.contact_id} references an unknown primary body")
             if contact.body_b_id is not None and contact.body_b_id not in self._body_index:
                 raise DynamicsError(f"{contact.contact_id} references an unknown second body")
+        groups: dict[str, list[ContactSpec]] = {}
+        for contact in self.contacts:
+            if contact.friction_group is not None:
+                groups.setdefault(contact.friction_group, []).append(contact)
+        for group_id, members in groups.items():
+            first = members[0]
+            if len(members) < 2:
+                raise DynamicsError(f"friction group {group_id} needs at least two contact points")
+            for member in members[1:]:
+                if (
+                    member.body_a_id != first.body_a_id
+                    or member.body_b_id != first.body_b_id
+                    or member.friction_coefficient != first.friction_coefficient
+                    or member.normal_direction != first.normal_direction
+                    or member.normal_frame is not first.normal_frame
+                    or member.plate_frame != first.plate_frame
+                ):
+                    raise DynamicsError(
+                        f"friction group {group_id} members must share bodies, normal, friction and plate frame"
+                    )
+        self._friction_groups = {group_id: tuple(c.contact_id for c in members) for group_id, members in groups.items()}
         for actuator in self.actuators:
             if actuator.joint_id not in self._joint_by_id:
                 raise DynamicsError(f"{actuator.actuator_id} references an unknown joint")
@@ -926,6 +955,77 @@ class PlanarMultibodySystem:
             _dot(tangent, relative_position),
         )
 
+    def _tangent_row_owners(self, modes: Mapping[str, ContactState]) -> dict[str, str]:
+        """Map each STICK contact to the contact carrying its tangential row.
+
+        Members of one declared friction patch (e.g. heel and toe of a rigid
+        flat foot) share one tangential constraint whose capacity is mu times
+        the summed member normal reactions; ungrouped contacts own their row.
+        """
+        owners: dict[str, str] = {}
+        for contact_id, spec in self._contact_by_id.items():
+            if modes[contact_id].mode is not ContactMode.STICK:
+                continue
+            if spec.friction_group is None:
+                owners[contact_id] = contact_id
+            else:
+                owners[contact_id] = next(
+                    member
+                    for member in self._friction_groups[spec.friction_group]
+                    if modes[member].mode is ContactMode.STICK
+                )
+        return owners
+
+    def _harmonize_friction_groups(self, state: MultibodyState, modes: dict[str, ContactState]) -> None:
+        """Active patch members share one tangential mode (they share slip)."""
+        for members in self._friction_groups.values():
+            active = [c for c in members if modes[c].mode is not ContactMode.OPEN]
+            if len(active) < 2:
+                continue
+            moving = [
+                c for c in active
+                if modes[c].mode is ContactMode.SLIDE
+                and abs(self._contact_data(c, state).tangential_velocity_m_s) > _CONTACT_VELOCITY_TOLERANCE_M_S
+            ]
+            if moving:
+                direction = modes[moving[0]].slip_direction
+                for c in active:
+                    modes[c] = ContactState(ContactMode.SLIDE, slip_direction=direction)
+            elif any(modes[c].mode is ContactMode.STICK for c in active):
+                for c in active:
+                    if modes[c].mode is not ContactMode.STICK:
+                        modes[c] = ContactState(
+                            ContactMode.STICK,
+                            tangent_anchor_m=self._contact_data(c, state).tangent_coordinate_m,
+                        )
+
+    def _group_members(self, contact_id: str) -> tuple[str, ...]:
+        group = self._contact_by_id[contact_id].friction_group
+        return (contact_id,) if group is None else self._friction_groups[group]
+
+    def _stick_tangential_shares(
+        self,
+        modes: Mapping[str, ContactState],
+        normal_by_id: Mapping[str, float],
+        tangential_by_owner: Mapping[str, float],
+    ) -> dict[str, float]:
+        """Report a patch's shared tangential reaction per member.
+
+        The split is proportional to member normal reaction, so each member
+        satisfies its own cone exactly when the patch does. For coplanar points
+        on one plate the split has no mechanical or measured consequence.
+        """
+        shares: dict[str, float] = {}
+        for contact_id, owner in self._tangent_row_owners(modes).items():
+            members = [m for m in self._group_members(contact_id) if modes[m].mode is ContactMode.STICK]
+            total = sum(max(0.0, normal_by_id.get(m, 0.0)) for m in members)
+            tangential = tangential_by_owner.get(owner, 0.0)
+            if total > 0.0:
+                shares[contact_id] = tangential * max(0.0, normal_by_id.get(contact_id, 0.0)) / total
+            else:
+                shares[contact_id] = tangential / len(members)
+        return shares
+
     def _joint_rows(self, state: MultibodyState) -> list[_ConstraintRow]:
         rows: list[_ConstraintRow] = []
         for joint in self.joints:
@@ -978,6 +1078,7 @@ class PlanarMultibodySystem:
         """
         rows: list[_ConstraintRow] = []
         data_by_id: dict[str, _ContactData] = {}
+        owners = self._tangent_row_owners(modes)
         for contact_id in self._contact_by_id:
             status = modes[contact_id]
             if status.mode is ContactMode.OPEN:
@@ -998,7 +1099,16 @@ class PlanarMultibodySystem:
                 "CONTACT_NORMAL",
                 contact_id,
             ))
-            if status.mode is ContactMode.STICK:
+            if status.mode is ContactMode.STICK and owners[contact_id] != contact_id:
+                owner_data = data_by_id.get(owners[contact_id]) or self._contact_data(owners[contact_id], state)
+                mismatch = max(
+                    abs(a - b) for a, b in zip(data.tangential_jacobian, owner_data.tangential_jacobian)
+                )
+                if mismatch > 1e-6:
+                    raise ConstraintSolveError(
+                        f"{contact_id} is not coplanar with its friction patch ({mismatch:.3g})"
+                    )
+            elif status.mode is ContactMode.STICK:
                 anchor = status.tangent_anchor_m
                 if anchor is None:
                     anchor = data.tangent_coordinate_m
@@ -1168,7 +1278,31 @@ class PlanarMultibodySystem:
                         ContactMode.STICK,
                         tangent_anchor_m=data.tangent_coordinate_m,
                     )
+        self._harmonize_friction_groups(state, modes)
         return modes
+
+    def _stick_cone_violations(
+        self,
+        modes: Mapping[str, ContactState],
+        value_by_key: Mapping[str, float],
+        tolerance: float,
+    ) -> list[tuple[tuple[str, ...], float]]:
+        """Return (sticking members, required tangential reaction) outside the cone.
+
+        A friction patch is tested as a whole: its shared tangential reaction
+        must satisfy |t| <= mu * sum of member normal reactions.
+        """
+        violations = []
+        for contact_id, owner in self._tangent_row_owners(modes).items():
+            if owner != contact_id:
+                continue
+            members = tuple(m for m in self._group_members(contact_id) if modes[m].mode is ContactMode.STICK)
+            normal_sum = sum(max(0.0, value_by_key.get(f"{m}:normal", 0.0)) for m in members)
+            tangential = value_by_key.get(f"{contact_id}:tangent", 0.0)
+            limit = self._contact_by_id[contact_id].friction_coefficient * normal_sum
+            if abs(tangential) > limit + tolerance:
+                violations.append((members, tangential))
+        return violations
 
     def _active_set_solve(
         self,
@@ -1193,6 +1327,15 @@ class PlanarMultibodySystem:
                     ContactMode.STICK,
                     tangent_anchor_m=data.tangent_coordinate_m,
                 )
+        if extra_contact_ids:
+            for contact_id in self._contact_by_id:
+                if contact_id in extra_contact_ids or modes[contact_id].mode is ContactMode.OPEN:
+                    continue
+                if any(m in extra_contact_ids for m in self._group_members(contact_id)):
+                    data = self._contact_data(contact_id, state)
+                    modes[contact_id] = ContactState(
+                        ContactMode.STICK, tangent_anchor_m=data.tangent_coordinate_m
+                    )
         for _ in range(2 * len(self.contacts) + 4):
             joint_rows = self._joint_rows(state)
             contact_rows, data_by_id = self._contact_constraint_rows(state, modes)
@@ -1223,21 +1366,17 @@ class PlanarMultibodySystem:
                     modes[contact_id] = ContactState()
                     changed = True
                     continue
-                normal = max(0.0, normal)
-                if status.mode is ContactMode.STICK:
-                    tangential = multiplier_by_key.get(f"{contact_id}:tangent", 0.0)
-                    limit = self._contact_by_id[contact_id].friction_coefficient * normal
-                    if abs(tangential) > limit + multiplier_tolerance:
-                        data = data_by_id[contact_id]
-                        if abs(data.tangential_velocity_m_s) > _CONTACT_VELOCITY_TOLERANCE_M_S:
-                            direction = 1 if data.tangential_velocity_m_s > 0.0 else -1
-                        else:
-                            direction = -1 if tangential > 0.0 else 1
-                        modes[contact_id] = ContactState(
-                            ContactMode.SLIDE,
-                            slip_direction=direction,
-                        )
-                        changed = True
+            if changed:
+                continue
+            for members, tangential in self._stick_cone_violations(modes, multiplier_by_key, multiplier_tolerance):
+                data = data_by_id[members[0]]
+                if abs(data.tangential_velocity_m_s) > _CONTACT_VELOCITY_TOLERANCE_M_S:
+                    direction = 1 if data.tangential_velocity_m_s > 0.0 else -1
+                else:
+                    direction = -1 if tangential > 0.0 else 1
+                for member in members:
+                    modes[member] = ContactState(ContactMode.SLIDE, slip_direction=direction)
+                changed = True
             if changed:
                 continue
             return solution, multipliers, rows, modes, data_by_id
@@ -1299,35 +1438,41 @@ class PlanarMultibodySystem:
                     modes[contact_id] = ContactState()
                     changed = True
                     continue
-                normal = max(0.0, normal)
-                if status.mode is ContactMode.STICK:
-                    tangential = impulse_by_key[f"{contact_id}:tangent"]
-                    if abs(tangential) > spec.friction_coefficient * normal + _CONTACT_IMPULSE_TOLERANCE_N_S:
-                        modes[contact_id] = ContactState(
-                            ContactMode.SLIDE,
-                            slip_direction=-1 if tangential > 0.0 else 1,
-                        )
-                        changed = True
-                elif spec.friction_coefficient > 0.0:
+                if status.mode is ContactMode.SLIDE and spec.friction_coefficient > 0.0:
                     slip_after = sum(j * v for j, v in zip(data.tangential_jacobian, v_plus))
                     if status.slip_direction * slip_after < -_CONTACT_VELOCITY_TOLERANCE_M_S:
-                        modes[contact_id] = ContactState(
-                            ContactMode.STICK,
-                            tangent_anchor_m=data.tangent_coordinate_m,
-                        )
+                        for member in self._group_members(contact_id):
+                            if modes[member].mode is ContactMode.SLIDE:
+                                modes[member] = ContactState(
+                                    ContactMode.STICK,
+                                    tangent_anchor_m=data_by_id[member].tangent_coordinate_m,
+                                )
                         changed = True
             if changed:
                 continue
+            for members, tangential in self._stick_cone_violations(
+                modes, impulse_by_key, _CONTACT_IMPULSE_TOLERANCE_N_S
+            ):
+                for member in members:
+                    modes[member] = ContactState(
+                        ContactMode.SLIDE, slip_direction=-1 if tangential > 0.0 else 1
+                    )
+                changed = True
+            if changed:
+                continue
+            normals = {
+                contact_id: max(0.0, impulse_by_key[f"{contact_id}:normal"])
+                for contact_id in self._contact_by_id
+                if modes[contact_id].mode is not ContactMode.OPEN
+            }
+            shares = self._stick_tangential_shares(modes, normals, _tangent_values(impulse_by_key))
             contact_impulses: dict[str, tuple[float, float]] = {}
-            for contact_id, spec in self._contact_by_id.items():
+            for contact_id, normal in normals.items():
                 status = modes[contact_id]
-                if status.mode is ContactMode.OPEN:
-                    continue
-                normal = max(0.0, impulse_by_key[f"{contact_id}:normal"])
                 if status.mode is ContactMode.STICK:
-                    tangential = impulse_by_key[f"{contact_id}:tangent"]
+                    tangential = shares[contact_id]
                 else:
-                    tangential = -status.slip_direction * spec.friction_coefficient * normal
+                    tangential = -status.slip_direction * self._contact_by_id[contact_id].friction_coefficient * normal
                 contact_impulses[contact_id] = (normal, tangential)
             return v_plus, contact_impulses, modes, data_by_id
         raise ConstraintSolveError("Coulomb impulse active set did not settle")
@@ -1355,6 +1500,11 @@ class PlanarMultibodySystem:
             resolved_state = MultibodyState(state.time_s, state.bodies, modes, state.activations)
             self.validate_support_contract(resolved_state, support_contract)
         lambda_by_key = {row.key: multipliers[i] for i, row in enumerate(rows)}
+        stick_shares = self._stick_tangential_shares(
+            modes,
+            {c: lambda_by_key.get(f"{c}:normal", 0.0) for c in self._contact_by_id},
+            _tangent_values(lambda_by_key),
+        )
         contact_wrenches: dict[str, ContactWrench] = {}
         contact_power = 0.0
         residuals: dict[str, float] = {}
@@ -1363,7 +1513,7 @@ class PlanarMultibodySystem:
             data = data_by_id.get(contact_id) or self._contact_data(contact_id, state)
             normal_force = max(0.0, lambda_by_key.get(f"{contact_id}:normal", 0.0))
             if status.mode is ContactMode.STICK:
-                tangent_force = lambda_by_key.get(f"{contact_id}:tangent", 0.0)
+                tangent_force = stick_shares[contact_id]
             elif status.mode is ContactMode.SLIDE:
                 tangent_force = -status.slip_direction * spec.friction_coefficient * normal_force
             else:
@@ -1591,8 +1741,13 @@ class PlanarMultibodySystem:
             contact_id: max(0.0, impulse_by_key.get(f"{contact_id}:normal", 0.0))
             for contact_id in ids
         }
+        stick_shares = self._stick_tangential_shares(
+            modes,
+            {c: impulse_by_key.get(f"{c}:normal", 0.0) for c in self._contact_by_id},
+            _tangent_values(impulse_by_key),
+        )
         tangential_impulses = {
-            contact_id: impulse_by_key.get(f"{contact_id}:tangent", 0.0)
+            contact_id: stick_shares[contact_id]
             if modes[contact_id].mode is ContactMode.STICK
             else -modes[contact_id].slip_direction
             * self._contact_by_id[contact_id].friction_coefficient
@@ -1835,12 +1990,13 @@ class PlanarMultibodySystem:
         q = self._position_vector(state)
         current = self._states_from_vectors(q, qd, state.time_s, contact_states, state.activations)
         rows = [row.jacobian for row in self._joint_rows(current)]
+        owners = self._tangent_row_owners(contact_states)
         for contact_id, status in contact_states.items():
             if status.mode is ContactMode.OPEN:
                 continue
             data = self._contact_data(contact_id, current)
             rows.append(data.normal_jacobian)
-            if status.mode is ContactMode.STICK:
+            if status.mode is ContactMode.STICK and owners[contact_id] == contact_id:
                 rows.append(data.tangential_jacobian)
         if not rows:
             return current
@@ -1865,12 +2021,17 @@ class PlanarMultibodySystem:
         rows: list[tuple[tuple[float, ...], float]] = []
         for row in self._joint_rows(state):
             rows.append((row.jacobian, row.position_error))
+        owners = self._tangent_row_owners(contact_states)
         for contact_id, status in contact_states.items():
             if status.mode is ContactMode.OPEN:
                 continue
             data = self._contact_data(contact_id, state)
             rows.append((data.normal_jacobian, data.gap_m))
-            if status.mode is ContactMode.STICK and status.tangent_anchor_m is not None:
+            if (
+                status.mode is ContactMode.STICK
+                and status.tangent_anchor_m is not None
+                and owners[contact_id] == contact_id
+            ):
                 tangent_error = data.tangent_coordinate_m - status.tangent_anchor_m
                 rows.append((data.tangential_jacobian, tangent_error))
         return rows
