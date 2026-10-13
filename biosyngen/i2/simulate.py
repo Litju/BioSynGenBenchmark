@@ -32,7 +32,7 @@ from ..multibody import (
     ContactMode,
     MultibodyState,
 )
-from .human import EXTENSION_SIGN, JOINTS, SIDES, HumanModel, Posture
+from .human import ARM_JOINTS, EXTENSION_SIGN, JOINTS, SIDES, HumanModel, Posture
 
 
 @dataclass(frozen=True, slots=True)
@@ -58,7 +58,36 @@ DEFAULT_LIMITS = {
     "ankle": JointLimit(-0.90, 0.75),
     "knee": JointLimit(-2.50, -0.01),
     "hip": JointLimit(-0.35, 2.30),
+    "shoulder": JointLimit(-1.00, 3.00),
+    "elbow": JointLimit(-0.05, 2.60),
 }
+
+
+def joint_items(model: HumanModel) -> list[tuple[str, str, float]]:
+    """(joint id, joint class, strength scale) for every actuated joint."""
+    items = [
+        (f"{side}_{joint}", joint, model.strength.left_scale if side == "left" else model.strength.right_scale)
+        for side in SIDES
+        for joint in JOINTS
+    ]
+    if model.has_arms:
+        items += [(joint, joint, 1.0) for joint in ARM_JOINTS]
+    return items
+
+
+def supported_com(model: HumanModel, state: MultibodyState, load_share: float) -> tuple[float, float]:
+    """Horizontal COM position and velocity of the mass the feet carry.
+
+    A floor-supported bar contributes only its declared carried share.
+    """
+    total = position = velocity = 0.0
+    for body in model.system.bodies:
+        weight = body.mass_kg * (load_share if body.body_id == model.load_body_id and model.bar_floor_contact_id else 1.0)
+        b = state.bodies[body.body_id]
+        total += weight
+        position += weight * b.position_m[0]
+        velocity += weight * b.velocity_m_s[0]
+    return position / total, velocity / total
 
 
 @dataclass(frozen=True, slots=True)
@@ -82,6 +111,13 @@ class ControlStage:
     # Hip strategy: the same COM error drives hip extension torque (declared).
     hip_balance_gain_n_m_per_m: float = 0.0
     hip_balance_damping_n_m_s_per_m: float = 0.0
+    # Fraction of a gripped load's weight in the feedforward, as a function of
+    # time in stage (declared pre-tension hypothesis); 1.0 when constant.
+    load_share: Callable[[float], float] | float = 1.0
+
+    def share(self, elapsed_s: float) -> float:
+        value = self.load_share(elapsed_s) if callable(self.load_share) else self.load_share
+        return max(0.0, min(1.0, value))
 
 
 @dataclass
@@ -95,7 +131,7 @@ class StagedJointController:
     stage_index: int = 0
     stage_start_s: float = 0.0
     commands: list[tuple[float, str, str]] = field(default_factory=list)
-    _entry_posture: dict[str, dict[str, float]] = field(default_factory=dict)
+    _entry_posture: dict[str, float] = field(default_factory=dict)
 
     @property
     def stage(self) -> ControlStage:
@@ -109,8 +145,7 @@ class StagedJointController:
             self.stage_index += 1
             self.stage_start_s = state.time_s
             self._entry_posture = {
-                side: {joint: angle for joint, (angle, _) in model.joint_angles(state, side).items()}
-                for side in SIDES
+                joint_id: model.system.joint_state(state, joint_id)[0] for joint_id, _, _ in joint_items(model)
             }
             self.commands.append((state.time_s, self.stage.name, stage.exit_reason))
 
@@ -121,12 +156,14 @@ class StagedJointController:
             any(state.contacts[c].mode is not ContactMode.OPEN for c in model.contact_ids[side])
             for side in SIDES
         )
-        feedforward = model.gravity_compensation(state) if (stage.gravity_compensation and feet_supported) else {}
+        elapsed = state.time_s - self.stage_start_s
+        share = stage.share(elapsed)
+        feedforward = (
+            model.gravity_compensation(state, share) if (stage.gravity_compensation and feet_supported) else {}
+        )
         balance = hip_balance = 0.0
         if feet_supported and (stage.balance_gain_n_m_per_m or stage.hip_balance_gain_n_m_per_m):
-            mass = model.total_mass_kg()
-            com_x = model.system.center_of_mass(state)[0]
-            com_vx = model.system.linear_momentum(state)[0] / mass
+            com_x, com_vx = supported_com(model, state, share)
             # The reference is relative to the current support (mean ankle x),
             # not a fixed world point: after a jump the feet land elsewhere.
             ankle_x = 0.5 * sum(
@@ -135,7 +172,6 @@ class StagedJointController:
             error = com_x - (ankle_x + self.balance_reference_x_m)
             balance = stage.balance_gain_n_m_per_m * error + stage.balance_damping_n_m_s_per_m * com_vx
             hip_balance = stage.hip_balance_gain_n_m_per_m * error + stage.hip_balance_damping_n_m_s_per_m * com_vx
-        elapsed = state.time_s - self.stage_start_s
         if stage.transition_s > 0.0 and elapsed < stage.transition_s:
             s_ = elapsed / stage.transition_s
             blend = s_ ** 3 * (10.0 - 15.0 * s_ + 6.0 * s_ * s_)
@@ -143,53 +179,47 @@ class StagedJointController:
         else:
             blend, blend_rate = 1.0, 0.0
         out: dict[str, float] = {}
-        for side in SIDES:
-            angles = model.joint_angles(state, side)
-            entry = self._entry_posture.get(side)
-            for joint in JOINTS:
-                angle, rate = angles[joint]
-                target = getattr(stage.reference, joint)
-                start = entry[joint] if entry is not None else target
-                reference = start + blend * (target - start)
-                reference_rate = blend_rate * (target - start)
-                torque = (
-                    feedforward.get(f"{side}_{joint}", 0.0)
-                    + stage.kp_n_m_per_rad[joint] * (reference - angle)
-                    + stage.kd_n_m_s_per_rad[joint] * (reference_rate - rate)
-                )
-                if joint == "ankle":
-                    torque += EXTENSION_SIGN["ankle"] * balance
-                elif joint == "hip":
-                    torque += EXTENSION_SIGN["hip"] * hip_balance
-                strength = model.strength.joint(joint)
-                scale = model.strength.left_scale if side == "left" else model.strength.right_scale
-                cap = 1.0 if stage.effort_cap is None else stage.effort_cap.get(joint, 1.0)
-                if torque * EXTENSION_SIGN[joint] >= 0.0:
-                    out[f"{side}_{joint}_extensor"] = max(-cap, min(cap, torque / (strength.extensor_n_m * scale)))
-                    out[f"{side}_{joint}_flexor"] = 0.0
-                else:
-                    out[f"{side}_{joint}_flexor"] = max(-cap, min(cap, torque / (strength.flexor_n_m * scale)))
-                    out[f"{side}_{joint}_extensor"] = 0.0
+        for joint_id, joint, scale in joint_items(model):
+            angle, rate = model.system.joint_state(state, joint_id)
+            target = getattr(stage.reference, joint)
+            start = self._entry_posture.get(joint_id, target)
+            reference = start + blend * (target - start)
+            reference_rate = blend_rate * (target - start)
+            torque = (
+                feedforward.get(joint_id, 0.0)
+                + stage.kp_n_m_per_rad.get(joint, 0.0) * (reference - angle)
+                + stage.kd_n_m_s_per_rad.get(joint, 0.0) * (reference_rate - rate)
+            )
+            if joint == "ankle":
+                torque += EXTENSION_SIGN["ankle"] * balance
+            elif joint == "hip":
+                torque += EXTENSION_SIGN["hip"] * hip_balance
+            strength = model.strength.joint(joint)
+            cap = 1.0 if stage.effort_cap is None else stage.effort_cap.get(joint, 1.0)
+            if torque * EXTENSION_SIGN[joint] >= 0.0:
+                out[f"{joint_id}_extensor"] = max(-cap, min(cap, torque / (strength.extensor_n_m * scale)))
+                out[f"{joint_id}_flexor"] = 0.0
+            else:
+                out[f"{joint_id}_flexor"] = max(-cap, min(cap, torque / (strength.flexor_n_m * scale)))
+                out[f"{joint_id}_extensor"] = 0.0
         return out
 
 
-def static_activations(model: HumanModel, state: MultibodyState) -> dict[str, float]:
+def static_activations(model: HumanModel, state: MultibodyState, load_share: float = 1.0) -> dict[str, float]:
     """Activations that hold the posture exactly under the static feedforward."""
-    torques = model.gravity_compensation(state)
+    torques = model.gravity_compensation(state, load_share)
     out: dict[str, float] = {}
-    for side in SIDES:
-        scale = model.strength.left_scale if side == "left" else model.strength.right_scale
-        for joint in JOINTS:
-            torque = torques[f"{side}_{joint}"]
-            strength = model.strength.joint(joint)
-            if torque * EXTENSION_SIGN[joint] >= 0.0:
-                out[f"{side}_{joint}_extensor"] = torque / (strength.extensor_n_m * scale)
-                out[f"{side}_{joint}_flexor"] = 0.0
-            else:
-                out[f"{side}_{joint}_flexor"] = torque / (strength.flexor_n_m * scale)
-                out[f"{side}_{joint}_extensor"] = 0.0
-            if max(abs(out[f"{side}_{joint}_extensor"]), abs(out[f"{side}_{joint}_flexor"])) > 1.0:
-                raise ConstraintSolveError(f"{side} {joint} cannot hold the declared posture statically")
+    for joint_id, joint, scale in joint_items(model):
+        torque = torques[joint_id]
+        strength = model.strength.joint(joint)
+        if torque * EXTENSION_SIGN[joint] >= 0.0:
+            out[f"{joint_id}_extensor"] = torque / (strength.extensor_n_m * scale)
+            out[f"{joint_id}_flexor"] = 0.0
+        else:
+            out[f"{joint_id}_flexor"] = torque / (strength.flexor_n_m * scale)
+            out[f"{joint_id}_extensor"] = 0.0
+        if max(abs(out[f"{joint_id}_extensor"]), abs(out[f"{joint_id}_flexor"])) > 1.0:
+            raise ConstraintSolveError(f"{joint_id} cannot hold the declared posture statically")
     return out
 
 
@@ -248,26 +278,20 @@ def _passive_wrenches(model: HumanModel, state: MultibodyState, limits: Mapping[
     wrenches: list[AppliedWrench] = []
     torques: dict[str, float] = {}
     power = 0.0
-    for side in SIDES:
-        angles = model.joint_angles(state, side)
-        for joint in JOINTS:
-            angle, rate = angles[joint]
-            torque = limits[joint].torque(angle, rate)
-            torques[f"{side}_{joint}"] = torque
-            if torque != 0.0:
-                spec = model.system._joint_by_id[f"{side}_{joint}"]
-                wrenches.append(AppliedWrench(spec.body_b_id, f"passive:{side}_{joint}", moment_n_m=torque))
-                wrenches.append(AppliedWrench(spec.body_a_id, f"passive:{side}_{joint}", moment_n_m=-torque))
-                power += torque * rate
+    for joint_id, joint, _ in joint_items(model):
+        angle, rate = model.system.joint_state(state, joint_id)
+        torque = limits[joint].torque(angle, rate)
+        torques[joint_id] = torque
+        if torque != 0.0:
+            spec = model.system._joint_by_id[joint_id]
+            wrenches.append(AppliedWrench(spec.body_b_id, f"passive:{joint_id}", moment_n_m=torque))
+            wrenches.append(AppliedWrench(spec.body_a_id, f"passive:{joint_id}", moment_n_m=-torque))
+            power += torque * rate
     return wrenches, torques, power
 
 
 def _joint_rates(model: HumanModel, state: MultibodyState) -> dict[str, float]:
-    return {
-        f"{side}_{joint}": model.system.joint_state(state, f"{side}_{joint}")[1]
-        for side in SIDES
-        for joint in JOINTS
-    }
+    return {joint_id: model.system.joint_state(state, joint_id)[1] for joint_id, _, _ in joint_items(model)}
 
 
 def body_points_below_floor(model: HumanModel, state: MultibodyState) -> list[str]:

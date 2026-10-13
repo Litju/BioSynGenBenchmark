@@ -59,8 +59,11 @@ DECLARED = "declared I2 simulation hypothesis (RES-492); not fitted to any perso
 
 SIDES = ("left", "right")
 JOINTS = ("ankle", "knee", "hip")
-# Sign of joint-angle change produced by extension (plantarflexion, knee and hip extension).
-EXTENSION_SIGN = {"ankle": -1.0, "knee": 1.0, "hip": -1.0}
+# Lumped bilateral arm chain (both arms in the sagittal plane, one chain).
+ARM_JOINTS = ("shoulder", "elbow")
+# Sign of joint-angle change produced by extension (plantarflexion, knee and
+# hip extension, shoulder extension = arm backward, elbow extension).
+EXTENSION_SIGN = {"ankle": -1.0, "knee": 1.0, "hip": -1.0, "shoulder": -1.0, "elbow": -1.0}
 
 
 def _provenance(parameter_id: str, source: str, uncertainty: float, note: str = "") -> ParameterProvenance:
@@ -93,6 +96,16 @@ class Anthropometry:
     toe_x_m: float = 0.16                   # effective metatarsophalangeal contact point
     foot_com_from_ankle_m: tuple[float, float] = (0.05, -0.035)
     friction_coefficient: float = 0.8
+    # Per-arm values (Winter, recalled); used only when an arm chain is built.
+    # The HAT then excludes both arms: hat fraction - 2 (upper arm + forearm/hand).
+    upper_arm_mass_fraction: float = 0.028
+    forearm_hand_mass_fraction: float = 0.022
+    upper_arm_length_fraction: float = 0.186
+    forearm_grip_length_fraction: float = 0.189     # elbow to grip centre (forearm + 0.4 hand)
+    upper_arm_com_from_shoulder_fraction: float = 0.436
+    forearm_hand_com_from_elbow_fraction: float = 0.531  # derived from forearm + hand COMs
+    upper_arm_gyration_fraction: float = 0.322
+    forearm_hand_gyration_fraction: float = 0.35         # declared approximation for the combined segment
 
     def __post_init__(self) -> None:
         total = 2.0 * (self.foot_mass_fraction + self.shank_mass_fraction + self.thigh_mass_fraction) + self.hat_mass_fraction
@@ -136,6 +149,9 @@ class StrengthHypothesis:
     ankle: JointStrength = JointStrength(195.0, 65.0, 36.0, 24.0)
     knee: JointStrength = JointStrength(292.5, 130.0, 30.0, 20.0)
     hip: JointStrength = JointStrength(325.0, 162.5, 27.0, 18.0)
+    # Both arms lumped (used only with an arm chain); declared hypotheses.
+    shoulder: JointStrength = JointStrength(160.0, 160.0, 20.0, 20.0)
+    elbow: JointStrength = JointStrength(120.0, 140.0, 20.0, 20.0)
     left_scale: float = 1.0
     right_scale: float = 1.0
     activation_time_s: float = 0.015
@@ -151,6 +167,7 @@ class LoadKind(str, Enum):
     NONE = "NONE"
     VEST = "VEST"                     # load welded to the HAT near the chest (weighted vest)
     BACK_BAR = "BACK_BAR"             # barbell resting on the posterior shoulder shelf (unilateral contact)
+    GRIP_BAR = "GRIP_BAR"             # barbell held in the hands (revolute grip), optionally floor-supported
 
 
 @dataclass(frozen=True, slots=True)
@@ -159,6 +176,10 @@ class LoadSpec:
     mass_kg: float = 0.0
     inertia_kg_m2: float = 0.05
     friction_coefficient: float = 0.8
+    # GRIP_BAR only: plate radius (bar axis height on the floor) and rim friction.
+    plate_radius_m: float = 0.225
+    floor_friction: float = 0.5
+    floor_supported: bool = True
 
     def __post_init__(self) -> None:
         if self.kind is LoadKind.NONE and self.mass_kg != 0.0:
@@ -174,6 +195,8 @@ class Posture:
     ankle: float
     knee: float
     hip: float
+    shoulder: float = 0.0   # arm chain only: upper-arm angle minus HAT angle (flexion +)
+    elbow: float = 0.0      # arm chain only: forearm angle minus upper-arm angle (flexion +)
 
 
 @dataclass(frozen=True, slots=True)
@@ -201,6 +224,17 @@ class HumanModel:
     load_contact_id: str | None
     gravity_m_s2: float
     provenance: dict[str, ParameterProvenance] = field(default_factory=dict)
+    has_arms: bool = False
+    hand_local_m: tuple[float, float] | None = None
+    bar_floor_contact_id: str | None = None
+
+    def arm_joint_angles(self, state: MultibodyState) -> dict[str, tuple[float, float]]:
+        if not self.has_arms:
+            return {}
+        return {joint: self.system.joint_state(state, joint) for joint in ARM_JOINTS}
+
+    def hand_world(self, state: MultibodyState) -> tuple[float, float]:
+        return self.point_world(state, "forearm", self.hand_local_m)
 
     # Kinematics ---------------------------------------------------------------
     def joint_angles(self, state: MultibodyState, side: str) -> dict[str, tuple[float, float]]:
@@ -219,6 +253,7 @@ class HumanModel:
         time_s: float = 0.0,
         ankle_x_m: float = 0.0,
         activations: dict[str, float] | None = None,
+        check_bar_floor: bool = True,
     ) -> MultibodyState:
         """Static state with both feet flat (contacts sticking) at the posture."""
         a = self.anthropometry
@@ -243,7 +278,24 @@ class HumanModel:
         for heel, toe in self.contact_ids.values():
             active[heel] = ContactState(ContactMode.STICK)
             active[toe] = ContactState(ContactMode.STICK)
-        if self.load_body_id is not None:
+        if self.has_arms:
+            upper, fore = self.segments["upper_arm"], self.segments["forearm"]
+            shoulder = _point(bodies[hat.body_id], self.hat_points["shoulder"])
+            theta_upper = theta_hat + posture.shoulder
+            bodies[upper.body_id] = RigidBodyState(_place(shoulder, upper.proximal_local_m, theta_upper), theta_upper)
+            elbow = _point(bodies[upper.body_id], upper.distal_local_m)
+            theta_fore = theta_upper + posture.elbow
+            bodies[fore.body_id] = RigidBodyState(_place(elbow, fore.proximal_local_m, theta_fore), theta_fore)
+        if self.load_body_id is not None and self.load.kind is LoadKind.GRIP_BAR:
+            hand = _point(bodies["forearm"], self.hand_local_m)
+            bodies[self.load_body_id] = RigidBodyState(hand, 0.0)
+            if self.bar_floor_contact_id is not None:
+                gap = hand[1] - self.load.plate_radius_m
+                if check_bar_floor and gap < -1e-9:
+                    raise ValueError(f"posture puts the bar {-gap:.4f} m below its floor support")
+                if gap <= 1e-9:
+                    active[self.bar_floor_contact_id] = ContactState(ContactMode.STICK)
+        elif self.load_body_id is not None:
             hat_state = bodies[hat.body_id]
             if self.load.kind is LoadKind.VEST:
                 anchor = self.hat_points["vest"]
@@ -259,7 +311,7 @@ class HumanModel:
     def point_world(self, state: MultibodyState, body_id: str, local: tuple[float, float]) -> tuple[float, float]:
         return _point(state.bodies[body_id], local)
 
-    def gravity_compensation(self, state: MultibodyState) -> dict[str, float]:
+    def gravity_compensation(self, state: MultibodyState, load_share: float = 1.0) -> dict[str, float]:
         """Static joint torques for symmetric bilateral support with vertical hip reactions.
 
         For each joint, the torque on the distal body (+T on body_b) balances
@@ -271,8 +323,13 @@ class HumanModel:
         """
         g = self.gravity_m_s2
         upper = [(self.segments["hat"].body_id, self.segments["hat"].mass_kg)]
+        if self.has_arms:
+            upper.append(("upper_arm", self.segments["upper_arm"].mass_kg))
+            upper.append(("forearm", self.segments["forearm"].mass_kg))
         if self.load_body_id is not None:
-            upper.append((self.load_body_id, self.load.mass_kg))
+            # load_share: fraction of the load weight carried by the athlete
+            # (a floor-supported bar carries part of its own weight).
+            upper.append((self.load_body_id, load_share * self.load.mass_kg))
         torques: dict[str, float] = {}
         for side in SIDES:
             thigh, shank = self.segments[f"{side}_thigh"], self.segments[f"{side}_shank"]
@@ -287,6 +344,19 @@ class HumanModel:
                 # Equilibrium of the proximal subsystem about the joint, which
                 # receives -T from the actuator: T = sum r x (0, -m g).
                 torques[f"{side}_{joint}"] = sum(-(p[0] - pivot[0]) * m * g for p, m in masses)
+        if self.has_arms:
+            upper_arm, forearm = self.segments["upper_arm"], self.segments["forearm"]
+            shoulder = self.point_world(state, "upper_arm", upper_arm.proximal_local_m)
+            elbow = self.point_world(state, "forearm", forearm.proximal_local_m)
+            hanging = [(state.bodies["forearm"].position_m, forearm.mass_kg)]
+            if self.load_body_id is not None and self.load.kind is LoadKind.GRIP_BAR:
+                hanging.append((state.bodies[self.load_body_id].position_m, load_share * self.load.mass_kg))
+            # The distal (hanging) subsystem receives +T: T = sum (x - x_pivot) m g.
+            torques["elbow"] = sum((p[0] - elbow[0]) * m * g for p, m in hanging)
+            torques["shoulder"] = sum(
+                (p[0] - shoulder[0]) * m * g
+                for p, m in hanging + [(state.bodies["upper_arm"].position_m, upper_arm.mass_kg)]
+            )
         return torques
 
 
@@ -337,12 +407,15 @@ def build_human(
     strength: StrengthHypothesis | None = None,
     load: LoadSpec | None = None,
     *,
+    arms: bool = False,
     gravity_m_s2: float = 9.80665,
     clock_id: str = "I2_MODEL_CLOCK",
 ) -> HumanModel:
     a = anthropometry or Anthropometry()
     st = strength or StrengthHypothesis()
     ld = load or LoadSpec()
+    if ld.kind is LoadKind.GRIP_BAR and not arms:
+        raise ValueError("a gripped bar requires the arm chain")
     m, h = a.body_mass_kg, a.stature_m
     provenance = {
         "anthropometry": _provenance("anthropometry", WINTER, 0.10, "segment fractions; per-leg halves of lumped values"),
@@ -369,7 +442,8 @@ def build_human(
     fcx, fcz = a.foot_com_from_ankle_m
     definitions: list[RigidBodyDefinition] = []
     segments: dict[str, _Segment] = {}
-    hat_mass = a.hat_mass_fraction * m
+    arm_fraction = 2.0 * (a.upper_arm_mass_fraction + a.forearm_hand_mass_fraction) if arms else 0.0
+    hat_mass = (a.hat_mass_fraction - arm_fraction) * m
     d, seg = segment_definition(
         "hat", hat_mass, hat_mass * (a.hat_gyration_fraction * l_h) ** 2, "HEAD_ARMS_TRUNK",
         (0.0, -c_h), (0.0, l_h - c_h),
@@ -437,9 +511,51 @@ def build_human(
         "hip_belt": (-0.12, 0.10 - c_h),
         "head_top": (0.0, 0.47 * h - c_h),
     }
+    hand_local = None
+    if arms:
+        l_ua, l_fa = a.upper_arm_length_fraction * h, a.forearm_grip_length_fraction * h
+        c_ua, c_fa = a.upper_arm_com_from_shoulder_fraction * l_ua, a.forearm_hand_com_from_elbow_fraction * l_fa
+        m_ua = 2.0 * a.upper_arm_mass_fraction * m
+        m_fa = 2.0 * a.forearm_hand_mass_fraction * m
+        # Arm local frame: proximal joint on +z (angle 0 = hanging straight down).
+        d, seg = segment_definition(
+            "upper_arm", m_ua, m_ua * (a.upper_arm_gyration_fraction * l_ua) ** 2, "BOTH_UPPER_ARMS_LUMPED",
+            (0.0, -(l_ua - c_ua)), (0.0, c_ua),
+        )
+        definitions.append(d)
+        segments["upper_arm"] = seg
+        d, seg = segment_definition(
+            "forearm", m_fa, m_fa * (a.forearm_hand_gyration_fraction * l_fa) ** 2, "BOTH_FOREARMS_HANDS_LUMPED",
+            (0.0, -(l_fa - c_fa)), (0.0, c_fa),
+        )
+        definitions.append(d)
+        segments["forearm"] = seg
+        hand_local = segments["forearm"].distal_local_m
+        joints.append(PlanarJoint("shoulder", "hat", "upper_arm", hat_points["shoulder"], segments["upper_arm"].proximal_local_m))
+        joints.append(PlanarJoint("elbow", "upper_arm", "forearm", segments["upper_arm"].distal_local_m, segments["forearm"].proximal_local_m))
     load_body_id = None
     load_contact_id = None
-    if ld.kind is not LoadKind.NONE:
+    bar_floor_contact_id = None
+    if ld.kind is LoadKind.GRIP_BAR:
+        load_body_id = "load"
+        definitions.append(RigidBodyDefinition(
+            load_body_id, ld.mass_kg, ld.inertia_kg_m2,
+            _provenance("load:mass", DECLARED, 0.0), _provenance("load:inertia", DECLARED, 0.5),
+            "EXTERNAL_LOAD_GRIP_BAR",
+        ))
+        joints.append(PlanarJoint(
+            "grip", "forearm", load_body_id, hand_local, (0.0, 0.0),
+            connection_kind=ConnectionKind.GRIP,
+        ))
+        if ld.floor_supported:
+            bar_floor_contact_id = "bar_floor"
+            # The plate rim is represented by a frictional point under the bar
+            # axis: bar rotation stays decoupled from rolling (declared).
+            contacts.append(ContactSpec(
+                bar_floor_contact_id, load_body_id, (0.0, 0.0), (0.0, 1.0), ld.floor_friction, 0.0,
+                ContactKind.BAR_FLOOR, surface_point_m=(0.0, ld.plate_radius_m),
+            ))
+    elif ld.kind is not LoadKind.NONE:
         load_body_id = "load"
         definitions.append(RigidBodyDefinition(
             load_body_id, ld.mass_kg, ld.inertia_kg_m2,
@@ -460,6 +576,19 @@ def build_human(
             ))
 
     actuators: list[ActuatorHypothesis] = []
+    if arms:
+        for joint in ARM_JOINTS:
+            strength = st.joint(joint)
+            for role, capacity, velocity in (
+                ("extensor", strength.extensor_n_m, strength.extensor_max_velocity_rad_s),
+                ("flexor", strength.flexor_n_m, strength.flexor_max_velocity_rad_s),
+            ):
+                actuators.append(ActuatorHypothesis(
+                    f"{joint}_{role}", joint, capacity, st.activation_time_s, st.deactivation_time_s,
+                    _provenance(f"{joint}_{role}:capacity", DECLARED, 0.30),
+                    model_id=HILL_TORQUE_VELOCITY_MODEL_ID, max_joint_velocity_rad_s=velocity,
+                    hill_curvature=st.hill_curvature, eccentric_ratio=st.eccentric_ratio,
+                ))
     for side in SIDES:
         scale = st.left_scale if side == "left" else st.right_scale
         for joint in JOINTS:
@@ -483,5 +612,5 @@ def build_human(
         anthropometry=a, strength=st, load=ld, system=system, segments=segments,
         foot_points=foot_points, hat_points=hat_points, load_body_id=load_body_id,
         contact_ids=contact_ids, load_contact_id=load_contact_id, gravity_m_s2=gravity_m_s2,
-        provenance=provenance,
+        provenance=provenance, has_arms=arms, hand_local_m=hand_local, bar_floor_contact_id=bar_floor_contact_id,
     )
