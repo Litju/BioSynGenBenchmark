@@ -566,6 +566,29 @@ def _wrap_angle(angle: float) -> float:
     return (angle + math.pi) % (2.0 * math.pi) - math.pi
 
 
+def _sparse(row: Sequence[float]) -> list[tuple[int, float]]:
+    return [(index, value) for index, value in enumerate(row) if value != 0.0]
+
+
+def _weighted_products(
+    left: Sequence[Sequence[tuple[int, float]]],
+    right: Sequence[Sequence[tuple[int, float]]],
+    weights: Sequence[float],
+) -> list[list[float]]:
+    """Return G[i][j] = sum_k left_i[k] * right_j[k] * weights[k] for sparse rows."""
+    by_coordinate: dict[int, list[tuple[int, float]]] = {}
+    for j, row in enumerate(right):
+        for k, value in row:
+            by_coordinate.setdefault(k, []).append((j, value * weights[k]))
+    matrix = [[0.0] * len(right) for _ in left]
+    for i, row in enumerate(left):
+        target = matrix[i]
+        for k, value in row:
+            for j, weighted in by_coordinate.get(k, ()):
+                target[j] += value * weighted
+    return matrix
+
+
 class PlanarMultibodySystem:
     """COM-coordinate planar rigid bodies with revolute/weld joints and Coulomb contact.
 
@@ -1064,25 +1087,42 @@ class PlanarMultibodySystem:
         *,
         velocity: Sequence[float] | None = None,
     ) -> tuple[list[float], list[float]]:
+        """Solve M x - F^T lam = rhs, J x = targets by the Schur complement.
+
+        The COM-coordinate mass matrix M is diagonal, so x = M^-1 (rhs + F^T lam)
+        and lam solves (J M^-1 F^T) lam = targets - J M^-1 rhs. This is the same
+        saddle-point system as the full KKT matrix; the injected linear solver
+        receives the (generally nonsymmetric, for sliding rows) contact-space
+        operator. Rank-deficient rows make it singular and are refused.
+        """
         n = self.dof_count
-        m = len(rows)
-        matrix = [[0.0] * (n + m) for _ in range(n + m)]
         diagonal = self._mass_diagonal()
-        rhs = [0.0] * (n + m)
-        for i in range(n):
-            matrix[i][i] = diagonal[i]
-            rhs[i] = generalized_force[i] if velocity is None else diagonal[i] * velocity[i]
-        for r, row in enumerate(rows):
-            for c, value in enumerate(row.force_column):
-                matrix[c][n + r] = -value
-            for c, value in enumerate(row.jacobian):
-                matrix[n + r][c] = value
-            rhs[n + r] = targets[r]
+        inverse_mass = [1.0 / value for value in diagonal]
+        rhs = [
+            generalized_force[i] if velocity is None else diagonal[i] * velocity[i]
+            for i in range(n)
+        ]
+        if not rows:
+            return [rhs[i] * inverse_mass[i] for i in range(n)], []
+        jacobians = [_sparse(row.jacobian) for row in rows]
+        force_columns = [_sparse(row.force_column) for row in rows]
+        operator = _weighted_products(jacobians, force_columns, inverse_mass)
+        free = [rhs[i] * inverse_mass[i] for i in range(n)]
+        reduced_rhs = [
+            targets[r] - sum(value * free[k] for k, value in jacobians[r])
+            for r in range(len(rows))
+        ]
         try:
-            solution = self._solve_linear(matrix, rhs)
+            multipliers = self._solve_linear(operator, reduced_rhs)
         except ArithmeticError as exc:
             raise ConstraintSolveError(f"singular or redundant constraint topology: {exc}") from exc
-        return solution[:n], solution[n:]
+        solution = free[:]
+        for r, column in enumerate(force_columns):
+            lam = multipliers[r]
+            if lam != 0.0:
+                for k, value in column:
+                    solution[k] += value * lam * inverse_mass[k]
+        return solution, list(multipliers)
 
     def _prepare_contact_states(self, state: MultibodyState) -> dict[str, ContactState]:
         modes = dict(state.contacts)
@@ -1775,20 +1815,15 @@ class PlanarMultibodySystem:
             rows = self._projection_rows(current, contact_states)
             if not rows or max(abs(error) for _, error in rows) <= _CONSTRAINT_TOLERANCE:
                 return current
-            count = len(rows)
-            gram = [
-                [
-                    sum(rows[i][0][k] * rows[j][0][k] / diagonal[k] for k in range(self.dof_count))
-                    for j in range(count)
-                ]
-                for i in range(count)
-            ]
+            sparse_rows = [_sparse(row) for row, _ in rows]
+            gram = _weighted_products(sparse_rows, sparse_rows, [1.0 / value for value in diagonal])
             try:
                 correction = self._solve_linear(gram, [-error for _, error in rows])
             except ArithmeticError as exc:
                 raise ConstraintSolveError(f"position projection is singular: {exc}") from exc
-            for k in range(self.dof_count):
-                q[k] += sum(rows[i][0][k] * correction[i] for i in range(count)) / diagonal[k]
+            for row, amount in zip(sparse_rows, correction):
+                for k, value in row:
+                    q[k] += value * amount / diagonal[k]
         raise ConstraintSolveError("position projection did not converge")
 
     def _project_velocities(
@@ -1810,21 +1845,16 @@ class PlanarMultibodySystem:
         if not rows:
             return current
         diagonal = self._mass_diagonal()
-        count = len(rows)
-        gram = [
-            [
-                sum(rows[i][k] * rows[j][k] / diagonal[k] for k in range(self.dof_count))
-                for j in range(count)
-            ]
-            for i in range(count)
-        ]
-        rates = [sum(row[k] * qd[k] for k in range(self.dof_count)) for row in rows]
+        sparse_rows = [_sparse(row) for row in rows]
+        gram = _weighted_products(sparse_rows, sparse_rows, [1.0 / value for value in diagonal])
+        rates = [sum(value * qd[k] for k, value in row) for row in sparse_rows]
         try:
             correction = self._solve_linear(gram, [-rate for rate in rates])
         except ArithmeticError as exc:
             raise ConstraintSolveError(f"velocity projection is singular: {exc}") from exc
-        for k in range(self.dof_count):
-            qd[k] += sum(rows[i][k] * correction[i] for i in range(count)) / diagonal[k]
+        for row, amount in zip(sparse_rows, correction):
+            for k, value in row:
+                qd[k] += value * amount / diagonal[k]
         return self._states_from_vectors(q, qd, state.time_s, contact_states, state.activations)
 
     def _projection_rows(
