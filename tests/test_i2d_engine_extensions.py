@@ -267,8 +267,10 @@ class ProjectionImpulseLedgerTests(unittest.TestCase):
         away = AppliedWrench("torso", "pull-from-rack", (10.0, 0.0))
         masses = {"torso": 5.0, "left_leg": 1.0, "right_leg": 1.0}
         worst = 0.0
+        exercised = False
         for _ in range(150):
             step = system.advance(state, dt, external_wrenches=(away,))
+            exercised = exercised or any(abs(v) > 0.0 for p in step.projection_impulses_n_s.values() for v in p)
             for axis, external in ((0, 10.0 * dt), (1, -sum(masses.values()) * 9.81 * dt)):
                 change = sum(
                     m * (step.state.bodies[b].velocity_m_s[axis] - state.bodies[b].velocity_m_s[axis])
@@ -283,7 +285,110 @@ class ProjectionImpulseLedgerTests(unittest.TestCase):
                 worst = max(worst, abs(change - external - contact))
             state = step.state
         self.assertLess(worst, 1e-11)
-        self.assertTrue(any(abs(v) > 0.0 for ledger in [step.projection_impulses_n_s] for p in ledger.values() for v in p))
+        self.assertTrue(exercised)
+
+
+
+class UnilateralContactLawFalsifierTests(unittest.TestCase):
+    """Falsifiers for the velocity-level Signorini-Coulomb law on a rigid flat foot.
+
+    They target four defects found while building the RES-492 jumper: adhesive
+    post-step projections during fast toe roll, penetration after release,
+    grazing crossings missed by impact detection, and a greedy active set that
+    cycled at heel strike instead of releasing the toe.
+    """
+
+    def _drop(self, rng: random.Random, spin_rad_s: float = 4.0):
+        system = FrictionPatchTests()._foot()
+        angle = rng.uniform(-0.6, 0.6)
+        state = system.make_state({"foot": RigidBodyState(
+            (rng.uniform(-0.05, 0.05), 0.3 + rng.uniform(0.0, 0.2)), angle,
+            # Bounded spin keeps landings sole-down: only the heel/toe points have
+            # contact geometry, so a tumbled foot could rest on inverted points.
+            (rng.uniform(-1.5, 1.5), rng.uniform(-3.0, 0.5)), rng.uniform(-spin_rad_s, spin_rad_s),
+        )})
+        return system, state
+
+    def test_random_rigid_foot_drops_respect_signorini_coulomb_and_energy(self) -> None:
+        rng = random.Random(4920)
+        mu = FrictionPatchTests.MU
+        for trial in range(25):
+            system, state = self._drop(rng)
+            initial_energy = system.kinetic_energy(state) + system.potential_energy(state)
+            zero_steps = 0
+            for _ in range(800):
+                step = system.advance(state, 0.001)
+                zero_steps = zero_steps + 1 if step.elapsed_s == 0.0 else 0
+                self.assertLess(zero_steps, 5, f"trial {trial}: zero-time event loop")
+                for contact_id, (normal, tangential) in step.contact_impulses_n_s.items():
+                    self.assertGreaterEqual(normal, 0.0)
+                for contact_id, (normal, _) in step.projection_impulses_n_s.items():
+                    self.assertGreaterEqual(normal, -1e-8)
+                for event in step.events:
+                    if event.event_id == "CONTACT_IMPACT":
+                        self.assertLessEqual(event.contact_work_j, 1e-9)
+                        self.assertTrue(all(p >= 0.0 for p in event.normal_impulses_n_s.values()))
+                        for c in event.contact_ids:
+                            self.assertLessEqual(abs(event.tangential_impulses_n_s[c]),
+                                                 mu * sum(event.normal_impulses_n_s.values()) + 1e-12)
+                state = step.state
+                for contact_id in ("heel", "toe"):
+                    self.assertGreater(system.contact_kinematics(state, contact_id).gap_m, -1e-8,
+                                       f"trial {trial}: {contact_id} penetrates")
+                # No net creation: mechanical energy never exceeds its initial value.
+                energy = system.kinetic_energy(state) + system.potential_energy(state)
+                self.assertLessEqual(energy, initial_energy + 1e-9, f"trial {trial}: energy created")
+            # A rigid foot dropped on a flat floor must come to rest on it.
+            self.assertTrue(all(state.contacts[c].mode is ContactMode.STICK for c in ("heel", "toe")),
+                            f"trial {trial}: {state.contacts}")
+
+    def test_per_step_energy_fluctuation_converges_at_second_order(self) -> None:
+        """The first-order scheme may raise energy within one step by O(dt^2)
+        (impulse acting at the pre-step normal geometry); it must vanish under
+        refinement, and the cumulative energy must never exceed its start."""
+        worst = {}
+        for dt in (0.001, 0.0005, 0.00025):
+            rng = random.Random(4920)
+            worst[dt] = 0.0
+            for _ in range(10):
+                system, state = self._drop(rng, spin_rad_s=15.0)
+                energy = system.kinetic_energy(state) + system.potential_energy(state)
+                for _ in range(int(round(0.4 / dt))):
+                    state = system.advance(state, dt).state
+                    new_energy = system.kinetic_energy(state) + system.potential_energy(state)
+                    worst[dt] = max(worst[dt], new_energy - energy)
+                    energy = new_energy
+        self.assertGreater(worst[0.001], 0.0)
+        self.assertGreater(worst[0.001] / max(worst[0.0005], 1e-300), 3.0)
+        self.assertGreater(worst[0.0005] / max(worst[0.00025], 1e-300), 3.0)
+
+    def test_fast_toe_roll_releases_instead_of_pulling_the_toe_down(self) -> None:
+        system = FrictionPatchTests()._foot()
+        state = system.make_state({"foot": RigidBodyState((0.0, 0.05), 0.0)}, active_contacts=("heel", "toe"))
+        # A strong plantarflexing moment lifts the heel, then spins the foot about the toe.
+        spin = AppliedWrench("foot", "roll", moment_n_m=-40.0)
+        released = False
+        for _ in range(200):
+            step = system.advance(state, 0.001, external_wrenches=(spin,))
+            for ledger in (step.contact_impulses_n_s, step.projection_impulses_n_s):
+                for normal, _ in ledger.values():
+                    self.assertGreaterEqual(normal, -1e-8)
+            state = step.state
+            released = released or state.contacts["toe"].mode is ContactMode.OPEN
+            self.assertGreater(system.contact_kinematics(state, "toe").gap_m, -1e-8)
+            self.assertGreater(system.contact_kinematics(state, "heel").gap_m, -1e-8)
+        self.assertTrue(released)
+
+    def test_crossing_with_initially_separating_velocity_is_not_missed(self) -> None:
+        system = FrictionPatchTests()._foot()
+        # Moving up slowly 1e-5 m above the floor: gravity reverses it within the
+        # step, so a start-velocity criterion would miss the crossing.
+        state = system.make_state({"foot": RigidBodyState((0.0, 0.05 + 1e-5), 0.0, (0.0, 0.004), 0.0)})
+        for _ in range(20):
+            state = system.advance(state, 0.002).state
+            for contact_id in ("heel", "toe"):
+                self.assertGreater(system.contact_kinematics(state, contact_id).gap_m, -1e-8)
+        self.assertTrue(all(state.contacts[c].mode is not ContactMode.OPEN for c in ("heel", "toe")))
 
 
 if __name__ == "__main__":

@@ -10,6 +10,7 @@ does not generate force-plate/LPT observations or synchronize device clocks.
 from __future__ import annotations
 
 from collections.abc import Callable, Mapping, Sequence
+from itertools import combinations
 from dataclasses import dataclass, field
 from enum import Enum
 import math
@@ -1436,24 +1437,119 @@ class PlanarMultibodySystem:
         Unknowns are the post-step velocity v+ and the step impulses p of all
         joints and active contacts, solved together in one saddle-point system
 
-            M v+ = M v + dt Q + C^T p,   J_joint v+ = 0,   J_n v+ = 0,
+            M v+ = M v + dt Q + C^T p,   J v+ + dt (Jdot v) = 0  (joints, normals),
 
         so every active support shares the generalized effective mass
-        W = J M^-1 J^T. Each contact mode is then tested for complementarity:
-        a normal impulse must be nonadhesive (p_n >= 0, else OPEN); a STICK
-        trial (J_t v+ = 0) is accepted only when its tangential impulse lies
-        inside the static cone |p_t| <= mu p_n, else the contact slides
-        opposite the required impulse; a SLIDE with p_t = -s mu p_n is
-        accepted only when its post-step slip agrees with s, else STICK is
-        tried. Reversal of slip within a step therefore yields STICK exactly
-        when static friction is feasible. A repeated active set or a singular
-        (rank-deficient) system is refused rather than regularized.
+        W = J M^-1 J^T. See ``_velocity_complementarity`` for the contact law.
         """
-        n = self.dof_count
         diagonal = self._mass_diagonal()
         velocity = self._velocity_vector(state)
-        momentum = [diagonal[i] * velocity[i] + dt_s * generalized_force[i] for i in range(n)]
-        modes = self._prepare_contact_states(state)
+        momentum = [diagonal[i] * velocity[i] + dt_s * generalized_force[i] for i in range(self.dof_count)]
+        return self._velocity_complementarity(state, momentum, self._prepare_contact_states(state), dt_s)
+
+    def _solve_velocity_modes(
+        self,
+        state: MultibodyState,
+        momentum: Sequence[float],
+        modes: Mapping[str, ContactState],
+        dt_s: float,
+        normal_targets: Mapping[str, float],
+    ) -> tuple[list[float], dict[str, float], dict[str, _ContactData]]:
+        joint_rows = self._joint_rows(state)
+        contact_rows, data_by_id = self._contact_constraint_rows(state, modes, slip_from_mode=True)
+        rows = joint_rows + contact_rows
+        # Velocity targets include the convective term so the constraint
+        # holds at the post-step configuration: J v+ + dt (Jdot v) = 0.
+        targets = [
+            normal_targets[row.contact_id]
+            if row.kind == "CONTACT_NORMAL" and row.contact_id in normal_targets
+            else -dt_s * row.bias
+            for row in rows
+        ]
+        v_plus, impulses = self._solve_kkt(momentum, rows, targets)
+        return v_plus, {row.key: impulses[i] for i, row in enumerate(rows)}, data_by_id
+
+    def _mode_violations(
+        self,
+        state: MultibodyState,
+        modes: Mapping[str, ContactState],
+        v_plus: Sequence[float],
+        impulse_by_key: Mapping[str, float],
+        data_by_id: Mapping[str, _ContactData],
+        dt_s: float,
+        normal_targets: Mapping[str, float],
+    ) -> tuple[list[str], list[str], dict[str, ContactState]]:
+        """Classify complementarity violations of one solved mode assignment.
+
+        Returns (adhesive active contacts, approaching released contacts,
+        friction-mode corrections). Normal targets other than the default
+        (restitution) define the admissible released normal velocity.
+        """
+        adhesive = [
+            contact_id for contact_id, status in modes.items()
+            if status.mode is not ContactMode.OPEN
+            and impulse_by_key[f"{contact_id}:normal"] < -_CONTACT_IMPULSE_TOLERANCE_N_S
+        ]
+        approaching = []
+        for contact_id, status in modes.items():
+            if status.mode is not ContactMode.OPEN:
+                continue
+            data = self._contact_data(contact_id, state)
+            if data.gap_m > _CONTACT_GAP_TOLERANCE_M:
+                continue
+            after = sum(j * v for j, v in zip(data.normal_jacobian, v_plus)) + dt_s * data.normal_bias
+            floor = normal_targets.get(contact_id, 0.0)
+            if after < floor - _CONTACT_VELOCITY_TOLERANCE_M_S:
+                approaching.append(contact_id)
+        friction: dict[str, ContactState] = {}
+        for contact_id, status in modes.items():
+            spec = self._contact_by_id[contact_id]
+            if status.mode is ContactMode.SLIDE and spec.friction_coefficient > 0.0:
+                data = data_by_id[contact_id]
+                slip_after = sum(j * v for j, v in zip(data.tangential_jacobian, v_plus)) + dt_s * data.tangential_bias
+                if status.slip_direction * slip_after < -_CONTACT_VELOCITY_TOLERANCE_M_S:
+                    for member in self._group_members(contact_id):
+                        if modes[member].mode is ContactMode.SLIDE:
+                            friction[member] = ContactState(
+                                ContactMode.STICK, tangent_anchor_m=data_by_id[member].tangent_coordinate_m
+                            )
+        if not friction:
+            for members, tangential in self._stick_cone_violations(modes, impulse_by_key, _CONTACT_IMPULSE_TOLERANCE_N_S):
+                for member in members:
+                    friction[member] = ContactState(ContactMode.SLIDE, slip_direction=-1 if tangential > 0.0 else 1)
+        return adhesive, approaching, friction
+
+    def _activated(self, state: MultibodyState, contact_id: str) -> ContactState:
+        data = self._contact_data(contact_id, state)
+        if self._contact_by_id[contact_id].friction_coefficient == 0.0:
+            return ContactState(ContactMode.SLIDE, slip_direction=1 if data.tangential_velocity_m_s >= 0.0 else -1)
+        return ContactState(ContactMode.STICK, tangent_anchor_m=data.tangent_coordinate_m)
+
+    def _velocity_complementarity(
+        self,
+        state: MultibodyState,
+        momentum: Sequence[float],
+        initial_modes: Mapping[str, ContactState],
+        dt_s: float,
+        normal_targets: Mapping[str, float] | None = None,
+    ) -> tuple[list[float], dict[str, tuple[float, float]], dict[str, ContactState], dict[str, _ContactData]]:
+        """Velocity-level Signorini-Coulomb contact law shared by steps and impacts.
+
+        Accepted modes satisfy, for every contact:
+
+        * active: p_n >= 0 and (normal row) J_n v+ + dt Jdot_n v = target;
+        * released while touching: v_n+ >= target (no approach);
+        * STICK: J_t v+ + dt Jdot_t v = 0 with |p_t| <= mu p_n per patch;
+        * SLIDE: p_t = -s mu p_n with post-step slip in direction s.
+
+        Greedy pivoting is tried first. If it cycles (e.g. a rigid foot whose
+        heel strike requires the toe, not the heel, to release), every set of
+        touching normal contacts is enumerated, largest first, with friction
+        pivoting inside each, and the first fully complementary set is used.
+        No regularization is applied; an unresolvable problem fails closed.
+        """
+        targets = dict(normal_targets or {})
+        modes = dict(initial_modes)
         visited: set[tuple[tuple[str, str, int], ...]] = set()
         for _ in range(4 * len(self.contacts) + 8):
             signature = tuple(
@@ -1461,64 +1557,98 @@ class PlanarMultibodySystem:
                 for contact_id in self._contact_by_id
             )
             if signature in visited:
-                raise ConstraintSolveError(
-                    "Coulomb impulse active set cycled; the contact problem is not uniquely resolved"
-                )
+                break
             visited.add(signature)
-            joint_rows = self._joint_rows(state)
-            contact_rows, data_by_id = self._contact_constraint_rows(state, modes, slip_from_mode=True)
-            rows = joint_rows + contact_rows
-            v_plus, impulses = self._solve_kkt(momentum, rows, [0.0] * len(rows))
-            impulse_by_key = {row.key: impulses[i] for i, row in enumerate(rows)}
-            changed = False
-            for contact_id, spec in self._contact_by_id.items():
-                status = modes[contact_id]
-                if status.mode is ContactMode.OPEN:
-                    continue
-                data = data_by_id[contact_id]
-                normal = impulse_by_key[f"{contact_id}:normal"]
-                if normal < -_CONTACT_IMPULSE_TOLERANCE_N_S:
+            v_plus, impulse_by_key, data_by_id = self._solve_velocity_modes(state, momentum, modes, dt_s, targets)
+            adhesive, approaching, friction = self._mode_violations(
+                state, modes, v_plus, impulse_by_key, data_by_id, dt_s, targets
+            )
+            if approaching:
+                for contact_id in approaching:
+                    modes[contact_id] = self._activated(state, contact_id)
+                self._harmonize_friction_groups(state, modes)
+                continue
+            # Friction modes are corrected before a normal set is judged
+            # adhesive: a stick trial can require tension that sliding removes.
+            if friction:
+                modes.update(friction)
+                continue
+            if adhesive:
+                for contact_id in adhesive:
                     modes[contact_id] = ContactState()
-                    changed = True
+                continue
+            return v_plus, self._contact_impulses(modes, impulse_by_key), modes, data_by_id
+        return self._enumerate_contact_sets(state, momentum, initial_modes, dt_s, targets)
+
+    def _contact_impulses(
+        self, modes: Mapping[str, ContactState], impulse_by_key: Mapping[str, float]
+    ) -> dict[str, tuple[float, float]]:
+        normals = {
+            contact_id: max(0.0, impulse_by_key[f"{contact_id}:normal"])
+            for contact_id in self._contact_by_id
+            if modes[contact_id].mode is not ContactMode.OPEN
+        }
+        shares = self._stick_tangential_shares(modes, normals, _tangent_values(impulse_by_key))
+        out: dict[str, tuple[float, float]] = {}
+        for contact_id, normal in normals.items():
+            status = modes[contact_id]
+            if status.mode is ContactMode.STICK:
+                tangential = shares[contact_id]
+            else:
+                tangential = -status.slip_direction * self._contact_by_id[contact_id].friction_coefficient * normal
+            out[contact_id] = (normal, tangential)
+        return out
+
+    def _enumerate_contact_sets(
+        self,
+        state: MultibodyState,
+        momentum: Sequence[float],
+        initial_modes: Mapping[str, ContactState],
+        dt_s: float,
+        targets: Mapping[str, float],
+    ) -> tuple[list[float], dict[str, tuple[float, float]], dict[str, ContactState], dict[str, _ContactData]]:
+        candidates = [
+            contact_id for contact_id in self._contact_by_id
+            if initial_modes[contact_id].mode is not ContactMode.OPEN
+            or self._contact_data(contact_id, state).gap_m <= _CONTACT_GAP_TOLERANCE_M
+        ]
+        if len(candidates) > 12:
+            raise ConstraintSolveError("contact set enumeration refused: more than 12 touching contacts")
+        for size in range(len(candidates), -1, -1):
+            for subset in combinations(candidates, size):
+                modes = {contact_id: ContactState() for contact_id in self._contact_by_id}
+                for contact_id in subset:
+                    status = initial_modes[contact_id]
+                    modes[contact_id] = status if status.mode is not ContactMode.OPEN else self._activated(state, contact_id)
+                self._harmonize_friction_groups(state, modes)
+                if any((modes[c].mode is not ContactMode.OPEN) != (c in subset) for c in candidates):
                     continue
-                if status.mode is ContactMode.SLIDE and spec.friction_coefficient > 0.0:
-                    slip_after = sum(j * v for j, v in zip(data.tangential_jacobian, v_plus))
-                    if status.slip_direction * slip_after < -_CONTACT_VELOCITY_TOLERANCE_M_S:
-                        for member in self._group_members(contact_id):
-                            if modes[member].mode is ContactMode.SLIDE:
-                                modes[member] = ContactState(
-                                    ContactMode.STICK,
-                                    tangent_anchor_m=data_by_id[member].tangent_coordinate_m,
-                                )
-                        changed = True
-            if changed:
-                continue
-            for members, tangential in self._stick_cone_violations(
-                modes, impulse_by_key, _CONTACT_IMPULSE_TOLERANCE_N_S
-            ):
-                for member in members:
-                    modes[member] = ContactState(
-                        ContactMode.SLIDE, slip_direction=-1 if tangential > 0.0 else 1
+                visited: set[tuple[tuple[str, str, int], ...]] = set()
+                for _ in range(2 * len(self.contacts) + 4):
+                    signature = tuple(
+                        (c, modes[c].mode.value, modes[c].slip_direction) for c in self._contact_by_id
                     )
-                changed = True
-            if changed:
-                continue
-            normals = {
-                contact_id: max(0.0, impulse_by_key[f"{contact_id}:normal"])
-                for contact_id in self._contact_by_id
-                if modes[contact_id].mode is not ContactMode.OPEN
-            }
-            shares = self._stick_tangential_shares(modes, normals, _tangent_values(impulse_by_key))
-            contact_impulses: dict[str, tuple[float, float]] = {}
-            for contact_id, normal in normals.items():
-                status = modes[contact_id]
-                if status.mode is ContactMode.STICK:
-                    tangential = shares[contact_id]
-                else:
-                    tangential = -status.slip_direction * self._contact_by_id[contact_id].friction_coefficient * normal
-                contact_impulses[contact_id] = (normal, tangential)
-            return v_plus, contact_impulses, modes, data_by_id
-        raise ConstraintSolveError("Coulomb impulse active set did not settle")
+                    if signature in visited:
+                        break
+                    visited.add(signature)
+                    try:
+                        v_plus, impulse_by_key, data_by_id = self._solve_velocity_modes(
+                            state, momentum, modes, dt_s, targets
+                        )
+                    except ConstraintSolveError:
+                        break
+                    adhesive, approaching, friction = self._mode_violations(
+                        state, modes, v_plus, impulse_by_key, data_by_id, dt_s, targets
+                    )
+                    if friction:
+                        modes.update(friction)
+                        continue
+                    if adhesive or approaching:
+                        break
+                    return v_plus, self._contact_impulses(modes, impulse_by_key), modes, data_by_id
+        raise ConstraintSolveError(
+            "Coulomb impulse active set cycled and no complementary contact set exists; refused"
+        )
 
     def solve_accelerations(
         self,
@@ -1759,16 +1889,15 @@ class PlanarMultibodySystem:
                 raise DynamicsError(f"{contact_id} is not a closing, nonpenetrating impact")
             targets[contact_id] = -self._contact_by_id[contact_id].restitution * data.normal_velocity_m_s
         before_ke = self.kinetic_energy(state)
-        zero_force = [0.0] * self.dof_count
         qd_pre = self._velocity_vector(state)
-        qd_post, impulses, rows, modes, data_by_id = self._active_set_solve(
-            state,
-            zero_force,
-            impulse_targets=targets,
-            velocity=qd_pre,
-            extra_contact_ids=ids,
+        momentum = [m * v for m, v in zip(self._mass_diagonal(), qd_pre)]
+        modes = self._prepare_contact_states(state)
+        for contact_id in ids:
+            modes[contact_id] = self._activated(state, contact_id)
+        self._harmonize_friction_groups(state, modes)
+        qd_post, contact_impulses, modes, _ = self._velocity_complementarity(
+            state, momentum, modes, 0.0, targets
         )
-        impulse_by_key = {row.key: impulses[i] for i, row in enumerate(rows)}
         after = self._states_from_vectors(
             self._position_vector(state),
             qd_post,
@@ -1780,23 +1909,8 @@ class PlanarMultibodySystem:
         work = after_ke - before_ke
         if work > _IMPACT_ENERGY_TOLERANCE_J:
             raise ConstraintSolveError(f"impact created kinetic energy ({work:.9g} J)")
-        normal_impulses = {
-            contact_id: max(0.0, impulse_by_key.get(f"{contact_id}:normal", 0.0))
-            for contact_id in ids
-        }
-        stick_shares = self._stick_tangential_shares(
-            modes,
-            {c: impulse_by_key.get(f"{c}:normal", 0.0) for c in self._contact_by_id},
-            _tangent_values(impulse_by_key),
-        )
-        tangential_impulses = {
-            contact_id: stick_shares[contact_id]
-            if modes[contact_id].mode is ContactMode.STICK
-            else -modes[contact_id].slip_direction
-            * self._contact_by_id[contact_id].friction_coefficient
-            * normal_impulses[contact_id]
-            for contact_id in ids
-        }
+        normal_impulses = {contact_id: contact_impulses.get(contact_id, (0.0, 0.0))[0] for contact_id in ids}
+        tangential_impulses = {contact_id: contact_impulses.get(contact_id, (0.0, 0.0))[1] for contact_id in ids}
         after = self._project_positions(after, modes)
         after = self._project_velocities(after, modes)
         event = ContactEvent(
@@ -1857,11 +1971,18 @@ class PlanarMultibodySystem:
                 MultibodyState(state.time_s, state.bodies, step_modes, state.activations),
                 support_contract,
             )
-        # Impulse work evaluated at the post-step relative velocity: zero for
-        # stick and active normal rows, -mu p_n |v_t+| for slip.
+        # Impulse work at the post-step relative velocity J v+ + dt (Jdot v),
+        # the same predicted velocity the step constrains: zero for stick and
+        # active normal rows, -mu p_n |v_t+| for slip.
         step_contact_work = sum(
-            normal * sum(j * v for j, v in zip(step_data[contact_id].normal_jacobian, new_v))
-            + tangential * sum(j * v for j, v in zip(step_data[contact_id].tangential_jacobian, new_v))
+            normal * (
+                sum(j * v for j, v in zip(step_data[contact_id].normal_jacobian, new_v))
+                + dt_s * step_data[contact_id].normal_bias
+            )
+            + tangential * (
+                sum(j * v for j, v in zip(step_data[contact_id].tangential_jacobian, new_v))
+                + dt_s * step_data[contact_id].tangential_bias
+            )
             for contact_id, (normal, tangential) in contact_impulses.items()
         )
         old_q = self._position_vector(state)
@@ -1923,6 +2044,29 @@ class PlanarMultibodySystem:
                 q_event, v_event, impact_time, impact_modes, impact_activations
             )
             impact_state = self._project_positions(impact_state, impact_modes)
+            closing = tuple(
+                contact_id for contact_id in impact_ids
+                if self._contact_data(contact_id, impact_state).normal_velocity_m_s < -_CONTACT_VELOCITY_TOLERANCE_M_S
+            )
+            if not closing:
+                # Grazing closure: the gap closes with no approach speed at the
+                # event, so the contact is activated without an impulse.
+                events.append(ContactEvent(
+                    "CONTACT_TOUCHDOWN", impact_ids, impact_time,
+                    detail="gap closed with nonnegative normal velocity; no impact impulse",
+                ))
+                return StepResult(
+                    impact_state,
+                    event_time_fraction * dt_s,
+                    tuple(events),
+                    step_contact_work * event_time_fraction,
+                    0.0,
+                    contact_impulses_n_s={
+                        contact_id: (normal * event_time_fraction, tangential * event_time_fraction)
+                        for contact_id, (normal, tangential) in contact_impulses.items()
+                    },
+                )
+            impact_ids = closing
             impact_state, impact_event = self.resolve_impact(impact_state, impact_ids)
             if support_contract is not None:
                 self.validate_support_contract(impact_state, support_contract)
@@ -1969,12 +2113,16 @@ class PlanarMultibodySystem:
                 continue
             start = self._contact_data(contact_id, before)
             end = self._contact_data(contact_id, after)
+            # Positions advance with the post-step velocity (symplectic Euler),
+            # so a crossing is any closing of the gap through zero in the step,
+            # whatever the start-of-step normal velocity was.
+            # A contact that was touching at the start was already held to
+            # v_n+ >= 0 by the impulse solve; any residual second-order
+            # penetration is removed by the unilateral position projection.
             if start.gap_m > _CONTACT_GAP_TOLERANCE_M and end.gap_m <= 0.0:
                 fraction = start.gap_m / (start.gap_m - end.gap_m)
-                if start.normal_velocity_m_s < 0.0 and 0.0 <= fraction <= 1.0:
+                if 0.0 <= fraction <= 1.0:
                     candidates.append((fraction, contact_id))
-            elif start.gap_m <= _CONTACT_GAP_TOLERANCE_M and start.normal_velocity_m_s < -_CONTACT_VELOCITY_TOLERANCE_M_S:
-                candidates.append((0.0, contact_id))
         if not candidates:
             return None
         first_fraction = min(x[0] for x in candidates)
@@ -2010,11 +2158,25 @@ class PlanarMultibodySystem:
         q = self._position_vector(state)
         qd = self._velocity_vector(state)
         diagonal = self._mass_diagonal()
-        for _ in range(12):
+        # Open contacts that the drift correction would push below their
+        # surface are held at zero gap (unilateral minimal-displacement
+        # projection); they carry no force and stay open.
+        held: set[str] = set()
+        for _ in range(12 + len(self.contacts)):
             current = self._states_from_vectors(q, qd, state.time_s, contact_states, state.activations)
-            rows = self._projection_rows(current, contact_states)
+            rows = self._projection_rows(current, contact_states, held=held)
             if not rows or max(abs(error) for _, error in rows) <= _CONSTRAINT_TOLERANCE:
-                return current
+                penetrating = {
+                    contact_id
+                    for contact_id, status in contact_states.items()
+                    if status.mode is ContactMode.OPEN
+                    and contact_id not in held
+                    and self._contact_data(contact_id, current).gap_m < -_CONTACT_GAP_TOLERANCE_M
+                }
+                if not penetrating:
+                    return current
+                held |= penetrating
+                continue
             sparse_rows = [_sparse(row) for row, _ in rows]
             gram = _weighted_products(sparse_rows, sparse_rows, [1.0 / value for value in diagonal])
             try:
@@ -2042,31 +2204,55 @@ class PlanarMultibodySystem:
         qd = self._velocity_vector(state)
         q = self._position_vector(state)
         current = self._states_from_vectors(q, qd, state.time_s, contact_states, state.activations)
-        rows = [row.jacobian for row in self._joint_rows(current)]
-        row_owners: list[tuple[str, int] | None] = [None] * len(rows)
-        owners = self._tangent_row_owners(contact_states)
-        for contact_id, status in contact_states.items():
-            if status.mode is ContactMode.OPEN:
-                continue
-            data = self._contact_data(contact_id, current)
-            rows.append(data.normal_jacobian)
-            row_owners.append((contact_id, 0))
-            if status.mode is ContactMode.STICK and owners[contact_id] == contact_id:
-                rows.append(data.tangential_jacobian)
-                row_owners.append((contact_id, 1))
-        if not rows:
-            return current
+        joint_rows = [row.jacobian for row in self._joint_rows(current)]
+        contact_data = {
+            contact_id: self._contact_data(contact_id, current)
+            for contact_id, status in contact_states.items()
+            if status.mode is not ContactMode.OPEN
+        }
         diagonal = self._mass_diagonal()
-        sparse_rows = [_sparse(row) for row in rows]
-        gram = _weighted_products(sparse_rows, sparse_rows, [1.0 / value for value in diagonal])
-        rates = [sum(value * qd[k] for k, value in row) for row in sparse_rows]
-        try:
-            correction = self._solve_linear(gram, [-rate for rate in rates])
-        except ArithmeticError as exc:
-            raise ConstraintSolveError(f"velocity projection is singular: {exc}") from exc
+        inverse_mass = [1.0 / value for value in diagonal]
+        # Unilateral: a contact whose projection impulse would be adhesive is
+        # left out (it separates), and the projection is solved again.
+        excluded: set[str] = set()
+        for _ in range(len(contact_data) + 1):
+            rows = list(joint_rows)
+            row_owners: list[tuple[str, int] | None] = [None] * len(rows)
+            included_modes = {
+                contact_id: (status if contact_id in contact_data and contact_id not in excluded else ContactState())
+                for contact_id, status in contact_states.items()
+            }
+            owners = self._tangent_row_owners(included_modes)
+            for contact_id, data in contact_data.items():
+                if contact_id in excluded:
+                    continue
+                rows.append(data.normal_jacobian)
+                row_owners.append((contact_id, 0))
+                if contact_states[contact_id].mode is ContactMode.STICK and owners[contact_id] == contact_id:
+                    rows.append(data.tangential_jacobian)
+                    row_owners.append((contact_id, 1))
+            if not rows:
+                return current
+            sparse_rows = [_sparse(row) for row in rows]
+            gram = _weighted_products(sparse_rows, sparse_rows, inverse_mass)
+            rates = [sum(value * qd[k] for k, value in row) for row in sparse_rows]
+            try:
+                correction = self._solve_linear(gram, [-rate for rate in rates])
+            except ArithmeticError as exc:
+                raise ConstraintSolveError(f"velocity projection is singular: {exc}") from exc
+            adhesive = {
+                owner[0]
+                for owner, amount in zip(row_owners, correction)
+                if owner is not None and owner[1] == 0 and amount < -_CONTACT_IMPULSE_TOLERANCE_N_S
+            }
+            if not adhesive:
+                break
+            excluded |= adhesive
+        else:
+            raise ConstraintSolveError("unilateral velocity projection did not settle")
         for row, amount in zip(sparse_rows, correction):
             for k, value in row:
-                qd[k] += value * amount / diagonal[k]
+                qd[k] += value * amount * inverse_mass[k]
         if contact_ledger is not None:
             for owner, amount in zip(row_owners, correction):
                 if owner is None:
@@ -2082,10 +2268,15 @@ class PlanarMultibodySystem:
         self,
         state: MultibodyState,
         contact_states: Mapping[str, ContactState],
+        *,
+        held: set[str] | frozenset[str] = frozenset(),
     ) -> list[tuple[tuple[float, ...], float]]:
         rows: list[tuple[tuple[float, ...], float]] = []
         for row in self._joint_rows(state):
             rows.append((row.jacobian, row.position_error))
+        for contact_id in sorted(held):
+            data = self._contact_data(contact_id, state)
+            rows.append((data.normal_jacobian, data.gap_m))
         owners = self._tangent_row_owners(contact_states)
         for contact_id, status in contact_states.items():
             if status.mode is ContactMode.OPEN:
