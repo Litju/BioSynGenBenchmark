@@ -31,6 +31,8 @@ jobs:
         run: python -m scripts.i1_i0_regression --output runs/i2/res489/ci-i0-regression.json
       - name: Reproduce I1 in two fresh processes
         run: python -m scripts.run_i1 --replicate --out runs/i2/res489/ci-i1/run
+      - name: I2 exercise evidence is deterministic and structurally valid (RES-498)
+        run: python -m scripts.check_i2_reproducibility
 
   scipy-crosscheck:
     name: SciPy DOP853 qualification / ${{ matrix.os }}
