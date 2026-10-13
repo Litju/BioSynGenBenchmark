@@ -522,6 +522,7 @@ class StepResult:
     constraint_projection_work_j: float
     integrator_id: str = "VELOCITY_LEVEL_COULOMB_IMPULSE_EULER_MASS_METRIC_PROJECTION_V2"
     contact_impulses_n_s: Mapping[str, tuple[float, float]] = field(default_factory=dict)
+    projection_impulses_n_s: Mapping[str, tuple[float, float]] = field(default_factory=dict)
 
 
 @dataclass(frozen=True, slots=True)
@@ -1938,7 +1939,8 @@ class PlanarMultibodySystem:
                 },
             )
         projected = self._project_positions(predicted, step_modes)
-        projected = self._project_velocities(projected, step_modes)
+        projection_ledger: dict[str, tuple[float, float]] = {}
+        projected = self._project_velocities(projected, step_modes, contact_ledger=projection_ledger)
         projection_work = (
             self.kinetic_energy(projected)
             + self.potential_energy(projected)
@@ -1952,6 +1954,7 @@ class PlanarMultibodySystem:
             step_contact_work,
             projection_work,
             contact_impulses_n_s=contact_impulses,
+            projection_impulses_n_s=projection_ledger,
         )
 
     def _first_impact_crossings(
@@ -2027,19 +2030,30 @@ class PlanarMultibodySystem:
         self,
         state: MultibodyState,
         contact_states: Mapping[str, ContactState],
+        *,
+        contact_ledger: dict[str, tuple[float, float]] | None = None,
     ) -> MultibodyState:
+        """Mass-metric velocity projection onto the active constraint rows.
+
+        With ``contact_ledger`` the projection's contact impulses (normal,
+        tangential per contact row owner) are recorded, so momentum changes
+        remain fully attributable to applied and contact impulses.
+        """
         qd = self._velocity_vector(state)
         q = self._position_vector(state)
         current = self._states_from_vectors(q, qd, state.time_s, contact_states, state.activations)
         rows = [row.jacobian for row in self._joint_rows(current)]
+        row_owners: list[tuple[str, int] | None] = [None] * len(rows)
         owners = self._tangent_row_owners(contact_states)
         for contact_id, status in contact_states.items():
             if status.mode is ContactMode.OPEN:
                 continue
             data = self._contact_data(contact_id, current)
             rows.append(data.normal_jacobian)
+            row_owners.append((contact_id, 0))
             if status.mode is ContactMode.STICK and owners[contact_id] == contact_id:
                 rows.append(data.tangential_jacobian)
+                row_owners.append((contact_id, 1))
         if not rows:
             return current
         diagonal = self._mass_diagonal()
@@ -2053,6 +2067,15 @@ class PlanarMultibodySystem:
         for row, amount in zip(sparse_rows, correction):
             for k, value in row:
                 qd[k] += value * amount / diagonal[k]
+        if contact_ledger is not None:
+            for owner, amount in zip(row_owners, correction):
+                if owner is None:
+                    continue
+                contact_id, axis = owner
+                normal, tangential = contact_ledger.get(contact_id, (0.0, 0.0))
+                contact_ledger[contact_id] = (
+                    (normal + amount, tangential) if axis == 0 else (normal, tangential + amount)
+                )
         return self._states_from_vectors(q, qd, state.time_s, contact_states, state.activations)
 
     def _projection_rows(

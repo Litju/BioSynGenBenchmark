@@ -256,5 +256,35 @@ def _spec_fields(spec: ContactSpec) -> dict:
     return {name: getattr(spec, name) for name in ContactSpec.__dataclass_fields__}
 
 
+
+class ProjectionImpulseLedgerTests(unittest.TestCase):
+    def test_projected_step_momentum_closes_with_contact_and_projection_impulses(self) -> None:
+        from tests.test_i2c_multibody import VelocityLevelCoulombFalsifierTests as fixtures
+
+        dt = 0.001
+        system = fixtures._two_leg_rack()
+        state = fixtures._two_leg_state(fixtures(), system)
+        away = AppliedWrench("torso", "pull-from-rack", (10.0, 0.0))
+        masses = {"torso": 5.0, "left_leg": 1.0, "right_leg": 1.0}
+        worst = 0.0
+        for _ in range(150):
+            step = system.advance(state, dt, external_wrenches=(away,))
+            for axis, external in ((0, 10.0 * dt), (1, -sum(masses.values()) * 9.81 * dt)):
+                change = sum(
+                    m * (step.state.bodies[b].velocity_m_s[axis] - state.bodies[b].velocity_m_s[axis])
+                    for b, m in masses.items()
+                )
+                contact = 0.0
+                for ledger, frame_state in ((step.contact_impulses_n_s, state),
+                                            (step.projection_impulses_n_s, step.state)):
+                    for contact_id, (normal, tangential) in ledger.items():
+                        kinematics = system.contact_kinematics(frame_state, contact_id)
+                        contact += normal * kinematics.normal_world[axis] + tangential * kinematics.tangent_world[axis]
+                worst = max(worst, abs(change - external - contact))
+            state = step.state
+        self.assertLess(worst, 1e-11)
+        self.assertTrue(any(abs(v) > 0.0 for ledger in [step.projection_impulses_n_s] for p in ledger.values() for v in p))
+
+
 if __name__ == "__main__":
     unittest.main()
