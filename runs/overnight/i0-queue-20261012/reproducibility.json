@@ -1,0 +1,15 @@
+{
+  "artifact_sha256": {
+    "evaluation-report.json": "3ce518e8c868755d0b0afee0985f3456c9453992b5842c0e0b12d776cb0ef065",
+    "evaluator-input.json": "2d6ad2b067450b82c4592c4676890c16be2b7099e87f7a48976e700e2a37668a",
+    "manifest.json": "98fe00ad4fdc9dfbcad50bbbe7176edeaa310016eae2fed25a5b126bfbd2bb75",
+    "pilot-data.json": "9fc76b01463444e597583139b81a1f1364c0327d589fc59f6f30c82fe98abab6",
+    "pilot-figure.svg": "418e2b0948be676ac4cf37f4ccd0f35731aad64bf0d4cce1af8c4252a80bfaa5",
+    "pilot-report.md": "6285669c3df549351b5debe11039d1dfef04c45ad01a77d34650d66cb5468c4b"
+  },
+  "comparison_rule": "SHA-256 over sorted relative filenames and file contents; run directory names and wall-clock time are excluded.",
+  "format_version": "I0-PILOT-2026-10-12-v1",
+  "normalized_scientific_artifact_digest_run_a": "b7de6f94886a2420d6f3653eeea49baaa23f4d012a8daaa4b624f8b58d0978fb",
+  "normalized_scientific_artifact_digest_run_b": "b7de6f94886a2420d6f3653eeea49baaa23f4d012a8daaa4b624f8b58d0978fb",
+  "same_seed_same_config_same_version": true
+}

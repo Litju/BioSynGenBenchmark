@@ -1,0 +1,200 @@
+{
+  "claim_ceiling": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "evidence_class": "MANUFACTURED_PUBLIC_OBSERVATION_ARRAYS",
+  "reports": {
+    "adversarial_false_claims": {
+      "candidate_id": "manufactured-adversarial-controls",
+      "counts": {
+        "admitted": 0,
+        "eligible": 4,
+        "evaluated": 4,
+        "not_evaluable": 0,
+        "rejected": 4
+      },
+      "findings": [
+        {
+          "claim": "force_impulse_balance",
+          "code": "INCONSISTENT_IMPULSE",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [
+            [
+              "support_impulse_n_s",
+              17.5
+            ],
+            [
+              "momentum_change_n_s",
+              -9.62
+            ],
+            [
+              "balance_residual_n_s",
+              7.499999999999998
+            ]
+          ],
+          "outcome": "REJECTED",
+          "reason": "Integrated covered external impulse disagrees with the independent momentum change."
+        },
+        {
+          "claim": "ballistic_flight",
+          "code": "IMPOSSIBLE_FLIGHT_GRF",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [
+            [
+              "flight_force_residual_n",
+              5.0
+            ]
+          ],
+          "outcome": "REJECTED",
+          "reason": "Public FORCE conflicts with the independent ideal-flight reference."
+        },
+        {
+          "claim": "cable_geometry",
+          "code": "LPT_PROJECTION_MISMATCH",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [
+            [
+              "cable_rate_residual_m_s",
+              -1.2
+            ]
+          ],
+          "outcome": "REJECTED",
+          "reason": "Observed cable rate conflicts with the independent directional projection."
+        },
+        {
+          "claim": "bilateral_force",
+          "code": "INVENTED_BILATERAL_FROM_COMBINED_FORCE",
+          "evidence_ceiling": "SIMULATED_MEASUREMENT_ONLY",
+          "metrics": [],
+          "outcome": "REJECTED",
+          "reason": "Bilateral values were supplied without two declared foot channels and an explicit split assumption."
+        }
+      ]
+    },
+    "incomplete_evidence": {
+      "candidate_id": "manufactured-incomplete-evidence",
+      "counts": {
+        "admitted": 0,
+        "eligible": 0,
+        "evaluated": 4,
+        "not_evaluable": 4,
+        "rejected": 0
+      },
+      "findings": [
+        {
+          "claim": "force_impulse_balance",
+          "code": "SUPPORT_COVERAGE_INCOMPLETE",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "Momentum balance needs all declared external support reactions."
+        },
+        {
+          "claim": "cable_geometry",
+          "code": "CABLE_REFERENCE_MISSING",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "Public LPT arrays and independent cable geometry points are required."
+        },
+        {
+          "claim": "biological_validity",
+          "code": "BIOLOGICAL_REFERENCE_UNAVAILABLE",
+          "evidence_ceiling": "BIOLOGICAL_VALIDATION_NOT_ESTABLISHED",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "No protocol-comparable independent human reference is admitted in I0."
+        },
+        {
+          "claim": "real_paired_force_lpt",
+          "code": "PAIRED_EMPIRICAL_REFERENCE_MISSING",
+          "evidence_ceiling": "REAL_PAIRED_FORCE_LPT_NOT_ESTABLISHED",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "No calibrated, protocol-comparable synchronized real FORCE/LPT reference is admitted in I0."
+        }
+      ]
+    },
+    "valid_known_answer": {
+      "candidate_id": "manufactured-known-answer",
+      "counts": {
+        "admitted": 3,
+        "eligible": 3,
+        "evaluated": 5,
+        "not_evaluable": 2,
+        "rejected": 0
+      },
+      "findings": [
+        {
+          "claim": "force_impulse_balance",
+          "code": "KNOWN_ANSWER_IMPULSE_PASS",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [
+            [
+              "support_impulse_n_s",
+              10.0
+            ],
+            [
+              "momentum_change_n_s",
+              -9.62
+            ],
+            [
+              "balance_residual_n_s",
+              -1.7763568394002505e-15
+            ]
+          ],
+          "outcome": "PASS",
+          "reason": "Covered external impulse matches the independent numerical reference."
+        },
+        {
+          "claim": "ballistic_flight",
+          "code": "BALLISTIC_FLIGHT_FORCE_PASS",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [],
+          "outcome": "PASS",
+          "reason": "Public FORCE matches the independent ideal-flight reference at declared times."
+        },
+        {
+          "claim": "cable_geometry",
+          "code": "CABLE_GEOMETRY_PASS",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [
+            [
+              "cable_length_residual_m",
+              0.0
+            ],
+            [
+              "cable_rate_residual_m_s",
+              0.0
+            ],
+            [
+              "cable_angle_residual_rad",
+              0.0
+            ]
+          ],
+          "outcome": "PASS",
+          "reason": "Public LPT length, rate, and angle match independent geometric references."
+        },
+        {
+          "claim": "biological_validity",
+          "code": "BIOLOGICAL_REFERENCE_UNAVAILABLE",
+          "evidence_ceiling": "BIOLOGICAL_VALIDATION_NOT_ESTABLISHED",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "No protocol-comparable independent human reference is admitted in I0."
+        },
+        {
+          "claim": "real_paired_force_lpt",
+          "code": "PAIRED_EMPIRICAL_REFERENCE_MISSING",
+          "evidence_ceiling": "REAL_PAIRED_FORCE_LPT_NOT_ESTABLISHED",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "No calibrated, protocol-comparable synchronized real FORCE/LPT reference is admitted in I0."
+        }
+      ]
+    }
+  }
+}

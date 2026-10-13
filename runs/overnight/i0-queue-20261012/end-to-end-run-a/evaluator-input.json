@@ -1,0 +1,276 @@
+{
+  "candidate_id": "i0-manufactured-public-observations",
+  "claims": [
+    "force_impulse_balance",
+    "ballistic_flight",
+    "cable_geometry",
+    "biological_validity",
+    "real_paired_force_lpt"
+  ],
+  "empirical_reference": null,
+  "force": {
+    "bilateral_split_fraction": null,
+    "clock": {
+      "offset_native_s": 0.0,
+      "qualified": true,
+      "rate_scale": 1.0,
+      "sample_period_native_s": 0.2
+    },
+    "frame": "inertial_lab_z",
+    "left_force_n": null,
+    "native_times_s": [
+      0.0,
+      0.2,
+      0.4,
+      0.6000000000000001
+    ],
+    "positive_direction": "upward",
+    "right_force_n": null,
+    "sample_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source_stage": "SIMULATED_OBSERVATION",
+    "support_coverage": "TOTAL_SYSTEM",
+    "total_force_n": [
+      1250.0,
+      1250.0,
+      0.0,
+      0.0
+    ],
+    "units": "N"
+  },
+  "independent_known_answer_references": {
+    "cable_geometry": {
+      "angle_tolerance_rad": 3.571577341960839e-13,
+      "expected_clock": {
+        "offset_native_s": 0.0,
+        "qualified": true,
+        "rate_scale": 1.0,
+        "sample_period_native_s": 0.1
+      },
+      "length_tolerance_m": 1.7270557910127181e-13,
+      "points": [
+        {
+          "anchor_xz_m": [
+            -0.2,
+            0.1
+          ],
+          "attachment_velocity_xz_m_s": [
+            0.0,
+            0.05
+          ],
+          "attachment_xz_m": [
+            0.4,
+            1.24
+          ],
+          "simulation_time_s": 0.0
+        },
+        {
+          "anchor_xz_m": [
+            -0.2,
+            0.1
+          ],
+          "attachment_velocity_xz_m_s": [
+            0.0,
+            0.31899999999999995
+          ],
+          "attachment_xz_m": [
+            0.4,
+            1.25845
+          ],
+          "simulation_time_s": 0.1
+        },
+        {
+          "anchor_xz_m": [
+            -0.2,
+            0.1
+          ],
+          "attachment_velocity_xz_m_s": [
+            0.0,
+            0.588
+          ],
+          "attachment_xz_m": [
+            0.4,
+            1.3038
+          ],
+          "simulation_time_s": 0.2
+        },
+        {
+          "anchor_xz_m": [
+            -0.2,
+            0.1
+          ],
+          "attachment_velocity_xz_m_s": [
+            0.0,
+            0.857
+          ],
+          "attachment_xz_m": [
+            0.4,
+            1.37605
+          ],
+          "simulation_time_s": 0.30000000000000004
+        },
+        {
+          "anchor_xz_m": [
+            -0.2,
+            0.1
+          ],
+          "attachment_velocity_xz_m_s": [
+            0.0,
+            0.7509999999999997
+          ],
+          "attachment_xz_m": [
+            0.4,
+            1.469575
+          ],
+          "simulation_time_s": 0.4
+        },
+        {
+          "anchor_xz_m": [
+            -0.2,
+            0.1
+          ],
+          "attachment_velocity_xz_m_s": [
+            0.0,
+            -0.2300000000000002
+          ],
+          "attachment_xz_m": [
+            0.4,
+            1.4956250000000002
+          ],
+          "simulation_time_s": 0.5
+        },
+        {
+          "anchor_xz_m": [
+            -0.2,
+            0.1
+          ],
+          "attachment_velocity_xz_m_s": [
+            0.0,
+            -1.211000000000001
+          ],
+          "attachment_xz_m": [
+            0.4,
+            1.423575
+          ],
+          "simulation_time_s": 0.6000000000000001
+        },
+        {
+          "anchor_xz_m": [
+            -0.2,
+            0.1
+          ],
+          "attachment_velocity_xz_m_s": [
+            0.0,
+            -2.192000000000001
+          ],
+          "attachment_xz_m": [
+            0.4,
+            1.2534249999999998
+          ],
+          "simulation_time_s": 0.7000000000000001
+        }
+      ],
+      "rate_tolerance_m_s": 2.4920154828578246e-13,
+      "time_tolerance_s": 5.684341886080802e-14
+    },
+    "flight": {
+      "expected_clock": {
+        "offset_native_s": 0.0,
+        "qualified": true,
+        "rate_scale": 1.0,
+        "sample_period_native_s": 0.2
+      },
+      "expected_force_n": 0.0,
+      "simulation_times_s": [
+        0.4,
+        0.6
+      ],
+      "time_tolerance_s": 5.684341886080802e-14,
+      "tolerance_n": 1.4210854715202004e-10
+    },
+    "force_impulse": {
+      "end_simulation_time_s": 0.2,
+      "expected_clock": {
+        "offset_native_s": 0.0,
+        "qualified": true,
+        "rate_scale": 1.0,
+        "sample_period_native_s": 0.2
+      },
+      "external_impulses_complete": true,
+      "final_velocity_m_s": 0.588,
+      "initial_velocity_m_s": 0.05,
+      "mass_kg": 100.0,
+      "other_external_impulse_n_s": -196.20000000000002,
+      "start_simulation_time_s": 0.0,
+      "time_tolerance_s": 5.684341886080802e-14,
+      "tolerance_n_s": 2.8421709430404007e-11
+    }
+  },
+  "lpt": {
+    "angle_units": "rad",
+    "attachment_target": "bar_attachment",
+    "cable_angle_rad": [
+      1.0863183977578734,
+      1.0929051064026998,
+      1.1084121830082025,
+      1.1312708106487905,
+      1.157889010094794,
+      1.1647700804054966,
+      1.1451868109436567,
+      1.09112759010307
+    ],
+    "cable_length_m": [
+      1.2882546332150333,
+      1.3046096743854079,
+      1.3450406833995765,
+      1.4100721976196822,
+      1.4952376669362635,
+      1.5191343392290884,
+      1.4532208299584064,
+      1.3001496954677947
+    ],
+    "cable_rate_m_s": [
+      0.04424591111909912,
+      0.28326139017334073,
+      0.5262550112692175,
+      0.775545288990198,
+      0.6878845067536967,
+      -0.21130043717061503,
+      -1.1029633569495951,
+      -1.9446280753773615
+    ],
+    "clock": {
+      "offset_native_s": 0.0,
+      "qualified": true,
+      "rate_scale": 1.0,
+      "sample_period_native_s": 0.1
+    },
+    "length_units": "m",
+    "native_times_s": [
+      0.0,
+      0.1,
+      0.2,
+      0.30000000000000004,
+      0.4,
+      0.5,
+      0.6000000000000001,
+      0.7000000000000001
+    ],
+    "rate_units": "m/s",
+    "sample_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "source_stage": "SIMULATED_OBSERVATION"
+  }
+}

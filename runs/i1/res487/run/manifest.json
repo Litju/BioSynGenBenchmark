@@ -1,0 +1,49 @@
+{
+ "artifact_sha256": {
+  "evaluator-input-cmj.json": "8353281cc77e7e03243610bd0cd8a949b77a39a0d2c38b970328a1dc0bd5a635",
+  "figure-cmj.svg": "a5ee4cdc416d5293be80a67f6aca47e7c61a38444a160a77f122d0d315e41113",
+  "figure-loaded-cmj.svg": "fef11e366126919499afcec1eeb83039f5fb2f307442ca462701f07794c4f7e7",
+  "figure-vv.svg": "ec6941e4d98d00cbd48645445e02bc7336eae6ddcba2add5e2f4270a313bf517",
+  "results.json": "d9c1af5611a6e262ee5e2455d64f479691550bb6642906b63d345d08b3af0d45"
+ },
+ "claim_ceiling": [
+  "NUMERICAL_VERIFICATION_ONLY",
+  "SIMULATED_MEASUREMENT_ONLY",
+  "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+  "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+ ],
+ "determinism": "no timestamps, machine paths or run identifiers in artifacts",
+ "external_dependencies": [],
+ "input_sha256": {
+  "runs/i1/res486/sensitivity.json": "4c599a557f8c1bcfef57e24d29ad4afec506faa7193cf4186f9f740d68d20707"
+ },
+ "python": "3.12.10",
+ "source_sha256": {
+  "biosyngen/__init__.py": "5f04348bf20b8541a611d04235a1c6eb6a228e5deb36522a6e00d82ff925c677",
+  "biosyngen/i1/__init__.py": "f6b0652328adbdeb28cfa3e06312fbaa87a44eaaab59424001eb089a1a2b79f1",
+  "biosyngen/i1/actuation.py": "7bf4bd14e85d893eba6441c6e02d79b0f53824cbbb8265e73ed82013a233d03e",
+  "biosyngen/i1/body.py": "9aefac4e7f0db0f34f7ddad1528735e11f696f1cb3bdf39ee0a962cada27145a",
+  "biosyngen/i1/control.py": "dea17d556286f49b366d9d1c4ea66cd6a3300ae61e0a83971e40c7f30142ff31",
+  "biosyngen/i1/export.py": "739414ecd6f63013200fe0cf3241f0add5b1bb3433bce29e0f26fdd20fc59a19",
+  "biosyngen/i1/instruments.py": "9b9facee8dce04424124f936e33ba05cfb539b883e5cbbde7e728c4b4946d891",
+  "biosyngen/i1/linalg.py": "af34a966ef6c69a70f300d845d4c2b50c03fc62467e07ede52edc4a957d6331a",
+  "biosyngen/i1/observability.py": "2046aaec96bbba434bcfccbfc4323f736012297d3c3fbe5a621b0742c954b205",
+  "biosyngen/i1/params.py": "0b7c8d8c5c6da07818d1bd2e391bd4acf944244dd9ba36ae08732499c23d482f",
+  "biosyngen/i1/phases.py": "dc4271570a2dbb84667343505a5574565000c05491a79db2176fab55d31ff788",
+  "biosyngen/i1/scenarios.py": "856a46f0f4d44428c13cbeb4d3e9b44dfe51494bb8c5367f378d5561982ed93b",
+  "biosyngen/i1/simulate.py": "3cd5e68c6b472ea9ed5afbe1a5406a28a35d4050f88405df22a90630c43a4e51",
+  "biosyngen/mechanics.py": "c128b7907bc4c7fc9de29072384711a11b34c43539a127cf2943e126b052e665",
+  "biosyngen/observations.py": "7f4ac426614261d22a0dbab35fd5b55627d3448c0365b39d89b6ef8240bfd4f2",
+  "biosyngen_benchmark/__init__.py": "fd5425c2131638f18b9f3c31cebcfc7939bf2a8a910fb34501dbcd73959a69a1",
+  "biosyngen_benchmark/controls.py": "a07a62f93b12357bcb97e6dc135c81bb56348125fa0a72c0ca01eb8028431154",
+  "biosyngen_benchmark/core.py": "49abbc62337bc2ae618cb4187a25e124ecd4b962708e2356a1a920f36d328fa1",
+  "biosyngen_benchmark/detectors.py": "50ed286111b7fad5486cee0f104b237153074852cec7c88581939edad161c855",
+  "biosyngen_benchmark/i1.py": "839e8196eb3f1e7b809ae83593f514f2a22a84cdd12289cb83e6ab2c385c9720",
+  "biosyngen_benchmark/suite.py": "d95b7919bd80c12c7845a7fad6dbd02f30d6e32aca92f498e7946b01955d5895",
+  "scripts/i1_benchmark_suite.py": "c62dd9943c8b57c8159fd6f2a638daf40e3d2f4b352e12d7a9e9ba16229e3fe7",
+  "scripts/i1_optimize_control.py": "7d0a77db9033d09222727a8a209aa5f843d7099b01251b04475e34a835b38cc2",
+  "scripts/i1_provenance_sensitivity.py": "07b7a9e508a5749e7e2caac90203dd401b0f3368d0194f50c43ca4d9231f5930",
+  "scripts/run_i1.py": "1c911fb7c41ff0fd657d74f996671a830dbc218c7b86f4576cfef7c238fc4d0e",
+  "scripts/svgplot.py": "b6904f9a95938301e083be9be20a0fa37b27569c159408d74929cc3777e6eb3a"
+ }
+}

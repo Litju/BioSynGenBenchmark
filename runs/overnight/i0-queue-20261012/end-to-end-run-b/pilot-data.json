@@ -1,0 +1,1373 @@
+{
+  "claim_ceiling": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "evaluator_input_separate_from_latent_state": {
+    "candidate_id": "i0-manufactured-public-observations",
+    "claims": [
+      "force_impulse_balance",
+      "ballistic_flight",
+      "cable_geometry",
+      "biological_validity",
+      "real_paired_force_lpt"
+    ],
+    "empirical_reference": null,
+    "force": {
+      "bilateral_split_fraction": null,
+      "clock": {
+        "offset_native_s": 0.0,
+        "qualified": true,
+        "rate_scale": 1.0,
+        "sample_period_native_s": 0.2
+      },
+      "frame": "inertial_lab_z",
+      "left_force_n": null,
+      "native_times_s": [
+        0.0,
+        0.2,
+        0.4,
+        0.6000000000000001
+      ],
+      "positive_direction": "upward",
+      "right_force_n": null,
+      "sample_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "source_stage": "SIMULATED_OBSERVATION",
+      "support_coverage": "TOTAL_SYSTEM",
+      "total_force_n": [
+        1250.0,
+        1250.0,
+        0.0,
+        0.0
+      ],
+      "units": "N"
+    },
+    "independent_known_answer_references": {
+      "cable_geometry": {
+        "angle_tolerance_rad": 3.571577341960839e-13,
+        "expected_clock": {
+          "offset_native_s": 0.0,
+          "qualified": true,
+          "rate_scale": 1.0,
+          "sample_period_native_s": 0.1
+        },
+        "length_tolerance_m": 1.7270557910127181e-13,
+        "points": [
+          {
+            "anchor_xz_m": [
+              -0.2,
+              0.1
+            ],
+            "attachment_velocity_xz_m_s": [
+              0.0,
+              0.05
+            ],
+            "attachment_xz_m": [
+              0.4,
+              1.24
+            ],
+            "simulation_time_s": 0.0
+          },
+          {
+            "anchor_xz_m": [
+              -0.2,
+              0.1
+            ],
+            "attachment_velocity_xz_m_s": [
+              0.0,
+              0.31899999999999995
+            ],
+            "attachment_xz_m": [
+              0.4,
+              1.25845
+            ],
+            "simulation_time_s": 0.1
+          },
+          {
+            "anchor_xz_m": [
+              -0.2,
+              0.1
+            ],
+            "attachment_velocity_xz_m_s": [
+              0.0,
+              0.588
+            ],
+            "attachment_xz_m": [
+              0.4,
+              1.3038
+            ],
+            "simulation_time_s": 0.2
+          },
+          {
+            "anchor_xz_m": [
+              -0.2,
+              0.1
+            ],
+            "attachment_velocity_xz_m_s": [
+              0.0,
+              0.857
+            ],
+            "attachment_xz_m": [
+              0.4,
+              1.37605
+            ],
+            "simulation_time_s": 0.30000000000000004
+          },
+          {
+            "anchor_xz_m": [
+              -0.2,
+              0.1
+            ],
+            "attachment_velocity_xz_m_s": [
+              0.0,
+              0.7509999999999997
+            ],
+            "attachment_xz_m": [
+              0.4,
+              1.469575
+            ],
+            "simulation_time_s": 0.4
+          },
+          {
+            "anchor_xz_m": [
+              -0.2,
+              0.1
+            ],
+            "attachment_velocity_xz_m_s": [
+              0.0,
+              -0.2300000000000002
+            ],
+            "attachment_xz_m": [
+              0.4,
+              1.4956250000000002
+            ],
+            "simulation_time_s": 0.5
+          },
+          {
+            "anchor_xz_m": [
+              -0.2,
+              0.1
+            ],
+            "attachment_velocity_xz_m_s": [
+              0.0,
+              -1.211000000000001
+            ],
+            "attachment_xz_m": [
+              0.4,
+              1.423575
+            ],
+            "simulation_time_s": 0.6000000000000001
+          },
+          {
+            "anchor_xz_m": [
+              -0.2,
+              0.1
+            ],
+            "attachment_velocity_xz_m_s": [
+              0.0,
+              -2.192000000000001
+            ],
+            "attachment_xz_m": [
+              0.4,
+              1.2534249999999998
+            ],
+            "simulation_time_s": 0.7000000000000001
+          }
+        ],
+        "rate_tolerance_m_s": 2.4920154828578246e-13,
+        "time_tolerance_s": 5.684341886080802e-14
+      },
+      "flight": {
+        "expected_clock": {
+          "offset_native_s": 0.0,
+          "qualified": true,
+          "rate_scale": 1.0,
+          "sample_period_native_s": 0.2
+        },
+        "expected_force_n": 0.0,
+        "simulation_times_s": [
+          0.4,
+          0.6
+        ],
+        "time_tolerance_s": 5.684341886080802e-14,
+        "tolerance_n": 1.4210854715202004e-10
+      },
+      "force_impulse": {
+        "end_simulation_time_s": 0.2,
+        "expected_clock": {
+          "offset_native_s": 0.0,
+          "qualified": true,
+          "rate_scale": 1.0,
+          "sample_period_native_s": 0.2
+        },
+        "external_impulses_complete": true,
+        "final_velocity_m_s": 0.588,
+        "initial_velocity_m_s": 0.05,
+        "mass_kg": 100.0,
+        "other_external_impulse_n_s": -196.20000000000002,
+        "start_simulation_time_s": 0.0,
+        "time_tolerance_s": 5.684341886080802e-14,
+        "tolerance_n_s": 2.8421709430404007e-11
+      }
+    },
+    "lpt": {
+      "angle_units": "rad",
+      "attachment_target": "bar_attachment",
+      "cable_angle_rad": [
+        1.0863183977578734,
+        1.0929051064026998,
+        1.1084121830082025,
+        1.1312708106487905,
+        1.157889010094794,
+        1.1647700804054966,
+        1.1451868109436567,
+        1.09112759010307
+      ],
+      "cable_length_m": [
+        1.2882546332150333,
+        1.3046096743854079,
+        1.3450406833995765,
+        1.4100721976196822,
+        1.4952376669362635,
+        1.5191343392290884,
+        1.4532208299584064,
+        1.3001496954677947
+      ],
+      "cable_rate_m_s": [
+        0.04424591111909912,
+        0.28326139017334073,
+        0.5262550112692175,
+        0.775545288990198,
+        0.6878845067536967,
+        -0.21130043717061503,
+        -1.1029633569495951,
+        -1.9446280753773615
+      ],
+      "clock": {
+        "offset_native_s": 0.0,
+        "qualified": true,
+        "rate_scale": 1.0,
+        "sample_period_native_s": 0.1
+      },
+      "length_units": "m",
+      "native_times_s": [
+        0.0,
+        0.1,
+        0.2,
+        0.30000000000000004,
+        0.4,
+        0.5,
+        0.6000000000000001,
+        0.7000000000000001
+      ],
+      "rate_units": "m/s",
+      "sample_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_stage": "SIMULATED_OBSERVATION"
+    }
+  },
+  "evidence_class": "MANUFACTURED_AND_SIMULATED_ONLY",
+  "format_version": "I0-PILOT-2026-10-12-v1",
+  "latent_mechanics": {
+    "state_samples": [
+      {
+        "bar_attachment_height_m": 1.24,
+        "bar_attachment_velocity_m_s": 0.05,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.92,
+        "body_com_velocity_m_s": 0.05,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 0.9904000000000001,
+        "system_com_velocity_m_s": 0.05,
+        "time_s": 0.0
+      },
+      {
+        "bar_attachment_height_m": 1.241538,
+        "bar_attachment_velocity_m_s": 0.1038,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.9215380000000001,
+        "body_com_velocity_m_s": 0.1038,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 0.9919380000000001,
+        "system_com_velocity_m_s": 0.1038,
+        "time_s": 0.02
+      },
+      {
+        "bar_attachment_height_m": 1.2441520000000001,
+        "bar_attachment_velocity_m_s": 0.1576,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.9241520000000001,
+        "body_com_velocity_m_s": 0.1576,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 0.9945520000000002,
+        "system_com_velocity_m_s": 0.1576,
+        "time_s": 0.04
+      },
+      {
+        "bar_attachment_height_m": 1.2478420000000001,
+        "bar_attachment_velocity_m_s": 0.21139999999999998,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.9278420000000001,
+        "body_com_velocity_m_s": 0.21139999999999998,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 0.9982420000000002,
+        "system_com_velocity_m_s": 0.21139999999999998,
+        "time_s": 0.06
+      },
+      {
+        "bar_attachment_height_m": 1.2526080000000002,
+        "bar_attachment_velocity_m_s": 0.2652,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.9326080000000001,
+        "body_com_velocity_m_s": 0.2652,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.0030080000000001,
+        "system_com_velocity_m_s": 0.2652,
+        "time_s": 0.08
+      },
+      {
+        "bar_attachment_height_m": 1.25845,
+        "bar_attachment_velocity_m_s": 0.319,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.9384500000000001,
+        "body_com_velocity_m_s": 0.319,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.0088500000000002,
+        "system_com_velocity_m_s": 0.319,
+        "time_s": 0.1
+      },
+      {
+        "bar_attachment_height_m": 1.265368,
+        "bar_attachment_velocity_m_s": 0.3728,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.9453680000000001,
+        "body_com_velocity_m_s": 0.3728,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.0157680000000002,
+        "system_com_velocity_m_s": 0.3728,
+        "time_s": 0.12000000000000001
+      },
+      {
+        "bar_attachment_height_m": 1.273362,
+        "bar_attachment_velocity_m_s": 0.42660000000000003,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.953362,
+        "body_com_velocity_m_s": 0.42660000000000003,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.023762,
+        "system_com_velocity_m_s": 0.42660000000000003,
+        "time_s": 0.14
+      },
+      {
+        "bar_attachment_height_m": 1.282432,
+        "bar_attachment_velocity_m_s": 0.4804,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.9624320000000001,
+        "body_com_velocity_m_s": 0.4804,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.032832,
+        "system_com_velocity_m_s": 0.4804,
+        "time_s": 0.16
+      },
+      {
+        "bar_attachment_height_m": 1.292578,
+        "bar_attachment_velocity_m_s": 0.5342,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.972578,
+        "body_com_velocity_m_s": 0.5342,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.0429780000000002,
+        "system_com_velocity_m_s": 0.5342,
+        "time_s": 0.18
+      },
+      {
+        "bar_attachment_height_m": 1.3038,
+        "bar_attachment_velocity_m_s": 0.588,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.9838,
+        "body_com_velocity_m_s": 0.588,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.0542,
+        "system_com_velocity_m_s": 0.588,
+        "time_s": 0.19999999999999998
+      },
+      {
+        "bar_attachment_height_m": 1.316098,
+        "bar_attachment_velocity_m_s": 0.6417999999999999,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 0.996098,
+        "body_com_velocity_m_s": 0.6417999999999999,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.066498,
+        "system_com_velocity_m_s": 0.6417999999999999,
+        "time_s": 0.21999999999999997
+      },
+      {
+        "bar_attachment_height_m": 1.329472,
+        "bar_attachment_velocity_m_s": 0.6955999999999999,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 1.009472,
+        "body_com_velocity_m_s": 0.6955999999999999,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.079872,
+        "system_com_velocity_m_s": 0.6955999999999999,
+        "time_s": 0.23999999999999996
+      },
+      {
+        "bar_attachment_height_m": 1.343922,
+        "bar_attachment_velocity_m_s": 0.7493999999999998,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 1.023922,
+        "body_com_velocity_m_s": 0.7493999999999998,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.094322,
+        "system_com_velocity_m_s": 0.7493999999999998,
+        "time_s": 0.25999999999999995
+      },
+      {
+        "bar_attachment_height_m": 1.359448,
+        "bar_attachment_velocity_m_s": 0.8031999999999999,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 1.039448,
+        "body_com_velocity_m_s": 0.8031999999999999,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.109848,
+        "system_com_velocity_m_s": 0.8031999999999999,
+        "time_s": 0.27999999999999997
+      },
+      {
+        "bar_attachment_height_m": 1.37605,
+        "bar_attachment_velocity_m_s": 0.857,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 1.05605,
+        "body_com_velocity_m_s": 0.857,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.12645,
+        "system_com_velocity_m_s": 0.857,
+        "time_s": 0.3
+      },
+      {
+        "bar_attachment_height_m": 1.393728,
+        "bar_attachment_velocity_m_s": 0.9108,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 1.073728,
+        "body_com_velocity_m_s": 0.9108,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.144128,
+        "system_com_velocity_m_s": 0.9108,
+        "time_s": 0.32
+      },
+      {
+        "bar_attachment_height_m": 1.412482,
+        "bar_attachment_velocity_m_s": 0.9646000000000001,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 1.092482,
+        "body_com_velocity_m_s": 0.9646000000000001,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.162882,
+        "system_com_velocity_m_s": 0.9646000000000001,
+        "time_s": 0.34
+      },
+      {
+        "bar_attachment_height_m": 1.432312,
+        "bar_attachment_velocity_m_s": 1.0184000000000002,
+        "body_com_acceleration_m_s2": 2.6899999999999995,
+        "body_com_height_m": 1.112312,
+        "body_com_velocity_m_s": 1.0184000000000002,
+        "mode": "STANCE",
+        "normal_force_n": 1250.0,
+        "system_com_acceleration_m_s2": 2.6899999999999995,
+        "system_com_height_m": 1.182712,
+        "system_com_velocity_m_s": 1.0184000000000002,
+        "time_s": 0.36000000000000004
+      },
+      {
+        "bar_attachment_height_m": 1.4426305,
+        "bar_attachment_velocity_m_s": 1.0453000000000001,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1226304999999999,
+        "body_com_velocity_m_s": 1.0453000000000001,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.1930304999999999,
+        "system_com_velocity_m_s": 1.0453000000000001,
+        "time_s": 0.37
+      },
+      {
+        "bar_attachment_height_m": 1.4615745,
+        "bar_attachment_velocity_m_s": 0.8491,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1415745,
+        "body_com_velocity_m_s": 0.8491,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.2119745,
+        "system_com_velocity_m_s": 0.8491,
+        "time_s": 0.39
+      },
+      {
+        "bar_attachment_height_m": 1.4765945,
+        "bar_attachment_velocity_m_s": 0.6528999999999998,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1565945,
+        "body_com_velocity_m_s": 0.6528999999999998,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.2269945,
+        "system_com_velocity_m_s": 0.6528999999999998,
+        "time_s": 0.41000000000000003
+      },
+      {
+        "bar_attachment_height_m": 1.4876905,
+        "bar_attachment_velocity_m_s": 0.45669999999999966,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1676905,
+        "body_com_velocity_m_s": 0.45669999999999966,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.2380905,
+        "system_com_velocity_m_s": 0.45669999999999966,
+        "time_s": 0.43000000000000005
+      },
+      {
+        "bar_attachment_height_m": 1.4948625,
+        "bar_attachment_velocity_m_s": 0.2604999999999995,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1748625,
+        "body_com_velocity_m_s": 0.2604999999999995,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.2452625,
+        "system_com_velocity_m_s": 0.2604999999999995,
+        "time_s": 0.45000000000000007
+      },
+      {
+        "bar_attachment_height_m": 1.4981105,
+        "bar_attachment_velocity_m_s": 0.06429999999999933,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1781104999999998,
+        "body_com_velocity_m_s": 0.06429999999999933,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.2485104999999999,
+        "system_com_velocity_m_s": 0.06429999999999933,
+        "time_s": 0.4700000000000001
+      },
+      {
+        "bar_attachment_height_m": 1.4974344999999998,
+        "bar_attachment_velocity_m_s": -0.13190000000000085,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1774344999999997,
+        "body_com_velocity_m_s": -0.13190000000000085,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.2478344999999997,
+        "system_com_velocity_m_s": -0.13190000000000085,
+        "time_s": 0.4900000000000001
+      },
+      {
+        "bar_attachment_height_m": 1.4928344999999998,
+        "bar_attachment_velocity_m_s": -0.32810000000000106,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1728344999999998,
+        "body_com_velocity_m_s": -0.32810000000000106,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.2432344999999998,
+        "system_com_velocity_m_s": -0.32810000000000106,
+        "time_s": 0.5100000000000001
+      },
+      {
+        "bar_attachment_height_m": 1.4843104999999999,
+        "bar_attachment_velocity_m_s": -0.5243000000000012,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1643104999999998,
+        "body_com_velocity_m_s": -0.5243000000000012,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.2347104999999998,
+        "system_com_velocity_m_s": -0.5243000000000012,
+        "time_s": 0.5300000000000001
+      },
+      {
+        "bar_attachment_height_m": 1.4718624999999999,
+        "bar_attachment_velocity_m_s": -0.7205000000000014,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1518624999999998,
+        "body_com_velocity_m_s": -0.7205000000000014,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.2222625,
+        "system_com_velocity_m_s": -0.7205000000000014,
+        "time_s": 0.5500000000000002
+      },
+      {
+        "bar_attachment_height_m": 1.4554904999999998,
+        "bar_attachment_velocity_m_s": -0.9167000000000015,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1354904999999997,
+        "body_com_velocity_m_s": -0.9167000000000015,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.2058904999999998,
+        "system_com_velocity_m_s": -0.9167000000000015,
+        "time_s": 0.5700000000000002
+      },
+      {
+        "bar_attachment_height_m": 1.4351944999999997,
+        "bar_attachment_velocity_m_s": -1.1129000000000018,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.1151944999999996,
+        "body_com_velocity_m_s": -1.1129000000000018,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.1855944999999997,
+        "system_com_velocity_m_s": -1.1129000000000018,
+        "time_s": 0.5900000000000002
+      },
+      {
+        "bar_attachment_height_m": 1.4109744999999996,
+        "bar_attachment_velocity_m_s": -1.309100000000002,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.0909744999999995,
+        "body_com_velocity_m_s": -1.309100000000002,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.1613744999999995,
+        "system_com_velocity_m_s": -1.309100000000002,
+        "time_s": 0.6100000000000002
+      },
+      {
+        "bar_attachment_height_m": 1.3828304999999994,
+        "bar_attachment_velocity_m_s": -1.505300000000002,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.0628304999999993,
+        "body_com_velocity_m_s": -1.505300000000002,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.1332304999999994,
+        "system_com_velocity_m_s": -1.505300000000002,
+        "time_s": 0.6300000000000002
+      },
+      {
+        "bar_attachment_height_m": 1.3507624999999994,
+        "bar_attachment_velocity_m_s": -1.7015000000000022,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 1.0307624999999994,
+        "body_com_velocity_m_s": -1.7015000000000022,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.1011624999999994,
+        "system_com_velocity_m_s": -1.7015000000000022,
+        "time_s": 0.6500000000000002
+      },
+      {
+        "bar_attachment_height_m": 1.3147704999999994,
+        "bar_attachment_velocity_m_s": -1.8977000000000024,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 0.9947704999999993,
+        "body_com_velocity_m_s": -1.8977000000000024,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.0651704999999994,
+        "system_com_velocity_m_s": -1.8977000000000024,
+        "time_s": 0.6700000000000003
+      },
+      {
+        "bar_attachment_height_m": 1.2748544999999993,
+        "bar_attachment_velocity_m_s": -2.0939000000000028,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 0.9548544999999993,
+        "body_com_velocity_m_s": -2.0939000000000028,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 1.0252544999999993,
+        "system_com_velocity_m_s": -2.0939000000000028,
+        "time_s": 0.6900000000000003
+      },
+      {
+        "bar_attachment_height_m": 1.2310144999999992,
+        "bar_attachment_velocity_m_s": -2.290100000000003,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 0.9110144999999992,
+        "body_com_velocity_m_s": -2.290100000000003,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 0.9814144999999992,
+        "system_com_velocity_m_s": -2.290100000000003,
+        "time_s": 0.7100000000000003
+      },
+      {
+        "bar_attachment_height_m": 1.183250499999999,
+        "bar_attachment_velocity_m_s": -2.486300000000003,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 0.863250499999999,
+        "body_com_velocity_m_s": -2.486300000000003,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 0.9336504999999992,
+        "system_com_velocity_m_s": -2.486300000000003,
+        "time_s": 0.7300000000000003
+      },
+      {
+        "bar_attachment_height_m": 1.131562499999999,
+        "bar_attachment_velocity_m_s": -2.682500000000003,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 0.811562499999999,
+        "body_com_velocity_m_s": -2.682500000000003,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 0.8819624999999989,
+        "system_com_velocity_m_s": -2.682500000000003,
+        "time_s": 0.7500000000000003
+      },
+      {
+        "bar_attachment_height_m": 1.075950499999999,
+        "bar_attachment_velocity_m_s": -2.8787000000000034,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 0.7559504999999989,
+        "body_com_velocity_m_s": -2.8787000000000034,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 0.8263504999999989,
+        "system_com_velocity_m_s": -2.8787000000000034,
+        "time_s": 0.7700000000000004
+      },
+      {
+        "bar_attachment_height_m": 1.0466729999999997,
+        "bar_attachment_velocity_m_s": -2.9768000000000003,
+        "body_com_acceleration_m_s2": -9.81,
+        "body_com_height_m": 0.7266729999999998,
+        "body_com_velocity_m_s": -2.9768000000000003,
+        "mode": "FLIGHT",
+        "normal_force_n": 0.0,
+        "system_com_acceleration_m_s2": -9.81,
+        "system_com_height_m": 0.7970729999999997,
+        "system_com_velocity_m_s": -2.9768000000000003,
+        "time_s": 0.78
+      }
+    ],
+    "transitions": [
+      {
+        "from_mode": "STANCE",
+        "time_s": 0.37,
+        "to_mode": "FLIGHT"
+      }
+    ]
+  },
+  "scenario": {
+    "bar_mass_kg": 22.0,
+    "bar_offset_m": 0.32,
+    "body_mass_kg": 78.0,
+    "gravity_m_s2": 9.81,
+    "initial_body_com_height_m": 0.92,
+    "initial_vertical_velocity_m_s": 0.05,
+    "name": "manufactured_vertical_controlled_stance_then_flight",
+    "phases": [
+      {
+        "duration_s": 0.37,
+        "mode": "STANCE",
+        "prescribed_normal_force_n": 1250.0
+      },
+      {
+        "duration_s": 0.41,
+        "mode": "FLIGHT",
+        "prescribed_normal_force_n": 0.0
+      }
+    ],
+    "sample_interval_s": 0.02,
+    "total_mass_kg": 100.0
+  },
+  "simulated_observations_for_figure": {
+    "error_assumptions": {
+      "calibration_status": "assumed synthetic parameters, not empirically calibrated",
+      "force_missing_indices": [
+        3
+      ],
+      "force_noise_std_n": 15.0,
+      "force_offset_n": -1.0,
+      "force_quantization_n": 5.0,
+      "lpt_angle_noise_std_rad": 0.004,
+      "lpt_length_noise_std_m": 0.003,
+      "lpt_length_offset_m": 0.001,
+      "lpt_length_quantization_m": 0.001,
+      "lpt_missing_indices": [
+        4
+      ],
+      "lpt_rate_noise_std_m_s": 0.015,
+      "seed": 20261012
+    },
+    "force_clock": {
+      "drift_ppm": 50.0,
+      "offset_s": 0.003,
+      "sample_period_s": 0.04
+    },
+    "force_metadata": {
+      "frame": "inertial_lab_z",
+      "positive_direction": "upward",
+      "quantity": "vertical_ground_reaction_force",
+      "source_stage": "SIMULATED_OBSERVATION",
+      "support_coverage": "declared_system_total_support_only",
+      "timebase": "sensor_native_clock_seconds",
+      "units": "N"
+    },
+    "force_samples": [
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.003,
+        "right_vertical_force_n": null,
+        "sample_index": 0,
+        "saturated": false,
+        "total_vertical_force_n": 1225.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.043000000000000003,
+        "right_vertical_force_n": null,
+        "sample_index": 1,
+        "saturated": false,
+        "total_vertical_force_n": 1265.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.083,
+        "right_vertical_force_n": null,
+        "sample_index": 2,
+        "saturated": false,
+        "total_vertical_force_n": 1255.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": true,
+        "native_time_s": 0.123,
+        "right_vertical_force_n": null,
+        "sample_index": 3,
+        "saturated": false,
+        "total_vertical_force_n": null
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.163,
+        "right_vertical_force_n": null,
+        "sample_index": 4,
+        "saturated": false,
+        "total_vertical_force_n": 1250.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.203,
+        "right_vertical_force_n": null,
+        "sample_index": 5,
+        "saturated": false,
+        "total_vertical_force_n": 1255.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.243,
+        "right_vertical_force_n": null,
+        "sample_index": 6,
+        "saturated": false,
+        "total_vertical_force_n": 1230.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.28300000000000003,
+        "right_vertical_force_n": null,
+        "sample_index": 7,
+        "saturated": false,
+        "total_vertical_force_n": 1260.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.323,
+        "right_vertical_force_n": null,
+        "sample_index": 8,
+        "saturated": false,
+        "total_vertical_force_n": 1255.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.363,
+        "right_vertical_force_n": null,
+        "sample_index": 9,
+        "saturated": false,
+        "total_vertical_force_n": 1260.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.403,
+        "right_vertical_force_n": null,
+        "sample_index": 10,
+        "saturated": false,
+        "total_vertical_force_n": 0.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.443,
+        "right_vertical_force_n": null,
+        "sample_index": 11,
+        "saturated": false,
+        "total_vertical_force_n": 15.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.483,
+        "right_vertical_force_n": null,
+        "sample_index": 12,
+        "saturated": false,
+        "total_vertical_force_n": -15.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.523,
+        "right_vertical_force_n": null,
+        "sample_index": 13,
+        "saturated": false,
+        "total_vertical_force_n": 15.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.5630000000000001,
+        "right_vertical_force_n": null,
+        "sample_index": 14,
+        "saturated": false,
+        "total_vertical_force_n": 10.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.603,
+        "right_vertical_force_n": null,
+        "sample_index": 15,
+        "saturated": false,
+        "total_vertical_force_n": -10.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.643,
+        "right_vertical_force_n": null,
+        "sample_index": 16,
+        "saturated": false,
+        "total_vertical_force_n": -15.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.683,
+        "right_vertical_force_n": null,
+        "sample_index": 17,
+        "saturated": false,
+        "total_vertical_force_n": 0.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.723,
+        "right_vertical_force_n": null,
+        "sample_index": 18,
+        "saturated": false,
+        "total_vertical_force_n": -10.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.763,
+        "right_vertical_force_n": null,
+        "sample_index": 19,
+        "saturated": false,
+        "total_vertical_force_n": 20.0
+      }
+    ],
+    "lpt_clock": {
+      "drift_ppm": -35.0,
+      "offset_s": -0.007,
+      "sample_period_s": 0.025
+    },
+    "lpt_metadata": {
+      "frame": "fixed_anchor_xz_plane",
+      "positive_direction": "cable_outward;increasing_length;counterclockwise_angle",
+      "quantity": "zeroed_cable_length_rate_and_angle",
+      "source_stage": "SIMULATED_OBSERVATION",
+      "support_coverage": "declared_attachment_target_only",
+      "timebase": "sensor_native_clock_seconds",
+      "units": "m;m/s;rad"
+    },
+    "lpt_samples": [
+      {
+        "cable_angle_rad": 1.088,
+        "cable_length_m": 1.288,
+        "cable_rate_m_s": 0.04,
+        "missing": false,
+        "native_time_s": -0.007,
+        "sample_index": 0,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.086,
+        "cable_length_m": 1.29,
+        "cable_rate_m_s": 0.095,
+        "missing": false,
+        "native_time_s": 0.018000000000000002,
+        "sample_index": 1,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.082,
+        "cable_length_m": 1.299,
+        "cable_rate_m_s": 0.165,
+        "missing": false,
+        "native_time_s": 0.043000000000000003,
+        "sample_index": 2,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.092,
+        "cable_length_m": 1.295,
+        "cable_rate_m_s": 0.195,
+        "missing": false,
+        "native_time_s": 0.068,
+        "sample_index": 3,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": null,
+        "cable_length_m": null,
+        "cable_rate_m_s": null,
+        "missing": true,
+        "native_time_s": 0.093,
+        "sample_index": 4,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.102,
+        "cable_length_m": 1.312,
+        "cable_rate_m_s": 0.33,
+        "missing": false,
+        "native_time_s": 0.118,
+        "sample_index": 5,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.102,
+        "cable_length_m": 1.326,
+        "cable_rate_m_s": 0.395,
+        "missing": false,
+        "native_time_s": 0.14300000000000002,
+        "sample_index": 6,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1,
+        "cable_length_m": 1.33,
+        "cable_rate_m_s": 0.45,
+        "missing": false,
+        "native_time_s": 0.168,
+        "sample_index": 7,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.108,
+        "cable_length_m": 1.348,
+        "cable_rate_m_s": 0.54,
+        "missing": false,
+        "native_time_s": 0.193,
+        "sample_index": 8,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.108,
+        "cable_length_m": 1.355,
+        "cable_rate_m_s": 0.595,
+        "missing": false,
+        "native_time_s": 0.218,
+        "sample_index": 9,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.122,
+        "cable_length_m": 1.372,
+        "cable_rate_m_s": 0.615,
+        "missing": false,
+        "native_time_s": 0.243,
+        "sample_index": 10,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1300000000000001,
+        "cable_length_m": 1.397,
+        "cable_rate_m_s": 0.7000000000000001,
+        "missing": false,
+        "native_time_s": 0.268,
+        "sample_index": 11,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1300000000000001,
+        "cable_length_m": 1.407,
+        "cable_rate_m_s": 0.78,
+        "missing": false,
+        "native_time_s": 0.29300000000000004,
+        "sample_index": 12,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1300000000000001,
+        "cable_length_m": 1.433,
+        "cable_rate_m_s": 0.8250000000000001,
+        "missing": false,
+        "native_time_s": 0.318,
+        "sample_index": 13,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1340000000000001,
+        "cable_length_m": 1.454,
+        "cable_rate_m_s": 0.905,
+        "missing": false,
+        "native_time_s": 0.343,
+        "sample_index": 14,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.156,
+        "cable_length_m": 1.475,
+        "cable_rate_m_s": 0.935,
+        "missing": false,
+        "native_time_s": 0.368,
+        "sample_index": 15,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1520000000000001,
+        "cable_length_m": 1.491,
+        "cable_rate_m_s": 0.6950000000000001,
+        "missing": false,
+        "native_time_s": 0.393,
+        "sample_index": 16,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.154,
+        "cable_length_m": 1.512,
+        "cable_rate_m_s": 0.45,
+        "missing": false,
+        "native_time_s": 0.41800000000000004,
+        "sample_index": 17,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.164,
+        "cable_length_m": 1.5210000000000001,
+        "cable_rate_m_s": 0.2,
+        "missing": false,
+        "native_time_s": 0.443,
+        "sample_index": 18,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.168,
+        "cable_length_m": 1.5250000000000001,
+        "cable_rate_m_s": -0.01,
+        "missing": false,
+        "native_time_s": 0.468,
+        "sample_index": 19,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.166,
+        "cable_length_m": 1.5230000000000001,
+        "cable_rate_m_s": -0.215,
+        "missing": false,
+        "native_time_s": 0.493,
+        "sample_index": 20,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.168,
+        "cable_length_m": 1.512,
+        "cable_rate_m_s": -0.445,
+        "missing": false,
+        "native_time_s": 0.518,
+        "sample_index": 21,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.17,
+        "cable_length_m": 1.497,
+        "cable_rate_m_s": -0.67,
+        "missing": false,
+        "native_time_s": 0.543,
+        "sample_index": 22,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1520000000000001,
+        "cable_length_m": 1.478,
+        "cable_rate_m_s": -0.885,
+        "missing": false,
+        "native_time_s": 0.5680000000000001,
+        "sample_index": 23,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1480000000000001,
+        "cable_length_m": 1.452,
+        "cable_rate_m_s": -1.09,
+        "missing": false,
+        "native_time_s": 0.5930000000000001,
+        "sample_index": 24,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1380000000000001,
+        "cable_length_m": 1.42,
+        "cable_rate_m_s": -1.32,
+        "missing": false,
+        "native_time_s": 0.618,
+        "sample_index": 25,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.122,
+        "cable_length_m": 1.3860000000000001,
+        "cable_rate_m_s": -1.53,
+        "missing": false,
+        "native_time_s": 0.643,
+        "sample_index": 26,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.102,
+        "cable_length_m": 1.346,
+        "cable_rate_m_s": -1.75,
+        "missing": false,
+        "native_time_s": 0.668,
+        "sample_index": 27,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.096,
+        "cable_length_m": 1.304,
+        "cable_rate_m_s": -1.94,
+        "missing": false,
+        "native_time_s": 0.6930000000000001,
+        "sample_index": 28,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.076,
+        "cable_length_m": 1.248,
+        "cable_rate_m_s": -2.115,
+        "missing": false,
+        "native_time_s": 0.7180000000000001,
+        "sample_index": 29,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.046,
+        "cable_length_m": 1.19,
+        "cable_rate_m_s": -2.305,
+        "missing": false,
+        "native_time_s": 0.743,
+        "sample_index": 30,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.02,
+        "cable_length_m": 1.127,
+        "cable_rate_m_s": -2.475,
+        "missing": false,
+        "native_time_s": 0.768,
+        "sample_index": 31,
+        "saturated": false
+      }
+    ]
+  }
+}

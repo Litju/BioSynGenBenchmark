@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "i0-queue-20261012",
+  "project": "P-RES-41",
+  "root": "D:\\projects\\BioSynGenBenchmark",
+  "startedAtUtc": "2026-10-12T09:26:40.0000000+00:00",
+  "endedAtUtc": "2026-10-12T10:26:50.5931451+00:00",
+  "maxElapsedHours": 6,
+  "queue": [
+    "RES-475",
+    "RES-476",
+    "RES-477",
+    "RES-478",
+    "RES-479"
+  ],
+  "issues": {
+    "RES-475": {
+      "status": "In Review",
+      "result": "PASS",
+      "startedAtUtc": "2026-10-12T09:26:41.5810000+00:00",
+      "endedAtUtc": "2026-10-12T09:42:35.6593350+00:00",
+      "tests": "pwsh -NoProfile -File tests\\test_overnight_controller.ps1; exit 0; 23 assertions",
+      "artifacts": {
+        "AGENTS.md": "6ec1d86a163acc88edbb6377c1efe175618a56c4995eed7b516dff8e3c71132a",
+        "README.md": "16512e9ee242db8242fcca0059fe0a162e7be6b06c38e2cc32b6d044d1cf1c7a",
+        "scripts/overnight.ps1": "5368eadd5d244c9d30048424318e640460fef7baef90014de22cf760fac85587",
+        "tests/test_overnight_controller.ps1": "07d64a44e91bfebae096264c6cc16cb39a448ba6e127f65dcd8859f45126902a",
+        "runs/overnight/res475-dryrun-acceptance-20261012/dry-run.txt": "64677ca95506502027e34139e653d13a45344936f8260365c915f1a8b1048662",
+        "runs/overnight/res475-dryrun-acceptance-20261012/state.json": "174da81f81ab755b9f1fc68ac644a024fbad882bb6f2a986a84236d14d21da83"
+      }
+    },
+    "RES-476": {
+      "status": "In Review",
+      "result": "PASS",
+      "startedAtUtc": "2026-10-12T09:42:21.8570000+00:00",
+      "endedAtUtc": "2026-10-12T09:49:55.7121177+00:00",
+      "tests": "python -m unittest discover -s tests -p test_mechanics.py -v; exit 0; 14 tests; python -m scripts.generate_mechanics_fixture; exit 0; 41 deterministic samples",
+      "artifacts": {
+        "biosyngen/__init__.py": "26e1dec05eeaaa51a847ccc32169f4d7df56c81c9d1ac29569c72645bdf255d9",
+        "biosyngen/mechanics.py": "89c1c0b2703a7b2f3da2724494657c953565704e8e2d0305f28d369a34ccfccc",
+        "tests/test_mechanics.py": "53260edb42f7ebd49dedebe975802e688621162f701005f36b01c152f1fc869b",
+        "scripts/generate_mechanics_fixture.py": "2292045acfcc2302851753c4ad90453fb53187eb45469b9407866470d4df33b0",
+        "docs/mechanics.md": "f92fc0a3ed713a77d75879573b674543fc78776f115867490441518ed42d2546",
+        "README.md": "181d5c185f93d3d6a73d53720a376d659d0920863959dca8115415fb864a5222",
+        "runs/overnight/i0-queue-20261012/res476-mechanics-fixture.json": "fab3bd3ef039efdf618161abbada50f2684abc6d546a17a4c0173f48c6f32dfa"
+      },
+      "numericalError": {
+        "maxBodyHeightErrorM": 4.440892098500626E-16,
+        "maxBodyVelocityErrorMPerS": 4.440892098500626E-16,
+        "heightRoundoffBoundM": 6.864202433121135E-13,
+        "velocityRoundoffBoundMPerS": 1.7344177649647465E-12
+      }
+    },
+    "RES-477": {
+      "status": "In Review",
+      "result": "PASS",
+      "startedAtUtc": "2026-10-12T09:51:23.7090000+00:00",
+      "endedAtUtc": "2026-10-12T10:01:45.6830049+00:00",
+      "tests": "python -m unittest discover -s tests -p test_observations.py -v; exit 0; 14 tests; python -m unittest discover -s tests -v; exit 0; 28 tests; python -m scripts.generate_observation_fixture; exit 0; FORCE 20 / LPT 32 samples; pwsh controller suite 23 assertions",
+      "artifacts": {
+        "biosyngen/__init__.py": "5f04348bf20b8541a611d04235a1c6eb6a228e5deb36522a6e00d82ff925c677",
+        "biosyngen/observations.py": "7f4ac426614261d22a0dbab35fd5b55627d3448c0365b39d89b6ef8240bfd4f2",
+        "tests/test_observations.py": "889f3af25f49df5670e007f7c590625b6e8baa6895990cf53c2a44c213fd31db",
+        "scripts/generate_observation_fixture.py": "2bb6b19c486468027322d41f7c4eeb366ccd5ec287c69a621b0b4055b9d8f670",
+        "docs/observations.md": "499fb37789b7a3933f74bb29fb4fef9d19f73c00ee536977071f68230e3ed11d",
+        "README.md": "9b174077a2fcc824bef80a070b3b80d21bc07786ff3ff30db6e4e842ba7c351f",
+        "runs/overnight/i0-queue-20261012/res477-observation-fixture.json": "3acddc6a41f1593015cae4e43ead6c3c92b50192f60d0b721abc555d4feaee1a"
+      }
+    },
+    "RES-478": {
+      "status": "In Review",
+      "result": "PASS",
+      "startedAtUtc": "2026-10-12T10:01:53.0200000+00:00",
+      "endedAtUtc": "2026-10-12T10:12:54.1124611+00:00",
+      "tests": "python -m unittest discover -s tests -p test_benchmark.py -v; exit 0; 11 tests; python -m unittest discover -s tests -v; exit 0; 39 tests; python -m scripts.generate_benchmark_report; exit 0; PowerShell controller suite 23 assertions",
+      "artifacts": {
+        "biosyngen_benchmark/__init__.py": "fd5425c2131638f18b9f3c31cebcfc7939bf2a8a910fb34501dbcd73959a69a1",
+        "biosyngen_benchmark/core.py": "37994df4597d3475931b7c39f5d7ad864a452f499415744924baa7fea6b1db45",
+        "tests/test_benchmark.py": "9de80b04282d4b52cac2752b44badac131ce1928e190929adc976a4638bad137",
+        "scripts/generate_benchmark_report.py": "bd2a9ac24c3bdbd59e0e7c4ab905a15c11ea758db528f8e54b58499ad1c28350",
+        "docs/benchmark.md": "f90bb104fce671e8a690c424b847b16b6fcf804fed50326bbb300d4134f119c4",
+        "README.md": "f5de91fdffb4300ff60e84f4ea4a81cb8c2ccbde20ec944d52aaa6ee2e13c9b1",
+        "runs/overnight/i0-queue-20261012/res478-benchmark-report.json": "c74660fbcc2db20ecc72a8f1a75ae530ac09dd4f2d7263d34b4a8d1d799f733b"
+      },
+      "evaluationCounts": {
+        "validKnownAnswer": {
+          "evaluated": 5,
+          "eligible": 3,
+          "admitted": 3,
+          "rejected": 0,
+          "notEvaluable": 2
+        },
+        "adversarialFalseClaims": {
+          "evaluated": 4,
+          "eligible": 4,
+          "admitted": 0,
+          "rejected": 4,
+          "notEvaluable": 0
+        },
+        "incompleteEvidence": {
+          "evaluated": 4,
+          "eligible": 0,
+          "admitted": 0,
+          "rejected": 0,
+          "notEvaluable": 4
+        }
+      }
+    },
+    "RES-479": {
+      "status": "In Review",
+      "result": "PASS",
+      "startedAtUtc": "2026-10-12T10:13:07.4610000+00:00",
+      "endedAtUtc": "2026-10-12T10:26:50.6048399+00:00",
+      "tests": "python -m unittest discover -s tests -v; exit 0; 43 tests; pwsh -NoProfile -File tests\\test_overnight_controller.ps1; exit 0; 23 assertions; python -m scripts.run_pilot; exit 0; two identical end-to-end outputs",
+      "artifacts": {
+        "scripts/run_pilot.py": "5336039c7d6c156d6088aefbdd747cdc3c263cc07581c73489427c6ca0baaea0",
+        "tests/test_run_pilot.py": "40c4ee3c7f73f70a635229a20e05e1370eaa1eacfa767086cb6e2652b455852c",
+        "README.md": "cb3e327f4b6cda6de87ce20349934bdd87fb86fb51819b306162315ade2fec03",
+        "runs/overnight/i0-queue-20261012/reproducibility.json": "5f84913962d7d345200bc7e3eedcd3a6c9827ef348125be29c0607cf1f265ea2",
+        "runs/overnight/i0-queue-20261012/end-to-end-run-a/pilot-data.json": "9fc76b01463444e597583139b81a1f1364c0327d589fc59f6f30c82fe98abab6",
+        "runs/overnight/i0-queue-20261012/end-to-end-run-a/evaluator-input.json": "2d6ad2b067450b82c4592c4676890c16be2b7099e87f7a48976e700e2a37668a",
+        "runs/overnight/i0-queue-20261012/end-to-end-run-a/evaluation-report.json": "3ce518e8c868755d0b0afee0985f3456c9453992b5842c0e0b12d776cb0ef065",
+        "runs/overnight/i0-queue-20261012/end-to-end-run-a/pilot-figure.svg": "418e2b0948be676ac4cf37f4ccd0f35731aad64bf0d4cce1af8c4252a80bfaa5",
+        "runs/overnight/i0-queue-20261012/end-to-end-run-a/pilot-report.md": "6285669c3df549351b5debe11039d1dfef04c45ad01a77d34650d66cb5468c4b",
+        "runs/overnight/i0-queue-20261012/end-to-end-run-a/manifest.json": "98fe00ad4fdc9dfbcad50bbbe7176edeaa310016eae2fed25a5b126bfbd2bb75",
+        "runs/overnight/i0-queue-20261012/SUMMARY.md": "28282c6adef5b72e4729bb7c3d9dc7c3b8c9feb4728540496d7b6d6602313636"
+      },
+      "reproducibilityDigest": "b7de6f94886a2420d6f3653eeea49baaa4b624f8b58d0978fb",
+      "normalizedRunsEqual": true
+    }
+  },
+  "currentIssue": null,
+  "next": "STOP",
+  "stopReason": null,
+  "claims": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "boundaries": {
+    "evidenceFolderMutations": 0,
+    "plate2barMutations": 0,
+    "historicalHoldoutReplays": 0,
+    "gitInitialized": false
+  },
+  "result": "COMPLETED"
+}

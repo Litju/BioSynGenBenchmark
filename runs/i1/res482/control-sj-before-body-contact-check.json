@@ -1,0 +1,1692 @@
+{
+ "bar_mass_kg": null,
+ "best_objective": 2.2083528065135143,
+ "best_x": [
+  0.41457850907235577,
+  0.12103638003950334,
+  0.05211320386914761
+ ],
+ "iterations": 25,
+ "objective": "takeoff system-COM vz minus penalties (see module docstring)",
+ "seed": 20261012,
+ "starts": 3,
+ "task": "sj",
+ "trials": [
+  {
+   "objective": -1.7374527494715672,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -1.057821205752353,
+   "takeoff_vz": 1.7781896620331388,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.4516576364783589,
+    0.007812626735029832,
+    -0.04971544746897345
+   ]
+  },
+  {
+   "objective": -1.7374527496128698,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -1.057821205752362,
+   "takeoff_vz": 1.778189661891854,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.5016576364783589,
+    0.007812626735029832,
+    -0.04971544746897345
+   ]
+  },
+  {
+   "objective": 0.6238172174630661,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.9899963168120091,
+   "takeoff_vz": 2.0038098510870843,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4516576364783589,
+    0.057812626735029835,
+    -0.04971544746897345
+   ]
+  },
+  {
+   "objective": -1.16560795991743,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.8559376775725215,
+   "takeoff_vz": 1.946267395227613,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.4516576364783589,
+    0.007812626735029832,
+    0.00028455253102654954
+   ]
+  },
+  {
+   "objective": -1.453786956470881,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -1.0022535219999513,
+   "takeoff_vz": 1.9507200875290216,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.40165763647835884,
+    0.041145960068363165,
+    -0.016382114135640113
+   ]
+  },
+  {
+   "objective": 0.9398547658935583,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.8913513252536692,
+   "takeoff_vz": 2.122557416400897,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41832430314502556,
+    0.0633681822905854,
+    0.005840108086582106
+   ]
+  },
+  {
+   "objective": 1.671844103148243,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.6134444958881977,
+   "takeoff_vz": 2.2987330949246383,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4016576364783589,
+    0.09114596006836317,
+    0.03361788586435989
+   ]
+  },
+  {
+   "objective": 0.9398547659300123,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.8913513252536684,
+   "takeoff_vz": 2.122557416437349,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4683243031450256,
+    0.06336818229058538,
+    0.005840108086582105
+   ]
+  },
+  {
+   "objective": 1.2235026239970614,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.7808141763521991,
+   "takeoff_vz": 2.1851309767014597,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.42943541425613674,
+    0.13373855266095577,
+    -0.007122854876380855
+   ]
+  },
+  {
+   "objective": 2.030090389366835,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.09202614858158517,
+   "takeoff_vz": 2.030090389366835,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.414620599441322,
+    0.13435583661157308,
+    0.07127220685201421
+   ]
+  },
+  {
+   "objective": -5.207125974874696,
+   "passive_n_m": 643.5566664725038,
+   "takeoff_vx": 0.27673573146411645,
+   "takeoff_vz": 1.2284406898503417,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3961020809228036,
+    0.17262744154984466,
+    0.13176603401250805
+   ]
+  },
+  {
+   "objective": 1.8103731941472294,
+   "passive_n_m": 0.0,
+   "takeoff_vx": 0.027251040362883384,
+   "takeoff_vz": 1.8103731941472294,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.36215146363885287,
+    0.17612538393667596,
+    0.05933805047341339
+   ]
+  },
+  {
+   "objective": -4.162224187850836,
+   "passive_n_m": 562.6748574255879,
+   "takeoff_vx": 0.07211739858792958,
+   "takeoff_vz": 1.4645243864050432,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.35618438544955244,
+    0.13401290108345235,
+    0.11660828366957252
+   ]
+  },
+  {
+   "objective": 1.902132959094317,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.46845804952062037,
+   "takeoff_vz": 2.2390490581355578,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4111226570544907,
+    0.13380713976657993,
+    0.023809929760107488
+   ]
+  },
+  {
+   "objective": 1.562759943508624,
+   "passive_n_m": 0.0,
+   "takeoff_vx": 0.17418895460423317,
+   "takeoff_vz": 1.562759943508624,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3902721769447515,
+    0.20504628014152282,
+    0.06932890552599684
+   ]
+  },
+  {
+   "objective": 2.094850452151425,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3795645709350001,
+   "takeoff_vz": 2.253979594021425,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.39881127159495705,
+    0.11962104008665309,
+    0.04254564077976913
+   ]
+  },
+  {
+   "objective": 1.5399073275640323,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.6651073497994455,
+   "takeoff_vz": 2.270122027162923,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4542182217549936,
+    0.08239729370652812,
+    0.032413801121180495
+   ]
+  },
+  {
+   "objective": 2.018875789941353,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.1191322494797572,
+   "takeoff_vz": 2.018875789941353,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.38516815316788805,
+    0.152693361379139,
+    0.052606988135355165
+   ]
+  },
+  {
+   "objective": -1.5947261463743567,
+   "passive_n_m": 349.15676609578094,
+   "takeoff_vx": 0.007495208335584517,
+   "takeoff_vz": 1.8968415145834525,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.38794402574828735,
+    0.13730635228499682,
+    0.08713996075131819
+   ]
+  },
+  {
+   "objective": 2.1582066663630113,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3170761133891168,
+   "takeoff_vz": 2.192358893141245,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.40532799922793983,
+    0.13468194289618415,
+    0.03964243750791016
+   ]
+  },
+  {
+   "objective": 2.0414768402548398,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.40826235028186647,
+   "takeoff_vz": 2.2580015408185727,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4273384270082578,
+    0.10641251835046786,
+    0.04969986862444051
+   ]
+  },
+  {
+   "objective": 1.567006082279737,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.6718772263741986,
+   "takeoff_vz": 2.310760535028134,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.40636453244611437,
+    0.10612116427729698,
+    0.016653091089398983
+   ]
+  },
+  {
+   "objective": 2.1520165847209385,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.22100961300713493,
+   "takeoff_vz": 2.1520165847209385,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4125565826925201,
+    0.12729716852800405,
+    0.0576174279113604
+   ]
+  },
+  {
+   "objective": 2.0931466247958563,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.21487975746739882,
+   "takeoff_vz": 2.0931466247958563,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3837921420020202,
+    0.14798758265675963,
+    0.043503802174919295
+   ]
+  },
+  {
+   "objective": 2.1344595749268986,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3537241705643533,
+   "takeoff_vz": 2.241907916055605,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4164518557566984,
+    0.1168062844270408,
+    0.04815085201206021
+   ]
+  },
+  {
+   "objective": 2.1395771995916135,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.21041303621380436,
+   "takeoff_vz": 2.1395771995916135,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.42407968685648184,
+    0.1329025571474996,
+    0.054394837507784725
+   ]
+  },
+  {
+   "objective": 2.061274532381862,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.1472856984484871,
+   "takeoff_vz": 2.061274532381862,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41152432342792955,
+    0.14644816128741775,
+    0.05295228327264333
+   ]
+  },
+  {
+   "objective": 2.2077821465773306,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2991624611023052,
+   "takeoff_vz": 2.2077821465773306,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41521997267450617,
+    0.12421675364213504,
+    0.04935120982720599
+   ]
+  },
+  {
+   "objective": 2.1432927941605513,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.34375231354364,
+   "takeoff_vz": 2.230797421247831,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3979900162068289,
+    0.12456135289671588,
+    0.04334587932319963
+   ]
+  },
+  {
+   "objective": 2.1645387824483144,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.24280049956308122,
+   "takeoff_vz": 2.1645387824483144,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4175572691940686,
+    0.13081725608480366,
+    0.05163259796163845
+   ]
+  },
+  {
+   "objective": 2.096895625842935,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3595391132998275,
+   "takeoff_vz": 2.2159738524425903,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4128469113718229,
+    0.13251346655407786,
+    0.036133402286476005
+   ]
+  },
+  {
+   "objective": 2.1732438274038697,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.25132265307707535,
+   "takeoff_vz": 2.1732438274038697,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4126291648623458,
+    0.1286012430345225,
+    0.05224642150513931
+   ]
+  },
+  {
+   "objective": 2.1493983577584714,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.22750110104126398,
+   "takeoff_vz": 2.1493983577584714,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.42494293859267385,
+    0.12107489227812332,
+    0.06251104868807901
+   ]
+  },
+  {
+   "objective": 2.1895591841091346,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.288578423706079,
+   "takeoff_vz": 2.1895591841091346,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41023173406912333,
+    0.13128018024166893,
+    0.04535959030295238
+   ]
+  },
+  {
+   "objective": 2.183952210864224,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.31601221675909597,
+   "takeoff_vz": 2.215976644382416,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.40782997854324826,
+    0.12524819519408065,
+    0.04633888312855999
+   ]
+  },
+  {
+   "objective": 2.1284803631537033,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3524690524097722,
+   "takeoff_vz": 2.2334184679732476,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4095586253289061,
+    0.1252288430174006,
+    0.041786700667339596
+   ]
+  },
+  {
+   "objective": 2.1896985936197,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2758211645796308,
+   "takeoff_vz": 2.1896985936197,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41186152997898584,
+    0.12775814303024202,
+    0.049631491295689376
+   ]
+  },
+  {
+   "objective": 2.175631641148111,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.25917784241786707,
+   "takeoff_vz": 2.175631641148111,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41704551260516204,
+    0.13025518941528336,
+    0.04988931115533851
+   ]
+  },
+  {
+   "objective": 2.2030025397861053,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.30168409884892333,
+   "takeoff_vz": 2.206370737483952,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.4101338620587267,
+    0.12649994374938134,
+    0.04722649013525462
+   ]
+  },
+  {
+   "objective": 2.2083528065135143,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2983610421872848,
+   "takeoff_vz": 2.2083528065135143,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41457850907235577,
+    0.12103638003950334,
+    0.05211320386914761
+   ]
+  },
+  {
+   "objective": 2.194598997153806,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.30706843894436614,
+   "takeoff_vz": 2.2087358750425383,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.416751896573972,
+    0.11591447993842055,
+    0.05549001065224523
+   ]
+  },
+  {
+   "objective": 2.1775086322734047,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.32343413389087755,
+   "takeoff_vz": 2.2243769000551596,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41476003255807325,
+    0.12007724192377112,
+    0.04949577792538276
+   ]
+  },
+  {
+   "objective": 2.199198000313447,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.28753578138499103,
+   "takeoff_vz": 2.199198000313447,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41258615562375767,
+    0.1258379177536243,
+    0.049597562953112725
+   ]
+  },
+  {
+   "objective": 2.193862358945137,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3113528772171479,
+   "takeoff_vz": 2.2165681133794326,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41403540691330143,
+    0.12199746720038884,
+    0.04952970626795941
+   ]
+  },
+  {
+   "objective": 2.2037498780716342,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2934434353038681,
+   "takeoff_vz": 2.2037498780716342,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41294846844614364,
+    0.12487780511531543,
+    0.0495805987818244
+   ]
+  },
+  {
+   "objective": 2.2046366971701805,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2935508333001755,
+   "takeoff_vz": 2.2046366971701805,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.41836410473661034,
+    0.12025401544858785,
+    0.053470184850197375
+   ]
+  },
+  {
+   "objective": -0.36834585943643594,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.5440494502032741,
+   "takeoff_vz": 2.1197530409701124,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.3607843420689726,
+    0.013370923341078728,
+    0.05622014950036669
+   ]
+  },
+  {
+   "objective": -0.36834585946727794,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.5440494502032842,
+   "takeoff_vz": 2.1197530409392904,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.4107843420689726,
+    0.013370923341078728,
+    0.05622014950036669
+   ]
+  },
+  {
+   "objective": 1.6383647723204584,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.5555348154340615,
+   "takeoff_vz": 2.1494344031885815,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3607843420689726,
+    0.06337092334107873,
+    0.05622014950036669
+   ]
+  },
+  {
+   "objective": 2.0707274348226843,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.26241240377561903,
+   "takeoff_vz": 2.0707274348226843,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3607843420689726,
+    0.013370923341078728,
+    0.10622014950036669
+   ]
+  },
+  {
+   "objective": 2.100166975451848,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3122082409795351,
+   "takeoff_vz": 2.124583457410918,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3107843420689727,
+    0.04670425667441206,
+    0.08955348283370002
+   ]
+  },
+  {
+   "objective": 2.0023076501906956,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.15937029777358608,
+   "takeoff_vz": 2.0023076501906956,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.2607843420689728,
+    0.06337092334107873,
+    0.10622014950036668
+   ]
+  },
+  {
+   "objective": 1.9431953534456852,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.10612455151446915,
+   "takeoff_vz": 1.9431953534456852,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.32745100873563926,
+    0.0689264788966343,
+    0.11177570505592224
+   ]
+  },
+  {
+   "objective": 1.8787336092317102,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.03908863953066477,
+   "takeoff_vz": 1.8787336092317102,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3052287865134171,
+    0.022630182600338,
+    0.14881274209295928
+   ]
+  },
+  {
+   "objective": 1.981247810548143,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3770303111415025,
+   "takeoff_vz": 2.135308432831148,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.34689545318008375,
+    0.053185738155893544,
+    0.07936829764851483
+   ]
+  },
+  {
+   "objective": -0.20922462288333588,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.45413569610413435,
+   "takeoff_vz": 2.099046769324933,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.3515250828097134,
+    0.006580799884288599,
+    0.07165224826579877
+   ]
+  },
+  {
+   "objective": 2.0655656488633567,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.21436277570549966,
+   "takeoff_vz": 2.0655656488633567,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3334695272541578,
+    0.05334005914354787,
+    0.10174484085839137
+   ]
+  },
+  {
+   "objective": 2.045021249911707,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.17991368782796618,
+   "takeoff_vz": 2.045021249911707,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3231300210813183,
+    0.022424421283465557,
+    0.11897735114645722
+   ]
+  },
+  {
+   "objective": 2.0954612469972917,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.316117930453474,
+   "takeoff_vz": 2.1276971079042397,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3409540951553924,
+    0.045495408937786544,
+    0.08927056102300043
+   ]
+  },
+  {
+   "objective": 2.006535979925861,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.35736665921880995,
+   "takeoff_vz": 2.121269298363481,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.34154565894140054,
+    0.01704033349197035,
+    0.08828462137965339
+   ]
+  },
+  {
+   "objective": 2.103906406783157,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.256403397272683,
+   "takeoff_vz": 2.103906406783157,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3354885601759685,
+    0.04426512773065349,
+    0.09837978598870688
+   ]
+  },
+  {
+   "objective": 1.9467534127597401,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3539990905137301,
+   "takeoff_vz": 2.0547515937872003,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.29736698953124985,
+    0.077605605554156,
+    0.07858240372990484
+   ]
+  },
+  {
+   "objective": 2.116164661287346,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2776299677577624,
+   "takeoff_vz": 2.116164661287346,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3449300039345419,
+    0.029429593894348047,
+    0.09931071305775123
+   ]
+  },
+  {
+   "objective": 2.1062287185958968,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2503923689402349,
+   "takeoff_vz": 2.1062287185958968,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3198478422975964,
+    0.03477057659515585,
+    0.10222542689710495
+   ]
+  },
+  {
+   "objective": 2.080667548536446,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.22016373479362675,
+   "takeoff_vz": 2.080667548536446,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3560599288697652,
+    0.025605942139026207,
+    0.11039046779534203
+   ]
+  },
+  {
+   "objective": 2.120017698371139,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.28571187680095395,
+   "takeoff_vz": 2.120017698371139,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3221032387691708,
+    0.0414296780405656,
+    0.09476272907411051
+   ]
+  },
+  {
+   "objective": 2.114903478197691,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2837575646241122,
+   "takeoff_vz": 2.114903478197691,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.32243216315823753,
+    0.026154771289392843,
+    0.09915279336393758
+   ]
+  },
+  {
+   "objective": 2.1036234808960654,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.31369568909832596,
+   "takeoff_vz": 2.1310148590927174,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.33979576161037045,
+    0.02990545222104847,
+    0.09325873010009458
+   ]
+  },
+  {
+   "objective": 2.1136843625195136,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.266444499617559,
+   "takeoff_vz": 2.1136843625195136,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3248348221257899,
+    0.03355429550162901,
+    0.09998375269785237
+   ]
+  },
+  {
+   "objective": 2.1260681328284856,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.29810824385992807,
+   "takeoff_vz": 2.1260681328284856,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.33480878178217693,
+    0.031121733314575316,
+    0.09550040429934717
+   ]
+  },
+  {
+   "objective": 2.10362348056284,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3136956890983174,
+   "takeoff_vz": 2.131014858759475,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.33979576161037045,
+    0.02990545222104847,
+    0.09325873010009457
+   ]
+  },
+  {
+   "objective": 2.121776109953943,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.290759367986019,
+   "takeoff_vz": 2.121776109953943,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.34546251983235554,
+    0.0418325655435998,
+    0.0938964375902017
+   ]
+  },
+  {
+   "objective": 2.1068089839793527,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3079887570808142,
+   "takeoff_vz": 2.122786498140981,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.32331968965459357,
+    0.04682639070481244,
+    0.09012900091802171
+   ]
+  },
+  {
+   "objective": 2.121719139147757,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2844465470163101,
+   "takeoff_vz": 2.121719139147757,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3395274253645548,
+    0.033778793096964146,
+    0.09701528502281885
+   ]
+  },
+  {
+   "objective": 2.1242051445115098,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2960954036600235,
+   "takeoff_vz": 2.1242051445115098,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3577625792168875,
+    0.029725716596193906,
+    0.09617868886746797
+   ]
+  },
+  {
+   "objective": 2.1185434281155677,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.30595734838536526,
+   "takeoff_vz": 2.130458124886298,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.35249516185639185,
+    0.03467455053928187,
+    0.09336840214852572
+   ]
+  },
+  {
+   "objective": 2.1239895181032864,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2897724847686339,
+   "takeoff_vz": 2.1239895181032864,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3427693594875141,
+    0.03400273245754358,
+    0.09610356430424558
+   ]
+  },
+  {
+   "objective": 2.1119106613736496,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2974290740160898,
+   "takeoff_vz": 2.1119106613736496,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3447646271586968,
+    0.02140088936860874,
+    0.09795866739050542
+   ]
+  },
+  {
+   "objective": 2.1252963788969144,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2928143513566555,
+   "takeoff_vz": 2.1252963788969144,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.34528804666394086,
+    0.036724646499852034,
+    0.09491199504027764
+   ]
+  },
+  {
+   "objective": 2.1242213195972166,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3015715605328167,
+   "takeoff_vz": 2.1273644406628502,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.34913691228782273,
+    0.03104533181620392,
+    0.09495716116714961
+   ]
+  },
+  {
+   "objective": 2.1278522654734693,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.29908139469340567,
+   "takeoff_vz": 2.1278522654734693,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3283932479390729,
+    0.03620209115756027,
+    0.09406768480371497
+   ]
+  },
+  {
+   "objective": 2.12612459834288,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.300651108565835,
+   "takeoff_vz": 2.12742681547455,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3137085823001656,
+    0.03944027843824345,
+    0.09301218277183847
+   ]
+  },
+  {
+   "objective": 2.1243215381136014,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.29152539418659357,
+   "takeoff_vz": 2.1243215381136014,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.32318980530230446,
+    0.038320315498454494,
+    0.09469622826174359
+   ]
+  },
+  {
+   "objective": 2.1273985506234765,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.29917758316575094,
+   "takeoff_vz": 2.1273985506234765,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3426501355414432,
+    0.03286407773676656,
+    0.09489192794079811
+   ]
+  },
+  {
+   "objective": 2.118854462093725,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.30444161943988496,
+   "takeoff_vz": 2.127737700973495,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3252800635111879,
+    0.030067288306082726,
+    0.09472801632229585
+   ]
+  },
+  {
+   "objective": 2.126593043140267,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2958427663495041,
+   "takeoff_vz": 2.126593043140267,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3402860508757526,
+    0.03506030695140971,
+    0.09486600036078219
+   ]
+  },
+  {
+   "objective": 2.1268938567108284,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2979286514142465,
+   "takeoff_vz": 2.1268938567108284,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3394108411220022,
+    0.038295917249249044,
+    0.093716671104183
+   ]
+  },
+  {
+   "objective": 2.1254667254008,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3016776845052236,
+   "takeoff_vz": 2.1288220944112473,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3333500988592596,
+    0.03651441714430754,
+    0.09358485553834853
+   ]
+  },
+  {
+   "objective": 2.127179692116133,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.29728780891683826,
+   "takeoff_vz": 2.127179692116133,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3385520628716293,
+    0.03542383449963417,
+    0.09454571415517377
+   ]
+  },
+  {
+   "objective": 2.1265920059441665,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.29905165555045277,
+   "takeoff_vz": 2.1265920059441665,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3336527897794281,
+    0.03136408501339163,
+    0.09528688016227488
+   ]
+  },
+  {
+   "objective": 2.127476044855682,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.29823016254252244,
+   "takeoff_vz": 2.127476044855682,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3379713282863587,
+    0.03656295919028469,
+    0.09410922336870597
+   ]
+  },
+  {
+   "objective": 2.1276024308641053,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.30038228350742585,
+   "takeoff_vz": 2.128366997878957,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3341244116396206,
+    0.03499558422344018,
+    0.09416684325363892
+   ]
+  },
+  {
+   "objective": -1.8893878532242492,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.7921629745809518,
+   "takeoff_vz": 1.0949380959376542,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.36715591352873156,
+    -0.10548405588592716,
+    -0.03995491091788542
+   ]
+  },
+  {
+   "objective": -1.8893878530133625,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.7921629745766581,
+   "takeoff_vz": 1.0949380961399535,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.41715591352873155,
+    -0.10548405588592716,
+    -0.03995491091788542
+   ]
+  },
+  {
+   "objective": -1.7660968947280817,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.9068888525782371,
+   "takeoff_vz": 1.4476808104283927,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.36715591352873156,
+    -0.055484055885927155,
+    -0.03995491091788542
+   ]
+  },
+  {
+   "objective": -1.4534627145514858,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.5813091099555848,
+   "takeoff_vz": 1.109155505359684,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.36715591352873156,
+    -0.10548405588592716,
+    0.010045089082114586
+   ]
+  },
+  {
+   "objective": -1.394129131997494,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.7185584072054158,
+   "takeoff_vz": 1.4429876824133376,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.4004892468620649,
+    -0.0721507225525938,
+    -0.006621577584552084
+   ]
+  },
+  {
+   "objective": -1.1423068346157712,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.6766155475617435,
+   "takeoff_vz": 1.6109242605077156,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.41715591352873155,
+    -0.05548405588592713,
+    0.010045089082114583
+   ]
+  },
+  {
+   "objective": -0.8909057637208575,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.630727846410754,
+   "takeoff_vz": 1.7705499291006503,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.3504892468620649,
+    -0.03881738921926048,
+    0.02671175574878125
+   ]
+  },
+  {
+   "objective": -0.38502241315619035,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.510957584358955,
+   "takeoff_vz": 2.03689275556172,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.31715591352873157,
+    -0.005484055885927139,
+    0.06004508908211458
+   ]
+  },
+  {
+   "objective": -0.5644592850028829,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.32025366880331757,
+   "takeoff_vz": 1.476048052603752,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.36715591352873145,
+    -0.05548405588592713,
+    0.09337842241544791
+   ]
+  },
+  {
+   "objective": 2.11657881574386,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.28242432843483606,
+   "takeoff_vz": 2.11657881574386,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.36715591352873145,
+    0.02784927744740623,
+    0.09893397797100346
+   ]
+  },
+  {
+   "error": "step size underflow at t=0.6488809125632897 in TOE_ONLY_SLIDE",
+   "x": [
+    0.3671559135287314,
+    0.09451594411407292,
+    0.1433784224154479
+   ]
+  },
+  {
+   "objective": 1.8076174824255449,
+   "passive_n_m": 0.0,
+   "takeoff_vx": 0.02982266299856254,
+   "takeoff_vz": 1.8076174824255449,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.28382258019539813,
+    0.033404833002961765,
+    0.15819323723026274
+   ]
+  },
+  {
+   "error": "step size underflow at t=0.5419732173413777 in TOE_ONLY_SLIDE",
+   "x": [
+    0.27826702463984265,
+    0.09266409226222104,
+    0.11806978044013927
+   ]
+  },
+  {
+   "objective": -0.13351733098069007,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3122835370562643,
+   "takeoff_vz": 1.8910497431318387,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.34493369130650925,
+    -0.01844701884889009,
+    0.09955126192162075
+   ]
+  },
+  {
+   "termination": "TOE_LIFT_NOT_MODELED",
+   "x": [
+    0.346785543158361,
+    0.03402211695357907,
+    0.1777405623331434
+   ]
+  },
+  {
+   "objective": -0.04352541946442123,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.35834991097577473,
+   "takeoff_vz": 2.0731744024871284,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.32456332093613893,
+    0.004392487323949415,
+    0.08946895739487179
+   ]
+  },
+  {
+   "objective": 1.87424261048781,
+   "passive_n_m": 0.0,
+   "takeoff_vx": 0.0007191777726746314,
+   "takeoff_vz": 1.87424261048781,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.30542751846700317,
+    0.06221141736510169,
+    0.13151285314247124
+   ]
+  },
+  {
+   "error": "step size underflow at t=0.5989111255692989 in TOE_ONLY_SLIDE",
+   "x": [
+    0.31304068719128286,
+    0.07791786455303037,
+    0.16962442150095317
+   ]
+  },
+  {
+   "objective": 2.081009515145715,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.23029906175138412,
+   "takeoff_vz": 2.081009515145715,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.32168266249992494,
+    0.022773831631219654,
+    0.10950782342139213
+   ]
+  },
+  {
+   "objective": 1.8331163596922295,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.46662494772384605,
+   "takeoff_vz": 2.1663662551399216,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3790214828017083,
+    0.041818184626189955,
+    0.06844319912631516
+   ]
+  },
+  {
+   "objective": 1.956503292316585,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.06039274567229289,
+   "takeoff_vz": 1.956503292316585,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3076223058469757,
+    0.035508170908768816,
+    0.13575572770427585
+   ]
+  },
+  {
+   "objective": -0.03310507315577249,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.31854785470829844,
+   "takeoff_vz": 2.0039906362608244,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.35887973611675156,
+    -0.004790564040171891,
+    0.09795216625530972
+   ]
+  },
+  {
+   "objective": 1.9978514969142247,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.09876866463890262,
+   "takeoff_vz": 1.9978514969142247,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.31879057287944024,
+    0.045460922013783295,
+    0.12312268142068086
+   ]
+  },
+  {
+   "objective": 2.0157261428907653,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3647174173527556,
+   "takeoff_vz": 2.1451609775962766,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3641304600917554,
+    0.028547849819503965,
+    0.08528726083777513
+   ]
+  },
+  {
+   "objective": -0.19499538135420558,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.4484442503686527,
+   "takeoff_vz": 2.1018931193831,
+   "termination": "TAKEOFF_NOT_SUSTAINED",
+   "x": [
+    0.3831887845341676,
+    0.007319717251636604,
+    0.07269669339943294
+   ]
+  },
+  {
+   "objective": 2.076620856832924,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.19776123599683335,
+   "takeoff_vz": 2.076620856832924,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.33489012579312205,
+    0.03592562082324662,
+    0.11051618441536888
+   ]
+  },
+  {
+   "objective": 2.0093110176083835,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.12063346968690415,
+   "takeoff_vz": 2.0093110176083835,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.31835534112276354,
+    0.02915130344841104,
+    0.12735139636740117
+   ]
+  },
+  {
+   "objective": 2.124735473993226,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.29991446122370613,
+   "takeoff_vz": 2.124735473993226,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.35268668034950745,
+    0.028698713226730732,
+    0.09580329472018165
+   ]
+  },
+  {
+   "objective": 2.0452056572883617,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3345361910376561,
+   "takeoff_vz": 2.1142780393636738,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3594600451256539,
+    0.016955594046991124,
+    0.09231387965968259
+   ]
+  },
+  {
+   "objective": 2.0964226447671193,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.23479945265190774,
+   "takeoff_vz": 2.0964226447671193,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.34103260562625504,
+    0.031183114129182746,
+    0.10596560822644731
+   ]
+  },
+  {
+   "objective": 2.0959039556091534,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3198059955379244,
+   "takeoff_vz": 2.135515946685002,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.38556747050307105,
+    0.03571357157099348,
+    0.09096076385702949
+   ]
+  },
+  {
+   "objective": 2.0988468493570713,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.25074123049014807,
+   "takeoff_vz": 2.0988468493570713,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.33765386450071144,
+    0.02600876661616311,
+    0.10487105853030147
+   ]
+  },
+  {
+   "objective": 2.0876686587367232,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.31861110685347027,
+   "takeoff_vz": 2.1248908724436637,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3639650332930452,
+    0.023854724064350637,
+    0.09377327925454372
+   ]
+  },
+  {
+   "objective": 2.106029594983773,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.25625678414419983,
+   "takeoff_vz": 2.106029594983773,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3467657125429526,
+    0.02935101661297472,
+    0.10291752598347141
+   ]
+  },
+  {
+   "objective": 2.11089229797116,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3098615512913865,
+   "takeoff_vz": 2.130615400553933,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3734183397800829,
+    0.031257238241911345,
+    0.09356547391946952
+   ]
+  },
+  {
+   "objective": 2.060437540880258,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.3391722298430298,
+   "takeoff_vz": 2.138782000566318,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.38207490989592857,
+    0.029185802664390817,
+    0.08928430509029835
+   ]
+  },
+  {
+   "objective": 2.1156075543633084,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2766357942537864,
+   "takeoff_vz": 2.1156075543633084,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3555930118811966,
+    0.029309713125828744,
+    0.09950922076017815
+   ]
+  },
+  {
+   "objective": 2.105477401620135,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.26390737901277134,
+   "takeoff_vz": 2.105477401620135,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.34353873072620744,
+    0.025981230958065794,
+    0.102598855048106
+   ]
+  },
+  {
+   "objective": 2.125115868540123,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2979343333377799,
+   "takeoff_vz": 2.125115868540123,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.365948437516614,
+    0.029938236420949955,
+    0.09582381920162863
+   ]
+  },
+  {
+   "objective": 2.1079532656943902,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.31014456913258254,
+   "takeoff_vz": 2.1282424039595553,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.36826767571537206,
+    0.028347771604229195,
+    0.09419817383503101
+   ]
+  },
+  {
+   "objective": 2.1190193563316266,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2849990865377638,
+   "takeoff_vz": 2.1190193563316266,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.35876167783974044,
+    0.029069227745428857,
+    0.09818145902889136
+   ]
+  },
+  {
+   "objective": 2.116055904901903,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.30642845599986107,
+   "takeoff_vz": 2.128912816901625,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.35110861694184314,
+    0.030621507481333465,
+    0.09427173732946427
+   ]
+  },
+  {
+   "objective": 2.1198738182146477,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2883076590704843,
+   "takeoff_vz": 2.1198738182146477,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.36314408938200937,
+    0.028542334955888038,
+    0.09776841781061867
+   ]
+  },
+  {
+   "objective": 2.115746596799804,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.30579883280177694,
+   "takeoff_vz": 2.1273442624033576,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.36242446032568,
+    0.029050295323616953,
+    0.0947488954593946
+   ]
+  },
+  {
+   "objective": 2.1211881163755923,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2901766287980781,
+   "takeoff_vz": 2.1211881163755923,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.3596773734612253,
+    0.02906449463997588,
+    0.09732331813651718
+   ]
+  },
+  {
+   "objective": 2.1197591161118066,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.30381102560096784,
+   "takeoff_vz": 2.127381167313742,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.35573090483622183,
+    0.02992529456921634,
+    0.09486520356159965
+   ]
+  },
+  {
+   "objective": 2.121820617256716,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.2921421868240827,
+   "takeoff_vz": 2.121820617256716,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.36129079324556246,
+    0.02888807485922011,
+    0.09704261424836391
+   ]
+  },
+  {
+   "objective": 2.1202170957949398,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.30317820380490124,
+   "takeoff_vz": 2.1265735034047424,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.36027323394656396,
+    0.029285521697957992,
+    0.09512316731026563
+   ]
+  },
+  {
+   "objective": 2.1225681958742246,
+   "passive_n_m": 0.0,
+   "takeoff_vx": -0.29341410204389884,
+   "takeoff_vz": 2.1225681958742246,
+   "termination": "LANDING_CONTACT_NOT_MODELED",
+   "x": [
+    0.35982633858255997,
+    0.029119751404471407,
+    0.09677328042995428
+   ]
+  }
+ ]
+}

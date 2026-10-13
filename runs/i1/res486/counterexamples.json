@@ -1,0 +1,11 @@
+{
+ "interpretation": [
+  "bar velocity is not system-COM velocity (bar is a separately coupled body)",
+  "an oblique cable displacement is not vertical displacement",
+  "provider velocity differs from the true cable rate (finite difference of quantized, jittered samples)"
+ ],
+ "loaded_cmj_bar_vs_body_com_vz_max_m_s": 0.35956125727196864,
+ "loaded_cmj_bar_vs_system_com_vz_max_m_s": 0.28386415047786984,
+ "oblique_lpt_cable_vs_vertical_displacement_max_m": 0.03102476274061039,
+ "provider_velocity_vs_true_cable_rate_max_m_s": 0.03320396715824092
+}

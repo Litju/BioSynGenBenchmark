@@ -1,0 +1,51 @@
+{
+  "artifact_sha256": {
+    "evaluation-report.json": "3ce518e8c868755d0b0afee0985f3456c9453992b5842c0e0b12d776cb0ef065",
+    "evaluator-input.json": "2d6ad2b067450b82c4592c4676890c16be2b7099e87f7a48976e700e2a37668a",
+    "pilot-data.json": "9fc76b01463444e597583139b81a1f1364c0327d589fc59f6f30c82fe98abab6",
+    "pilot-figure.svg": "418e2b0948be676ac4cf37f4ccd0f35731aad64bf0d4cce1af8c4252a80bfaa5",
+    "pilot-report.md": "6285669c3df549351b5debe11039d1dfef04c45ad01a77d34650d66cb5468c4b"
+  },
+  "determinism": "No timestamps, machine paths, or run identifiers are included in scientific artifacts.",
+  "external_dependencies": [],
+  "format_version": "I0-PILOT-2026-10-12-v1",
+  "random_seed": 20261012,
+  "scenario": {
+    "bar_mass_kg": 22.0,
+    "bar_offset_m": 0.32,
+    "body_mass_kg": 78.0,
+    "gravity_m_s2": 9.81,
+    "initial_body_com_height_m": 0.92,
+    "initial_vertical_velocity_m_s": 0.05,
+    "name": "manufactured_vertical_controlled_stance_then_flight",
+    "phases": [
+      {
+        "duration_s": 0.37,
+        "mode": "STANCE",
+        "prescribed_normal_force_n": 1250.0
+      },
+      {
+        "duration_s": 0.41,
+        "mode": "FLIGHT",
+        "prescribed_normal_force_n": 0.0
+      }
+    ],
+    "sample_interval_s": 0.02,
+    "total_mass_kg": 100.0
+  },
+  "scientific_claim_ceiling": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "software": {
+    "python": "3.12.10"
+  },
+  "source_sha256": {
+    "biosyngen/mechanics.py": "89c1c0b2703a7b2f3da2724494657c953565704e8e2d0305f28d369a34ccfccc",
+    "biosyngen/observations.py": "7f4ac426614261d22a0dbab35fd5b55627d3448c0365b39d89b6ef8240bfd4f2",
+    "biosyngen_benchmark/core.py": "37994df4597d3475931b7c39f5d7ad864a452f499415744924baa7fea6b1db45",
+    "scripts/run_pilot.py": "5336039c7d6c156d6088aefbdd747cdc3c263cc07581c73489427c6ca0baaea0"
+  }
+}

@@ -1,0 +1,827 @@
+{
+ "benchmark_suite": {
+  "accept_everything_gate": "FAIL",
+  "agreements": 81,
+  "canary": {
+   "outcomes_identical": true,
+   "refused_fields": [
+    "latent_events",
+    "generator_parameters",
+    "kinematics.frames[*].phase",
+    "kinematics.frames[*].latent_takeoff_flag"
+   ]
+  },
+  "cases": 24,
+  "gate": "PASS",
+  "gate_failures": [],
+  "instances": 81,
+  "per_claim": {
+   "ACTIVATION_WITHIN_DECLARED_SCOPE": {
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.7934506856227626
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     5.551115123125783e-17,
+     0.5614970317550454
+    ],
+    "negative_abstain": 0,
+    "negatives": 1,
+    "positive_abstain": 0,
+    "positives": 3,
+    "true_accept": 3,
+    "true_accept_rate_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "true_reject": 1
+   },
+   "BALLISTIC_FLIGHT": {
+    "abstention_controls": 1,
+    "correct_abstentions": 1,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.6576197724933469
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     0.0,
+     0.43448246478317476
+    ],
+    "negative_abstain": 0,
+    "negatives": 2,
+    "positive_abstain": 0,
+    "positives": 5,
+    "true_accept": 5,
+    "true_accept_rate_wilson95": [
+     0.5655175352168251,
+     1.0
+    ],
+    "true_reject": 2
+   },
+   "BILATERAL_FORCE": {
+    "abstention_controls": 3,
+    "correct_abstentions": 3,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.7934506856227626
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negatives": 1,
+    "positive_abstain": 0,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 1
+   },
+   "BIOLOGICAL_VALIDITY": {
+    "abstention_controls": 3,
+    "correct_abstentions": 3,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": null,
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negatives": 0,
+    "positive_abstain": 0,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 0
+   },
+   "CLOCK_INTEGRITY": {
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.6576197724933469
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     5.551115123125783e-17,
+     0.5614970317550454
+    ],
+    "negative_abstain": 0,
+    "negatives": 2,
+    "positive_abstain": 0,
+    "positives": 3,
+    "true_accept": 3,
+    "true_accept_rate_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "true_reject": 2
+   },
+   "CONTACT_ADMISSIBILITY": {
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     5.551115123125783e-17,
+     0.5614970317550454
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     0.0,
+     0.43448246478317476
+    ],
+    "negative_abstain": 0,
+    "negatives": 3,
+    "positive_abstain": 0,
+    "positives": 5,
+    "true_accept": 5,
+    "true_accept_rate_wilson95": [
+     0.5655175352168251,
+     1.0
+    ],
+    "true_reject": 3
+   },
+   "CROSS_DEVICE_SYNC": {
+    "abstention_controls": 3,
+    "correct_abstentions": 3,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": null,
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negatives": 0,
+    "positive_abstain": 0,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 0
+   },
+   "EULER_ANGULAR_MOMENTUM": {
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.7934506856227626
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     2.7755575615628914e-17,
+     0.3903342879021653
+    ],
+    "negative_abstain": 0,
+    "negatives": 1,
+    "positive_abstain": 0,
+    "positives": 6,
+    "true_accept": 6,
+    "true_accept_rate_wilson95": [
+     0.6096657120978346,
+     1.0
+    ],
+    "true_reject": 1
+   },
+   "FORCE_FLIGHT_ZERO": {
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.7934506856227626
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     5.551115123125783e-17,
+     0.5614970317550454
+    ],
+    "negative_abstain": 0,
+    "negatives": 1,
+    "positive_abstain": 0,
+    "positives": 3,
+    "true_accept": 3,
+    "true_accept_rate_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "true_reject": 1
+   },
+   "LPT_CABLE_GEOMETRY": {
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     5.551115123125783e-17,
+     0.5614970317550454
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     5.551115123125783e-17,
+     0.5614970317550454
+    ],
+    "negative_abstain": 0,
+    "negatives": 3,
+    "positive_abstain": 0,
+    "positives": 3,
+    "true_accept": 3,
+    "true_accept_rate_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "true_reject": 3
+   },
+   "NEWTON_LINEAR_MOMENTUM": {
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.43448246478317476
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     2.7755575615628914e-17,
+     0.3903342879021653
+    ],
+    "negative_abstain": 0,
+    "negatives": 5,
+    "positive_abstain": 0,
+    "positives": 6,
+    "true_accept": 6,
+    "true_accept_rate_wilson95": [
+     0.6096657120978346,
+     1.0
+    ],
+    "true_reject": 5
+   },
+   "PLATE_WEIGHT_CONSISTENCY": {
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.6576197724933469
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     5.551115123125783e-17,
+     0.5614970317550454
+    ],
+    "negative_abstain": 0,
+    "negatives": 2,
+    "positive_abstain": 0,
+    "positives": 3,
+    "true_accept": 3,
+    "true_accept_rate_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "true_reject": 2
+   },
+   "REAL_PAIRED_FORCE_LPT": {
+    "abstention_controls": 3,
+    "correct_abstentions": 3,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": null,
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negatives": 0,
+    "positive_abstain": 0,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 0
+   },
+   "SENSOR_METROLOGY": {
+    "abstention_controls": 3,
+    "correct_abstentions": 3,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": null,
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negatives": 0,
+    "positive_abstain": 0,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 0
+   },
+   "WORK_ENERGY_LEDGER": {
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.7934506856227626
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     2.7755575615628914e-17,
+     0.3903342879021653
+    ],
+    "negative_abstain": 0,
+    "negatives": 1,
+    "positive_abstain": 0,
+    "positives": 6,
+    "true_accept": 6,
+    "true_accept_rate_wilson95": [
+     0.6096657120978346,
+     1.0
+    ],
+    "true_reject": 1
+   }
+  },
+  "refuse_everything_gate": "FAIL"
+ },
+ "claim_ceiling": [
+  "NUMERICAL_VERIFICATION_ONLY",
+  "SIMULATED_MEASUREMENT_ONLY",
+  "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+  "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+ ],
+ "observability_cmj": [
+  {
+   "error_ms": 8.0,
+   "latent": "kinetic_onset",
+   "note": "threshold crossing lags true onset",
+   "observed": "force:onset_threshold",
+   "resolution_ms": 1.0,
+   "status": "COMPARED"
+  },
+  {
+   "error_ms": -22.0,
+   "latent": "kinetic_onset",
+   "note": "conventional 30 ms backdating",
+   "observed": "force:onset_backdated",
+   "resolution_ms": 1.0,
+   "status": "COMPARED"
+  },
+  {
+   "error_ms": 1.3948,
+   "latent": "peak_downward_velocity",
+   "note": "integrated force",
+   "observed": "force:peak_downward_velocity",
+   "resolution_ms": 1.0,
+   "status": "COMPARED"
+  },
+  {
+   "error_ms": 1.2461,
+   "latent": "com_velocity_reversal",
+   "note": "integrated force",
+   "observed": "force:velocity_reversal",
+   "resolution_ms": 1.0,
+   "status": "COMPARED"
+  },
+  {
+   "error_ms": 0.2977,
+   "latent": "takeoff",
+   "note": "force threshold",
+   "observed": "force:takeoff",
+   "resolution_ms": 1.0,
+   "status": "COMPARED"
+  },
+  {
+   "error_ms": -27.3319,
+   "latent": "com_velocity_reversal",
+   "note": "attachment point, not COM",
+   "observed": "lpt:lpt_velocity_reversal",
+   "resolution_ms": 2.0,
+   "status": "COMPARED"
+  },
+  {
+   "error_ms": -28.3319,
+   "latent": "com_velocity_reversal",
+   "note": "attachment point, not COM",
+   "observed": "lpt:lpt_lowest_point",
+   "resolution_ms": 2.0,
+   "status": "COMPARED"
+  },
+  {
+   "error_ms": null,
+   "latent": "takeoff",
+   "note": "NOT_IDENTIFIABLE_FROM_CABLE: a cable does not observe ground contact",
+   "observed": "lpt:lpt_takeoff",
+   "resolution_ms": 2.0,
+   "status": "NOT_EVALUABLE"
+  },
+  {
+   "error_ms": null,
+   "latent": "touchdown",
+   "note": "LANDING_NOT_IN_EXPORT",
+   "observed": "force:landing",
+   "resolution_ms": 1.0,
+   "status": "NOT_EVALUABLE"
+  }
+ ],
+ "phases": {
+  "cmj": {
+   "apex_rise_m": 0.292339,
+   "countermovement_depth_m": 0.305308,
+   "events": [
+    {
+     "definition": "first declared excitation change (control hypothesis)",
+     "evidence_class": "LATENT_CONTROL_HYPOTHESIS",
+     "name": "control_command",
+     "time_s": 0.3,
+     "uncertainty_s": 0.0
+    },
+    {
+     "definition": "first |Fz - W| > 1e-06 W",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "kinetic_onset",
+     "time_s": 0.301,
+     "uncertainty_s": 0.001
+    },
+    {
+     "definition": "Fz returns to W from below while COM descends (end of unweighting)",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "peak_downward_velocity",
+     "time_s": 0.641605,
+     "uncertainty_s": 0.000614158914
+    },
+    {
+     "definition": "system COM vertical velocity crosses 0 upward (lowest point)",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "com_velocity_reversal",
+     "time_s": 0.796332,
+     "uncertainty_s": 8.57892e-07
+    },
+    {
+     "definition": "heel normal force reaches 0",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "heel_off",
+     "time_s": 0.985741,
+     "uncertainty_s": 1e-10
+    },
+    {
+     "definition": "toe normal force reaches 0 (contact release)",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "takeoff",
+     "time_s": 1.045361,
+     "uncertainty_s": 1e-10
+    },
+    {
+     "definition": "foot point reaches ground; landing dynamics not modeled",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "touchdown",
+     "time_s": 1.533134,
+     "uncertainty_s": 1e-10
+    }
+   ],
+   "peak_downward_velocity_m_s": -1.676548,
+   "phases": [
+    {
+     "definition": "static equilibrium before kinetic onset",
+     "end_s": 0.301,
+     "name": "quiet_stance",
+     "start_s": 0.0
+    },
+    {
+     "definition": "Fz < W, COM accelerating downward",
+     "end_s": 0.641605,
+     "name": "unweighting",
+     "start_s": 0.301
+    },
+    {
+     "definition": "Fz >= W while COM still descends",
+     "end_s": 0.796332,
+     "name": "braking",
+     "start_s": 0.641605
+    },
+    {
+     "definition": "COM ascends while in contact",
+     "end_s": 1.045361,
+     "name": "propulsion",
+     "start_s": 0.796332
+    },
+    {
+     "definition": "no ground contact; landing not modeled",
+     "end_s": 1.533134,
+     "name": "flight",
+     "start_s": 1.045361
+    }
+   ],
+   "refusals": [],
+   "takeoff_velocity_m_s": 2.394522
+  },
+  "loaded_cmj_20kg": {
+   "apex_rise_m": 0.151791,
+   "countermovement_depth_m": 0.245885,
+   "events": [
+    {
+     "definition": "first declared excitation change (control hypothesis)",
+     "evidence_class": "LATENT_CONTROL_HYPOTHESIS",
+     "name": "control_command",
+     "time_s": 0.3,
+     "uncertainty_s": 0.0
+    },
+    {
+     "definition": "first |Fz - W| > 1e-06 W",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "kinetic_onset",
+     "time_s": 0.301,
+     "uncertainty_s": 0.001
+    },
+    {
+     "definition": "Fz returns to W from below while COM descends (end of unweighting)",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "peak_downward_velocity",
+     "time_s": 0.599127,
+     "uncertainty_s": 0.000463620002
+    },
+    {
+     "definition": "system COM vertical velocity crosses 0 upward (lowest point)",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "com_velocity_reversal",
+     "time_s": 0.740517,
+     "uncertainty_s": 1.266114e-06
+    },
+    {
+     "definition": "heel normal force reaches 0",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "heel_off",
+     "time_s": 0.958328,
+     "uncertainty_s": 1e-10
+    },
+    {
+     "definition": "toe normal force reaches 0 (contact release)",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "takeoff",
+     "time_s": 1.002401,
+     "uncertainty_s": 1e-10
+    },
+    {
+     "definition": "foot point reaches ground; landing dynamics not modeled",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "touchdown",
+     "time_s": 1.32642,
+     "uncertainty_s": 1e-10
+    }
+   ],
+   "peak_downward_velocity_m_s": -1.487872,
+   "phases": [
+    {
+     "definition": "static equilibrium before kinetic onset",
+     "end_s": 0.301,
+     "name": "quiet_stance",
+     "start_s": 0.0
+    },
+    {
+     "definition": "Fz < W, COM accelerating downward",
+     "end_s": 0.599127,
+     "name": "unweighting",
+     "start_s": 0.301
+    },
+    {
+     "definition": "Fz >= W while COM still descends",
+     "end_s": 0.740517,
+     "name": "braking",
+     "start_s": 0.599127
+    },
+    {
+     "definition": "COM ascends while in contact",
+     "end_s": 1.002401,
+     "name": "propulsion",
+     "start_s": 0.740517
+    },
+    {
+     "definition": "no ground contact; landing not modeled",
+     "end_s": 1.32642,
+     "name": "flight",
+     "start_s": 1.002401
+    }
+   ],
+   "refusals": [],
+   "takeoff_velocity_m_s": 1.725431
+  },
+  "sj": {
+   "apex_rise_m": 0.230834,
+   "countermovement_depth_m": 0.0,
+   "events": [
+    {
+     "definition": "first declared excitation change (control hypothesis)",
+     "evidence_class": "LATENT_CONTROL_HYPOTHESIS",
+     "name": "control_command",
+     "time_s": 0.3284,
+     "uncertainty_s": 0.0
+    },
+    {
+     "definition": "first |Fz - W| > 1e-06 W",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "kinetic_onset",
+     "time_s": 0.328657,
+     "uncertainty_s": 0.000257137652
+    },
+    {
+     "definition": "Fz returns to W from below while COM descends (end of unweighting)",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "peak_downward_velocity",
+     "time_s": null,
+     "uncertainty_s": null
+    },
+    {
+     "definition": "system COM vertical velocity crosses 0 upward (lowest point)",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "com_velocity_reversal",
+     "time_s": null,
+     "uncertainty_s": null
+    },
+    {
+     "definition": "heel normal force reaches 0",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "heel_off",
+     "time_s": 0.478488,
+     "uncertainty_s": 1e-10
+    },
+    {
+     "definition": "toe normal force reaches 0 (contact release)",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "takeoff",
+     "time_s": 0.530292,
+     "uncertainty_s": 1e-10
+    },
+    {
+     "definition": "foot point reaches ground; landing dynamics not modeled",
+     "evidence_class": "LATENT_PHYSICAL_MODEL_STATE",
+     "name": "touchdown",
+     "time_s": 0.964548,
+     "uncertainty_s": 1e-10
+    }
+   ],
+   "peak_downward_velocity_m_s": -0.0,
+   "phases": [
+    {
+     "definition": "flexed static equilibrium",
+     "end_s": 0.328657,
+     "name": "static_hold",
+     "start_s": 0.0
+    },
+    {
+     "definition": "kinetic onset to contact release",
+     "end_s": 0.530292,
+     "name": "propulsion",
+     "start_s": 0.328657
+    },
+    {
+     "definition": "no ground contact",
+     "end_s": 0.964548,
+     "name": "flight",
+     "start_s": 0.530292
+    }
+   ],
+   "refusals": [],
+   "takeoff_velocity_m_s": 2.127773
+  }
+ },
+ "runs": {
+  "cmj": {
+   "events": [
+    {
+     "detail": "declared excitation change",
+     "kind": "CONTROL_BREAKPOINT",
+     "time_s": 0.3
+    },
+    {
+     "detail": "declared excitation change",
+     "kind": "CONTROL_BREAKPOINT",
+     "time_s": 0.6386
+    },
+    {
+     "detail": "declared excitation change",
+     "kind": "CONTROL_BREAKPOINT",
+     "time_s": 0.8324
+    },
+    {
+     "detail": "declared excitation change",
+     "kind": "CONTROL_BREAKPOINT",
+     "time_s": 0.8792
+    },
+    {
+     "detail": "heel normal force reached zero",
+     "kind": "HEEL_OFF",
+     "time_s": 0.985740627
+    },
+    {
+     "detail": "friction cone boundary reached",
+     "kind": "SLIP_ONSET",
+     "time_s": 1.042385178
+    },
+    {
+     "detail": "toe normal force reached zero",
+     "kind": "TAKEOFF",
+     "time_s": 1.04536058
+    },
+    {
+     "detail": "foot reached ground after 0.4878 s of flight",
+     "kind": "LANDING_CONTACT_NOT_MODELED",
+     "time_s": 1.533134066
+    }
+   ],
+   "max_constraint_residual_m": 1.9663437544892304e-13,
+   "max_energy_identity_residual_j": 8.118637140341889e-07,
+   "peak_grf_bw": 2.583508576486416,
+   "rhs_evaluations": 13312,
+   "samples": 1669,
+   "termination": "LANDING_CONTACT_NOT_MODELED"
+  },
+  "loaded_cmj_20kg": {
+   "events": [
+    {
+     "detail": "declared excitation change",
+     "kind": "CONTROL_BREAKPOINT",
+     "time_s": 0.3
+    },
+    {
+     "detail": "declared excitation change",
+     "kind": "CONTROL_BREAKPOINT",
+     "time_s": 0.5957
+    },
+    {
+     "detail": "declared excitation change",
+     "kind": "CONTROL_BREAKPOINT",
+     "time_s": 0.8066
+    },
+    {
+     "detail": "declared excitation change",
+     "kind": "CONTROL_BREAKPOINT",
+     "time_s": 0.925
+    },
+    {
+     "detail": "heel normal force reached zero",
+     "kind": "HEEL_OFF",
+     "time_s": 0.958327806
+    },
+    {
+     "detail": "friction cone boundary reached",
+     "kind": "SLIP_ONSET",
+     "time_s": 1.000056327
+    },
+    {
+     "detail": "toe normal force reached zero",
+     "kind": "TAKEOFF",
+     "time_s": 1.002400915
+    },
+    {
+     "detail": "foot reached ground after 0.3240 s of flight",
+     "kind": "LANDING_CONTACT_NOT_MODELED",
+     "time_s": 1.326420196
+    }
+   ],
+   "max_constraint_residual_m": 2.509104035652854e-13,
+   "max_energy_identity_residual_j": 1.1315966901292995e-06,
+   "peak_grf_bw": 2.3726503166516237,
+   "rhs_evaluations": 11863,
+   "samples": 1469,
+   "termination": "LANDING_CONTACT_NOT_MODELED"
+  },
+  "sj": {
+   "events": [
+    {
+     "detail": "declared excitation change",
+     "kind": "CONTROL_BREAKPOINT",
+     "time_s": 0.3284
+    },
+    {
+     "detail": "declared excitation change",
+     "kind": "CONTROL_BREAKPOINT",
+     "time_s": 0.3646
+    },
+    {
+     "detail": "declared excitation change",
+     "kind": "CONTROL_BREAKPOINT",
+     "time_s": 0.4225
+    },
+    {
+     "detail": "heel normal force reached zero",
+     "kind": "HEEL_OFF",
+     "time_s": 0.478487651
+    },
+    {
+     "detail": "friction cone boundary reached",
+     "kind": "SLIP_ONSET",
+     "time_s": 0.527637516
+    },
+    {
+     "detail": "toe normal force reached zero",
+     "kind": "TAKEOFF",
+     "time_s": 0.530291534
+    },
+    {
+     "detail": "foot reached ground after 0.4343 s of flight",
+     "kind": "LANDING_CONTACT_NOT_MODELED",
+     "time_s": 0.964547795
+    }
+   ],
+   "max_constraint_residual_m": 1.4335754805472334e-13,
+   "max_energy_identity_residual_j": 5.586658176071069e-07,
+   "peak_grf_bw": 2.77688690096792,
+   "rhs_evaluations": 9224,
+   "samples": 1097,
+   "termination": "LANDING_CONTACT_NOT_MODELED"
+  }
+ }
+}

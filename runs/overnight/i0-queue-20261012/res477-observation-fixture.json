@@ -1,0 +1,522 @@
+{
+  "cable_lpt": {
+    "clock": {
+      "drift_ppm": -35.0,
+      "offset_s": -0.007,
+      "sample_period_s": 0.025
+    },
+    "duration_s": 0.78,
+    "metadata": {
+      "frame": "fixed_anchor_xz_plane",
+      "positive_direction": "cable_outward;increasing_length;counterclockwise_angle",
+      "quantity": "zeroed_cable_length_rate_and_angle",
+      "source_stage": "SIMULATED_OBSERVATION",
+      "support_coverage": "declared_attachment_target_only",
+      "timebase": "sensor_native_clock_seconds",
+      "units": "m;m/s;rad"
+    },
+    "samples": [
+      {
+        "cable_angle_rad": 1.086,
+        "cable_length_m": 1.288,
+        "cable_rate_m_s": 0.043000000000000003,
+        "missing": false,
+        "native_time_s": -0.007,
+        "sample_index": 0,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.086,
+        "cable_length_m": 1.292,
+        "cable_rate_m_s": 0.10300000000000001,
+        "missing": false,
+        "native_time_s": 0.018000000000000002,
+        "sample_index": 1,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.089,
+        "cable_length_m": 1.2945,
+        "cable_rate_m_s": 0.167,
+        "missing": false,
+        "native_time_s": 0.043000000000000003,
+        "sample_index": 2,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.089,
+        "cable_length_m": 1.2995,
+        "cable_rate_m_s": 0.22,
+        "missing": false,
+        "native_time_s": 0.068,
+        "sample_index": 3,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": null,
+        "cable_length_m": null,
+        "cable_rate_m_s": null,
+        "missing": true,
+        "native_time_s": 0.093,
+        "sample_index": 4,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.095,
+        "cable_length_m": 1.314,
+        "cable_rate_m_s": 0.342,
+        "missing": false,
+        "native_time_s": 0.118,
+        "sample_index": 5,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.099,
+        "cable_length_m": 1.3215000000000001,
+        "cable_rate_m_s": 0.406,
+        "missing": false,
+        "native_time_s": 0.14300000000000002,
+        "sample_index": 6,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.103,
+        "cable_length_m": 1.3345,
+        "cable_rate_m_s": 0.463,
+        "missing": false,
+        "native_time_s": 0.168,
+        "sample_index": 7,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.109,
+        "cable_length_m": 1.3465,
+        "cable_rate_m_s": 0.528,
+        "missing": false,
+        "native_time_s": 0.193,
+        "sample_index": 8,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.114,
+        "cable_length_m": 1.3605,
+        "cable_rate_m_s": 0.585,
+        "missing": false,
+        "native_time_s": 0.218,
+        "sample_index": 9,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.117,
+        "cable_length_m": 1.3755,
+        "cable_rate_m_s": 0.648,
+        "missing": false,
+        "native_time_s": 0.243,
+        "sample_index": 10,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.124,
+        "cable_length_m": 1.3935,
+        "cable_rate_m_s": 0.715,
+        "missing": false,
+        "native_time_s": 0.268,
+        "sample_index": 11,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1320000000000001,
+        "cable_length_m": 1.4105,
+        "cable_rate_m_s": 0.773,
+        "missing": false,
+        "native_time_s": 0.29300000000000004,
+        "sample_index": 12,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.137,
+        "cable_length_m": 1.4325,
+        "cable_rate_m_s": 0.84,
+        "missing": false,
+        "native_time_s": 0.318,
+        "sample_index": 13,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.145,
+        "cable_length_m": 1.4535,
+        "cable_rate_m_s": 0.904,
+        "missing": false,
+        "native_time_s": 0.343,
+        "sample_index": 14,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.154,
+        "cable_length_m": 1.4755,
+        "cable_rate_m_s": 0.909,
+        "missing": false,
+        "native_time_s": 0.368,
+        "sample_index": 15,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.159,
+        "cable_length_m": 1.4955,
+        "cable_rate_m_s": 0.684,
+        "missing": false,
+        "native_time_s": 0.393,
+        "sample_index": 16,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.161,
+        "cable_length_m": 1.5105,
+        "cable_rate_m_s": 0.465,
+        "missing": false,
+        "native_time_s": 0.41800000000000004,
+        "sample_index": 17,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.162,
+        "cable_length_m": 1.5190000000000001,
+        "cable_rate_m_s": 0.24,
+        "missing": false,
+        "native_time_s": 0.443,
+        "sample_index": 18,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.164,
+        "cable_length_m": 1.524,
+        "cable_rate_m_s": 0.015,
+        "missing": false,
+        "native_time_s": 0.468,
+        "sample_index": 19,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.165,
+        "cable_length_m": 1.5190000000000001,
+        "cable_rate_m_s": -0.21,
+        "missing": false,
+        "native_time_s": 0.493,
+        "sample_index": 20,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.162,
+        "cable_length_m": 1.5105,
+        "cable_rate_m_s": -0.436,
+        "missing": false,
+        "native_time_s": 0.518,
+        "sample_index": 21,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.158,
+        "cable_length_m": 1.4975,
+        "cable_rate_m_s": -0.661,
+        "missing": false,
+        "native_time_s": 0.543,
+        "sample_index": 22,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.153,
+        "cable_length_m": 1.4785,
+        "cable_rate_m_s": -0.883,
+        "missing": false,
+        "native_time_s": 0.5680000000000001,
+        "sample_index": 23,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1460000000000001,
+        "cable_length_m": 1.4545000000000001,
+        "cable_rate_m_s": -1.104,
+        "missing": false,
+        "native_time_s": 0.5930000000000001,
+        "sample_index": 24,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.1360000000000001,
+        "cable_length_m": 1.424,
+        "cable_rate_m_s": -1.323,
+        "missing": false,
+        "native_time_s": 0.618,
+        "sample_index": 25,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.124,
+        "cable_length_m": 1.3880000000000001,
+        "cable_rate_m_s": -1.536,
+        "missing": false,
+        "native_time_s": 0.643,
+        "sample_index": 26,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.109,
+        "cable_length_m": 1.3465,
+        "cable_rate_m_s": -1.744,
+        "missing": false,
+        "native_time_s": 0.668,
+        "sample_index": 27,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.092,
+        "cable_length_m": 1.302,
+        "cable_rate_m_s": -1.943,
+        "missing": false,
+        "native_time_s": 0.6930000000000001,
+        "sample_index": 28,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.071,
+        "cable_length_m": 1.2505,
+        "cable_rate_m_s": -2.1390000000000002,
+        "missing": false,
+        "native_time_s": 0.7180000000000001,
+        "sample_index": 29,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.045,
+        "cable_length_m": 1.1935,
+        "cable_rate_m_s": -2.322,
+        "missing": false,
+        "native_time_s": 0.743,
+        "sample_index": 30,
+        "saturated": false
+      },
+      {
+        "cable_angle_rad": 1.014,
+        "cable_length_m": 1.1340000000000001,
+        "cable_rate_m_s": -2.488,
+        "missing": false,
+        "native_time_s": 0.768,
+        "sample_index": 31,
+        "saturated": false
+      }
+    ]
+  },
+  "claim_ceiling": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "evidence_class": "MANUFACTURED_SIMULATED_OBSERVATIONS",
+  "force_plate": {
+    "clock": {
+      "drift_ppm": 50.0,
+      "offset_s": 0.003,
+      "sample_period_s": 0.04
+    },
+    "duration_s": 0.78,
+    "metadata": {
+      "frame": "inertial_lab_z",
+      "positive_direction": "upward",
+      "quantity": "vertical_ground_reaction_force",
+      "source_stage": "SIMULATED_OBSERVATION",
+      "support_coverage": "declared_system_total_support_only",
+      "timebase": "sensor_native_clock_seconds",
+      "units": "N"
+    },
+    "samples": [
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.003,
+        "right_vertical_force_n": null,
+        "sample_index": 0,
+        "saturated": false,
+        "total_vertical_force_n": 1249.8000000000002
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.043000000000000003,
+        "right_vertical_force_n": null,
+        "sample_index": 1,
+        "saturated": false,
+        "total_vertical_force_n": 1250.1000000000001
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.083,
+        "right_vertical_force_n": null,
+        "sample_index": 2,
+        "saturated": false,
+        "total_vertical_force_n": 1250.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": true,
+        "native_time_s": 0.123,
+        "right_vertical_force_n": null,
+        "sample_index": 3,
+        "saturated": false,
+        "total_vertical_force_n": null
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.163,
+        "right_vertical_force_n": null,
+        "sample_index": 4,
+        "saturated": false,
+        "total_vertical_force_n": 1250.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.203,
+        "right_vertical_force_n": null,
+        "sample_index": 5,
+        "saturated": false,
+        "total_vertical_force_n": 1250.1000000000001
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.243,
+        "right_vertical_force_n": null,
+        "sample_index": 6,
+        "saturated": false,
+        "total_vertical_force_n": 1249.8000000000002
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.28300000000000003,
+        "right_vertical_force_n": null,
+        "sample_index": 7,
+        "saturated": false,
+        "total_vertical_force_n": 1250.1000000000001
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.323,
+        "right_vertical_force_n": null,
+        "sample_index": 8,
+        "saturated": false,
+        "total_vertical_force_n": 1250.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.363,
+        "right_vertical_force_n": null,
+        "sample_index": 9,
+        "saturated": false,
+        "total_vertical_force_n": 1250.1000000000001
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.403,
+        "right_vertical_force_n": null,
+        "sample_index": 10,
+        "saturated": false,
+        "total_vertical_force_n": 0.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.443,
+        "right_vertical_force_n": null,
+        "sample_index": 11,
+        "saturated": false,
+        "total_vertical_force_n": 0.1
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.483,
+        "right_vertical_force_n": null,
+        "sample_index": 12,
+        "saturated": false,
+        "total_vertical_force_n": -0.1
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.523,
+        "right_vertical_force_n": null,
+        "sample_index": 13,
+        "saturated": false,
+        "total_vertical_force_n": 0.2
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.5630000000000001,
+        "right_vertical_force_n": null,
+        "sample_index": 14,
+        "saturated": false,
+        "total_vertical_force_n": 0.1
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.603,
+        "right_vertical_force_n": null,
+        "sample_index": 15,
+        "saturated": false,
+        "total_vertical_force_n": -0.1
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.643,
+        "right_vertical_force_n": null,
+        "sample_index": 16,
+        "saturated": false,
+        "total_vertical_force_n": -0.1
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.683,
+        "right_vertical_force_n": null,
+        "sample_index": 17,
+        "saturated": false,
+        "total_vertical_force_n": 0.0
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.723,
+        "right_vertical_force_n": null,
+        "sample_index": 18,
+        "saturated": false,
+        "total_vertical_force_n": -0.1
+      },
+      {
+        "left_vertical_force_n": null,
+        "missing": false,
+        "native_time_s": 0.763,
+        "right_vertical_force_n": null,
+        "sample_index": 19,
+        "saturated": false,
+        "total_vertical_force_n": 0.2
+      }
+    ]
+  },
+  "provenance": {
+    "cross_device_alignment": "independent native time vectors",
+    "force_bilateral_split": "not declared; no left/right channels",
+    "latent_truth_in_sensor_records": false,
+    "scenario_id": "manufactured_separate_force_lpt_observations",
+    "source_stage": "SIMULATED_OBSERVATION"
+  }
+}

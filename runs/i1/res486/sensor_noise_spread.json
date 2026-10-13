@@ -1,0 +1,41 @@
+{
+ "detector_error_ms": {
+  "com_velocity_reversal->force:velocity_reversal": {
+   "max": 1.1283696483658234,
+   "mean": 0.9192365069904396,
+   "min": 0.68270861123787,
+   "sd": 0.14210222667050032
+  },
+  "kinetic_onset->force:onset_backdated": {
+   "max": -20.999999999999964,
+   "mean": -22.899999999999963,
+   "min": -24.999999999999968,
+   "sd": 1.1972189997378655
+  },
+  "kinetic_onset->force:onset_threshold": {
+   "max": 9.000000000000007,
+   "mean": 7.100000000000006,
+   "min": 5.000000000000004,
+   "sd": 1.1972189997378657
+  },
+  "peak_downward_velocity->force:peak_downward_velocity": {
+   "max": 1.3947558800750937,
+   "mean": 1.3947558800750937,
+   "min": 1.3947558800750937,
+   "sd": 0.0
+  },
+  "takeoff->force:takeoff": {
+   "max": 0.39177178961002923,
+   "mean": 0.31745737494413007,
+   "min": 0.27680789636042036,
+   "sd": 0.034581902135319385
+  }
+ },
+ "note": "spread from plate noise only; calibration bias is fixed across seeds and appears in the mean",
+ "seeds": 10,
+ "takeoff_velocity_estimate_m_s": {
+  "latent": 2.3945218136539803,
+  "mean": 2.401230065458841,
+  "sd": 0.0012603831776356001
+ }
+}

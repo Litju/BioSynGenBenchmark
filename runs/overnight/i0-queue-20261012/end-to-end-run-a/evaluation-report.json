@@ -1,0 +1,308 @@
+{
+  "claim_ceiling": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "format_version": "I0-PILOT-2026-10-12-v1",
+  "reports": {
+    "impossible_flight_force_control": {
+      "candidate_id": "i0-manufactured-public-observations",
+      "counts": {
+        "admitted": 0,
+        "eligible": 1,
+        "evaluated": 1,
+        "not_evaluable": 0,
+        "rejected": 1
+      },
+      "findings": [
+        {
+          "claim": "ballistic_flight",
+          "code": "IMPOSSIBLE_FLIGHT_GRF",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [
+            [
+              "flight_force_residual_n",
+              30.0
+            ]
+          ],
+          "outcome": "REJECTED",
+          "reason": "Public FORCE conflicts with the independent ideal-flight reference."
+        }
+      ]
+    },
+    "incomplete_evidence": {
+      "candidate_id": "i0-incomplete-evidence",
+      "counts": {
+        "admitted": 0,
+        "eligible": 0,
+        "evaluated": 5,
+        "not_evaluable": 5,
+        "rejected": 0
+      },
+      "findings": [
+        {
+          "claim": "force_impulse_balance",
+          "code": "SUPPORT_COVERAGE_INCOMPLETE",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "Momentum balance needs all declared external support reactions."
+        },
+        {
+          "claim": "cable_geometry",
+          "code": "CABLE_REFERENCE_MISSING",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "Public LPT arrays and independent cable geometry points are required."
+        },
+        {
+          "claim": "bilateral_force",
+          "code": "COMBINED_FORCE_NOT_BILATERAL",
+          "evidence_ceiling": "SIMULATED_MEASUREMENT_ONLY",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "A combined support channel cannot identify left and right force."
+        },
+        {
+          "claim": "biological_validity",
+          "code": "BIOLOGICAL_REFERENCE_UNAVAILABLE",
+          "evidence_ceiling": "BIOLOGICAL_VALIDATION_NOT_ESTABLISHED",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "No protocol-comparable independent human reference is admitted in I0."
+        },
+        {
+          "claim": "real_paired_force_lpt",
+          "code": "PAIRED_EMPIRICAL_REFERENCE_MISSING",
+          "evidence_ceiling": "REAL_PAIRED_FORCE_LPT_NOT_ESTABLISHED",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "No calibrated, protocol-comparable synchronized real FORCE/LPT reference is admitted in I0."
+        }
+      ]
+    },
+    "inconsistent_impulse_control": {
+      "candidate_id": "i0-manufactured-public-observations",
+      "counts": {
+        "admitted": 0,
+        "eligible": 1,
+        "evaluated": 1,
+        "not_evaluable": 0,
+        "rejected": 1
+      },
+      "findings": [
+        {
+          "claim": "force_impulse_balance",
+          "code": "INCONSISTENT_IMPULSE",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [
+            [
+              "support_impulse_n_s",
+              252.0
+            ],
+            [
+              "momentum_change_n_s",
+              53.79999999999999
+            ],
+            [
+              "balance_residual_n_s",
+              1.999999999999993
+            ]
+          ],
+          "outcome": "REJECTED",
+          "reason": "Integrated covered external impulse disagrees with the independent momentum change."
+        }
+      ]
+    },
+    "incorrect_cable_projection_control": {
+      "candidate_id": "i0-manufactured-public-observations",
+      "counts": {
+        "admitted": 0,
+        "eligible": 1,
+        "evaluated": 1,
+        "not_evaluable": 0,
+        "rejected": 1
+      },
+      "findings": [
+        {
+          "claim": "cable_geometry",
+          "code": "LPT_PROJECTION_MISMATCH",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [
+            [
+              "cable_rate_residual_m_s",
+              -0.08849182223819824
+            ]
+          ],
+          "outcome": "REJECTED",
+          "reason": "Observed cable rate conflicts with the independent directional projection."
+        }
+      ]
+    },
+    "positive_known_answer": {
+      "candidate_id": "i0-manufactured-public-observations",
+      "counts": {
+        "admitted": 3,
+        "eligible": 3,
+        "evaluated": 5,
+        "not_evaluable": 2,
+        "rejected": 0
+      },
+      "findings": [
+        {
+          "claim": "force_impulse_balance",
+          "code": "KNOWN_ANSWER_IMPULSE_PASS",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [
+            [
+              "support_impulse_n_s",
+              250.0
+            ],
+            [
+              "momentum_change_n_s",
+              53.79999999999999
+            ],
+            [
+              "balance_residual_n_s",
+              -7.105427357601002e-15
+            ]
+          ],
+          "outcome": "PASS",
+          "reason": "Covered external impulse matches the independent numerical reference."
+        },
+        {
+          "claim": "ballistic_flight",
+          "code": "BALLISTIC_FLIGHT_FORCE_PASS",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [],
+          "outcome": "PASS",
+          "reason": "Public FORCE matches the independent ideal-flight reference at declared times."
+        },
+        {
+          "claim": "cable_geometry",
+          "code": "CABLE_GEOMETRY_PASS",
+          "evidence_ceiling": "NUMERICAL_VERIFICATION_ONLY",
+          "metrics": [
+            [
+              "cable_length_residual_m",
+              0.0
+            ],
+            [
+              "cable_rate_residual_m_s",
+              0.0
+            ],
+            [
+              "cable_angle_residual_rad",
+              0.0
+            ],
+            [
+              "cable_length_residual_m",
+              0.0
+            ],
+            [
+              "cable_rate_residual_m_s",
+              5.551115123125783e-17
+            ],
+            [
+              "cable_angle_residual_rad",
+              0.0
+            ],
+            [
+              "cable_length_residual_m",
+              0.0
+            ],
+            [
+              "cable_rate_residual_m_s",
+              1.1102230246251565e-16
+            ],
+            [
+              "cable_angle_residual_rad",
+              0.0
+            ],
+            [
+              "cable_length_residual_m",
+              0.0
+            ],
+            [
+              "cable_rate_residual_m_s",
+              0.0
+            ],
+            [
+              "cable_angle_residual_rad",
+              0.0
+            ],
+            [
+              "cable_length_residual_m",
+              0.0
+            ],
+            [
+              "cable_rate_residual_m_s",
+              2.220446049250313e-16
+            ],
+            [
+              "cable_angle_residual_rad",
+              0.0
+            ],
+            [
+              "cable_length_residual_m",
+              -4.440892098500626e-16
+            ],
+            [
+              "cable_rate_residual_m_s",
+              2.7755575615628914e-16
+            ],
+            [
+              "cable_angle_residual_rad",
+              0.0
+            ],
+            [
+              "cable_length_residual_m",
+              -2.220446049250313e-16
+            ],
+            [
+              "cable_rate_residual_m_s",
+              2.220446049250313e-16
+            ],
+            [
+              "cable_angle_residual_rad",
+              0.0
+            ],
+            [
+              "cable_length_residual_m",
+              0.0
+            ],
+            [
+              "cable_rate_residual_m_s",
+              2.220446049250313e-16
+            ],
+            [
+              "cable_angle_residual_rad",
+              0.0
+            ]
+          ],
+          "outcome": "PASS",
+          "reason": "Public LPT length, rate, and angle match independent geometric references."
+        },
+        {
+          "claim": "biological_validity",
+          "code": "BIOLOGICAL_REFERENCE_UNAVAILABLE",
+          "evidence_ceiling": "BIOLOGICAL_VALIDATION_NOT_ESTABLISHED",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "No protocol-comparable independent human reference is admitted in I0."
+        },
+        {
+          "claim": "real_paired_force_lpt",
+          "code": "PAIRED_EMPIRICAL_REFERENCE_MISSING",
+          "evidence_ceiling": "REAL_PAIRED_FORCE_LPT_NOT_ESTABLISHED",
+          "metrics": [],
+          "outcome": "NOT_EVALUABLE",
+          "reason": "No calibrated, protocol-comparable synchronized real FORCE/LPT reference is admitted in I0."
+        }
+      ]
+    }
+  }
+}

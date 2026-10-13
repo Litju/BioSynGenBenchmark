@@ -1,0 +1,57 @@
+test_bilateral_channels_manufactured_from_a_split_fraction_never_pass (tests.test_i1_p0_audit.I0EvaluatorFalsifiers.test_bilateral_channels_manufactured_from_a_split_fraction_never_pass) ... FAIL
+test_candidate_cannot_buy_a_pass_by_widening_its_own_tolerance (tests.test_i1_p0_audit.I0EvaluatorFalsifiers.test_candidate_cannot_buy_a_pass_by_widening_its_own_tolerance) ... FAIL
+test_candidate_cannot_snap_interval_with_a_wide_time_tolerance (tests.test_i1_p0_audit.I0EvaluatorFalsifiers.test_candidate_cannot_snap_interval_with_a_wide_time_tolerance) ... FAIL
+test_corrupted_force_rejected_under_numerical_tolerance (tests.test_i1_p0_audit.I0EvaluatorFalsifiers.test_corrupted_force_rejected_under_numerical_tolerance) ... ok
+test_uncorrupted_force_passes_same_reference (tests.test_i1_p0_audit.I0EvaluatorFalsifiers.test_uncorrupted_force_passes_same_reference) ... ok
+test_wrong_cable_anchor_rejected_and_correct_anchor_passes (tests.test_i1_p0_audit.I0EvaluatorFalsifiers.test_wrong_cable_anchor_rejected_and_correct_anchor_passes) ... ok
+test_flight_beyond_ballistic_return_to_takeoff_height_is_refused (tests.test_i1_p0_audit.I0MechanicsFalsifiers.test_flight_beyond_ballistic_return_to_takeoff_height_is_refused) ... FAIL
+test_flight_within_ballistic_return_is_still_accepted (tests.test_i1_p0_audit.I0MechanicsFalsifiers.test_flight_within_ballistic_return_is_still_accepted) ... ok
+test_takeoff_with_downward_com_velocity_is_refused (tests.test_i1_p0_audit.I0MechanicsFalsifiers.test_takeoff_with_downward_com_velocity_is_refused) ... FAIL
+
+======================================================================
+FAIL: test_bilateral_channels_manufactured_from_a_split_fraction_never_pass (tests.test_i1_p0_audit.I0EvaluatorFalsifiers.test_bilateral_channels_manufactured_from_a_split_fraction_never_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i1_p0_audit.py", line 213, in test_bilateral_channels_manufactured_from_a_split_fraction_never_pass
+    self.assertEqual(report.findings[0].outcome, Outcome.NOT_EVALUABLE, fraction)
+AssertionError: <Outcome.PASS: 'PASS'> != <Outcome.NOT_EVALUABLE: 'NOT_EVALUABLE'> : 0.5
+
+======================================================================
+FAIL: test_candidate_cannot_buy_a_pass_by_widening_its_own_tolerance (tests.test_i1_p0_audit.I0EvaluatorFalsifiers.test_candidate_cannot_buy_a_pass_by_widening_its_own_tolerance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i1_p0_audit.py", line 163, in test_candidate_cannot_buy_a_pass_by_widening_its_own_tolerance
+    self.assertNotEqual(report.findings[0].outcome, Outcome.PASS)
+AssertionError: <Outcome.PASS: 'PASS'> == <Outcome.PASS: 'PASS'>
+
+======================================================================
+FAIL: test_candidate_cannot_snap_interval_with_a_wide_time_tolerance (tests.test_i1_p0_audit.I0EvaluatorFalsifiers.test_candidate_cannot_snap_interval_with_a_wide_time_tolerance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i1_p0_audit.py", line 181, in test_candidate_cannot_snap_interval_with_a_wide_time_tolerance
+    self.assertNotEqual(report.findings[0].outcome, Outcome.PASS)
+AssertionError: <Outcome.PASS: 'PASS'> == <Outcome.PASS: 'PASS'>
+
+======================================================================
+FAIL: test_flight_beyond_ballistic_return_to_takeoff_height_is_refused (tests.test_i1_p0_audit.I0MechanicsFalsifiers.test_flight_beyond_ballistic_return_to_takeoff_height_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i1_p0_audit.py", line 103, in test_flight_beyond_ballistic_return_to_takeoff_height_is_refused
+    with self.assertRaisesRegex(ValueError, "below takeoff"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_takeoff_with_downward_com_velocity_is_refused (tests.test_i1_p0_audit.I0MechanicsFalsifiers.test_takeoff_with_downward_com_velocity_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i1_p0_audit.py", line 83, in test_takeoff_with_downward_com_velocity_is_refused
+    with self.assertRaisesRegex(ValueError, "takeoff"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.003s
+
+FAILED (failures=5)
+exit=1

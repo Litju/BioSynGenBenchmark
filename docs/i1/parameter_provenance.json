@@ -1,0 +1,288 @@
+{
+ "claim_ceiling": "No value is SOURCE_VERIFIED; recalled values were not inspected in this run.",
+ "literature_anchors_inspected": [
+  {
+   "citation": "Bobbert MF, Gerritsen KG, Litjens MC, Van Soest AJ (1996) Med Sci Sports Exerc 28:1402-1412",
+   "doi": "10.1097/00005768-199611000-00009",
+   "inspected_values": "6 male volleyball players; CMJ height on average 3.4 cm greater than SJ from the same start position; simulation ruled out elastic energy; attributed to active-state build-up before shortening",
+   "read_scope": "PubMed abstract only (inspected 2026-10-12)",
+   "use": "qualitative mechanism/direction anchor for CMJ-SJ difference; not a validation target"
+  },
+  {
+   "citation": "Bobbert MF, Casius LJR (2005) Med Sci Sports Exerc 37:440-446",
+   "doi": "10.1249/01.mss.0000155389.34538.97",
+   "inspected_values": "4-segment, 6-muscle simulation; CMJ-SJ height difference 0.4 cm (infinite dSTIM/dt) to ~2.5 cm (lowest rate studied)",
+   "read_scope": "PubMed abstract only (inspected 2026-10-12)",
+   "use": "model-to-model comparison of the active-state mechanism; not human validation"
+  },
+  {
+   "citation": "Ferreira ARP, Macedo VOC, Boullosa D, Vieira A (2023) Int J Exerc Sci 16:1038-1051",
+   "doi": "10.70252/LBRW9042",
+   "inspected_values": "phase-duration metrics less consistent between days than force/impulse metrics (n=42); no numeric durations in abstract",
+   "read_scope": "PubMed abstract only (inspected 2026-10-12)",
+   "use": "supports treating phase durations as strategy-dependent, not as fixed human norms"
+  }
+ ],
+ "provenance": {
+  "activation_dynamics_form": {
+   "note": "tau scaled by (0.5+1.5a)",
+   "sensitivity_range": null,
+   "source": "Thelen DG (2003) J Biomech Eng 125:70-77, doi:10.1115/1.1531112 (activation form; values recalled, not inspected)",
+   "status": "SOURCE_IDENTIFIED_VALUE_NOT_INSPECTED"
+  },
+  "activation_time_constant_s": {
+   "note": "",
+   "sensitivity_range": [
+    0.01,
+    0.02
+   ],
+   "source": "Thelen DG (2003) J Biomech Eng 125:70-77, doi:10.1115/1.1531112 (activation form; values recalled, not inspected)",
+   "status": "SOURCE_IDENTIFIED_VALUE_NOT_INSPECTED"
+  },
+  "bar_coupling": {
+   "note": "",
+   "sensitivity_range": [
+    50000.0,
+    1000000.0
+   ],
+   "source": "gripped bar spring-damper; lumps tissue and grip compliance",
+   "status": "ASSUMED_UNCALIBRATED"
+  },
+  "bar_mass_kg": {
+   "note": "",
+   "sensitivity_range": [
+    0.0,
+    60.0
+   ],
+   "source": "declared external load",
+   "status": "ASSUMED_UNCALIBRATED"
+  },
+  "body_mass_kg": {
+   "note": "",
+   "sensitivity_range": [
+    55.0,
+    100.0
+   ],
+   "source": "declared hypothetical adult",
+   "status": "ASSUMED_UNCALIBRATED"
+  },
+  "deactivation_time_constant_s": {
+   "note": "",
+   "sensitivity_range": [
+    0.04,
+    0.06
+   ],
+   "source": "Thelen DG (2003) J Biomech Eng 125:70-77, doi:10.1115/1.1531112 (activation form; values recalled, not inspected)",
+   "status": "SOURCE_IDENTIFIED_VALUE_NOT_INSPECTED"
+  },
+  "eccentric_max_ratio": {
+   "note": "",
+   "sensitivity_range": [
+    1.3,
+    1.8
+   ],
+   "source": "Katz B (1939) J Physiol 96:45-64 (eccentric enhancement form; magnitude assumed)",
+   "status": "ASSUMED_UNCALIBRATED"
+  },
+  "foot_geometry": {
+   "note": "no toe segment",
+   "sensitivity_range": null,
+   "source": "declared rigid foot with heel and MTP contact points",
+   "status": "ASSUMED_UNCALIBRATED"
+  },
+  "friction_coefficient": {
+   "note": "",
+   "sensitivity_range": [
+    0.5,
+    1.0
+   ],
+   "source": "shoe-floor; only used as a slip refusal threshold",
+   "status": "ASSUMED_UNCALIBRATED"
+  },
+  "gravity_m_s2": {
+   "note": "",
+   "sensitivity_range": null,
+   "source": "standard gravity (CGPM 1901)",
+   "status": "PHYSICAL_CONSTANT_OR_CONVENTION"
+  },
+  "hill_curvature": {
+   "note": "",
+   "sensitivity_range": [
+    0.15,
+    0.4
+   ],
+   "source": "Hill AV (1938) Proc R Soc B 126:136-195 (hyperbolic force-velocity form; curvature recalled, not inspected)",
+   "status": "SOURCE_IDENTIFIED_VALUE_NOT_INSPECTED"
+  },
+  "joint_limits": {
+   "note": "",
+   "sensitivity_range": null,
+   "source": "passive quadratic end-range springs",
+   "status": "ASSUMED_UNCALIBRATED"
+  },
+  "max_isometric_torques": {
+   "note": "range is a multiplicative factor",
+   "sensitivity_range": [
+    0.7,
+    1.3
+   ],
+   "source": "joint-level, both legs summed; not fitted to a person",
+   "status": "ASSUMED_UNCALIBRATED"
+  },
+  "max_shortening_velocities": {
+   "note": "range is a multiplicative factor",
+   "sensitivity_range": [
+    0.75,
+    1.25
+   ],
+   "source": "joint-level",
+   "status": "ASSUMED_UNCALIBRATED"
+  },
+  "segment_com_fractions": {
+   "note": "",
+   "sensitivity_range": null,
+   "source": "Winter DA, Biomechanics and Motor Control of Human Movement, 4th ed. (2009), anthropometric table (values recalled, table not inspected in this run)",
+   "status": "SOURCE_IDENTIFIED_VALUE_NOT_INSPECTED"
+  },
+  "segment_gyration_fractions": {
+   "note": "",
+   "sensitivity_range": null,
+   "source": "Winter DA, Biomechanics and Motor Control of Human Movement, 4th ed. (2009), anthropometric table (values recalled, table not inspected in this run)",
+   "status": "SOURCE_IDENTIFIED_VALUE_NOT_INSPECTED"
+  },
+  "segment_length_fractions": {
+   "note": "",
+   "sensitivity_range": null,
+   "source": "Winter DA, Biomechanics and Motor Control of Human Movement, 4th ed. (2009), anthropometric table (values recalled, table not inspected in this run)",
+   "status": "SOURCE_IDENTIFIED_VALUE_NOT_INSPECTED"
+  },
+  "segment_mass_fractions": {
+   "note": "two legs lumped; fractions sum to 1",
+   "sensitivity_range": null,
+   "source": "Winter DA, Biomechanics and Motor Control of Human Movement, 4th ed. (2009), anthropometric table (values recalled, table not inspected in this run)",
+   "status": "SOURCE_IDENTIFIED_VALUE_NOT_INSPECTED"
+  },
+  "stature_m": {
+   "note": "",
+   "sensitivity_range": [
+    1.6,
+    1.95
+   ],
+   "source": "declared hypothetical adult",
+   "status": "ASSUMED_UNCALIBRATED"
+  },
+  "torque_angle_curves": {
+   "note": "",
+   "sensitivity_range": null,
+   "source": "Gaussian joint torque-angle relation; optimum and width declared",
+   "status": "ASSUMED_UNCALIBRATED"
+  }
+ },
+ "values": {
+  "bar": {
+   "coupling_damping_n_s_m": 1200.0,
+   "coupling_stiffness_n_m": 200000.0,
+   "half_length_lateral_m": 0.6,
+   "mass_kg": 20.0
+  },
+  "body": {
+   "ankle_height_m": 0.069,
+   "body_mass_kg": 75.0,
+   "foot_com_x_m": 0.05,
+   "foot_com_z_m": -0.035,
+   "foot_gyration_fraction": 0.475,
+   "foot_length_m": 0.27,
+   "foot_mass_fraction": 0.029,
+   "friction_coefficient": 0.8,
+   "gravity_m_s2": 9.80665,
+   "hat_com_from_hip_fraction": 0.626,
+   "hat_gyration_fraction": 0.496,
+   "hat_length_fraction": 0.288,
+   "hat_mass_fraction": 0.678,
+   "heel_x_m": -0.06,
+   "shank_com_from_ankle_fraction": 0.567,
+   "shank_gyration_fraction": 0.302,
+   "shank_length_fraction": 0.246,
+   "shank_mass_fraction": 0.093,
+   "shoulder_along_hat_m": 0.45,
+   "shoulder_posterior_m": 0.05,
+   "stature_m": 1.78,
+   "thigh_com_from_knee_fraction": 0.567,
+   "thigh_gyration_fraction": 0.323,
+   "thigh_length_fraction": 0.245,
+   "thigh_mass_fraction": 0.2,
+   "toe_x_m": 0.16
+  },
+  "neuromuscular": {
+   "activation_time_constant_s": 0.015,
+   "ankle_extensor": {
+    "angle_width_rad": 0.9,
+    "eccentric_max_ratio": 1.5,
+    "hill_curvature": 0.25,
+    "max_isometric_torque_n_m": 390.0,
+    "max_shortening_velocity_rad_s": 36.0,
+    "optimal_angle_rad": 1.4
+   },
+   "ankle_flexor": {
+    "angle_width_rad": 0.9,
+    "eccentric_max_ratio": 1.5,
+    "hill_curvature": 0.25,
+    "max_isometric_torque_n_m": 130.0,
+    "max_shortening_velocity_rad_s": 24.0,
+    "optimal_angle_rad": 1.8
+   },
+   "ankle_limits": {
+    "damping_n_m_s_per_rad": 20.0,
+    "max_angle_rad": 2.7,
+    "min_angle_rad": 0.85,
+    "stiffness_n_m_per_rad2": 5000.0
+   },
+   "deactivation_time_constant_s": 0.05,
+   "hip_extensor": {
+    "angle_width_rad": 1.2,
+    "eccentric_max_ratio": 1.5,
+    "hill_curvature": 0.25,
+    "max_isometric_torque_n_m": 650.0,
+    "max_shortening_velocity_rad_s": 27.0,
+    "optimal_angle_rad": 1.9
+   },
+   "hip_flexor": {
+    "angle_width_rad": 1.2,
+    "eccentric_max_ratio": 1.5,
+    "hill_curvature": 0.25,
+    "max_isometric_torque_n_m": 325.0,
+    "max_shortening_velocity_rad_s": 18.0,
+    "optimal_angle_rad": 2.8
+   },
+   "hip_limits": {
+    "damping_n_m_s_per_rad": 20.0,
+    "max_angle_rad": 3.491592653589793,
+    "min_angle_rad": 0.6,
+    "stiffness_n_m_per_rad2": 5000.0
+   },
+   "knee_extensor": {
+    "angle_width_rad": 1.1,
+    "eccentric_max_ratio": 1.5,
+    "hill_curvature": 0.25,
+    "max_isometric_torque_n_m": 585.0,
+    "max_shortening_velocity_rad_s": 30.0,
+    "optimal_angle_rad": 2.0
+   },
+   "knee_flexor": {
+    "angle_width_rad": 1.1,
+    "eccentric_max_ratio": 1.5,
+    "hill_curvature": 0.25,
+    "max_isometric_torque_n_m": 260.0,
+    "max_shortening_velocity_rad_s": 20.0,
+    "optimal_angle_rad": 2.6
+   },
+   "knee_limits": {
+    "damping_n_m_s_per_rad": 20.0,
+    "max_angle_rad": 3.141592653589793,
+    "min_angle_rad": 0.6,
+    "stiffness_n_m_per_rad2": 5000.0
+   },
+   "minimum_excitation": 0.01
+  }
+ }
+}
