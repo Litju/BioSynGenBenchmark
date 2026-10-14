@@ -97,6 +97,32 @@ class AnalyticalReferenceTests(unittest.TestCase):
 
 
 class HostileSchemaTests(unittest.TestCase):
+    def test_empty_record_does_not_pass_contact_admissibility(self):
+        sub = reference()
+        sub["frames"] = []
+        result = evaluate_i2(sub)
+        self.assertEqual(result["status"], "EVALUATED")
+        for claim in ("LINEAR_MOMENTUM_CLOSURE", "CONTACT_ADMISSIBILITY"):
+            self.assertEqual(result["findings"][claim]["outcome"], "NOT_EVALUABLE")
+            self.assertEqual(result["findings"][claim]["code"],
+                             "NO_POSITIVE_DURATION_OBSERVATION")
+
+    def test_instantaneous_only_record_is_not_a_positive_physics_case(self):
+        sub = reference()
+        sub["frames"] = [{
+            "t0": 0.0, "t1": 0.0,
+            "body_states": [list(state) for state in sub["initial_body_states"]],
+            "contacts": [],
+        }]
+        sub["external_support_groups"] = []
+        sub["friction_by_group"] = {}
+        result = evaluate_i2(sub)
+        self.assertEqual(result["status"], "EVALUATED")
+        for claim in ("LINEAR_MOMENTUM_CLOSURE", "CONTACT_ADMISSIBILITY"):
+            self.assertEqual(result["findings"][claim]["outcome"], "NOT_EVALUABLE")
+        self.assertEqual(result["findings"]["LINEAR_MOMENTUM_CLOSURE"]["code"],
+                         "NO_POSITIVE_DURATION_OBSERVATION")
+
     def test_arbitrary_nested_json_types_return_invalid_without_throwing(self):
         mutations = [(key, value) for key in ("bodies", "initial_body_states", "frames", "impulses",
                       "external_support_groups", "friction_by_group", "claims") for value in (None, 1, True, "x")]

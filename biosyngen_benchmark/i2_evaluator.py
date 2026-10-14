@@ -178,6 +178,22 @@ def evaluate_i2(sub) -> dict:
     if problems:
         return {"status": "INVALID", "problems": problems, "findings": {}}
     findings: dict[str, dict] = {}
+    # Instantaneous impact/event frames remain legal inside an observed
+    # trajectory. An entirely empty or zero-duration record, however, cannot
+    # establish the momentum or contact-admissibility claim by vacuity.
+    if not any(frame["t1"] > frame["t0"] for frame in sub["frames"]):
+        no_evidence = {"outcome": "NOT_EVALUABLE",
+                       "code": "NO_POSITIVE_DURATION_OBSERVATION"}
+        findings["LINEAR_MOMENTUM_CLOSURE"] = dict(no_evidence)
+        findings["CONTACT_ADMISSIBILITY"] = dict(no_evidence)
+        findings["BILATERAL_FORCE"] = {
+            "outcome": "NOT_EVALUABLE", "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE"}
+        findings["ANATOMICAL_PHASES"] = {
+            "outcome": "NOT_EVALUABLE", "code": "MOTION_CAPTURE_REQUIRED"}
+        return {"status": "EVALUATED", "problems": [], "findings": findings,
+                "claim_ceilings": ["NUMERICAL_VERIFICATION_ONLY", "SIMULATED_MEASUREMENT_ONLY",
+                                   "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+                                   "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"]}
     mass = sum(b["mass_kg"] for b in sub["bodies"])
     g = sub["gravity_m_s2"]
     weight = mass * g
