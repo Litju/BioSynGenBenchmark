@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Cite this software with the exact reviewed commit and its numerical limitations."
+type: software
+title: BioSynGenBenchmark
+authors:
+  - family-names: Rodriguez
+    given-names: Julio
+repository-code: "https://github.com/Litju/BioSynGenBenchmark"
+url: "https://github.com/Litju/BioSynGenBenchmark"
+abstract: >-
+  A planar multibody numerical research prototype with simulated force-plate
+  and cable-LPT observations and independent numerical benchmark controls.
+  Biological validation and real paired FORCE/LPT validation are not established.
+  License selection and public-release qualification are pending.
+keywords:
+  - numerical verification
+  - multibody dynamics
+  - simulated measurement

@@ -2,6 +2,22 @@
 
 Canonical research and program workspace for the Research project [Biomechanical Synthetic Measurement Generation & Benchmarking](https://linear.app/alignerr-cmj/project/biomechanical-synthetic-measurement-generation-and-benchmarking-18565cbe99b1).
 
+## Current I3 qualification and release preparation
+
+I3 independently audits the existing I2 implementation under RES-502. Local source/provenance findings are in `docs/i3/RES503_SOURCE_AUDIT.md`; fresh test logs and exact exit receipts are in `runs/i3/`. The I2 implementation remains submitted for review, with scoped mechanics refusals. Open-source intent is approved; the actual license and source/history rights clearance are pending. No new public I2 branch or hosted I2 CI pass is claimed.
+
+Core code uses the Python standard library. From the project root on Windows (CPython 3.12.10 used for local qualification), or from a reviewed checkout on Linux:
+
+    python -m unittest discover -s tests -v
+    python -m scripts.run_i2_benchmark --out runs/i3/local-benchmark
+    python -m scripts.verify_i3_reproducibility
+
+The I3 reproduction runner launches separate Python processes, preserves outputs under the project, checks matching complete artifact inventories, and independently gates the authored 10-positive/76-fault benchmark counts. Deterministic bytes alone do not verify physics or cross-platform numerical equivalence. Hosted Windows/Linux qualification remains a release gate; Linux instructions are not a claim of completed hosted verification.
+
+For the optional independent I1 integration check, use a separate Python 3.11 environment with SciPy 1.17.1 and NumPy 2.4.4, then run `python -m unittest tests.test_i1_solver_crosscheck -v`. On Windows the already-installed qualified environment is invoked with `py -3.11`. Record actual versions and true exit codes. The SciPy tests share the I1 derivative and do not independently verify I2 equations.
+
+See [CONTRIBUTING](CONTRIBUTING.md), [SECURITY](SECURITY.md), [data availability](DATA_AVAILABILITY.md), and the [license/rights proposal](docs/i3/RES505_LICENSE_AND_RIGHTS.md). CITATION.cff supplies provisional software citation metadata; cite the exact reviewed commit. Historical reproduction sections below retain their original provenance and reported counts.
+
 Keep program work products here. The sibling D:\projects\BioSynGenBenchmark-evidence is limited to the minimal retained scientific evidence admitted under the [Workspace Authority & Minimal Evidence Policy](https://linear.app/alignerr-cmj/document/workspace-authority-and-minimal-evidence-policy-biosyngenbenchmark-3aa199d05e55); it is not a second project, backup, corpus mirror, or home for routine working files.
 
 ## I0 implementation pilot

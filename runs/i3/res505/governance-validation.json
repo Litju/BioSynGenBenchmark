@@ -1,0 +1,22 @@
+{
+  "actual_license_file_exists": false,
+  "cff_validation": "Manual YAML/required-field review; no schema-validator claim",
+  "copyright_authority": "AWAITING_OWNER_CONFIRMATION",
+  "excluded_local_entry": ".claude/launch.json",
+  "external_python_import_roots": [
+    "scipy"
+  ],
+  "issue": "RES-505",
+  "proposed_files_sha256": {
+    "CITATION.cff": "a947c3e753305f51be78abccb634abfe26b2a537728c4d4fbc69bc9d1dfae1a6",
+    "CONTRIBUTING.md": "96f5b8f34b80d9f5b47f380d8ab32afeeb7f0ea72129bb81c1c94da7dd81267e",
+    "DATA_AVAILABILITY.md": "83b19eacf78f89ddc9025e58c9bf2d7605f380c3f09bdcf854ee43c9ddd26d7e",
+    "README.md": "166185bf39b8fb3ffd532c319b78a66a690aa2ef5a2d0a7e1ad897f58d60f394",
+    "SECURITY.md": "1c7f9d3fc78b7a67e1393bf6a2dbed34761a8d8890383560e17da54737197cdf",
+    "docs/i3/RES505_LICENSE_AND_RIGHTS.md": "c3ffc5b5623b083ac58b44ddd945793255a0b5933f32e58d0c80227638f23311",
+    "docs/i3/legal/APACHE-2.0.proposed.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "docs/i3/legal/NOTICE.proposed.txt": "3078c6dac81a6a7c0ec13fac245b564c071e14797dd5c1ae92bc95f635eb2fa3"
+  },
+  "publication": "NOT_PERFORMED",
+  "status": "BLOCKED_LICENSE_OWNER_DECISION"
+}
