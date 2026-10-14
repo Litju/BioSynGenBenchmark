@@ -54,6 +54,11 @@ class RackFeasibility:
 def front_rack_feasibility(anthropometry: Anthropometry | None = None, *, rack_offset_m: float = 0.12,
                            grip_projection: float = math.cos(math.radians(10.0))) -> RackFeasibility:
     """Elbow flexion needed to put the lumped grip at ``rack_offset_m`` from the shoulder joint."""
+    for name, value in (("rack_offset_m", rack_offset_m), ("grip_projection", grip_projection)):
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
+            raise PowerCleanRefused(f"INVALID_RACK_GEOMETRY: {name} must be positive finite numeric data")
+    if grip_projection > 1.0:
+        raise PowerCleanRefused("INVALID_RACK_GEOMETRY: grip_projection must not exceed 1")
     a = anthropometry or Anthropometry()
     l1 = a.upper_arm_length_fraction * a.stature_m * grip_projection
     l2 = a.forearm_grip_length_fraction * a.stature_m * grip_projection
@@ -61,6 +66,9 @@ def front_rack_feasibility(anthropometry: Anthropometry | None = None, *, rack_o
     if rack_offset_m < abs(l1 - l2):
         return RackFeasibility(rack_offset_m, l1, l2, None, limit, False,
                                "rack offset shorter than the minimum arm fold")
+    if rack_offset_m > l1 + l2:
+        return RackFeasibility(rack_offset_m, l1, l2, None, limit, False,
+                               "rack offset exceeds maximum two-link reach")
     cos_e = (rack_offset_m ** 2 - l1 ** 2 - l2 ** 2) / (2.0 * l1 * l2)
     required = math.acos(max(-1.0, min(1.0, cos_e)))
     feasible = required <= limit
@@ -95,7 +103,8 @@ def build_power_clean(scope: str = "PULL_ONLY", *, load_mass_kg: float = 60.0,
 
 def analyze_power_clean(trajectory: ExerciseTrajectory) -> PowerCleanResult:
     pull = analyze_pull(trajectory)
-    rack = front_rack_feasibility(trajectory.model.anthropometry)
+    # The pull builder already projects arm lengths for its declared grip.
+    rack = front_rack_feasibility(trajectory.model.anthropometry, grip_projection=1.0)
     events = {
         "REP_START": trajectory.initial_state.time_s,
         "LIFT_OFF": pull.lift_off_s,

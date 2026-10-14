@@ -1,0 +1,12 @@
+test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) ... ok
+test_over_reach_is_not_clipped_into_a_feasible_straight_arm (tests.test_i3_reach_domain.ReachDomainTests.test_over_reach_is_not_clipped_into_a_feasible_straight_arm) ... ok
+test_required_elbow_flexion_matches_independent_forward_kinematics (tests.test_i2i_power_clean.FrontRackFeasibilityTests.test_required_elbow_flexion_matches_independent_forward_kinematics) ... ok
+test_shoulder_rack_offsets_are_infeasible_and_only_hand_offsets_are_reachable (tests.test_i2i_power_clean.FrontRackFeasibilityTests.test_shoulder_rack_offsets_are_infeasible_and_only_hand_offsets_are_reachable) ... ok
+test_force_template_catch_is_forbidden (tests.test_i2i_power_clean.PowerCleanScopeTests.test_force_template_catch_is_forbidden) ... ok
+test_full_scope_is_refused_with_the_computed_reason_and_missing_dofs (tests.test_i2i_power_clean.PowerCleanScopeTests.test_full_scope_is_refused_with_the_computed_reason_and_missing_dofs) ... ok
+test_pull_only_scope_reports_pull_events_and_never_synthesizes_a_catch (tests.test_i2i_power_clean.PowerCleanScopeTests.test_pull_only_scope_reports_pull_events_and_never_synthesizes_a_catch) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 21.151s
+
+OK
