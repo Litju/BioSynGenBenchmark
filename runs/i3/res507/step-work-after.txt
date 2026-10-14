@@ -1,0 +1,6 @@
+test_capture_endpoint_quadrature_is_not_exact_continuous_friction_work (tests.test_i3_step_work_scope.StepWorkScopeTests.test_capture_endpoint_quadrature_is_not_exact_continuous_friction_work) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK

@@ -531,6 +531,14 @@ class DynamicsResult:
 
 @dataclass(frozen=True, slots=True)
 class StepResult:
+    """Discrete step with an explicitly approximate contact-work channel.
+
+    ``contact_work_j`` is the legacy name of post-step generalized-velocity
+    impulse quadrature plus any exact instantaneous-impact work. It can miss
+    resolved sliding work when capture occurs within a step. Projection work
+    is separate; neither channel is a complete continuous work/energy proof.
+    Prefer ``contact_work_estimate_j`` with ``contact_work_definition``.
+    """
     state: MultibodyState
     elapsed_s: float
     events: tuple[ContactEvent, ...]
@@ -539,6 +547,15 @@ class StepResult:
     integrator_id: str = "VELOCITY_LEVEL_COULOMB_IMPULSE_EULER_MASS_METRIC_PROJECTION_V2"
     contact_impulses_n_s: Mapping[str, tuple[float, float]] = field(default_factory=dict)
     projection_impulses_n_s: Mapping[str, tuple[float, float]] = field(default_factory=dict)
+
+    @property
+    def contact_work_estimate_j(self) -> float:
+        return self.contact_work_j
+
+    @property
+    def contact_work_definition(self) -> str:
+        return ("post-step generalized-velocity impulse quadrature plus exact instantaneous-impact work; "
+                "not exact continuous friction work; projection and integration error are separate")
 
 
 @dataclass(frozen=True, slots=True)
