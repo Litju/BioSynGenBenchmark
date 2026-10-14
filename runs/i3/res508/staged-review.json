@@ -1,0 +1,87 @@
+{
+  "issue": "RES-508",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "size_bytes": 3823,
+      "sha256": "bd7021b656c77212678e4570a4be1ef8f4892d9b42a2466554a4a13ee75558b4",
+      "findings": [
+        "machine_path"
+      ]
+    },
+    {
+      "path": "CITATION.cff",
+      "size_bytes": 845,
+      "sha256": "8a91ad48c01a59e4b6e69b5329bae2b6e1f3a9aa96d898708f18d0eeaa77bb3c",
+      "findings": []
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 15268,
+      "sha256": "e7bd2a5b2a5b07c8c6a133c280a283fe7c60fa671e278e3da9f2c9d947387e14",
+      "findings": [
+        "machine_path"
+      ]
+    },
+    {
+      "path": "docs/ROADMAP_CONVERGENCE_STATUS.md",
+      "size_bytes": 4787,
+      "sha256": "7197f6a4d7c6d60f1a07510fbeda59e81e98cf4928c2150d9d63b236e7a29ea8",
+      "findings": []
+    },
+    {
+      "path": "docs/i3/RES508_OWNER_DOSSIER.md",
+      "size_bytes": 20451,
+      "sha256": "f9a710560fa0dedaebbcdab12e66960414ea65b3ee38ea20a1db740af3f67dc0",
+      "findings": [
+        "machine_path"
+      ]
+    },
+    {
+      "path": "runs/i3/res508/PR_BODY.md",
+      "size_bytes": 3497,
+      "sha256": "7bea964695d1fbb7dbdf1f1d232a03ff8c79d73822070133fd670501a2ab4eb4",
+      "findings": []
+    },
+    {
+      "path": "runs/i3/res508/action-license-supplement.json",
+      "size_bytes": 2043,
+      "sha256": "5aab19d77df1f6452f19b53dcd85bb25a90b102edccd1535f349f13475f438c1",
+      "findings": []
+    },
+    {
+      "path": "runs/i3/res508/dossier-verification.json",
+      "size_bytes": 1977,
+      "sha256": "b8d5df9fdf77ae4b9d9efb15e65a9256beef7dcc562ad665c8ce8885a2ea671a",
+      "findings": []
+    },
+    {
+      "path": "runs/i3/res508/live-issue-and-publication-snapshot.json",
+      "size_bytes": 4544,
+      "sha256": "884cf6bd995d230e25420b62696442aae8492a1371dd59924171399263879649",
+      "findings": []
+    },
+    {
+      "path": "runs/i3/res508/qualification-ledger.json",
+      "size_bytes": 9750,
+      "sha256": "cf97165faaf1840f21076ea06b4c6afb18ceb3b9731d2b1815474a7a10fe99fe",
+      "findings": []
+    },
+    {
+      "path": "runs/i3/res508/rights-and-history-manifest.json",
+      "size_bytes": 545651,
+      "sha256": "64397c2c5291ca3125eb9c4346c86b8320d30e284c6062fbc0714027b9f8041c",
+      "findings": []
+    },
+    {
+      "path": "runs/i3/res508/verify_dossier.py",
+      "size_bytes": 5006,
+      "sha256": "eb5264950a5871e4d70ef8338159325da4dbcf462d2c3d457fb4aaecdecb0c69",
+      "findings": []
+    }
+  ],
+  "complete_staged_diff_bytes": 618561,
+  "complete_staged_diff_sha256": "ef7dfdf633a5ebabf6c209ecae5f0af75096164cf34045bd87911c9294b8094e",
+  "checks": "All staged payloads screened, all JSON and optional audit Python parsed, complete narrative/metadata diff manually read, local dossier checker exit0, staged whitespace check exit0; historical README suffix byte-identical. No numerical source/test/workflow edits.",
+  "scope": "Owner dossier, current entry-point status and manufactured provenance only; inventory excludes itself to avoid recursion"
+}

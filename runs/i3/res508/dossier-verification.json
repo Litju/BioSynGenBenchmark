@@ -1,0 +1,66 @@
+{
+  "issue": "RES-508",
+  "passed": true,
+  "numerical_source": "57484146cd12859dad34a004d21606cfb67bcd5f",
+  "checks": [
+    "17 immutable issue commit subjects/types",
+    "numerical source/workflow unchanged",
+    "original I2/main refs preserved",
+    "10 authenticated snapshot statuses",
+    "five actual hosted successes and exact suite counts",
+    "retained reproduction/benchmark denominators",
+    "official pinned CFF schema",
+    "selected Apache license digest",
+    "all local Markdown links",
+    "all claim ceilings and 10 scientific matrix rows"
+  ],
+  "cff_schema_url": "https://raw.githubusercontent.com/citation-file-format/citation-file-format/1.2.0/schema.json",
+  "cff_schema_sha256": "0b8d22140da702d766df318dcff3a91af2f39521298dcf36d76315fd99cc169b",
+  "PyYAML": "6.0.3",
+  "jsonschema": "4.26.0",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "command": [
+    "D:\\projects\\BioSynGenBenchmark\\.venv\\i3-visualization\\Scripts\\python.exe",
+    "runs/i3/res508/verify_dossier.py"
+  ],
+  "exit": 0,
+  "local_links": [
+    {
+      "document": "README.md",
+      "target": "docs/i3/RES508_OWNER_DOSSIER.md"
+    },
+    {
+      "document": "README.md",
+      "target": "docs/i3/RES506_HOSTED_QUALIFICATION.md"
+    },
+    {
+      "document": "README.md",
+      "target": "CONTRIBUTING.md"
+    },
+    {
+      "document": "README.md",
+      "target": "SECURITY.md"
+    },
+    {
+      "document": "README.md",
+      "target": "DATA_AVAILABILITY.md"
+    },
+    {
+      "document": "README.md",
+      "target": "docs/i3/RES505_LICENSE_AND_RIGHTS.md"
+    },
+    {
+      "document": "README.md",
+      "target": "LICENSE"
+    },
+    {
+      "document": "README.md",
+      "target": "NOTICE"
+    },
+    {
+      "document": "docs/ROADMAP_CONVERGENCE_STATUS.md",
+      "target": "i3/RES508_OWNER_DOSSIER.md"
+    }
+  ],
+  "scope": "document/provenance checks only; no new empirical/scientific validity inferred"
+}
