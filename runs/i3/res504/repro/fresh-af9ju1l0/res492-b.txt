@@ -1,0 +1,22 @@
+{
+ "CMJ": {
+  "takeoff_v": 1.911275,
+  "termination": "DURATION_REACHED"
+ },
+ "SJ": {
+  "takeoff_v": 1.886924,
+  "termination": "DURATION_REACHED"
+ },
+ "LOADED_CMJ": {
+  "takeoff_v": 1.715513,
+  "termination": "DURATION_REACHED"
+ },
+ "LOADED_JUMP_SQUAT": {
+  "takeoff_v": 1.406912,
+  "termination": "DURATION_REACHED"
+ },
+ "SJ_RIGHT_STRENGTH_0.80": {
+  "takeoff_v": 1.763761,
+  "termination": "DURATION_REACHED"
+ }
+}

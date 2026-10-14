@@ -1,0 +1,1 @@
+{"receipt": "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res504\\repro\\fresh-af9ju1l0\\receipt.json", "passed": true, "fresh_worker_processes": 12}
