@@ -1,0 +1,11 @@
+test_an_unlisted_inventory_row_or_variant_cannot_be_silently_omitted (test_i2j_benchmark.CoverageMatrixTests.test_an_unlisted_inventory_row_or_variant_cannot_be_silently_omitted) ... ok
+test_every_inventory_row_and_deferred_candidate_has_an_explicit_status (test_i2j_benchmark.CoverageMatrixTests.test_every_inventory_row_and_deferred_candidate_has_an_explicit_status) ... ok
+test_evaluator_imports_nothing_from_the_generator (test_i2j_benchmark.IndependentEvaluatorTests.test_evaluator_imports_nothing_from_the_generator) ... ok
+test_every_fault_injection_and_support_omission_is_refused (test_i2j_benchmark.IndependentEvaluatorTests.test_every_fault_injection_and_support_omission_is_refused) ... ok
+test_generator_export_passes_and_bilateral_or_anatomical_claims_abstain (test_i2j_benchmark.IndependentEvaluatorTests.test_generator_export_passes_and_bilateral_or_anatomical_claims_abstain) ... ok
+test_strict_schema_refuses_unknown_and_malformed_fields (test_i2j_benchmark.IndependentEvaluatorTests.test_strict_schema_refuses_unknown_and_malformed_fields) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 6.941s
+
+OK
