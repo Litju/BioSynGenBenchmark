@@ -1,0 +1,54 @@
+FROZEN_SOURCE 3322d89499050eea0004f9e8882666e2a40d5a9a biosyngen/multibody.py
+test_moving_plane_reaction_point_moment_and_power_match_physical_contact (tests.test_i3_contact_reporting.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) ...
+  test_moving_plane_reaction_point_moment_and_power_match_physical_contact (tests.test_i3_contact_reporting.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='material contact point') ... FAIL
+  test_moving_plane_reaction_point_moment_and_power_match_physical_contact (tests.test_i3_contact_reporting.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='reaction moment') ... FAIL
+  test_moving_plane_reaction_point_moment_and_power_match_physical_contact (tests.test_i3_contact_reporting.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='contact power') ... FAIL
+test_signed_torque_uncertainty_is_an_ordered_interval (tests.test_i3_contact_reporting.ReportingDefectTests.test_signed_torque_uncertainty_is_an_ordered_interval) ... FAIL
+
+======================================================================
+FAIL: test_moving_plane_reaction_point_moment_and_power_match_physical_contact (tests.test_i3_contact_reporting.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='material contact point')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_contact_reporting.py", line 25, in test_moving_plane_reaction_point_moment_and_power_match_physical_contact
+    self.assertEqual(wrench.point_b_world_m, wrench.point_a_world_m)
+AssertionError: Tuples differ: (0.0, 0.0) != (0.3, 0.0)
+
+First differing element 0:
+0.0
+0.3
+
+- (0.0, 0.0)
+?    ^
+
++ (0.3, 0.0)
+?    ^
+
+
+======================================================================
+FAIL: test_moving_plane_reaction_point_moment_and_power_match_physical_contact (tests.test_i3_contact_reporting.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='reaction moment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_contact_reporting.py", line 27, in test_moving_plane_reaction_point_moment_and_power_match_physical_contact
+    self.assertAlmostEqual(wrench.moment_on_b_about_com_n_m, result.accelerations["plane"].angular_rad_s2, places=11)
+AssertionError: 0.0 != -2.6990779816513757 within 11 places (2.6990779816513757 difference)
+
+======================================================================
+FAIL: test_moving_plane_reaction_point_moment_and_power_match_physical_contact (tests.test_i3_contact_reporting.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='contact power')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_contact_reporting.py", line 29, in test_moving_plane_reaction_point_moment_and_power_match_physical_contact
+    self.assertAlmostEqual(result.contact_power_w, 0, places=11)
+AssertionError: 1.3495389908256878 != 0 within 11 places (1.3495389908256878 difference)
+
+======================================================================
+FAIL: test_signed_torque_uncertainty_is_an_ordered_interval (tests.test_i3_contact_reporting.ReportingDefectTests.test_signed_torque_uncertainty_is_an_ordered_interval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_contact_reporting.py", line 40, in test_signed_torque_uncertainty_is_an_ordered_interval
+    self.assertAlmostEqual(lower, -3.6, places=12)
+AssertionError: -2.4 != -3.6 within 12 places (1.2000000000000002 difference)
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+FAILED (failures=4)

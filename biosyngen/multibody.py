@@ -450,6 +450,11 @@ class ReferenceAngleController:
 
 @dataclass(frozen=True, slots=True)
 class ContactWrench:
+    """Forces and moments at their physical application points.
+
+    For a body-attached plane the reaction acts at the other body's contact
+    point. ContactKinematics separately retains the plane's reference anchor.
+    """
     contact_id: str
     kind: ContactKind
     point_a_world_m: Vec2
@@ -1246,7 +1251,7 @@ class PlanarMultibodySystem:
             q[ia] -= torque
             q[ib] += torque
             torques[actuator.actuator_id] = torque
-            uncertain = actuator.capacity_n_m * actuator.provenance.uncertainty_fraction * activation * factor
+            uncertain = abs(actuator.capacity_n_m * actuator.provenance.uncertainty_fraction * activation * factor)
             bounds[actuator.actuator_id] = (torque - uncertain, torque + uncertain)
         return q, torques, bounds
 
@@ -1721,15 +1726,22 @@ class PlanarMultibodySystem:
                 normal_force * data.normal[1] + tangent_force * data.tangent[1],
             )
             force_b = (-force_a[0], -force_a[1]) if spec.body_b_id is not None else _ZERO_2
+            point_a_world = data.point_a.position
+            point_b_world = data.point_b_world
+            if spec.body_b_id is not None:
+                if spec.normal_frame is ContactNormalFrame.BODY_B:
+                    point_b_world = point_a_world
+                elif spec.normal_frame is ContactNormalFrame.BODY_A:
+                    point_a_world = point_b_world
             body_a_com = state.bodies[spec.body_a_id].position_m
             moment_a = _cross(
-                (data.point_a.position[0] - body_a_com[0], data.point_a.position[1] - body_a_com[1]),
+                (point_a_world[0] - body_a_com[0], point_a_world[1] - body_a_com[1]),
                 force_a,
             )
-            if spec.body_b_id is not None and data.point_b_world is not None:
+            if spec.body_b_id is not None and point_b_world is not None:
                 body_b_com = state.bodies[spec.body_b_id].position_m
                 moment_b = _cross(
-                    (data.point_b_world[0] - body_b_com[0], data.point_b_world[1] - body_b_com[1]),
+                    (point_b_world[0] - body_b_com[0], point_b_world[1] - body_b_com[1]),
                     force_b,
                 )
             else:
@@ -1751,9 +1763,9 @@ class PlanarMultibodySystem:
             contact_wrenches[contact_id] = ContactWrench(
                 contact_id=contact_id,
                 kind=spec.kind,
-                point_a_world_m=data.point_a.position,
+                point_a_world_m=point_a_world,
                 force_a_world_n=force_a,
-                point_b_world_m=data.point_b_world if spec.body_b_id is not None else None,
+                point_b_world_m=point_b_world if spec.body_b_id is not None else None,
                 force_b_world_n=force_b,
                 normal_world=data.normal,
                 tangent_world=data.tangent,
@@ -1768,8 +1780,11 @@ class PlanarMultibodySystem:
                 moment_on_a_about_com_n_m=moment_a,
                 moment_on_b_about_com_n_m=moment_b,
             )
-            relative_velocity = data.relative_velocity
-            contact_power += _dot(force_a, relative_velocity)
+            # Transport to the material contact point on a rotating plane.
+            # The reference-anchor relative velocity alone would invent
+            # normal work when contact occurs away from that anchor.
+            contact_power += (normal_force * data.normal_velocity_m_s
+                              + tangent_force * data.tangential_velocity_m_s)
             residuals[f"{contact_id}:nonpenetration_m"] = max(0.0, -data.gap_m)
             residuals[f"{contact_id}:complementarity_N_m"] = abs(data.gap_m * normal_force)
             residuals[f"{contact_id}:normal_force_N"] = max(0.0, -normal_force)
