@@ -1,0 +1,23 @@
+test_line_retains_out_of_range_data_coordinate_under_svg_clip (tests.test_i3_plot_fidelity.PlotFidelityTests.test_line_retains_out_of_range_data_coordinate_under_svg_clip) ... FAIL
+test_marker_retains_out_of_range_data_coordinate (tests.test_i3_plot_fidelity.PlotFidelityTests.test_marker_retains_out_of_range_data_coordinate) ... FAIL
+
+======================================================================
+FAIL: test_line_retains_out_of_range_data_coordinate_under_svg_clip (tests.test_i3_plot_fidelity.PlotFidelityTests.test_line_retains_out_of_range_data_coordinate_under_svg_clip)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_plot_fidelity.py", line 15, in test_line_retains_out_of_range_data_coordinate_under_svg_clip
+    self.assertEqual(last_y, 20 + 100 - 10 * 100)
+AssertionError: 20.0 != -880
+
+======================================================================
+FAIL: test_marker_retains_out_of_range_data_coordinate (tests.test_i3_plot_fidelity.PlotFidelityTests.test_marker_retains_out_of_range_data_coordinate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_plot_fidelity.py", line 24, in test_marker_retains_out_of_range_data_coordinate
+    self.assertEqual(float(marker.attrib["cy"]), 20 + 100 - 10 * 100)
+AssertionError: 20.0 != -880
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+FAILED (failures=2)

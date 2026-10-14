@@ -76,7 +76,8 @@ def main(argv=None) -> int:
         times = [f.t_end_s for f in trajectory.frames]
         bar_v = [bar_state(trajectory, f.state)[1] for f in trajectory.frames]
         force = [foot_force_z(trajectory, f) / analysis.system_weight_n - 1.0 for f in trajectory.frames]
-        panel = figure.panel(70, 70 + index * 225, 880, 175, (0.0, times[-1]), (-1.2, 1.2),
+        limits = (min(-1.2, min(bar_v + force) * 1.05), max(1.2, max(bar_v + force) * 1.05))
+        panel = figure.panel(70, 70 + index * 225, 880, 175, (0.0, times[-1]), limits,
                              title=label, xlabel="model time (s)", ylabel="m/s ; Fz/W - 1")
         for rep in analysis.reps:
             if rep.bottom_reversal_s is not None:
@@ -86,7 +87,7 @@ def main(argv=None) -> int:
             if rep.sticking_region_s is not None:
                 panel.band(*rep.sticking_region_s, "#FBE3CF")
         panel.line(times, bar_v, PALETTE["blue"], label="bar vertical velocity")
-        panel.line(times, [max(-1.15, min(1.15, v)) for v in force], PALETTE["green"], label="Fz/W - 1")
+        panel.line(times, force, PALETTE["green"], label="Fz/W - 1")
     (out / "summary.json").write_text(json.dumps(summary, indent=2, sort_keys=True, default=str) + "\n", encoding="utf-8", newline="\n")
     (out / "back_squat.svg").write_text(figure.render(), encoding="utf-8", newline="\n")
     print(json.dumps({k: [r["bar_displacement_m"] for r in v["reps"]] for k, v in summary["cases"].items()}))

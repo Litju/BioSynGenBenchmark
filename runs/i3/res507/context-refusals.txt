@@ -1,0 +1,8 @@
+test_numerical_contact_retention_does_not_admit_empirical_force_rfd (tests.test_i3_context_refusals.ContextRefusalTests.test_numerical_contact_retention_does_not_admit_empirical_force_rfd) ... ok
+test_pelvis_loss_outside_repetitions_is_still_reported (tests.test_i3_context_refusals.ContextRefusalTests.test_pelvis_loss_outside_repetitions_is_still_reported) ... ok
+test_shelf_only_bar_never_becomes_a_hand_stabilized_jump_claim (tests.test_i3_context_refusals.ContextRefusalTests.test_shelf_only_bar_never_becomes_a_hand_stabilized_jump_claim) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

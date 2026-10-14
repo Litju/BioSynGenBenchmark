@@ -1,0 +1,11 @@
+test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) ... ok
+test_over_reach_is_not_clipped_into_a_feasible_straight_arm (test_i3_artifact_repairs.ReachDomainTests.test_over_reach_is_not_clipped_into_a_feasible_straight_arm) ... ok
+test_bench_whole_system_force_requires_explicit_rack_reaction (test_i3_artifact_repairs.ReportingDefectTests.test_bench_whole_system_force_requires_explicit_rack_reaction) ... ok
+test_moving_plane_reaction_point_moment_and_power_match_physical_contact (test_i3_artifact_repairs.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) ... ok
+test_signed_torque_uncertainty_is_an_ordered_interval (test_i3_artifact_repairs.ReportingDefectTests.test_signed_torque_uncertainty_is_an_ordered_interval) ... ok
+test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator (test_i3_artifact_repairs.ReportingDefectTests.test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.002s
+
+OK

@@ -15,6 +15,7 @@ from pathlib import Path
 from biosyngen.i2 import CLAIM_CEILINGS
 from biosyngen.i2.bench import BenchProtocol, analyze_bench, bench_lpt, build_bench_press, support_reaction
 from biosyngen.i2.instruments import observe_dual_plates, observe_lpt
+from biosyngen.i2.qualification import qualify_context
 from scripts.svgplot import PALETTE, Figure
 
 CASES = (("BENCH_60KG_2REPS", {}), ("BENCH_60KG_PAUSED_0.8S", {"repetitions": 1, "pause_s": 0.8}))
@@ -43,6 +44,7 @@ def main(argv=None) -> int:
         summary["cases"][label] = {
             "protocol": asdict(scenario.protocol),
             "termination": trajectory.termination,
+            "context_qualification": qualify_context(trajectory),
             "unrack_s": _r(analysis.unrack_s), "rerack_s": _r(analysis.rerack_s),
             "refusals": list(analysis.refusals),
             "support_events": [[_r(t), e, list(c)] for t, e, c in analysis.support_events],
@@ -55,11 +57,13 @@ def main(argv=None) -> int:
         reactions = [support_reaction(trajectory, f) for f in trajectory.frames]
         z0 = trajectory.initial_state.bodies["load"].position_m[1]
         height = [f.state.bodies["load"].position_m[1] - z0 for f in trajectory.frames]
-        panel = figure.panel(70, 70 + index * 240, 880, 180, (0.0, times[-1]), (-0.6, 1.2),
+        forces = [r[key] / weight for r in reactions for key in ("bench", "feet", "rack")]
+        limits = (min(-0.6, min(forces + height) * 1.05), max(1.2, max(forces + height) * 1.05))
+        panel = figure.panel(70, 70 + index * 240, 880, 180, (0.0, times[-1]), limits,
                              title=label, xlabel="model time (s)", ylabel="F/W ; bar dz (m)")
-        panel.line(times, [min(1.15, r["bench"] / weight) for r in reactions], PALETTE["purple"], label="bench / W")
-        panel.line(times, [min(1.15, r["feet"] / weight) for r in reactions], PALETTE["green"], label="feet / W")
-        panel.line(times, [min(1.15, r["rack"] / weight) for r in reactions], PALETTE["orange"], label="rack / W")
+        panel.line(times, [r["bench"] / weight for r in reactions], PALETTE["purple"], label="bench / W")
+        panel.line(times, [r["feet"] / weight for r in reactions], PALETTE["green"], label="feet / W")
+        panel.line(times, [r["rack"] / weight for r in reactions], PALETTE["orange"], label="rack / W")
         panel.line(times, height, PALETTE["blue"], label="bar height change (m)")
         for rep in analysis.reps:
             if rep.chest_touch_s is not None:

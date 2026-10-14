@@ -1,0 +1,63 @@
+{
+  "Matplotlib": "3.11.1",
+  "issue": "RES-507",
+  "outputs": {
+    "runs/i3/res507/rendered/BACK_SQUAT.png": "a7e7157b7d3482503fbbbefb6b8000b0550b587f9cd385431883ddcda9b5bb23",
+    "runs/i3/res507/rendered/BACK_SQUAT.svg": "57fef3bf96418ee3278fa7e4ec6e9b6fff08737113a1c7bc915936a97990ae92",
+    "runs/i3/res507/rendered/BENCH_PRESS.png": "73044c82b8a34afe8f9f12ad67285b1661a01bead80d29b010b64ff9f9539d44",
+    "runs/i3/res507/rendered/BENCH_PRESS.svg": "21e074ff52f95e2fdb5c012e06dec1275f7d77e89ba5a8389613310e45e9a745",
+    "runs/i3/res507/rendered/CLEAN_PULL.png": "2e5303c23551e8aa565866dda8aa98e18e25ba6f7f945f09ca3ace14241c2ead",
+    "runs/i3/res507/rendered/CLEAN_PULL.svg": "7775292c7f29840af1a5a69da90e75c948d8db3241ec1ec48fab0569a7156cbc",
+    "runs/i3/res507/rendered/DEADLIFT.png": "e20e3ee228c81509636628f6ab585602ce2eab3a3332a4027f0392074d3b32bb",
+    "runs/i3/res507/rendered/DEADLIFT.svg": "60ca6a59a58ecdc6aad767dd09e1092f79e7eeb09b0fcfa4dc01855dc186a699",
+    "runs/i3/res507/rendered/LOADED_JUMP_SQUAT.png": "049276e1f9419681cbd538a89ef6cd555943c72a2264a608f7c9b0df87995ab6",
+    "runs/i3/res507/rendered/LOADED_JUMP_SQUAT.svg": "1e4673bf552e6d1bb85b38c987d7c8fe3bd0e20c5c5785fc14910f8ddcfe18d4",
+    "runs/i3/res507/rendered/SNATCH_PULL.png": "8a5c472c87ee12b09d61f71a9a483a0a6b4a2fa183674a828b430ac376de7749",
+    "runs/i3/res507/rendered/SNATCH_PULL.svg": "1287f95591a7f499d70bb5f167a39779ddb620dc0daa46ec4afa35713d702cf7"
+  },
+  "scope": "numerical interval forces and impulses, not physical tissue peak/RFD or empirical physiology",
+  "sources": {
+    "runs/i3/res507/artifacts/BACK_SQUAT-impulses.csv": "423a4f48cb96b2e7dd47fee98d0e066970c975e50867a8ffc37f1a55da11981b",
+    "runs/i3/res507/artifacts/BACK_SQUAT.csv": "de7b66c11dc83485eab218ac1c9aeaab2fff2010881f1dea0fb404768d630795",
+    "runs/i3/res507/artifacts/BENCH_PRESS-impulses.csv": "bd2e9c5982f38f0c033a002daf644d261aef8b5f5cf061dda1de1e79c81b1d0d",
+    "runs/i3/res507/artifacts/BENCH_PRESS.csv": "c1d0303cf56d99bfbd05651f60ce0c02e09a1c0908377fee6094121565150189",
+    "runs/i3/res507/artifacts/CLEAN_PULL-impulses.csv": "d6bf1a314698d1eb6c4a9055be5e6dc37c073cfab650cd583434b773c052e79b",
+    "runs/i3/res507/artifacts/CLEAN_PULL.csv": "c74b27a055817f7687e5d0fe212c89f914146de9d2b122dbc0a3c2d29df05516",
+    "runs/i3/res507/artifacts/DEADLIFT-impulses.csv": "0f72f89e370ee123b929626cd5f31f61f33ce269926983df921178e2df234ebc",
+    "runs/i3/res507/artifacts/DEADLIFT.csv": "afae56a6045221cacb6becab2913f970a9cfe3041ac5e4a3d4bba86372665b95",
+    "runs/i3/res507/artifacts/LOADED_JUMP_SQUAT-impulses.csv": "020799a2f7c8a70ffd415108073409d4448757e9a5e3f998885dee483a81ea90",
+    "runs/i3/res507/artifacts/LOADED_JUMP_SQUAT.csv": "3bb2ca6343f4451c7d03c0f71ce48ef2d2d1d88eea5e3b37680d15626133eda0",
+    "runs/i3/res507/artifacts/SNATCH_PULL-impulses.csv": "191e25b27d1e9f965652ead39f4e27733829c7334a5dec15a2d4a20e0a64693e",
+    "runs/i3/res507/artifacts/SNATCH_PULL.csv": "408e65d4d1b8a4b4038b4f342577bf049926a5629b6a9ff34b2d746d92fb348c"
+  },
+  "svg_format_normalization": {
+    "changes": "LF and trailing presentation whitespace only; parsed element order and every attribute token independently unchanged. PNGs/raw data unchanged.",
+    "hashes": {
+      "BACK_SQUAT.svg": {
+        "git_safe_svg_sha256": "57fef3bf96418ee3278fa7e4ec6e9b6fff08737113a1c7bc915936a97990ae92",
+        "raw_svg_sha256": "5bd4ff39e56c16caddde55d3b333cc1393e09eeceea5d691bd11fa2b198576ad"
+      },
+      "BENCH_PRESS.svg": {
+        "git_safe_svg_sha256": "21e074ff52f95e2fdb5c012e06dec1275f7d77e89ba5a8389613310e45e9a745",
+        "raw_svg_sha256": "3136634b034c267444ab8122a948131f5e3b5d4c00438e88d7ddc3767af10164"
+      },
+      "CLEAN_PULL.svg": {
+        "git_safe_svg_sha256": "7775292c7f29840af1a5a69da90e75c948d8db3241ec1ec48fab0569a7156cbc",
+        "raw_svg_sha256": "c837947f4e79753425f67f63d1a6c9394a35bb28511649462a855e84e648b089"
+      },
+      "DEADLIFT.svg": {
+        "git_safe_svg_sha256": "60ca6a59a58ecdc6aad767dd09e1092f79e7eeb09b0fcfa4dc01855dc186a699",
+        "raw_svg_sha256": "47d81fa1e592523911f1c150115427a5698f0ff6be17b9ace1d44e32b3361006"
+      },
+      "LOADED_JUMP_SQUAT.svg": {
+        "git_safe_svg_sha256": "1e4673bf552e6d1bb85b38c987d7c8fe3bd0e20c5c5785fc14910f8ddcfe18d4",
+        "raw_svg_sha256": "dd3ddac16ebe6a3ea2000446a91cd67d9f3f87826c1d2b8683fd452b103e4e71"
+      },
+      "SNATCH_PULL.svg": {
+        "git_safe_svg_sha256": "1287f95591a7f499d70bb5f167a39779ddb620dc0daa46ec4afa35713d702cf7",
+        "raw_svg_sha256": "a58838186f87cbcfb5b0c4af83f0a20d22ab1cf74c5fcb230062cb0688326ce7"
+      }
+    }
+  },
+  "transforms": "none; full raw data ranges"
+}

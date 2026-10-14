@@ -57,10 +57,11 @@ def main(argv=None) -> int:
                  for f in trajectory.frames]
         radius = scenario.model.load.plate_radius_m
         height = [f.state.bodies["load"].position_m[1] - radius for f in trajectory.frames]
-        panel = figure.panel(70, 70 + index * 240, 880, 180, (0.0, times[-1]), (-0.05, 1.3),
+        limits = (min(-0.05, min(feet + floor + height) * 1.05), max(1.3, max(feet + floor + height) * 1.05))
+        panel = figure.panel(70, 70 + index * 240, 880, 180, (0.0, times[-1]), limits,
                              title=label, xlabel="model time (s)", ylabel="F/W ; bar height (m)")
-        panel.line(times, [min(v, 1.28) for v in feet], PALETTE["green"], label="feet Fz / W")
-        panel.line(times, [min(v, 1.28) for v in floor], PALETTE["orange"], label="bar-floor reaction / W")
+        panel.line(times, feet, PALETTE["green"], label="feet Fz / W")
+        panel.line(times, floor, PALETTE["orange"], label="bar-floor reaction / W")
         panel.line(times, height, PALETTE["blue"], label="bar height (m)")
         if analysis.pretension_onset_s is not None:
             panel.vline(analysis.pretension_onset_s, PALETTE["grey"], label="pre-tension onset")

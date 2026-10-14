@@ -51,11 +51,15 @@ def main(argv=None) -> int:
         weight = scenario.model.total_mass_kg() * scenario.model.gravity_m_s2
         radius = scenario.model.load.plate_radius_m
         times = [f.t_end_s for f in trajectory.frames]
-        panel = figure.panel(70, 70 + index * 240, 880, 180, (0.0, times[-1]), (-1.2, 2.2),
+        velocities = [f.state.bodies["load"].velocity_m_s[1] for f in trajectory.frames]
+        heights = [f.state.bodies["load"].position_m[1] - radius for f in trajectory.frames]
+        forces = [foot_force_z(trajectory, f) / weight for f in trajectory.frames]
+        limits = (min(-1.2, min(velocities + heights + forces) * 1.05), max(2.2, max(velocities + heights + forces) * 1.05))
+        panel = figure.panel(70, 70 + index * 240, 880, 180, (0.0, times[-1]), limits,
                              title=variant, xlabel="model time (s)", ylabel="m/s ; m ; F/W")
-        panel.line(times, [f.state.bodies["load"].velocity_m_s[1] for f in trajectory.frames], PALETTE["blue"], label="bar vz")
-        panel.line(times, [f.state.bodies["load"].position_m[1] - radius for f in trajectory.frames], PALETTE["green"], label="bar height")
-        panel.line(times, [min(2.15, foot_force_z(trajectory, f) / weight) for f in trajectory.frames], PALETTE["orange"], label="feet Fz / W")
+        panel.line(times, velocities, PALETTE["blue"], label="bar vz")
+        panel.line(times, heights, PALETTE["green"], label="bar height")
+        panel.line(times, forces, PALETTE["orange"], label="feet Fz / W")
         if analysis.lift_off_s is not None:
             panel.vline(analysis.lift_off_s, PALETTE["black"], label="lift-off")
         if analysis.second_pull_end_s is not None:

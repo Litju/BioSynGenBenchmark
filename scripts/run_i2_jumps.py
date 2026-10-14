@@ -17,6 +17,7 @@ from biosyngen.i2.human import StrengthHypothesis
 from biosyngen.i2.instruments import default_lpt, observe_dual_plates, observe_lpt
 from biosyngen.i2.jumps import REFUSED_SUBTYPES, build_jump
 from biosyngen.i2.phases import analyze_jump, foot_force_z
+from biosyngen.i2.qualification import qualify_context
 from scripts.svgplot import PALETTE, Figure
 
 PHASE_COLOR = {
@@ -58,6 +59,7 @@ def main(argv: list[str] | None = None) -> int:
         mass = scenario.model.total_mass_kg()
         summary["cases"][label] = {
             "termination": trajectory.termination,
+            "context_qualification": qualify_context(trajectory),
             "refusals": list(analysis.refusals),
             "system_mass_kg": _r(mass),
             "load": scenario.metadata["load_kind"],
@@ -80,15 +82,17 @@ def main(argv: list[str] | None = None) -> int:
         }
         times = [f.t_end_s for f in trajectory.frames]
         latent = [foot_force_z(trajectory, f) / weight for f in trajectory.frames]
+        virtual_force = [s.fz_total_n / weight for s in plates.samples]
         offset = plates.metadata["native_time_offset_s"]
-        panel = figure.panel(70, 70 + index * 215, 880, 170, (0.0, times[-1]), (-0.2, 4.5),
+        limits = (min(-0.2, min(latent + virtual_force) * 1.05), max(4.5, max(latent + virtual_force) * 1.05))
+        panel = figure.panel(70, 70 + index * 215, 880, 170, (0.0, times[-1]), limits,
                              title=label, xlabel="model time (s)", ylabel="Fz / W")
         for phase in analysis.phases:
             if phase.start_s is not None and phase.end_s is not None and phase.end_s > phase.start_s:
                 panel.band(phase.start_s, phase.end_s, PHASE_COLOR.get(phase.name, "#FFFFFF"))
-        panel.line(times, [min(v, 4.4) for v in latent], PALETTE["blue"], label="latent foot force")
+        panel.line(times, latent, PALETTE["blue"], label="latent foot force")
         sampled = plates.samples[::5]
-        panel.markers([s.native_time_s - offset for s in sampled], [min(s.fz_total_n / weight, 4.4) for s in sampled],
+        panel.markers([s.native_time_s - offset for s in sampled], [s.fz_total_n / weight for s in sampled],
                       PALETTE["vermillion"], r=1.0, label="simulated FZ_TOTAL (every 5th)")
         if analysis.time("takeoff") is not None:
             panel.vline(analysis.time("takeoff"), PALETTE["black"], label="latent takeoff")
