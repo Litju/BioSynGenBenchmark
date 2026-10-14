@@ -66,8 +66,9 @@ def main(argv=None) -> int:
                 for r in analysis.reps
             ],
             "joint_work_j": _r(analysis.joint_work_j, 3),
-            "bar_work_on_bar_j": _r(analysis.bar_work_on_bar_j, 3),
-            "system_com_work_j": _r(analysis.system_com_work_j, 3),
+            "bar_contact_vertical_work_estimate_j": _r(analysis.bar_contact_vertical_work_estimate_j, 3),
+            "system_com_pseudo_work_j": _r(analysis.system_com_pseudo_work_j, 3),
+            "work_definitions": analysis.work_definitions,
             "plate_samples": len(plates.samples),
             "lpt_samples": len(lpt.samples),
             "lpt_span_m": _r(max(s.displacement_m for s in lpt.samples) - min(s.displacement_m for s in lpt.samples)),

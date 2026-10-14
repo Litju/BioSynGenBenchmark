@@ -37,6 +37,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
 import math
+import warnings
 
 from ..multibody import ContactKind, ContactMode, ContactSpec, MultibodyState
 from .human import (
@@ -210,9 +211,28 @@ class SquatAnalysis:
     bar_weight_n: float
     flight_detected: bool
     joint_work_j: float
-    bar_work_on_bar_j: float
-    system_com_work_j: float
+    bar_contact_vertical_work_estimate_j: float
+    system_com_pseudo_work_j: float
     refusals: tuple[str, ...]
+
+    @property
+    def work_definitions(self) -> dict[str, str]:
+        return {
+            "joint_work_j": "sum of modeled active/passive joint torque-times-rate, left-step quadrature; not metabolic work",
+            "bar_contact_vertical_work_estimate_j": "vertical shoulder-force times bar-COM vertical velocity, end-step quadrature; excludes horizontal/rotational and impact work",
+            "system_com_pseudo_work_j": "foot force times system-COM vertical velocity, end-step quadrature; pseudo-work, not work of stationary foot contact",
+        }
+
+    @property
+    def system_com_work_j(self) -> float:
+        warnings.warn("system_com_work_j is COM pseudo-work; use system_com_pseudo_work_j", DeprecationWarning, stacklevel=2)
+        return self.system_com_pseudo_work_j
+
+    @property
+    def bar_work_on_bar_j(self) -> float:
+        warnings.warn("bar_work_on_bar_j is only a vertical quadrature estimate; use bar_contact_vertical_work_estimate_j",
+                      DeprecationWarning, stacklevel=2)
+        return self.bar_contact_vertical_work_estimate_j
 
 
 def bar_state(trajectory: ExerciseTrajectory, state: MultibodyState) -> tuple[float, float]:
@@ -318,8 +338,8 @@ def analyze_squat(trajectory: ExerciseTrajectory) -> SquatAnalysis:
         sample = f.contact_forces.get(model.load_contact_id)
         bar_vz = f.state.bodies[model.load_body_id].velocity_m_s[1]
         if sample is not None:
-            # Force on the bar from the shoulders: equal and opposite to the
-            # recorded contact force, which acts on body A = bar.
+            # Recorded force acts on body A = bar. This vertical component
+            # estimate excludes horizontal/rotational and instantaneous work.
             bar_work += sample.force_world_n[1] * bar_vz * h
         com_vz = system.linear_momentum(f.state)[1] / total_mass
         com_work += foot_force_z(trajectory, f) * com_vz * h
