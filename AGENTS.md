@@ -1,6 +1,10 @@
 # BioSynGenBenchmark agent rules
 
-This workspace is the canonical project root: D:\projects\BioSynGenBenchmark. Read the active project contract and the live Linear issue before each queue item. The current owner-authorized follow-on queue under RES-488 is RES-489 → RES-490 → RES-491 → RES-492, in that order. The earlier I0 and I1 queues are historical work; preserve their source and run artifacts.
+This workspace is the canonical project root: D:\projects\BioSynGenBenchmark. Current/future execution authority is GPT-6.1 Solo under RES-502 (I3). Before each item, read the complete [binding I3 contract](https://linear.app/alignerr-cmj/document/i3-gpt-61-solo-open-source-and-independent-vandv-execution-contract-adf82b988204) and its live Linear issue. Execute RES-503 → RES-504 → RES-507; RES-505 may progress after RES-503; RES-506 requires RES-505 rights/license clearance and RES-507 qualification; RES-508 follows RES-506. Continue dependency-eligible work when an owner-only publication decision blocks another item.
+
+RES-489–498 are submitted I2 work in In Review, not a fresh implementation queue. Opus 5.5 is the historical I2 executor. Preserve its source, immutable commits, failed-test evidence, corrections and scoped refusals. The earlier I0/I1 queues and overnight runner are historical; never start their implementation loop for I3.
+
+Keep I3 branches local until the owner explicitly selects the code license and the intended tree AND complete public history pass rights/content clearance. Open-source intent is authorized; Apache-2.0 is only a proposed option. Add an actual LICENSE only after that decision. Run actual hosted Windows/Linux CI after publication clearance; record workflow URLs and true exit codes. Preserve unsupported-mechanics refusals and distinguish stationary-contact work from COM pseudo-work.
 
 For each issue, implement the specified software, run its fresh tests and falsifying controls, inspect the outputs, and record exact commands and evidence. Move a passing issue to In Review; never move it to Done. Continue to the next authorized issue only after the preceding evidence is reviewable. Stop at a blocker, after two repair attempts, or at six elapsed hours.
 

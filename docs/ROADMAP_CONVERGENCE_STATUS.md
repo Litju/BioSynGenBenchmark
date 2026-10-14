@@ -1,4 +1,10 @@
-# Roadmap convergence status (RES-488 one-run campaign)
+# Roadmap convergence status (I3 current; I2 historical checkpoint)
+
+Current authority: GPT-6.1 Solo, RES-502, [binding I3 contract](https://linear.app/alignerr-cmj/document/i3-gpt-61-solo-open-source-and-independent-vandv-execution-contract-adf82b988204). I3 begins from verified local I2 HEAD `3322d89499050eea0004f9e8882666e2a40d5a9a`; remote main was independently checked at `6115d702ba3ab814982353945b0753f4846aae88`. Work continues on local `codex/res-502-i3-qualification`. No public I2 branch exists.
+
+I3 roadmap: RES-503 source/history inventory → RES-504 independent V&V → RES-507 artifact qualification; RES-505 governance is eligible after RES-503; RES-506 publication/hosted CI requires RES-505 and RES-507; RES-508 final qualification requires RES-506. Owner license choice and rights clearance gate publication, not independent local work. Full audit status and evidence are recorded in `docs/i3/` and `runs/i3/`; no historical acceptance is upgraded by this header.
+
+The material below is the preserved Opus checkpoint, including its reported counts and historical deviations. Its old "Next executable tasks" section is superseded by the I3 roadmap above.
 
 The single durable checkpoint for the owner-authorized Opus 5.5 full-roadmap campaign. Linear is authoritative for issue state. This file records local Git and verification facts so a fresh session can resume without repeating work.
 
