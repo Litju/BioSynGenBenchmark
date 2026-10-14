@@ -1,0 +1,131 @@
+{
+  "issue": "RES-506",
+  "metrics": {
+    "capture_normal_impulse_n_s": {
+      "budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      },
+      "exact_expected": {
+        "denominator": 10000000,
+        "numerator": 4511059
+      },
+      "exact_forward_error": {
+        "denominator": 43980465111040000000,
+        "numerator": 2261
+      },
+      "value": 0.45110589999999995
+    },
+    "capture_tangent_impulse_n_s": {
+      "budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      },
+      "exact_expected": {
+        "denominator": 1000,
+        "numerator": -23
+      },
+      "exact_forward_error": {
+        "denominator": 36028797018963968000,
+        "numerator": 111
+      },
+      "value": -0.023000000000000003
+    },
+    "capture_velocity_m_s": {
+      "budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      },
+      "exact_expected": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "exact_forward_error": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "value": 0.0
+    },
+    "impact_impulse_n_s": {
+      "budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      },
+      "exact_expected": {
+        "denominator": 125,
+        "numerator": 884
+      },
+      "exact_forward_error": {
+        "denominator": 140737488355328000,
+        "numerator": 9
+      },
+      "value": 7.072
+    },
+    "impact_velocity_m_s": {
+      "budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      },
+      "exact_expected": {
+        "denominator": 100,
+        "numerator": 51
+      },
+      "exact_forward_error": {
+        "denominator": 14073748835532800,
+        "numerator": 3
+      },
+      "value": 0.5099999999999998
+    },
+    "impact_work_j": {
+      "budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      },
+      "exact_expected": {
+        "denominator": 6250,
+        "numerator": -26299
+      },
+      "exact_forward_error": {
+        "denominator": 3518437208883200000,
+        "numerator": 87
+      },
+      "value": -4.20784
+    },
+    "support_left_n": {
+      "budget": {
+        "denominator": 10000000000,
+        "numerator": 1
+      },
+      "exact_expected": {
+        "denominator": 400000,
+        "numerator": 8256921
+      },
+      "exact_forward_error": {
+        "denominator": 439804651110400000,
+        "numerator": 2929
+      },
+      "value": 20.642302500000007
+    },
+    "support_right_n": {
+      "budget": {
+        "denominator": 10000000000,
+        "numerator": 1
+      },
+      "exact_expected": {
+        "denominator": 400000,
+        "numerator": 6256921
+      },
+      "exact_forward_error": {
+        "denominator": 219902325555200000,
+        "numerator": 3223
+      },
+      "value": 15.642302499999985
+    }
+  },
+  "passed": true,
+  "platform": "win32",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "schema": "I3_ANALYTIC_PLATFORM_V1",
+  "scope": "exact-rational fixture error only; not a bound for arbitrary exercise trajectories or empirical validation",
+  "source_commit": "57484146cd12859dad34a004d21606cfb67bcd5f"
+}

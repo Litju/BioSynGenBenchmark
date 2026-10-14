@@ -1,0 +1,557 @@
+{
+  "cases": {
+    "CMJ": {
+      "com_rise_after_takeoff_m": 0.185295,
+      "context_qualification": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "control_commands": [
+        [
+          0.3,
+          "COUNTERMOVEMENT",
+          "declared command time"
+        ],
+        [
+          0.7,
+          "PROPULSION",
+          "squat reference reached and knee flexion stopped (proprioceptive)"
+        ],
+        [
+          0.857,
+          "FLIGHT",
+          "both feet released (touch)"
+        ],
+        [
+          1.234334,
+          "LANDING",
+          "foot contact sensed"
+        ],
+        [
+          1.585196,
+          "STAND",
+          "declared absorption time"
+        ]
+      ],
+      "countermovement_depth_m": 0.200223,
+      "events_s": {
+        "com_velocity_reversal": 0.691397,
+        "kinetic_onset": 0.302,
+        "landing_lowest_point": 1.276242,
+        "left_foot_contact": 1.234334,
+        "left_foot_release": 0.857,
+        "peak_downward_velocity": 0.553,
+        "right_foot_contact": 1.234334,
+        "right_foot_release": 0.857,
+        "takeoff": 0.857,
+        "touchdown": 1.234334
+      },
+      "flight_time_s": 0.377334,
+      "foot_impacts": 26,
+      "load": "NONE",
+      "load_mass_kg": 0.0,
+      "lpt_attachment": "HIP_BELT",
+      "lpt_peak_displacement_m": 0.1844,
+      "lpt_samples": 1300,
+      "peak_downward_velocity_m_s": -1.113536,
+      "phases_s": [
+        [
+          "QUIET_STANCE",
+          0.0,
+          0.302
+        ],
+        [
+          "UNWEIGHTING",
+          0.302,
+          0.553
+        ],
+        [
+          "BRAKING",
+          0.553,
+          0.691397
+        ],
+        [
+          "PROPULSION",
+          0.691397,
+          0.857
+        ],
+        [
+          "FLIGHT",
+          0.857,
+          1.234334
+        ],
+        [
+          "LANDING",
+          1.234334,
+          1.276242
+        ],
+        [
+          "POST_LANDING",
+          1.276242,
+          2.6
+        ]
+      ],
+      "plate_samples": 2601,
+      "plate_saturated_samples": 3,
+      "refusals": [],
+      "system_mass_kg": 75.0,
+      "takeoff_impulse_over_mass_m_s": 1.911275,
+      "takeoff_velocity_m_s": 1.911275,
+      "termination": "DURATION_REACHED"
+    },
+    "LOADED_CMJ": {
+      "com_rise_after_takeoff_m": 0.149193,
+      "context_qualification": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "control_commands": [
+        [
+          0.3,
+          "COUNTERMOVEMENT",
+          "declared command time"
+        ],
+        [
+          0.70038,
+          "PROPULSION",
+          "squat reference reached and knee flexion stopped (proprioceptive)"
+        ],
+        [
+          0.88438,
+          "FLIGHT",
+          "both feet released (touch)"
+        ],
+        [
+          1.21947,
+          "LANDING",
+          "foot contact sensed"
+        ],
+        [
+          1.569698,
+          "STAND",
+          "declared absorption time"
+        ]
+      ],
+      "countermovement_depth_m": 0.21528,
+      "events_s": {
+        "com_velocity_reversal": 0.694132,
+        "kinetic_onset": 0.302,
+        "landing_lowest_point": 1.387731,
+        "left_foot_contact": 1.21947,
+        "left_foot_release": 0.88438,
+        "peak_downward_velocity": 0.56038,
+        "right_foot_contact": 1.21947,
+        "right_foot_release": 0.88438,
+        "takeoff": 0.88438,
+        "touchdown": 1.21947
+      },
+      "flight_time_s": 0.335091,
+      "foot_impacts": 18,
+      "load": "VEST",
+      "load_mass_kg": 20.0,
+      "lpt_attachment": "HIP_BELT",
+      "lpt_peak_displacement_m": 0.1429,
+      "lpt_samples": 1300,
+      "peak_downward_velocity_m_s": -1.19433,
+      "phases_s": [
+        [
+          "QUIET_STANCE",
+          0.0,
+          0.302
+        ],
+        [
+          "UNWEIGHTING",
+          0.302,
+          0.56038
+        ],
+        [
+          "BRAKING",
+          0.56038,
+          0.694132
+        ],
+        [
+          "PROPULSION",
+          0.694132,
+          0.88438
+        ],
+        [
+          "FLIGHT",
+          0.88438,
+          1.21947
+        ],
+        [
+          "LANDING",
+          1.21947,
+          1.387731
+        ],
+        [
+          "POST_LANDING",
+          1.387731,
+          2.6
+        ]
+      ],
+      "plate_samples": 2601,
+      "plate_saturated_samples": 2,
+      "refusals": [],
+      "system_mass_kg": 95.0,
+      "takeoff_impulse_over_mass_m_s": 1.715513,
+      "takeoff_velocity_m_s": 1.715513,
+      "termination": "DURATION_REACHED"
+    },
+    "LOADED_JUMP_SQUAT": {
+      "com_rise_after_takeoff_m": 0.100219,
+      "context_qualification": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "ordinary_hand_stabilized_jump_squat": {
+            "code": "HAND_STABILIZATION_NOT_IMPLEMENTED",
+            "first_bar_open_state_s": 0.8190000000000006,
+            "open_intervals": 363,
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "supported_context": "separable shoulder-shelf contact research fixture",
+        "termination": "DURATION_REACHED"
+      },
+      "control_commands": [
+        [
+          0.3,
+          "COUNTERMOVEMENT",
+          "declared command time"
+        ],
+        [
+          0.7,
+          "PROPULSION",
+          "squat reference reached and knee flexion stopped (proprioceptive)"
+        ],
+        [
+          0.842,
+          "FLIGHT",
+          "both feet released (touch)"
+        ],
+        [
+          1.096418,
+          "LANDING",
+          "foot contact sensed"
+        ],
+        [
+          1.446423,
+          "STAND",
+          "declared absorption time"
+        ]
+      ],
+      "countermovement_depth_m": 0.131868,
+      "events_s": {
+        "com_velocity_reversal": 0.692745,
+        "kinetic_onset": 0.302,
+        "landing_lowest_point": 1.269407,
+        "left_foot_contact": 1.096418,
+        "left_foot_release": 0.842,
+        "peak_downward_velocity": 0.554,
+        "right_foot_contact": 1.096418,
+        "right_foot_release": 0.842,
+        "takeoff": 0.842,
+        "touchdown": 1.096418
+      },
+      "flight_time_s": 0.254418,
+      "foot_impacts": 18,
+      "load": "BACK_BAR",
+      "load_mass_kg": 30.0,
+      "lpt_attachment": "BAR_COLLAR",
+      "lpt_peak_displacement_m": 0.1047,
+      "lpt_samples": 1300,
+      "peak_downward_velocity_m_s": -0.718471,
+      "phases_s": [
+        [
+          "QUIET_STANCE",
+          0.0,
+          0.302
+        ],
+        [
+          "UNWEIGHTING",
+          0.302,
+          0.554
+        ],
+        [
+          "BRAKING",
+          0.554,
+          0.692745
+        ],
+        [
+          "PROPULSION",
+          0.692745,
+          0.842
+        ],
+        [
+          "FLIGHT",
+          0.842,
+          1.096418
+        ],
+        [
+          "LANDING",
+          1.096418,
+          1.269407
+        ],
+        [
+          "POST_LANDING",
+          1.269407,
+          2.6
+        ]
+      ],
+      "plate_samples": 2601,
+      "plate_saturated_samples": 1,
+      "refusals": [],
+      "system_mass_kg": 105.0,
+      "takeoff_impulse_over_mass_m_s": 1.406912,
+      "takeoff_velocity_m_s": 1.406912,
+      "termination": "DURATION_REACHED"
+    },
+    "SJ": {
+      "com_rise_after_takeoff_m": 0.180592,
+      "context_qualification": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "control_commands": [
+        [
+          0.3,
+          "PROPULSION",
+          "declared command time"
+        ],
+        [
+          0.457,
+          "FLIGHT",
+          "both feet released (touch)"
+        ],
+        [
+          0.828329,
+          "LANDING",
+          "foot contact sensed"
+        ],
+        [
+          1.17852,
+          "STAND",
+          "declared absorption time"
+        ]
+      ],
+      "countermovement_depth_m": 0.0,
+      "events_s": {
+        "com_velocity_reversal": null,
+        "kinetic_onset": 0.301,
+        "landing_lowest_point": 0.872893,
+        "left_foot_contact": 0.828329,
+        "left_foot_release": 0.457,
+        "peak_downward_velocity": null,
+        "right_foot_contact": 0.828329,
+        "right_foot_release": 0.457,
+        "takeoff": 0.457,
+        "touchdown": 0.828329
+      },
+      "flight_time_s": 0.371329,
+      "foot_impacts": 24,
+      "load": "NONE",
+      "load_mass_kg": 0.0,
+      "lpt_attachment": "HIP_BELT",
+      "lpt_peak_displacement_m": 0.3559,
+      "lpt_samples": 1300,
+      "peak_downward_velocity_m_s": -0.0,
+      "phases_s": [
+        [
+          "STATIC_HOLD",
+          0.0,
+          0.301
+        ],
+        [
+          "PROPULSION",
+          0.301,
+          0.457
+        ],
+        [
+          "FLIGHT",
+          0.457,
+          0.828329
+        ],
+        [
+          "LANDING",
+          0.828329,
+          0.872893
+        ],
+        [
+          "POST_LANDING",
+          0.872893,
+          2.6
+        ]
+      ],
+      "plate_samples": 2601,
+      "plate_saturated_samples": 2,
+      "refusals": [],
+      "system_mass_kg": 75.0,
+      "takeoff_impulse_over_mass_m_s": 1.886924,
+      "takeoff_velocity_m_s": 1.886924,
+      "termination": "DURATION_REACHED"
+    },
+    "SJ_RIGHT_STRENGTH_0.80": {
+      "com_rise_after_takeoff_m": 0.157728,
+      "context_qualification": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "control_commands": [
+        [
+          0.3,
+          "PROPULSION",
+          "declared command time"
+        ],
+        [
+          0.466,
+          "FLIGHT",
+          "both feet released (touch)"
+        ],
+        [
+          0.811897,
+          "LANDING",
+          "foot contact sensed"
+        ],
+        [
+          1.162165,
+          "STAND",
+          "declared absorption time"
+        ]
+      ],
+      "countermovement_depth_m": 0.0,
+      "events_s": {
+        "com_velocity_reversal": null,
+        "kinetic_onset": 0.301,
+        "landing_lowest_point": 1.053205,
+        "left_foot_contact": 0.811897,
+        "left_foot_release": 0.466,
+        "peak_downward_velocity": null,
+        "right_foot_contact": 0.813163,
+        "right_foot_release": 0.466,
+        "takeoff": 0.466,
+        "touchdown": 0.811897
+      },
+      "flight_time_s": 0.345897,
+      "foot_impacts": 39,
+      "load": "NONE",
+      "load_mass_kg": 0.0,
+      "lpt_attachment": "HIP_BELT",
+      "lpt_peak_displacement_m": 0.3302,
+      "lpt_samples": 1300,
+      "peak_downward_velocity_m_s": -0.0,
+      "phases_s": [
+        [
+          "STATIC_HOLD",
+          0.0,
+          0.301
+        ],
+        [
+          "PROPULSION",
+          0.301,
+          0.466
+        ],
+        [
+          "FLIGHT",
+          0.466,
+          0.811897
+        ],
+        [
+          "LANDING",
+          0.811897,
+          1.053205
+        ],
+        [
+          "POST_LANDING",
+          1.053205,
+          2.6
+        ]
+      ],
+      "plate_samples": 2601,
+      "plate_saturated_samples": 4,
+      "refusals": [],
+      "system_mass_kg": 75.0,
+      "takeoff_impulse_over_mass_m_s": 1.763761,
+      "takeoff_velocity_m_s": 1.763761,
+      "termination": "DURATION_REACHED"
+    }
+  },
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "issue": "RES-492",
+  "refused_subtypes": {
+    "DROP_JUMP": "NOT_IMPLEMENTED: rigid point-contact feet lack heel-pad/tissue compliance; drop-landing loading would be an unqualified impulse",
+    "REPEATED_REBOUND_JUMP": "NOT_IMPLEMENTED: rebound contact phases need qualified compliant foot contact; rigid impacts are not a valid stretch-shortening model"
+  }
+}

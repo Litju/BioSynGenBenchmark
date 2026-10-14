@@ -1,0 +1,223 @@
+﻿2026-10-14T03:29:13.8366612Z Current runner version: '2.337.0'
+2026-10-14T03:29:13.8386642Z ##[group]Runner Image Provisioner
+2026-10-14T03:29:13.8387250Z Hosted Compute Agent
+2026-10-14T03:29:13.8387616Z Version: 20261002.596
+2026-10-14T03:29:13.8388063Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-14T03:29:13.8388505Z Build Date: 2026-10-02T22:28:27Z
+2026-10-14T03:29:13.8388980Z Worker ID: {220cc5aa-3e95-40ae-baae-f689dd74aaa8}
+2026-10-14T03:29:13.8389465Z Region: centralus
+2026-10-14T03:29:13.8389813Z Cloud: Azure
+2026-10-14T03:29:13.8390185Z ##[endgroup]
+2026-10-14T03:29:13.8391235Z ##[group]Operating System
+2026-10-14T03:29:13.8391606Z Ubuntu
+2026-10-14T03:29:13.8392030Z 24.04.5
+2026-10-14T03:29:13.8392352Z LTS
+2026-10-14T03:29:13.8392698Z ##[endgroup]
+2026-10-14T03:29:13.8393055Z ##[group]Runner Image
+2026-10-14T03:29:13.8393439Z Image: ubuntu-24.04
+2026-10-14T03:29:13.8393875Z Version: 20261004.327.1
+2026-10-14T03:29:13.8394681Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-14T03:29:13.8395634Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-14T03:29:13.8396218Z ##[endgroup]
+2026-10-14T03:29:13.8396977Z ##[group]GITHUB_TOKEN Permissions
+2026-10-14T03:29:13.8398275Z Contents: read
+2026-10-14T03:29:13.8398700Z Metadata: read
+2026-10-14T03:29:13.8399057Z ##[endgroup]
+2026-10-14T03:29:13.8400546Z Secret source: Actions
+2026-10-14T03:29:13.8401357Z Cache mode: write
+2026-10-14T03:29:13.8401829Z Prepare workflow directory
+2026-10-14T03:29:13.8661405Z Prepare all required actions
+2026-10-14T03:29:13.8695788Z Getting action download info
+2026-10-14T03:29:14.0811659Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-14T03:29:14.1726883Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-14T03:29:14.3347032Z Complete job name: SciPy DOP853 / ubuntu-latest
+2026-10-14T03:29:14.3871311Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-14T03:29:14.3871874Z with:
+2026-10-14T03:29:14.3872148Z   ref: 57484146cd12859dad34a004d21606cfb67bcd5f
+2026-10-14T03:29:14.3872498Z   repository: Litju/BioSynGenBenchmark
+2026-10-14T03:29:14.3874752Z   token: ***
+2026-10-14T03:29:14.3874997Z   ssh-strict: true
+2026-10-14T03:29:14.3875246Z   ssh-user: git
+2026-10-14T03:29:14.3875504Z   persist-credentials: true
+2026-10-14T03:29:14.3875781Z   clean: true
+2026-10-14T03:29:14.3876040Z   sparse-checkout-cone-mode: true
+2026-10-14T03:29:14.3876339Z   fetch-depth: 1
+2026-10-14T03:29:14.3876586Z   fetch-tags: false
+2026-10-14T03:29:14.3876841Z   show-progress: true
+2026-10-14T03:29:14.3877096Z   lfs: false
+2026-10-14T03:29:14.3877336Z   submodules: false
+2026-10-14T03:29:14.3877592Z   set-safe-directory: true
+2026-10-14T03:29:14.3877880Z   allow-unsafe-pr-checkout: false
+2026-10-14T03:29:14.3878255Z ##[endgroup]
+2026-10-14T03:29:14.4648516Z Syncing repository: Litju/BioSynGenBenchmark
+2026-10-14T03:29:14.4650325Z ##[group]Getting Git version info
+2026-10-14T03:29:14.4651264Z Working directory is '/home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark'
+2026-10-14T03:29:14.4652294Z [command]/usr/bin/git version
+2026-10-14T03:29:14.4724233Z git version 2.55.0
+2026-10-14T03:29:14.4742850Z ##[endgroup]
+2026-10-14T03:29:14.4761773Z Temporarily overriding HOME='/home/runner/work/_temp/b96b36c7-b792-4bb9-85a3-4b169e2e8b7a' before making global git config changes
+2026-10-14T03:29:14.4762641Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T03:29:14.4772685Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark
+2026-10-14T03:29:14.4811430Z Deleting the contents of '/home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark'
+2026-10-14T03:29:14.4818141Z ##[group]Initializing the repository
+2026-10-14T03:29:14.4818934Z [command]/usr/bin/git init /home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark
+2026-10-14T03:29:14.4912948Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-14T03:29:14.4914020Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-14T03:29:14.4915333Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-14T03:29:14.4915991Z hint: call:
+2026-10-14T03:29:14.4916342Z hint:
+2026-10-14T03:29:14.4916811Z hint: 	git config --global init.defaultBranch <name>
+2026-10-14T03:29:14.4917339Z hint:
+2026-10-14T03:29:14.4917850Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-14T03:29:14.4918843Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-14T03:29:14.4919549Z hint:
+2026-10-14T03:29:14.4919875Z hint: 	git branch -m <name>
+2026-10-14T03:29:14.4920228Z hint:
+2026-10-14T03:29:14.4920678Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-14T03:29:14.4921680Z Initialized empty Git repository in /home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark/.git/
+2026-10-14T03:29:14.4922928Z [command]/usr/bin/git remote add origin https://github.com/Litju/BioSynGenBenchmark
+2026-10-14T03:29:14.4966139Z ##[endgroup]
+2026-10-14T03:29:14.4966942Z ##[group]Disabling automatic garbage collection
+2026-10-14T03:29:14.4969225Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-14T03:29:14.5001832Z ##[endgroup]
+2026-10-14T03:29:14.5002486Z ##[group]Setting up auth
+2026-10-14T03:29:14.5007926Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T03:29:14.5042060Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-14T03:29:14.5339278Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T03:29:14.5374510Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-14T03:29:14.5567758Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T03:29:14.5621408Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-14T03:29:14.5852537Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-14T03:29:14.5890805Z ##[endgroup]
+2026-10-14T03:29:14.5891504Z ##[group]Fetching the repository
+2026-10-14T03:29:14.5897545Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 57484146cd12859dad34a004d21606cfb67bcd5f
+2026-10-14T03:29:15.6885853Z From https://github.com/Litju/BioSynGenBenchmark
+2026-10-14T03:29:15.6887537Z  * branch            57484146cd12859dad34a004d21606cfb67bcd5f -> FETCH_HEAD
+2026-10-14T03:29:15.6891117Z ##[endgroup]
+2026-10-14T03:29:15.6892420Z ##[group]Determining the checkout info
+2026-10-14T03:29:15.6893937Z ##[endgroup]
+2026-10-14T03:29:15.6896026Z [command]/usr/bin/git sparse-checkout disable
+2026-10-14T03:29:15.6951687Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-14T03:29:15.6982091Z ##[group]Checking out the ref
+2026-10-14T03:29:15.6984737Z [command]/usr/bin/git checkout --progress --force 57484146cd12859dad34a004d21606cfb67bcd5f
+2026-10-14T03:29:15.8515116Z Note: switching to '57484146cd12859dad34a004d21606cfb67bcd5f'.
+2026-10-14T03:29:15.8516418Z
+2026-10-14T03:29:15.8517000Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-14T03:29:15.8517519Z changes and commit them, and you can discard any commits you make in this
+2026-10-14T03:29:15.8518042Z state without impacting any branches by switching back to a branch.
+2026-10-14T03:29:15.8518702Z
+2026-10-14T03:29:15.8518933Z If you want to create a new branch to retain commits you create, you may
+2026-10-14T03:29:15.8519423Z do so (now or later) by using -c with the switch command. Example:
+2026-10-14T03:29:15.8519665Z
+2026-10-14T03:29:15.8519797Z   git switch -c <new-branch-name>
+2026-10-14T03:29:15.8519980Z
+2026-10-14T03:29:15.8520115Z Or undo this operation with:
+2026-10-14T03:29:15.8520285Z
+2026-10-14T03:29:15.8520413Z   git switch -
+2026-10-14T03:29:15.8520526Z
+2026-10-14T03:29:15.8520715Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-14T03:29:15.8521073Z
+2026-10-14T03:29:15.8521319Z HEAD is now at 5748414 RES-506: reject hidden energy changes across all sampled window starts
+2026-10-14T03:29:15.8528526Z ##[endgroup]
+2026-10-14T03:29:15.8571018Z [command]/usr/bin/git log -1 --format=%H
+2026-10-14T03:29:15.8596261Z 57484146cd12859dad34a004d21606cfb67bcd5f
+2026-10-14T03:29:15.8805555Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+2026-10-14T03:29:15.8805979Z with:
+2026-10-14T03:29:15.8806148Z   python-version: 3.11.9
+2026-10-14T03:29:15.8806320Z   check-latest: false
+2026-10-14T03:29:15.8807780Z   token: ***
+2026-10-14T03:29:15.8807934Z   update-environment: true
+2026-10-14T03:29:15.8808108Z   allow-prereleases: false
+2026-10-14T03:29:15.8808297Z   freethreaded: false
+2026-10-14T03:29:15.8808453Z ##[endgroup]
+2026-10-14T03:29:15.9798598Z ##[group]Installed versions
+2026-10-14T03:29:15.9811717Z Version 3.11.9 was not found in the local cache
+2026-10-14T03:29:15.9890493Z (node:2106) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T03:29:15.9891466Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T03:29:16.7409828Z Version 3.11.9 is available for downloading
+2026-10-14T03:29:16.7410660Z Download from "https://github.com/actions/python-versions/releases/download/3.11.9-9947079978/python-3.11.9-linux-24.04-x64.tar.gz"
+2026-10-14T03:29:17.4186370Z Extract downloaded archive
+2026-10-14T03:29:17.4279534Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/6339cd41-7926-4097-9c1e-15bb583c51f1 -f /home/runner/work/_temp/a381b5f8-47ea-46eb-88b8-b8ab0af802e5
+2026-10-14T03:29:19.0016792Z Execute installation script
+2026-10-14T03:29:19.0100074Z Check if Python hostedtoolcache folder exist...
+2026-10-14T03:29:19.0101325Z Create Python 3.11.9 folder
+2026-10-14T03:29:19.0115219Z Copy Python binaries to hostedtoolcache folder
+2026-10-14T03:29:19.4207671Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-10-14T03:29:19.4242468Z Upgrading pip...
+2026-10-14T03:29:20.9668070Z Looking in links: /tmp/tmpj1hrdssi
+2026-10-14T03:29:20.9675402Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.11.9/x64/lib/python3.11/site-packages (65.5.0)
+2026-10-14T03:29:20.9683091Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.11.9/x64/lib/python3.11/site-packages (24.0)
+2026-10-14T03:29:21.8855452Z Collecting pip
+2026-10-14T03:29:21.9469150Z Downloading pip-26.2.1-py3-none-any.whl.metadata (4.6 kB)
+2026-10-14T03:29:21.9639678Z Downloading pip-26.2.1-py3-none-any.whl (1.8 MB)
+2026-10-14T03:29:22.0578570Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 20.0 MB/s eta 0:00:00
+2026-10-14T03:29:22.0578920Z
+2026-10-14T03:29:22.0872573Z Installing collected packages: pip
+2026-10-14T03:29:22.0872899Z Attempting uninstall: pip
+2026-10-14T03:29:22.0887406Z Found existing installation: pip 24.0
+2026-10-14T03:29:22.1135528Z Uninstalling pip-24.0:
+2026-10-14T03:29:22.1178675Z Successfully uninstalled pip-24.0
+2026-10-14T03:29:22.6913794Z Successfully installed pip-26.2.1
+2026-10-14T03:29:22.7537540Z Create complete file
+2026-10-14T03:29:22.7571173Z Successfully set up CPython (3.11.9)
+2026-10-14T03:29:22.7572210Z ##[endgroup]
+2026-10-14T03:29:22.7723904Z ##[group]Run python -m pip install scipy==1.17.1 numpy==2.4.4
+2026-10-14T03:29:22.7724432Z [36;1mpython -m pip install scipy==1.17.1 numpy==2.4.4[0m
+2026-10-14T03:29:22.7929716Z shell: /usr/bin/bash -e {0}
+2026-10-14T03:29:22.7929920Z env:
+2026-10-14T03:29:22.7930153Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.9/x64
+2026-10-14T03:29:22.7930430Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.9/x64/lib/pkgconfig
+2026-10-14T03:29:22.7930672Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.9/x64
+2026-10-14T03:29:22.7931063Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.9/x64
+2026-10-14T03:29:22.7931275Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.9/x64
+2026-10-14T03:29:22.7931495Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.9/x64/lib
+2026-10-14T03:29:22.7931687Z ##[endgroup]
+2026-10-14T03:29:23.2217497Z Collecting scipy==1.17.1
+2026-10-14T03:29:23.2882073Z   Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+2026-10-14T03:29:23.7607608Z Collecting numpy==2.4.4
+2026-10-14T03:29:23.7720448Z   Downloading numpy-2.4.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-10-14T03:29:23.7869572Z Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+2026-10-14T03:29:25.4556653Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 21.4 MB/s  0:00:01
+2026-10-14T03:29:25.4671892Z Downloading numpy-2.4.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+2026-10-14T03:29:26.0794509Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 27.5 MB/s  0:00:00
+2026-10-14T03:29:26.1510440Z Installing collected packages: numpy, scipy
+2026-10-14T03:29:30.0382011Z
+2026-10-14T03:29:30.0388626Z Successfully installed numpy-2.4.4 scipy-1.17.1
+2026-10-14T03:29:30.1026910Z ##[group]Run python -m scripts.require_i3_scipy_checks
+2026-10-14T03:29:30.1027186Z [36;1mpython -m scripts.require_i3_scipy_checks[0m
+2026-10-14T03:29:30.1085094Z shell: /usr/bin/bash -e {0}
+2026-10-14T03:29:30.1085239Z env:
+2026-10-14T03:29:30.1085419Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.9/x64
+2026-10-14T03:29:30.1085661Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.9/x64/lib/pkgconfig
+2026-10-14T03:29:30.1085897Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.9/x64
+2026-10-14T03:29:30.1086113Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.9/x64
+2026-10-14T03:29:30.1086321Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.9/x64
+2026-10-14T03:29:30.1086532Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.9/x64/lib
+2026-10-14T03:29:30.1086717Z ##[endgroup]
+2026-10-14T03:29:30.2072288Z 3.11.9 (main, Jul 15 2024, 21:50:42) [GCC 13.2.0] SciPy 1.17.1 NumPy 2.4.4
+2026-10-14T03:29:32.2493939Z test_flight_segment_matches_dop853 (tests.test_i1_solver_crosscheck.ScipyCrossCheck.test_flight_segment_matches_dop853) ... ok
+2026-10-14T03:29:33.0222892Z test_unweighting_segment_matches_dop853 (tests.test_i1_solver_crosscheck.ScipyCrossCheck.test_unweighting_segment_matches_dop853) ... ok
+2026-10-14T03:29:33.0223454Z
+2026-10-14T03:29:33.0223726Z ----------------------------------------------------------------------
+2026-10-14T03:29:33.0224036Z Ran 2 tests in 2.525s
+2026-10-14T03:29:33.0224213Z
+2026-10-14T03:29:33.0224406Z OK
+2026-10-14T03:29:33.0808868Z Post job cleanup.
+2026-10-14T03:29:33.1672527Z (node:2221) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T03:29:33.1673261Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T03:29:33.1839481Z Post job cleanup.
+2026-10-14T03:29:33.2510256Z [command]/usr/bin/git version
+2026-10-14T03:29:33.2543137Z git version 2.55.0
+2026-10-14T03:29:33.2570448Z Temporarily overriding HOME='/home/runner/work/_temp/88a0ac7d-f6b3-4ac2-a4a5-260eb66ac4fa' before making global git config changes
+2026-10-14T03:29:33.2571312Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T03:29:33.2574890Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark
+2026-10-14T03:29:33.2612234Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T03:29:33.2643799Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-14T03:29:33.2853354Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T03:29:33.2877476Z http.https://github.com/.extraheader
+2026-10-14T03:29:33.2892772Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-14T03:29:33.2921989Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-14T03:29:33.3137770Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T03:29:33.3175266Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-14T03:29:33.3499576Z Cleaning up orphan processes
+2026-10-14T03:29:33.3735456Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

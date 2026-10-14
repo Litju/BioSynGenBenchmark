@@ -21,3 +21,5 @@ Local numerical probe: eight quantities pass exact-reference budgets. Three inde
 Optional raw-figure tools remain separately scoped (Matplotlib 3.11.1 / NumPy 2.4.6 / Pillow 12.3.0; PyYAML 6.0.3/jsonschema 4.26.0 for metadata validation); they are not vendored or core generator dependencies. Their separate package licenses apply. Scientific figures are audit artifacts, not journal/clinical acceptance certificates.
 
 Claim ceilings: NUMERICAL_VERIFICATION_ONLY; SIMULATED_MEASUREMENT_ONLY; BIOLOGICAL_VALIDATION=NOT_ESTABLISHED; REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED. Owner approval remains required for main merge and scientific Done transitions.
+
+Subsequent execution completed all five real hosted gates at `57484146cd12859dad34a004d21606cfb67bcd5f`. The exact successful run, preceding failure/cancellations, uploaded artifact inspection and limitations are in [RES506_HOSTED_QUALIFICATION.md](RES506_HOSTED_QUALIFICATION.md).

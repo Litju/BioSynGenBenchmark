@@ -13,3 +13,5 @@ The three generated I1 cases remain in the suite and now **require rejection** o
 The I2 10-positive/76-fault benchmark and its claim scope are unaffected. Diagnostic instrumentation is archived under `runs/i3/res506/diagnostics` and removed from the active workflow. Original Git/code/log history remains immutable. The first repair iteration is submitted to fresh hosted Windows/Linux CI; no success is asserted until GitHub reports it.
 
 Reproduce the fast red-capable control with `python -m unittest tests.test_i3_i1_energy_coverage -v`. The before/after logs, exact hosted Linux diagnostic and corrected adjudication counts are under `runs/i3/res506/`. All inputs are manufactured software fixtures; no empirical dataset or holdout is used.
+
+Subsequent result: all five jobs in actual hosted run `38506388914` pass at repaired source `57484146cd12859dad34a004d21606cfb67bcd5f`; both complete platform suites run 289 tests with two optional SciPy skips, and both mandatory SciPy jobs run two unskipped passing checks. See [RES506_HOSTED_QUALIFICATION.md](RES506_HOSTED_QUALIFICATION.md) for the complete receipt.

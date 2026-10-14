@@ -1,0 +1,1 @@
+{"BENCH_60KG_2REPS": [[], []], "BENCH_60KG_PAUSED_0.8S": [[]]}
