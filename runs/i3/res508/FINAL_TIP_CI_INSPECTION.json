@@ -1,0 +1,242 @@
+{
+  "issue": "RES-508",
+  "source_commit": "dcfb73253bb2012d44e2906a8eab33dcf2c3556e",
+  "ci_run": 38510582510,
+  "passed": true,
+  "jobs": [
+    {
+      "job_id": 115678308723,
+      "name": "Python 3.12.10 / windows-latest",
+      "url": "https://github.com/Litju/BioSynGenBenchmark/actions/runs/38510582510/job/115678308723",
+      "conclusion": "success",
+      "test_runs": [
+        [
+          "289",
+          "313.012"
+        ]
+      ],
+      "log_sha256": "f563132a10d5a45900dc66c85256ca41bfd59f5643c0389971d7fc3aaeaacc9e"
+    },
+    {
+      "job_id": 115678308941,
+      "name": "SciPy DOP853 / ubuntu-latest",
+      "url": "https://github.com/Litju/BioSynGenBenchmark/actions/runs/38510582510/job/115678308941",
+      "conclusion": "success",
+      "test_runs": [
+        [
+          "2",
+          "2.884"
+        ]
+      ],
+      "log_sha256": "c74cf984627bb963fd39c08341e0e452694893bec8e7cd6dfca305dcf28eb61d"
+    },
+    {
+      "job_id": 115678309018,
+      "name": "SciPy DOP853 / windows-latest",
+      "url": "https://github.com/Litju/BioSynGenBenchmark/actions/runs/38510582510/job/115678309018",
+      "conclusion": "success",
+      "test_runs": [
+        [
+          "2",
+          "4.164"
+        ]
+      ],
+      "log_sha256": "7ee48a52f315f20d20e36aeb0f766cdc44cb531d0408f82ca3f706a09fab1764"
+    },
+    {
+      "job_id": 115678309033,
+      "name": "Python 3.12.10 / ubuntu-latest",
+      "url": "https://github.com/Litju/BioSynGenBenchmark/actions/runs/38510582510/job/115678309033",
+      "conclusion": "success",
+      "test_runs": [
+        [
+          "289",
+          "390.531"
+        ]
+      ],
+      "log_sha256": "b166b86676cf4b551abd88b9093c011ea76b1e7b479f4587f7098dac53913d7e"
+    },
+    {
+      "job_id": 115684231358,
+      "name": "Exact-reference Windows/Linux comparison",
+      "url": "https://github.com/Litju/BioSynGenBenchmark/actions/runs/38510582510/job/115684231358",
+      "conclusion": "success",
+      "test_runs": [],
+      "log_sha256": "4001a6d22ccaffeb2470d249a9d46b9f43c7132f194d7f73c090aa7f26e86317"
+    }
+  ],
+  "platforms": {
+    "windows-latest": {
+      "worker_processes": 12,
+      "all_worker_exits": 0,
+      "inventory_pairs": 6,
+      "benchmark_replicas": 2,
+      "positives": 10,
+      "faults": 76,
+      "i1_agreements": 69,
+      "i0_manifest_source_hash_paths": [
+        "/source_sha256/biosyngen/mechanics.py",
+        "/source_sha256/biosyngen/observations.py",
+        "/source_sha256/biosyngen_benchmark/core.py",
+        "/source_sha256/scripts/run_pilot.py"
+      ]
+    },
+    "ubuntu-latest": {
+      "worker_processes": 12,
+      "all_worker_exits": 0,
+      "inventory_pairs": 6,
+      "benchmark_replicas": 2,
+      "positives": 10,
+      "faults": 76,
+      "i1_agreements": 69,
+      "i0_manifest_source_hash_paths": [
+        "/source_sha256/biosyngen/mechanics.py",
+        "/source_sha256/biosyngen_benchmark/core.py",
+        "/source_sha256/scripts/run_pilot.py"
+      ]
+    }
+  },
+  "exact_reference_comparison": {
+    "passed": true,
+    "metrics": {
+      "support_left_n": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 2929,
+          "denominator": 219902325555200000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 10000000000
+        }
+      },
+      "support_right_n": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 3223,
+          "denominator": 109951162777600000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 10000000000
+        }
+      },
+      "capture_velocity_m_s": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      },
+      "capture_normal_impulse_n_s": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 2261,
+          "denominator": 21990232555520000000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      },
+      "capture_tangent_impulse_n_s": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 111,
+          "denominator": 18014398509481984000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      },
+      "impact_velocity_m_s": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 3,
+          "denominator": 7036874417766400
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      },
+      "impact_impulse_n_s": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 9,
+          "denominator": 70368744177664000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      },
+      "impact_work_j": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 87,
+          "denominator": 1759218604441600000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      }
+    },
+    "scope": "specified exact-rational fixtures only"
+  },
+  "i0_checkout_eol": [
+    {
+      "platform": "windows-latest",
+      "source": "biosyngen/observations.py",
+      "classification": "EXACT_EOL_ONLY_HASH_CHANGE"
+    }
+  ],
+  "inspection_attempts": [
+    {
+      "attempt": 1,
+      "exit": 1,
+      "finding": "Canonical-local byte-hash assumption failed on Windows CRLF checkout"
+    },
+    {
+      "attempt": 2,
+      "exit": 1,
+      "finding": "Three-path-only source-hash assumption missed observations.py EOL conversion"
+    },
+    {
+      "attempt": 3,
+      "exit": 0,
+      "finding": "Second bounded inspection repair: exact Git EOL variants plus actual CI source hashes; numerical content and all unchanged acceptance budgets verified"
+    }
+  ],
+  "scope": "Numerical/provenance only; no biological/paired validity"
+}
