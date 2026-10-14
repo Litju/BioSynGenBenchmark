@@ -1,6 +1,6 @@
 # Contributing to BioSynGenBenchmark
 
-License selection and public-release review are pending. Until an actual LICENSE is adopted, do not infer open-source reuse or contribution terms from public visibility. Proposed governance is described in `docs/i3/RES505_LICENSE_AND_RIGHTS.md`.
+Owned project contributions are governed by Apache-2.0; preserve the LICENSE and applicable NOTICE/attribution. Contribution rights must cover all submitted material. Governance and the owner decision are recorded in `docs/i3/RES505_LICENSE_AND_RIGHTS.md`. Public review and scientific qualification remain separate gates.
 
 This is a numerical research prototype. Contributions must distinguish numerical verification, modeled biomechanics, simulated measurements and empirical validation. Keep the four scientific ceilings in source and artifacts: NUMERICAL_VERIFICATION_ONLY; SIMULATED_MEASUREMENT_ONLY; BIOLOGICAL_VALIDATION=NOT_ESTABLISHED; REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED.
 

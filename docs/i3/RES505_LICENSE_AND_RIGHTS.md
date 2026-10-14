@@ -1,6 +1,6 @@
 # RES-505 proposed license and rights disposition
 
-Status: **BLOCKED_LICENSE_OWNER_DECISION** and **RIGHTS_CONFIRMATION_PENDING**. Open-source intent is approved. No actual code license has been selected or granted. The root README's all-rights-reserved statement still applies. The exact Apache text in `legal/APACHE-2.0.proposed.txt` is an option for review, not a license grant over this project.
+Status: **LICENSE_CHOSEN_BY_OWNER=Apache-2.0**. The owner explicitly selected Apache-2.0 and stated "decide whats best is my personal research" in response to the copyright/authority/inventory question. This is the recorded basis for personal-project ownership and delegated conservative publication dispositions, not a court-issued title opinion. LICENSE and NOTICE now adopt the selected terms for owned work. External source implementations and restricted data remain excluded. The exact decision and dispositions are in `RES505_OWNER_DECISION.json`; the earlier proposed text remains preserved.
 
 ## Concrete license choice
 
@@ -18,28 +18,28 @@ Downloaded exact proposed Apache text: source `https://www.apache.org/licenses/L
 
 ## Ownership and attribution evidence
 
-All 29 commits in the frozen I2 ancestry identify Julio Rodriguez and the same GitHub noreply address. This establishes recorded Git attribution, not proof of copyright ownership or employment clearance. Opus 5.5 implementation and GPT-6.1 Solo I3 assistance are workflow provenance; neither is treated as a human scientific author. The owner must confirm the rights holder and authorization to grant the selected license, including any employment/contract obligations.
+All 29 commits in the frozen I2 ancestry identify Julio Rodriguez and the same GitHub noreply address. This establishes recorded Git attribution, not proof of copyright ownership or employment clearance. Opus 5.5 implementation and GPT-6.1 Solo I3 assistance are workflow provenance; neither is treated as a human scientific author. The owner's personal-research reply supplies the ownership/authority declaration used for release preparation; no employment restriction was stated. Git attribution is consistent with the declaration. Future contributors must separately establish submission rights.
 
 The RES-503 manifest is the exact per-file/per-blob ledger. Code and scientific prose were inspected for references, source fragments, external imports and declared provenance. Winter/Thelen/Hill references are recalled numerical/form hypotheses labeled ASSUMED_UNCALIBRATED; no underlying book tables or paper pages were copied into this campaign. Those sources remain citations, not material granted a new license. Lack of a detected copy is not an independent chain-of-title certificate.
 
-The RES-490 registry inventory carries external identifiers, test names and descriptions. Its recorded no-source-code-copy assertion is retained. Confirm authorization to publish the existing inventory and registry-derived constants, or produce a replacement containing only independently authored descriptions and necessary factual identities. Until then the inventory and dependent `protocol_inventory.py`/coverage tests are a rights dependency, not a distributable isolated data bundle.
+The RES-490 registry inventory carries external identifiers, test names and descriptions. Its recorded no-source-code-copy assertion is retained. Under the owner's delegated disposition, retain the independently authored research summary and necessary factual identifiers/constants, with explicit attribution and a boundary excluding external registry source implementation. No Plate2bar source license is granted or changed. The source-access record and inspected tree contain no copied registry implementation; future additions cannot inherit this clearance automatically.
 
 ## File and history disposition
 
 | Material | Present status | Proposed release treatment |
 | --- | --- | --- |
-| Project Python/PowerShell source and tests, CI definitions | Candidate original project work; title not independently certified | Selected code license after owner rights confirmation |
-| Project-authored documentation and synthetic JSON/SVG fixtures | Numerical/model artifacts; no admitted real sensor or participant records | Same selected license if owner approves that scope; retain scientific ceilings and provenance |
+| Project Python/PowerShell source and tests, CI definitions | Owned personal research per direct owner declaration | Apache-2.0 adopted; no independent legal title certificate claimed |
+| Project-authored documentation and synthetic JSON/SVG fixtures | Numerical/model artifacts; no admitted real sensor or participant records | Apache-2.0 adopted for owned material; retain scientific ceilings and provenance |
 | Historical source snapshots under runs/i1 | Project software regression snapshots | Retain software history and attribution; do not describe them as external empirical corpora |
-| Registry-derived inventory/constants | Rights review required | Explicit owner clearance or independently authored replacement before publication |
-| Existing failure/optimization logs and new process receipts | Machine metadata in some paths/commands | Preserve local evidence; public history requires a reviewed metadata disposition or sanitized new review branch |
+| Registry-derived inventory/constants | Owner-delegated factual-summary disposition | Retain owned research summary/identities, exclude external registry implementation |
+| Existing failure/optimization logs and new process receipts | Machine metadata in some paths/commands | Preserve local evidence; canonical/generic nonsecret paths reviewed and retained; private data remains excluded |
 | `.claude/launch.json` | Local launch configuration, originally untracked | Exclude from publication/staging |
 | Ignored research, external corpora, participant records, proprietary exports, locked/consumed holdouts, sibling evidence | Not accessed in I3; not part of intended code release | Exclude; a code license does not authorize access or redistribution |
-| Proposed Apache legal text | Official reusable license document, exact source/hash above | Draft only until owner selects terms; no implication of project licensing |
+| Proposed Apache legal text | Official reusable license document, exact source/hash above | Historical proposed copy preserved; identical root LICENSE now grants the owner-selected terms |
 
 The history audit screened 229 distinct baseline blobs and recorded 20 machine-path flags, with zero matches for its four credential-pattern classes, zero NUL-bearing binaries and zero blobs above 5 MB. Screening and source review remain bounded evidence, not proof against every secret/PII/copy format. Later I3 commits must be rescanned as part of release qualification.
 
-No public branch has been pushed. A clean tip alone cannot clear ancestor bytes. If a sanitized candidate history is needed, preserve the original local branches and issue commits, construct separate issue-scoped review commits from the cleared public base, and record original→public SHA mappings. Do not amend, force-push, erase original negative evidence or silently combine issues. The owner must review the final legal/metadata content before publication under the binding I3 contract.
+No public branch has been pushed. A clean tip alone cannot clear ancestor bytes. If a sanitized candidate history is needed, preserve the original local branches and issue commits, construct separate issue-scoped review commits from the cleared public base, and record original→public SHA mappings. Do not amend, force-push, erase original negative evidence or silently combine issues. The owner reviewed the concrete license/rights proposal and selected its Apache option, delegating the personal-research dispositions. Actual publication still requires the complete candidate tree/history scan and scientific qualification; main merge remains owner-only.
 
 ## Dependency ledger
 
@@ -55,10 +55,10 @@ No public branch has been pushed. A clean tip alone cannot clear ancestor bytes.
 
 No third-party runtime Python dependency is needed for the core generator or evaluator. If future wheels, executables or containers bundle these dependencies, collect their exact binary component notices and distributions; this source-only ledger cannot certify a future binary bundle. Future CI should pin the qualification dependencies and action revisions under RES-506.
 
-## Required owner decisions
+## Recorded decision and remaining publication work
 
-1. Select one actual license, including whether owned docs and synthetic fixtures/figures use the same terms.
-2. Confirm the copyright owner and authority to license the project and publish the registry-derived identity inventory/constants; identify any exclusions or obligations.
-3. Review the final legal/metadata changes and intended history disposition before a public push. Merge approval remains a separate later decision.
+The direct owner license selection and personal-research authority reply are recorded verbatim in Linear and `RES505_OWNER_DECISION.json`. Root LICENSE is byte-identical to the reviewed Apache option. NOTICE identifies the copyright holder and scope; CITATION includes the SPDX license identifier. Code/docs/manufactured artifacts and retained owned historical versions share the selected terms. External data and source implementations do not.
 
-On confirmation: record the exact owner wording in Linear, promote the selected draft to root LICENSE, add the selected SPDX/copyright metadata and any required notices, update CITATION/README, rescan the full candidate history and continue RES-506 only after scientific qualification. No engineering operations are required from the owner.
+Canonical project paths and generic operator interpreter paths were inspected and classified as nonsecret reproducibility metadata. Baseline path-bearing records contain only canonical project/test/optimization locations; new worker receipts add generic local interpreter locations. Preserve them as evidence rather than rewriting historical failure logs. The originally untracked `.claude/` is now ignored and remains local. No participant identity, credential, proprietary source or third-party book/article payload was found in the intended tree/history. Pattern screening remains bounded assurance, not a guarantee against every unknown secret format.
+
+Before public push, RES-506 must rescan the final revision, apply the explicit exclusions and inspect all new issue files. A reviewed source branch/PR is authorized by the I3 mission after these gates; merging main remains a separate owner decision. No engineering operations are required from the owner.

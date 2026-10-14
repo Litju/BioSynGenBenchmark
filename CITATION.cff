@@ -11,8 +11,9 @@ abstract: >-
   A planar multibody numerical research prototype with simulated force-plate
   and cable-LPT observations and independent numerical benchmark controls.
   Biological validation and real paired FORCE/LPT validation are not established.
-  License selection and public-release qualification are pending.
+  Public-release and scientific qualification remain in progress.
 keywords:
   - numerical verification
   - multibody dynamics
   - simulated measurement
+license: Apache-2.0

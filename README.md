@@ -4,7 +4,7 @@ Canonical research and program workspace for the Research project [Biomechanical
 
 ## Current I3 qualification and release preparation
 
-I3 independently audits the existing I2 implementation under RES-502. Local source/provenance findings are in `docs/i3/RES503_SOURCE_AUDIT.md`; fresh test logs and exact exit receipts are in `runs/i3/`. The I2 implementation remains submitted for review, with scoped mechanics refusals. Open-source intent is approved; the actual license and source/history rights clearance are pending. No new public I2 branch or hosted I2 CI pass is claimed.
+I3 independently audits the existing I2 implementation under RES-502. Local source/provenance findings are in `docs/i3/RES503_SOURCE_AUDIT.md`; fresh test logs and exact exit receipts are in `runs/i3/`. The I2 implementation remains submitted for review, with scoped mechanics refusals. The owner selected Apache-2.0 for owned code, docs and synthetic artifacts; final publication/content qualification is in progress. No new public I2 branch or hosted I2 CI pass is claimed.
 
 Core code uses the Python standard library. From the project root on Windows (CPython 3.12.10 used for local qualification), or from a reviewed checkout on Linux:
 
@@ -153,4 +153,4 @@ The first command includes the before-repair regressions preserved at `runs/i2/r
 
 ## License
 
-License pending owner decision. No open-source license is granted; all rights are reserved until a license is selected.
+Owned project code, documentation and manufactured fixtures/figures, including retained project-authored historical versions in this distribution, are licensed under [Apache-2.0](LICENSE). Copyright 2026 Julio Rodriguez; see [NOTICE](NOTICE). External source implementations, papers, books, participant data and restricted datasets are excluded. Licensing does not establish human biomechanics, device metrology or real paired FORCE/LPT validity.
