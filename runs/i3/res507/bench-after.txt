@@ -1,0 +1,16 @@
+test_bench_whole_system_force_requires_explicit_rack_reaction (tests.test_i3_bench_support.BenchSupportTests.test_bench_whole_system_force_requires_explicit_rack_reaction) ... ok
+test_feet_only_plates_are_incomplete_and_bench_reaction_closes_the_balance (tests.test_i2g_bench_press.BenchPressMechanicsTests.test_feet_only_plates_are_incomplete_and_bench_reaction_closes_the_balance) ... ok
+test_lpt_measures_the_bar_attachment_not_the_system_com (tests.test_i2g_bench_press.BenchPressMechanicsTests.test_lpt_measures_the_bar_attachment_not_the_system_com) ... ok
+test_momentum_closes_with_feet_bench_and_rack_as_external_supports (tests.test_i2g_bench_press.BenchPressMechanicsTests.test_momentum_closes_with_feet_bench_and_rack_as_external_supports) ... ok
+test_multi_rep_set_has_unrack_touch_press_lockout_and_rerack (tests.test_i2g_bench_press.BenchPressMechanicsTests.test_multi_rep_set_has_unrack_touch_press_lockout_and_rerack) ... ok
+test_setup_is_exactly_static_with_separate_bench_foot_and_rack_reactions (tests.test_i2g_bench_press.BenchPressMechanicsTests.test_setup_is_exactly_static_with_separate_bench_foot_and_rack_reactions) ... ok
+test_unsupported_internal_and_frontal_plane_claims_are_refused (tests.test_i2g_bench_press.BenchPressMechanicsTests.test_unsupported_internal_and_frontal_plane_claims_are_refused) ... ok
+test_excessive_leg_drive_lifts_the_pelvis_and_is_reported (tests.test_i2g_bench_press.BenchPressNegativeControlTests.test_excessive_leg_drive_lifts_the_pelvis_and_is_reported) ... ok
+test_hooks_in_the_bar_path_are_refused_not_reported_as_a_valid_rep (tests.test_i2g_bench_press.BenchPressNegativeControlTests.test_hooks_in_the_bar_path_are_refused_not_reported_as_a_valid_rep) ... ok
+test_missing_bench_support_is_refused_at_setup (tests.test_i2g_bench_press.BenchPressNegativeControlTests.test_missing_bench_support_is_refused_at_setup) ... ok
+test_pause_keeps_the_bar_on_the_chest_and_touch_is_a_contact_state (tests.test_i2g_bench_press.BenchPressNegativeControlTests.test_pause_keeps_the_bar_on_the_chest_and_touch_is_a_contact_state) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 107.414s
+
+OK

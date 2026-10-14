@@ -1,0 +1,16 @@
+FROZEN_SOURCE 3322d89499050eea0004f9e8882666e2a40d5a9a biosyngen/i2/bench.py
+test_bench_whole_system_force_requires_explicit_rack_reaction (tests.test_i3_bench_support.BenchSupportTests.test_bench_whole_system_force_requires_explicit_rack_reaction) ... FAIL
+
+======================================================================
+FAIL: test_bench_whole_system_force_requires_explicit_rack_reaction (tests.test_i3_bench_support.BenchSupportTests.test_bench_whole_system_force_requires_explicit_rack_reaction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_bench_support.py", line 7, in test_bench_whole_system_force_requires_explicit_rack_reaction
+    with self.assertRaisesRegex(BenchRefused, "rack"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: BenchRefused not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

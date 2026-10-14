@@ -103,7 +103,9 @@ class BenchPressMechanicsTests(unittest.TestCase):
         self.assertLess(feet, 0.3 * analysis.system_weight_n)
         with self.assertRaisesRegex(BenchRefused, "NOT_EVALUABLE"):
             system_kinetics_from_plates(feet, None)
-        self.assertAlmostEqual(system_kinetics_from_plates(feet, bench) / analysis.system_weight_n, 1.0, delta=0.03)
+        self.assertTrue(all(f.state.contacts["rack_hooks"].mode is ContactMode.OPEN for f in hold))
+        self.assertAlmostEqual(system_kinetics_from_plates(feet, bench, rack_reaction_n=0.0) / analysis.system_weight_n,
+                               1.0, delta=0.03)
 
     def test_lpt_measures_the_bar_attachment_not_the_system_com(self) -> None:
         scenario, trajectory, analysis = run()

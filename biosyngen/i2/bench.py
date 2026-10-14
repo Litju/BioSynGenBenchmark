@@ -500,10 +500,14 @@ def support_reaction(trajectory: ExerciseTrajectory, frame) -> dict[str, float]:
     return {"feet": feet, "bench": bench, "rack": rack}
 
 
-def system_kinetics_from_plates(plate_force_n: float, bench_reaction_n: float | None) -> float:
+def system_kinetics_from_plates(plate_force_n: float, bench_reaction_n: float | None,
+                               *, rack_reaction_n: float | None = None) -> float:
+    """Declared whole-system vertical supports; rack absence must be explicit."""
     if bench_reaction_n is None:
         raise BenchRefused("NOT_EVALUABLE: feet-only plates are incomplete; the bench reaction is required")
-    return plate_force_n + bench_reaction_n
+    if rack_reaction_n is None:
+        raise BenchRefused("NOT_EVALUABLE: rack reaction or independently established rack absence is required")
+    return plate_force_n + bench_reaction_n + rack_reaction_n
 
 
 def claim(name: str) -> None:
