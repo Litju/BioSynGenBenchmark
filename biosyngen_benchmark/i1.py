@@ -288,7 +288,7 @@ def _quadrature(ts, ys):
     return fine, fine_delta, stable, coarse_delta
 
 
-def _windows(frames, impulses):
+def _windows(frames, impulses, *, stride=WINDOW_FRAMES - 1):
     """Return event-free windows and excluded count.
 
     Besides independently detectable contact-topology changes, declared
@@ -310,7 +310,7 @@ def _windows(frames, impulses):
             excluded += 1
         else:
             out.append(idx)
-        start += WINDOW_FRAMES - 1
+        start += stride
     return out, excluded
 
 
@@ -663,7 +663,9 @@ def _energy(kin):
     needed = ("joint_power_w", "internal_dissipation_power_w", "internal_elastic_energy_j")
     if any(k not in f for f in frames for k in needed):
         return _ne(claim, "POWER_LEDGER_NOT_DECLARED", "Declared internal power/storage is required.")
-    windows, excluded = _windows(frames, kin.get("declared_event_boundaries", kin.get("declared_impulsive_events", [])))
+    # Check every sampled start, not one partition whose endpoints can miss
+    # a localized energy change. Budgets/refinement policy remain unchanged.
+    windows, excluded = _windows(frames, kin.get("declared_event_boundaries", kin.get("declared_impulsive_events", [])), stride=1)
 
     def energy(f):
         e = f["internal_elastic_energy_j"]

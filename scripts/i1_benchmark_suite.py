@@ -79,6 +79,9 @@ def build_cases() -> tuple[list[Case], dict]:
     sj = i1_submission("i1_sj", reference_sj(), LptModel())
     i1_expect = {c: "PASS" for c in MECH + ("BALLISTIC_FLIGHT", "ACTIVATION_WITHIN_DECLARED_SCOPE",
                                             "CLOCK_INTEGRITY")}
+    # I3 all-start energy checks expose sampled ledger inconsistencies in
+    # each current generator export. Generated output is not a positive oracle.
+    i1_expect["WORK_ENERGY_LEDGER"] = "REJECTED"
     # The current CMJ export has one unstable refinement window; the loaded
     # candidate violates sampled balance tolerances; SJ is resolved. Preserve
     # each observed classification instead of treating generator output as truth.

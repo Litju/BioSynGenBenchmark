@@ -1,0 +1,15 @@
+# Hosted Linux finding: historical I1 energy window coverage
+
+The first public hosted run at source `5434294a09d27b8e4ff1732be0748ca18a0d7082` failed Linux's full suite: 287 tests, one failure, two SciPy skips. The I1 suite claimed seven positive work/energy controls but accepted only six. Both required hosted SciPy jobs passed. The Linux job's actual failure and all initial/cancelled workflow outcomes are preserved; the run is not labeled green.
+
+A scoped hosted diagnostic at `e7904453fd0b574c0b53e100df6e20ff350ea4f0` isolated CMJ: Linux's sampled energy residual ratio was 1.8514780379944606, versus Windows's original partition ratio 0.752344609682457. The algorithm had tested only one nonoverlapping partition of 21-frame windows. Small changes to adaptive solver samples could therefore change the admitted windows and decision.
+
+The issue is more than benign platform roundoff. Holding the Windows record fixed and shifting its partition starts by five frames yields a 4.526879898907706 maximum ratio. Loaded CMJ and SJ likewise expose 1.4448221813791267 and 2.0195925726699033 across shifted starts. Those generator outputs are not valid positive work-ledger oracles under the existing sampled criterion.
+
+The minimized independent falsifier is a one-frame 1 J elastic-energy spike in an otherwise closed-form tumbling-ballistic record, located between the old partition endpoints. The old evaluator returns PASS despite undeclared storage change. Two methods/seven locations fail before repair. The new evaluator checks every admissible sampled start, retains event exclusions and leaves all quadrature/refinement/residual tolerances unchanged. The same methods now require and obtain REJECTED; 26 related evaluator/falsifier methods pass.
+
+The three generated I1 cases remain in the suite and now **require rejection** of the sampled work ledger. No case or failing assertion was removed, and no tolerance was enlarged. Work-energy adjudication denominators change explicitly from seven positive controls to four independently authored positives (4/4 accepted), while the three generator cases join the negative decision requirements (four negatives including the original injected-energy control, 4/4 rejected). This is a strengthened coverage criterion and corrected source adjudication, not a biological assertion that the continuous model is impossible. Sampling/export accuracy remains a numerical limitation.
+
+The I2 10-positive/76-fault benchmark and its claim scope are unaffected. Diagnostic instrumentation is archived under `runs/i3/res506/diagnostics` and removed from the active workflow. Original Git/code/log history remains immutable. The first repair iteration is submitted to fresh hosted Windows/Linux CI; no success is asserted until GitHub reports it.
+
+Reproduce the fast red-capable control with `python -m unittest tests.test_i3_i1_energy_coverage -v`. The before/after logs, exact hosted Linux diagnostic and corrected adjudication counts are under `runs/i3/res506/`. All inputs are manufactured software fixtures; no empirical dataset or holdout is used.
