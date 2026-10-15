@@ -1,0 +1,255 @@
+{
+  "issue": "RES-506",
+  "source_commit": "57484146cd12859dad34a004d21606cfb67bcd5f",
+  "platform_results": {
+    "ubuntu-latest": {
+      "worker_processes": 12,
+      "all_worker_exits": 0,
+      "complete_inventory_pairs": 6,
+      "benchmark_replicas": 2,
+      "positive_controls": 10,
+      "fault_detections": 76,
+      "i1_claim_agreements": 69,
+      "i1_work_positives": 4,
+      "i1_work_negatives": 4
+    },
+    "windows-latest": {
+      "worker_processes": 12,
+      "all_worker_exits": 0,
+      "complete_inventory_pairs": 6,
+      "benchmark_replicas": 2,
+      "positive_controls": 10,
+      "fault_detections": 76,
+      "i1_claim_agreements": 69,
+      "i1_work_positives": 4,
+      "i1_work_negatives": 4
+    }
+  },
+  "recomputed_comparison": {
+    "passed": true,
+    "metrics": {
+      "support_left_n": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 2929,
+          "denominator": 219902325555200000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 10000000000
+        }
+      },
+      "support_right_n": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 3223,
+          "denominator": 109951162777600000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 10000000000
+        }
+      },
+      "capture_velocity_m_s": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      },
+      "capture_normal_impulse_n_s": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 2261,
+          "denominator": 21990232555520000000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      },
+      "capture_tangent_impulse_n_s": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 111,
+          "denominator": 18014398509481984000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      },
+      "impact_velocity_m_s": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 3,
+          "denominator": 7036874417766400
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      },
+      "impact_impulse_n_s": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 9,
+          "denominator": 70368744177664000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      },
+      "impact_work_j": {
+        "cross_platform_difference_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "certified_triangle_bound_exact": {
+          "numerator": 87,
+          "denominator": 1759218604441600000
+        },
+        "regression_budget": {
+          "numerator": 1,
+          "denominator": 1000000000000
+        }
+      }
+    },
+    "scope": "specified exact-rational fixtures only"
+  },
+  "payload_sha256": {
+    "i3-numeric-ubuntu-latest/i0-regression.json": "a863367ab99846f63e986d165c1fe15174b8340f7ca7933eeb5ac4c72c6d67a9",
+    "i3-numeric-ubuntu-latest/i1/replica-a/evaluator-input-cmj.json": "87e81b7f3a133368ae80ccdbac37b83450f574a55244111fe6635091f39bbaa3",
+    "i3-numeric-ubuntu-latest/i1/replica-a/figure-cmj.svg": "b3159b99f8618da885a33a8d2f21cef1e58ec70125bd69a320cf8410a3ad90d6",
+    "i3-numeric-ubuntu-latest/i1/replica-a/figure-loaded-cmj.svg": "f3943cc2e57717dcbd349cbabfdf6c42bcd22041eab0f6711a0e75d8dbac4456",
+    "i3-numeric-ubuntu-latest/i1/replica-a/figure-vv.svg": "57beb90cebc9783a1f913b2e6be817a620e6abe128a7d0dc6c58ae8863fb85f0",
+    "i3-numeric-ubuntu-latest/i1/replica-a/manifest.json": "dab23190e73aa69fda2715aab91817f2deb6f35e260e4acc885332eba0c9f4d9",
+    "i3-numeric-ubuntu-latest/i1/replica-a/results.json": "2a58a8883c38abc4d94156bb3f49a9024f21f949fe3d0e0f4fce20a4936b3b31",
+    "i3-numeric-ubuntu-latest/i1/replica-b/evaluator-input-cmj.json": "87e81b7f3a133368ae80ccdbac37b83450f574a55244111fe6635091f39bbaa3",
+    "i3-numeric-ubuntu-latest/i1/replica-b/figure-cmj.svg": "b3159b99f8618da885a33a8d2f21cef1e58ec70125bd69a320cf8410a3ad90d6",
+    "i3-numeric-ubuntu-latest/i1/replica-b/figure-loaded-cmj.svg": "f3943cc2e57717dcbd349cbabfdf6c42bcd22041eab0f6711a0e75d8dbac4456",
+    "i3-numeric-ubuntu-latest/i1/replica-b/figure-vv.svg": "57beb90cebc9783a1f913b2e6be817a620e6abe128a7d0dc6c58ae8863fb85f0",
+    "i3-numeric-ubuntu-latest/i1/replica-b/manifest.json": "dab23190e73aa69fda2715aab91817f2deb6f35e260e4acc885332eba0c9f4d9",
+    "i3-numeric-ubuntu-latest/i1/replica-b/results.json": "2a58a8883c38abc4d94156bb3f49a9024f21f949fe3d0e0f4fce20a4936b3b31",
+    "i3-numeric-ubuntu-latest/i1/reproducibility.json": "e6c6df9120c3e238ba783de05bfa3719e3f27e4ebdf2dca2c7263f6892923823",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/a/res492/jump_family.svg": "c3ea40d8bb60dbff496b21a4db41990b927f279583810fa8dac2c277a2df8c14",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/a/res492/summary.json": "fe5e02d97467d25298b01a0cd9938111e3c2fa93ffa99c5424eed7fc5017cd9d",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/a/res493/back_squat.svg": "03fe6db3915ce3fc9045a4893561fa9fdbe98ea06b77b8e0ae70661390491246",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/a/res493/summary.json": "32b1f095f2f6051a3f496afc5496b23c8cb5b1b6cc4d3efa4add873335f273b8",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/a/res494/deadlift.svg": "099dd20addffc2dfcb4422e52bf3a810a1192a5814fd42bbebbb58b1eba79bb4",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/a/res494/summary.json": "105e74e6a756c7ea8f102fc781c612e3e2384bc5e358d7f0c5dd122003a5b0c8",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/a/res495/bench_press.svg": "5dac0b14057984919c502dca8a9efc5356847a39ad85a22c8c244143efcdb58d",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/a/res495/summary.json": "d67fa98addbed1a4d06d56fe01aa2d26dc14632ede71612ded6aa6f8f301e5eb",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/a/res496/olympic_pulls.svg": "d840cb3fe21bb54568942a7aa2287ec0b72a23f162e227514275095cc1a288b1",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/a/res496/summary.json": "ce4c411ab3b93bf6edc14d3618b433082543d890b7bafd6e60276237afb67e33",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/a/res498/benchmark.json": "c696699f5742a24bfcded149af28742f4504ed728fe0616ff193537547e5b928",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/b/res492/jump_family.svg": "c3ea40d8bb60dbff496b21a4db41990b927f279583810fa8dac2c277a2df8c14",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/b/res492/summary.json": "fe5e02d97467d25298b01a0cd9938111e3c2fa93ffa99c5424eed7fc5017cd9d",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/b/res493/back_squat.svg": "03fe6db3915ce3fc9045a4893561fa9fdbe98ea06b77b8e0ae70661390491246",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/b/res493/summary.json": "32b1f095f2f6051a3f496afc5496b23c8cb5b1b6cc4d3efa4add873335f273b8",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/b/res494/deadlift.svg": "099dd20addffc2dfcb4422e52bf3a810a1192a5814fd42bbebbb58b1eba79bb4",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/b/res494/summary.json": "105e74e6a756c7ea8f102fc781c612e3e2384bc5e358d7f0c5dd122003a5b0c8",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/b/res495/bench_press.svg": "5dac0b14057984919c502dca8a9efc5356847a39ad85a22c8c244143efcdb58d",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/b/res495/summary.json": "d67fa98addbed1a4d06d56fe01aa2d26dc14632ede71612ded6aa6f8f301e5eb",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/b/res496/olympic_pulls.svg": "d840cb3fe21bb54568942a7aa2287ec0b72a23f162e227514275095cc1a288b1",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/b/res496/summary.json": "ce4c411ab3b93bf6edc14d3618b433082543d890b7bafd6e60276237afb67e33",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/b/res498/benchmark.json": "c696699f5742a24bfcded149af28742f4504ed728fe0616ff193537547e5b928",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/receipt.json": "e14e4e833e94e84a849e3685462e63e9a6622e0b4ca0194db2764931caa85112",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res492-a.txt": "8bb8457c609973aecc5fd9695553b3cf2dd8755bb20403f20639cff0a5bb1f9b",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res492-b.txt": "8bb8457c609973aecc5fd9695553b3cf2dd8755bb20403f20639cff0a5bb1f9b",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res493-a.txt": "64951c1168f43a18833150278247ca2d13472893f0cd41b5bdbe155329e6a398",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res493-b.txt": "64951c1168f43a18833150278247ca2d13472893f0cd41b5bdbe155329e6a398",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res494-a.txt": "b6fed0d0068ff741f52a09da9d1514dd7dbbbfde4e22ba4f73cf50e7d04c9976",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res494-b.txt": "b6fed0d0068ff741f52a09da9d1514dd7dbbbfde4e22ba4f73cf50e7d04c9976",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res495-a.txt": "745a1c22257eaf6362c677f01bde2a377c179b99644faf88fc8d8bc2ab95d965",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res495-b.txt": "745a1c22257eaf6362c677f01bde2a377c179b99644faf88fc8d8bc2ab95d965",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res496-a.txt": "9bfd71b9a5ce8260ef5abf40c1d17c3e3fb15b134c77a73b12ed80b51096962b",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res496-b.txt": "9bfd71b9a5ce8260ef5abf40c1d17c3e3fb15b134c77a73b12ed80b51096962b",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res498-a.txt": "1cd2202d6d26c2fdcb115a9fba7acdc407943a5859e68c7a3a59b6b2f3d66873",
+    "i3-numeric-ubuntu-latest/i2-reproduction/fresh-bx7gah83/res498-b.txt": "1cd2202d6d26c2fdcb115a9fba7acdc407943a5859e68c7a3a59b6b2f3d66873",
+    "i3-numeric-ubuntu-latest/numeric-probe.json": "f7fece5ba499e09ffc39da3c46f53358c8e4350c761f62366150c80eec7d1156",
+    "i3-numeric-windows-latest/i0-regression.json": "f9ae123bd0af5ee02096fc728357cde244510aefeb40c180998af13aa5128d14",
+    "i3-numeric-windows-latest/i1/replica-a/evaluator-input-cmj.json": "5dd2f010eef76e77b8f70cbd57c577a68966fec5d77c521e0dc67f6e2c5d7e0f",
+    "i3-numeric-windows-latest/i1/replica-a/figure-cmj.svg": "05b7c0911f3118aa33a8111d264684645b387f25eefeb2a75eb273de989a4e3a",
+    "i3-numeric-windows-latest/i1/replica-a/figure-loaded-cmj.svg": "6f2afd616efd95bf33a425e45c1ca22981132c7585acc6819051b796973b1f16",
+    "i3-numeric-windows-latest/i1/replica-a/figure-vv.svg": "96d7dfa459012cbecedda24703bd1a2c7445908dae5684ff2f5b94ad19e535bb",
+    "i3-numeric-windows-latest/i1/replica-a/manifest.json": "7a08d533163f6966ebd722b2810972e24346225573384a73b062d46a0f247259",
+    "i3-numeric-windows-latest/i1/replica-a/results.json": "9b1e83a4156b82997288057aa172479007dec9b8d968b647a5e6a1d759b57f3c",
+    "i3-numeric-windows-latest/i1/replica-b/evaluator-input-cmj.json": "5dd2f010eef76e77b8f70cbd57c577a68966fec5d77c521e0dc67f6e2c5d7e0f",
+    "i3-numeric-windows-latest/i1/replica-b/figure-cmj.svg": "05b7c0911f3118aa33a8111d264684645b387f25eefeb2a75eb273de989a4e3a",
+    "i3-numeric-windows-latest/i1/replica-b/figure-loaded-cmj.svg": "6f2afd616efd95bf33a425e45c1ca22981132c7585acc6819051b796973b1f16",
+    "i3-numeric-windows-latest/i1/replica-b/figure-vv.svg": "96d7dfa459012cbecedda24703bd1a2c7445908dae5684ff2f5b94ad19e535bb",
+    "i3-numeric-windows-latest/i1/replica-b/manifest.json": "7a08d533163f6966ebd722b2810972e24346225573384a73b062d46a0f247259",
+    "i3-numeric-windows-latest/i1/replica-b/results.json": "9b1e83a4156b82997288057aa172479007dec9b8d968b647a5e6a1d759b57f3c",
+    "i3-numeric-windows-latest/i1/reproducibility.json": "0ee8a7dc93544c20bfd1b45de6e2278d77f7993c0e8f893240d9927ccaee5f78",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/a/res492/jump_family.svg": "c3ea40d8bb60dbff496b21a4db41990b927f279583810fa8dac2c277a2df8c14",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/a/res492/summary.json": "fe5e02d97467d25298b01a0cd9938111e3c2fa93ffa99c5424eed7fc5017cd9d",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/a/res493/back_squat.svg": "03fe6db3915ce3fc9045a4893561fa9fdbe98ea06b77b8e0ae70661390491246",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/a/res493/summary.json": "32b1f095f2f6051a3f496afc5496b23c8cb5b1b6cc4d3efa4add873335f273b8",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/a/res494/deadlift.svg": "099dd20addffc2dfcb4422e52bf3a810a1192a5814fd42bbebbb58b1eba79bb4",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/a/res494/summary.json": "105e74e6a756c7ea8f102fc781c612e3e2384bc5e358d7f0c5dd122003a5b0c8",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/a/res495/bench_press.svg": "5dac0b14057984919c502dca8a9efc5356847a39ad85a22c8c244143efcdb58d",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/a/res495/summary.json": "17037ea253572e3744a55d5095f99e1cb84bac1108ee79ac4243356b8f5dbd78",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/a/res496/olympic_pulls.svg": "d840cb3fe21bb54568942a7aa2287ec0b72a23f162e227514275095cc1a288b1",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/a/res496/summary.json": "6c70c1922a469cfac7fe59477d9418b1bd281db24f250e398aedab542f4e82e8",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/a/res498/benchmark.json": "8c58e4011b53aaf3bcefaa26d600992df28428fa5b6e03c802205b7afbe13483",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/b/res492/jump_family.svg": "c3ea40d8bb60dbff496b21a4db41990b927f279583810fa8dac2c277a2df8c14",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/b/res492/summary.json": "fe5e02d97467d25298b01a0cd9938111e3c2fa93ffa99c5424eed7fc5017cd9d",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/b/res493/back_squat.svg": "03fe6db3915ce3fc9045a4893561fa9fdbe98ea06b77b8e0ae70661390491246",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/b/res493/summary.json": "32b1f095f2f6051a3f496afc5496b23c8cb5b1b6cc4d3efa4add873335f273b8",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/b/res494/deadlift.svg": "099dd20addffc2dfcb4422e52bf3a810a1192a5814fd42bbebbb58b1eba79bb4",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/b/res494/summary.json": "105e74e6a756c7ea8f102fc781c612e3e2384bc5e358d7f0c5dd122003a5b0c8",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/b/res495/bench_press.svg": "5dac0b14057984919c502dca8a9efc5356847a39ad85a22c8c244143efcdb58d",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/b/res495/summary.json": "17037ea253572e3744a55d5095f99e1cb84bac1108ee79ac4243356b8f5dbd78",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/b/res496/olympic_pulls.svg": "d840cb3fe21bb54568942a7aa2287ec0b72a23f162e227514275095cc1a288b1",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/b/res496/summary.json": "6c70c1922a469cfac7fe59477d9418b1bd281db24f250e398aedab542f4e82e8",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/b/res498/benchmark.json": "8c58e4011b53aaf3bcefaa26d600992df28428fa5b6e03c802205b7afbe13483",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/receipt.json": "b5124726525cc5657ff1131fb088462c5583febbdb8c2d5584b3b46b66a0aaed",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res492-a.txt": "8bb8457c609973aecc5fd9695553b3cf2dd8755bb20403f20639cff0a5bb1f9b",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res492-b.txt": "8bb8457c609973aecc5fd9695553b3cf2dd8755bb20403f20639cff0a5bb1f9b",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res493-a.txt": "64951c1168f43a18833150278247ca2d13472893f0cd41b5bdbe155329e6a398",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res493-b.txt": "64951c1168f43a18833150278247ca2d13472893f0cd41b5bdbe155329e6a398",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res494-a.txt": "b6fed0d0068ff741f52a09da9d1514dd7dbbbfde4e22ba4f73cf50e7d04c9976",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res494-b.txt": "b6fed0d0068ff741f52a09da9d1514dd7dbbbfde4e22ba4f73cf50e7d04c9976",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res495-a.txt": "745a1c22257eaf6362c677f01bde2a377c179b99644faf88fc8d8bc2ab95d965",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res495-b.txt": "745a1c22257eaf6362c677f01bde2a377c179b99644faf88fc8d8bc2ab95d965",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res496-a.txt": "9bfd71b9a5ce8260ef5abf40c1d17c3e3fb15b134c77a73b12ed80b51096962b",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res496-b.txt": "9bfd71b9a5ce8260ef5abf40c1d17c3e3fb15b134c77a73b12ed80b51096962b",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res498-a.txt": "1cd2202d6d26c2fdcb115a9fba7acdc407943a5859e68c7a3a59b6b2f3d66873",
+    "i3-numeric-windows-latest/i2-reproduction/fresh-9a1xieql/res498-b.txt": "1cd2202d6d26c2fdcb115a9fba7acdc407943a5859e68c7a3a59b6b2f3d66873",
+    "i3-numeric-windows-latest/numeric-probe.json": "2dcb50e589ddb10d5a97eb550ce65f1b88e3cfdd46844e9b9dab533f0363161f"
+  },
+  "rendered_review": {
+    "source": "Linux a/res492/jump_family.svg",
+    "source_sha256": "c3ea40d8bb60dbff496b21a4db41990b927f279583810fa8dac2c277a2df8c14",
+    "preview_sha256": "30f704dc29c09ed5f5ccc79b29538a32817410ad2910ecd91643a403344fefa9",
+    "preview_scope": "local ignored optional-tool preview; SVG committed",
+    "finding": "Full plotted force ranges visible; rigid/filter landing peaks explicitly NOT_EVALUABLE"
+  }
+}

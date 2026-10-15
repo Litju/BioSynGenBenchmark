@@ -1,0 +1,2599 @@
+{
+  "schema_version": "1.0.0",
+  "inventory_id": "BIOSYNGEN-RES490-PLATE2BAR-CAPABILITY-INVENTORY",
+  "inventory_date": "2026-10-13",
+  "purpose": "Pinned read-only inventory of Plate2bar exercise, protocol, variant, event, phase, test and sensor identities, crosswalked to BioSynGen I1.",
+  "acceptance_contract": {
+    "linear_issue": "RES-490",
+    "parent_issue": "RES-488",
+    "binding_independent_i1_source_audit": "https://linear.app/alignerr-cmj/document/biosyngenbenchmark-independent-i1-source-audit-and-full-protocol-2718d3dfb375",
+    "related_linear_contracts": [
+      "ML-417",
+      "ML-511",
+      "ML-513",
+      "ML-579",
+      "ML-574"
+    ],
+    "required_row_fields": [
+      "context_of_use",
+      "degrees_of_freedom",
+      "body_load_support_topology",
+      "impact_and_contact",
+      "actuator_hypothesis",
+      "primary_latent_event_roles",
+      "observable_sensor_events",
+      "force/LPT stage",
+      "clock contract",
+      "metrics or explicit no-authority state",
+      "positive and negative controls",
+      "external source identity",
+      "physics owner/acceptance criterion",
+      "implementation state",
+      "claim ceiling"
+    ]
+  },
+  "source_snapshot": {
+    "repository": "Litju/plate2bar-instrument",
+    "ref": "main",
+    "commit": "74ec9520b005fb1096c1afe89e14043455725636",
+    "tree_sha": "eb604b88cebb3bee097bda0b5e8f7489427ad2e0",
+    "commit_date_utc": "2026-10-10T01:35:14Z"
+  },
+  "source_access": {
+    "mode": "READ_ONLY_GITHUB_GET",
+    "source_mutations": 0,
+    "source_tests_executed": 0,
+    "local_clone_created": false,
+    "source_code_copied": false,
+    "excluded_content": [
+      "docs/corpus/**",
+      "tests/corpus/**",
+      "participant data",
+      "locked or consumed holdout payloads",
+      "sibling evidence directory"
+    ],
+    "excluded_content_read": false,
+    "evidence_files": [
+      {
+        "path": "src/plate2bar_instrument/movement_registry.py",
+        "blob_sha": "35a6b2b09ac169734d89b4c040fc334b8942df49",
+        "bytes": 97788,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/movement_domain.py",
+        "blob_sha": "51bcc3d1774014c2174fdf9000af317d53175d1a",
+        "bytes": 93989,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/measurement/cmj_domain.py",
+        "blob_sha": "222a97e8db51f293cff1cae402e193dce2d09a36",
+        "bytes": 157405,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/control_plane/protocols.py",
+        "blob_sha": "d9cf637d0054851acc689d173a77c19bfd90fd76",
+        "bytes": 20658,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/measurement/component_pipeline.py",
+        "blob_sha": "f753741447629c3d616482575d8f8afd19266e1b",
+        "bytes": 31155,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/measurement/lpt_component_pipeline.py",
+        "blob_sha": "7c3c6d1e2648d84a23014b652692d056d3845a7a",
+        "bytes": 15580,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/measurement/coupled_trial.py",
+        "blob_sha": "f317eed7af9c4eb9f2496ddbef73dc081ae61111",
+        "bytes": 51654,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/measurement/time_normalization.py",
+        "blob_sha": "c807f303544ed4a18b90e1ab3034a8b4d8c871a5",
+        "bytes": 48316,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/measurement/measurement_context.py",
+        "blob_sha": "455b2719ad3c010365462cf3843dd9d4ab2fb583",
+        "bytes": 13128,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/back_squat.py",
+        "blob_sha": "54933698c298cf08a1f1b815a3123b34436634e1",
+        "bytes": 98482,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/loaded_jump_squat.py",
+        "blob_sha": "90fd8678bd9cd598e94cfa5a28080bc87fb0473b",
+        "bytes": 116941,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/deadlift.py",
+        "blob_sha": "6537c29e3a6e76f802eb8ffbb4e453868d94f4df",
+        "bytes": 81199,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/bench_press.py",
+        "blob_sha": "3c40fa7ae9631ea67e550415e6f7f80eeca0bb0a",
+        "bytes": 86832,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/olympic_pull_derivative.py",
+        "blob_sha": "4925f455fa36fde0a731602e4934c564fe45c7fa",
+        "bytes": 101243,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "src/plate2bar_instrument/power_clean.py",
+        "blob_sha": "7150c08177f9b87a1351cebdde40b1a505b51f91",
+        "bytes": 110618,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "apps/web/src/lib/protocol-registry.ts",
+        "blob_sha": "74faaad5f87a0c4d2c7f3edc3be094294a7a1946",
+        "bytes": 10279,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "governance/registries/tests.json",
+        "blob_sha": "5019c3dd2526d9c8d8ee6e072404f33176e835ed",
+        "bytes": 15721,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "governance/registry_manifest.json",
+        "blob_sha": "3c1bf4731ff4d94b0ce14e2e18391abfbf290316",
+        "bytes": 7545,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "docs/engineering/ML415_BACK_SQUAT_DUAL_V1_RESEARCH.md",
+        "blob_sha": "47e19cec9eb643d0a594fa32b827239fb10f4b84",
+        "bytes": 38498,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "docs/engineering/ML416_LOADED_JUMP_SQUAT_DUAL_V1_RESEARCH.md",
+        "blob_sha": "e7eaab6b01cd5b4270f2e7a17f5167f98173a829",
+        "bytes": 8821,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "docs/engineering/ML417_OLYMPIC_PULL_DERIVATIVE_RESEARCH.md",
+        "blob_sha": "b09a9c4a1eb98243e94ee339fc7d211f9d566649",
+        "bytes": 25234,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "docs/engineering/ML417_CLEAN_SNATCH_VARIANTS_RESEARCH.md",
+        "blob_sha": "df9f9140b1f426b58f234d70a8cf3183f86b16cb",
+        "bytes": 14059,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "docs/engineering/ML417_POWER_CLEAN_DUAL_V1_RESEARCH.md",
+        "blob_sha": "9e6a37b2c303dbf494eafbed0e1ad8f1ae1f625c",
+        "bytes": 16474,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "docs/engineering/ML511_DEADLIFT_DUAL_V1_RESEARCH.md",
+        "blob_sha": "51f691531c2899b6eaf95cafa55d26f4caa15053",
+        "bytes": 10267,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "docs/engineering/ML513_BENCH_PRESS_DUAL_V1_RESEARCH.md",
+        "blob_sha": "f250ec577a0668978a58760c15ff5d36db871830",
+        "bytes": 10819,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "docs/engineering/ML579_CMJ_DYNAMIC_DOMAIN_MODEL_V1.md",
+        "blob_sha": "ad7f81d1cfe7d964ff51c3dea7c098cdbd0be339",
+        "bytes": 6117,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "docs/science/ML416_LOADED_JUMP_SQUAT_EVENT_PHASE_CONTRACT.md",
+        "blob_sha": "136408e22169b8c3191267f11654f859c6e06871",
+        "bytes": 4033,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "docs/science/ML416_LOADED_JUMP_SQUAT_METRIC_DENOMINATOR.md",
+        "blob_sha": "7fe297fb56f14f9c8a60d60ad5badcea3e2aa449",
+        "bytes": 2374,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "docs/science/ML416_LOADED_JUMP_SQUAT_OBSERVABILITY_MATRIX.md",
+        "blob_sha": "e540e04cca9f2ac3e54891fd122c7382aebc7835",
+        "bytes": 3405,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      },
+      {
+        "path": "tests/back_squat/test_ml415_back_squat_dual_v1.py",
+        "blob_sha": "edcdef0cea34b30452215af4f45ccbd147790cc6",
+        "bytes": 15979,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/protocol/test_back_squat_presentation.py",
+        "blob_sha": "f48b748f397cef054c22e9a0a2ad4a76128fcb77",
+        "bytes": 7638,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/loaded_jump_squat/test_ml416_loaded_jump_squat.py",
+        "blob_sha": "3edfd33a8de0433ff2d904abc4eaf2264193aaa9",
+        "bytes": 24910,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/deadlift/test_ml511_deadlift_dual_v1.py",
+        "blob_sha": "6b52e41cca60e2e7c022df4a74e354c17b0768b0",
+        "bytes": 10161,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/bench_press/test_ml513_bench_press_dual_v1.py",
+        "blob_sha": "a80728092f5bbe4090522b22523b5263827183fe",
+        "bytes": 8577,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/olympic_pull/test_ml417_olympic_pull_derivative.py",
+        "blob_sha": "611f9b5645bf4e754628876689babd8827ece94c",
+        "bytes": 12178,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/olympic_pull/test_ml417_clean_snatch_variants.py",
+        "blob_sha": "7df295ae41f7ea25e71da08f65e6c1b537beffb1",
+        "bytes": 7657,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/power_clean/test_ml417_power_clean.py",
+        "blob_sha": "685543f165576e54f48d7f8a2c083f7780bde5f2",
+        "bytes": 12012,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/measurement/test_ml579_cmj_domain.py",
+        "blob_sha": "b8f2a0f26d141285ed22c4512e5a922e846984e1",
+        "bytes": 39826,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/protocol/test_ml579_cmj_protocol_contract.py",
+        "blob_sha": "60084803caf7ba760bb9fbc050143ba3c2aa8298",
+        "bytes": 4858,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/api/test_ml579_cmj_domain_model_api.py",
+        "blob_sha": "0d891e1263f595a0761a4353d23c30c3ed647329",
+        "bytes": 12415,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/reviewer/ml47/test_movement_domain_v1.py",
+        "blob_sha": "9151ecaed40efd84a6e610a6f847b4b149cf1ef5",
+        "bytes": 19454,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/reviewer/ml47/test_movement_truth_authority_wave1_v1.py",
+        "blob_sha": "bac9577f5259d088fb6d9d0df88e0254138e0c99",
+        "bytes": 11279,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/reviewer/ml47/test_movement_truth_hardening_v2.py",
+        "blob_sha": "14b105884d5a2d69cfad43f7d8988809c86d0735",
+        "bytes": 11674,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/native/test_ml416_contact_state.py",
+        "blob_sha": "521ed26b0d123ff51077648c7469c41597411a42",
+        "bytes": 3897,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/measurement/test_ml412_coupled_trial.py",
+        "blob_sha": "697e7f47b905f7bbdb68cbf103992d3852251cc6",
+        "bytes": 21080,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/measurement/test_ml540_time_normalization.py",
+        "blob_sha": "3532cc753116b142db81cc6a56c5da4c299a83b1",
+        "bytes": 48713,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/measurement/test_ml410_ml411_component_pipeline.py",
+        "blob_sha": "946b219b20d7555867b0f7dc41279f82849913fa",
+        "bytes": 20697,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/measurement/test_ml411_lpt_component_pipeline.py",
+        "blob_sha": "5c1e6acd7264d621455047ebb6f9622af73306ef",
+        "bytes": 21048,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/native/test_ml313_lpt_kinematics.py",
+        "blob_sha": "e17d50bb849b1fd8bebd70eb4eee56119dcee0ad",
+        "bytes": 12358,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/measurement/test_ml413_event01.py",
+        "blob_sha": "5ebe785cf4c9a968c0b25b2d8a5b6067f0fb0b4d",
+        "bytes": 15644,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/native/test_ml314_processing_profiles.py",
+        "blob_sha": "9f358c3d5f2508484c26034b80a3f14a6857e813",
+        "bytes": 11885,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/measurement/test_ml541_raw_source_evidence.py",
+        "blob_sha": "447376bee7ad6056663058b6185a116e932e1e2d",
+        "bytes": 15782,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/measurement/test_measurement_context.py",
+        "blob_sha": "1f54346e403d6a63be8020363046f45e3939db36",
+        "bytes": 9684,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/protocol/test_shared_load_value.py",
+        "blob_sha": "dae6377bcc7326526d98a5902f0b9e76466a8b64",
+        "bytes": 2609,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "tests/governance/test_ml51_lightweight_acceptance.py",
+        "blob_sha": "826aace025d3e02d307824654acae7cb07889fb2",
+        "bytes": 48021,
+        "category": "TEST_SOURCE"
+      },
+      {
+        "path": "src/plate2bar_instrument/protocol.py",
+        "blob_sha": "d36f56ab5b7a661a46806407c980f2d76156441d",
+        "bytes": 104555,
+        "category": "IMPLEMENTATION_OR_CONTRACT"
+      }
+    ]
+  },
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "authority_separation": {
+    "generator": "BioSynGen owns synthetic latent truth.",
+    "instruments": "BioSynGen simulated instruments remain separate observation maps with declared geometry and units.",
+    "benchmark": "Independent evaluator consumes observations only; it does not import generator truth.",
+    "plate2bar": "Pinned read-only source inventory only; never force/phase oracle or dynamics simulator."
+  },
+  "catalog_layers": {
+    "movement_registry": {
+      "source": "src/plate2bar_instrument/movement_registry.py::build_default_registry",
+      "family_count": 5,
+      "exercise_count": 6,
+      "families": [
+        {
+          "family_id": "CONTINUOUS_LOADED_SQUAT",
+          "event_ids": [
+            "REP_START",
+            "DESCENT_ONSET",
+            "BOTTOM_REVERSAL",
+            "ASCENT_ONSET",
+            "REP_END"
+          ],
+          "phase_ids": [
+            "PRE_REP",
+            "DESCENT",
+            "ASCENT",
+            "STICKING_REGION",
+            "POST_REP"
+          ],
+          "optional_events": [
+            "ASCENT_ONSET"
+          ],
+          "optional_phases": [
+            "PRE_REP",
+            "STICKING_REGION",
+            "POST_REP"
+          ],
+          "topology": "Bilateral foot support; carried bar; no flight."
+        },
+        {
+          "family_id": "BALLISTIC_VERTICAL",
+          "event_ids": [
+            "REP_START",
+            "TAKEOFF",
+            "LANDING",
+            "LEFT_FOOT_RELEASE",
+            "RIGHT_FOOT_RELEASE",
+            "LEFT_FOOT_CONTACT",
+            "RIGHT_FOOT_CONTACT",
+            "REP_END"
+          ],
+          "phase_ids": [
+            "PRE_JUMP",
+            "UNWEIGHTING",
+            "BRAKING",
+            "PROPULSION",
+            "FLIGHT",
+            "LANDING",
+            "POST_LANDING"
+          ],
+          "exercise_specializations": {
+            "COUNTERMOVEMENT_JUMP": {
+              "required": [
+                "PROPULSION",
+                "FLIGHT",
+                "LANDING"
+              ],
+              "optional": [
+                "UNWEIGHTING",
+                "BRAKING"
+              ]
+            },
+            "SQUAT_JUMP": {
+              "required": [
+                "PROPULSION",
+                "FLIGHT",
+                "LANDING"
+              ],
+              "forbidden_required": [
+                "UNWEIGHTING",
+                "BRAKING"
+              ]
+            }
+          },
+          "topology": "Bilateral supported start, asynchronous foot release/contact, flight and landing."
+        },
+        {
+          "family_id": "GROUND_CONSTRAINED_PULL",
+          "event_ids": [
+            "REP_START",
+            "LIFT_OFF",
+            "LOCKOUT",
+            "DESCENT_ONSET",
+            "TOUCHDOWN",
+            "REP_END"
+          ],
+          "phase_ids": [
+            "PRELOAD_SETUP",
+            "ASCENT",
+            "DESCENT",
+            "POST_REP"
+          ],
+          "optional_events": [
+            "LOCKOUT",
+            "DESCENT_ONSET",
+            "TOUCHDOWN"
+          ],
+          "optional_phases": [
+            "PRELOAD_SETUP",
+            "POST_REP"
+          ],
+          "topology": "Foot support persists; bar-floor support changes at lift-off/touchdown."
+        },
+        {
+          "family_id": "WEIGHTLIFTING_PULL_CATCH",
+          "event_ids": [
+            "REP_START",
+            "LIFT_OFF",
+            "BAR_TOUCH",
+            "TURNOVER",
+            "CATCH",
+            "RECOVERY",
+            "REP_END"
+          ],
+          "phase_ids": [
+            "SETUP",
+            "FIRST_PULL",
+            "TRANSITION",
+            "SECOND_PULL",
+            "TURNOVER",
+            "CATCH",
+            "RECOVERY"
+          ],
+          "optional_events": [
+            "BAR_TOUCH",
+            "TURNOVER",
+            "CATCH",
+            "RECOVERY"
+          ],
+          "topology": "Bilateral foot support; pull/turnover/catch/recovery semantics; catch is not observed by FORCE/LPT."
+        },
+        {
+          "family_id": "SUPPORTED_UPPER_BODY_PRESS",
+          "event_ids": [
+            "REP_START",
+            "DESCENT_ONSET",
+            "BOTTOM_TOUCH",
+            "ASCENT_ONSET",
+            "LOCKOUT",
+            "REP_END"
+          ],
+          "phase_ids": [
+            "DESCENT",
+            "BOTTOM_TOUCH",
+            "ASCENT",
+            "LOCKOUT",
+            "STICKING_REGION"
+          ],
+          "optional_events": [
+            "ASCENT_ONSET",
+            "LOCKOUT"
+          ],
+          "optional_phases": [
+            "BOTTOM_TOUCH",
+            "LOCKOUT",
+            "STICKING_REGION"
+          ],
+          "topology": "Athlete bench support; feet separately on two force plates; bench outside plates."
+        }
+      ],
+      "exercise_ids": [
+        "BACK_SQUAT",
+        "COUNTERMOVEMENT_JUMP",
+        "SQUAT_JUMP",
+        "CONVENTIONAL_DEADLIFT",
+        "POWER_CLEAN",
+        "BENCH_PRESS"
+      ],
+      "simulation_eligible": [
+        "BACK_SQUAT",
+        "COUNTERMOVEMENT_JUMP",
+        "SQUAT_JUMP",
+        "CONVENTIONAL_DEADLIFT"
+      ],
+      "semantic_only": [
+        "POWER_CLEAN",
+        "BENCH_PRESS"
+      ],
+      "candidate_metric_ids": [
+        "REP_DURATION",
+        "DESCENT_DURATION",
+        "ASCENT_DURATION",
+        "RAW_BAR_LPT_COORDINATE_SPAN",
+        "PHASE_FORCE_TIME_AREA",
+        "BILATERAL_FORCE_DIFFERENCE",
+        "STICKING_REGION_DURATION",
+        "FLIGHT_DURATION",
+        "GROUND_CONTACT_DURATION",
+        "JUMP_HEIGHT",
+        "LIFT_OFF_TO_LOCKOUT_DURATION"
+      ]
+    },
+    "strength_protocol_router": {
+      "source": "apps/web/src/lib/protocol-registry.ts::STRENGTH_PROTOCOLS",
+      "route_key_count": 7,
+      "unique_protocol_id_count": 6,
+      "routes": [
+        {
+          "route_key": "BACK_SQUAT",
+          "label": "Back Squat",
+          "protocol_id": "BACK_SQUAT_DUAL_V1"
+        },
+        {
+          "route_key": "LOADED_JUMP_SQUAT",
+          "label": "Loaded Jump Squat",
+          "protocol_id": "LOADED_JUMP_SQUAT_DUAL_V1"
+        },
+        {
+          "route_key": "DEADLIFT",
+          "label": "Deadlift",
+          "protocol_id": "DEADLIFT_DUAL_V1"
+        },
+        {
+          "route_key": "BENCH_PRESS",
+          "label": "Bench Press",
+          "protocol_id": "BENCH_PRESS_DUAL_V1"
+        },
+        {
+          "route_key": "POWER_CLEAN",
+          "label": "Power Clean",
+          "protocol_id": "POWER_CLEAN_DUAL_V1"
+        },
+        {
+          "route_key": "OLYMPIC_PULL_DERIVATIVE",
+          "label": "Olympic pull",
+          "protocol_id": "OLYMPIC_PULL_DERIVATIVE_DUAL_V1"
+        },
+        {
+          "route_key": "CLEAN_SNATCH_VARIANTS",
+          "label": "Clean / snatch pull",
+          "protocol_id": "OLYMPIC_PULL_DERIVATIVE_DUAL_V1"
+        }
+      ]
+    },
+    "cmj_domain": {
+      "source": "src/plate2bar_instrument/measurement/cmj_domain.py",
+      "protocol_id": "CMJ@1.0.0",
+      "representation_domains": [
+        "SYSTEM_FORCE",
+        "BAR_LPT"
+      ],
+      "conditions": [
+        "UNLOADED",
+        "LOADED"
+      ],
+      "acquisition_modes": [
+        "FORCE_ONLY",
+        "LPT_ONLY",
+        "PAIRED"
+      ],
+      "event_phase_identity_policy": "Open versioned strings; no closed canonical event or phase enum.",
+      "canonical_variant_catalog_present": false,
+      "test_fixture_variant_ids": [
+        "CMJ_UNLOADED",
+        "CMJ_LOADED",
+        "CMJ_UNLOADED_AKIMBO",
+        "CMJ_LOADED_AKIMBO",
+        "CMJ_UNLOADED_FORCE_ONLY",
+        "CMJ_UNLOADED_LPT_ONLY"
+      ],
+      "metric_graph": "CMJ_METRIC_PREREQUISITES@1.0.0",
+      "metric_ids": [
+        "CMJ_FLIGHT_TIME_JUMP_HEIGHT",
+        "CMJ_SYSTEM_IMPULSE",
+        "CMJ_SYSTEM_COM_MECHANICS",
+        "CMJ_BAR_VELOCITY",
+        "CMJ_BODY_COM_RECONSTRUCTION"
+      ],
+      "issue_status": "ML-579 CANCELED/FROZEN; event adjudication deferred to ML-574."
+    },
+    "governance_test_registry": {
+      "source": "governance/registries/tests.json",
+      "registry_id": "P2B-REG-TEST-001",
+      "version": "1.0.0",
+      "status": "CONTROLLED_DRAFT",
+      "record_count": 12,
+      "canonical_sha256": "63426b5aea50c4129a6d5419653296e0682e26768e66467d63ee73fbb79d9d67",
+      "audit_checkpoint": "a597f9a78981143dd26a00c9ea572b9e21342b71",
+      "tests": [
+        {
+          "test_id": "TST-ML51-LV-01",
+          "title": "ML51-LV-01 — strict registry envelopes and record schemas",
+          "declared_function": "test_ml51_lv_01_strict_registry_envelopes_and_record_schemas",
+          "source_function_name": "test_ml51_lv_01_strict_registry_envelopes_and_record_schemas",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-02",
+          "title": "ML51-LV-02 — bounded schema mutations refuse",
+          "declared_function": "test_ml51_lv_02_bounded_schema_mutations_refuse",
+          "source_function_name": "test_ml51_lv_02_bounded_schema_mutations_refuse",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-03",
+          "title": "ML51-LV-03 — canonical json and duplicate key refusal",
+          "declared_function": "test_ml51_lv_03_canonical_json_and_duplicate_key_refusal",
+          "source_function_name": "test_ml51_lv_03_canonical_json_and_duplicate_key_refusal",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-04",
+          "title": "ML51-LV-04 — manifest hash and blob closure",
+          "declared_function": "test_ml51_lv_04_manifest_hash_and_blob_closure",
+          "source_function_name": "test_ml51_lv_04_manifest_hash_and_blob_closure",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-05",
+          "title": "ML51-LV-05 — authority source completeness and identity",
+          "declared_function": "test_ml51_lv_05_authority_source_completeness_and_identity",
+          "source_function_name": "test_ml51_lv_05_authority_source_completeness_and_locator_identity",
+          "identity_status": "REGISTERED_FUNCTION_RENAMED"
+        },
+        {
+          "test_id": "TST-ML51-LV-06",
+          "title": "ML51-LV-06 — no placeholder or wildcard mappings",
+          "declared_function": "test_ml51_lv_06_no_placeholder_or_wildcard_mappings",
+          "source_function_name": null,
+          "identity_status": "MISSING_CURRENT_SOURCE_FUNCTION"
+        },
+        {
+          "test_id": "TST-ML51-LV-07",
+          "title": "ML51-LV-07 — reciprocal trace and asymmetric mutation",
+          "declared_function": "test_ml51_lv_07_reciprocal_trace_and_asymmetric_mutation",
+          "source_function_name": "test_ml51_lv_07_reciprocal_trace_and_asymmetric_mutation",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-08",
+          "title": "ML51-LV-08 — gate semantics dag and final closure",
+          "declared_function": "test_ml51_lv_08_gate_semantics_dag_and_final_closure",
+          "source_function_name": "test_ml51_lv_08_gate_semantics_dag_and_final_closure",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-09",
+          "title": "ML51-LV-09 — semantic negative recovery mappings",
+          "declared_function": "test_ml51_lv_09_semantic_negative_recovery_mappings",
+          "source_function_name": "test_ml51_lv_09_semantic_negative_recovery_mappings",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-10",
+          "title": "ML51-LV-10 — requalification and issue map semantics",
+          "declared_function": "test_ml51_lv_10_requalification_and_issue_map_semantics",
+          "source_function_name": "test_ml51_lv_10_requalification_and_issue_map_semantics",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-11",
+          "title": "ML51-LV-11 — actual quality records and controlled empty consistency",
+          "declared_function": "test_ml51_lv_11_actual_quality_records_and_controlled_empty_consistency",
+          "source_function_name": "test_ml51_lv_11_actual_quality_records_and_controlled_empty_consistency",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-12",
+          "title": "ML51-LV-12 — scope residue nonzero tests and repository gates",
+          "declared_function": "test_ml51_lv_12_scope_residue_nonzero_tests_and_repository_gates",
+          "source_function_name": "test_ml51_lv_12_repository_gates_have_clean_structural_inputs",
+          "identity_status": "REGISTERED_FUNCTION_RENAMED"
+        }
+      ],
+      "source_function_count": 12,
+      "registered_function_renames": [
+        "TST-ML51-LV-05",
+        "TST-ML51-LV-12"
+      ],
+      "missing_registered_functions": [
+        "TST-ML51-LV-06"
+      ],
+      "unregistered_current_functions": [
+        "test_ml51_claim_requirement_trace_is_reciprocal_and_audited"
+      ]
+    },
+    "generic_protocol_registry": {
+      "source": "src/plate2bar_instrument/protocol.py::ProtocolRegistry",
+      "role": "Generic in-memory registry interface; no built-in canonical exercise catalog."
+    }
+  },
+  "sensor_capabilities": [
+    {
+      "sensor_id": "FORCE_PIPE_01",
+      "raw_channels": [
+        "FZ_LEFT",
+        "FZ_RIGHT"
+      ],
+      "derived_channels": [
+        {
+          "id": "FZ_TOTAL",
+          "operator": "FORCE_SUM_DIFFERENCE_V1",
+          "expression": "FZ_LEFT + FZ_RIGHT",
+          "source_total_preserved": true
+        }
+      ],
+      "unit": "N",
+      "object": "Vertical force at declared left/right foot-to-plate contacts.",
+      "stage": "Raw component admission followed by native bilateral derivation.",
+      "limitations": [
+        "Not automatically net force on athlete+bar or system COM force.",
+        "For bench, foot contact only; bench/support outside plates.",
+        "No bar, grip, chest, catch/front-rack or overhead force channel."
+      ]
+    },
+    {
+      "sensor_id": "LPT_PIPE_01",
+      "raw_channels": [
+        "LPT_DISPLACEMENT"
+      ],
+      "derived_channels": [
+        "LPT_VELOCITY",
+        "LPT_ACCELERATION",
+        "LPT_JERK"
+      ],
+      "units": [
+        "m",
+        "m/s",
+        "m/s²",
+        "m/s³"
+      ],
+      "object": "Declared LPT sensor/attachment coordinate.",
+      "stage": "Raw coordinate admission; derivative authority is ML-313.",
+      "limitations": [
+        "No implicit zeroing or force synchronization during admission.",
+        "Not automatically bar/body/system COM.",
+        "No grip/catch/support state sensed."
+      ]
+    },
+    {
+      "sensor_id": "COUPLED_TRIAL_TIME",
+      "raw_channels": [
+        "independent force native timestamps",
+        "independent LPT native timestamps"
+      ],
+      "derived_channels": [
+        "qualified canonical temporal coordinate"
+      ],
+      "unit": "s",
+      "object": "Clock relation and positive overlap only.",
+      "stage": "Qualified mappings and timing uncertainty required.",
+      "limitations": [
+        "Equal rate/length does not prove synchronization.",
+        "Temporal coupling is not mechanical conjugacy; no force×LPT power/work or signal fusion."
+      ]
+    },
+    {
+      "sensor_id": "CONTACT_STATE",
+      "raw_channels": [
+        "FZ_TOTAL"
+      ],
+      "derived_channels": [
+        "CONTACT",
+        "NO_CONTACT",
+        "TAKEOFF candidate",
+        "LANDING candidate"
+      ],
+      "unit": "state and s",
+      "object": "Bilateral foot/plate contact under execution-specific hysteresis and duration.",
+      "stage": "Explicit per-execution threshold/duration contract.",
+      "limitations": [
+        "Short low-force excursion does not create flight.",
+        "Not anatomical landing mechanics or unobserved per-foot transfer."
+      ]
+    }
+  ],
+  "exercise_matrix": [
+    {
+      "exercise_id": "BACK_SQUAT",
+      "aliases": [
+        "BACK_SQUAT_DUAL_V1"
+      ],
+      "route_keys": [
+        "BACK_SQUAT"
+      ],
+      "movement_registry_ids": [
+        "BACK_SQUAT"
+      ],
+      "protocol_ids": [
+        "BACK_SQUAT_DUAL_V1"
+      ],
+      "condition_ids": [],
+      "variant_ids": [],
+      "context_of_use": "Continuous floor-supported barbell squat; bilateral foot force and bar-attached LPT.",
+      "degrees_of_freedom": "NOT_DECLARED_BY_PLATE2BAR_MEASUREMENT_SYSTEM",
+      "body_load_support_topology": "Each foot on a separate plate; athlete carries barbell; bar has no ground support during valid squat.",
+      "impact_and_contact": "Continuous foot support, flight forbidden; sticking region optional/candidate.",
+      "actuator_hypothesis": "NOT_IMPLEMENTED_BY_PLATE2BAR; no biological or device actuator parameters are defined.",
+      "primary_latent_event_roles": [
+        "REP_START",
+        "DESCENT_ONSET",
+        "BOTTOM_REVERSAL",
+        "ASCENT_ONSET",
+        "REP_END"
+      ],
+      "observable_sensor_events": [
+        "Explicit markers; LPT reversal is a candidate and not latent bottom truth."
+      ],
+      "event_ids": [
+        "BACK_SQUAT_TRIAL_START_V1",
+        "BACK_SQUAT_REP_START_V1",
+        "BACK_SQUAT_DESCENT_ONSET_V1",
+        "BACK_SQUAT_BOTTOM_V1",
+        "BACK_SQUAT_CONCENTRIC_ONSET_V1",
+        "BACK_SQUAT_MOVEMENT_TERMINATION_PROTOCOL_END_V1"
+      ],
+      "required_phase_ids": [
+        "BACK_SQUAT_DESCENT_PHASE_V1",
+        "BACK_SQUAT_ASCENT_PHASE_V1"
+      ],
+      "optional_phase_ids": [],
+      "event_phase_catalog_state": "Versioned protocol identities or explicit open-catalog status.",
+      "force_stage": "FORCE_PIPE_01 records FZ_LEFT/FZ_RIGHT foot contact; FZ_TOTAL is a source-preserving bilateral contact sum, not whole-system force.",
+      "lpt_stage": "LPT_PIPE_01 admits raw declared attachment coordinate; no implicit zeroing; derivatives belong to ML-313.",
+      "clock_contract": "Independent native clocks; paired trials require qualified time mapping/uncertainty and positive overlap. Temporal synchronization is not mechanical conjugacy.",
+      "authorized_metric_ids": [
+        "BACK_SQUAT_LPT_ATTACHMENT_POINT_DISPLACEMENT_RANGE_V1",
+        "BACK_SQUAT_LPT_MEAN_VELOCITY_V1",
+        "BACK_SQUAT_LPT_PEAK_VELOCITY_V1",
+        "BACK_SQUAT_LPT_MINIMUM_VELOCITY_V1",
+        "BACK_SQUAT_LPT_MEAN_ACCELERATION_V1",
+        "BACK_SQUAT_FORCE_TOTAL_MEAN_V1",
+        "BACK_SQUAT_FORCE_TOTAL_PEAK_V1",
+        "BACK_SQUAT_FORCE_TIME_AREA_V1",
+        "BACK_SQUAT_FORCE_LEFT_MEAN_V1",
+        "BACK_SQUAT_FORCE_RIGHT_MEAN_V1"
+      ],
+      "candidate_metric_ids": [],
+      "metric_boundary": "Five force/contact and five LPT-coordinate metrics; force-time area is not net impulse.",
+      "positive_controls": [
+        "Preserve per-rep force/LPT identity"
+      ],
+      "negative_controls": [
+        "Reject reversed topology",
+        "No COM/impulse/RFD/asymmetry/power/work",
+        "Do not promote LPT bottom candidate"
+      ],
+      "source_identities": [
+        "src/plate2bar_instrument/back_squat.py",
+        "docs/engineering/ML415_BACK_SQUAT_DUAL_V1_RESEARCH.md",
+        "tests/back_squat/test_ml415_back_squat_dual_v1.py"
+      ],
+      "physics_owner_or_acceptance_criterion": "RES-490 owns the identity/capability crosswalk. Future synthetic mechanics map to RES-491 or RES-492; no source inventory establishes dynamics or empirical validity.",
+      "implementation_status": "PLATE2BAR_PROTOCOL_IMPLEMENTED; BIOSYNGEN_I1_NOT_IMPLEMENTED",
+      "claim_ceilings": [
+        "NUMERICAL_VERIFICATION_ONLY",
+        "SIMULATED_MEASUREMENT_ONLY",
+        "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+        "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+      ],
+      "movement_registry_family_id": "CONTINUOUS_LOADED_SQUAT",
+      "movement_registry_event_ids": [
+        "REP_START",
+        "DESCENT_ONSET",
+        "BOTTOM_REVERSAL",
+        "ASCENT_ONSET",
+        "REP_END"
+      ],
+      "movement_registry_phase_ids": [
+        "PRE_REP",
+        "DESCENT",
+        "ASCENT",
+        "STICKING_REGION",
+        "POST_REP"
+      ],
+      "movement_registry_mapping_status": "EXACT_REGISTERED_EXERCISE_FAMILY"
+    },
+    {
+      "exercise_id": "COUNTERMOVEMENT_JUMP",
+      "aliases": [
+        "CMJ"
+      ],
+      "route_keys": [],
+      "movement_registry_ids": [
+        "COUNTERMOVEMENT_JUMP"
+      ],
+      "protocol_ids": [
+        "CMJ@1.0.0"
+      ],
+      "condition_ids": [
+        "UNLOADED",
+        "LOADED"
+      ],
+      "variant_ids": [
+        "CMJ_UNLOADED",
+        "CMJ_LOADED",
+        "CMJ_UNLOADED_AKIMBO",
+        "CMJ_LOADED_AKIMBO",
+        "CMJ_UNLOADED_FORCE_ONLY",
+        "CMJ_UNLOADED_LPT_ONLY"
+      ],
+      "context_of_use": "Vertical CMJ in SYSTEM_FORCE and/or BAR_LPT domain; FORCE_ONLY, LPT_ONLY and PAIRED modes.",
+      "degrees_of_freedom": "NOT_DECLARED_BY_PLATE2BAR_MEASUREMENT_SYSTEM",
+      "body_load_support_topology": "Bilateral foot support before takeoff and after landing; optional carried load is metadata; no resolved grip/bar force path.",
+      "impact_and_contact": "Takeoff/landing contact concepts exist; no separate landing mechanics contract.",
+      "actuator_hypothesis": "NOT_IMPLEMENTED_BY_PLATE2BAR; no biological or device actuator parameters are defined.",
+      "primary_latent_event_roles": [
+        "Movement onset",
+        "Countermovement reversal",
+        "Propulsion",
+        "Takeoff",
+        "Landing"
+      ],
+      "observable_sensor_events": [
+        "Open versioned event/state IDs; force and LPT remain separate domains; no universal detector."
+      ],
+      "event_ids": [],
+      "required_phase_ids": [],
+      "optional_phase_ids": [],
+      "event_phase_catalog_state": "OPEN_VERSIONED_STRINGS; no closed canonical event/phase enum.",
+      "force_stage": "SYSTEM_FORCE foot/plate contact domain.",
+      "lpt_stage": "BAR_LPT attachment coordinate, not body/system COM.",
+      "clock_contract": "Independent native clocks; paired trials require qualified time mapping/uncertainty and positive overlap. Temporal synchronization is not mechanical conjugacy.",
+      "authorized_metric_ids": [
+        "CMJ_FLIGHT_TIME_JUMP_HEIGHT",
+        "CMJ_SYSTEM_IMPULSE",
+        "CMJ_SYSTEM_COM_MECHANICS",
+        "CMJ_BAR_VELOCITY",
+        "CMJ_BODY_COM_RECONSTRUCTION"
+      ],
+      "candidate_metric_ids": [],
+      "metric_boundary": "Prerequisite graph controls availability; no metric is blanket-authorized by model existence.",
+      "positive_controls": [
+        "Single-modality runs stay native-clock only",
+        "Prerequisites produce typed metric states"
+      ],
+      "negative_controls": [
+        "Unqualified pair has no shared clock",
+        "Fixture IDs stay fixture-only",
+        "Bar LPT is not COM"
+      ],
+      "source_identities": [
+        "src/plate2bar_instrument/measurement/cmj_domain.py",
+        "docs/engineering/ML579_CMJ_DYNAMIC_DOMAIN_MODEL_V1.md",
+        "tests/measurement/test_ml579_cmj_domain.py"
+      ],
+      "physics_owner_or_acceptance_criterion": "RES-490 owns the identity/capability crosswalk. Future synthetic mechanics map to RES-491 or RES-492; no source inventory establishes dynamics or empirical validity.",
+      "implementation_status": "PLATE2BAR_CMJ_DOMAIN_EXISTS; ML-579 FROZEN, event adjudication deferred ML-574; BIOSYNGEN_I1_SIMULATED_ONLY",
+      "claim_ceilings": [
+        "NUMERICAL_VERIFICATION_ONLY",
+        "SIMULATED_MEASUREMENT_ONLY",
+        "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+        "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+      ],
+      "variant_id_status": "Test-fixture identities only; not a canonical variant registry.",
+      "movement_registry_family_id": "BALLISTIC_VERTICAL",
+      "movement_registry_event_ids": [
+        "REP_START",
+        "TAKEOFF",
+        "LANDING",
+        "LEFT_FOOT_RELEASE",
+        "RIGHT_FOOT_RELEASE",
+        "LEFT_FOOT_CONTACT",
+        "RIGHT_FOOT_CONTACT",
+        "REP_END"
+      ],
+      "movement_registry_phase_ids": [
+        "PRE_JUMP",
+        "UNWEIGHTING",
+        "BRAKING",
+        "PROPULSION",
+        "FLIGHT",
+        "LANDING",
+        "POST_LANDING"
+      ],
+      "movement_registry_mapping_status": "EXACT_REGISTERED_EXERCISE_FAMILY"
+    },
+    {
+      "exercise_id": "SQUAT_JUMP",
+      "aliases": [
+        "SJ"
+      ],
+      "route_keys": [],
+      "movement_registry_ids": [
+        "SQUAT_JUMP"
+      ],
+      "protocol_ids": [],
+      "condition_ids": [],
+      "variant_ids": [],
+      "context_of_use": "Static flexed-start squat jump with bilateral foot support and ballistic takeoff/flight/landing topology.",
+      "degrees_of_freedom": "NOT_DECLARED_BY_PLATE2BAR_MEASUREMENT_SYSTEM",
+      "body_load_support_topology": "Supported squat start transitions to flight and landing; no required countermovement.",
+      "impact_and_contact": "Movement semantics only; no SJ-specific Plate2bar event adjudication route.",
+      "actuator_hypothesis": "NOT_IMPLEMENTED_BY_PLATE2BAR; no biological or device actuator parameters are defined.",
+      "primary_latent_event_roles": [
+        "Static start",
+        "PROPULSION",
+        "TAKEOFF",
+        "FLIGHT",
+        "LANDING"
+      ],
+      "observable_sensor_events": [
+        "Candidate family contact events only; no dedicated protocol detector."
+      ],
+      "event_ids": [],
+      "required_phase_ids": [
+        "PROPULSION",
+        "FLIGHT",
+        "LANDING"
+      ],
+      "optional_phase_ids": [
+        "PRE_JUMP",
+        "POST_LANDING"
+      ],
+      "event_phase_catalog_state": "Movement-family identities only; no SJ protocol event registry.",
+      "force_stage": "FORCE_PIPE_01 records FZ_LEFT/FZ_RIGHT foot contact; FZ_TOTAL is a source-preserving bilateral contact sum, not whole-system force.",
+      "lpt_stage": "LPT_PIPE_01 admits raw declared attachment coordinate; no implicit zeroing; derivatives belong to ML-313.",
+      "clock_contract": "Independent native clocks; paired trials require qualified time mapping/uncertainty and positive overlap. Temporal synchronization is not mechanical conjugacy.",
+      "authorized_metric_ids": [],
+      "candidate_metric_ids": [
+        "FLIGHT_DURATION",
+        "GROUND_CONTACT_DURATION",
+        "PHASE_FORCE_TIME_AREA",
+        "BILATERAL_FORCE_DIFFERENCE",
+        "JUMP_HEIGHT"
+      ],
+      "metric_boundary": "These are movement-registry candidates; jump-height method is not authorized.",
+      "positive_controls": [
+        "Required UNWEIGHTING/BRAKING forbidden for SJ"
+      ],
+      "negative_controls": [
+        "Do not map CMJ route to SJ",
+        "Do not promote candidate jump-height equation"
+      ],
+      "source_identities": [
+        "src/plate2bar_instrument/movement_registry.py",
+        "src/plate2bar_instrument/movement_domain.py",
+        "tests/reviewer/ml47/test_movement_truth_authority_wave1_v1.py"
+      ],
+      "physics_owner_or_acceptance_criterion": "RES-490 owns the identity/capability crosswalk. Future synthetic mechanics map to RES-491 or RES-492; no source inventory establishes dynamics or empirical validity.",
+      "implementation_status": "PLATE2BAR_MOVEMENT_SEMANTICS_ONLY; NO_STRENGTH_ROUTE; BIOSYNGEN_I1_SIMULATED_ONLY",
+      "claim_ceilings": [
+        "NUMERICAL_VERIFICATION_ONLY",
+        "SIMULATED_MEASUREMENT_ONLY",
+        "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+        "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+      ],
+      "movement_registry_family_id": "BALLISTIC_VERTICAL",
+      "movement_registry_event_ids": [
+        "REP_START",
+        "TAKEOFF",
+        "LANDING",
+        "LEFT_FOOT_RELEASE",
+        "RIGHT_FOOT_RELEASE",
+        "LEFT_FOOT_CONTACT",
+        "RIGHT_FOOT_CONTACT",
+        "REP_END"
+      ],
+      "movement_registry_phase_ids": [
+        "PRE_JUMP",
+        "UNWEIGHTING",
+        "BRAKING",
+        "PROPULSION",
+        "FLIGHT",
+        "LANDING",
+        "POST_LANDING"
+      ],
+      "movement_registry_mapping_status": "EXACT_REGISTERED_EXERCISE_FAMILY"
+    },
+    {
+      "exercise_id": "LOADED_CMJ",
+      "aliases": [
+        "CMJ_LOADED"
+      ],
+      "route_keys": [],
+      "movement_registry_ids": [],
+      "protocol_ids": [
+        "CMJ@1.0.0"
+      ],
+      "condition_ids": [
+        "LOADED"
+      ],
+      "variant_ids": [
+        "CMJ_LOADED",
+        "CMJ_LOADED_AKIMBO"
+      ],
+      "context_of_use": "Loaded CMJ with explicit external-load identity/mass and athlete mass prerequisites.",
+      "degrees_of_freedom": "NOT_DECLARED_BY_PLATE2BAR_MEASUREMENT_SYSTEM",
+      "body_load_support_topology": "Bilateral foot support then flight/landing; load metadata is separate; force/LPT do not directly measure internal body-load coupling.",
+      "impact_and_contact": "Open CMJ contact semantics; no loaded-specific landing contract.",
+      "actuator_hypothesis": "NOT_IMPLEMENTED_BY_PLATE2BAR; no biological or device actuator parameters are defined.",
+      "primary_latent_event_roles": [
+        "Countermovement",
+        "Takeoff",
+        "Flight",
+        "Landing"
+      ],
+      "observable_sensor_events": [
+        "Separate force and LPT domains; no loaded-CMJ route or detector."
+      ],
+      "event_ids": [],
+      "required_phase_ids": [],
+      "optional_phase_ids": [],
+      "event_phase_catalog_state": "OPEN_VERSIONED; no canonical loaded variant ID.",
+      "force_stage": "FORCE_PIPE_01 records FZ_LEFT/FZ_RIGHT foot contact; FZ_TOTAL is a source-preserving bilateral contact sum, not whole-system force.",
+      "lpt_stage": "LPT_PIPE_01 admits raw declared attachment coordinate; no implicit zeroing; derivatives belong to ML-313.",
+      "clock_contract": "Independent native clocks; paired trials require qualified time mapping/uncertainty and positive overlap. Temporal synchronization is not mechanical conjugacy.",
+      "authorized_metric_ids": [
+        "CMJ_FLIGHT_TIME_JUMP_HEIGHT",
+        "CMJ_SYSTEM_IMPULSE",
+        "CMJ_SYSTEM_COM_MECHANICS",
+        "CMJ_BAR_VELOCITY",
+        "CMJ_BODY_COM_RECONSTRUCTION"
+      ],
+      "candidate_metric_ids": [],
+      "metric_boundary": "COM reconstruction requires explicit masses, geometry, qualified time and named method.",
+      "positive_controls": [
+        "Load identity/mass explicit"
+      ],
+      "negative_controls": [
+        "No universal 20kg default",
+        "No bar velocity/COM equivalence",
+        "Missing masses block system reconstruction"
+      ],
+      "source_identities": [
+        "src/plate2bar_instrument/measurement/cmj_domain.py",
+        "tests/api/test_ml579_cmj_domain_model_api.py"
+      ],
+      "physics_owner_or_acceptance_criterion": "RES-490 owns the identity/capability crosswalk. Future synthetic mechanics map to RES-491 or RES-492; no source inventory establishes dynamics or empirical validity.",
+      "implementation_status": "LOADED CONDITION REPRESENTABLE; NO DISTINCT ROUTE; BIOSYNGEN_I1_20KG_SIMULATED_ONLY",
+      "claim_ceilings": [
+        "NUMERICAL_VERIFICATION_ONLY",
+        "SIMULATED_MEASUREMENT_ONLY",
+        "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+        "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+      ],
+      "variant_id_status": "Loaded is a domain condition; fixture labels are not canonical variant identities.",
+      "movement_registry_family_id": null,
+      "movement_registry_event_ids": [],
+      "movement_registry_phase_ids": [],
+      "movement_registry_mapping_status": "NO_DISTINCT_ENTRY; BALLISTIC FAMILY ANALOGY IS NOT A REGISTERED VARIANT"
+    },
+    {
+      "exercise_id": "LOADED_JUMP_SQUAT",
+      "aliases": [
+        "LOADED_JUMP_SQUAT_DUAL_V1"
+      ],
+      "route_keys": [
+        "LOADED_JUMP_SQUAT"
+      ],
+      "movement_registry_ids": [],
+      "protocol_ids": [
+        "LOADED_JUMP_SQUAT_DUAL_V1"
+      ],
+      "condition_ids": [
+        "LOADED"
+      ],
+      "variant_ids": [],
+      "context_of_use": "Bilateral loaded jump squat with coupled foot-contact force and declared bar-attached LPT.",
+      "degrees_of_freedom": "NOT_DECLARED_BY_PLATE2BAR_MEASUREMENT_SYSTEM",
+      "body_load_support_topology": "Whole left/right feet map to separate plates; load/bar not supported by instrumented plates.",
+      "impact_and_contact": "Hysteresis/duration contact-state candidates define takeoff/landing; short low-force excursion does not create flight.",
+      "actuator_hypothesis": "NOT_IMPLEMENTED_BY_PLATE2BAR; no biological or device actuator parameters are defined.",
+      "primary_latent_event_roles": [
+        "REP_START",
+        "MOVEMENT_ONSET",
+        "DIRECTION_REVERSAL",
+        "TAKEOFF",
+        "LANDING",
+        "REP_END"
+      ],
+      "observable_sensor_events": [
+        "Markers, LPT sign-reversal candidates, force contact candidates with explicit thresholds/durations."
+      ],
+      "event_ids": [
+        "LOADED_JUMP_SQUAT_REP_START_V1",
+        "LOADED_JUMP_SQUAT_MOVEMENT_ONSET_LPT_V1",
+        "LOADED_JUMP_SQUAT_DIRECTION_REVERSAL_LPT_V1",
+        "LOADED_JUMP_SQUAT_TAKEOFF_CONTACT_V1",
+        "LOADED_JUMP_SQUAT_LANDING_CONTACT_V1",
+        "LOADED_JUMP_SQUAT_REP_END_V1"
+      ],
+      "required_phase_ids": [
+        "LOADED_JUMP_SQUAT_DOWNWARD_LPT_PHASE_V1",
+        "LOADED_JUMP_SQUAT_UPWARD_LPT_CONTACT_PHASE_V1",
+        "LOADED_JUMP_SQUAT_FLIGHT_PHASE_V1"
+      ],
+      "optional_phase_ids": [
+        "LOADED_JUMP_SQUAT_PRE_MOVEMENT_PHASE_V1",
+        "LOADED_JUMP_SQUAT_POST_LANDING_STABILIZATION_PHASE_V1"
+      ],
+      "event_phase_catalog_state": "Versioned protocol identities or explicit open-catalog status.",
+      "force_stage": "FORCE_PIPE_01 records FZ_LEFT/FZ_RIGHT foot contact; FZ_TOTAL is a source-preserving bilateral contact sum, not whole-system force.",
+      "lpt_stage": "LPT_PIPE_01 admits raw declared attachment coordinate; no implicit zeroing; derivatives belong to ML-313.",
+      "clock_contract": "Independent native clocks; paired trials require qualified time mapping/uncertainty and positive overlap. Temporal synchronization is not mechanical conjugacy.",
+      "authorized_metric_ids": [
+        "LOADED_JUMP_SQUAT_FORCE_TOTAL_MEAN_V1",
+        "LOADED_JUMP_SQUAT_FORCE_TOTAL_PEAK_V1",
+        "LOADED_JUMP_SQUAT_FORCE_LEFT_MEAN_V1",
+        "LOADED_JUMP_SQUAT_FORCE_RIGHT_MEAN_V1",
+        "LOADED_JUMP_SQUAT_FORCE_TIME_AREA_V1",
+        "LOADED_JUMP_SQUAT_LPT_ATTACHMENT_POINT_DISPLACEMENT_RANGE_V1",
+        "LOADED_JUMP_SQUAT_LPT_MEAN_VELOCITY_V1",
+        "LOADED_JUMP_SQUAT_LPT_PEAK_VELOCITY_V1",
+        "LOADED_JUMP_SQUAT_LPT_MINIMUM_VELOCITY_V1",
+        "LOADED_JUMP_SQUAT_LPT_MEAN_ACCELERATION_V1",
+        "LOADED_JUMP_SQUAT_FLIGHT_DURATION_V1",
+        "LOADED_JUMP_SQUAT_GROUND_CONTACT_DURATION_V1"
+      ],
+      "candidate_metric_ids": [],
+      "metric_boundary": "12 force/LPT/interval quantities; no jump height, COM, impulse or force×LPT power/work.",
+      "positive_controls": [
+        "Clean ordered reps",
+        "One product event truth per semantic event"
+      ],
+      "negative_controls": [
+        "No short-false takeoff",
+        "Missing landing remains incomplete",
+        "Reversed topology refuses",
+        "No cross-modal power/work"
+      ],
+      "source_identities": [
+        "src/plate2bar_instrument/loaded_jump_squat.py",
+        "docs/science/ML416_LOADED_JUMP_SQUAT_EVENT_PHASE_CONTRACT.md",
+        "docs/science/ML416_LOADED_JUMP_SQUAT_METRIC_DENOMINATOR.md"
+      ],
+      "physics_owner_or_acceptance_criterion": "RES-490 owns the identity/capability crosswalk. Future synthetic mechanics map to RES-491 or RES-492; no source inventory establishes dynamics or empirical validity.",
+      "implementation_status": "PLATE2BAR_PROTOCOL_IMPLEMENTED; BIOSYNGEN_I1_NOT_IMPLEMENTED",
+      "claim_ceilings": [
+        "NUMERICAL_VERIFICATION_ONLY",
+        "SIMULATED_MEASUREMENT_ONLY",
+        "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+        "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+      ],
+      "movement_registry_family_id": null,
+      "movement_registry_event_ids": [],
+      "movement_registry_phase_ids": [],
+      "movement_registry_mapping_status": "NO_MATCHING_MOVEMENT_REGISTRY EXERCISE"
+    },
+    {
+      "exercise_id": "DEADLIFT",
+      "aliases": [
+        "CONVENTIONAL_DEADLIFT",
+        "DEADLIFT_DUAL_V1"
+      ],
+      "route_keys": [
+        "DEADLIFT"
+      ],
+      "movement_registry_ids": [
+        "CONVENTIONAL_DEADLIFT"
+      ],
+      "protocol_ids": [
+        "DEADLIFT_DUAL_V1"
+      ],
+      "condition_ids": [],
+      "variant_ids": [],
+      "context_of_use": "Conventional floor-start deadlift with bilateral foot force and bar-attached LPT.",
+      "degrees_of_freedom": "NOT_DECLARED_BY_PLATE2BAR_MEASUREMENT_SYSTEM",
+      "body_load_support_topology": "Foot support persists; bar begins floor-supported outside plates and becomes carried load at lift-off.",
+      "impact_and_contact": "Bar-floor touchdown is not sensed by foot force/LPT alone.",
+      "actuator_hypothesis": "NOT_IMPLEMENTED_BY_PLATE2BAR; no biological or device actuator parameters are defined.",
+      "primary_latent_event_roles": [
+        "REP_START",
+        "LIFT_OFF",
+        "END_OF_ASCENT",
+        "REP_END"
+      ],
+      "observable_sensor_events": [
+        "Explicit markers or selected candidates; no universal threshold/automatic lockout."
+      ],
+      "event_ids": [
+        "DEADLIFT_TRIAL_START_V1",
+        "DEADLIFT_REP_START_V1",
+        "DEADLIFT_LIFT_OFF_V1",
+        "DEADLIFT_END_OF_ASCENT_V1",
+        "DEADLIFT_REP_END_V1"
+      ],
+      "required_phase_ids": [
+        "DEADLIFT_CONCENTRIC_PHASE_V1"
+      ],
+      "optional_phase_ids": [
+        "DEADLIFT_SETUP_PHASE_V1",
+        "DEADLIFT_LOWERING_PHASE_V1"
+      ],
+      "event_phase_catalog_state": "Versioned protocol identities or explicit open-catalog status.",
+      "force_stage": "FORCE_PIPE_01 records FZ_LEFT/FZ_RIGHT foot contact; FZ_TOTAL is a source-preserving bilateral contact sum, not whole-system force.",
+      "lpt_stage": "LPT_PIPE_01 admits raw declared attachment coordinate; no implicit zeroing; derivatives belong to ML-313.",
+      "clock_contract": "Independent native clocks; paired trials require qualified time mapping/uncertainty and positive overlap. Temporal synchronization is not mechanical conjugacy.",
+      "authorized_metric_ids": [
+        "DEADLIFT_FORCE_TOTAL_MEAN_V1",
+        "DEADLIFT_FORCE_TOTAL_PEAK_V1",
+        "DEADLIFT_FORCE_TIME_AREA_V1",
+        "DEADLIFT_FORCE_LEFT_MEAN_V1",
+        "DEADLIFT_FORCE_RIGHT_MEAN_V1",
+        "DEADLIFT_LPT_ATTACHMENT_POINT_DISPLACEMENT_RANGE_V1",
+        "DEADLIFT_LPT_MEAN_VELOCITY_V1",
+        "DEADLIFT_LPT_PEAK_VELOCITY_V1",
+        "DEADLIFT_LPT_MINIMUM_VELOCITY_V1",
+        "DEADLIFT_LPT_MEAN_ACCELERATION_V1"
+      ],
+      "candidate_metric_ids": [],
+      "metric_boundary": "No cross-modal power/work; no claim above the allowed ceilings.",
+      "positive_controls": [
+        "Per-rep source identities",
+        "Setup/lowering remain optional"
+      ],
+      "negative_controls": [
+        "Reject reversed topology",
+        "Do not alias movement LOCKOUT/TOUCHDOWN to protocol END_OF_ASCENT",
+        "No force×LPT power/work"
+      ],
+      "source_identities": [
+        "src/plate2bar_instrument/deadlift.py",
+        "docs/engineering/ML511_DEADLIFT_DUAL_V1_RESEARCH.md"
+      ],
+      "physics_owner_or_acceptance_criterion": "RES-490 owns the identity/capability crosswalk. Future synthetic mechanics map to RES-491 or RES-492; no source inventory establishes dynamics or empirical validity.",
+      "implementation_status": "PLATE2BAR_PROTOCOL_IMPLEMENTED; MOVEMENT_SEMANTICS_SIMULATION_ELIGIBLE; BIOSYNGEN_NOT_IMPLEMENTED",
+      "claim_ceilings": [
+        "NUMERICAL_VERIFICATION_ONLY",
+        "SIMULATED_MEASUREMENT_ONLY",
+        "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+        "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+      ],
+      "movement_registry_family_id": "GROUND_CONSTRAINED_PULL",
+      "movement_registry_event_ids": [
+        "REP_START",
+        "LIFT_OFF",
+        "LOCKOUT",
+        "DESCENT_ONSET",
+        "TOUCHDOWN",
+        "REP_END"
+      ],
+      "movement_registry_phase_ids": [
+        "PRELOAD_SETUP",
+        "ASCENT",
+        "DESCENT",
+        "POST_REP"
+      ],
+      "movement_registry_mapping_status": "EXACT_REGISTERED_EXERCISE_FAMILY"
+    },
+    {
+      "exercise_id": "BENCH_PRESS",
+      "aliases": [
+        "BENCH_PRESS_DUAL_V1"
+      ],
+      "route_keys": [
+        "BENCH_PRESS"
+      ],
+      "movement_registry_ids": [
+        "BENCH_PRESS"
+      ],
+      "protocol_ids": [
+        "BENCH_PRESS_DUAL_V1"
+      ],
+      "condition_ids": [],
+      "variant_ids": [],
+      "context_of_use": "Bench press with two foot-force plates and bar-attached LPT; bench support outside plates.",
+      "degrees_of_freedom": "NOT_DECLARED_BY_PLATE2BAR_MEASUREMENT_SYSTEM",
+      "body_load_support_topology": "Athlete supported by bench and feet; each whole foot on its declared plate; FZ is foot force, not bar/athlete/system force.",
+      "impact_and_contact": "Bottom reversal is not chest touch/pause/lockout; bench-under-plate or mixed contact geometry refused.",
+      "actuator_hypothesis": "NOT_IMPLEMENTED_BY_PLATE2BAR; no biological or device actuator parameters are defined.",
+      "primary_latent_event_roles": [
+        "REP_START",
+        "LOWERING_ONSET",
+        "BOTTOM_REVERSAL",
+        "END_OF_ASCENT",
+        "REP_END"
+      ],
+      "observable_sensor_events": [
+        "Selected markers only; chest, bar, bench support forces absent."
+      ],
+      "event_ids": [
+        "BENCH_PRESS_TRIAL_START_V1",
+        "BENCH_PRESS_REP_START_V1",
+        "BENCH_PRESS_LOWERING_ONSET_V1",
+        "BENCH_PRESS_BOTTOM_REVERSAL_V1",
+        "BENCH_PRESS_END_OF_ASCENT_V1",
+        "BENCH_PRESS_REP_END_V1"
+      ],
+      "required_phase_ids": [
+        "BENCH_PRESS_ECCENTRIC_PHASE_V1",
+        "BENCH_PRESS_CONCENTRIC_PHASE_V1"
+      ],
+      "optional_phase_ids": [
+        "BENCH_PRESS_SETUP_PHASE_V1",
+        "BENCH_PRESS_RERACK_PHASE_V1"
+      ],
+      "event_phase_catalog_state": "Versioned protocol identities or explicit open-catalog status.",
+      "force_stage": "FORCE_PIPE_01 records FZ_LEFT/FZ_RIGHT foot contact; FZ_TOTAL is a source-preserving bilateral contact sum, not whole-system force.",
+      "lpt_stage": "LPT_PIPE_01 admits raw declared attachment coordinate; no implicit zeroing; derivatives belong to ML-313.",
+      "clock_contract": "Independent native clocks; paired trials require qualified time mapping/uncertainty and positive overlap. Temporal synchronization is not mechanical conjugacy.",
+      "authorized_metric_ids": [
+        "BENCH_PRESS_FOOT_FORCE_TOTAL_MEAN_V1",
+        "BENCH_PRESS_FOOT_FORCE_TOTAL_PEAK_V1",
+        "BENCH_PRESS_FOOT_FORCE_TIME_AREA_V1",
+        "BENCH_PRESS_FOOT_FORCE_LEFT_MEAN_V1",
+        "BENCH_PRESS_FOOT_FORCE_RIGHT_MEAN_V1",
+        "BENCH_PRESS_LPT_ATTACHMENT_POINT_DISPLACEMENT_RANGE_V1",
+        "BENCH_PRESS_LPT_MEAN_VELOCITY_V1",
+        "BENCH_PRESS_LPT_PEAK_VELOCITY_V1",
+        "BENCH_PRESS_LPT_MINIMUM_VELOCITY_V1",
+        "BENCH_PRESS_LPT_MEAN_ACCELERATION_V1"
+      ],
+      "candidate_metric_ids": [],
+      "metric_boundary": "No cross-modal power/work; no claim above the allowed ceilings.",
+      "positive_controls": [
+        "Keep foot-force and LPT domains distinct"
+      ],
+      "negative_controls": [
+        "Refuse bench-under-plate",
+        "Refuse reversed bottom order",
+        "No chest or cross-modal power/work claim"
+      ],
+      "source_identities": [
+        "src/plate2bar_instrument/bench_press.py",
+        "docs/engineering/ML513_BENCH_PRESS_DUAL_V1_RESEARCH.md"
+      ],
+      "physics_owner_or_acceptance_criterion": "RES-490 owns the identity/capability crosswalk. Future synthetic mechanics map to RES-491 or RES-492; no source inventory establishes dynamics or empirical validity.",
+      "implementation_status": "PLATE2BAR_PROTOCOL_IMPLEMENTED; MOVEMENT_SEMANTICS_ONLY; BIOSYNGEN_NOT_IMPLEMENTED",
+      "claim_ceilings": [
+        "NUMERICAL_VERIFICATION_ONLY",
+        "SIMULATED_MEASUREMENT_ONLY",
+        "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+        "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+      ],
+      "movement_registry_family_id": "SUPPORTED_UPPER_BODY_PRESS",
+      "movement_registry_event_ids": [
+        "REP_START",
+        "DESCENT_ONSET",
+        "BOTTOM_TOUCH",
+        "ASCENT_ONSET",
+        "LOCKOUT",
+        "REP_END"
+      ],
+      "movement_registry_phase_ids": [
+        "DESCENT",
+        "BOTTOM_TOUCH",
+        "ASCENT",
+        "LOCKOUT",
+        "STICKING_REGION"
+      ],
+      "movement_registry_mapping_status": "EXACT_REGISTERED_EXERCISE_FAMILY"
+    },
+    {
+      "exercise_id": "OLYMPIC_PULL_DERIVATIVE",
+      "aliases": [],
+      "route_keys": [
+        "OLYMPIC_PULL_DERIVATIVE"
+      ],
+      "movement_registry_ids": [],
+      "protocol_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_DUAL_V1"
+      ],
+      "condition_ids": [],
+      "variant_ids": [],
+      "context_of_use": "Floor-start pull-only derivative with bilateral foot-force and bar-attached LPT.",
+      "degrees_of_freedom": "NOT_DECLARED_BY_PLATE2BAR_MEASUREMENT_SYSTEM",
+      "body_load_support_topology": "Feet on separate plates; bar starts floor-supported outside plates; observation ends at bounded pull, not catch.",
+      "impact_and_contact": "Current channels do not observe front-rack, overhead receipt or successful full lift.",
+      "actuator_hypothesis": "NOT_IMPLEMENTED_BY_PLATE2BAR; no biological or device actuator parameters are defined.",
+      "primary_latent_event_roles": [
+        "REP_START",
+        "PULL_ONSET",
+        "FIRST_PULL_END",
+        "SECOND_PULL_ONSET",
+        "PULL_END",
+        "REP_END"
+      ],
+      "observable_sensor_events": [
+        "Explicit markers; pull subphases optional; extrema do not define phase boundaries."
+      ],
+      "event_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_TRIAL_START_V1",
+        "OLYMPIC_PULL_DERIVATIVE_REP_START_V1",
+        "OLYMPIC_PULL_DERIVATIVE_PULL_ONSET_V1",
+        "OLYMPIC_PULL_DERIVATIVE_PULL_END_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FIRST_PULL_END_V1",
+        "OLYMPIC_PULL_DERIVATIVE_SECOND_PULL_ONSET_V1",
+        "OLYMPIC_PULL_DERIVATIVE_REP_END_V1"
+      ],
+      "required_phase_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_PULL_PHASE_V1"
+      ],
+      "optional_phase_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_SETUP_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FIRST_PULL_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_TRANSITION_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_SECOND_PULL_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_POST_PULL_PHASE_V1"
+      ],
+      "event_phase_catalog_state": "Versioned protocol identities or explicit open-catalog status.",
+      "force_stage": "FORCE_PIPE_01 records FZ_LEFT/FZ_RIGHT foot contact; FZ_TOTAL is a source-preserving bilateral contact sum, not whole-system force.",
+      "lpt_stage": "LPT_PIPE_01 admits raw declared attachment coordinate; no implicit zeroing; derivatives belong to ML-313.",
+      "clock_contract": "Independent native clocks; paired trials require qualified time mapping/uncertainty and positive overlap. Temporal synchronization is not mechanical conjugacy.",
+      "authorized_metric_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_TOTAL_MEAN_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_TOTAL_PEAK_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_TIME_AREA_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_LEFT_MEAN_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_RIGHT_MEAN_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_ATTACHMENT_POINT_DISPLACEMENT_RANGE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_MEAN_VELOCITY_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_PEAK_VELOCITY_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_MINIMUM_VELOCITY_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_MEAN_ACCELERATION_V1"
+      ],
+      "candidate_metric_ids": [],
+      "metric_boundary": "No cross-modal power/work; no claim above the allowed ceilings.",
+      "positive_controls": [
+        "Bound pull-only scope",
+        "Preserve per-rep outputs"
+      ],
+      "negative_controls": [
+        "No knee/double-knee-bend detector",
+        "No catch/success adjudication",
+        "No force×LPT power/work"
+      ],
+      "source_identities": [
+        "src/plate2bar_instrument/olympic_pull_derivative.py",
+        "docs/engineering/ML417_OLYMPIC_PULL_DERIVATIVE_RESEARCH.md"
+      ],
+      "physics_owner_or_acceptance_criterion": "RES-490 owns the identity/capability crosswalk. Future synthetic mechanics map to RES-491 or RES-492; no source inventory establishes dynamics or empirical validity.",
+      "implementation_status": "PULL_DERIVATIVE_IMPLEMENTED; FULL_LIFT_DEFERRED",
+      "claim_ceilings": [
+        "NUMERICAL_VERIFICATION_ONLY",
+        "SIMULATED_MEASUREMENT_ONLY",
+        "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+        "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+      ],
+      "movement_registry_family_id": null,
+      "movement_registry_event_ids": [],
+      "movement_registry_phase_ids": [],
+      "movement_registry_mapping_status": "NO_EXERCISE_REGISTRY_MAPPING"
+    },
+    {
+      "exercise_id": "CLEAN_PULL",
+      "aliases": [
+        "CLEAN_PULL_DUAL_V1"
+      ],
+      "route_keys": [
+        "CLEAN_SNATCH_VARIANTS"
+      ],
+      "movement_registry_ids": [],
+      "protocol_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_DUAL_V1"
+      ],
+      "condition_ids": [],
+      "variant_ids": [
+        "CLEAN_PULL_DUAL_V1"
+      ],
+      "context_of_use": "Floor-start Clean pull derivative variant; shares bounded pull topology/metrics.",
+      "degrees_of_freedom": "NOT_DECLARED_BY_PLATE2BAR_MEASUREMENT_SYSTEM",
+      "body_load_support_topology": "Bilateral foot plates and floor-start bar; not full Clean/catch.",
+      "impact_and_contact": "Front-rack receipt not observed.",
+      "actuator_hypothesis": "NOT_IMPLEMENTED_BY_PLATE2BAR; no biological or device actuator parameters are defined.",
+      "primary_latent_event_roles": [
+        "REP_START",
+        "PULL_ONSET",
+        "FIRST_PULL_END",
+        "SECOND_PULL_ONSET",
+        "PULL_END"
+      ],
+      "observable_sensor_events": [
+        "Shared explicit pull markers; variant identity preserved."
+      ],
+      "event_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_TRIAL_START_V1",
+        "OLYMPIC_PULL_DERIVATIVE_REP_START_V1",
+        "OLYMPIC_PULL_DERIVATIVE_PULL_ONSET_V1",
+        "OLYMPIC_PULL_DERIVATIVE_PULL_END_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FIRST_PULL_END_V1",
+        "OLYMPIC_PULL_DERIVATIVE_SECOND_PULL_ONSET_V1",
+        "OLYMPIC_PULL_DERIVATIVE_REP_END_V1"
+      ],
+      "required_phase_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_PULL_PHASE_V1"
+      ],
+      "optional_phase_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_SETUP_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FIRST_PULL_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_TRANSITION_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_SECOND_PULL_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_POST_PULL_PHASE_V1"
+      ],
+      "event_phase_catalog_state": "Versioned protocol identities or explicit open-catalog status.",
+      "force_stage": "FORCE_PIPE_01 records FZ_LEFT/FZ_RIGHT foot contact; FZ_TOTAL is a source-preserving bilateral contact sum, not whole-system force.",
+      "lpt_stage": "LPT_PIPE_01 admits raw declared attachment coordinate; no implicit zeroing; derivatives belong to ML-313.",
+      "clock_contract": "Independent native clocks; paired trials require qualified time mapping/uncertainty and positive overlap. Temporal synchronization is not mechanical conjugacy.",
+      "authorized_metric_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_TOTAL_MEAN_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_TOTAL_PEAK_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_TIME_AREA_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_LEFT_MEAN_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_RIGHT_MEAN_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_ATTACHMENT_POINT_DISPLACEMENT_RANGE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_MEAN_VELOCITY_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_PEAK_VELOCITY_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_MINIMUM_VELOCITY_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_MEAN_ACCELERATION_V1"
+      ],
+      "candidate_metric_ids": [],
+      "metric_boundary": "No cross-modal power/work; no claim above the allowed ceilings.",
+      "positive_controls": [
+        "Variant survives reopen/presentation"
+      ],
+      "negative_controls": [
+        "Unadmitted variant refuses before measurement",
+        "No full Clean catch alias"
+      ],
+      "source_identities": [
+        "src/plate2bar_instrument/olympic_pull_derivative.py",
+        "docs/engineering/ML417_CLEAN_SNATCH_VARIANTS_RESEARCH.md"
+      ],
+      "physics_owner_or_acceptance_criterion": "RES-490 owns the identity/capability crosswalk. Future synthetic mechanics map to RES-491 or RES-492; no source inventory establishes dynamics or empirical validity.",
+      "implementation_status": "PULL_VARIANT_ADMITTED; FULL_CLEAN_NOT_IMPLEMENTED",
+      "claim_ceilings": [
+        "NUMERICAL_VERIFICATION_ONLY",
+        "SIMULATED_MEASUREMENT_ONLY",
+        "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+        "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+      ],
+      "movement_registry_family_id": null,
+      "movement_registry_event_ids": [],
+      "movement_registry_phase_ids": [],
+      "movement_registry_mapping_status": "NO_EXERCISE_REGISTRY_MAPPING"
+    },
+    {
+      "exercise_id": "SNATCH_PULL",
+      "aliases": [
+        "SNATCH_PULL_DUAL_V1"
+      ],
+      "route_keys": [
+        "CLEAN_SNATCH_VARIANTS"
+      ],
+      "movement_registry_ids": [],
+      "protocol_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_DUAL_V1"
+      ],
+      "condition_ids": [],
+      "variant_ids": [
+        "SNATCH_PULL_DUAL_V1"
+      ],
+      "context_of_use": "Floor-start Snatch pull derivative variant; shares bounded pull topology/metrics.",
+      "degrees_of_freedom": "NOT_DECLARED_BY_PLATE2BAR_MEASUREMENT_SYSTEM",
+      "body_load_support_topology": "Bilateral foot plates and floor-start bar; not full Snatch/overhead receipt.",
+      "impact_and_contact": "Overhead receipt not observed.",
+      "actuator_hypothesis": "NOT_IMPLEMENTED_BY_PLATE2BAR; no biological or device actuator parameters are defined.",
+      "primary_latent_event_roles": [
+        "REP_START",
+        "PULL_ONSET",
+        "FIRST_PULL_END",
+        "SECOND_PULL_ONSET",
+        "PULL_END"
+      ],
+      "observable_sensor_events": [
+        "Shared explicit pull markers; variant identity preserved."
+      ],
+      "event_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_TRIAL_START_V1",
+        "OLYMPIC_PULL_DERIVATIVE_REP_START_V1",
+        "OLYMPIC_PULL_DERIVATIVE_PULL_ONSET_V1",
+        "OLYMPIC_PULL_DERIVATIVE_PULL_END_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FIRST_PULL_END_V1",
+        "OLYMPIC_PULL_DERIVATIVE_SECOND_PULL_ONSET_V1",
+        "OLYMPIC_PULL_DERIVATIVE_REP_END_V1"
+      ],
+      "required_phase_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_PULL_PHASE_V1"
+      ],
+      "optional_phase_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_SETUP_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FIRST_PULL_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_TRANSITION_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_SECOND_PULL_PHASE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_POST_PULL_PHASE_V1"
+      ],
+      "event_phase_catalog_state": "Versioned protocol identities or explicit open-catalog status.",
+      "force_stage": "FORCE_PIPE_01 records FZ_LEFT/FZ_RIGHT foot contact; FZ_TOTAL is a source-preserving bilateral contact sum, not whole-system force.",
+      "lpt_stage": "LPT_PIPE_01 admits raw declared attachment coordinate; no implicit zeroing; derivatives belong to ML-313.",
+      "clock_contract": "Independent native clocks; paired trials require qualified time mapping/uncertainty and positive overlap. Temporal synchronization is not mechanical conjugacy.",
+      "authorized_metric_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_TOTAL_MEAN_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_TOTAL_PEAK_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_TIME_AREA_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_LEFT_MEAN_V1",
+        "OLYMPIC_PULL_DERIVATIVE_FORCE_RIGHT_MEAN_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_ATTACHMENT_POINT_DISPLACEMENT_RANGE_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_MEAN_VELOCITY_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_PEAK_VELOCITY_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_MINIMUM_VELOCITY_V1",
+        "OLYMPIC_PULL_DERIVATIVE_LPT_MEAN_ACCELERATION_V1"
+      ],
+      "candidate_metric_ids": [],
+      "metric_boundary": "No cross-modal power/work; no claim above the allowed ceilings.",
+      "positive_controls": [
+        "Variant survives reopen/presentation"
+      ],
+      "negative_controls": [
+        "Unadmitted variant refuses before measurement",
+        "No full Snatch/overhead receipt alias"
+      ],
+      "source_identities": [
+        "src/plate2bar_instrument/olympic_pull_derivative.py",
+        "docs/engineering/ML417_CLEAN_SNATCH_VARIANTS_RESEARCH.md"
+      ],
+      "physics_owner_or_acceptance_criterion": "RES-490 owns the identity/capability crosswalk. Future synthetic mechanics map to RES-491 or RES-492; no source inventory establishes dynamics or empirical validity.",
+      "implementation_status": "PULL_VARIANT_ADMITTED; FULL_SNATCH_NOT_IMPLEMENTED",
+      "claim_ceilings": [
+        "NUMERICAL_VERIFICATION_ONLY",
+        "SIMULATED_MEASUREMENT_ONLY",
+        "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+        "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+      ],
+      "movement_registry_family_id": null,
+      "movement_registry_event_ids": [],
+      "movement_registry_phase_ids": [],
+      "movement_registry_mapping_status": "NO_EXERCISE_REGISTRY_MAPPING"
+    },
+    {
+      "exercise_id": "POWER_CLEAN",
+      "aliases": [
+        "POWER_CLEAN_DUAL_V1"
+      ],
+      "route_keys": [
+        "POWER_CLEAN"
+      ],
+      "movement_registry_ids": [
+        "POWER_CLEAN"
+      ],
+      "protocol_ids": [
+        "POWER_CLEAN_DUAL_V1"
+      ],
+      "condition_ids": [],
+      "variant_ids": [],
+      "context_of_use": "Floor-start Power Clean measurement protocol; required power pull and optional explicit turnover/catch/recovery markers.",
+      "degrees_of_freedom": "NOT_DECLARED_BY_PLATE2BAR_MEASUREMENT_SYSTEM",
+      "body_load_support_topology": "Bilateral foot plates; bar floor support at setup; current measurement does not observe front-rack receipt.",
+      "impact_and_contact": "Catch/recovery markers are explicit only; no sensor detects shoulder/front-rack contact.",
+      "actuator_hypothesis": "NOT_IMPLEMENTED_BY_PLATE2BAR; no biological or device actuator parameters are defined.",
+      "primary_latent_event_roles": [
+        "REP_START",
+        "LIFT_OFF",
+        "EXTENSION_END",
+        "FIRST_PULL_END",
+        "SECOND_PULL_ONSET",
+        "TURNOVER_ONSET",
+        "CATCH_CONTACT",
+        "RECOVERY_END",
+        "REP_END"
+      ],
+      "observable_sensor_events": [
+        "Markers/selected candidates only; catch and success not inferred."
+      ],
+      "event_ids": [
+        "POWER_CLEAN_TRIAL_START_V1",
+        "POWER_CLEAN_REP_START_V1",
+        "POWER_CLEAN_LIFT_OFF_V1",
+        "POWER_CLEAN_EXTENSION_END_V1",
+        "POWER_CLEAN_FIRST_PULL_END_V1",
+        "POWER_CLEAN_SECOND_PULL_ONSET_V1",
+        "POWER_CLEAN_TURNOVER_ONSET_V1",
+        "POWER_CLEAN_CATCH_CONTACT_V1",
+        "POWER_CLEAN_RECOVERY_END_V1",
+        "POWER_CLEAN_REP_END_V1"
+      ],
+      "required_phase_ids": [
+        "POWER_CLEAN_POWER_PULL_PHASE_V1"
+      ],
+      "optional_phase_ids": [
+        "POWER_CLEAN_SETUP_PHASE_V1",
+        "POWER_CLEAN_FIRST_PULL_PHASE_V1",
+        "POWER_CLEAN_TRANSITION_PHASE_V1",
+        "POWER_CLEAN_SECOND_PULL_PHASE_V1",
+        "POWER_CLEAN_TURNOVER_PHASE_V1",
+        "POWER_CLEAN_CATCH_RECOVERY_PHASE_V1"
+      ],
+      "event_phase_catalog_state": "Versioned protocol identities or explicit open-catalog status.",
+      "force_stage": "FORCE_PIPE_01 records FZ_LEFT/FZ_RIGHT foot contact; FZ_TOTAL is a source-preserving bilateral contact sum, not whole-system force.",
+      "lpt_stage": "LPT_PIPE_01 admits raw declared attachment coordinate; no implicit zeroing; derivatives belong to ML-313.",
+      "clock_contract": "Independent native clocks; paired trials require qualified time mapping/uncertainty and positive overlap. Temporal synchronization is not mechanical conjugacy.",
+      "authorized_metric_ids": [
+        "POWER_CLEAN_FORCE_TOTAL_MEAN_V1",
+        "POWER_CLEAN_FORCE_TOTAL_PEAK_V1",
+        "POWER_CLEAN_FORCE_TIME_AREA_V1",
+        "POWER_CLEAN_FORCE_LEFT_MEAN_V1",
+        "POWER_CLEAN_FORCE_RIGHT_MEAN_V1",
+        "POWER_CLEAN_LPT_ATTACHMENT_POINT_DISPLACEMENT_RANGE_V1",
+        "POWER_CLEAN_LPT_MEAN_VELOCITY_V1",
+        "POWER_CLEAN_LPT_PEAK_VELOCITY_V1",
+        "POWER_CLEAN_LPT_MINIMUM_VELOCITY_V1",
+        "POWER_CLEAN_LPT_MEAN_ACCELERATION_V1"
+      ],
+      "candidate_metric_ids": [],
+      "metric_boundary": "No cross-modal power/work; no claim above the allowed ceilings.",
+      "positive_controls": [
+        "Required pull denominator preserved"
+      ],
+      "negative_controls": [
+        "Unobserved stage unavailable, not inferred",
+        "Semantic-only movement entry does not become truth authority"
+      ],
+      "source_identities": [
+        "src/plate2bar_instrument/power_clean.py",
+        "docs/engineering/ML417_POWER_CLEAN_DUAL_V1_RESEARCH.md"
+      ],
+      "physics_owner_or_acceptance_criterion": "RES-490 owns the identity/capability crosswalk. Future synthetic mechanics map to RES-491 or RES-492; no source inventory establishes dynamics or empirical validity.",
+      "implementation_status": "PROTOCOL_MODULE_EXISTS; MOVEMENT_ENTRY_SEMANTIC_ONLY; RECEIVING_STATE_UNOBSERVED",
+      "claim_ceilings": [
+        "NUMERICAL_VERIFICATION_ONLY",
+        "SIMULATED_MEASUREMENT_ONLY",
+        "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+        "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+      ],
+      "movement_registry_family_id": "WEIGHTLIFTING_PULL_CATCH",
+      "movement_registry_event_ids": [
+        "REP_START",
+        "LIFT_OFF",
+        "BAR_TOUCH",
+        "TURNOVER",
+        "CATCH",
+        "RECOVERY",
+        "REP_END"
+      ],
+      "movement_registry_phase_ids": [
+        "SETUP",
+        "FIRST_PULL",
+        "TRANSITION",
+        "SECOND_PULL",
+        "TURNOVER",
+        "CATCH",
+        "RECOVERY"
+      ],
+      "movement_registry_mapping_status": "EXACT_REGISTERED_EXERCISE_FAMILY"
+    }
+  ],
+  "deferred_protocol_candidates": [
+    {
+      "exercise_id": "FULL_CLEAN",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "physical_requirement": "Qualified front-rack receipt/full-lift completion evidence not available from current force/LPT."
+    },
+    {
+      "exercise_id": "FULL_SNATCH",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "physical_requirement": "Qualified overhead receipt/full-lift completion evidence not available from current force/LPT."
+    },
+    {
+      "exercise_id": "HANG_CLEAN",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "physical_requirement": "Explicit hang support/height and distinct start state need qualified evidence."
+    },
+    {
+      "exercise_id": "HANG_SNATCH",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "physical_requirement": "Explicit hang support/height and distinct start state need qualified evidence."
+    },
+    {
+      "exercise_id": "HANG_POWER_CLEAN",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "physical_requirement": "Hang support/height and receipt state must be observed; floor-start semantics cannot be reused."
+    },
+    {
+      "exercise_id": "HANG_POWER_SNATCH",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "physical_requirement": "Hang support/height and receipt state must be observed; floor-start semantics cannot be reused."
+    }
+  ],
+  "catalog_discrepancies": [
+    {
+      "source": "MovementRegistry exercise IDs",
+      "target": "STRENGTH_PROTOCOLS route keys",
+      "disposition": "Separate catalog layers; no inferred one-to-one aliases."
+    },
+    {
+      "source": "COUNTERMOVEMENT_JUMP and SQUAT_JUMP",
+      "target": "StrengthProtocol router",
+      "disposition": "Movement entries but no strength route keys."
+    },
+    {
+      "source": "LOADED_JUMP_SQUAT_DUAL_V1",
+      "target": "MovementRegistry",
+      "disposition": "Route/protocol exists but no movement exercise ID."
+    },
+    {
+      "source": "CMJ@1.0.0 LOADED condition",
+      "target": "LOADED_CMJ route",
+      "disposition": "Condition supported; no distinct route or canonical variant ID."
+    },
+    {
+      "source": "POWER_CLEAN movement entry",
+      "target": "POWER_CLEAN_DUAL_V1",
+      "disposition": "Movement entry is SEMANTIC_ONLY while protocol module exposes metrics; authorities remain separate."
+    },
+    {
+      "source": "CLEAN_SNATCH_VARIANTS route",
+      "target": "OLYMPIC_PULL_DERIVATIVE_DUAL_V1",
+      "disposition": "Two route keys share one protocol ID; child variant IDs are CLEAN_PULL_DUAL_V1 and SNATCH_PULL_DUAL_V1."
+    },
+    {
+      "source": "Movement deadlift LOCKOUT/TOUCHDOWN",
+      "target": "Deadlift protocol END_OF_ASCENT/REP_END",
+      "disposition": "Distinct semantics; do not alias."
+    },
+    {
+      "source": "Movement bench BOTTOM_TOUCH/LOCKOUT",
+      "target": "Bench protocol BOTTOM_REVERSAL/END_OF_ASCENT",
+      "disposition": "Distinct semantics; no chest-touch/lockout equivalence."
+    },
+    {
+      "source": "Movement signal requirements",
+      "target": "Dual-modality protocol admission",
+      "disposition": "Optional family signals do not override required force+LPT+qualified timing."
+    },
+    {
+      "source": "CMJ test-fixture variant identifiers",
+      "target": "canonical variant catalog",
+      "disposition": "Fixture-only; no canonical CMJ variant list."
+    },
+    {
+      "source": "TST-ML51-LV-05/LV-06/LV-12",
+      "target": "governance test source",
+      "disposition": "Two registered function renames, one missing registered function, one extra unregistered current function."
+    },
+    {
+      "source": "ProtocolRegistry API",
+      "target": "canonical exercise inventory",
+      "disposition": "Generic registry class, no built-in exercise list."
+    }
+  ],
+  "test_inventory": {
+    "governance_registry": {
+      "registry_id": "P2B-REG-TEST-001",
+      "record_count": 12,
+      "tests": [
+        {
+          "test_id": "TST-ML51-LV-01",
+          "title": "ML51-LV-01 — strict registry envelopes and record schemas",
+          "declared_function": "test_ml51_lv_01_strict_registry_envelopes_and_record_schemas",
+          "source_function_name": "test_ml51_lv_01_strict_registry_envelopes_and_record_schemas",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-02",
+          "title": "ML51-LV-02 — bounded schema mutations refuse",
+          "declared_function": "test_ml51_lv_02_bounded_schema_mutations_refuse",
+          "source_function_name": "test_ml51_lv_02_bounded_schema_mutations_refuse",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-03",
+          "title": "ML51-LV-03 — canonical json and duplicate key refusal",
+          "declared_function": "test_ml51_lv_03_canonical_json_and_duplicate_key_refusal",
+          "source_function_name": "test_ml51_lv_03_canonical_json_and_duplicate_key_refusal",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-04",
+          "title": "ML51-LV-04 — manifest hash and blob closure",
+          "declared_function": "test_ml51_lv_04_manifest_hash_and_blob_closure",
+          "source_function_name": "test_ml51_lv_04_manifest_hash_and_blob_closure",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-05",
+          "title": "ML51-LV-05 — authority source completeness and identity",
+          "declared_function": "test_ml51_lv_05_authority_source_completeness_and_identity",
+          "source_function_name": "test_ml51_lv_05_authority_source_completeness_and_locator_identity",
+          "identity_status": "REGISTERED_FUNCTION_RENAMED"
+        },
+        {
+          "test_id": "TST-ML51-LV-06",
+          "title": "ML51-LV-06 — no placeholder or wildcard mappings",
+          "declared_function": "test_ml51_lv_06_no_placeholder_or_wildcard_mappings",
+          "source_function_name": null,
+          "identity_status": "MISSING_CURRENT_SOURCE_FUNCTION"
+        },
+        {
+          "test_id": "TST-ML51-LV-07",
+          "title": "ML51-LV-07 — reciprocal trace and asymmetric mutation",
+          "declared_function": "test_ml51_lv_07_reciprocal_trace_and_asymmetric_mutation",
+          "source_function_name": "test_ml51_lv_07_reciprocal_trace_and_asymmetric_mutation",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-08",
+          "title": "ML51-LV-08 — gate semantics dag and final closure",
+          "declared_function": "test_ml51_lv_08_gate_semantics_dag_and_final_closure",
+          "source_function_name": "test_ml51_lv_08_gate_semantics_dag_and_final_closure",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-09",
+          "title": "ML51-LV-09 — semantic negative recovery mappings",
+          "declared_function": "test_ml51_lv_09_semantic_negative_recovery_mappings",
+          "source_function_name": "test_ml51_lv_09_semantic_negative_recovery_mappings",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-10",
+          "title": "ML51-LV-10 — requalification and issue map semantics",
+          "declared_function": "test_ml51_lv_10_requalification_and_issue_map_semantics",
+          "source_function_name": "test_ml51_lv_10_requalification_and_issue_map_semantics",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-11",
+          "title": "ML51-LV-11 — actual quality records and controlled empty consistency",
+          "declared_function": "test_ml51_lv_11_actual_quality_records_and_controlled_empty_consistency",
+          "source_function_name": "test_ml51_lv_11_actual_quality_records_and_controlled_empty_consistency",
+          "identity_status": "EXACT"
+        },
+        {
+          "test_id": "TST-ML51-LV-12",
+          "title": "ML51-LV-12 — scope residue nonzero tests and repository gates",
+          "declared_function": "test_ml51_lv_12_scope_residue_nonzero_tests_and_repository_gates",
+          "source_function_name": "test_ml51_lv_12_repository_gates_have_clean_structural_inputs",
+          "identity_status": "REGISTERED_FUNCTION_RENAMED"
+        }
+      ],
+      "registered_function_renames": [
+        "TST-ML51-LV-05",
+        "TST-ML51-LV-12"
+      ],
+      "missing_registered_functions": [
+        "TST-ML51-LV-06"
+      ],
+      "unregistered_current_functions": [
+        "test_ml51_claim_requirement_trace_is_reciprocal_and_audited"
+      ]
+    },
+    "focused_source_test_groups": {
+      "protocol_and_cmj": {
+        "files": [
+          {
+            "path": "tests/back_squat/test_ml415_back_squat_dual_v1.py",
+            "blob_sha": "edcdef0cea34b30452215af4f45ccbd147790cc6",
+            "methods": [
+              "test_contract_and_metadata_are_explicit_and_versioned",
+              "test_application_runs_persists_and_reopens_back_squat_without_resegmenting",
+              "test_metric_and_aggregation_authorities_are_frozen_at_result_boundaries",
+              "test_affine_mapping_is_used_for_lpt_kinematics_and_recorded_as_canonical_time",
+              "test_reversed_rep_topology_is_refused_instead_of_dropped",
+              "test_back_squat_api_reopens_the_same_authoritative_result"
+            ],
+            "test_count": 6
+          },
+          {
+            "path": "tests/protocol/test_back_squat_presentation.py",
+            "blob_sha": "f48b748f397cef054c22e9a0a2ad4a76128fcb77",
+            "methods": [
+              "test_back_squat_presentation_spec_is_available_through_the_read_authority",
+              "test_back_squat_spec_keeps_bilateral_force_secondary_and_metric_tiers_bounded",
+              "test_back_squat_presentation_view_binds_result_trace_overlay_and_report_identity",
+              "test_reopening_back_squat_presentation_does_not_recompute_science",
+              "test_incomplete_back_squat_without_admitted_rep_still_returns_persisted_session"
+            ],
+            "test_count": 5
+          },
+          {
+            "path": "tests/loaded_jump_squat/test_ml416_loaded_jump_squat.py",
+            "blob_sha": "3edfd33a8de0433ff2d904abc4eaf2264193aaa9",
+            "methods": [
+              "test_contract_and_science_identity_are_explicit",
+              "test_clean_single_rep_uses_one_event_truth_and_shared_phases",
+              "test_short_low_force_excursion_does_not_create_takeoff",
+              "test_clean_multi_rep_preserves_ordered_event_and_phase_authorities",
+              "test_missing_landing_remains_an_incomplete_rep",
+              "test_reversed_topology_refuses_instead_of_silently_resegmenting",
+              "test_application_persists_and_reopens_without_redetection",
+              "test_loaded_jump_squat_api_contract_execution_reopen_report_and_presentation",
+              "test_loaded_jump_squat_fixture_route_uses_catalog_fallback_and_excludes_empty_worlds",
+              "test_loaded_jump_squat_fixture_worlds_use_the_existing_catalog_and_preserve_gaps"
+            ],
+            "test_count": 10
+          },
+          {
+            "path": "tests/deadlift/test_ml511_deadlift_dual_v1.py",
+            "blob_sha": "6b52e41cca60e2e7c022df4a74e354c17b0768b0",
+            "methods": [
+              "test_deadlift_contract_freezes_concentric_first_authority",
+              "test_deadlift_preparation_uses_shared_events_and_native_metrics",
+              "test_deadlift_reversed_topology_refuses_without_resegmentation",
+              "test_deadlift_application_persists_reopens_and_resolves_presentation",
+              "test_deadlift_optional_setup_and_lowering_phases_remain_optional_in_presentation",
+              "test_deadlift_api_execution_reopen_report_and_presentation_contract"
+            ],
+            "test_count": 6
+          },
+          {
+            "path": "tests/bench_press/test_ml513_bench_press_dual_v1.py",
+            "blob_sha": "a80728092f5bbe4090522b22523b5263827183fe",
+            "methods": [
+              "test_bench_press_contract_freezes_foot_force_context_and_empty_cross_modal_inventory",
+              "test_bench_press_preparation_uses_lpt_boundary_markers_and_native_metrics",
+              "test_bench_press_refuses_bench_under_plate_geometry",
+              "test_bench_press_reversed_bottom_topology_refuses_without_resegmentation",
+              "test_bench_press_application_persists_reopens_and_resolves_presentation"
+            ],
+            "test_count": 5
+          },
+          {
+            "path": "tests/olympic_pull/test_ml417_olympic_pull_derivative.py",
+            "blob_sha": "611f9b5645bf4e754628876689babd8827ece94c",
+            "methods": [
+              "test_olympic_pull_derivative_contract_freezes_bounded_pull_authority",
+              "test_olympic_pull_derivative_preparation_uses_shared_events_and_native_metrics",
+              "test_olympic_pull_derivative_reversed_topology_refuses_without_resegmentation",
+              "test_olympic_pull_derivative_internal_subphases_are_explicit_or_unavailable",
+              "test_olympic_pull_derivative_application_persists_reopens_and_resolves_presentation",
+              "test_olympic_pull_derivative_optional_setup_and_lowering_phases_remain_optional_in_presentation",
+              "test_olympic_pull_derivative_api_execution_reopen_report_and_presentation_contract"
+            ],
+            "test_count": 7
+          },
+          {
+            "path": "tests/olympic_pull/test_ml417_clean_snatch_variants.py",
+            "blob_sha": "7df295ae41f7ea25e71da08f65e6c1b537beffb1",
+            "methods": [
+              "test_admitted_variant_binds_context_without_changing_native_pull_topology",
+              "test_variant_reopen_and_presentation_preserve_explicit_identity",
+              "test_clean_snatch_variant_api_execution_is_transport_complete",
+              "test_unadmitted_clean_snatch_variant_refuses_before_science"
+            ],
+            "test_count": 4
+          },
+          {
+            "path": "tests/power_clean/test_ml417_power_clean.py",
+            "blob_sha": "685543f165576e54f48d7f8a2c083f7780bde5f2",
+            "methods": [
+              "test_power_clean_contract_freezes_explicit_multistage_authority",
+              "test_power_clean_preparation_uses_required_power_pull_without_inventing_catch",
+              "test_power_clean_internal_and_catch_stages_are_explicit_only",
+              "test_power_clean_reversed_power_pull_refuses_without_resegmentation",
+              "test_power_clean_context_and_force_object_identity_fail_closed",
+              "test_power_clean_application_persists_reopens_and_resolves_generic_presentation",
+              "test_power_clean_api_execution_reopen_report_and_presentation"
+            ],
+            "test_count": 7
+          },
+          {
+            "path": "tests/measurement/test_ml579_cmj_domain.py",
+            "blob_sha": "b8f2a0f26d141285ed22c4512e5a922e846984e1",
+            "methods": [
+              "test_dynamic_pair_has_two_domain_plots_and_preserves_nonzero_event_lag",
+              "test_variable_intervals_and_optional_states_round_trip_without_fixed_waveform",
+              "test_force_only_and_lpt_only_are_explicit_modes_without_fake_pairing",
+              "test_unqualified_pair_cannot_claim_a_shared_canonical_time",
+              "test_metric_prerequisite_resolution_has_distinct_typed_result_states",
+              "test_truncation_baseline_and_critical_window_map_to_typed_metric_states",
+              "test_prerequisite_graph_expresses_each_domain_and_rejects_cycles",
+              "test_state_interval_cannot_cross_representation_domains",
+              "test_presentation_rejects_a_third_coupling_plot_and_frontend_science",
+              "test_display_policy_preserves_legacy_replay_and_domain_membership"
+            ],
+            "test_count": 10
+          },
+          {
+            "path": "tests/protocol/test_ml579_cmj_protocol_contract.py",
+            "blob_sha": "60084803caf7ba760bb9fbc050143ba3c2aa8298",
+            "methods": [
+              "test_cmj_protocol_contract_uses_modality_scoped_ml414_execution",
+              "test_modality_scoped_generic_events_still_require_their_coupled_trial_context",
+              "test_modality_scoped_contract_and_execution_cold_reopen_without_paired_trial"
+            ],
+            "test_count": 3
+          },
+          {
+            "path": "tests/api/test_ml579_cmj_domain_model_api.py",
+            "blob_sha": "0d891e1263f595a0761a4353d23c30c3ed647329",
+            "methods": [
+              "test_cmj_model_api_persists_lists_reopens_and_keeps_domains_separate",
+              "test_loaded_and_unloaded_are_explicit_protocol_variants",
+              "test_single_modality_models_persist_native_traces_without_fake_pairing"
+            ],
+            "test_count": 3
+          }
+        ],
+        "test_count": 66
+      },
+      "movement_semantics": {
+        "files": [
+          {
+            "path": "tests/reviewer/ml47/test_movement_domain_v1.py",
+            "blob_sha": "9151ecaed40efd84a6e610a6f847b4b149cf1ef5",
+            "methods": [
+              "test_registry_is_canonical_and_serializable",
+              "test_back_squat_has_continuous_support_and_no_flight",
+              "test_jump_takeoff_flight_landing_and_squat_jump_absence",
+              "test_async_landing_has_one_canonical_second_contact_route",
+              "test_deferred_semantic_only_events_have_explicit_classes_and_no_contracts",
+              "test_registry_rejects_unknown_transition_event_reference",
+              "test_registry_rejects_truth_contract_for_semantic_only_exercise",
+              "test_deadlift_lift_off_changes_bar_floor_contact_only",
+              "test_power_clean_encodes_pull_turnover_catch_recovery_semantics",
+              "test_bench_support_and_force_claim_firewall",
+              "test_future_world_can_follow_every_canonical_exercise_route",
+              "test_registry_rejects_duplicates_unknown_references_and_production_authority",
+              "test_structural_validator_rejects_unknown_contacts_and_impossible_transition",
+              "test_structural_validator_rejects_flight_optional_contact_and_degenerate_phase"
+            ],
+            "test_count": 14
+          },
+          {
+            "path": "tests/reviewer/ml47/test_movement_truth_authority_wave1_v1.py",
+            "blob_sha": "bac9577f5259d088fb6d9d0df88e0254138e0c99",
+            "methods": [
+              "test_wave1_truth_contracts_are_exactly_scoped_and_serializable",
+              "test_wave1_contracts_refuse_production_and_numeric_detector_truth",
+              "test_jump_contract_represents_asynchronous_release_and_landing",
+              "test_movement_specific_truth_is_not_collapsed_into_shared_ballistic_family",
+              "test_static_no_countermovement_protocol_rejects_accepted_cmj_subphases",
+              "test_canonical_cmj_and_sj_protocol_phase_contracts_remain_valid",
+              "test_sj_propulsion_is_static_to_upward_and_distinct_from_cmj",
+              "test_squat_bottom_reversal_and_ascent_onset_have_distinct_latent_roles",
+              "test_deadlift_deferred_ascent_is_explicit_and_simulation_eligible",
+              "test_squat_and_deadlift_truth_boundaries_use_latent_mechanics"
+            ],
+            "test_count": 10
+          },
+          {
+            "path": "tests/reviewer/ml47/test_movement_truth_hardening_v2.py",
+            "blob_sha": "14b105884d5a2d69cfad43f7d8988809c86d0735",
+            "methods": [
+              "test_squat_jump_countermovement_contract_has_no_string_or_id_bypass",
+              "test_impossible_contact_topology_routes_are_refused",
+              "test_internal_event_cannot_route_a_supported_squat_into_flight",
+              "test_role_incompatible_contact_relation_is_refused",
+              "test_canonical_contact_role_pairs_and_typed_protocols_remain_valid"
+            ],
+            "test_count": 5
+          }
+        ],
+        "test_count": 29
+      },
+      "sensor_time_and_context": {
+        "files": [
+          {
+            "path": "tests/native/test_ml416_contact_state.py",
+            "blob_sha": "521ed26b0d123ff51077648c7469c41597411a42",
+            "methods": [
+              "test_contact_state_method_is_hysteretic_duration_qualified_and_deterministic",
+              "test_contact_state_method_rejects_a_false_short_flight_excursion",
+              "test_contact_state_method_uses_irregular_timestamps_and_exact_duration_boundary",
+              "test_contact_state_method_refuses_invalid_contract_inputs"
+            ],
+            "test_count": 4
+          },
+          {
+            "path": "tests/measurement/test_ml412_coupled_trial.py",
+            "blob_sha": "697e7f47b905f7bbdb68cbf103992d3852251cc6",
+            "methods": [
+              "test_shared_clock_unequal_rates_admit_without_grid_pairing",
+              "test_independent_qualified_mappings_admit_and_preserve_partial_coverage",
+              "test_equal_rate_or_equal_length_is_not_synchronization_evidence",
+              "test_equal_length_without_authority_is_not_index_pairing",
+              "test_mapping_identity_and_target_are_validated",
+              "test_missing_components_and_positive_overlap_are_hard_requirements",
+              "test_missing_lpt_and_pairing_context_mismatch_refuse",
+              "test_zero_duration_contact_is_not_positive_overlap",
+              "test_per_mapping_quantified_uncertainty_is_preserved_without_aggregation",
+              "test_coupled_metadata_contains_references_not_signal_arrays",
+              "test_persist_reopen_and_summary_use_existing_artifact_graph_without_recompute"
+            ],
+            "test_count": 11
+          },
+          {
+            "path": "tests/measurement/test_ml540_time_normalization.py",
+            "blob_sha": "3532cc753116b142db81cc6a56c5da4c299a83b1",
+            "methods": [
+              "test_common_documented_clock_preserves_different_native_grids_and_xlsx",
+              "test_same_zero_or_same_epoch_shape_does_not_prove_independent_clock_relation",
+              "test_external_anchor_offset_mapping_admits_without_independent_zeroing",
+              "test_two_external_anchors_fit_offset_and_skew_through_coupled_admission",
+              "test_three_or_more_anchors_preserve_ols_residuals_and_mapping_validity",
+              "test_monotonic_jitter_is_preserved_and_reported_neutrally",
+              "test_dropped_samples_remain_a_timestamp_gap_with_neutral_diagnostic",
+              "test_unexplained_duplicate_or_backward_timestamp_refuses_without_sort_or_fill",
+              "test_conflicting_stream_and_etl_timebase_declarations_refuse",
+              "test_etl_timebase_declarations_fill_unspecified_stream_diagnostics",
+              "test_declared_counter_wrap_unrolls_in_source_order_and_preserves_raw_artifact",
+              "test_explicit_clock_reset_is_segmented_and_never_stitched_by_an_invented_offset",
+              "test_conflicting_explicit_reset_boundaries_refuse_pairing",
+              "test_sample_counter_period_imports_a_native_axis_but_does_not_pair_clocks",
+              "test_first_last_sample_anchors_use_n_minus_one_periods",
+              "test_partial_overlap_is_reported_without_cropping_native_streams",
+              "test_equal_count_and_rate_without_clock_evidence_refuses",
+              "test_correlated_signals_keep_the_real_phase_lag_and_source_times",
+              "test_json_exports_run_through_etl_and_clock_mapping",
+              "test_offset_aware_absolute_times_normalize_and_naive_times_refuse",
+              "test_matching_utc_timestamp_representation_does_not_prove_shared_device_clock",
+              "test_coarse_duplicate_timestamps_reconstruct_only_with_counter_period_authority",
+              "test_integer_epoch_ticks_are_differenced_exactly_from_a_shared_declared_origin",
+              "test_identity_mapping_refuses_absolute_epochs_with_different_declared_origins",
+              "test_large_integer_epoch_ticks_require_origin_metadata_before_float_conversion",
+              "test_affine_mapping_and_coupled_trial_persist_and_reopen_without_recomputation",
+              "test_raw_native_timestamp_and_signal_membership_survive_the_full_path",
+              "test_explicit_provider_mapping_requires_a_validity_interval",
+              "test_reset_split_helper_does_not_stitch_epochs"
+            ],
+            "test_count": 29
+          },
+          {
+            "path": "tests/measurement/test_ml410_ml411_component_pipeline.py",
+            "blob_sha": "946b219b20d7555867b0f7dc41279f82849913fa",
+            "methods": [
+              "test_xlsx_adapter_is_bounded_structural_ingestion_and_preserves_provenance",
+              "test_xlsx_adapter_refuses_ambiguous_sheet_and_formula_without_coercion",
+              "test_force_component_admission_derives_only_native_fz_total_and_retains_source_total",
+              "test_force_component_preserves_axis_and_p1_refuses_axis_mismatch",
+              "test_force_component_refuses_source_total_coordinate_mismatch",
+              "test_force_component_reopen_refuses_tampered_derived_total",
+              "test_force_component_refuses_incomplete_or_unqualified_raw_pair",
+              "test_component_snapshot_reopens_without_recomputing_the_derived_total",
+              "test_generic_ml308_import_reaches_force_p1_and_persists_component_snapshot",
+              "test_canonical_import_and_force_p1_are_reachable_through_fastapi"
+            ],
+            "test_count": 10
+          },
+          {
+            "path": "tests/measurement/test_ml411_lpt_component_pipeline.py",
+            "blob_sha": "5c1e6acd7264d621455047ebb6f9622af73306ef",
+            "methods": [
+              "test_lpt_component_admission_converts_declared_units_and_preserves_sensor_coordinate",
+              "test_lpt_component_reaches_all_21_ml313_outputs_through_native_p1_seam",
+              "test_lpt_native_path_reaches_manufactured_constant_linear_quadratic_and_cubic",
+              "test_lpt_component_characterizes_irregular_sampling_without_repair",
+              "test_lpt_component_refuses_nonmetre_canonical_units_without_inference",
+              "test_lpt_component_preserves_a_sign_inverted_source_without_repair",
+              "test_lpt_component_refuses_implicit_geometry_and_processed_source",
+              "test_lpt_component_refuses_invalid_time_and_value_qc",
+              "test_lpt_component_reopen_is_exact_and_does_not_recompute_derivatives",
+              "test_generic_ml308_import_reaches_lpt_p1_and_persists_component_snapshot",
+              "test_lpt_component_timebase_is_not_force_synchronized",
+              "test_lpt_component_uses_explicit_reference_and_does_not_zero_at_admission",
+              "test_lpt_p1_refuses_admitted_component_identity_mismatch",
+              "test_lpt_component_payload_hash_is_bound_on_reopen",
+              "test_canonical_import_and_lpt_p1_are_reachable_through_fastapi"
+            ],
+            "test_count": 15
+          },
+          {
+            "path": "tests/native/test_ml313_lpt_kinematics.py",
+            "blob_sha": "e17d50bb849b1fd8bebd70eb4eee56119dcee0ad",
+            "methods": [
+              "test_native_and_binding_match_independent_polynomial_oracle",
+              "test_scalar_definitions_search_interval_and_first_tie_policy",
+              "test_constant_linear_quadratic_and_cubic_analytical_oracles",
+              "test_sinusoidal_jerk_observed_boundary_convergence_is_second_order",
+              "test_fail_closed_input_semantics",
+              "test_additional_boundary_identity_and_nonfinite_semantics",
+              "test_reference_and_search_validation_precede_event_admission",
+              "test_event_index_overflow_preserves_diagnostic_identity",
+              "test_derivative_extrema_first_tie_and_overflow_refusal"
+            ],
+            "test_count": 9
+          },
+          {
+            "path": "tests/measurement/test_ml413_event01.py",
+            "blob_sha": "5ebe785cf4c9a968c0b25b2d8a5b6067f0fb0b4d",
+            "methods": [
+              "test_sample_time_threshold_crossing_is_directional_and_preserves_all_candidates",
+              "test_threshold_method_records_falling_and_plateau_entry_policy",
+              "test_unit_mismatch_and_missing_prerequisite_refuse",
+              "test_multiple_candidates_require_explicit_selection_and_event_uses_no_average",
+              "test_force_and_lpt_candidates_require_one_explicit_shared_event_admission",
+              "test_phase_interval_requires_two_shared_timeline_events",
+              "test_event_persistence_reopen_listing_and_tamper_fail_closed"
+            ],
+            "test_count": 7
+          },
+          {
+            "path": "tests/native/test_ml314_processing_profiles.py",
+            "blob_sha": "9f358c3d5f2508484c26034b80a3f14a6857e813",
+            "methods": [
+              "test_butterworth_constant_and_frequency_response_oracles",
+              "test_butterworth_zero_phase_and_refusals",
+              "test_butterworth_mixed_signal_cutoff_characterization_and_binding_equivalence",
+              "test_linear_resampling_exact_oracles_and_refusals",
+              "test_profiles_hash_scientific_fields_not_display_and_preserve_chain_order",
+              "test_processing_is_native_bound_and_does_not_mutate_raw",
+              "test_gcv_smoothing_reuses_research_native_kernel_and_keeps_claim_ceiling",
+              "test_downsampling_requires_explicit_prior_filter_chain",
+              "test_nonuniform_grid_downsampling_is_rate_based_not_count_based",
+              "test_profile_refuses_order_outside_native_domain"
+            ],
+            "test_count": 10
+          },
+          {
+            "path": "tests/measurement/test_ml541_raw_source_evidence.py",
+            "blob_sha": "447376bee7ad6056663058b6185a116e932e1e2d",
+            "methods": [
+              "test_registry_is_versioned_validated_and_replay_deterministically",
+              "test_exact_hawkin_model_applies_but_an_unstudied_model_does_not_inherit_it",
+              "test_alignment_transformed_force_waveform_does_not_establish_raw_timing",
+              "test_manufacturer_and_vendor_metric_records_cannot_qualify_raw_source",
+              "test_geometry_and_provider_derived_series_do_not_inherit_raw_source_evidence",
+              "test_distinct_force_studies_remain_separate_and_unknown_evidence_is_not_established",
+              "test_conflicting_records_are_returned_separately_without_aggregation",
+              "test_application_persists_references_and_api_retrieves_without_import_blocking"
+            ],
+            "test_count": 8
+          },
+          {
+            "path": "tests/measurement/test_measurement_context.py",
+            "blob_sha": "1f54346e403d6a63be8020363046f45e3939db36",
+            "methods": [
+              "test_force_derived_mass_is_used_but_never_reported_as_validation",
+              "test_independent_mass_agreeing_with_quiet_support_reproduces_phases",
+              "test_missing_prerequisites_leave_system_phases_unavailable",
+              "test_loaded_jump_requires_supported_load_in_system_mass",
+              "test_contradictory_context_is_refused_not_reconciled",
+              "test_noisy_quiet_support_refuses_instead_of_deriving_mass",
+              "test_invalid_context_input_is_refused",
+              "test_generator_truth_cannot_enter_the_context",
+              "test_context_identity_is_content_addressed_and_round_trips",
+              "test_context_binds_only_to_system_mechanics"
+            ],
+            "test_count": 10
+          },
+          {
+            "path": "tests/protocol/test_shared_load_value.py",
+            "blob_sha": "dae6377bcc7326526d98a5902f0b9e76466a8b64",
+            "methods": [
+              "test_not_recorded_load_has_no_numeric_value",
+              "test_recorded_load_requires_an_explicit_value",
+              "test_recorded_load_rejects_negative_mass_under_each_scalar_policy"
+            ],
+            "test_count": 3
+          },
+          {
+            "path": "tests/governance/test_ml51_lightweight_acceptance.py",
+            "blob_sha": "826aace025d3e02d307824654acae7cb07889fb2",
+            "methods": [
+              "test_ml51_lv_01_strict_registry_envelopes_and_record_schemas",
+              "test_ml51_lv_02_bounded_schema_mutations_refuse",
+              "test_ml51_lv_03_canonical_json_and_duplicate_key_refusal",
+              "test_ml51_lv_04_manifest_hash_and_blob_closure",
+              "test_ml51_lv_05_authority_source_completeness_and_locator_identity",
+              "test_ml51_lv_07_reciprocal_trace_and_asymmetric_mutation",
+              "test_ml51_lv_08_gate_semantics_dag_and_final_closure",
+              "test_ml51_lv_09_semantic_negative_recovery_mappings",
+              "test_ml51_lv_10_requalification_and_issue_map_semantics",
+              "test_ml51_lv_11_actual_quality_records_and_controlled_empty_consistency",
+              "test_ml51_lv_12_repository_gates_have_clean_structural_inputs",
+              "test_ml51_claim_requirement_trace_is_reciprocal_and_audited"
+            ],
+            "test_count": 12
+          }
+        ],
+        "test_count": 128
+      }
+    },
+    "scope_note": "Method inventories are source identities only; Plate2bar tests were not executed. The scope includes governed tests and focused exercise, movement, sensor, clock, event and load modules."
+  },
+  "local_coverage_snapshot": {
+    "biosyngen_base_commit": "4cf4f6a4bea77ca5a45daf2053c146589968c86b",
+    "implemented_scenarios": [
+      "CMJ",
+      "SJ",
+      "20 kg loaded CMJ"
+    ],
+    "synthetic_only": true,
+    "not_empirically_validated": true,
+    "not_implemented": [
+      "loaded jump squat",
+      "back squat",
+      "deadlift",
+      "bench press",
+      "Clean/Snatch pulls",
+      "Power Clean",
+      "qualified landing mechanics"
+    ],
+    "source_note": "Cross-checked against current I1 project files; RES-490 adds inventory only."
+  },
+  "reproduction": {
+    "source_read": "Authenticated GitHub GET at pinned ref 74ec9520b005fb1096c1afe89e14043455725636; source/test blob SHAs listed under source_access.",
+    "local_test_command": "python -m unittest discover -s tests -p test_i2b_protocol_inventory.py -v",
+    "manifest_load_command": "python -c \"from biosyngen_benchmark.protocol_inventory import load_inventory; load_inventory()\"",
+    "note": "Local checks validate this snapshot only; no Plate2bar test suite or data is accessed."
+  },
+  "count_summary": {
+    "source_evidence_file_count": 56,
+    "protocol_route_count": 7,
+    "unique_protocol_id_count": 6,
+    "exercise_row_count": 11,
+    "deferred_candidate_count": 6,
+    "governance_test_record_count": 12,
+    "focused_source_test_function_count": 223
+  },
+  "protocol_control_dimensions": {
+    "trial_and_rep_boundaries": "Protocol trial/rep start, candidate and end markers have distinct identities; no universal first-force/first-LPT rule is promoted.",
+    "repetitions": "Protocol event/phase and metric results are per repetition; a repetition is not the containing session or set.",
+    "sets_and_sessions": "Session/set persistence is separate; no best-rep or across-set aggregation is silently authorized.",
+    "task_conditions": "CMJ domain records UNLOADED/LOADED conditions and FORCE_ONLY/LPT_ONLY/PAIRED modes; there is no canonical CMJ variant catalog.",
+    "load_and_athlete_metadata": "Load identity/mass, athlete/body mass, units, frame/sign, attachment/object, processing, timebase, synchronization and provenance must be declared; no default mass, load, gravity, 1RM or phase load.",
+    "support_and_measurement_geometry": "Foot-to-plate, bench-to-floor and bar-to-floor support paths are separate from measured channels; mixed/instrument-supported object contact changes COU.",
+    "force_channels": "FZ_LEFT/FZ_RIGHT are foot/plate interface channels; FZ_TOTAL is a derived bilateral plate-contact sum.",
+    "lpt_channels": "LPT_DISPLACEMENT is a declared attachment coordinate; native derivatives are separate typed outputs."
+  }
+}

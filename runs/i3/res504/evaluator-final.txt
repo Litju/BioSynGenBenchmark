@@ -1,0 +1,21 @@
+test_equal_opposite_force_faults_cannot_cancel (test_i3_evaluator.AnalyticalReferenceTests.test_equal_opposite_force_faults_cannot_cancel) ... ok
+test_impulse_friction_cone_is_checked (test_i3_evaluator.AnalyticalReferenceTests.test_impulse_friction_cone_is_checked) ... ok
+test_impulse_outside_record_is_invalid_even_if_zero (test_i3_evaluator.AnalyticalReferenceTests.test_impulse_outside_record_is_invalid_even_if_zero) ... ok
+test_instantaneous_frame_at_an_interval_boundary_is_not_double_counted (test_i3_evaluator.AnalyticalReferenceTests.test_instantaneous_frame_at_an_interval_boundary_is_not_double_counted) ... ok
+test_local_corruption_cannot_cancel_at_record_end (test_i3_evaluator.AnalyticalReferenceTests.test_local_corruption_cannot_cancel_at_record_end) ... ok
+test_ten_independent_support_and_free_fall_cases (test_i3_evaluator.AnalyticalReferenceTests.test_ten_independent_support_and_free_fall_cases) ... ok
+test_tensile_impulse_cannot_pass_contact_admissibility (test_i3_evaluator.AnalyticalReferenceTests.test_tensile_impulse_cannot_pass_contact_admissibility) ... ok
+test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) ... ok
+test_candidate_tolerance_and_source_stage_spoofing_are_invalid (test_i3_evaluator.HostileSchemaTests.test_candidate_tolerance_and_source_stage_spoofing_are_invalid) ... ok
+test_duplicate_body_identities_are_invalid (test_i3_evaluator.HostileSchemaTests.test_duplicate_body_identities_are_invalid) ... ok
+test_impulses_require_observed_frames (test_i3_evaluator.HostileSchemaTests.test_impulses_require_observed_frames) ... ok
+test_inertia_must_be_positive (test_i3_evaluator.HostileSchemaTests.test_inertia_must_be_positive) ... ok
+test_massless_empty_world_is_invalid (test_i3_evaluator.HostileSchemaTests.test_massless_empty_world_is_invalid) ... ok
+test_missing_or_nonfinite_friction_cannot_bypass_a_cone (test_i3_evaluator.HostileSchemaTests.test_missing_or_nonfinite_friction_cannot_bypass_a_cone) ... ok
+test_nonfinite_states_and_multiple_corruptions_are_invalid (test_i3_evaluator.HostileSchemaTests.test_nonfinite_states_and_multiple_corruptions_are_invalid) ... ok
+test_unknown_support_or_claim_is_invalid (test_i3_evaluator.HostileSchemaTests.test_unknown_support_or_claim_is_invalid) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.004s
+
+OK

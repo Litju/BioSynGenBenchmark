@@ -1,0 +1,16 @@
+{
+  "issue": "RES-507",
+  "mismatch_scope": "Optional renderer, not imported/executed by any of the 12 numerical workers; changed only legend/footer layout. All generator, evaluator and executed evidence-script hashes match.",
+  "original_run_location": "runs/i3/res504/repro/fresh-pelxzp80",
+  "post_run_line_ending_normalization": {
+    "after_sha256": "ccc1a58fe177a51fce23891f728128fcd7ee1b405390fd6b45a102d683323851",
+    "before_sha256": "18a31666a172bf52f9b988317f5de1b9581515d2e36870b5737acd708faa6ee7",
+    "changes": "Two changed-source lines normalized CRLF to LF for git diff --check; identical parsed AST. No numeric/rendering behavior change.",
+    "path": "scripts/svgplot.py"
+  },
+  "reason": "Reused verifier default directory; moved only this new generated run after completion. Exact executed command strings retained. Numeric bytes and digests unchanged.",
+  "retained_run_location": "runs/i3/res507/repro/fresh-pelxzp80",
+  "source_inventory_mismatch": [
+    "scripts/render_i3_qualification.py"
+  ]
+}

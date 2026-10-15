@@ -1,0 +1,16 @@
+FROZEN_SOURCE 3322d89499050eea0004f9e8882666e2a40d5a9a biosyngen/i2/squat.py
+test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator (tests.test_i3_work_reporting.WorkReportingTests.test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator) ... ERROR
+
+======================================================================
+ERROR: test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator (tests.test_i3_work_reporting.WorkReportingTests.test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_work_reporting.py", line 21, in test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator
+    self.assertEqual(analysis.system_com_pseudo_work_j, 0)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SquatAnalysis' object has no attribute 'system_com_pseudo_work_j'. Did you mean: 'system_com_work_j'?
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)

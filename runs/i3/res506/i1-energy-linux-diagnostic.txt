@@ -1,0 +1,199 @@
+﻿2026-10-14T03:09:00.4746176Z Current runner version: '2.337.0'
+2026-10-14T03:09:00.4761096Z ##[group]Runner Image Provisioner
+2026-10-14T03:09:00.4761822Z Hosted Compute Agent
+2026-10-14T03:09:00.4762283Z Version: 20261002.596
+2026-10-14T03:09:00.4762657Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-14T03:09:00.4763106Z Build Date: 2026-10-02T22:28:27Z
+2026-10-14T03:09:00.4763513Z Worker ID: {68235e26-e131-41b0-8d50-2328e33c0ca7}
+2026-10-14T03:09:00.4763928Z Region: southcentralus
+2026-10-14T03:09:00.4764339Z Cloud: Azure
+2026-10-14T03:09:00.4764691Z ##[endgroup]
+2026-10-14T03:09:00.4765480Z ##[group]Operating System
+2026-10-14T03:09:00.4765850Z Ubuntu
+2026-10-14T03:09:00.4766166Z 24.04.5
+2026-10-14T03:09:00.4766538Z LTS
+2026-10-14T03:09:00.4766848Z ##[endgroup]
+2026-10-14T03:09:00.4767166Z ##[group]Runner Image
+2026-10-14T03:09:00.4767568Z Image: ubuntu-24.04
+2026-10-14T03:09:00.4767943Z Version: 20261004.327.1
+2026-10-14T03:09:00.4768749Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-14T03:09:00.4769607Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-14T03:09:00.4770214Z ##[endgroup]
+2026-10-14T03:09:00.4770862Z ##[group]GITHUB_TOKEN Permissions
+2026-10-14T03:09:00.4772144Z Contents: read
+2026-10-14T03:09:00.4772513Z Metadata: read
+2026-10-14T03:09:00.4772904Z ##[endgroup]
+2026-10-14T03:09:00.4774118Z Secret source: Actions
+2026-10-14T03:09:00.4774707Z Cache mode: write
+2026-10-14T03:09:00.4775122Z Prepare workflow directory
+2026-10-14T03:09:00.4976232Z Prepare all required actions
+2026-10-14T03:09:00.5007417Z Getting action download info
+2026-10-14T03:09:00.7421890Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-14T03:09:00.8690187Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-14T03:09:01.0270250Z Complete job name: I1 energy platform diagnostic
+2026-10-14T03:09:01.0737401Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-14T03:09:01.0737905Z with:
+2026-10-14T03:09:01.0738169Z   ref: e7904453fd0b574c0b53e100df6e20ff350ea4f0
+2026-10-14T03:09:01.0738507Z   repository: Litju/BioSynGenBenchmark
+2026-10-14T03:09:01.0740461Z   token: ***
+2026-10-14T03:09:01.0740700Z   ssh-strict: true
+2026-10-14T03:09:01.0740942Z   ssh-user: git
+2026-10-14T03:09:01.0741193Z   persist-credentials: true
+2026-10-14T03:09:01.0741592Z   clean: true
+2026-10-14T03:09:01.0741840Z   sparse-checkout-cone-mode: true
+2026-10-14T03:09:01.0742127Z   fetch-depth: 1
+2026-10-14T03:09:01.0742367Z   fetch-tags: false
+2026-10-14T03:09:01.0742616Z   show-progress: true
+2026-10-14T03:09:01.0742863Z   lfs: false
+2026-10-14T03:09:01.0743092Z   submodules: false
+2026-10-14T03:09:01.0743341Z   set-safe-directory: true
+2026-10-14T03:09:01.0743625Z   allow-unsafe-pr-checkout: false
+2026-10-14T03:09:01.0743985Z ##[endgroup]
+2026-10-14T03:09:01.1426803Z Syncing repository: Litju/BioSynGenBenchmark
+2026-10-14T03:09:01.1428441Z ##[group]Getting Git version info
+2026-10-14T03:09:01.1429149Z Working directory is '/home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark'
+2026-10-14T03:09:01.1430140Z [command]/usr/bin/git version
+2026-10-14T03:09:01.1514879Z git version 2.55.0
+2026-10-14T03:09:01.1528577Z ##[endgroup]
+2026-10-14T03:09:01.1540089Z Temporarily overriding HOME='/home/runner/work/_temp/127c68e8-3f59-4b36-b54d-7da5d5fd0962' before making global git config changes
+2026-10-14T03:09:01.1541581Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T03:09:01.1544872Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark
+2026-10-14T03:09:01.1591112Z Deleting the contents of '/home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark'
+2026-10-14T03:09:01.1593906Z ##[group]Initializing the repository
+2026-10-14T03:09:01.1597360Z [command]/usr/bin/git init /home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark
+2026-10-14T03:09:01.1702460Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-14T03:09:01.1703029Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-14T03:09:01.1704054Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-14T03:09:01.1704684Z hint: call:
+2026-10-14T03:09:01.1705017Z hint:
+2026-10-14T03:09:01.1705452Z hint: 	git config --global init.defaultBranch <name>
+2026-10-14T03:09:01.1705964Z hint:
+2026-10-14T03:09:01.1706443Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-14T03:09:01.1707266Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-14T03:09:01.1707792Z hint:
+2026-10-14T03:09:01.1708139Z hint: 	git branch -m <name>
+2026-10-14T03:09:01.1708505Z hint:
+2026-10-14T03:09:01.1708846Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-14T03:09:01.1709736Z Initialized empty Git repository in /home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark/.git/
+2026-10-14T03:09:01.1715074Z [command]/usr/bin/git remote add origin https://github.com/Litju/BioSynGenBenchmark
+2026-10-14T03:09:01.1762811Z ##[endgroup]
+2026-10-14T03:09:01.1763361Z ##[group]Disabling automatic garbage collection
+2026-10-14T03:09:01.1765990Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-14T03:09:01.1875209Z ##[endgroup]
+2026-10-14T03:09:01.1875776Z ##[group]Setting up auth
+2026-10-14T03:09:01.1877695Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T03:09:01.1907551Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-14T03:09:01.2198138Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T03:09:01.2225678Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-14T03:09:01.2401793Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T03:09:01.2428471Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-14T03:09:01.2601931Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-14T03:09:01.2634759Z ##[endgroup]
+2026-10-14T03:09:01.2635305Z ##[group]Fetching the repository
+2026-10-14T03:09:01.2640623Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin e7904453fd0b574c0b53e100df6e20ff350ea4f0
+2026-10-14T03:09:02.4346912Z From https://github.com/Litju/BioSynGenBenchmark
+2026-10-14T03:09:02.4348743Z  * branch            e7904453fd0b574c0b53e100df6e20ff350ea4f0 -> FETCH_HEAD
+2026-10-14T03:09:02.4352210Z ##[endgroup]
+2026-10-14T03:09:02.4353171Z ##[group]Determining the checkout info
+2026-10-14T03:09:02.4354309Z ##[endgroup]
+2026-10-14T03:09:02.4357080Z [command]/usr/bin/git sparse-checkout disable
+2026-10-14T03:09:02.4404984Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-14T03:09:02.4432400Z ##[group]Checking out the ref
+2026-10-14T03:09:02.4434121Z [command]/usr/bin/git checkout --progress --force e7904453fd0b574c0b53e100df6e20ff350ea4f0
+2026-10-14T03:09:02.5879874Z Note: switching to 'e7904453fd0b574c0b53e100df6e20ff350ea4f0'.
+2026-10-14T03:09:02.5880652Z
+2026-10-14T03:09:02.5881167Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-14T03:09:02.5882526Z changes and commit them, and you can discard any commits you make in this
+2026-10-14T03:09:02.5883745Z state without impacting any branches by switching back to a branch.
+2026-10-14T03:09:02.5884754Z
+2026-10-14T03:09:02.5885236Z If you want to create a new branch to retain commits you create, you may
+2026-10-14T03:09:02.5886343Z do so (now or later) by using -c with the switch command. Example:
+2026-10-14T03:09:02.5886983Z
+2026-10-14T03:09:02.5887258Z   git switch -c <new-branch-name>
+2026-10-14T03:09:02.5887752Z
+2026-10-14T03:09:02.5888117Z Or undo this operation with:
+2026-10-14T03:09:02.5888608Z
+2026-10-14T03:09:02.5888973Z   git switch -
+2026-10-14T03:09:02.5889479Z
+2026-10-14T03:09:02.5890272Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-14T03:09:02.5891533Z
+2026-10-14T03:09:02.5892603Z HEAD is now at e790445 RES-506: preserve hosted Linux energy failure and isolate diagnostic windows
+2026-10-14T03:09:02.5896622Z ##[endgroup]
+2026-10-14T03:09:02.5934165Z [command]/usr/bin/git log -1 --format=%H
+2026-10-14T03:09:02.5956716Z e7904453fd0b574c0b53e100df6e20ff350ea4f0
+2026-10-14T03:09:02.6216842Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+2026-10-14T03:09:02.6217885Z with:
+2026-10-14T03:09:02.6218427Z   python-version: 3.12.10
+2026-10-14T03:09:02.6219062Z   check-latest: false
+2026-10-14T03:09:02.6224825Z   token: ***
+2026-10-14T03:09:02.6225387Z   update-environment: true
+2026-10-14T03:09:02.6226039Z   allow-prereleases: false
+2026-10-14T03:09:02.6226703Z   freethreaded: false
+2026-10-14T03:09:02.6227289Z ##[endgroup]
+2026-10-14T03:09:02.7056571Z ##[group]Installed versions
+2026-10-14T03:09:02.7069753Z Version 3.12.10 was not found in the local cache
+2026-10-14T03:09:02.7137628Z (node:2143) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T03:09:02.7139507Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T03:09:03.6618054Z Version 3.12.10 is available for downloading
+2026-10-14T03:09:03.6619322Z Download from "https://github.com/actions/python-versions/releases/download/3.12.10-14343898437/python-3.12.10-linux-24.04-x64.tar.gz"
+2026-10-14T03:09:04.6178770Z Extract downloaded archive
+2026-10-14T03:09:04.6272376Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/c5a6a5be-7d90-4f16-bed5-7792fa19f035 -f /home/runner/work/_temp/1eef90bc-ebdb-4ba9-a7f4-b806c8e2b986
+2026-10-14T03:09:06.1379279Z Execute installation script
+2026-10-14T03:09:06.1466483Z Check if Python hostedtoolcache folder exist...
+2026-10-14T03:09:06.1466762Z Create Python 3.12.10 folder
+2026-10-14T03:09:06.1470642Z Copy Python binaries to hostedtoolcache folder
+2026-10-14T03:09:06.5176215Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-10-14T03:09:06.5209776Z Upgrading pip...
+2026-10-14T03:09:11.4729867Z Looking in links: /tmp/tmpo8a66j83
+2026-10-14T03:09:11.4732263Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/site-packages (25.0.1)
+2026-10-14T03:09:15.7882713Z Collecting pip
+2026-10-14T03:09:15.8445780Z Downloading pip-26.2.1-py3-none-any.whl.metadata (4.6 kB)
+2026-10-14T03:09:15.8621071Z Downloading pip-26.2.1-py3-none-any.whl (1.8 MB)
+2026-10-14T03:09:15.9394366Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 34.8 MB/s eta 0:00:00
+2026-10-14T03:09:15.9394682Z
+2026-10-14T03:09:15.9501395Z Installing collected packages: pip
+2026-10-14T03:09:15.9502800Z Attempting uninstall: pip
+2026-10-14T03:09:15.9515921Z Found existing installation: pip 25.0.1
+2026-10-14T03:09:15.9722920Z Uninstalling pip-25.0.1:
+2026-10-14T03:09:15.9759473Z Successfully uninstalled pip-25.0.1
+2026-10-14T03:09:16.5959602Z Successfully installed pip-26.2.1
+2026-10-14T03:09:16.6352958Z Create complete file
+2026-10-14T03:09:16.6383750Z Successfully set up CPython (3.12.10)
+2026-10-14T03:09:16.6384962Z ##[endgroup]
+2026-10-14T03:09:16.6536088Z ##[group]Run python -m scripts.inspect_i3_i1_energy
+2026-10-14T03:09:16.6536360Z [36;1mpython -m scripts.inspect_i3_i1_energy[0m
+2026-10-14T03:09:16.6754003Z shell: /usr/bin/bash -e {0}
+2026-10-14T03:09:16.6754380Z env:
+2026-10-14T03:09:16.6754548Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.10/x64
+2026-10-14T03:09:16.6754824Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.10/x64/lib/pkgconfig
+2026-10-14T03:09:16.6755058Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.10/x64
+2026-10-14T03:09:16.6755272Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.10/x64
+2026-10-14T03:09:16.6755483Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.10/x64
+2026-10-14T03:09:16.6755690Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.10/x64/lib
+2026-10-14T03:09:16.6755868Z ##[endgroup]
+2026-10-14T03:09:19.7446669Z [I3-ENERGY] {"case": "bench_prismatic_push", "finding": {"ceiling": "NUMERICAL_VERIFICATION_ONLY", "claim": "WORK_ENERGY_LEDGER", "code": "ENERGY_ACCOUNTED_SAMPLED", "metrics": {"excluded_event_windows": 0, "max_coarse_refinement_delta_j": 3.552713678800501e-15, "max_quadrature_error_estimate_j": 3.552713678800501e-15, "max_residual_j": 1.3367085216486885e-13, "max_residual_over_sampled_tolerance": 2.2274414926612854e-09, "quadrature_error_is_bound": false, "under_resolved_quadratures": 0, "windows": 20}, "outcome": "PASS", "reason": "Sampled energy change agrees with declared and contact work; refinement is an estimate, not a bound."}, "platform": "linux"}
+2026-10-14T03:09:19.7510502Z [I3-ENERGY] {"case": "bench_tumbling", "finding": {"ceiling": "NUMERICAL_VERIFICATION_ONLY", "claim": "WORK_ENERGY_LEDGER", "code": "ENERGY_ACCOUNTED_SAMPLED", "metrics": {"excluded_event_windows": 0, "max_coarse_refinement_delta_j": 0.0, "max_quadrature_error_estimate_j": 0.0, "max_residual_j": 4.547473508864641e-13, "max_residual_over_sampled_tolerance": 4.381746860036981e-09, "quadrature_error_is_bound": false, "under_resolved_quadratures": 0, "windows": 25}, "outcome": "PASS", "reason": "Sampled energy change agrees with declared and contact work; refinement is an estimate, not a bound."}, "platform": "linux"}
+2026-10-14T03:09:19.7575990Z [I3-ENERGY] {"case": "unseen_two_body_free_fall", "finding": {"ceiling": "NUMERICAL_VERIFICATION_ONLY", "claim": "WORK_ENERGY_LEDGER", "code": "ENERGY_ACCOUNTED_SAMPLED", "metrics": {"excluded_event_windows": 0, "max_coarse_refinement_delta_j": 0.0, "max_quadrature_error_estimate_j": 0.0, "max_residual_j": 1.4210854715202004e-14, "max_residual_over_sampled_tolerance": 2.1995790041067826e-09, "quadrature_error_is_bound": false, "under_resolved_quadratures": 0, "windows": 20}, "outcome": "PASS", "reason": "Sampled energy change agrees with declared and contact work; refinement is an estimate, not a bound."}, "platform": "linux"}
+2026-10-14T03:09:19.7644267Z [I3-ENERGY] {"case": "i0_admissible", "finding": {"ceiling": "NUMERICAL_VERIFICATION_ONLY", "claim": "WORK_ENERGY_LEDGER", "code": "ENERGY_ACCOUNTED_SAMPLED", "metrics": {"excluded_event_windows": 1, "max_coarse_refinement_delta_j": 7.105427357601002e-15, "max_quadrature_error_estimate_j": 3.552713678800501e-15, "max_residual_j": 4.547473508864641e-13, "max_residual_over_sampled_tolerance": 3.818894113457419e-09, "quadrature_error_is_bound": false, "under_resolved_quadratures": 0, "windows": 24}, "outcome": "PASS", "reason": "Sampled energy change agrees with declared and contact work; refinement is an estimate, not a bound."}, "platform": "linux"}
+2026-10-14T03:09:19.8160951Z [I3-ENERGY] {"case": "i1_cmj", "finding": {"ceiling": "NUMERICAL_VERIFICATION_ONLY", "claim": "WORK_ENERGY_LEDGER", "code": "ENERGY_NOT_ACCOUNTED", "metrics": {"excluded_event_windows": 7, "max_coarse_refinement_delta_j": 1.6586260014875975, "max_quadrature_error_estimate_j": 0.47645335912553577, "max_residual_j": 0.1791686943424864, "max_residual_over_sampled_tolerance": 1.8514780379944606, "quadrature_error_is_bound": false, "under_resolved_quadratures": 0, "windows": 76}, "outcome": "REJECTED", "reason": "Mechanical energy changes without declared or contact work."}, "platform": "linux"}
+2026-10-14T03:09:19.8676112Z [I3-ENERGY] {"case": "i1_loaded_cmj", "finding": {"ceiling": "NUMERICAL_VERIFICATION_ONLY", "claim": "WORK_ENERGY_LEDGER", "code": "ENERGY_ACCOUNTED_SAMPLED", "metrics": {"excluded_event_windows": 7, "max_coarse_refinement_delta_j": 1.0003779567997313, "max_quadrature_error_estimate_j": 0.33378200618107456, "max_residual_j": 0.11657360808198547, "max_residual_over_sampled_tolerance": 0.4161870300481747, "quadrature_error_is_bound": false, "under_resolved_quadratures": 0, "windows": 66}, "outcome": "PASS", "reason": "Sampled energy change agrees with declared and contact work; refinement is an estimate, not a bound."}, "platform": "linux"}
+2026-10-14T03:09:19.9002009Z [I3-ENERGY] {"case": "i1_sj", "finding": {"ceiling": "NUMERICAL_VERIFICATION_ONLY", "claim": "WORK_ENERGY_LEDGER", "code": "ENERGY_ACCOUNTED_SAMPLED", "metrics": {"excluded_event_windows": 6, "max_coarse_refinement_delta_j": 1.3771716519686379, "max_quadrature_error_estimate_j": 0.470736927217807, "max_residual_j": 0.15830081490395997, "max_residual_over_sampled_tolerance": 0.6589501935675871, "quadrature_error_is_bound": false, "under_resolved_quadratures": 0, "windows": 48}, "outcome": "PASS", "reason": "Sampled energy change agrees with declared and contact work; refinement is an estimate, not a bound."}, "platform": "linux"}
+2026-10-14T03:09:19.9523544Z Post job cleanup.
+2026-10-14T03:09:20.0272523Z (node:2228) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T03:09:20.0272939Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T03:09:20.0440462Z Post job cleanup.
+2026-10-14T03:09:20.0990308Z [command]/usr/bin/git version
+2026-10-14T03:09:20.1021863Z git version 2.55.0
+2026-10-14T03:09:20.1043785Z Temporarily overriding HOME='/home/runner/work/_temp/2440757b-0ba6-400c-be4b-bb1809438f2a' before making global git config changes
+2026-10-14T03:09:20.1044536Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T03:09:20.1046784Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/BioSynGenBenchmark/BioSynGenBenchmark
+2026-10-14T03:09:20.1077238Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T03:09:20.1103666Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-14T03:09:20.1300110Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T03:09:20.1355241Z http.https://github.com/.extraheader
+2026-10-14T03:09:20.1363826Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-14T03:09:20.1394348Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-14T03:09:20.1622815Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T03:09:20.1660853Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-14T03:09:20.1994916Z Cleaning up orphan processes
+2026-10-14T03:09:20.2192519Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

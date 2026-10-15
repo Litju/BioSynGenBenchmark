@@ -1,0 +1,8 @@
+test_binary_and_machine_metadata_are_flagged (test_i3_provenance.PublicationScreenTests.test_binary_and_machine_metadata_are_flagged) ... ok
+test_independent_secret_canaries (test_i3_provenance.PublicationScreenTests.test_independent_secret_canaries) ... ok
+test_restricted_paths_remain_unread (test_i3_provenance.PublicationScreenTests.test_restricted_paths_remain_unread) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

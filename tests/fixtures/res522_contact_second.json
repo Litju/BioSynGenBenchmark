@@ -1,0 +1,287 @@
+{
+  "revision": "6611532b99fbd2de94c80276c94ea20592ccf22f",
+  "source_sha256": "851a4e203fdf3d8af27b589006248c66f12a90f121d26a588cf320e20daeba7e",
+  "methods": [
+    "advance",
+    "resolve_impact",
+    "_project_velocities"
+  ],
+  "case": "PULL_T1.2_A-0.2",
+  "termination": "BODY_GROUND_CONTACT_NOT_MODELED: hip",
+  "witnesses": [
+    {
+      "t0_s": 2.5520047774509895,
+      "side": "right",
+      "excess_n_s": 0.0001479106384707496,
+      "before": {
+        "time_s": 2.5520047774509895,
+        "bodies": {
+          "hat": {
+            "position_m": [
+              -0.8894507056841383,
+              0.9799951052034842
+            ],
+            "angle_rad": 0.6373447031458325,
+            "velocity_m_s": [
+              -1.978163210111605,
+              -1.6788030223759642
+            ],
+            "angular_velocity_rad_s": 1.8436243666139518
+          },
+          "left_thigh": {
+            "position_m": [
+              -0.5745056430457064,
+              0.5796562030224568
+            ],
+            "angle_rad": 0.7162670496696776,
+            "velocity_m_s": [
+              -1.227683487110789,
+              -1.0873641192041532
+            ],
+            "angular_velocity_rad_s": 1.9307220247193806
+          },
+          "left_shank": {
+            "position_m": [
+              -0.2861014380338588,
+              0.2515199827802288
+            ],
+            "angle_rad": 0.7272730835544577,
+            "velocity_m_s": [
+              -0.5408070537969254,
+              -0.48306519575449
+            ],
+            "angular_velocity_rad_s": 2.307310917886726
+          },
+          "left_foot": {
+            "position_m": [
+              -0.08161156629495292,
+              0.11264842674041166
+            ],
+            "angle_rad": 1.4792157249042086,
+            "velocity_m_s": [
+              -0.1882101890733897,
+              -0.038472921268349954
+            ],
+            "angular_velocity_rad_s": 1.6166634916748335
+          },
+          "right_thigh": {
+            "position_m": [
+              -0.5745759919364688,
+              0.5795949959038542
+            ],
+            "angle_rad": 0.7157732307191751,
+            "velocity_m_s": [
+              -1.2444408976771877,
+              -1.1021752431232281
+            ],
+            "angular_velocity_rad_s": 1.8122881177903176
+          },
+          "right_shank": {
+            "position_m": [
+              -0.28612784362725946,
+              0.2514998426492722
+            ],
+            "angle_rad": 0.7282341821326015,
+            "velocity_m_s": [
+              -0.5184320106830776,
+              -0.4622438276975454
+            ],
+            "angular_velocity_rad_s": 2.7408887615417057
+          },
+          "right_foot": {
+            "position_m": [
+              -0.08135765356964465,
+              0.1127003808342672
+            ],
+            "angle_rad": 1.4770211797922788,
+            "velocity_m_s": [
+              -0.016846411211282577,
+              -0.003971943049739524
+            ],
+            "angular_velocity_rad_s": 0.13564333658631705
+          },
+          "upper_arm": {
+            "position_m": [
+              -0.9022525038986113,
+              1.034334777004823
+            ],
+            "angle_rad": 0.7930615621707363,
+            "velocity_m_s": [
+              -2.0465667873962756,
+              -1.6701355321557216
+            ],
+            "angular_velocity_rad_s": 2.1622124085347245
+          },
+          "forearm": {
+            "position_m": [
+              -0.6319194440837019,
+              0.7978668052770354
+            ],
+            "angle_rad": 0.9138568700085773,
+            "velocity_m_s": [
+              -1.5078804707574287,
+              -1.0500995058439748
+            ],
+            "angular_velocity_rad_s": 2.41717475764438
+          },
+          "load": {
+            "position_m": [
+              -0.5088763465048466,
+              0.7029744314559805
+            ],
+            "angle_rad": 0.0,
+            "velocity_m_s": [
+              -1.278509020200746,
+              -0.7526828364510264
+            ],
+            "angular_velocity_rad_s": 0.0
+          }
+        },
+        "contacts": {
+          "left_heel": {
+            "mode": "SLIDE",
+            "slip_direction": -1,
+            "tangent_anchor_m": null
+          },
+          "left_toe": {
+            "mode": "OPEN",
+            "slip_direction": 0,
+            "tangent_anchor_m": null
+          },
+          "right_heel": {
+            "mode": "STICK",
+            "slip_direction": 0,
+            "tangent_anchor_m": 0.0021928073070590637
+          },
+          "right_toe": {
+            "mode": "OPEN",
+            "slip_direction": 0,
+            "tangent_anchor_m": null
+          },
+          "bar_floor": {
+            "mode": "OPEN",
+            "slip_direction": 0,
+            "tangent_anchor_m": null
+          }
+        },
+        "activations": {
+          "left_ankle_flexor": 0.867588712986562,
+          "left_ankle_extensor": -0.2494284658867026,
+          "left_knee_extensor": 0.1713186140458598,
+          "left_knee_flexor": -0.6821065707478038,
+          "left_hip_extensor": -0.1663182716931826,
+          "left_hip_flexor": 0.03321756408959272,
+          "right_ankle_flexor": 0.9029507332067397,
+          "right_ankle_extensor": -0.29811436485530557,
+          "right_knee_extensor": 0.18236024669473339,
+          "right_knee_flexor": -0.644574872667041,
+          "right_hip_extensor": -0.16158346367610407,
+          "right_hip_flexor": 0.03385846126924875,
+          "shoulder_extensor": -0.08354184752250376,
+          "shoulder_flexor": 0.8592280086781694,
+          "elbow_extensor": -0.29475391135174256,
+          "elbow_flexor": 0.7878822952259849
+        }
+      },
+      "dt_s": 0.002,
+      "excitations": {
+        "left_ankle_flexor": 1.0,
+        "left_ankle_extensor": 0.0,
+        "left_knee_flexor": -0.48031667881483164,
+        "left_knee_extensor": 0.0,
+        "left_hip_extensor": -0.02901472788103605,
+        "left_hip_flexor": 0.0,
+        "right_ankle_flexor": 1.0,
+        "right_ankle_extensor": 0.0,
+        "right_knee_flexor": -1.0,
+        "right_knee_extensor": 0.0,
+        "right_hip_flexor": 0.0633945866428069,
+        "right_hip_extensor": 0.0,
+        "shoulder_flexor": 1.0,
+        "shoulder_extensor": 0.0,
+        "elbow_flexor": 0.95728911911992,
+        "elbow_extensor": 0.0
+      },
+      "wrenches": [
+        {
+          "body_id": "left_foot",
+          "source_id": "passive:left_ankle",
+          "force_n": [
+            0.0,
+            0.0
+          ],
+          "local_point_m": [
+            0.0,
+            0.0
+          ],
+          "moment_n_m": -0.0188692770688071
+        },
+        {
+          "body_id": "left_shank",
+          "source_id": "passive:left_ankle",
+          "force_n": [
+            0.0,
+            0.0
+          ],
+          "local_point_m": [
+            0.0,
+            0.0
+          ],
+          "moment_n_m": 0.0188692770688071
+        },
+        {
+          "body_id": "left_shank",
+          "source_id": "passive:left_knee",
+          "force_n": [
+            0.0,
+            0.0
+          ],
+          "local_point_m": [
+            0.0,
+            0.0
+          ],
+          "moment_n_m": -9.738045161189616
+        },
+        {
+          "body_id": "left_thigh",
+          "source_id": "passive:left_knee",
+          "force_n": [
+            0.0,
+            0.0
+          ],
+          "local_point_m": [
+            0.0,
+            0.0
+          ],
+          "moment_n_m": 9.738045161189616
+        },
+        {
+          "body_id": "right_shank",
+          "source_id": "passive:right_knee",
+          "force_n": [
+            0.0,
+            0.0
+          ],
+          "local_point_m": [
+            0.0,
+            0.0
+          ],
+          "moment_n_m": -21.094484567009218
+        },
+        {
+          "body_id": "right_thigh",
+          "source_id": "passive:right_knee",
+          "force_n": [
+            0.0,
+            0.0
+          ],
+          "local_point_m": [
+            0.0,
+            0.0
+          ],
+          "moment_n_m": 21.094484567009218
+        }
+      ]
+    }
+  ]
+}

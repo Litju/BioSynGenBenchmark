@@ -1,0 +1,16 @@
+{
+ "byte_identical": true,
+ "files": [
+  "evaluator-input-cmj.json",
+  "figure-cmj.svg",
+  "figure-loaded-cmj.svg",
+  "figure-vv.svg",
+  "manifest.json",
+  "results.json"
+ ],
+ "method": "two separate OS processes of `python -m scripts.run_i1`; every file compared byte-for-byte",
+ "replicas": {
+  "replica-a": "ea938550c3410aac626850bb5def04258914b52f0a08573bda7363b63267545c",
+  "replica-b": "ea938550c3410aac626850bb5def04258914b52f0a08573bda7363b63267545c"
+ }
+}

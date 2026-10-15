@@ -1,0 +1,145 @@
+test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) ...
+  test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': nan}) ... FAIL
+  test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': inf}) ... FAIL
+  test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': True}) ... FAIL
+  test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': 0}) ... ERROR
+  test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': -1}) ... FAIL
+  test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': 1.2}) ... FAIL
+test_over_reach_is_not_clipped_into_a_feasible_straight_arm (test_i3_artifact_repairs.ReachDomainTests.test_over_reach_is_not_clipped_into_a_feasible_straight_arm) ... FAIL
+test_bench_whole_system_force_requires_explicit_rack_reaction (test_i3_artifact_repairs.ReportingDefectTests.test_bench_whole_system_force_requires_explicit_rack_reaction) ... FAIL
+test_moving_plane_reaction_point_moment_and_power_match_physical_contact (test_i3_artifact_repairs.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) ...
+  test_moving_plane_reaction_point_moment_and_power_match_physical_contact (test_i3_artifact_repairs.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='material contact point') ... FAIL
+  test_moving_plane_reaction_point_moment_and_power_match_physical_contact (test_i3_artifact_repairs.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='reaction moment') ... FAIL
+  test_moving_plane_reaction_point_moment_and_power_match_physical_contact (test_i3_artifact_repairs.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='contact power') ... FAIL
+test_signed_torque_uncertainty_is_an_ordered_interval (test_i3_artifact_repairs.ReportingDefectTests.test_signed_torque_uncertainty_is_an_ordered_interval) ... FAIL
+test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator (test_i3_artifact_repairs.ReportingDefectTests.test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator) ... ERROR
+
+======================================================================
+ERROR: test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': 0})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 90, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    front_rack_feasibility(**arguments)
+  File "D:\projects\BioSynGenBenchmark\biosyngen\i2\power_clean.py", line 64, in front_rack_feasibility
+    cos_e = (rack_offset_m ** 2 - l1 ** 2 - l2 ** 2) / (2.0 * l1 * l2)
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+ZeroDivisionError: float division by zero
+
+======================================================================
+ERROR: test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator (test_i3_artifact_repairs.ReportingDefectTests.test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 69, in test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator
+    self.assertEqual(analysis.system_com_pseudo_work_j, 0)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SquatAnalysis' object has no attribute 'system_com_pseudo_work_j'. Did you mean: 'system_com_work_j'?
+
+======================================================================
+FAIL: test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': nan})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 89, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    with self.subTest(arguments=arguments), self.assertRaises(PowerCleanRefused):
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PowerCleanRefused not raised
+
+======================================================================
+FAIL: test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': inf})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 89, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    with self.subTest(arguments=arguments), self.assertRaises(PowerCleanRefused):
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PowerCleanRefused not raised
+
+======================================================================
+FAIL: test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': True})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 89, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    with self.subTest(arguments=arguments), self.assertRaises(PowerCleanRefused):
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PowerCleanRefused not raised
+
+======================================================================
+FAIL: test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': -1})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 89, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    with self.subTest(arguments=arguments), self.assertRaises(PowerCleanRefused):
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PowerCleanRefused not raised
+
+======================================================================
+FAIL: test_nonfinite_or_invalid_projection_geometry_is_refused (test_i3_artifact_repairs.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': 1.2})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 89, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    with self.subTest(arguments=arguments), self.assertRaises(PowerCleanRefused):
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PowerCleanRefused not raised
+
+======================================================================
+FAIL: test_over_reach_is_not_clipped_into_a_feasible_straight_arm (test_i3_artifact_repairs.ReachDomainTests.test_over_reach_is_not_clipped_into_a_feasible_straight_arm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 83, in test_over_reach_is_not_clipped_into_a_feasible_straight_arm
+    self.assertFalse(result.feasible)
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_bench_whole_system_force_requires_explicit_rack_reaction (test_i3_artifact_repairs.ReportingDefectTests.test_bench_whole_system_force_requires_explicit_rack_reaction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 74, in test_bench_whole_system_force_requires_explicit_rack_reaction
+    with self.assertRaisesRegex(BenchRefused, "rack"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: BenchRefused not raised
+
+======================================================================
+FAIL: test_moving_plane_reaction_point_moment_and_power_match_physical_contact (test_i3_artifact_repairs.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='material contact point')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 37, in test_moving_plane_reaction_point_moment_and_power_match_physical_contact
+    self.assertEqual(wrench.point_b_world_m, wrench.point_a_world_m)
+AssertionError: Tuples differ: (0.0, 0.0) != (0.3, 0.0)
+
+First differing element 0:
+0.0
+0.3
+
+- (0.0, 0.0)
+?    ^
+
++ (0.3, 0.0)
+?    ^
+
+
+======================================================================
+FAIL: test_moving_plane_reaction_point_moment_and_power_match_physical_contact (test_i3_artifact_repairs.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='reaction moment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 39, in test_moving_plane_reaction_point_moment_and_power_match_physical_contact
+    self.assertAlmostEqual(wrench.moment_on_b_about_com_n_m, result.accelerations["plane"].angular_rad_s2, places=11)
+AssertionError: 0.0 != -2.6990779816513757 within 11 places (2.6990779816513757 difference)
+
+======================================================================
+FAIL: test_moving_plane_reaction_point_moment_and_power_match_physical_contact (test_i3_artifact_repairs.ReportingDefectTests.test_moving_plane_reaction_point_moment_and_power_match_physical_contact) (quantity='contact power')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 41, in test_moving_plane_reaction_point_moment_and_power_match_physical_contact
+    self.assertAlmostEqual(result.contact_power_w, 0, places=11)
+AssertionError: 1.3495389908256878 != 0 within 11 places (1.3495389908256878 difference)
+
+======================================================================
+FAIL: test_signed_torque_uncertainty_is_an_ordered_interval (test_i3_artifact_repairs.ReportingDefectTests.test_signed_torque_uncertainty_is_an_ordered_interval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_artifact_repairs.py", line 52, in test_signed_torque_uncertainty_is_an_ordered_interval
+    self.assertAlmostEqual(lower, -3.6, places=12)
+AssertionError: -2.4 != -3.6 within 12 places (1.2000000000000002 difference)
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.005s
+
+FAILED (failures=11, errors=2)

@@ -1,0 +1,96 @@
+{
+  "issue": "RES-508",
+  "recorded_at_utc": "2026-10-14 04:05:06 UTC",
+  "source": "live authenticated Linear connector in the I3 execution session",
+  "i2_issues": [
+    {
+      "id": "RES-489",
+      "title": "[BSMB-I2-A] Repair evaluator false-acceptance, nonfinite schema and CI gates",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-489/bsmb-i2-a-repair-evaluator-false-acceptance-nonfinite-schema-and-ci",
+      "updatedAt": "2026-10-13T23:45:37.056Z"
+    },
+    {
+      "id": "RES-490",
+      "title": "[BSMB-I2-B] Inventory every system exercise, test, phase and instrument capability",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-490/bsmb-i2-b-inventory-every-system-exercise-test-phase-and-instrument",
+      "updatedAt": "2026-10-13T23:44:43.760Z"
+    },
+    {
+      "id": "RES-491",
+      "title": "[BSMB-I2-C] Implement reusable bilateral multibody contact, load and actuation foundation",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-491/bsmb-i2-c-implement-reusable-bilateral-multibody-contact-load-and",
+      "updatedAt": "2026-10-13T23:49:29.360Z"
+    },
+    {
+      "id": "RES-492",
+      "title": "[BSMB-I2-D] Complete jump tests: CMJ, SJ, loaded CMJ/jump squat and landing",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-492/bsmb-i2-d-complete-jump-tests-cmj-sj-loaded-cmjjump-squat-and-landing",
+      "updatedAt": "2026-10-13T23:44:43.760Z"
+    },
+    {
+      "id": "RES-493",
+      "title": "[BSMB-I2-E] Implement back squat continuous-support multi-repetition biomechanics",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-493/bsmb-i2-e-implement-back-squat-continuous-support-multi-repetition",
+      "updatedAt": "2026-10-13T14:43:17.016Z"
+    },
+    {
+      "id": "RES-494",
+      "title": "[BSMB-I2-F] Implement deadlift pre-tension, bar-floor support transfer and return",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-494/bsmb-i2-f-implement-deadlift-pre-tension-bar-floor-support-transfer",
+      "updatedAt": "2026-10-13T15:00:10.709Z"
+    },
+    {
+      "id": "RES-495",
+      "title": "[BSMB-I2-G] Implement bench-press upper-body and multi-support mechanics",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-495/bsmb-i2-g-implement-bench-press-upper-body-and-multi-support-mechanics",
+      "updatedAt": "2026-10-13T17:12:11.686Z"
+    },
+    {
+      "id": "RES-496",
+      "title": "[BSMB-I2-H] Model Olympic pulling derivatives: clean pull, snatch pull and variants",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-496/bsmb-i2-h-model-olympic-pulling-derivatives-clean-pull-snatch-pull-and",
+      "updatedAt": "2026-10-13T17:52:23.790Z"
+    },
+    {
+      "id": "RES-497",
+      "title": "[BSMB-I2-I] Implement power-clean turnover, catch and impact transitions",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-497/bsmb-i2-i-implement-power-clean-turnover-catch-and-impact-transitions",
+      "updatedAt": "2026-10-14T00:08:49.120Z"
+    },
+    {
+      "id": "RES-498",
+      "title": "[BSMB-I2-J] Verify complete protocol matrix, dual sensors and independent benchmark with public CI",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-498/bsmb-i2-j-verify-complete-protocol-matrix-dual-sensors-and-independent",
+      "updatedAt": "2026-10-13T23:49:21.034Z"
+    }
+  ],
+  "i3_prior_evidence_commit": "3041e39d5c7f132033d5e71aa3cdf5df3a52f888",
+  "full_prior_history_audit": {
+    "revision": "3041e39d5c7f132033d5e71aa3cdf5df3a52f888",
+    "files": 652,
+    "commits": 46,
+    "blobs": 521,
+    "gate": {
+      "binary_disposition": "17 owned manufactured PNG previews/figures manually inspected; no participant photography or unlicensed media.",
+      "limitations": "Pattern coverage and ownership declaration are bounded assurance, not a legal title certificate or universal secret detector.",
+      "metadata_disposition": "Canonical/generic operator paths retained after nonsecret review; original failures not rewritten.",
+      "passed": true,
+      "problems": [],
+      "rights_basis": "Direct owner-selected Apache-2.0 and personal-research declaration; original source summaries and manufactured outputs inspected."
+    },
+    "findings": {
+      "machine_path": 41,
+      "binary_manual_review": 17
+    }
+  }
+}

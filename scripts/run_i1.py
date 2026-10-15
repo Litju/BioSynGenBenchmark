@@ -256,11 +256,13 @@ def figure_vv(trajs, suite, sens) -> str:
                [math.log10(max(s.constraint_residual_m, 1e-17)) if s.mode is not ContactMode.FLIGHT else None
                 for s in traj.samples], color, 1.2, label=name)
     # (c) evaluator ratios
-    rows = [rw for rw in suite["rows"] if rw["claim"] in ("NEWTON_LINEAR_MOMENTUM", "EULER_ANGULAR_MOMENTUM", "WORK_ENERGY_LEDGER")]
-    p = fig.panel(70, 380, 470, 260, (-0.5, 3.5), (0, 2), "(c) Adjudicated outcomes per case family (count)",
+    fams = suite["families"]
+    p = fig.panel(70, 380, 470, 260, (-0.5, len(fams) - 0.5), (0, 2), "(c) Adjudicated outcomes per case family (count)",
                   "case family", "claim instances")
-    fams = ["benchmark_closed_form", "i0_prescribed_force", "i1_multisegment", "mutation"]
-    p.xtick_labels = {0: "closed form", 1: "I0 1-D family", 2: "I1 multisegment", 3: "mutations"}
+    family_labels = {"benchmark_closed_form": "closed form", "i0_prescribed_force": "I0 1-D",
+                     "i1_multisegment": "I1 multisegment", "unseen_model_family": "unseen 2-body",
+                     "mutation": "negatives"}
+    p.xtick_labels = {i: family_labels.get(family, family[:12]) for i, family in enumerate(fams)}
     agg = {f: {"PASS": 0, "REJECTED": 0, "NOT_EVALUABLE": 0} for f in fams}
     for rw in suite["rows"]:
         agg[rw["family"]][rw["observed"] if rw["observed"] in ("PASS", "REJECTED") else "NOT_EVALUABLE"] += 1
@@ -277,10 +279,10 @@ def figure_vv(trajs, suite, sens) -> str:
                 p.text(k, base + n / 2, str(n), size=9, color="#FFFFFF", anchor="middle")
             base += n
     p.legend += [("marker", PALETTE["green"], "PASS (expected for positives)"),
-                 ("marker", PALETTE["vermillion"], "REJECTED (expected for mutations)"),
+                 ("marker", PALETTE["vermillion"], "REJECTED (expected for negatives)"),
                  ("marker", PALETTE["grey"], "NOT_EVALUABLE (expected abstentions)")]
     t = suite["totals"]
-    p.text(3.4, top * 1.22, f"{t['agreements']}/{t['adjudicated_claim_instances']} agree; gate {suite['gate']}; "
+    p.text(len(fams) - 0.1, top * 1.22, f"{t['agreements']}/{t['adjudicated_claim_instances']} agree; gate {suite['gate']}; "
            f"refuse-all & accept-all FAIL", size=9, anchor="end")
     # (d) sensitivity tornado
     ref = next(s for s in sens if s["parameter"] == "reference")["takeoff_velocity_m_s"]
@@ -403,7 +405,7 @@ def main() -> None:
         same = all((base / "replica-a" / f).read_bytes() == (base / "replica-b" / f).read_bytes() for f in files)
         record = {"replicas": digests, "byte_identical": same, "files": files,
                   "method": "two separate OS processes of `python -m scripts.run_i1`; every file compared byte-for-byte"}
-        (base / "reproducibility.json").write_text(json.dumps(record, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+        (base / "reproducibility.json").write_bytes((json.dumps(record, indent=1, sort_keys=True) + "\n").encode("utf-8"))
         print(json.dumps(record, indent=1))
         if not same or len(set(digests.values())) != 1:
             raise SystemExit("replicas differ")

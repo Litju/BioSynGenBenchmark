@@ -1,0 +1,7 @@
+test_flight_segment_matches_dop853 (tests.test_i1_solver_crosscheck.ScipyCrossCheck.test_flight_segment_matches_dop853) ... ok
+test_unweighting_segment_matches_dop853 (tests.test_i1_solver_crosscheck.ScipyCrossCheck.test_unweighting_segment_matches_dop853) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 5.346s
+
+OK

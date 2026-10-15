@@ -1,0 +1,613 @@
+test_equal_opposite_force_faults_cannot_cancel (test_i3_evaluator.AnalyticalReferenceTests.test_equal_opposite_force_faults_cannot_cancel) ... FAIL
+test_impulse_friction_cone_is_checked (test_i3_evaluator.AnalyticalReferenceTests.test_impulse_friction_cone_is_checked) ... FAIL
+test_impulse_outside_record_is_invalid_even_if_zero (test_i3_evaluator.AnalyticalReferenceTests.test_impulse_outside_record_is_invalid_even_if_zero) ... FAIL
+test_local_corruption_cannot_cancel_at_record_end (test_i3_evaluator.AnalyticalReferenceTests.test_local_corruption_cannot_cancel_at_record_end) ... FAIL
+test_ten_independent_support_and_free_fall_cases (test_i3_evaluator.AnalyticalReferenceTests.test_ten_independent_support_and_free_fall_cases) ... ok
+test_tensile_impulse_cannot_pass_contact_admissibility (test_i3_evaluator.AnalyticalReferenceTests.test_tensile_impulse_cannot_pass_contact_admissibility) ... FAIL
+test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) ...
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='bodies', value=None) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='bodies', value=1) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='bodies', value=True) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='initial_body_states', value=None) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='initial_body_states', value=1) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='initial_body_states', value=True) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='frames', value=None) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='frames', value=1) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='frames', value=True) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='impulses', value=None) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='impulses', value=1) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='impulses', value=True) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='external_support_groups', value=None) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='external_support_groups', value=1) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='external_support_groups', value=True) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='external_support_groups', value='x') ... FAIL
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='friction_by_group', value=None) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='friction_by_group', value=1) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='friction_by_group', value=True) ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='friction_by_group', value='x') ... FAIL
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='claims', value=None) ... FAIL
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='claims', value=1) ... FAIL
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='claims', value=True) ... FAIL
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='claims', value='x') ... FAIL
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (path='body') ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (path='state') ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (path='frame') ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (path='contact') ... ERROR
+  test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (path='impulse') ... ERROR
+test_candidate_tolerance_and_source_stage_spoofing_are_invalid (test_i3_evaluator.HostileSchemaTests.test_candidate_tolerance_and_source_stage_spoofing_are_invalid) ... ok
+test_duplicate_body_identities_are_invalid (test_i3_evaluator.HostileSchemaTests.test_duplicate_body_identities_are_invalid) ... FAIL
+test_impulses_require_observed_frames (test_i3_evaluator.HostileSchemaTests.test_impulses_require_observed_frames) ... FAIL
+test_inertia_must_be_positive (test_i3_evaluator.HostileSchemaTests.test_inertia_must_be_positive) ...
+  test_inertia_must_be_positive (test_i3_evaluator.HostileSchemaTests.test_inertia_must_be_positive) (value=0) ... FAIL
+  test_inertia_must_be_positive (test_i3_evaluator.HostileSchemaTests.test_inertia_must_be_positive) (value=-1) ... FAIL
+test_massless_empty_world_is_invalid (test_i3_evaluator.HostileSchemaTests.test_massless_empty_world_is_invalid) ... FAIL
+test_missing_or_nonfinite_friction_cannot_bypass_a_cone (test_i3_evaluator.HostileSchemaTests.test_missing_or_nonfinite_friction_cannot_bypass_a_cone) ...
+  test_missing_or_nonfinite_friction_cannot_bypass_a_cone (test_i3_evaluator.HostileSchemaTests.test_missing_or_nonfinite_friction_cannot_bypass_a_cone) (value={}) ... FAIL
+  test_missing_or_nonfinite_friction_cannot_bypass_a_cone (test_i3_evaluator.HostileSchemaTests.test_missing_or_nonfinite_friction_cannot_bypass_a_cone) (value={'FOOT_LEFT': nan, 'FOOT_RIGHT': 0.5}) ... FAIL
+  test_missing_or_nonfinite_friction_cannot_bypass_a_cone (test_i3_evaluator.HostileSchemaTests.test_missing_or_nonfinite_friction_cannot_bypass_a_cone) (value={'FOOT_LEFT': -1, 'FOOT_RIGHT': 0.5}) ... FAIL
+  test_missing_or_nonfinite_friction_cannot_bypass_a_cone (test_i3_evaluator.HostileSchemaTests.test_missing_or_nonfinite_friction_cannot_bypass_a_cone) (value={'FOOT_LEFT': True, 'FOOT_RIGHT': 0.5}) ... FAIL
+test_nonfinite_states_and_multiple_corruptions_are_invalid (test_i3_evaluator.HostileSchemaTests.test_nonfinite_states_and_multiple_corruptions_are_invalid) ... ok
+test_unknown_support_or_claim_is_invalid (test_i3_evaluator.HostileSchemaTests.test_unknown_support_or_claim_is_invalid) ... FAIL
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='bodies', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 55, in _schema_problems
+    for body in sub["bodies"]:
+                ~~~^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='bodies', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 55, in _schema_problems
+    for body in sub["bodies"]:
+                ~~~^^^^^^^^^^
+TypeError: 'int' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='bodies', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 55, in _schema_problems
+    for body in sub["bodies"]:
+                ~~~^^^^^^^^^^
+TypeError: 'bool' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='initial_body_states', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 59, in _schema_problems
+    for state in sub["initial_body_states"]:
+                 ~~~^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='initial_body_states', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 59, in _schema_problems
+    for state in sub["initial_body_states"]:
+                 ~~~^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'int' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='initial_body_states', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 59, in _schema_problems
+    for state in sub["initial_body_states"]:
+                 ~~~^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'bool' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='frames', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 65, in _schema_problems
+    for frame in sub["frames"]:
+                 ~~~^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='frames', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 65, in _schema_problems
+    for frame in sub["frames"]:
+                 ~~~^^^^^^^^^^
+TypeError: 'int' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='frames', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 65, in _schema_problems
+    for frame in sub["frames"]:
+                 ~~~^^^^^^^^^^
+TypeError: 'bool' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='impulses', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 83, in _schema_problems
+    for imp in sub["impulses"]:
+               ~~~^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='impulses', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 83, in _schema_problems
+    for imp in sub["impulses"]:
+               ~~~^^^^^^^^^^^^
+TypeError: 'int' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='impulses', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 83, in _schema_problems
+    for imp in sub["impulses"]:
+               ~~~^^^^^^^^^^^^
+TypeError: 'bool' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='external_support_groups', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 104, in evaluate_i2
+    external = set(sub["external_support_groups"]) - {"INTERNAL"}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='external_support_groups', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 104, in evaluate_i2
+    external = set(sub["external_support_groups"]) - {"INTERNAL"}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'int' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='external_support_groups', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 104, in evaluate_i2
+    external = set(sub["external_support_groups"]) - {"INTERNAL"}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'bool' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='friction_by_group', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 144, in evaluate_i2
+    if group in mu and abs(fx) > mu[group] * max(fz, 0.0) + FORCE_TOLERANCE * weight:
+       ^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='friction_by_group', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 144, in evaluate_i2
+    if group in mu and abs(fx) > mu[group] * max(fz, 0.0) + FORCE_TOLERANCE * weight:
+       ^^^^^^^^^^^
+TypeError: argument of type 'int' is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='friction_by_group', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 144, in evaluate_i2
+    if group in mu and abs(fx) > mu[group] * max(fz, 0.0) + FORCE_TOLERANCE * weight:
+       ^^^^^^^^^^^
+TypeError: argument of type 'bool' is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (path='body')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 108, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 56, in _schema_problems
+    if set(body) != BODY_KEYS or not _finite(body["mass_kg"]) or body["mass_kg"] <= 0 or not _finite(body["inertia_kg_m2"]):
+       ^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (path='state')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 108, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 60, in _schema_problems
+    if len(state) != 6 or not all(_finite(v) for v in state):
+       ^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (path='frame')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 108, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 66, in _schema_problems
+    if set(frame) != FRAME_KEYS:
+       ^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (path='contact')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 108, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 80, in _schema_problems
+    if set(c) != CONTACT_KEYS or c["group"] not in KNOWN_GROUPS or not all(_finite(c[k]) for k in ("x", "z", "fx", "fz")):
+       ^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+======================================================================
+ERROR: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (path='impulse')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 108, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+                     ^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 97, in evaluate_i2
+    problems = _schema_problems(sub)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen_benchmark\i2_evaluator.py", line 84, in _schema_problems
+    if set(imp) != IMPULSE_KEYS or imp["group"] not in KNOWN_GROUPS or not all(_finite(imp[k]) for k in ("t", "x", "z", "jx", "jz")):
+       ^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+======================================================================
+FAIL: test_equal_opposite_force_faults_cannot_cancel (test_i3_evaluator.AnalyticalReferenceTests.test_equal_opposite_force_faults_cannot_cancel)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 66, in test_equal_opposite_force_faults_cannot_cancel
+    self.assertEqual(evaluate_i2(sub)["findings"]["LINEAR_MOMENTUM_CLOSURE"]["outcome"], "REJECTED")
+AssertionError: 'PASS' != 'REJECTED'
+- PASS
++ REJECTED
+
+
+======================================================================
+FAIL: test_impulse_friction_cone_is_checked (test_i3_evaluator.AnalyticalReferenceTests.test_impulse_friction_cone_is_checked)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 88, in test_impulse_friction_cone_is_checked
+    self.assertEqual(evaluate_i2(sub)["findings"]["CONTACT_ADMISSIBILITY"]["outcome"], "REJECTED")
+AssertionError: 'PASS' != 'REJECTED'
+- PASS
++ REJECTED
+
+
+======================================================================
+FAIL: test_impulse_outside_record_is_invalid_even_if_zero (test_i3_evaluator.AnalyticalReferenceTests.test_impulse_outside_record_is_invalid_even_if_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 80, in test_impulse_outside_record_is_invalid_even_if_zero
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_local_corruption_cannot_cancel_at_record_end (test_i3_evaluator.AnalyticalReferenceTests.test_local_corruption_cannot_cancel_at_record_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 60, in test_local_corruption_cannot_cancel_at_record_end
+    self.assertEqual(evaluate_i2(sub)["findings"]["LINEAR_MOMENTUM_CLOSURE"]["outcome"], "REJECTED")
+AssertionError: 'PASS' != 'REJECTED'
+- PASS
++ REJECTED
+
+
+======================================================================
+FAIL: test_tensile_impulse_cannot_pass_contact_admissibility (test_i3_evaluator.AnalyticalReferenceTests.test_tensile_impulse_cannot_pass_contact_admissibility)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 74, in test_tensile_impulse_cannot_pass_contact_admissibility
+    self.assertEqual(evaluate_i2(sub)["findings"]["CONTACT_ADMISSIBILITY"]["outcome"], "REJECTED")
+AssertionError: 'PASS' != 'REJECTED'
+- PASS
++ REJECTED
+
+
+======================================================================
+FAIL: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='external_support_groups', value='x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='friction_by_group', value='x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='claims', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='claims', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='claims', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_arbitrary_nested_json_types_return_invalid_without_throwing (test_i3_evaluator.HostileSchemaTests.test_arbitrary_nested_json_types_return_invalid_without_throwing) (key='claims', value='x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 99, in test_arbitrary_nested_json_types_return_invalid_without_throwing
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_duplicate_body_identities_are_invalid (test_i3_evaluator.HostileSchemaTests.test_duplicate_body_identities_are_invalid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 131, in test_duplicate_body_identities_are_invalid
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_impulses_require_observed_frames (test_i3_evaluator.HostileSchemaTests.test_impulses_require_observed_frames)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 168, in test_impulses_require_observed_frames
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_inertia_must_be_positive (test_i3_evaluator.HostileSchemaTests.test_inertia_must_be_positive) (value=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 124, in test_inertia_must_be_positive
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_inertia_must_be_positive (test_i3_evaluator.HostileSchemaTests.test_inertia_must_be_positive) (value=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 124, in test_inertia_must_be_positive
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_massless_empty_world_is_invalid (test_i3_evaluator.HostileSchemaTests.test_massless_empty_world_is_invalid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 117, in test_massless_empty_world_is_invalid
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_missing_or_nonfinite_friction_cannot_bypass_a_cone (test_i3_evaluator.HostileSchemaTests.test_missing_or_nonfinite_friction_cannot_bypass_a_cone) (value={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 139, in test_missing_or_nonfinite_friction_cannot_bypass_a_cone
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_missing_or_nonfinite_friction_cannot_bypass_a_cone (test_i3_evaluator.HostileSchemaTests.test_missing_or_nonfinite_friction_cannot_bypass_a_cone) (value={'FOOT_LEFT': nan, 'FOOT_RIGHT': 0.5})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 139, in test_missing_or_nonfinite_friction_cannot_bypass_a_cone
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_missing_or_nonfinite_friction_cannot_bypass_a_cone (test_i3_evaluator.HostileSchemaTests.test_missing_or_nonfinite_friction_cannot_bypass_a_cone) (value={'FOOT_LEFT': -1, 'FOOT_RIGHT': 0.5})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 139, in test_missing_or_nonfinite_friction_cannot_bypass_a_cone
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_missing_or_nonfinite_friction_cannot_bypass_a_cone (test_i3_evaluator.HostileSchemaTests.test_missing_or_nonfinite_friction_cannot_bypass_a_cone) (value={'FOOT_LEFT': True, 'FOOT_RIGHT': 0.5})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 139, in test_missing_or_nonfinite_friction_cannot_bypass_a_cone
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+======================================================================
+FAIL: test_unknown_support_or_claim_is_invalid (test_i3_evaluator.HostileSchemaTests.test_unknown_support_or_claim_is_invalid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_evaluator.py", line 144, in test_unknown_support_or_claim_is_invalid
+    self.assertEqual(evaluate_i2(sub)["status"], "INVALID")
+AssertionError: 'EVALUATED' != 'INVALID'
+- EVALUATED
++ INVALID
+
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.015s
+
+FAILED (failures=21, errors=23)

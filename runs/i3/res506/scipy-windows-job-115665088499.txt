@@ -1,0 +1,181 @@
+﻿2026-10-14T03:29:14.5446266Z Current runner version: '2.337.0'
+2026-10-14T03:29:14.5484744Z ##[group]Runner Image Provisioner
+2026-10-14T03:29:14.5486107Z Hosted Compute Agent
+2026-10-14T03:29:14.5487072Z Version: 20260901.588
+2026-10-14T03:29:14.5488484Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-14T03:29:14.5489685Z Build Date: 2026-09-01T19:56:44Z
+2026-10-14T03:29:14.5490759Z Worker ID: {f93956cb-2ac4-413a-9900-9e65857e9627}
+2026-10-14T03:29:14.5492025Z Azure Region: westus
+2026-10-14T03:29:14.5492905Z ##[endgroup]
+2026-10-14T03:29:14.5495287Z ##[group]Operating System
+2026-10-14T03:29:14.5496353Z Microsoft Windows Server 2025
+2026-10-14T03:29:14.5497417Z 10.0.26100
+2026-10-14T03:29:14.5498250Z Datacenter
+2026-10-14T03:29:14.5499093Z ##[endgroup]
+2026-10-14T03:29:14.5499960Z ##[group]Runner Image
+2026-10-14T03:29:14.5500973Z Image: windows-2025-vs2026
+2026-10-14T03:29:14.5501982Z Version: 20260925.250.1
+2026-10-14T03:29:14.5504710Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20260925.250/images/windows/Windows2025-VS2026-Readme.md
+2026-10-14T03:29:14.5507787Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20260925.250
+2026-10-14T03:29:14.5510018Z ##[endgroup]
+2026-10-14T03:29:14.5511927Z ##[group]GITHUB_TOKEN Permissions
+2026-10-14T03:29:14.5515049Z Contents: read
+2026-10-14T03:29:14.5515939Z Metadata: read
+2026-10-14T03:29:14.5516841Z ##[endgroup]
+2026-10-14T03:29:14.5519960Z Secret source: Actions
+2026-10-14T03:29:14.5521378Z Cache mode: write
+2026-10-14T03:29:14.5522606Z Prepare workflow directory
+2026-10-14T03:29:14.6019316Z Prepare all required actions
+2026-10-14T03:29:14.6074134Z Getting action download info
+2026-10-14T03:29:14.9429725Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-14T03:29:15.0819182Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-14T03:29:15.3820376Z Complete job name: SciPy DOP853 / windows-latest
+2026-10-14T03:29:15.5311937Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-14T03:29:15.5313239Z with:
+2026-10-14T03:29:15.5313698Z   ref: 57484146cd12859dad34a004d21606cfb67bcd5f
+2026-10-14T03:29:15.5314282Z   repository: Litju/BioSynGenBenchmark
+2026-10-14T03:29:15.5318426Z   token: ***
+2026-10-14T03:29:15.5318830Z   ssh-strict: true
+2026-10-14T03:29:15.5319229Z   ssh-user: git
+2026-10-14T03:29:15.5319652Z   persist-credentials: true
+2026-10-14T03:29:15.5320105Z   clean: true
+2026-10-14T03:29:15.5320523Z   sparse-checkout-cone-mode: true
+2026-10-14T03:29:15.5321007Z   fetch-depth: 1
+2026-10-14T03:29:15.5321409Z   fetch-tags: false
+2026-10-14T03:29:15.5321816Z   show-progress: true
+2026-10-14T03:29:15.5322225Z   lfs: false
+2026-10-14T03:29:15.5322604Z   submodules: false
+2026-10-14T03:29:15.5323010Z   set-safe-directory: true
+2026-10-14T03:29:15.5323921Z   allow-unsafe-pr-checkout: false
+2026-10-14T03:29:15.5324794Z ##[endgroup]
+2026-10-14T03:29:15.6932112Z Syncing repository: Litju/BioSynGenBenchmark
+2026-10-14T03:29:15.6935051Z ##[group]Getting Git version info
+2026-10-14T03:29:15.6936284Z Working directory is 'D:\a\BioSynGenBenchmark\BioSynGenBenchmark'
+2026-10-14T03:29:15.8090546Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-14T03:29:16.1793150Z git version 2.55.0.windows.5
+2026-10-14T03:29:16.1850556Z ##[endgroup]
+2026-10-14T03:29:16.1874542Z Temporarily overriding HOME='D:\a\_temp\061e0fdb-a713-4a59-aeb5-c089cc441170' before making global git config changes
+2026-10-14T03:29:16.1876022Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T03:29:16.1889377Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\BioSynGenBenchmark\BioSynGenBenchmark
+2026-10-14T03:29:16.2519499Z Deleting the contents of 'D:\a\BioSynGenBenchmark\BioSynGenBenchmark'
+2026-10-14T03:29:16.2527808Z ##[group]Initializing the repository
+2026-10-14T03:29:16.2537885Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\BioSynGenBenchmark\BioSynGenBenchmark
+2026-10-14T03:29:16.3399743Z Initialized empty Git repository in D:/a/BioSynGenBenchmark/BioSynGenBenchmark/.git/
+2026-10-14T03:29:16.3454049Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/Litju/BioSynGenBenchmark
+2026-10-14T03:29:16.4095284Z ##[endgroup]
+2026-10-14T03:29:16.4096592Z ##[group]Disabling automatic garbage collection
+2026-10-14T03:29:16.4105481Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-10-14T03:29:16.4458422Z ##[endgroup]
+2026-10-14T03:29:16.4459785Z ##[group]Setting up auth
+2026-10-14T03:29:16.4472932Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T03:29:16.4830193Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-14T03:29:17.9144677Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T03:29:17.9506913Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-14T03:29:18.5482628Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T03:29:18.5840957Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-14T03:29:19.1753740Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-14T03:29:19.2120671Z ##[endgroup]
+2026-10-14T03:29:19.2122209Z ##[group]Fetching the repository
+2026-10-14T03:29:19.2138349Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 57484146cd12859dad34a004d21606cfb67bcd5f
+2026-10-14T03:29:20.7118897Z From https://github.com/Litju/BioSynGenBenchmark
+2026-10-14T03:29:20.7120017Z  * branch            57484146cd12859dad34a004d21606cfb67bcd5f -> FETCH_HEAD
+2026-10-14T03:29:20.7176486Z ##[endgroup]
+2026-10-14T03:29:20.7177011Z ##[group]Determining the checkout info
+2026-10-14T03:29:20.7180259Z ##[endgroup]
+2026-10-14T03:29:20.7197356Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-10-14T03:29:20.7707103Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-10-14T03:29:20.8102850Z ##[group]Checking out the ref
+2026-10-14T03:29:20.8119254Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force 57484146cd12859dad34a004d21606cfb67bcd5f
+2026-10-14T03:29:21.2956299Z Note: switching to '57484146cd12859dad34a004d21606cfb67bcd5f'.
+2026-10-14T03:29:21.2956657Z
+2026-10-14T03:29:21.2956863Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-14T03:29:21.2957510Z changes and commit them, and you can discard any commits you make in this
+2026-10-14T03:29:21.2958483Z state without impacting any branches by switching back to a branch.
+2026-10-14T03:29:21.2959036Z
+2026-10-14T03:29:21.2959257Z If you want to create a new branch to retain commits you create, you may
+2026-10-14T03:29:21.2959936Z do so (now or later) by using -c with the switch command. Example:
+2026-10-14T03:29:21.2960353Z
+2026-10-14T03:29:21.2960560Z   git switch -c <new-branch-name>
+2026-10-14T03:29:21.2960770Z
+2026-10-14T03:29:21.2960875Z Or undo this operation with:
+2026-10-14T03:29:21.2961050Z
+2026-10-14T03:29:21.2961150Z   git switch -
+2026-10-14T03:29:21.2961271Z
+2026-10-14T03:29:21.2961506Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-14T03:29:21.2963187Z
+2026-10-14T03:29:21.2963521Z HEAD is now at 5748414 RES-506: reject hidden energy changes across all sampled window starts
+2026-10-14T03:29:21.3523548Z ##[endgroup]
+2026-10-14T03:29:21.3532783Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-10-14T03:29:21.3839537Z 57484146cd12859dad34a004d21606cfb67bcd5f
+2026-10-14T03:29:21.4374800Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+2026-10-14T03:29:21.4375288Z with:
+2026-10-14T03:29:21.4375482Z   python-version: 3.11.9
+2026-10-14T03:29:21.4375721Z   check-latest: false
+2026-10-14T03:29:21.4378560Z   token: ***
+2026-10-14T03:29:21.4378783Z   update-environment: true
+2026-10-14T03:29:21.4379031Z   allow-prereleases: false
+2026-10-14T03:29:21.4379245Z   freethreaded: false
+2026-10-14T03:29:21.4379452Z ##[endgroup]
+2026-10-14T03:29:21.6216059Z (node:6072) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T03:29:21.6221554Z ##[group]Installed versions
+2026-10-14T03:29:21.6230131Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T03:29:21.6239593Z Successfully set up CPython (3.11.9)
+2026-10-14T03:29:21.6240071Z ##[endgroup]
+2026-10-14T03:29:21.6569927Z ##[group]Run python -m pip install scipy==1.17.1 numpy==2.4.4
+2026-10-14T03:29:21.6570518Z [36;1mpython -m pip install scipy==1.17.1 numpy==2.4.4[0m
+2026-10-14T03:29:21.7360079Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T03:29:21.7360576Z env:
+2026-10-14T03:29:21.7361434Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T03:29:21.7362072Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T03:29:21.7362664Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T03:29:21.7363184Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T03:29:21.7363739Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T03:29:21.7364149Z ##[endgroup]
+2026-10-14T03:29:27.2342514Z Collecting scipy==1.17.1
+2026-10-14T03:29:27.4641789Z   Downloading scipy-1.17.1-cp311-cp311-win_amd64.whl.metadata (60 kB)
+2026-10-14T03:29:27.8405560Z Collecting numpy==2.4.4
+2026-10-14T03:29:27.8556474Z   Downloading numpy-2.4.4-cp311-cp311-win_amd64.whl.metadata (6.6 kB)
+2026-10-14T03:29:27.8971338Z Downloading scipy-1.17.1-cp311-cp311-win_amd64.whl (36.6 MB)
+2026-10-14T03:29:28.3950466Z    ---------------------------------------- 36.6/36.6 MB 80.2 MB/s  0:00:00
+2026-10-14T03:29:28.4097854Z Downloading numpy-2.4.4-cp311-cp311-win_amd64.whl (12.6 MB)
+2026-10-14T03:29:28.5196401Z    ---------------------------------------- 12.6/12.6 MB 131.4 MB/s  0:00:00
+2026-10-14T03:29:28.8016228Z Installing collected packages: numpy, scipy
+2026-10-14T03:29:42.8104044Z
+2026-10-14T03:29:42.8116954Z Successfully installed numpy-2.4.4 scipy-1.17.1
+2026-10-14T03:29:43.0274081Z ##[group]Run python -m scripts.require_i3_scipy_checks
+2026-10-14T03:29:43.0274562Z [36;1mpython -m scripts.require_i3_scipy_checks[0m
+2026-10-14T03:29:43.0353609Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T03:29:43.0353965Z env:
+2026-10-14T03:29:43.0354232Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T03:29:43.0354704Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T03:29:43.0355157Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T03:29:43.0355560Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T03:29:43.0355977Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T03:29:43.0356285Z ##[endgroup]
+2026-10-14T03:29:43.5883596Z 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)] SciPy 1.17.1 NumPy 2.4.4
+2026-10-14T03:29:47.6874119Z test_flight_segment_matches_dop853 (tests.test_i1_solver_crosscheck.ScipyCrossCheck.test_flight_segment_matches_dop853) ... ok
+2026-10-14T03:29:49.1997331Z test_unweighting_segment_matches_dop853 (tests.test_i1_solver_crosscheck.ScipyCrossCheck.test_unweighting_segment_matches_dop853) ... ok
+2026-10-14T03:29:49.1997962Z
+2026-10-14T03:29:49.1998124Z ----------------------------------------------------------------------
+2026-10-14T03:29:49.1998459Z Ran 2 tests in 5.012s
+2026-10-14T03:29:49.1998584Z
+2026-10-14T03:29:49.1998661Z OK
+2026-10-14T03:29:49.4189131Z Post job cleanup.
+2026-10-14T03:29:49.5711890Z (node:5636) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T03:29:49.5713149Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T03:29:49.6048715Z Post job cleanup.
+2026-10-14T03:29:49.8325229Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-14T03:29:49.8620824Z git version 2.55.0.windows.5
+2026-10-14T03:29:49.8696749Z Temporarily overriding HOME='D:\a\_temp\4c409a1a-1dc1-4476-922c-11fa6fbff05f' before making global git config changes
+2026-10-14T03:29:49.8698058Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T03:29:49.8709085Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\BioSynGenBenchmark\BioSynGenBenchmark
+2026-10-14T03:29:49.9044895Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T03:29:49.9372172Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-14T03:29:50.5175721Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T03:29:50.5431791Z http.https://github.com/.extraheader
+2026-10-14T03:29:50.5481708Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-10-14T03:29:50.5798936Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-14T03:29:51.1280194Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T03:29:51.1582676Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-14T03:29:51.7254363Z Cleaning up orphan processes
+2026-10-14T03:29:51.7437570Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

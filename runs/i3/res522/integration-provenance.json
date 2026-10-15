@@ -1,0 +1,86 @@
+{
+  "issue": "RES-522",
+  "base": "d758254e0b18b12f5d8b670cfd5c536eddfe2824",
+  "preserved_i4_tip": "13a0a8fb3cff935116e0787d66516a23dc4716ba",
+  "qualified_contact_commit": "d5e651c539a29c9b4eb01192e3febf0f6ac8ec4d",
+  "selected": [
+    {
+      "path": "biosyngen/multibody.py",
+      "origin_commit": "d5e651c539a29c9b4eb01192e3febf0f6ac8ec4d",
+      "origin_path": "biosyngen/multibody.py",
+      "origin_sha256": "5f2c4246998301b7fc96e34a5499f4af6dcebb47797aa000f6175eb6af34376d",
+      "sha256": "5f2c4246998301b7fc96e34a5499f4af6dcebb47797aa000f6175eb6af34376d",
+      "identical_to_origin": true,
+      "rights": "OWNED / CLEARED_FOR_PUBLICATION under RES-505 owner declaration; source or manufactured fixture",
+      "modifications": "None"
+    },
+    {
+      "path": "tests/test_i2d_engine_extensions.py",
+      "origin_commit": "d5e651c539a29c9b4eb01192e3febf0f6ac8ec4d",
+      "origin_path": "tests/test_i2d_engine_extensions.py",
+      "origin_sha256": "bf7342413f31f3eb808876ef5d0aae67cbde875fc3d636e967a366e95d3664dd",
+      "sha256": "bf7342413f31f3eb808876ef5d0aae67cbde875fc3d636e967a366e95d3664dd",
+      "identical_to_origin": true,
+      "rights": "OWNED / CLEARED_FOR_PUBLICATION under RES-505 owner declaration; source or manufactured fixture",
+      "modifications": "None"
+    },
+    {
+      "path": "tests/test_i4_projection.py",
+      "origin_commit": "d5e651c539a29c9b4eb01192e3febf0f6ac8ec4d",
+      "origin_path": "tests/test_i4_projection.py",
+      "origin_sha256": "ca2f6ba7f854a03a1e428d0c6bdd84f6d1175c84662b53e594a74ab50597b49f",
+      "sha256": "d384159ac34b5e1e3be7eac33b3bc6c8e938acd15d8bd394bf2f413e08989090",
+      "identical_to_origin": false,
+      "rights": "OWNED / CLEARED_FOR_PUBLICATION under RES-505 owner declaration; source or manufactured fixture",
+      "modifications": "Self-contained fixture loading and additional independent closure control"
+    },
+    {
+      "path": "tests/fixtures/i4_grazing_projection.json",
+      "origin_commit": "d5e651c539a29c9b4eb01192e3febf0f6ac8ec4d",
+      "origin_path": "tests/fixtures/i4_grazing_projection.json",
+      "origin_sha256": "9778d1e601638144bf6d3548837007ef3c5d3d43fe82ca9f421e24d8196d884f",
+      "sha256": "9778d1e601638144bf6d3548837007ef3c5d3d43fe82ca9f421e24d8196d884f",
+      "identical_to_origin": true,
+      "rights": "OWNED / CLEARED_FOR_PUBLICATION under RES-505 owner declaration; source or manufactured fixture",
+      "modifications": "None"
+    },
+    {
+      "path": "tests/fixtures/res522_contact_first.json",
+      "origin_commit": "d5e651c539a29c9b4eb01192e3febf0f6ac8ec4d",
+      "origin_path": "runs/i4/res514/contact-falsifier.json",
+      "origin_sha256": "2c6495cf7d401ff9e87c9eec0a8fc94b2a0fcfc5b06c0f825d875ff868a6eb07",
+      "sha256": "2c6495cf7d401ff9e87c9eec0a8fc94b2a0fcfc5b06c0f825d875ff868a6eb07",
+      "identical_to_origin": true,
+      "rights": "OWNED / CLEARED_FOR_PUBLICATION under RES-505 owner declaration; source or manufactured fixture",
+      "modifications": "None"
+    },
+    {
+      "path": "tests/fixtures/res522_contact_second.json",
+      "origin_commit": "d5e651c539a29c9b4eb01192e3febf0f6ac8ec4d",
+      "origin_path": "runs/i4/res517/second-legacy-witnesses.json",
+      "origin_sha256": "8f93e9b5276a00e86dbe1993bd02d6e3e06f158bfde6a281317e1aa2b343ee1c",
+      "sha256": "8f93e9b5276a00e86dbe1993bd02d6e3e06f158bfde6a281317e1aa2b343ee1c",
+      "identical_to_origin": true,
+      "rights": "OWNED / CLEARED_FOR_PUBLICATION under RES-505 owner declaration; source or manufactured fixture",
+      "modifications": "None"
+    }
+  ],
+  "excluded": [
+    "biosyngen/i2/recovery.py",
+    "RES-515 candidate guard/controller",
+    "I4 simulation corpora",
+    "RES-516 unopened prospective array",
+    "private/participant/source/holdout data"
+  ],
+  "historical_commits": [
+    "13a0a8fb3cff935116e0787d66516a23dc4716ba RES-521: prove frozen contact predictor excludes the 50ms safe witness",
+    "07a15af553d43faf909f1ec158e1e0b350ea59b4 RES-515: preserve rejected guarded recovery candidate and repair-limit evidence",
+    "1f36b217355aeb60e393d2cd16ab67a061d38157 RES-515: freeze constrained recovery and prospective challenge protocol",
+    "51a603d8ad45e1f3d90e1cd27acbfce575bd8c7b RES-514: falsify transition-only falls and prove inadmissible late handoffs",
+    "d5e651c539a29c9b4eb01192e3febf0f6ac8ec4d RES-517: enforce coupled Coulomb projection and reconcile grazing contacts",
+    "6611532b99fbd2de94c80276c94ea20592ccf22f RES-514: reproduce recovery hazards and isolate Coulomb projection counterexample"
+  ],
+  "physical_coefficients_and_tolerances": "UNCHANGED",
+  "ownership_basis": "RES-505 owner-selected Apache-2.0, personal-research declaration; NOTICE attribution retained",
+  "limits": "Bounded content/secret screening and owner authority declaration, not a universal detector or independent title certificate"
+}

@@ -1,0 +1,1271 @@
+{
+ "baseline_accept_everything": {
+  "gate": "FAIL",
+  "gate_failures": [
+   "NEWTON_LINEAR_MOMENTUM: negative decisions incomplete (0/6 rejected; 0 abstained, 6 falsely accepted)",
+   "NEWTON_LINEAR_MOMENTUM: abstention controls incomplete (0/1 abstained)",
+   "EULER_ANGULAR_MOMENTUM: negative decisions incomplete (0/2 rejected; 0 abstained, 2 falsely accepted)",
+   "EULER_ANGULAR_MOMENTUM: abstention controls incomplete (0/1 abstained)",
+   "CONTACT_ADMISSIBILITY: negative decisions incomplete (0/3 rejected; 0 abstained, 3 falsely accepted)",
+   "BALLISTIC_FLIGHT: negative decisions incomplete (0/2 rejected; 0 abstained, 2 falsely accepted)",
+   "BALLISTIC_FLIGHT: abstention controls incomplete (0/1 abstained)",
+   "WORK_ENERGY_LEDGER: negative decisions incomplete (0/4 rejected; 0 abstained, 4 falsely accepted)",
+   "ACTIVATION_WITHIN_DECLARED_SCOPE: negative decisions incomplete (0/1 rejected; 0 abstained, 1 falsely accepted)",
+   "LPT_CABLE_GEOMETRY: negative decisions incomplete (0/1 rejected; 0 abstained, 1 falsely accepted)",
+   "LPT_CABLE_GEOMETRY: abstention controls incomplete (0/3 abstained)",
+   "CLOCK_INTEGRITY: negative decisions incomplete (0/2 rejected; 0 abstained, 2 falsely accepted)",
+   "FORCE_FLIGHT_ZERO: abstention controls incomplete (0/2 abstained)",
+   "PLATE_WEIGHT_CONSISTENCY: abstention controls incomplete (0/3 abstained)",
+   "BILATERAL_FORCE: negative decisions incomplete (0/1 rejected; 0 abstained, 1 falsely accepted)",
+   "BILATERAL_FORCE: abstention controls incomplete (0/1 abstained)",
+   "CROSS_DEVICE_SYNC: abstention controls incomplete (0/1 abstained)",
+   "BIOLOGICAL_VALIDITY: abstention controls incomplete (0/1 abstained)",
+   "SENSOR_METROLOGY: abstention controls incomplete (0/1 abstained)",
+   "REAL_PAIRED_FORCE_LPT: abstention controls incomplete (0/1 abstained)"
+  ]
+ },
+ "baseline_refuse_everything": {
+  "gate": "FAIL",
+  "gate_failures": [
+   "NEWTON_LINEAR_MOMENTUM: positive decisions incomplete (0/5 accepted)",
+   "NEWTON_LINEAR_MOMENTUM: negative decisions incomplete (0/6 rejected; 6 abstained, 0 falsely accepted)",
+   "EULER_ANGULAR_MOMENTUM: positive decisions incomplete (0/5 accepted)",
+   "EULER_ANGULAR_MOMENTUM: negative decisions incomplete (0/2 rejected; 2 abstained, 0 falsely accepted)",
+   "CONTACT_ADMISSIBILITY: positive decisions incomplete (0/5 accepted)",
+   "CONTACT_ADMISSIBILITY: negative decisions incomplete (0/3 rejected; 3 abstained, 0 falsely accepted)",
+   "BALLISTIC_FLIGHT: positive decisions incomplete (0/6 accepted)",
+   "BALLISTIC_FLIGHT: negative decisions incomplete (0/2 rejected; 2 abstained, 0 falsely accepted)",
+   "WORK_ENERGY_LEDGER: positive decisions incomplete (0/4 accepted)",
+   "WORK_ENERGY_LEDGER: negative decisions incomplete (0/4 rejected; 4 abstained, 0 falsely accepted)",
+   "ACTIVATION_WITHIN_DECLARED_SCOPE: positive decisions incomplete (0/3 accepted)",
+   "ACTIVATION_WITHIN_DECLARED_SCOPE: negative decisions incomplete (0/1 rejected; 1 abstained, 0 falsely accepted)",
+   "LPT_CABLE_GEOMETRY: negative decisions incomplete (0/1 rejected; 1 abstained, 0 falsely accepted)",
+   "CLOCK_INTEGRITY: positive decisions incomplete (0/3 accepted)",
+   "CLOCK_INTEGRITY: negative decisions incomplete (0/2 rejected; 2 abstained, 0 falsely accepted)",
+   "BILATERAL_FORCE: negative decisions incomplete (0/1 rejected; 1 abstained, 0 falsely accepted)"
+  ]
+ },
+ "case_families": [
+  "benchmark_closed_form",
+  "i0_prescribed_force",
+  "i1_multisegment",
+  "mutation",
+  "unseen_model_family"
+ ],
+ "claim_ceiling": [
+  "NUMERICAL_VERIFICATION_ONLY",
+  "SIMULATED_MEASUREMENT_ONLY",
+  "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+  "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+ ],
+ "evaluator": {
+  "gate": "PASS",
+  "gate_failures": [],
+  "per_claim": {
+   "ACTIVATION_WITHIN_DECLARED_SCOPE": {
+    "abstention_control_accuracy": null,
+    "abstention_control_accuracy_wilson95": null,
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.7934506856227626
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     5.551115123125783e-17,
+     0.5614970317550454
+    ],
+    "negative_abstain": 0,
+    "negative_abstention_rate": 0.0,
+    "negative_abstention_rate_wilson95": [
+     0.0,
+     0.7934506856227626
+    ],
+    "negative_decision_coverage": 1.0,
+    "negative_decision_coverage_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "negative_rejection_accuracy": 1.0,
+    "negative_rejection_accuracy_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "negatives": 1,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": 1.0,
+    "positive_acceptance_accuracy_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "positive_decision_coverage": 1.0,
+    "positive_decision_coverage_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "positives": 3,
+    "true_accept": 3,
+    "true_accept_rate_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "true_reject": 1
+   },
+   "BALLISTIC_FLIGHT": {
+    "abstention_control_accuracy": 1.0,
+    "abstention_control_accuracy_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "abstention_controls": 1,
+    "correct_abstentions": 1,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.6576197724933469
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     2.7755575615628914e-17,
+     0.3903342879021653
+    ],
+    "negative_abstain": 0,
+    "negative_abstention_rate": 0.0,
+    "negative_abstention_rate_wilson95": [
+     0.0,
+     0.6576197724933469
+    ],
+    "negative_decision_coverage": 1.0,
+    "negative_decision_coverage_wilson95": [
+     0.34238022750665303,
+     1.0
+    ],
+    "negative_rejection_accuracy": 1.0,
+    "negative_rejection_accuracy_wilson95": [
+     0.34238022750665303,
+     1.0
+    ],
+    "negatives": 2,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": 1.0,
+    "positive_acceptance_accuracy_wilson95": [
+     0.6096657120978346,
+     1.0
+    ],
+    "positive_decision_coverage": 1.0,
+    "positive_decision_coverage_wilson95": [
+     0.6096657120978346,
+     1.0
+    ],
+    "positives": 6,
+    "true_accept": 6,
+    "true_accept_rate_wilson95": [
+     0.6096657120978346,
+     1.0
+    ],
+    "true_reject": 2
+   },
+   "BILATERAL_FORCE": {
+    "abstention_control_accuracy": 1.0,
+    "abstention_control_accuracy_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "abstention_controls": 1,
+    "correct_abstentions": 1,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.7934506856227626
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negative_abstention_rate": 0.0,
+    "negative_abstention_rate_wilson95": [
+     0.0,
+     0.7934506856227626
+    ],
+    "negative_decision_coverage": 1.0,
+    "negative_decision_coverage_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "negative_rejection_accuracy": 1.0,
+    "negative_rejection_accuracy_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "negatives": 1,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": null,
+    "positive_acceptance_accuracy_wilson95": null,
+    "positive_decision_coverage": null,
+    "positive_decision_coverage_wilson95": null,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 1
+   },
+   "BIOLOGICAL_VALIDITY": {
+    "abstention_control_accuracy": 1.0,
+    "abstention_control_accuracy_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "abstention_controls": 1,
+    "correct_abstentions": 1,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": null,
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negative_abstention_rate": null,
+    "negative_abstention_rate_wilson95": null,
+    "negative_decision_coverage": null,
+    "negative_decision_coverage_wilson95": null,
+    "negative_rejection_accuracy": null,
+    "negative_rejection_accuracy_wilson95": null,
+    "negatives": 0,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": null,
+    "positive_acceptance_accuracy_wilson95": null,
+    "positive_decision_coverage": null,
+    "positive_decision_coverage_wilson95": null,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 0
+   },
+   "CLOCK_INTEGRITY": {
+    "abstention_control_accuracy": null,
+    "abstention_control_accuracy_wilson95": null,
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.6576197724933469
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     5.551115123125783e-17,
+     0.5614970317550454
+    ],
+    "negative_abstain": 0,
+    "negative_abstention_rate": 0.0,
+    "negative_abstention_rate_wilson95": [
+     0.0,
+     0.6576197724933469
+    ],
+    "negative_decision_coverage": 1.0,
+    "negative_decision_coverage_wilson95": [
+     0.34238022750665303,
+     1.0
+    ],
+    "negative_rejection_accuracy": 1.0,
+    "negative_rejection_accuracy_wilson95": [
+     0.34238022750665303,
+     1.0
+    ],
+    "negatives": 2,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": 1.0,
+    "positive_acceptance_accuracy_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "positive_decision_coverage": 1.0,
+    "positive_decision_coverage_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "positives": 3,
+    "true_accept": 3,
+    "true_accept_rate_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "true_reject": 2
+   },
+   "CONTACT_ADMISSIBILITY": {
+    "abstention_control_accuracy": null,
+    "abstention_control_accuracy_wilson95": null,
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     5.551115123125783e-17,
+     0.5614970317550454
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     0.0,
+     0.43448246478317476
+    ],
+    "negative_abstain": 0,
+    "negative_abstention_rate": 0.0,
+    "negative_abstention_rate_wilson95": [
+     5.551115123125783e-17,
+     0.5614970317550454
+    ],
+    "negative_decision_coverage": 1.0,
+    "negative_decision_coverage_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "negative_rejection_accuracy": 1.0,
+    "negative_rejection_accuracy_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "negatives": 3,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": 1.0,
+    "positive_acceptance_accuracy_wilson95": [
+     0.5655175352168251,
+     1.0
+    ],
+    "positive_decision_coverage": 1.0,
+    "positive_decision_coverage_wilson95": [
+     0.5655175352168251,
+     1.0
+    ],
+    "positives": 5,
+    "true_accept": 5,
+    "true_accept_rate_wilson95": [
+     0.5655175352168251,
+     1.0
+    ],
+    "true_reject": 3
+   },
+   "CROSS_DEVICE_SYNC": {
+    "abstention_control_accuracy": 1.0,
+    "abstention_control_accuracy_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "abstention_controls": 1,
+    "correct_abstentions": 1,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": null,
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negative_abstention_rate": null,
+    "negative_abstention_rate_wilson95": null,
+    "negative_decision_coverage": null,
+    "negative_decision_coverage_wilson95": null,
+    "negative_rejection_accuracy": null,
+    "negative_rejection_accuracy_wilson95": null,
+    "negatives": 0,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": null,
+    "positive_acceptance_accuracy_wilson95": null,
+    "positive_decision_coverage": null,
+    "positive_decision_coverage_wilson95": null,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 0
+   },
+   "EULER_ANGULAR_MOMENTUM": {
+    "abstention_control_accuracy": 1.0,
+    "abstention_control_accuracy_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "abstention_controls": 1,
+    "correct_abstentions": 1,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.6576197724933469
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     0.0,
+     0.43448246478317476
+    ],
+    "negative_abstain": 0,
+    "negative_abstention_rate": 0.0,
+    "negative_abstention_rate_wilson95": [
+     0.0,
+     0.6576197724933469
+    ],
+    "negative_decision_coverage": 1.0,
+    "negative_decision_coverage_wilson95": [
+     0.34238022750665303,
+     1.0
+    ],
+    "negative_rejection_accuracy": 1.0,
+    "negative_rejection_accuracy_wilson95": [
+     0.34238022750665303,
+     1.0
+    ],
+    "negatives": 2,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": 1.0,
+    "positive_acceptance_accuracy_wilson95": [
+     0.5655175352168251,
+     1.0
+    ],
+    "positive_decision_coverage": 1.0,
+    "positive_decision_coverage_wilson95": [
+     0.5655175352168251,
+     1.0
+    ],
+    "positives": 5,
+    "true_accept": 5,
+    "true_accept_rate_wilson95": [
+     0.5655175352168251,
+     1.0
+    ],
+    "true_reject": 2
+   },
+   "FORCE_FLIGHT_ZERO": {
+    "abstention_control_accuracy": 1.0,
+    "abstention_control_accuracy_wilson95": [
+     0.34238022750665303,
+     1.0
+    ],
+    "abstention_controls": 2,
+    "correct_abstentions": 2,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": null,
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negative_abstention_rate": null,
+    "negative_abstention_rate_wilson95": null,
+    "negative_decision_coverage": null,
+    "negative_decision_coverage_wilson95": null,
+    "negative_rejection_accuracy": null,
+    "negative_rejection_accuracy_wilson95": null,
+    "negatives": 0,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": null,
+    "positive_acceptance_accuracy_wilson95": null,
+    "positive_decision_coverage": null,
+    "positive_decision_coverage_wilson95": null,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 0
+   },
+   "LPT_CABLE_GEOMETRY": {
+    "abstention_control_accuracy": 1.0,
+    "abstention_control_accuracy_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "abstention_controls": 3,
+    "correct_abstentions": 3,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.7934506856227626
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negative_abstention_rate": 0.0,
+    "negative_abstention_rate_wilson95": [
+     0.0,
+     0.7934506856227626
+    ],
+    "negative_decision_coverage": 1.0,
+    "negative_decision_coverage_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "negative_rejection_accuracy": 1.0,
+    "negative_rejection_accuracy_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "negatives": 1,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": null,
+    "positive_acceptance_accuracy_wilson95": null,
+    "positive_decision_coverage": null,
+    "positive_decision_coverage_wilson95": null,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 1
+   },
+   "NEWTON_LINEAR_MOMENTUM": {
+    "abstention_control_accuracy": 1.0,
+    "abstention_control_accuracy_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "abstention_controls": 1,
+    "correct_abstentions": 1,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     2.7755575615628914e-17,
+     0.3903342879021653
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     0.0,
+     0.43448246478317476
+    ],
+    "negative_abstain": 0,
+    "negative_abstention_rate": 0.0,
+    "negative_abstention_rate_wilson95": [
+     2.7755575615628914e-17,
+     0.3903342879021653
+    ],
+    "negative_decision_coverage": 1.0,
+    "negative_decision_coverage_wilson95": [
+     0.6096657120978346,
+     1.0
+    ],
+    "negative_rejection_accuracy": 1.0,
+    "negative_rejection_accuracy_wilson95": [
+     0.6096657120978346,
+     1.0
+    ],
+    "negatives": 6,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": 1.0,
+    "positive_acceptance_accuracy_wilson95": [
+     0.5655175352168251,
+     1.0
+    ],
+    "positive_decision_coverage": 1.0,
+    "positive_decision_coverage_wilson95": [
+     0.5655175352168251,
+     1.0
+    ],
+    "positives": 5,
+    "true_accept": 5,
+    "true_accept_rate_wilson95": [
+     0.5655175352168251,
+     1.0
+    ],
+    "true_reject": 6
+   },
+   "PLATE_WEIGHT_CONSISTENCY": {
+    "abstention_control_accuracy": 1.0,
+    "abstention_control_accuracy_wilson95": [
+     0.4385029682449546,
+     1.0
+    ],
+    "abstention_controls": 3,
+    "correct_abstentions": 3,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": null,
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negative_abstention_rate": null,
+    "negative_abstention_rate_wilson95": null,
+    "negative_decision_coverage": null,
+    "negative_decision_coverage_wilson95": null,
+    "negative_rejection_accuracy": null,
+    "negative_rejection_accuracy_wilson95": null,
+    "negatives": 0,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": null,
+    "positive_acceptance_accuracy_wilson95": null,
+    "positive_decision_coverage": null,
+    "positive_decision_coverage_wilson95": null,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 0
+   },
+   "REAL_PAIRED_FORCE_LPT": {
+    "abstention_control_accuracy": 1.0,
+    "abstention_control_accuracy_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "abstention_controls": 1,
+    "correct_abstentions": 1,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": null,
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negative_abstention_rate": null,
+    "negative_abstention_rate_wilson95": null,
+    "negative_decision_coverage": null,
+    "negative_decision_coverage_wilson95": null,
+    "negative_rejection_accuracy": null,
+    "negative_rejection_accuracy_wilson95": null,
+    "negatives": 0,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": null,
+    "positive_acceptance_accuracy_wilson95": null,
+    "positive_decision_coverage": null,
+    "positive_decision_coverage_wilson95": null,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 0
+   },
+   "SENSOR_METROLOGY": {
+    "abstention_control_accuracy": 1.0,
+    "abstention_control_accuracy_wilson95": [
+     0.20654931437723745,
+     1.0
+    ],
+    "abstention_controls": 1,
+    "correct_abstentions": 1,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": null,
+    "false_reject": 0,
+    "false_reject_rate_wilson95": null,
+    "negative_abstain": 0,
+    "negative_abstention_rate": null,
+    "negative_abstention_rate_wilson95": null,
+    "negative_decision_coverage": null,
+    "negative_decision_coverage_wilson95": null,
+    "negative_rejection_accuracy": null,
+    "negative_rejection_accuracy_wilson95": null,
+    "negatives": 0,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": null,
+    "positive_acceptance_accuracy_wilson95": null,
+    "positive_decision_coverage": null,
+    "positive_decision_coverage_wilson95": null,
+    "positives": 0,
+    "true_accept": 0,
+    "true_accept_rate_wilson95": null,
+    "true_reject": 0
+   },
+   "WORK_ENERGY_LEDGER": {
+    "abstention_control_accuracy": null,
+    "abstention_control_accuracy_wilson95": null,
+    "abstention_controls": 0,
+    "correct_abstentions": 0,
+    "false_accept": 0,
+    "false_accept_rate_wilson95": [
+     0.0,
+     0.4898908364545973
+    ],
+    "false_reject": 0,
+    "false_reject_rate_wilson95": [
+     0.0,
+     0.4898908364545973
+    ],
+    "negative_abstain": 0,
+    "negative_abstention_rate": 0.0,
+    "negative_abstention_rate_wilson95": [
+     0.0,
+     0.4898908364545973
+    ],
+    "negative_decision_coverage": 1.0,
+    "negative_decision_coverage_wilson95": [
+     0.5101091635454027,
+     1.0
+    ],
+    "negative_rejection_accuracy": 1.0,
+    "negative_rejection_accuracy_wilson95": [
+     0.5101091635454027,
+     1.0
+    ],
+    "negatives": 4,
+    "positive_abstain": 0,
+    "positive_acceptance_accuracy": 1.0,
+    "positive_acceptance_accuracy_wilson95": [
+     0.5101091635454027,
+     1.0
+    ],
+    "positive_decision_coverage": 1.0,
+    "positive_decision_coverage_wilson95": [
+     0.5101091635454027,
+     1.0
+    ],
+    "positives": 4,
+    "true_accept": 4,
+    "true_accept_rate_wilson95": [
+     0.5101091635454027,
+     1.0
+    ],
+    "true_reject": 4
+   }
+  },
+  "totals": {
+   "adjudicated_claim_instances": 69,
+   "agreements": 69,
+   "cases": 25,
+   "disagreements": []
+  }
+ },
+ "hidden_truth_canary": {
+  "outcomes_identical": true,
+  "refused_fields": [
+   "latent_events",
+   "generator_parameters",
+   "kinematics.frames[*].phase",
+   "kinematics.frames[*].latent_takeoff_flag",
+   "force.timing_uncertainty_bound_s",
+   "force.zero_offset_bound_n",
+   "force.gain_uncertainty_bound",
+   "lpt.timing_uncertainty_bound_s",
+   "lpt.encoder_resolution_m"
+  ]
+ },
+ "rows": [
+  {
+   "agree": true,
+   "case": "bench_prismatic_push",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "PASS",
+   "family": "benchmark_closed_form",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "bench_prismatic_push",
+   "claim": "EULER_ANGULAR_MOMENTUM",
+   "expected": "PASS",
+   "family": "benchmark_closed_form",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "bench_prismatic_push",
+   "claim": "CONTACT_ADMISSIBILITY",
+   "expected": "PASS",
+   "family": "benchmark_closed_form",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "bench_prismatic_push",
+   "claim": "WORK_ENERGY_LEDGER",
+   "expected": "PASS",
+   "family": "benchmark_closed_form",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "bench_prismatic_push",
+   "claim": "BALLISTIC_FLIGHT",
+   "expected": "NOT_EVALUABLE",
+   "family": "benchmark_closed_form",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "bench_tumbling",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "PASS",
+   "family": "benchmark_closed_form",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "bench_tumbling",
+   "claim": "EULER_ANGULAR_MOMENTUM",
+   "expected": "PASS",
+   "family": "benchmark_closed_form",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "bench_tumbling",
+   "claim": "BALLISTIC_FLIGHT",
+   "expected": "PASS",
+   "family": "benchmark_closed_form",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "bench_tumbling",
+   "claim": "WORK_ENERGY_LEDGER",
+   "expected": "PASS",
+   "family": "benchmark_closed_form",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "unseen_two_body_free_fall",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "PASS",
+   "family": "unseen_model_family",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "unseen_two_body_free_fall",
+   "claim": "EULER_ANGULAR_MOMENTUM",
+   "expected": "PASS",
+   "family": "unseen_model_family",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "unseen_two_body_free_fall",
+   "claim": "BALLISTIC_FLIGHT",
+   "expected": "PASS",
+   "family": "unseen_model_family",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "unseen_two_body_free_fall",
+   "claim": "WORK_ENERGY_LEDGER",
+   "expected": "PASS",
+   "family": "unseen_model_family",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i0_admissible",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "PASS",
+   "family": "i0_prescribed_force",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i0_admissible",
+   "claim": "EULER_ANGULAR_MOMENTUM",
+   "expected": "PASS",
+   "family": "i0_prescribed_force",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i0_admissible",
+   "claim": "CONTACT_ADMISSIBILITY",
+   "expected": "PASS",
+   "family": "i0_prescribed_force",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i0_admissible",
+   "claim": "WORK_ENERGY_LEDGER",
+   "expected": "PASS",
+   "family": "i0_prescribed_force",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i0_admissible",
+   "claim": "BALLISTIC_FLIGHT",
+   "expected": "PASS",
+   "family": "i0_prescribed_force",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_cmj",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "NOT_EVALUABLE",
+   "family": "i1_multisegment",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "i1_cmj",
+   "claim": "EULER_ANGULAR_MOMENTUM",
+   "expected": "NOT_EVALUABLE",
+   "family": "i1_multisegment",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "i1_cmj",
+   "claim": "CONTACT_ADMISSIBILITY",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_cmj",
+   "claim": "WORK_ENERGY_LEDGER",
+   "expected": "REJECTED",
+   "family": "i1_multisegment",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "i1_cmj",
+   "claim": "BALLISTIC_FLIGHT",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_cmj",
+   "claim": "ACTIVATION_WITHIN_DECLARED_SCOPE",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_cmj",
+   "claim": "CLOCK_INTEGRITY",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_loaded_cmj",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "REJECTED",
+   "family": "i1_multisegment",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "i1_loaded_cmj",
+   "claim": "EULER_ANGULAR_MOMENTUM",
+   "expected": "REJECTED",
+   "family": "i1_multisegment",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "i1_loaded_cmj",
+   "claim": "CONTACT_ADMISSIBILITY",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_loaded_cmj",
+   "claim": "WORK_ENERGY_LEDGER",
+   "expected": "REJECTED",
+   "family": "i1_multisegment",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "i1_loaded_cmj",
+   "claim": "BALLISTIC_FLIGHT",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_loaded_cmj",
+   "claim": "ACTIVATION_WITHIN_DECLARED_SCOPE",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_loaded_cmj",
+   "claim": "CLOCK_INTEGRITY",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "EULER_ANGULAR_MOMENTUM",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "CONTACT_ADMISSIBILITY",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "WORK_ENERGY_LEDGER",
+   "expected": "REJECTED",
+   "family": "i1_multisegment",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "BALLISTIC_FLIGHT",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "ACTIVATION_WITHIN_DECLARED_SCOPE",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "CLOCK_INTEGRITY",
+   "expected": "PASS",
+   "family": "i1_multisegment",
+   "observed": "PASS"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "LPT_CABLE_GEOMETRY",
+   "expected": "NOT_EVALUABLE",
+   "family": "i1_multisegment",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "FORCE_FLIGHT_ZERO",
+   "expected": "NOT_EVALUABLE",
+   "family": "i1_multisegment",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "PLATE_WEIGHT_CONSISTENCY",
+   "expected": "NOT_EVALUABLE",
+   "family": "i1_multisegment",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "BILATERAL_FORCE",
+   "expected": "NOT_EVALUABLE",
+   "family": "i1_multisegment",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "CROSS_DEVICE_SYNC",
+   "expected": "NOT_EVALUABLE",
+   "family": "i1_multisegment",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "BIOLOGICAL_VALIDITY",
+   "expected": "NOT_EVALUABLE",
+   "family": "i1_multisegment",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "SENSOR_METROLOGY",
+   "expected": "NOT_EVALUABLE",
+   "family": "i1_multisegment",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "i1_sj",
+   "claim": "REAL_PAIRED_FORCE_LPT",
+   "expected": "NOT_EVALUABLE",
+   "family": "i1_multisegment",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "cmj_grf_x0.9",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "i0_grf_x0.9",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "push_grf_x0.9",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_wrong_load_mass_x1.1",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_wrong_load_mass_x1.1",
+   "claim": "PLATE_WEIGHT_CONSISTENCY",
+   "expected": "NOT_EVALUABLE",
+   "family": "mutation",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "loaded_bar_mass_omitted",
+   "claim": "NEWTON_LINEAR_MOMENTUM",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_tensile_contact",
+   "claim": "CONTACT_ADMISSIBILITY",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_cop_outside_foot",
+   "claim": "CONTACT_ADMISSIBILITY",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_cop_outside_foot",
+   "claim": "EULER_ANGULAR_MOMENTUM",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_friction_violation",
+   "claim": "CONTACT_ADMISSIBILITY",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_energy_injected_in_flight",
+   "claim": "BALLISTIC_FLIGHT",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_energy_injected_in_flight",
+   "claim": "WORK_ENERGY_LEDGER",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "tumble_energy_injected",
+   "claim": "BALLISTIC_FLIGHT",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_activation_step",
+   "claim": "ACTIVATION_WITHIN_DECLARED_SCOPE",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_lpt_wrong_anchor",
+   "claim": "LPT_CABLE_GEOMETRY",
+   "expected": "NOT_EVALUABLE",
+   "family": "mutation",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "loaded_lpt_vertical_substitution",
+   "claim": "LPT_CABLE_GEOMETRY",
+   "expected": "NOT_EVALUABLE",
+   "family": "mutation",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "cmj_force_clock_skew",
+   "claim": "CLOCK_INTEGRITY",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_lpt_clock_skew",
+   "claim": "CLOCK_INTEGRITY",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_lpt_clock_skew",
+   "claim": "LPT_CABLE_GEOMETRY",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  },
+  {
+   "agree": true,
+   "case": "cmj_force_in_flight",
+   "claim": "FORCE_FLIGHT_ZERO",
+   "expected": "NOT_EVALUABLE",
+   "family": "mutation",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "cmj_force_in_kN",
+   "claim": "PLATE_WEIGHT_CONSISTENCY",
+   "expected": "NOT_EVALUABLE",
+   "family": "mutation",
+   "observed": "NOT_EVALUABLE"
+  },
+  {
+   "agree": true,
+   "case": "cmj_fake_bilateral",
+   "claim": "BILATERAL_FORCE",
+   "expected": "REJECTED",
+   "family": "mutation",
+   "observed": "REJECTED"
+  }
+ ]
+}

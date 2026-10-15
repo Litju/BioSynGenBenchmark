@@ -1,0 +1,16 @@
+PROPOSED NOTICE — NOT AN ADOPTED LICENSE OR COPYRIGHT ASSERTION
+
+BioSynGenBenchmark
+Proposed attribution: Copyright 2026 Julio Rodriguez and contributors.
+Copyright holder and authority to license require owner confirmation.
+
+Historical engineering assistance: Opus 5.5 (I2).
+Current independent qualification assistance: GPT-6.1 Solo (I3).
+These are workflow provenance, not human scientific authorship or empirical validation.
+
+Scientific references and recalled parameter hypotheses retain their original
+attribution in source and documentation. No external books, papers, vendor
+exports, participant records or restricted datasets are relicensed by this notice.
+
+Dependencies are not vendored. Their own licenses and component notices apply
+to their separate distributions. See RES505_LICENSE_AND_RIGHTS.md.

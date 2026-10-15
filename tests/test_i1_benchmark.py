@@ -1,4 +1,4 @@
-"""RES-485 tests of the candidate-neutral I1 evaluator and its challenge suite."""
+"""Regression tests of the candidate-neutral I1 evaluator and RES-489 suite gate."""
 
 from __future__ import annotations
 
@@ -57,7 +57,7 @@ class PositiveAndNegativeControlTests(unittest.TestCase):
         tumble = evaluate_i1(_sub("tumble", C.tumbling_ballistic_control(),
                                   ("NEWTON_LINEAR_MOMENTUM", "EULER_ANGULAR_MOMENTUM", "BALLISTIC_FLIGHT", "WORK_ENERGY_LEDGER")))
         self.assertTrue(all(f.outcome == "PASS" for f in tumble.findings), tumble.findings)
-        self.assertLess(push.finding("NEWTON_LINEAR_MOMENTUM").metrics["max_residual_over_tolerance"], 1.0)
+        self.assertLess(push.finding("NEWTON_LINEAR_MOMENTUM").metrics["max_residual_over_sampled_tolerance"], 1.0)
 
     def test_distinct_mutations_are_rejected_on_their_target_claim(self) -> None:
         push = _sub("push", C.prismatic_push_control(), MECH)
@@ -79,7 +79,7 @@ class PositiveAndNegativeControlTests(unittest.TestCase):
                                                                "SENSOR_METROLOGY", "CROSS_DEVICE_SYNC", "BILATERAL_FORCE",
                                                                "MADE_UP_CLAIM"]})
         outcome = {f.claim: (f.outcome, f.ceiling) for f in report.findings}
-        self.assertEqual(outcome["BIOLOGICAL_VALIDITY"], ("NOT_EVALUABLE", "EMPIRICAL_BIOLOGICAL_VALIDATION"))
+        self.assertEqual(outcome["BIOLOGICAL_VALIDITY"], ("NOT_EVALUABLE", "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED"))
         self.assertEqual(outcome["REAL_PAIRED_FORCE_LPT"][0], "NOT_EVALUABLE")
         self.assertEqual(outcome["SENSOR_METROLOGY"][0], "NOT_EVALUABLE")
         self.assertEqual(outcome["CROSS_DEVICE_SYNC"][0], "NOT_EVALUABLE")

@@ -1,0 +1,90 @@
+test_one_sample_energy_spike_between_old_endpoints_is_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_one_sample_energy_spike_between_old_endpoints_is_rejected) ... FAIL
+test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) ...
+  test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=1) ... FAIL
+  test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=5) ... FAIL
+  test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=11) ... FAIL
+  test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=19) ... FAIL
+  test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=22) ... FAIL
+  test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=29) ... FAIL
+
+======================================================================
+FAIL: test_one_sample_energy_spike_between_old_endpoints_is_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_one_sample_energy_spike_between_old_endpoints_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_i1_energy_coverage.py", line 12, in test_one_sample_energy_spike_between_old_endpoints_is_rejected
+    self.assertEqual(report.outcome('WORK_ENERGY_LEDGER'),'REJECTED')
+AssertionError: 'PASS' != 'REJECTED'
+- PASS
++ REJECTED
+
+
+======================================================================
+FAIL: test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_i1_energy_coverage.py", line 20, in test_shifted_hidden_energy_spike_is_also_rejected
+    self.assertEqual(report.outcome('WORK_ENERGY_LEDGER'),'REJECTED')
+AssertionError: 'PASS' != 'REJECTED'
+- PASS
++ REJECTED
+
+
+======================================================================
+FAIL: test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_i1_energy_coverage.py", line 20, in test_shifted_hidden_energy_spike_is_also_rejected
+    self.assertEqual(report.outcome('WORK_ENERGY_LEDGER'),'REJECTED')
+AssertionError: 'PASS' != 'REJECTED'
+- PASS
++ REJECTED
+
+
+======================================================================
+FAIL: test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=11)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_i1_energy_coverage.py", line 20, in test_shifted_hidden_energy_spike_is_also_rejected
+    self.assertEqual(report.outcome('WORK_ENERGY_LEDGER'),'REJECTED')
+AssertionError: 'PASS' != 'REJECTED'
+- PASS
++ REJECTED
+
+
+======================================================================
+FAIL: test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=19)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_i1_energy_coverage.py", line 20, in test_shifted_hidden_energy_spike_is_also_rejected
+    self.assertEqual(report.outcome('WORK_ENERGY_LEDGER'),'REJECTED')
+AssertionError: 'PASS' != 'REJECTED'
+- PASS
++ REJECTED
+
+
+======================================================================
+FAIL: test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=22)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_i1_energy_coverage.py", line 20, in test_shifted_hidden_energy_spike_is_also_rejected
+    self.assertEqual(report.outcome('WORK_ENERGY_LEDGER'),'REJECTED')
+AssertionError: 'PASS' != 'REJECTED'
+- PASS
++ REJECTED
+
+
+======================================================================
+FAIL: test_shifted_hidden_energy_spike_is_also_rejected (tests.test_i3_i1_energy_coverage.EnergyWindowCoverageTests.test_shifted_hidden_energy_spike_is_also_rejected) (index=29)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_i1_energy_coverage.py", line 20, in test_shifted_hidden_energy_spike_is_also_rejected
+    self.assertEqual(report.outcome('WORK_ENERGY_LEDGER'),'REJECTED')
+AssertionError: 'PASS' != 'REJECTED'
+- PASS
++ REJECTED
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.011s
+
+FAILED (failures=7)
