@@ -1,0 +1,350 @@
+{
+  "issue": "RES-522",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "6633ac5d4dae838d55bee9716ad7ee2e9629ba9a4fe9a49d2a438e4ac32fb629",
+      "bytes": 15798,
+      "findings": [
+        "machine_path"
+      ],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "biosyngen/multibody.py",
+      "sha256": "5f2c4246998301b7fc96e34a5499f4af6dcebb47797aa000f6175eb6af34376d",
+      "bytes": 111490,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "docs/i3/RES522_RELEASE_DOSSIER.md",
+      "sha256": "6b48f33f97bc018fa52e019b804aaeb66d58e7728b7cd98493ebb2a6b81367b6",
+      "bytes": 7967,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/benchmark.json",
+      "sha256": "c3d492940dd53fff754eda0308c76d9c7421c89bc45afc721d5d6e4bf20a9148",
+      "bytes": 19726,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/contact-after.exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/contact-after.txt",
+      "sha256": "49a7b5f184aafead8edad606448d087f147724e98a57860e6428dc8f3ed04c38",
+      "bytes": 2363,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/contact-before.exit.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/contact-before.txt",
+      "sha256": "0f205a5509436e7ff90d0e57996366323ce3744137c4b309053f178dbb7343f9",
+      "bytes": 6313,
+      "findings": [
+        "machine_path"
+      ],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/i1-benchmark.exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/i1-benchmark.json",
+      "sha256": "8d4f5c88833f34b79cb6715102c3880a76ec0a1d3e28e4626e77f39fa3ff2131",
+      "bytes": 33279,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/i1-benchmark.txt",
+      "sha256": "1d52de0ab5ca9e9f4e29d94640014a791291f60474ba76baa97f9741d1be363c",
+      "bytes": 528,
+      "findings": [
+        "machine_path"
+      ],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/integration-provenance.json",
+      "sha256": "0648a41cf69358ed777610ae91d9d01678bdb0c0f69a7f1270c01062c7e00752",
+      "bytes": 4886,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/local-audit-launch-failed.exit.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/local-audit-launch-failed.txt",
+      "sha256": "0ebf647a02135eca2aeec33f4fc452f88dd2e0f957e81efbb7bfbcb16a223f01",
+      "bytes": 339,
+      "findings": [
+        "machine_path"
+      ],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/local-audit-source.json",
+      "sha256": "8254bc38a6e7084eaf3fb0c12184ba44f96dc4fb33050b16670759f3293aa5de",
+      "bytes": 616,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/local-numeric-probe.json",
+      "sha256": "b1f83e90cea4ae9e131a5eaf26b7c1e19f3a87f0cbd059e75d52cc1be62c9579",
+      "bytes": 3206,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/local-physics.exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/local-physics.txt",
+      "sha256": "8d05c64113a70ecc2e6c8f7f41da76b2b2b51108a5d1b5d19c8e159d3ffe3ae3",
+      "bytes": 2359,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/physical-audit-summary.json",
+      "sha256": "8f3a0bceb3ed7ed8af683cd574f947fc75c139274c06e966b89ffe623ba78f3a",
+      "bytes": 158738,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/powershell.exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/powershell.txt",
+      "sha256": "ea5cfeac152c8f4c8069fa84b0ccdcbfa4b5b25253828623eecd8ace9ae1ac06",
+      "bytes": 59,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/pr-intake.json",
+      "sha256": "795f331105ed763a293cf204c271585c8bd76e75d52e5a713f239ebc22d24bf5",
+      "bytes": 203,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/preserved-refs.txt",
+      "sha256": "aadc1a1315462e48ee94cabd8840470f0d187899175e25718fcc90330c3304ee",
+      "bytes": 123,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/regression.exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/regression.txt",
+      "sha256": "e8beed0ef41ab12d95120defa39d93f277f7c178e8fff843e4c7bc6971971528",
+      "bytes": 52814,
+      "findings": [
+        "machine_path"
+      ],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/reproduction-receipt.json",
+      "sha256": "113b43e7f39069f6ff0966f95d556ae89057108bc514fedef1a4e53896118eae",
+      "bytes": 18104,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/reproduction.exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/reproduction.txt",
+      "sha256": "c89646ab611824123a65c37ec22429cbf96010a839c5b219ad9f1d48830634b9",
+      "bytes": 156,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/scipy.exit.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/scipy.txt",
+      "sha256": "b5f34e13fdd1a008684185c66c1d8f5d056c2201484a6c92bc753d4012d1197c",
+      "bytes": 468,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/second-before.exit.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/second-before.txt",
+      "sha256": "21b95f0aaeedf69d9497a4faa3ad9e21376717cb4aaa7a1260e6bfa1b4afed35",
+      "bytes": 1558,
+      "findings": [
+        "machine_path"
+      ],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/second-legacy-reproduction.exit.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/second-legacy-reproduction.json",
+      "sha256": "e5ee2fc9306cbdc9f3a33b2cd7d7589a47c67e27881899a99ae291e8922d6c82",
+      "bytes": 96,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/verification.json",
+      "sha256": "a4f6b147faedf2e65989d91faa1dfd4525739cca6e791f0295ddf76765a74e28",
+      "bytes": 3305,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "tests/fixtures/i4_grazing_projection.json",
+      "sha256": "9778d1e601638144bf6d3548837007ef3c5d3d43fe82ca9f421e24d8196d884f",
+      "bytes": 11207,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "tests/fixtures/res522_contact_first.json",
+      "sha256": "2c6495cf7d401ff9e87c9eec0a8fc94b2a0fcfc5b06c0f825d875ff868a6eb07",
+      "bytes": 12434,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "tests/fixtures/res522_contact_second.json",
+      "sha256": "8f93e9b5276a00e86dbe1993bd02d6e3e06f158bfde6a281317e1aa2b343ee1c",
+      "bytes": 8163,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "tests/test_i2d_engine_extensions.py",
+      "sha256": "bf7342413f31f3eb808876ef5d0aae67cbde875fc3d636e967a366e95d3664dd",
+      "bytes": 25343,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "tests/test_i4_projection.py",
+      "sha256": "d384159ac34b5e1e3be7eac33b3bc6c8e938acd15d8bd394bf2f413e08989090",
+      "bytes": 16021,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "runs/i3/res522/STAGED_FILES.txt",
+      "sha256": "6bcfd0df13eda8912388318f1d90d28bd5d1b975c0608eee1b1846614adac1a0",
+      "bytes": 1497,
+      "findings": [],
+      "disposition": "OWNED / CLEARED_FOR_PUBLICATION",
+      "license": "Apache-2.0"
+    }
+  ],
+  "self_hash_scope": "This manifest is excluded from its own hash inventory; final Git tree/history scan includes it.",
+  "basis": "RES-505 personal-research authority and Apache-2.0 selection; actual selected source/diff, all manufactured fixtures, complete new log/JSON content and staged inventory reviewed.",
+  "no_external_or_private_data": true,
+  "excluded": "I4 ancestry/controller/large simulation corpora; frozen RES-516; private/participant/source/holdout data",
+  "limitations": "Bounded pattern and content inspection, not a universal secret detector or independent title certificate."
+}

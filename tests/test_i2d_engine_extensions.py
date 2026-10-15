@@ -322,8 +322,16 @@ class UnilateralContactLawFalsifierTests(unittest.TestCase):
                 self.assertLess(zero_steps, 5, f"trial {trial}: zero-time event loop")
                 for contact_id, (normal, tangential) in step.contact_impulses_n_s.items():
                     self.assertGreaterEqual(normal, 0.0)
-                for contact_id, (normal, _) in step.projection_impulses_n_s.items():
-                    self.assertGreaterEqual(normal, -1e-8)
+                # RES-517: projection is signed unloading/reallocation of the
+                # already-applied impulse, not a second physical impulse.
+                for contact_id in ("heel", "toe"):
+                    base = step.contact_impulses_n_s.get(contact_id, (0.0, 0.0))
+                    correction = step.projection_impulses_n_s.get(contact_id, (0.0, 0.0))
+                    self.assertGreaterEqual(base[0] + correction[0], -1e-8)
+                combined = [sum(ledger.get(c, (0.0, 0.0))[axis]
+                                for ledger in (step.contact_impulses_n_s, step.projection_impulses_n_s)
+                                for c in ("heel", "toe")) for axis in (0, 1)]
+                self.assertLessEqual(abs(combined[1]), mu * combined[0] + 1e-8)
                 for event in step.events:
                     if event.event_id == "CONTACT_IMPACT":
                         self.assertLessEqual(event.contact_work_j, 1e-9)
@@ -370,9 +378,10 @@ class UnilateralContactLawFalsifierTests(unittest.TestCase):
         released = False
         for _ in range(200):
             step = system.advance(state, 0.001, external_wrenches=(spin,))
-            for ledger in (step.contact_impulses_n_s, step.projection_impulses_n_s):
-                for normal, _ in ledger.values():
-                    self.assertGreaterEqual(normal, -1e-8)
+            for contact_id in ("heel", "toe"):
+                normal = (step.contact_impulses_n_s.get(contact_id, (0.0, 0.0))[0]
+                          + step.projection_impulses_n_s.get(contact_id, (0.0, 0.0))[0])
+                self.assertGreaterEqual(normal, -1e-8)
             state = step.state
             released = released or state.contacts["toe"].mode is ContactMode.OPEN
             self.assertGreater(system.contact_kinematics(state, "toe").gap_m, -1e-8)

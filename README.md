@@ -4,6 +4,8 @@ Canonical research and program workspace for the Research project [Biomechanical
 
 ## Current I3 qualification and release preparation
 
+RES-522 selectively integrates the qualified RES-517 Coulomb-contact repair and independent regression fixtures into PR #1. The [final closeout dossier](docs/i3/RES522_RELEASE_DOSSIER.md) supersedes earlier source/count claims for this candidate; exact final commit and hosted Windows/Linux results are recorded in the linked RES-522 review receipt. The complete I4 branch, rejected recovery controller and failed scientific evidence remain preserved separately. No recovery optimization or frozen prospective study is included.
+
 I3 independently qualified the existing I2 implementation under RES-502. The [owner dossier](docs/i3/RES508_OWNER_DOSSIER.md) contains the source audit, independent falsifiers, exact commits, rights disposition and capability limits. The Apache-2.0 public review candidate is [draft PR #1](https://github.com/Litju/BioSynGenBenchmark/pull/1), branch `codex/i3-public-rc`; [actual Windows/Linux CI](https://github.com/Litju/BioSynGenBenchmark/actions/runs/38506388914) passes all five jobs at numerical source `57484146cd12859dad34a004d21606cfb67bcd5f`. Each platform runs 289 tests (287 pass, two optional SciPy skips), plus two mandatory unskipped SciPy checks in a separate job. Main remains unchanged. Owner scientific acceptance and any merge/release/tag are pending.
 
 Core code uses the Python standard library. From the project root on Windows (CPython 3.12.10 used for local qualification), or from a reviewed checkout on Linux:

@@ -504,6 +504,9 @@ class ContactEvent:
     tangential_impulses_n_s: Mapping[str, float] = field(default_factory=dict)
     contact_work_j: float = 0.0
     detail: str = ""
+    # Potential-energy change from geometric projection at an instantaneous
+    # impact; kinetic impulse work is already included in contact_work_j.
+    constraint_projection_work_j: float = 0.0
 
 
 @dataclass(frozen=True, slots=True)
@@ -1946,6 +1949,7 @@ class PlanarMultibodySystem:
                 raise DynamicsError(f"{contact_id} is not a closing, nonpenetrating impact")
             targets[contact_id] = -self._contact_by_id[contact_id].restitution * data.normal_velocity_m_s
         before_ke = self.kinetic_energy(state)
+        before_pe = self.potential_energy(state)
         qd_pre = self._velocity_vector(state)
         momentum = [m * v for m, v in zip(self._mass_diagonal(), qd_pre)]
         modes = self._prepare_contact_states(state)
@@ -1972,12 +1976,19 @@ class PlanarMultibodySystem:
         reported.update(contact_impulses)
         after = self._project_positions(after, modes)
         projection: dict[str, tuple[float, float]] = {}
-        after = self._project_velocities(after, modes, contact_ledger=projection)
+        after = self._project_velocities(
+            after, modes, contact_ledger=projection,
+            accumulated_impulses=reported, impulse_state=state, normal_targets=targets,
+        )
+        reported = self._transport_contact_impulses(reported, state, after)
         for contact_id, (normal, tangential) in projection.items():
             base = reported.get(contact_id, (0.0, 0.0))
             reported[contact_id] = (base[0] + normal, base[1] + tangential)
         normal_impulses = {contact_id: value[0] for contact_id, value in reported.items()}
         tangential_impulses = {contact_id: value[1] for contact_id, value in reported.items()}
+        work = self.kinetic_energy(after) - before_ke
+        if work > _IMPACT_ENERGY_TOLERANCE_J:
+            raise ConstraintSolveError(f"projected impact created kinetic energy ({work:.9g} J)")
         event = ContactEvent(
             "CONTACT_IMPACT",
             ids,
@@ -1986,6 +1997,7 @@ class PlanarMultibodySystem:
             tangential_impulses,
             work,
             "simultaneous rigid contact impulse; no impact is inferred unless explicitly activated",
+            self.potential_energy(after) - before_pe,
         )
         return after, event
 
@@ -2022,7 +2034,7 @@ class PlanarMultibodySystem:
             impacted, event = self.resolve_impact(state, immediate_impacts)
             if support_contract is not None:
                 self.validate_support_contract(impacted, support_contract)
-            return StepResult(impacted, 0.0, (event,), event.contact_work_j, 0.0)
+            return StepResult(impacted, 0.0, (event,), event.contact_work_j, event.constraint_projection_work_j)
         if support_contract is not None:
             self.validate_support_contract(state, support_contract)
         generalized, _, _ = self._assemble_generalized_forces(
@@ -2108,30 +2120,44 @@ class PlanarMultibodySystem:
             impact_state = self._states_from_vectors(
                 q_event, v_event, impact_time, impact_modes, impact_activations
             )
+            unprojected_impact_state = impact_state
             impact_state = self._project_positions(impact_state, impact_modes)
             closing = tuple(
                 contact_id for contact_id in impact_ids
                 if self._contact_data(contact_id, impact_state).normal_velocity_m_s < -_CONTACT_VELOCITY_TOLERANCE_M_S
             )
             if not closing:
-                # Grazing closure: the gap closes with no approach speed at the
-                # event, so the contact is activated without an impulse.
+                # Interpolation followed by position projection changes the
+                # constraint Jacobians. Grazing closure needs the same coupled
+                # velocity reconciliation as an ordinary step, not a raw
+                # interpolated velocity with potentially inconsistent joints.
+                scaled_impulses = {
+                    cid: (n * event_time_fraction, t * event_time_fraction)
+                    for cid, (n, t) in contact_impulses.items()
+                }
+                projection_ledger: dict[str, tuple[float, float]] = {}
+                impact_state = self._project_velocities(
+                    impact_state, impact_modes, contact_ledger=projection_ledger,
+                    accumulated_impulses=scaled_impulses, impulse_state=state,
+                )
+                if support_contract is not None:
+                    self.validate_support_contract(impact_state, support_contract)
                 events.append(ContactEvent(
                     "CONTACT_TOUCHDOWN", impact_ids, impact_time,
-                    detail="gap closed with nonnegative normal velocity; no impact impulse",
+                    detail="grazing gap closure; coupled drift correction, no separate impact impulse",
                 ))
                 return StepResult(
                     impact_state,
                     event_time_fraction * dt_s,
                     tuple(events),
                     step_contact_work * event_time_fraction,
-                    0.0,
-                    contact_impulses_n_s={
-                        contact_id: (normal * event_time_fraction, tangential * event_time_fraction)
-                        for contact_id, (normal, tangential) in contact_impulses.items()
-                    },
+                    self.kinetic_energy(impact_state) + self.potential_energy(impact_state)
+                    - self.kinetic_energy(unprojected_impact_state) - self.potential_energy(unprojected_impact_state),
+                    contact_impulses_n_s=scaled_impulses,
+                    projection_impulses_n_s=projection_ledger,
                 )
             impact_ids = closing
+            geometric_work = self.potential_energy(impact_state) - self.potential_energy(unprojected_impact_state)
             impact_state, impact_event = self.resolve_impact(impact_state, impact_ids)
             if support_contract is not None:
                 self.validate_support_contract(impact_state, support_contract)
@@ -2141,7 +2167,7 @@ class PlanarMultibodySystem:
                 event_time_fraction * dt_s,
                 tuple(events),
                 step_contact_work * event_time_fraction + impact_event.contact_work_j,
-                0.0,
+                geometric_work + impact_event.constraint_projection_work_j,
                 contact_impulses_n_s={
                     contact_id: (normal * event_time_fraction, tangential * event_time_fraction)
                     for contact_id, (normal, tangential) in contact_impulses.items()
@@ -2149,7 +2175,21 @@ class PlanarMultibodySystem:
             )
         projected = self._project_positions(predicted, step_modes)
         projection_ledger: dict[str, tuple[float, float]] = {}
-        projected = self._project_velocities(projected, step_modes, contact_ledger=projection_ledger)
+        projected = self._project_velocities(
+            projected, step_modes, contact_ledger=projection_ledger,
+            accumulated_impulses=contact_impulses, impulse_state=state,
+        )
+        if support_contract is not None:
+            self.validate_support_contract(projected, support_contract)
+        for contact_id, old_mode in step_modes.items():
+            new_mode = projected.contacts[contact_id]
+            if old_mode.mode is new_mode.mode:
+                continue
+            event_id = ("CONTACT_RELEASE" if new_mode.mode is ContactMode.OPEN else
+                        "CONTACT_TOUCHDOWN" if old_mode.mode is ContactMode.OPEN else
+                        "SLIP_ONSET" if new_mode.mode is ContactMode.SLIDE else "STICK_CAPTURE")
+            events.append(ContactEvent(event_id, (contact_id,), projected.time_s,
+                                       detail="coupled total-impulse projection mode change"))
         projection_work = (
             self.kinetic_energy(projected)
             + self.potential_energy(projected)
@@ -2259,83 +2299,65 @@ class PlanarMultibodySystem:
                     q[k] += value * amount / diagonal[k]
         raise ConstraintSolveError("position projection did not converge")
 
+    def _transport_contact_impulses(
+        self,
+        impulses: Mapping[str, tuple[float, float]],
+        source: MultibodyState,
+        target: MultibodyState,
+    ) -> dict[str, tuple[float, float]]:
+        """Express the same world impulse in each corrected contact frame.
+
+        This rotates components only, not their application-point ledger.
+        Advance retains its original dynamic impulse at the original geometry.
+        """
+        result = {}
+        for contact_id, (normal, tangent) in impulses.items():
+            old = self._contact_data(contact_id, source)
+            new = self._contact_data(contact_id, target)
+            world = (normal * old.normal[0] + tangent * old.tangent[0],
+                     normal * old.normal[1] + tangent * old.tangent[1])
+            result[contact_id] = (_dot(world, new.normal), _dot(world, new.tangent))
+        return result
+
     def _project_velocities(
         self,
         state: MultibodyState,
         contact_states: Mapping[str, ContactState],
         *,
         contact_ledger: dict[str, tuple[float, float]] | None = None,
+        accumulated_impulses: Mapping[str, tuple[float, float]] | None = None,
+        impulse_state: MultibodyState | None = None,
+        normal_targets: Mapping[str, float] | None = None,
     ) -> MultibodyState:
-        """Mass-metric velocity projection onto the active constraint rows.
+        """Reconcile joint velocities and the *total* Coulomb contact impulse.
 
-        With ``contact_ledger`` the projection's contact impulses (normal,
-        tangential per contact row owner) are recorded, so momentum changes
-        remain fully attributable to applied and contact impulses.
+        At corrected geometry let p0 be the transported accumulated contact
+        impulse. Solve M v+ = M v - Jc.T p0 + Jc.T p + Jj.T eta,
+        with the usual Signorini/Coulomb law on p, not on p-p0. The recorded
+        correction is p-p0, including signed unloading, at this geometry.
+        A correction ledger alone is not a second physical contact impulse.
+        This split retains old application points and accounts for position
+        projection energy separately; it is not an exact continuous integrator.
+        Restitution targets must survive impact projection.
         """
         qd = self._velocity_vector(state)
         q = self._position_vector(state)
         current = self._states_from_vectors(q, qd, state.time_s, contact_states, state.activations)
-        joint_rows = [row.jacobian for row in self._joint_rows(current)]
-        contact_data = {
-            contact_id: data
-            for contact_id, status in contact_states.items()
-            if status.mode is not ContactMode.OPEN
-            for data in (self._contact_data(contact_id, current),)
-            if data.gap_m < _OFF_SURFACE_GAP_M
-        }
+        previous = self._transport_contact_impulses(accumulated_impulses or {}, impulse_state or state, current)
         diagonal = self._mass_diagonal()
-        inverse_mass = [1.0 / value for value in diagonal]
-        # Unilateral: a contact whose projection impulse would be adhesive is
-        # left out (it separates), and the projection is solved again.
-        excluded: set[str] = set()
-        for _ in range(len(contact_data) + 1):
-            rows = list(joint_rows)
-            row_owners: list[tuple[str, int] | None] = [None] * len(rows)
-            included_modes = {
-                contact_id: (status if contact_id in contact_data and contact_id not in excluded else ContactState())
-                for contact_id, status in contact_states.items()
-            }
-            owners = self._tangent_row_owners(included_modes)
-            for contact_id, data in contact_data.items():
-                if contact_id in excluded:
-                    continue
-                rows.append(data.normal_jacobian)
-                row_owners.append((contact_id, 0))
-                if contact_states[contact_id].mode is ContactMode.STICK and owners[contact_id] == contact_id:
-                    rows.append(data.tangential_jacobian)
-                    row_owners.append((contact_id, 1))
-            if not rows:
-                return current
-            sparse_rows = [_sparse(row) for row in rows]
-            gram = _weighted_products(sparse_rows, sparse_rows, inverse_mass)
-            rates = [sum(value * qd[k] for k, value in row) for row in sparse_rows]
-            try:
-                correction = self._solve_linear(gram, [-rate for rate in rates])
-            except ArithmeticError as exc:
-                raise ConstraintSolveError(f"velocity projection is singular: {exc}") from exc
-            adhesive = {
-                owner[0]
-                for owner, amount in zip(row_owners, correction)
-                if owner is not None and owner[1] == 0 and amount < -_CONTACT_IMPULSE_TOLERANCE_N_S
-            }
-            if not adhesive:
-                break
-            excluded |= adhesive
-        else:
-            raise ConstraintSolveError("unilateral velocity projection did not settle")
-        for row, amount in zip(sparse_rows, correction):
-            for k, value in row:
-                qd[k] += value * amount * inverse_mass[k]
+        momentum = [m*v for m,v in zip(diagonal, qd)]
+        for contact_id, (normal, tangent) in previous.items():
+            data = self._contact_data(contact_id, current)
+            for i in range(self.dof_count):
+                momentum[i] -= normal*data.normal_jacobian[i] + tangent*data.tangential_jacobian[i]
+        modes = self._prepare_contact_states(current)
+        qd, total, modes, _ = self._velocity_complementarity(current, momentum, modes, 0.0, normal_targets)
         if contact_ledger is not None:
-            for owner, amount in zip(row_owners, correction):
-                if owner is None:
-                    continue
-                contact_id, axis = owner
-                normal, tangential = contact_ledger.get(contact_id, (0.0, 0.0))
-                contact_ledger[contact_id] = (
-                    (normal + amount, tangential) if axis == 0 else (normal, tangential + amount)
-                )
-        return self._states_from_vectors(q, qd, state.time_s, contact_states, state.activations)
+            for contact_id in total.keys() | previous.keys():
+                new = total.get(contact_id, (0.0, 0.0))
+                old = previous.get(contact_id, (0.0, 0.0))
+                contact_ledger[contact_id] = (new[0]-old[0], new[1]-old[1])
+        return self._states_from_vectors(q, qd, state.time_s, modes, state.activations)
 
     def _projection_rows(
         self,

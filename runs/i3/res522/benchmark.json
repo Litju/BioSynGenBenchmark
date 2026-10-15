@@ -1,0 +1,717 @@
+{
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "coverage": [
+    {
+      "exercise_id": "BACK_SQUAT",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.squat.build_back_squat",
+      "issue": "RES-493",
+      "protocol_ids": [
+        "BACK_SQUAT_DUAL_V1"
+      ],
+      "status": "MODELED_NUMERICAL_VERIFICATION",
+      "tests": "tests.test_i2e_back_squat",
+      "variants": {}
+    },
+    {
+      "exercise_id": "COUNTERMOVEMENT_JUMP",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.jumps.build_jump('CMJ')",
+      "issue": "RES-492",
+      "protocol_ids": [
+        "CMJ@1.0.0"
+      ],
+      "status": "MODELED_NUMERICAL_VERIFICATION",
+      "tests": "tests.test_i2d_jumps",
+      "variants": {
+        "CMJ_LOADED": "LOADED_CMJ (20 kg vest welded to the trunk)",
+        "CMJ_LOADED_AKIMBO": "LOADED_CMJ",
+        "CMJ_UNLOADED": "CMJ (no arm swing; matches AKIMBO topology)",
+        "CMJ_UNLOADED_AKIMBO": "CMJ (planar model has no arm swing)",
+        "CMJ_UNLOADED_FORCE_ONLY": "CMJ with FORCE_PIPE_01 export only",
+        "CMJ_UNLOADED_LPT_ONLY": "CMJ with LPT_PIPE_01 export only"
+      }
+    },
+    {
+      "exercise_id": "SQUAT_JUMP",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.jumps.build_jump('SJ')",
+      "issue": "RES-492",
+      "protocol_ids": [],
+      "status": "MODELED_NUMERICAL_VERIFICATION",
+      "tests": "tests.test_i2d_jumps",
+      "variants": {}
+    },
+    {
+      "exercise_id": "LOADED_CMJ",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.jumps.build_jump('LOADED_CMJ')",
+      "issue": "RES-492",
+      "protocol_ids": [
+        "CMJ@1.0.0"
+      ],
+      "status": "MODELED_NUMERICAL_VERIFICATION",
+      "tests": "tests.test_i2d_jumps",
+      "variants": {
+        "CMJ_LOADED": "LOADED_CMJ (20 kg vest welded to the trunk)",
+        "CMJ_LOADED_AKIMBO": "LOADED_CMJ"
+      }
+    },
+    {
+      "exercise_id": "LOADED_JUMP_SQUAT",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.jumps.build_jump('LOADED_JUMP_SQUAT')",
+      "issue": "RES-492",
+      "protocol_ids": [
+        "LOADED_JUMP_SQUAT_DUAL_V1"
+      ],
+      "status": "MODELED_NUMERICAL_VERIFICATION",
+      "tests": "tests.test_i2d_jumps",
+      "variants": {}
+    },
+    {
+      "exercise_id": "DEADLIFT",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.deadlift.build_deadlift",
+      "issue": "RES-494",
+      "protocol_ids": [
+        "DEADLIFT_DUAL_V1"
+      ],
+      "status": "MODELED_NUMERICAL_VERIFICATION",
+      "tests": "tests.test_i2f_deadlift",
+      "variants": {}
+    },
+    {
+      "exercise_id": "BENCH_PRESS",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.bench.build_bench_press",
+      "issue": "RES-495",
+      "protocol_ids": [
+        "BENCH_PRESS_DUAL_V1"
+      ],
+      "status": "MODELED_NUMERICAL_VERIFICATION",
+      "tests": "tests.test_i2g_bench_press",
+      "variants": {}
+    },
+    {
+      "exercise_id": "OLYMPIC_PULL_DERIVATIVE",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.olympic.build_pull (CLEAN_PULL, SNATCH_PULL)",
+      "issue": "RES-496",
+      "protocol_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_DUAL_V1"
+      ],
+      "status": "MODELED_NUMERICAL_VERIFICATION",
+      "tests": "tests.test_i2h_olympic_pulls",
+      "variants": {}
+    },
+    {
+      "exercise_id": "CLEAN_PULL",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.olympic.build_pull('CLEAN_PULL')",
+      "issue": "RES-496",
+      "protocol_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_DUAL_V1"
+      ],
+      "status": "MODELED_NUMERICAL_VERIFICATION",
+      "tests": "tests.test_i2h_olympic_pulls",
+      "variants": {
+        "CLEAN_PULL_DUAL_V1": "CLEAN_PULL"
+      }
+    },
+    {
+      "exercise_id": "SNATCH_PULL",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.olympic.build_pull('SNATCH_PULL')",
+      "issue": "RES-496",
+      "protocol_ids": [
+        "OLYMPIC_PULL_DERIVATIVE_DUAL_V1"
+      ],
+      "status": "MODELED_NUMERICAL_VERIFICATION",
+      "tests": "tests.test_i2h_olympic_pulls",
+      "variants": {
+        "SNATCH_PULL_DUAL_V1": "SNATCH_PULL"
+      }
+    },
+    {
+      "exercise_id": "POWER_CLEAN",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.power_clean.build_power_clean('PULL_ONLY')",
+      "issue": "RES-497",
+      "protocol_ids": [
+        "POWER_CLEAN_DUAL_V1"
+      ],
+      "status": "SCOPED_SUBSET_NOT_IMPLEMENTED_REMAINDER",
+      "tests": "tests.test_i2i_power_clean",
+      "variants": {}
+    },
+    {
+      "exercise_id": "FULL_CLEAN",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": null,
+      "issue": "RES-498",
+      "protocol_ids": [],
+      "reason": "front-rack catch infeasible in the planar lumped arm (RES-497 computation)",
+      "status": "NOT_IMPLEMENTED",
+      "tests": null,
+      "variants": {}
+    },
+    {
+      "exercise_id": "FULL_SNATCH",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": null,
+      "issue": "RES-498",
+      "protocol_ids": [],
+      "reason": "overhead receipt not modeled; no wrist or 3-D shoulder DOFs",
+      "status": "NOT_IMPLEMENTED",
+      "tests": null,
+      "variants": {}
+    },
+    {
+      "exercise_id": "HANG_CLEAN",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": null,
+      "issue": "RES-498",
+      "protocol_ids": [],
+      "reason": "hang start deferred in RES-490",
+      "status": "NOT_IMPLEMENTED",
+      "tests": null,
+      "variants": {}
+    },
+    {
+      "exercise_id": "HANG_SNATCH",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": null,
+      "issue": "RES-498",
+      "protocol_ids": [],
+      "reason": "hang start deferred in RES-490",
+      "status": "NOT_IMPLEMENTED",
+      "tests": null,
+      "variants": {}
+    },
+    {
+      "exercise_id": "HANG_POWER_CLEAN",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": null,
+      "issue": "RES-498",
+      "protocol_ids": [],
+      "reason": "hang start deferred in RES-490",
+      "status": "NOT_IMPLEMENTED",
+      "tests": null,
+      "variants": {}
+    },
+    {
+      "exercise_id": "HANG_POWER_SNATCH",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": null,
+      "issue": "RES-498",
+      "protocol_ids": [],
+      "reason": "hang start deferred in RES-490",
+      "status": "NOT_IMPLEMENTED",
+      "tests": null,
+      "variants": {}
+    },
+    {
+      "exercise_id": "DROP_JUMP",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.jumps.build_jump (refuses)",
+      "issue": "RES-492",
+      "protocol_ids": [],
+      "reason": "rigid point-contact feet lack qualified compliance",
+      "status": "NOT_IMPLEMENTED",
+      "tests": "tests.test_i2d_jumps",
+      "variants": {}
+    },
+    {
+      "exercise_id": "REPEATED_REBOUND_JUMP",
+      "external_reference": "EXTERNAL_REFERENCE_NOT_EVALUABLE",
+      "generator": "biosyngen.i2.jumps.build_jump (refuses)",
+      "issue": "RES-492",
+      "protocol_ids": [],
+      "reason": "rigid point-contact feet lack qualified compliance",
+      "status": "NOT_IMPLEMENTED",
+      "tests": "tests.test_i2d_jumps",
+      "variants": {}
+    }
+  ],
+  "families": {
+    "BACK_SQUAT": {
+      "faults": {
+        "ANATOMICAL_LABEL_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "CANDIDATE_TOLERANCE_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "NAN_FORCE": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "OMIT_FOOT_LEFT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_RIGHT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "SCALED_FORCE_1.02": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "TENSILE_FOOT_FORCE": {
+          "detected": true,
+          "outcome": "REJECTED"
+        }
+      },
+      "momentum_residual_n_s": 4.681311761844942e-12,
+      "positive": {
+        "ANATOMICAL_PHASES": "NOT_EVALUABLE",
+        "BILATERAL_FORCE": "NOT_EVALUABLE",
+        "CONTACT_ADMISSIBILITY": "PASS",
+        "LINEAR_MOMENTUM_CLOSURE": "PASS"
+      }
+    },
+    "BENCH_PRESS": {
+      "faults": {
+        "ANATOMICAL_LABEL_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "CANDIDATE_TOLERANCE_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "NAN_FORCE": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "OMIT_BENCH": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_LEFT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_RIGHT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_RACK": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "SCALED_FORCE_1.02": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "TENSILE_FOOT_FORCE": {
+          "detected": true,
+          "outcome": "REJECTED"
+        }
+      },
+      "momentum_residual_n_s": 1.9148571617222387e-11,
+      "positive": {
+        "ANATOMICAL_PHASES": "NOT_EVALUABLE",
+        "BILATERAL_FORCE": "NOT_EVALUABLE",
+        "CONTACT_ADMISSIBILITY": "PASS",
+        "LINEAR_MOMENTUM_CLOSURE": "PASS"
+      }
+    },
+    "CLEAN_PULL": {
+      "faults": {
+        "ANATOMICAL_LABEL_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "CANDIDATE_TOLERANCE_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "NAN_FORCE": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "OMIT_BAR_FLOOR": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_LEFT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_RIGHT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "SCALED_FORCE_1.02": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "TENSILE_FOOT_FORCE": {
+          "detected": true,
+          "outcome": "REJECTED"
+        }
+      },
+      "momentum_residual_n_s": 1.0171419262405834e-11,
+      "positive": {
+        "ANATOMICAL_PHASES": "NOT_EVALUABLE",
+        "BILATERAL_FORCE": "NOT_EVALUABLE",
+        "CONTACT_ADMISSIBILITY": "PASS",
+        "LINEAR_MOMENTUM_CLOSURE": "PASS"
+      }
+    },
+    "CMJ": {
+      "faults": {
+        "ANATOMICAL_LABEL_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "CANDIDATE_TOLERANCE_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "NAN_FORCE": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "OMIT_FOOT_LEFT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_RIGHT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "SCALED_FORCE_1.02": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "TENSILE_FOOT_FORCE": {
+          "detected": true,
+          "outcome": "REJECTED"
+        }
+      },
+      "momentum_residual_n_s": 1.5521535445817136e-11,
+      "positive": {
+        "ANATOMICAL_PHASES": "NOT_EVALUABLE",
+        "BILATERAL_FORCE": "NOT_EVALUABLE",
+        "CONTACT_ADMISSIBILITY": "PASS",
+        "LINEAR_MOMENTUM_CLOSURE": "PASS"
+      }
+    },
+    "DEADLIFT": {
+      "faults": {
+        "ANATOMICAL_LABEL_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "CANDIDATE_TOLERANCE_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "NAN_FORCE": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "OMIT_BAR_FLOOR": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_LEFT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_RIGHT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "SCALED_FORCE_1.02": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "TENSILE_FOOT_FORCE": {
+          "detected": true,
+          "outcome": "REJECTED"
+        }
+      },
+      "momentum_residual_n_s": 5.267630776017995e-11,
+      "positive": {
+        "ANATOMICAL_PHASES": "NOT_EVALUABLE",
+        "BILATERAL_FORCE": "NOT_EVALUABLE",
+        "CONTACT_ADMISSIBILITY": "PASS",
+        "LINEAR_MOMENTUM_CLOSURE": "PASS"
+      }
+    },
+    "LOADED_CMJ": {
+      "faults": {
+        "ANATOMICAL_LABEL_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "CANDIDATE_TOLERANCE_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "NAN_FORCE": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "OMIT_FOOT_LEFT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_RIGHT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "SCALED_FORCE_1.02": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "TENSILE_FOOT_FORCE": {
+          "detected": true,
+          "outcome": "REJECTED"
+        }
+      },
+      "momentum_residual_n_s": 1.99916194709715e-11,
+      "positive": {
+        "ANATOMICAL_PHASES": "NOT_EVALUABLE",
+        "BILATERAL_FORCE": "NOT_EVALUABLE",
+        "CONTACT_ADMISSIBILITY": "PASS",
+        "LINEAR_MOMENTUM_CLOSURE": "PASS"
+      }
+    },
+    "LOADED_JUMP_SQUAT": {
+      "faults": {
+        "ANATOMICAL_LABEL_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "CANDIDATE_TOLERANCE_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "NAN_FORCE": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "OMIT_FOOT_LEFT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_RIGHT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "SCALED_FORCE_1.02": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "TENSILE_FOOT_FORCE": {
+          "detected": true,
+          "outcome": "REJECTED"
+        }
+      },
+      "momentum_residual_n_s": 4.259366297165723e-12,
+      "positive": {
+        "ANATOMICAL_PHASES": "NOT_EVALUABLE",
+        "BILATERAL_FORCE": "NOT_EVALUABLE",
+        "CONTACT_ADMISSIBILITY": "PASS",
+        "LINEAR_MOMENTUM_CLOSURE": "PASS"
+      }
+    },
+    "POWER_CLEAN_PULL_ONLY": {
+      "faults": {
+        "ANATOMICAL_LABEL_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "CANDIDATE_TOLERANCE_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "NAN_FORCE": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "OMIT_BAR_FLOOR": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_LEFT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_RIGHT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "SCALED_FORCE_1.02": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "TENSILE_FOOT_FORCE": {
+          "detected": true,
+          "outcome": "REJECTED"
+        }
+      },
+      "momentum_residual_n_s": 9.347522755831505e-12,
+      "positive": {
+        "ANATOMICAL_PHASES": "NOT_EVALUABLE",
+        "BILATERAL_FORCE": "NOT_EVALUABLE",
+        "CONTACT_ADMISSIBILITY": "PASS",
+        "LINEAR_MOMENTUM_CLOSURE": "PASS"
+      }
+    },
+    "SJ": {
+      "faults": {
+        "ANATOMICAL_LABEL_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "CANDIDATE_TOLERANCE_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "NAN_FORCE": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "OMIT_FOOT_LEFT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_RIGHT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "SCALED_FORCE_1.02": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "TENSILE_FOOT_FORCE": {
+          "detected": true,
+          "outcome": "REJECTED"
+        }
+      },
+      "momentum_residual_n_s": 4.656873844877119e-13,
+      "positive": {
+        "ANATOMICAL_PHASES": "NOT_EVALUABLE",
+        "BILATERAL_FORCE": "NOT_EVALUABLE",
+        "CONTACT_ADMISSIBILITY": "PASS",
+        "LINEAR_MOMENTUM_CLOSURE": "PASS"
+      }
+    },
+    "SNATCH_PULL": {
+      "faults": {
+        "ANATOMICAL_LABEL_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "CANDIDATE_TOLERANCE_FIELD": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "NAN_FORCE": {
+          "detected": true,
+          "outcome": "INVALID"
+        },
+        "OMIT_BAR_FLOOR": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_LEFT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "OMIT_FOOT_RIGHT": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "SCALED_FORCE_1.02": {
+          "detected": true,
+          "outcome": "REJECTED"
+        },
+        "TENSILE_FOOT_FORCE": {
+          "detected": true,
+          "outcome": "REJECTED"
+        }
+      },
+      "momentum_residual_n_s": 1.357824963577059e-11,
+      "positive": {
+        "ANATOMICAL_PHASES": "NOT_EVALUABLE",
+        "BILATERAL_FORCE": "NOT_EVALUABLE",
+        "CONTACT_ADMISSIBILITY": "PASS",
+        "LINEAR_MOMENTUM_CLOSURE": "PASS"
+      }
+    }
+  },
+  "fault_detection": {
+    "ANATOMICAL_LABEL_FIELD": {
+      "detected": 10,
+      "n": 10,
+      "wilson95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ]
+    },
+    "CANDIDATE_TOLERANCE_FIELD": {
+      "detected": 10,
+      "n": 10,
+      "wilson95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ]
+    },
+    "NAN_FORCE": {
+      "detected": 10,
+      "n": 10,
+      "wilson95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ]
+    },
+    "OMIT": {
+      "detected": 26,
+      "n": 26,
+      "wilson95": [
+        0.8712710781407846,
+        1.0
+      ]
+    },
+    "SCALED_FORCE_1.02": {
+      "detected": 10,
+      "n": 10,
+      "wilson95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ]
+    },
+    "TENSILE_FOOT_FORCE": {
+      "detected": 10,
+      "n": 10,
+      "wilson95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ]
+    }
+  },
+  "issue": "RES-498",
+  "positive_controls": {
+    "n": 10,
+    "passed": 10,
+    "wilson95": [
+      0.7224672001371107,
+      0.9999999999999999
+    ]
+  }
+}

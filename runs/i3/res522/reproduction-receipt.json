@@ -1,0 +1,330 @@
+{
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "comparisons": {
+    "res492": {
+      "a": {
+        "jump_family.svg": "df3a306bacc5665de6d1cc7bdef8676e94c72e5e2df716f1f6438e68a5227cf1",
+        "summary.json": "bc9ab71c9d96863c9b2469b83ea005d8e70a2a88555fa6c6e236a5cff5adc81b"
+      },
+      "b": {
+        "jump_family.svg": "df3a306bacc5665de6d1cc7bdef8676e94c72e5e2df716f1f6438e68a5227cf1",
+        "summary.json": "bc9ab71c9d96863c9b2469b83ea005d8e70a2a88555fa6c6e236a5cff5adc81b"
+      },
+      "identical": true
+    },
+    "res493": {
+      "a": {
+        "back_squat.svg": "b26b49f382bd170bf51ffc28d2d2e50b816399fb024aa0d98c0993492473295f",
+        "summary.json": "d5e1295ae44e5086b225da59a833588bcc327e57cbebacc21c8ba4124dd27f14"
+      },
+      "b": {
+        "back_squat.svg": "b26b49f382bd170bf51ffc28d2d2e50b816399fb024aa0d98c0993492473295f",
+        "summary.json": "d5e1295ae44e5086b225da59a833588bcc327e57cbebacc21c8ba4124dd27f14"
+      },
+      "identical": true
+    },
+    "res494": {
+      "a": {
+        "deadlift.svg": "4dd8d4a5c58a410d1a9e4f4135ffd3ba41230ebefc38657b781b416bf3ffce01",
+        "summary.json": "fe102756c7132d4cdccec6adc65f7c2884fcbb1648d6c11b757e37f29afad6bd"
+      },
+      "b": {
+        "deadlift.svg": "4dd8d4a5c58a410d1a9e4f4135ffd3ba41230ebefc38657b781b416bf3ffce01",
+        "summary.json": "fe102756c7132d4cdccec6adc65f7c2884fcbb1648d6c11b757e37f29afad6bd"
+      },
+      "identical": true
+    },
+    "res495": {
+      "a": {
+        "bench_press.svg": "9387fbd82952ab3c6ec87360be7a11046f02b60957afe3b5411ce24312f5be91",
+        "summary.json": "95914aceb94ed80d1c7046334c4c0f0ea26b4a375f5b93a75dcae98ce9322fbf"
+      },
+      "b": {
+        "bench_press.svg": "9387fbd82952ab3c6ec87360be7a11046f02b60957afe3b5411ce24312f5be91",
+        "summary.json": "95914aceb94ed80d1c7046334c4c0f0ea26b4a375f5b93a75dcae98ce9322fbf"
+      },
+      "identical": true
+    },
+    "res496": {
+      "a": {
+        "olympic_pulls.svg": "1f451af9aef4d1f098d1b26e149ed68d6491d5a7191b023d15eae67a224f0ac3",
+        "summary.json": "ad665d3f626e85e9b6b66f162ad0c2ee1e5bace9f623e4f19effc040a4e39c7f"
+      },
+      "b": {
+        "olympic_pulls.svg": "1f451af9aef4d1f098d1b26e149ed68d6491d5a7191b023d15eae67a224f0ac3",
+        "summary.json": "ad665d3f626e85e9b6b66f162ad0c2ee1e5bace9f623e4f19effc040a4e39c7f"
+      },
+      "identical": true
+    },
+    "res498": {
+      "a": {
+        "benchmark.json": "c3d492940dd53fff754eda0308c76d9c7421c89bc45afc721d5d6e4bf20a9148"
+      },
+      "b": {
+        "benchmark.json": "c3d492940dd53fff754eda0308c76d9c7421c89bc45afc721d5d6e4bf20a9148"
+      },
+      "identical": true
+    }
+  },
+  "issue": "RES-504",
+  "passed": true,
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "source_sha256": {
+    "biosyngen/__init__.py": "5f04348bf20b8541a611d04235a1c6eb6a228e5deb36522a6e00d82ff925c677",
+    "biosyngen/i1/__init__.py": "f6b0652328adbdeb28cfa3e06312fbaa87a44eaaab59424001eb089a1a2b79f1",
+    "biosyngen/i1/actuation.py": "7bf4bd14e85d893eba6441c6e02d79b0f53824cbbb8265e73ed82013a233d03e",
+    "biosyngen/i1/body.py": "9aefac4e7f0db0f34f7ddad1528735e11f696f1cb3bdf39ee0a962cada27145a",
+    "biosyngen/i1/control.py": "dea17d556286f49b366d9d1c4ea66cd6a3300ae61e0a83971e40c7f30142ff31",
+    "biosyngen/i1/export.py": "d851d463efad74cf27e13c39f73741066452f49c5654d4dda5070d96735f0378",
+    "biosyngen/i1/instruments.py": "9b9facee8dce04424124f936e33ba05cfb539b883e5cbbde7e728c4b4946d891",
+    "biosyngen/i1/linalg.py": "af34a966ef6c69a70f300d845d4c2b50c03fc62467e07ede52edc4a957d6331a",
+    "biosyngen/i1/observability.py": "2046aaec96bbba434bcfccbfc4323f736012297d3c3fbe5a621b0742c954b205",
+    "biosyngen/i1/params.py": "0b7c8d8c5c6da07818d1bd2e391bd4acf944244dd9ba36ae08732499c23d482f",
+    "biosyngen/i1/phases.py": "dc4271570a2dbb84667343505a5574565000c05491a79db2176fab55d31ff788",
+    "biosyngen/i1/scenarios.py": "856a46f0f4d44428c13cbeb4d3e9b44dfe51494bb8c5367f378d5561982ed93b",
+    "biosyngen/i1/simulate.py": "3cd5e68c6b472ea9ed5afbe1a5406a28a35d4050f88405df22a90630c43a4e51",
+    "biosyngen/i2/__init__.py": "1d604b440b359662e5fd2f7d2267407619b921e51d446647ee441882791100aa",
+    "biosyngen/i2/bench.py": "3906151662cb6cc063bda483807c13f1fb665316c9522a5d85289d30c13eb17b",
+    "biosyngen/i2/deadlift.py": "cb215b529f578cf1dd4916a50f1651bbf42e2c4671e08c2c33aa98094306e912",
+    "biosyngen/i2/export.py": "fc1138520a64c21b0387aaa8c82f7027189043d55294d7ae889fc2d6f0b67826",
+    "biosyngen/i2/human.py": "538b39e02bd675baa8ea37981493f263fc860b908d6531ac27441a05c20c49b3",
+    "biosyngen/i2/instruments.py": "e6b508f46a088e76749f21ffe6a4e8464c476605e438e73b17b263bc3b4abca6",
+    "biosyngen/i2/jumps.py": "2d8edf7a1aa8c1734081a65e415b85ce9e70c9917376f9cf17162d7328cff071",
+    "biosyngen/i2/olympic.py": "4d007e636d625db358a1ca035c752e925e759bb1b036aa0668b9f21e05dd7e13",
+    "biosyngen/i2/phases.py": "1b7f1de19c9ee3af9acc2c6ecf034fee233c39e1d11333a9beaa49c35bababa4",
+    "biosyngen/i2/power_clean.py": "843145799e26eda4949262a15d74c6c59830e4441814ef2088bd822ca250d1d2",
+    "biosyngen/i2/qualification.py": "2a42c06f74baee7c3dc666a2a03dad514ebff6a4870b04f1ac3a5eb89c84f5df",
+    "biosyngen/i2/simulate.py": "a76a7f7268f146d152494cd059a215012be48f271b04351fedcb8706fe8c66a3",
+    "biosyngen/i2/squat.py": "a22d816a6c004f57dcc725eaa66bb4d4c4644ce1cec262d68069400ca347273d",
+    "biosyngen/mechanics.py": "c128b7907bc4c7fc9de29072384711a11b34c43539a127cf2943e126b052e665",
+    "biosyngen/multibody.py": "5f2c4246998301b7fc96e34a5499f4af6dcebb47797aa000f6175eb6af34376d",
+    "biosyngen/observations.py": "7f4ac426614261d22a0dbab35fd5b55627d3448c0365b39d89b6ef8240bfd4f2",
+    "biosyngen_benchmark/__init__.py": "fd5425c2131638f18b9f3c31cebcfc7939bf2a8a910fb34501dbcd73959a69a1",
+    "biosyngen_benchmark/controls.py": "956a2914653f7f4f1dab22a7e3cf8d94eb83b1567a91929c1e63d7701defd5fe",
+    "biosyngen_benchmark/core.py": "49abbc62337bc2ae618cb4187a25e124ecd4b962708e2356a1a920f36d328fa1",
+    "biosyngen_benchmark/detectors.py": "50ed286111b7fad5486cee0f104b237153074852cec7c88581939edad161c855",
+    "biosyngen_benchmark/i1.py": "9948fa7af0184dcbbce69b2be0db13b5c17b9fb8e7a87b0bbd28b9d92f0bd490",
+    "biosyngen_benchmark/i2_coverage.py": "2720a8fbd8c4401f85a1d3f030f8df33a0106e6be532ac258d1e5a99d950056a",
+    "biosyngen_benchmark/i2_evaluator.py": "07338dddcb65eaae24af41f30024b667f7cb2e964c063654f5d2b9ea23b44e3d",
+    "biosyngen_benchmark/i3_analytic_contract.py": "89fd83c27dbcb09d7ed04ec3cd49f7f1c2fa503a067be86f9ce59bb889d76b2b",
+    "biosyngen_benchmark/protocol_inventory.py": "a5db0b9f174b1fa4eeece4ef8b2305cf262b43d018d35ff2f116a21ea7e214fc",
+    "biosyngen_benchmark/suite.py": "6306ef55a70846da70f0d640894aea6f681ee394da28ddf41790dfef10f4a8b7",
+    "scripts/audit_i3_provenance.py": "8106255d4e473e46c9fbe7eed53224d23127167bf290ec7b973640445a198ced",
+    "scripts/audit_i3_release.py": "18ce1c872297b4766551aa2d3c42db1f4f829b425f6655afdd0e3c4a8c16cd87",
+    "scripts/check_i2_reproducibility.py": "968d280975cf373a2ce6733f0f7ebaf9cbb21f7f0b4a76bd53ef1c08d46072e7",
+    "scripts/compare_i3_platforms.py": "2a57ffe59d663cde2bc30a5318d8af0efc9f698481c83ad8c5a050fb7b6343ff",
+    "scripts/generate_benchmark_report.py": "bd2a9ac24c3bdbd59e0e7c4ab905a15c11ea758db528f8e54b58499ad1c28350",
+    "scripts/generate_mechanics_fixture.py": "c6d818364c203c7ae445469f0fe7c02df6e511d988e54100d87ce9e8dbf8a153",
+    "scripts/generate_observation_fixture.py": "ffda3b121be0de3d23e39a301d4e8c95f2a0f1b1c792e40c46b2f9512eaaf4c9",
+    "scripts/i1_benchmark_suite.py": "4a2fd50b625b6c105e1361e47e96fd681dacfc130e7b664518e40a529262f639",
+    "scripts/i1_i0_regression.py": "3d0424ac51e11039b3c673ce89368eec41756bb4a33b9018784e879f8e24bc4d",
+    "scripts/i1_optimize_control.py": "7d0a77db9033d09222727a8a209aa5f843d7099b01251b04475e34a835b38cc2",
+    "scripts/i1_provenance_sensitivity.py": "07b7a9e508a5749e7e2caac90203dd401b0f3368d0194f50c43ca4d9231f5930",
+    "scripts/i3_platform_probe.py": "8742b35d141427751a22eb15676d0d0ac078cdf5ba9a8476e5896363db0448eb",
+    "scripts/qualify_i3_artifacts.py": "989888828296741b61ffbaaf8f227294d7104fc67b6dad26c769a496dd225494",
+    "scripts/qualify_i3_controller_stress.py": "13dae7dd59ff00bdf3fbb2ed621f35a2db447874fc6822ff19ff895befc69fe0",
+    "scripts/render_i3_qualification.py": "2d6678ef0732009eb686a65a3ee42f99c755331419b7f69942505f0a4e928fdd",
+    "scripts/require_i3_scipy_checks.py": "c794788fd229b54943dfcc99d589abc09ff0885d9f5959cb5db201b39e94d08e",
+    "scripts/run_i1.py": "6781754aed1854b326dc94377b59f574da4fdb77f67aa415001aa1e3dc63d03f",
+    "scripts/run_i2_back_squat.py": "1cc009ded6d15a41f91ee70d60a532124ebf5dd512d14b8e7bf154222bd5ea31",
+    "scripts/run_i2_bench_press.py": "8e08514bb1eaeefd7955b797dd5d6e7ad81c9cf34d8c282cc474f7f21a97c4fd",
+    "scripts/run_i2_benchmark.py": "7b1aaebd73d052a663920e03b418944c792630c70554c94724ddb4d9820105d8",
+    "scripts/run_i2_deadlift.py": "222c3a456d42a3ffb0f2fb95404748b72249ec352e6b6d03335defef3ded7e84",
+    "scripts/run_i2_jumps.py": "4777aec59b7853ac2bca0575966eb54f13bf8478aad3339af0538fed41d8de01",
+    "scripts/run_i2_olympic_pulls.py": "e69d3e05f9b5ba9ab14a1d6f70f926b8a57741182aaf3bc8d8f21b1ff2499e5a",
+    "scripts/run_i3_frozen_falsifier.py": "57b8e05aea9a9254771183012ad5df513cd7168178d8ebd0bc8c86b993e1cbbb",
+    "scripts/run_pilot.py": "a1c0737bc941bef0f2247cea1beff6cc723e10bff436f98ce46495ce0c992c74",
+    "scripts/svgplot.py": "ccc1a58fe177a51fce23891f728128fcd7ee1b405390fd6b45a102d683323851",
+    "scripts/verify_i3_reproducibility.py": "c745fd983635bbaf4798c9f227c1f5bd2801b51ef1715be5ccc914d6cf554507",
+    "tests/test_benchmark.py": "35ec358ee385324217e6934e7ec500d6726cafee8dde4ad1e8533a66f681695e",
+    "tests/test_i1_benchmark.py": "ef7724e47206ff0370a904c4fd6c355ec8274700c071d3778229204f20f17dea",
+    "tests/test_i1_instruments.py": "1cc3af36cb9d6ccc49b1d16e3b9cb95431718de2cba7768ce842a9f9954fb094",
+    "tests/test_i1_jump.py": "263e2ad57558b865414aeed3ed761abf792aca7ec03ee2ab8fa709a81093b29f",
+    "tests/test_i1_mechanics.py": "00b07353e6f651d1d989d09123d8aa6e384c702536e0169a5d52952e2da02c4d",
+    "tests/test_i1_p0_audit.py": "78359d0d87321bf8d24eda9f828c90adb6816b5faa86cf78b71ba0e0237ed88b",
+    "tests/test_i1_solver_crosscheck.py": "6c7e01d3732ebf888729f60b4239a111756927bdd6a7c4a243cf491350f9a740",
+    "tests/test_i2a_evaluator_adversarial.py": "e60a3697dcc312cb41966356471e8bf33d19df69b422a2943e54b5305021d256",
+    "tests/test_i2b_protocol_inventory.py": "d54adb784dedd63e18e232538fd3480aaf23f2140d0aefbb7acadcaa25c4d423",
+    "tests/test_i2c_multibody.py": "75c9123aa723ed213c00adeb0d9883f14e251d39b6ecaa3c661d5e2a3fb52f3a",
+    "tests/test_i2d_engine_extensions.py": "bf7342413f31f3eb808876ef5d0aae67cbde875fc3d636e967a366e95d3664dd",
+    "tests/test_i2d_jumps.py": "61c7fdb0b0bcf1d4a4449ec2cd3d09ad08da1f03dd238c2ca0623e30f0a4cb9f",
+    "tests/test_i2e_back_squat.py": "2ddcf360c5f289494c9b365e9275cc66d74750d0cdf8a2d4d0ac61d953807f03",
+    "tests/test_i2f_arm_chain.py": "dd85668b10b29f0f0883dc7ff43aa8727deb2d3cc7d5251f05e20846179b124c",
+    "tests/test_i2f_deadlift.py": "dab780aaebfad4fa2a19a61adcf57112cb6ff0b5b1d50d403fd128e58e315060",
+    "tests/test_i2g_bench_press.py": "0c95db235a85a973f34bc0cdddfbdac6303b546f15fffa766a3af37bb63969b6",
+    "tests/test_i2h_olympic_pulls.py": "23d594c8b2d626aa05cb6f6f4bb9edf2b41ef031a1fea96841aaf824d46bb3e4",
+    "tests/test_i2i_power_clean.py": "d128c758041292f923f60b360d8a6c6335a2eff3cc5295a2f110d3df0e78b9bf",
+    "tests/test_i2j_benchmark.py": "6de8d7b3bf27ce2dc802d15ba55abacb1667e6a255d8a644774861427e8dee83",
+    "tests/test_i3_bench_support.py": "ac28f5dad3d22770fe0c7e0443c5ea17abca0d0b99992abcd81127d234295af5",
+    "tests/test_i3_contact_reporting.py": "8c5b3e76d3ee24987ed4fb7f12328fd69db3721e4625451c71d72fa3f1029c07",
+    "tests/test_i3_context_refusals.py": "01f5857f0776c27f8e5b06b8d66f4acf454a8143fc77bff2a05e5faca47648cb",
+    "tests/test_i3_evaluator.py": "e44e8cfd4531b6d6ac704cfae5edbcd768d1d4896c872bd56fb7060af901cea2",
+    "tests/test_i3_i1_energy_coverage.py": "71b19ef66e31d92f0dafc21f6b5641814af26648034626251e8f14c31ba08596",
+    "tests/test_i3_instruments.py": "c02eea7611ec12284b0749508df1838e24ac68540c7f904d51cb093099b9045d",
+    "tests/test_i3_mechanics.py": "5240006949adebd64e7d5f3b303d7e64d68a2963adf35f03e44ac72c71143500",
+    "tests/test_i3_platform_contract.py": "748729bcf265eed704a041bb07b26f59387e930bf71a6ee2cc5b9a4eb0df840c",
+    "tests/test_i3_plot_fidelity.py": "4288518cbd745da1f9cb85528645f5170d2d69ff8eb1530e909d5d7370ec5e6a",
+    "tests/test_i3_provenance.py": "a13d26245ee36a3869735746765ce27df03ab7ca398f68e274715e3fc864da92",
+    "tests/test_i3_reach_domain.py": "9640aa3ff8d01e8711d12b7b60da84bf818054ce107aeb29ebad00519d8c4ff5",
+    "tests/test_i3_reproduction_gate.py": "1d37746d971e301d86dc4c54e4b4a16028f2d81addb6fdaca5ee1a66232ad89c",
+    "tests/test_i3_step_work_scope.py": "ea00dd49bc44ead8c4f461964db249406a1839e834496f8b6169933342605d1e",
+    "tests/test_i3_work_reporting.py": "2b43c6b8899f51ffa64a68dc882e52d7da0fef4ac0db1092effd7e764f993c0f",
+    "tests/test_i4_projection.py": "d384159ac34b5e1e3be7eac33b3bc6c8e938acd15d8bd394bf2f413e08989090",
+    "tests/test_mechanics.py": "e1c2f1f40b482336ae5882f316f226b71000d40b11b5bbf02904cfd2b805078b",
+    "tests/test_observations.py": "889f3af25f49df5670e007f7c590625b6e8baa6895990cf53c2a44c213fd31db",
+    "tests/test_run_pilot.py": "40c4ee3c7f73f70a635229a20e05e1370eaa1eacfa767086cb6e2652b455852c"
+  },
+  "workers": [
+    {
+      "case": "res492",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_jumps",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\a\\res492"
+      ],
+      "exit": 0,
+      "replica": "a"
+    },
+    {
+      "case": "res492",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_jumps",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\b\\res492"
+      ],
+      "exit": 0,
+      "replica": "b"
+    },
+    {
+      "case": "res493",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_back_squat",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\a\\res493"
+      ],
+      "exit": 0,
+      "replica": "a"
+    },
+    {
+      "case": "res493",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_back_squat",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\b\\res493"
+      ],
+      "exit": 0,
+      "replica": "b"
+    },
+    {
+      "case": "res494",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_deadlift",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\a\\res494"
+      ],
+      "exit": 0,
+      "replica": "a"
+    },
+    {
+      "case": "res494",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_deadlift",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\b\\res494"
+      ],
+      "exit": 0,
+      "replica": "b"
+    },
+    {
+      "case": "res495",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_bench_press",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\a\\res495"
+      ],
+      "exit": 0,
+      "replica": "a"
+    },
+    {
+      "case": "res495",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_bench_press",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\b\\res495"
+      ],
+      "exit": 0,
+      "replica": "b"
+    },
+    {
+      "case": "res496",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_olympic_pulls",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\a\\res496"
+      ],
+      "exit": 0,
+      "replica": "a"
+    },
+    {
+      "case": "res496",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_olympic_pulls",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\b\\res496"
+      ],
+      "exit": 0,
+      "replica": "b"
+    },
+    {
+      "case": "res498",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_benchmark",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\a\\res498"
+      ],
+      "exit": 0,
+      "independent_benchmark_gate": true,
+      "replica": "a"
+    },
+    {
+      "case": "res498",
+      "command": [
+        "C:\\Users\\Usuario\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "scripts.run_i2_benchmark",
+        "--out",
+        "D:\\projects\\BioSynGenBenchmark\\runs\\i3\\res522\\reproduction\\fresh-id_wdym3\\b\\res498"
+      ],
+      "exit": 0,
+      "independent_benchmark_gate": true,
+      "replica": "b"
+    }
+  ]
+}

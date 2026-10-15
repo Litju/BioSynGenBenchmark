@@ -1,0 +1,6107 @@
+{
+  "engine_sha256": "5f2c4246998301b7fc96e34a5499f4af6dcebb47797aa000f6175eb6af34376d",
+  "cases": {
+    "CMJ_WEAK_HEAVY_DT0.002": {
+      "dt_s": 0.002,
+      "intervals": 1264,
+      "min_combined_cone_margin_n_s": -5.551115123125783e-17,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 3.6703973194107675e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.004657362231395415,
+      "max_projection_equation_residual": 8.999246660368332e-14,
+      "max_projection_work_residual_j": 6.079655415170901e-13,
+      "max_joint_position_error": 9.817477941709285e-10,
+      "max_joint_velocity_error": 4.164724121125115e-15,
+      "min_gap_m": -2.7755575615628914e-17,
+      "max_touching_normal_approach_m_s": 2.3447910280083284e-15,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 47.107830214380414,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "QUIET_STANCE",
+          "com": [
+            0.04000000000000001,
+            1.090317941743217,
+            9.115644331215518e-18,
+            1.1618406112332615e-16
+          ],
+          "H": 4.53281983554891e-16
+        },
+        {
+          "t_s": 0.3000000000000002,
+          "stage": "COUNTERMOVEMENT",
+          "com": [
+            0.04000000000000001,
+            1.090317941743217,
+            -1.2077576791848246e-16,
+            1.3026582770106598e-16
+          ],
+          "H": -2.811179903801415e-15
+        },
+        {
+          "t_s": 0.7011308378775862,
+          "stage": "PROPULSION",
+          "com": [
+            0.03805122984264537,
+            0.8764219125047398,
+            0.0008992203375981828,
+            0.06154776747889855
+          ],
+          "H": 0.1783122179485345
+        },
+        {
+          "t_s": 0.8851308378775864,
+          "stage": "FLIGHT",
+          "com": [
+            0.039809377426321374,
+            1.1127595833987909,
+            -0.08155417183362897,
+            1.6624894578376574
+          ],
+          "H": 2.3814401619189423
+        },
+        {
+          "t_s": 1.2235810844181303,
+          "stage": "LANDING",
+          "com": [
+            0.012125589040301372,
+            1.110573136818321,
+            -0.12147123034495626,
+            -1.5899040442210006
+          ],
+          "H": -0.28243785908948116
+        },
+        {
+          "t_s": 1.5753048197875517,
+          "stage": "STAND",
+          "com": [
+            -0.09327067839221766,
+            1.0351780056471827,
+            -0.38779216618997836,
+            -0.13414151083645628
+          ],
+          "H": 3.8637689855308732
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "1c9ed441e95a7a2dfa3eda71574fba5d87a281a77e531e1a2dc2b9d69e61bf5c",
+      "final_time_s": 2.5193048197874948,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 61.02,
+          "inertia_kg_m2": 4.400846596737072
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 9.0,
+          "inertia_kg_m2": 0.19920279209795994
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 4.185,
+          "inertia_kg_m2": 0.08163854595161046
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.3050000000000002,
+          "inertia_kg_m2": 0.0214647215625
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 9.0,
+          "inertia_kg_m2": 0.19920279209795994
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 4.185,
+          "inertia_kg_m2": 0.08163854595161046
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.3050000000000002,
+          "inertia_kg_m2": 0.0214647215625
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        }
+      }
+    },
+    "CMJ_WEAK_HEAVY_DT0.001": {
+      "dt_s": 0.001,
+      "intervals": 2471,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 2.617905892066119e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.0010025899550981168,
+      "max_projection_equation_residual": 1.0167942063408347e-13,
+      "max_projection_work_residual_j": 6.395387691648935e-13,
+      "max_joint_position_error": 9.690790392369308e-10,
+      "max_joint_velocity_error": 9.418854585163672e-15,
+      "min_gap_m": -1.3877787807814457e-17,
+      "max_touching_normal_approach_m_s": 3.481659405224491e-15,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 17.026694441163215,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "QUIET_STANCE",
+          "com": [
+            0.04000000000000001,
+            1.090317941743217,
+            4.55782216560776e-18,
+            5.809203056166306e-17
+          ],
+          "H": 2.266409917774456e-16
+        },
+        {
+          "t_s": 0.3000000000000002,
+          "stage": "COUNTERMOVEMENT",
+          "com": [
+            0.04000000000000001,
+            1.090317941743217,
+            1.2677271028028832e-17,
+            8.863094314729274e-17
+          ],
+          "H": -1.3460310859921265e-14
+        },
+        {
+          "t_s": 0.7000000000000005,
+          "stage": "PROPULSION",
+          "com": [
+            0.0380459785379352,
+            0.8760187238180814,
+            0.001364781215744906,
+            0.045172773113946005
+          ],
+          "H": 0.18772146212793042
+        },
+        {
+          "t_s": 0.8830000000000007,
+          "stage": "FLIGHT",
+          "com": [
+            0.04012021572306574,
+            1.107840985765334,
+            -0.08007514962753813,
+            1.6892887923472604
+          ],
+          "H": 2.6193918295067875
+        },
+        {
+          "t_s": 1.224910105920822,
+          "stage": "LANDING",
+          "com": [
+            0.012701259762629686,
+            1.1106035426095295,
+            -0.12002946137781965,
+            -1.598525342896469
+          ],
+          "H": -0.030637364500880393
+        },
+        {
+          "t_s": 1.5752676660689013,
+          "stage": "STAND",
+          "com": [
+            -0.09440693743305748,
+            1.0304789369558347,
+            -0.4194244381474164,
+            -0.14125246371514302
+          ],
+          "H": 4.7974613211913715
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "ea2beba5498cf173b3d9bc6375a258a9c9882d9cf34bad870bec9da8df577086",
+      "final_time_s": 2.469267666068803,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 61.02,
+          "inertia_kg_m2": 4.400846596737072
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 9.0,
+          "inertia_kg_m2": 0.19920279209795994
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 4.185,
+          "inertia_kg_m2": 0.08163854595161046
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.3050000000000002,
+          "inertia_kg_m2": 0.0214647215625
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 9.0,
+          "inertia_kg_m2": 0.19920279209795994
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 4.185,
+          "inertia_kg_m2": 0.08163854595161046
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.3050000000000002,
+          "inertia_kg_m2": 0.0214647215625
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        }
+      }
+    },
+    "CMJ_WEAK_HEAVY_DT0.0005": {
+      "dt_s": 0.0005,
+      "intervals": 4926,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 3.810285420513537e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.00024316057746513568,
+      "max_projection_equation_residual": 1.0715921558305044e-13,
+      "max_projection_work_residual_j": 4.5427774396204507e-13,
+      "max_joint_position_error": 9.915854248809808e-10,
+      "max_joint_velocity_error": 8.675005158664817e-15,
+      "min_gap_m": -6.938893903907228e-18,
+      "max_touching_normal_approach_m_s": 1.1439738045737614e-14,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 8.177302121289328,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "QUIET_STANCE",
+          "com": [
+            0.04000000000000001,
+            1.090317941743217,
+            2.27891108280388e-18,
+            2.904601528083153e-17
+          ],
+          "H": 1.133204958887228e-16
+        },
+        {
+          "t_s": 0.3000000000000002,
+          "stage": "COUNTERMOVEMENT",
+          "com": [
+            0.04000000000000001,
+            1.090317941743217,
+            3.9118493628291047e-17,
+            4.2861256289276266e-17
+          ],
+          "H": -1.2857755188792265e-14
+        },
+        {
+          "t_s": 0.7002584504572837,
+          "stage": "PROPULSION",
+          "com": [
+            0.03804632966604115,
+            0.8758728439129388,
+            0.0013949886979792152,
+            0.04242867063223621
+          ],
+          "H": 0.1909363307342136
+        },
+        {
+          "t_s": 0.8832584504572636,
+          "stage": "FLIGHT",
+          "com": [
+            0.04014805600146738,
+            1.1065671659862637,
+            -0.07987305068163184,
+            1.695993685328542
+          ],
+          "H": 2.6928302474904
+        },
+        {
+          "t_s": 1.226114650354397,
+          "stage": "LANDING",
+          "com": [
+            0.012743002192628304,
+            1.1108532390383743,
+            -0.11978627133742938,
+            -1.6012331697464137
+          ],
+          "H": 0.060592929455991734
+        },
+        {
+          "t_s": 1.576343713458555,
+          "stage": "STAND",
+          "com": [
+            -0.09553240370327827,
+            1.0293579369567853,
+            -0.42899847859355555,
+            -0.13734022239473626
+          ],
+          "H": 4.792582242695521
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "51d99b0d21902d0391f24eaf31036493afcfd03159c510fd7ad05f569c46803f",
+      "final_time_s": 2.4618437134586624,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 61.02,
+          "inertia_kg_m2": 4.400846596737072
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 9.0,
+          "inertia_kg_m2": 0.19920279209795994
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 4.185,
+          "inertia_kg_m2": 0.08163854595161046
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.3050000000000002,
+          "inertia_kg_m2": 0.0214647215625
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 9.0,
+          "inertia_kg_m2": 0.19920279209795994
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 4.185,
+          "inertia_kg_m2": 0.08163854595161046
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.3050000000000002,
+          "inertia_kg_m2": 0.0214647215625
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        }
+      }
+    },
+    "PULL_T0.8_A0.05_DT0.002": {
+      "dt_s": 0.002,
+      "intervals": 1413,
+      "min_combined_cone_margin_n_s": -8.326672684688674e-17,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 3.97015753605956e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.0013132759805905003,
+      "max_projection_equation_residual": 4.879506087379637e-14,
+      "max_projection_work_residual_j": 2.792866713721351e-13,
+      "max_joint_position_error": 9.922516142069071e-10,
+      "max_joint_velocity_error": 1.1568523916594111e-14,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 1.9984014443252818e-15,
+      "max_sliding_law_residual_n_s": 8.326672684688674e-17,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 40.427683066515264,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            3.6888998050673424e-18,
+            5.354507557990245e-18
+          ],
+          "H": 7.010337309682478e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670434,
+            0.42586471638429846,
+            1.7999538830848554e-14,
+            -1.0224423801632655e-14
+          ],
+          "H": 4.4983588674008075e-13
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.0161507781910212,
+            0.4254334612363445,
+            -0.030832815112674813,
+            -0.002325840818962475
+          ],
+          "H": 1.5061365451376696
+        },
+        {
+          "t_s": 1.600554295746308,
+          "stage": "FINISH",
+          "com": [
+            0.033644612875256996,
+            0.9112474037043786,
+            0.011911538559292483,
+            -0.07535545527138159
+          ],
+          "H": 20.216647978904682
+        },
+        {
+          "t_s": 2.0022466126660494,
+          "stage": "LOWER",
+          "com": [
+            -0.05991449140146753,
+            0.9403598631323805,
+            -0.4755925285687202,
+            -0.10370610592509394
+          ],
+          "H": 4.855346184127767
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: hip",
+      "trace_sha256": "486adadb79dc0c3a8ad748fbc87ee762c718f8d1d0b3bad047f568b56e51e3a0",
+      "final_time_s": 2.6930943430516914,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T0.8_A0.05_DT0.001": {
+      "dt_s": 0.001,
+      "intervals": 2731,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 2.5845992013273644e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.000303495146570798,
+      "max_projection_equation_residual": 8.968997419755986e-14,
+      "max_projection_work_residual_j": 5.989978986724234e-13,
+      "max_joint_position_error": 9.997781491577484e-10,
+      "max_joint_velocity_error": 4.036354583902835e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 1.1795009413617664e-14,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 2.7858203983974015,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            1.8444499025336712e-18,
+            2.6772537789951225e-18
+          ],
+          "H": 3.505168654841239e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -8.415281520916997e-19,
+            -5.58082293883932e-17
+          ],
+          "H": 4.6352305605346766e-15
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.01619175887651969,
+            0.4254371995775596,
+            -0.030811487755837787,
+            -0.0023238413566748907
+          ],
+          "H": 1.5056688101062659
+        },
+        {
+          "t_s": 1.600570767429851,
+          "stage": "FINISH",
+          "com": [
+            0.03297184695861931,
+            0.9121903899955185,
+            0.01145336376348323,
+            -0.06070772108187444
+          ],
+          "H": 18.571393238687648
+        },
+        {
+          "t_s": 2.001570767429807,
+          "stage": "LOWER",
+          "com": [
+            -0.04830907515392051,
+            0.9425902257012234,
+            -0.41238855153540277,
+            -0.06933359007086289
+          ],
+          "H": 5.27716150399156
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: hip",
+      "trace_sha256": "c7f41a881f4b5864acbad276ca2f64725cb3be38ebd1bbd77769dcb8c7807741",
+      "final_time_s": 2.7295707674297267,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T0.8_A0.05_DT0.0005": {
+      "dt_s": 0.0005,
+      "intervals": 5502,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.672928710647284e-13,
+      "max_angular_quadrature_residual_n_m_s": 7.567013333331651e-05,
+      "max_projection_equation_residual": 8.280328462825781e-14,
+      "max_projection_work_residual_j": 5.147288591043258e-13,
+      "max_joint_position_error": 9.965395175726144e-10,
+      "max_joint_velocity_error": 1.887379141862766e-15,
+      "min_gap_m": -4.715806356525576e-10,
+      "max_touching_normal_approach_m_s": 1.3358203432289883e-14,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 1.0400762792441658,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            9.222249512668356e-19,
+            1.3386268894975612e-18
+          ],
+          "H": 1.7525843274206194e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -7.6909742397629e-18,
+            -7.810205582695782e-17
+          ],
+          "H": 6.267850658010766e-15
+        },
+        {
+          "t_s": 0.8004999999999672,
+          "stage": "PULL",
+          "com": [
+            0.016196804743929677,
+            0.4254379303592684,
+            -0.03083515482570792,
+            -0.002277014969474315
+          ],
+          "H": 1.5058309762538071
+        },
+        {
+          "t_s": 1.6007274063689279,
+          "stage": "FINISH",
+          "com": [
+            0.03269172309913,
+            0.9126249062613557,
+            0.013038234440595412,
+            -0.053836540129912035
+          ],
+          "H": 17.89290576261588
+        },
+        {
+          "t_s": 2.0012274063688844,
+          "stage": "LOWER",
+          "com": [
+            -0.04184860963681179,
+            0.9433176426928851,
+            -0.38242824783388807,
+            -0.06159583780334516
+          ],
+          "H": 4.708988097589403
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: hip",
+      "trace_sha256": "b8436b5e4845295e3b9d4eaf0f70531ec0cc44c46f8d8245e835a8f2abc2bee3",
+      "final_time_s": 2.7502274063691345,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T0.8_A-0.2_DT0.002": {
+      "dt_s": 0.002,
+      "intervals": 1255,
+      "min_combined_cone_margin_n_s": -1.3010426069826053e-18,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.312106227644108e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.003935996691748933,
+      "max_projection_equation_residual": 6.91299231400655e-14,
+      "max_projection_work_residual_j": 4.747197101563627e-13,
+      "max_joint_position_error": 9.971756753657246e-10,
+      "max_joint_velocity_error": 2.31939467632003e-14,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 2.0037305148434827e-14,
+      "max_sliding_law_residual_n_s": 2.211772431870429e-17,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 66.60084504137382,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            3.6888998050673424e-18,
+            5.354507557990245e-18
+          ],
+          "H": 7.010337309682478e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670434,
+            0.42586471638429846,
+            1.7999538830848554e-14,
+            -1.0224423801632655e-14
+          ],
+          "H": 4.4983588674008075e-13
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.0161507781910212,
+            0.4254334612363445,
+            -0.030832815112674813,
+            -0.002325840818962475
+          ],
+          "H": 1.5061365451376696
+        },
+        {
+          "t_s": 1.601225696976912,
+          "stage": "FINISH",
+          "com": [
+            -0.06925965291108369,
+            0.892829187358964,
+            -0.345334612771561,
+            -0.1339459588708502
+          ],
+          "H": 21.500828599057595
+        },
+        {
+          "t_s": 2.0013229915792556,
+          "stage": "LOWER",
+          "com": [
+            -0.3954393562591138,
+            0.838639322977747,
+            -1.2793132119625443,
+            -0.6599816232397708
+          ],
+          "H": 27.84960112839793
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: hip",
+      "trace_sha256": "afff87937d272bc796a131161c768d268dd90486ae565bc2f244f090eb9e7119",
+      "final_time_s": 2.348684239630712,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T0.8_A-0.2_DT0.001": {
+      "dt_s": 0.001,
+      "intervals": 2329,
+      "min_combined_cone_margin_n_s": -1.0408340855860843e-17,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 2.69562150378988e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.0008769202526335285,
+      "max_projection_equation_residual": 7.998167812051744e-14,
+      "max_projection_work_residual_j": 3.8060993540420533e-13,
+      "max_joint_position_error": 9.997781491577484e-10,
+      "max_joint_velocity_error": 2.32314167902814e-14,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 1.2931877790833824e-14,
+      "max_sliding_law_residual_n_s": 1.0408340855860843e-17,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 2.893175888403753,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            1.8444499025336712e-18,
+            2.6772537789951225e-18
+          ],
+          "H": 3.505168654841239e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -8.415281520916997e-19,
+            -5.58082293883932e-17
+          ],
+          "H": 4.6352305605346766e-15
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.01619175887651969,
+            0.4254371995775596,
+            -0.030811487755837787,
+            -0.0023238413566748907
+          ],
+          "H": 1.5056688101062659
+        },
+        {
+          "t_s": 1.6009737692489556,
+          "stage": "FINISH",
+          "com": [
+            -0.06791510601053538,
+            0.8910941299281313,
+            -0.35037344079857585,
+            -0.13616996019263392
+          ],
+          "H": 21.928618452371282
+        },
+        {
+          "t_s": 2.001262038501125,
+          "stage": "LOWER",
+          "com": [
+            -0.4022450475676172,
+            0.8315119428475894,
+            -1.3100751878916355,
+            -0.6999128398933482
+          ],
+          "H": 28.507007661781888
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "4ba62ded13aa789dc9375cd026b2ef09cb98e56b852fa912126f73434d2cec07",
+      "final_time_s": 2.327262038501089,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T0.8_A-0.2_DT0.0005": {
+      "dt_s": 0.0005,
+      "intervals": 4645,
+      "min_combined_cone_margin_n_s": -8.673617379884035e-19,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.4575454438700035e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.00021369362682122084,
+      "max_projection_equation_residual": 8.631038473581572e-14,
+      "max_projection_work_residual_j": 4.4762197892051015e-13,
+      "max_joint_position_error": 9.965395175726144e-10,
+      "max_joint_velocity_error": 8.0629947163402e-15,
+      "min_gap_m": -4.715806356525576e-10,
+      "max_touching_normal_approach_m_s": 3.126388037344441e-15,
+      "max_sliding_law_residual_n_s": 2.778268066994105e-18,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 1.2324750445204118,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            9.222249512668356e-19,
+            1.3386268894975612e-18
+          ],
+          "H": 1.7525843274206194e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -7.6909742397629e-18,
+            -7.810205582695782e-17
+          ],
+          "H": 6.267850658010766e-15
+        },
+        {
+          "t_s": 0.8004999999999672,
+          "stage": "PULL",
+          "com": [
+            0.016196804743929677,
+            0.4254379303592684,
+            -0.03083515482570792,
+            -0.002277014969474315
+          ],
+          "H": 1.5058309762538071
+        },
+        {
+          "t_s": 1.6008266002008849,
+          "stage": "FINISH",
+          "com": [
+            -0.0670430019576463,
+            0.8903116385128889,
+            -0.35227510211148294,
+            -0.14063129924876547
+          ],
+          "H": 22.063050913495232
+        },
+        {
+          "t_s": 2.000851824050016,
+          "stage": "LOWER",
+          "com": [
+            -0.4043711400297944,
+            0.8284576285615334,
+            -1.3208269188947475,
+            -0.7121847670619831
+          ],
+          "H": 29.197992014310067
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "0eddfe7b1b2c923a3df7ac9a8e86cc6d057766919eaf75bea49ceb40a1331e8c",
+      "final_time_s": 2.321351824050123,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T0.8_A-0.4_DT0.002": {
+      "dt_s": 0.002,
+      "intervals": 1113,
+      "min_combined_cone_margin_n_s": -2.7755575615628914e-17,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.3920422854171193e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.004632097324270834,
+      "max_projection_equation_residual": 5.6519676092103843e-14,
+      "max_projection_work_residual_j": 2.951174867633563e-13,
+      "max_joint_position_error": 9.437919334942535e-10,
+      "max_joint_velocity_error": 6.055156376305604e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 1.2390088954816747e-15,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 58.51280463220979,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            3.6888998050673424e-18,
+            5.354507557990245e-18
+          ],
+          "H": 7.010337309682478e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670434,
+            0.42586471638429846,
+            1.7999538830848554e-14,
+            -1.0224423801632655e-14
+          ],
+          "H": 4.4983588674008075e-13
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.0161507781910212,
+            0.4254334612363445,
+            -0.030832815112674813,
+            -0.002325840818962475
+          ],
+          "H": 1.5061365451376696
+        },
+        {
+          "t_s": 1.6005966204435491,
+          "stage": "FINISH",
+          "com": [
+            -0.14848650548859804,
+            0.8680722636784911,
+            -0.6465498798592167,
+            -0.26822594323572274
+          ],
+          "H": 20.696952061070903
+        },
+        {
+          "t_s": 2.0013081013643474,
+          "stage": "LOWER",
+          "com": [
+            -0.6405003184384725,
+            0.6599352018226504,
+            -1.623452486258363,
+            -1.5108711360770666
+          ],
+          "H": 45.9045270763214
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "edb474fef2fae881bc059ac7c7eb424223a641cd233f8d395a0b28c384b3efc8",
+      "final_time_s": 2.174313781403467,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T0.8_A-0.4_DT0.001": {
+      "dt_s": 0.001,
+      "intervals": 2160,
+      "min_combined_cone_margin_n_s": -3.469446951953614e-18,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 2.4802382370125997e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.0012112491102875822,
+      "max_projection_equation_residual": 8.288451847603129e-14,
+      "max_projection_work_residual_j": 3.4732829270025037e-13,
+      "max_joint_position_error": 9.997781491577484e-10,
+      "max_joint_velocity_error": 1.272940086671781e-14,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 1.7763568394002505e-14,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 3.6465603647689075,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            1.8444499025336712e-18,
+            2.6772537789951225e-18
+          ],
+          "H": 3.505168654841239e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -8.415281520916997e-19,
+            -5.58082293883932e-17
+          ],
+          "H": 4.6352305605346766e-15
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.01619175887651969,
+            0.4254371995775596,
+            -0.030811487755837787,
+            -0.0023238413566748907
+          ],
+          "H": 1.5056688101062659
+        },
+        {
+          "t_s": 1.6009896629192786,
+          "stage": "FINISH",
+          "com": [
+            -0.14635089223654538,
+            0.8654337433314123,
+            -0.6384970482531158,
+            -0.28518352313012424
+          ],
+          "H": 22.33658240973943
+        },
+        {
+          "t_s": 2.001083498790879,
+          "stage": "LOWER",
+          "com": [
+            -0.6409485081693765,
+            0.6477760526333469,
+            -1.6263439137231739,
+            -1.541960893073298
+          ],
+          "H": 50.012179939182914
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "184835f60ddae1d71dad8f0d7284ed9c14ebeee080f04a572d9d6ba4ba140a12",
+      "final_time_s": 2.156083498790862,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T0.8_A-0.4_DT0.0005": {
+      "dt_s": 0.0005,
+      "intervals": 4304,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.083400284571326e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.00031366427149703835,
+      "max_projection_equation_residual": 7.255204551422307e-14,
+      "max_projection_work_residual_j": 4.372467743641228e-13,
+      "max_joint_position_error": 9.965395175726144e-10,
+      "max_joint_velocity_error": 1.087671619437458e-14,
+      "min_gap_m": -4.715806356525576e-10,
+      "max_touching_normal_approach_m_s": 3.508304757815495e-16,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 1.5864313131718593,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            9.222249512668356e-19,
+            1.3386268894975612e-18
+          ],
+          "H": 1.7525843274206194e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -7.6909742397629e-18,
+            -7.810205582695782e-17
+          ],
+          "H": 6.267850658010766e-15
+        },
+        {
+          "t_s": 0.8004999999999672,
+          "stage": "PULL",
+          "com": [
+            0.016196804743929677,
+            0.4254379303592684,
+            -0.03083515482570792,
+            -0.002277014969474315
+          ],
+          "H": 1.5058309762538071
+        },
+        {
+          "t_s": 1.6008602857555794,
+          "stage": "FINISH",
+          "com": [
+            -0.14437105871113134,
+            0.8635464977372519,
+            -0.6241212940196206,
+            -0.31004748720822906
+          ],
+          "H": 23.78824251752358
+        },
+        {
+          "t_s": 2.0013602857555357,
+          "stage": "LOWER",
+          "com": [
+            -0.6438885263461833,
+            0.6375623091355839,
+            -1.6434315476200099,
+            -1.5542513235727131
+          ],
+          "H": 52.67719885938274
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "1aad75fac0b872e4bcf5f38ba4c14ecbfa2e98b58d2123bad96148546bc09599",
+      "final_time_s": 2.1498602857555853,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.0_A0.05_DT0.002": {
+      "dt_s": 0.002,
+      "intervals": 2154,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 3.3784086639343514e-13,
+      "max_angular_quadrature_residual_n_m_s": 9.778795610959623e-05,
+      "max_projection_equation_residual": 2.2571950818867093e-14,
+      "max_projection_work_residual_j": 5.148761926504459e-14,
+      "max_joint_position_error": 9.971720116297433e-10,
+      "max_joint_velocity_error": 1.8245821520324056e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 2.0605739337042908e-15,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 8.377757312660265,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            3.6888998050673424e-18,
+            5.354507557990245e-18
+          ],
+          "H": 7.010337309682478e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670434,
+            0.42586471638429846,
+            1.7999538830848554e-14,
+            -1.0224423801632655e-14
+          ],
+          "H": 4.4983588674008075e-13
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.0161507781910212,
+            0.4254334612363445,
+            -0.030832815112674813,
+            -0.002325840818962475
+          ],
+          "H": 1.5061365451376696
+        },
+        {
+          "t_s": 1.801859814480779,
+          "stage": "FINISH",
+          "com": [
+            -0.020705431830934935,
+            0.9165929790535362,
+            0.03301227935414688,
+            0.009107150580827152
+          ],
+          "H": -2.2715181330397924
+        },
+        {
+          "t_s": 2.202853372195962,
+          "stage": "LOWER",
+          "com": [
+            -0.015118457421874662,
+            0.9161542788107029,
+            -0.0002095856660570728,
+            -7.007328988662364e-05
+          ],
+          "H": 0.3024699816753002
+        },
+        {
+          "t_s": 3.8048533721957853,
+          "stage": "RESET",
+          "com": [
+            -0.011594321870424973,
+            0.42564219347660537,
+            0.007160268097185796,
+            0.016511486639533248
+          ],
+          "H": 3.087532962182419
+        }
+      ],
+      "termination": "DURATION_REACHED",
+      "trace_sha256": "4c345b440efe556da6bc4308eb2a3636efedbca6b64eeb1228782580112cc300",
+      "final_time_s": 4.300000000000001,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.0_A0.05_DT0.001": {
+      "dt_s": 0.001,
+      "intervals": 4304,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.766187444715797e-13,
+      "max_angular_quadrature_residual_n_m_s": 2.221280327363573e-05,
+      "max_projection_equation_residual": 2.322252633246702e-14,
+      "max_projection_work_residual_j": 6.457351574920019e-14,
+      "max_joint_position_error": 9.997781491577484e-10,
+      "max_joint_velocity_error": 2.970193535567489e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 1.723066134218243e-15,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 3.2523906170883543,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            1.8444499025336712e-18,
+            2.6772537789951225e-18
+          ],
+          "H": 3.505168654841239e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -8.415281520916997e-19,
+            -5.58082293883932e-17
+          ],
+          "H": 4.6352305605346766e-15
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.01619175887651969,
+            0.4254371995775596,
+            -0.030811487755837787,
+            -0.0023238413566748907
+          ],
+          "H": 1.5056688101062659
+        },
+        {
+          "t_s": 1.8000731313475185,
+          "stage": "FINISH",
+          "com": [
+            -0.01992826118611944,
+            0.916478411046555,
+            0.05070898594420044,
+            0.0012400280859700048
+          ],
+          "H": -0.5063436574278591
+        },
+        {
+          "t_s": 2.2010731313474743,
+          "stage": "LOWER",
+          "com": [
+            -0.01290005585101126,
+            0.9161380237739581,
+            -1.0586464714204352e-05,
+            -0.00018253040113001208
+          ],
+          "H": 0.4298552648889883
+        },
+        {
+          "t_s": 3.802073131347298,
+          "stage": "RESET",
+          "com": [
+            -0.008782366375316318,
+            0.42555927102668567,
+            0.007226696647462887,
+            0.016041209930890882
+          ],
+          "H": 3.0848672057789264
+        }
+      ],
+      "termination": "DURATION_REACHED",
+      "trace_sha256": "e3c64c93a08a7ce79f8d02602da26400a92331a6e98544137779edb5eb240820",
+      "final_time_s": 4.300000000000001,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.0_A0.05_DT0.0005": {
+      "dt_s": 0.0005,
+      "intervals": 8604,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 3.9535041906901824e-13,
+      "max_angular_quadrature_residual_n_m_s": 1.961932142159964e-05,
+      "max_projection_equation_residual": 2.368007447233248e-14,
+      "max_projection_work_residual_j": 7.81079566230958e-14,
+      "max_joint_position_error": 9.99594185202568e-10,
+      "max_joint_velocity_error": 1.6143336667440167e-15,
+      "min_gap_m": -4.715806356525576e-10,
+      "max_touching_normal_approach_m_s": 5.151434834260727e-16,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 1.5446029752754256,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            9.222249512668356e-19,
+            1.3386268894975612e-18
+          ],
+          "H": 1.7525843274206194e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -7.6909742397629e-18,
+            -7.810205582695782e-17
+          ],
+          "H": 6.267850658010766e-15
+        },
+        {
+          "t_s": 0.8004999999999672,
+          "stage": "PULL",
+          "com": [
+            0.016196804743929677,
+            0.4254379303592684,
+            -0.03083515482570792,
+            -0.002277014969474315
+          ],
+          "H": 1.5058309762538071
+        },
+        {
+          "t_s": 1.8008388843621483,
+          "stage": "FINISH",
+          "com": [
+            -0.019697871543017255,
+            0.9164981778472813,
+            0.05146293757900581,
+            0.0008727648528449549
+          ],
+          "H": -0.55642241727667
+        },
+        {
+          "t_s": 2.2008388843621933,
+          "stage": "LOWER",
+          "com": [
+            -0.013063939533540942,
+            0.9161359236640757,
+            -0.000700716293097106,
+            -0.00010020221496454814
+          ],
+          "H": 0.4210174486617223
+        },
+        {
+          "t_s": 3.8008388843627277,
+          "stage": "RESET",
+          "com": [
+            -0.009104951790488588,
+            0.42551596920979196,
+            0.00729633343601554,
+            0.015690762631456013
+          ],
+          "H": 3.1089438539193375
+        }
+      ],
+      "termination": "DURATION_REACHED",
+      "trace_sha256": "9e5d124a2de434dd6783f645c115b3ccadd1910d7879956557d3b39c394790c1",
+      "final_time_s": 4.300000000000001,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.0_A-0.2_DT0.002": {
+      "dt_s": 0.002,
+      "intervals": 1378,
+      "min_combined_cone_margin_n_s": -6.591949208711867e-17,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.2787995369053533e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.004091320084717687,
+      "max_projection_equation_residual": 7.347768227194962e-14,
+      "max_projection_work_residual_j": 5.167886518026021e-13,
+      "max_joint_position_error": 9.65278745823639e-10,
+      "max_joint_velocity_error": 1.7763568394002505e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 1.1934897514720433e-15,
+      "max_sliding_law_residual_n_s": 9.020562075079397e-17,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 70.55094579755794,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            3.6888998050673424e-18,
+            5.354507557990245e-18
+          ],
+          "H": 7.010337309682478e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670434,
+            0.42586471638429846,
+            1.7999538830848554e-14,
+            -1.0224423801632655e-14
+          ],
+          "H": 4.4983588674008075e-13
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.0161507781910212,
+            0.4254334612363445,
+            -0.030832815112674813,
+            -0.002325840818962475
+          ],
+          "H": 1.5061365451376696
+        },
+        {
+          "t_s": 1.80187315130249,
+          "stage": "FINISH",
+          "com": [
+            -0.17159627665382962,
+            0.9180820686691851,
+            -0.4319796433452454,
+            -0.009071512148218422
+          ],
+          "H": 10.72827975488065
+        },
+        {
+          "t_s": 2.202152297002231,
+          "stage": "LOWER",
+          "com": [
+            -0.48745281436165866,
+            0.8370384557476536,
+            -1.2274945503894472,
+            -0.6312091741960055
+          ],
+          "H": 23.346548100491642
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: hip",
+      "trace_sha256": "f009e52e08854de344ef2cac7b1830497dbdb44e354267ccdbd2c874d7d3f040",
+      "final_time_s": 2.576640479657994,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.0_A-0.2_DT0.001": {
+      "dt_s": 0.001,
+      "intervals": 2577,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 2.7844393457598926e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.000970608461262179,
+      "max_projection_equation_residual": 7.7978557855643e-14,
+      "max_projection_work_residual_j": 4.193748094697943e-13,
+      "max_joint_position_error": 9.997781491577484e-10,
+      "max_joint_velocity_error": 1.7763568394002505e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 7.283063041541027e-16,
+      "max_sliding_law_residual_n_s": 8.673617379884035e-18,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 1.5548077601119845,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            1.8444499025336712e-18,
+            2.6772537789951225e-18
+          ],
+          "H": 3.505168654841239e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -8.415281520916997e-19,
+            -5.58082293883932e-17
+          ],
+          "H": 4.6352305605346766e-15
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.01619175887651969,
+            0.4254371995775596,
+            -0.030811487755837787,
+            -0.0023238413566748907
+          ],
+          "H": 1.5056688101062659
+        },
+        {
+          "t_s": 1.800169469226312,
+          "stage": "FINISH",
+          "com": [
+            -0.16797242157211179,
+            0.9177877305093503,
+            -0.42824217595519726,
+            -0.0042481233332369766
+          ],
+          "H": 10.186862674750921
+        },
+        {
+          "t_s": 2.2007510860189052,
+          "stage": "LOWER",
+          "com": [
+            -0.4792565186904125,
+            0.8404621090590121,
+            -1.2103034762524891,
+            -0.5922370121733341
+          ],
+          "H": 24.937524961183865
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: hip",
+      "trace_sha256": "5413cd728f76951a40c8a124b07b7a03bdcb3566460bca4fdbdb319a0132f731",
+      "final_time_s": 2.5687510860188647,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.0_A-0.2_DT0.0005": {
+      "dt_s": 0.0005,
+      "intervals": 5151,
+      "min_combined_cone_margin_n_s": -2.7647155398380363e-18,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 5.292433158388121e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.00024310973819663406,
+      "max_projection_equation_residual": 8.216959556349435e-14,
+      "max_projection_work_residual_j": 4.592551186713702e-13,
+      "max_joint_position_error": 9.965395175726144e-10,
+      "max_joint_velocity_error": 3.2194732990653564e-15,
+      "min_gap_m": -4.715806356525576e-10,
+      "max_touching_normal_approach_m_s": 3.0553337637684308e-15,
+      "max_sliding_law_residual_n_s": 8.348356728138384e-18,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 0.6363501405459143,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            9.222249512668356e-19,
+            1.3386268894975612e-18
+          ],
+          "H": 1.7525843274206194e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -7.6909742397629e-18,
+            -7.810205582695782e-17
+          ],
+          "H": 6.267850658010766e-15
+        },
+        {
+          "t_s": 0.8004999999999672,
+          "stage": "PULL",
+          "com": [
+            0.016196804743929677,
+            0.4254379303592684,
+            -0.03083515482570792,
+            -0.002277014969474315
+          ],
+          "H": 1.5058309762538071
+        },
+        {
+          "t_s": 1.8005878231231427,
+          "stage": "FINISH",
+          "com": [
+            -0.16647200149401586,
+            0.9177159547366882,
+            -0.4251224165084787,
+            -0.006265336174139056
+          ],
+          "H": 10.229169829107724
+        },
+        {
+          "t_s": 2.2009842321175075,
+          "stage": "LOWER",
+          "com": [
+            -0.47623956238152043,
+            0.8414526622537225,
+            -1.2068788325906437,
+            -0.5873906497636088
+          ],
+          "H": 24.830347259918955
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: hip",
+      "trace_sha256": "bc517a65058f688b27505863cc5c5ebcd74c1cf28f0b8ca93ae30e45ee0f9a3e",
+      "final_time_s": 2.5694842321176306,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.0_A-0.4_DT0.002": {
+      "dt_s": 0.002,
+      "intervals": 1253,
+      "min_combined_cone_margin_n_s": -8.847089727481716e-17,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.312106227644108e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.003992245711138764,
+      "max_projection_equation_residual": 6.213269915927855e-14,
+      "max_projection_work_residual_j": 4.752565528620689e-13,
+      "max_joint_position_error": 9.95560300864895e-10,
+      "max_joint_velocity_error": 1.7763568394002505e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 1.1124434706744068e-15,
+      "max_sliding_law_residual_n_s": 8.847089727481716e-17,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 62.437684325817195,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            3.6888998050673424e-18,
+            5.354507557990245e-18
+          ],
+          "H": 7.010337309682478e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670434,
+            0.42586471638429846,
+            1.7999538830848554e-14,
+            -1.0224423801632655e-14
+          ],
+          "H": 4.4983588674008075e-13
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.0161507781910212,
+            0.4254334612363445,
+            -0.030832815112674813,
+            -0.002325840818962475
+          ],
+          "H": 1.5061365451376696
+        },
+        {
+          "t_s": 1.801552626769454,
+          "stage": "FINISH",
+          "com": [
+            -0.27620177100609783,
+            0.9002200361348165,
+            -0.7386755941703644,
+            -0.1324760163449333
+          ],
+          "H": 16.036642519135494
+        },
+        {
+          "t_s": 2.2026241018470523,
+          "stage": "LOWER",
+          "com": [
+            -0.7656067636448974,
+            0.6230818270762525,
+            -1.583413437680985,
+            -1.7884085637133917
+          ],
+          "H": 40.90438418623843
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "f05a6f0c7b72fe8e4e4b055e314ebc81a2c04e69dbe112b62a3bbc3ac56ceaa4",
+      "final_time_s": 2.3782019147524593,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.0_A-0.4_DT0.001": {
+      "dt_s": 0.001,
+      "intervals": 2375,
+      "min_combined_cone_margin_n_s": -1.5612511283791264e-17,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 2.5512925105886097e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.0008446424688421938,
+      "max_projection_equation_residual": 6.498816242095362e-14,
+      "max_projection_work_residual_j": 3.5827172607999014e-13,
+      "max_joint_position_error": 9.997781491577484e-10,
+      "max_joint_velocity_error": 1.7763568394002505e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 6.261657858885884e-16,
+      "max_sliding_law_residual_n_s": 1.5612511283791264e-17,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 1.4070075407510056,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            1.8444499025336712e-18,
+            2.6772537789951225e-18
+          ],
+          "H": 3.505168654841239e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -8.415281520916997e-19,
+            -5.58082293883932e-17
+          ],
+          "H": 4.6352305605346766e-15
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.01619175887651969,
+            0.4254371995775596,
+            -0.030811487755837787,
+            -0.0023238413566748907
+          ],
+          "H": 1.5056688101062659
+        },
+        {
+          "t_s": 1.8001068396791182,
+          "stage": "FINISH",
+          "com": [
+            -0.27084894261303266,
+            0.9012842450988772,
+            -0.7416373124617665,
+            -0.09544478901151658
+          ],
+          "H": 14.721508807125684
+        },
+        {
+          "t_s": 2.2005882689706477,
+          "stage": "LOWER",
+          "com": [
+            -0.7546232078673115,
+            0.6396942502257609,
+            -1.606427885401695,
+            -1.6571496687665452
+          ],
+          "H": 44.72256841937063
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "b880d5793fdcea4b35655acc754ec0236cbe2204c7d0b02303145cb7feb5be58",
+      "final_time_s": 2.3655882689706296,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.0_A-0.4_DT0.0005": {
+      "dt_s": 0.0005,
+      "intervals": 4725,
+      "min_combined_cone_margin_n_s": -8.294146619514109e-18,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.292122213200855e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.00022103117877236844,
+      "max_projection_equation_residual": 9.025703226256052e-14,
+      "max_projection_work_residual_j": 5.077745749294043e-13,
+      "max_joint_position_error": 9.965395175726144e-10,
+      "max_joint_velocity_error": 1.7763568394002505e-15,
+      "min_gap_m": -4.715806356525576e-10,
+      "max_touching_normal_approach_m_s": 8.348877145181177e-16,
+      "max_sliding_law_residual_n_s": 8.294146619514109e-18,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 0.4440305691255978,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            9.222249512668356e-19,
+            1.3386268894975612e-18
+          ],
+          "H": 1.7525843274206194e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -7.6909742397629e-18,
+            -7.810205582695782e-17
+          ],
+          "H": 6.267850658010766e-15
+        },
+        {
+          "t_s": 0.8004999999999672,
+          "stage": "PULL",
+          "com": [
+            0.016196804743929677,
+            0.4254379303592684,
+            -0.03083515482570792,
+            -0.002277014969474315
+          ],
+          "H": 1.5058309762538071
+        },
+        {
+          "t_s": 1.8009552552244796,
+          "stage": "FINISH",
+          "com": [
+            -0.27060457505066365,
+            0.9004760667431762,
+            -0.7663928025159116,
+            -0.09768729100363359
+          ],
+          "H": 13.430675008571173
+        },
+        {
+          "t_s": 2.2014048913352555,
+          "stage": "LOWER",
+          "com": [
+            -0.75982499105826,
+            0.6276164943558677,
+            -1.6102750850039675,
+            -1.715059591017607
+          ],
+          "H": 45.916142250510795
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "a77fdf8ceed1d35f6265f07c6ef89a75188d97275ee15b9ae6de72de0eca5ccf",
+      "final_time_s": 2.3574048913353076,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.2_A0.05_DT0.002": {
+      "dt_s": 0.002,
+      "intervals": 2251,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 3.4611202792689255e-13,
+      "max_angular_quadrature_residual_n_m_s": 3.4580492613081604e-05,
+      "max_projection_equation_residual": 2.330863909001668e-14,
+      "max_projection_work_residual_j": 4.343141853586782e-14,
+      "max_joint_position_error": 9.437919334942535e-10,
+      "max_joint_velocity_error": 8.889644662751772e-16,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 9.298117831235686e-16,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 2.83748032564144,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            3.6888998050673424e-18,
+            5.354507557990245e-18
+          ],
+          "H": 7.010337309682478e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670434,
+            0.42586471638429846,
+            1.7999538830848554e-14,
+            -1.0224423801632655e-14
+          ],
+          "H": 4.4983588674008075e-13
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.0161507781910212,
+            0.4254334612363445,
+            -0.030832815112674813,
+            -0.002325840818962475
+          ],
+          "H": 1.5061365451376696
+        },
+        {
+          "t_s": 2.0004827843889452,
+          "stage": "FINISH",
+          "com": [
+            -0.002326293114057716,
+            0.9166274728308216,
+            0.053316618145109414,
+            -0.0032201846005563643
+          ],
+          "H": 3.56278386625693
+        },
+        {
+          "t_s": 2.402482784388901,
+          "stage": "LOWER",
+          "com": [
+            -0.00010461023564579765,
+            0.9163976484193906,
+            -0.00023029340006664714,
+            -0.005346902120040523
+          ],
+          "H": -1.040110728177302
+        },
+        {
+          "t_s": 4.004482784388725,
+          "stage": "RESET",
+          "com": [
+            0.003001355789844358,
+            0.42557541424167744,
+            0.006581633450434522,
+            0.015707194733722497
+          ],
+          "H": 3.0470747693347655
+        }
+      ],
+      "termination": "DURATION_REACHED",
+      "trace_sha256": "f4dbc916e6b584c062f318b0d3e464c3df189129ff88a89d9589fa29e071dbdb",
+      "final_time_s": 4.5,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.2_A0.05_DT0.001": {
+      "dt_s": 0.001,
+      "intervals": 4502,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.769518113789672e-13,
+      "max_angular_quadrature_residual_n_m_s": 5.98050083819128e-06,
+      "max_projection_equation_residual": 2.306521876163474e-14,
+      "max_projection_work_residual_j": 5.840590234778254e-14,
+      "max_joint_position_error": 9.997781491577484e-10,
+      "max_joint_velocity_error": 4.440892098500626e-16,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 4.973799150320702e-16,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 0.7521293676238715,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            1.8444499025336712e-18,
+            2.6772537789951225e-18
+          ],
+          "H": 3.505168654841239e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -8.415281520916997e-19,
+            -5.58082293883932e-17
+          ],
+          "H": 4.6352305605346766e-15
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.01619175887651969,
+            0.4254371995775596,
+            -0.030811487755837787,
+            -0.0023238413566748907
+          ],
+          "H": 1.5056688101062659
+        },
+        {
+          "t_s": 2.0007531150297324,
+          "stage": "FINISH",
+          "com": [
+            -0.0024772066645786916,
+            0.9166612309285871,
+            0.053056459760311994,
+            -0.006078599100434217
+          ],
+          "H": 3.8776136264240053
+        },
+        {
+          "t_s": 2.4017531150296882,
+          "stage": "LOWER",
+          "com": [
+            -0.0005642782482650552,
+            0.9163969454400821,
+            -0.0019376192945973684,
+            -0.0018485144249930077
+          ],
+          "H": -1.2242554141048743
+        },
+        {
+          "t_s": 4.002753115029513,
+          "stage": "RESET",
+          "com": [
+            0.00298117068870818,
+            0.4254998059000563,
+            0.006573017718567329,
+            0.015204081216715317
+          ],
+          "H": 3.008203728549071
+        }
+      ],
+      "termination": "DURATION_REACHED",
+      "trace_sha256": "b1cb95599b89f36fb6725ec4d36cf50b19243794ed8fb581873a8c19056f0a1a",
+      "final_time_s": 4.5,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.2_A0.05_DT0.0005": {
+      "dt_s": 0.0005,
+      "intervals": 9002,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 5.950795411990839e-13,
+      "max_angular_quadrature_residual_n_m_s": 8.837986399754666e-07,
+      "max_projection_equation_residual": 2.3126582910531525e-14,
+      "max_projection_work_residual_j": 5.2996343721448926e-14,
+      "max_joint_position_error": 9.994001182178636e-10,
+      "max_joint_velocity_error": 6.661338147750939e-16,
+      "min_gap_m": -4.715806356525576e-10,
+      "max_touching_normal_approach_m_s": 2.486899575160351e-16,
+      "max_sliding_law_residual_n_s": 0.0,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 0.3346252912821644,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            9.222249512668356e-19,
+            1.3386268894975612e-18
+          ],
+          "H": 1.7525843274206194e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -7.6909742397629e-18,
+            -7.810205582695782e-17
+          ],
+          "H": 6.267850658010766e-15
+        },
+        {
+          "t_s": 0.8004999999999672,
+          "stage": "PULL",
+          "com": [
+            0.016196804743929677,
+            0.4254379303592684,
+            -0.03083515482570792,
+            -0.002277014969474315
+          ],
+          "H": 1.5058309762538071
+        },
+        {
+          "t_s": 2.0005704553768915,
+          "stage": "FINISH",
+          "com": [
+            -0.002562163647316566,
+            0.9166741729441853,
+            0.051137804352454984,
+            -0.005272915973976394
+          ],
+          "H": 3.788336866308653
+        },
+        {
+          "t_s": 2.400570455377025,
+          "stage": "LOWER",
+          "com": [
+            -0.0005822625095489373,
+            0.9164123315551836,
+            -0.002180235212455791,
+            -0.0019398454813809812
+          ],
+          "H": -1.2281860990648807
+        },
+        {
+          "t_s": 4.0005704553775585,
+          "stage": "RESET",
+          "com": [
+            0.002971819253606732,
+            0.4254570098105946,
+            0.00662393746701353,
+            0.014808425111329737
+          ],
+          "H": 3.022917961445262
+        }
+      ],
+      "termination": "DURATION_REACHED",
+      "trace_sha256": "9e61a0bed3b34f00600a441ca7024fde5024611443eda56dc7935b5cbd1a8a68",
+      "final_time_s": 4.5,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.2_A-0.2_DT0.002": {
+      "dt_s": 0.002,
+      "intervals": 1498,
+      "min_combined_cone_margin_n_s": -8.326672684688674e-17,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 3.927969061123804e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.004054972946327062,
+      "max_projection_equation_residual": 7.343808178759959e-14,
+      "max_projection_work_residual_j": 3.374902354108533e-13,
+      "max_joint_position_error": 9.714786752823557e-10,
+      "max_joint_velocity_error": 1.7763568394002505e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 9.992007221626409e-16,
+      "max_sliding_law_residual_n_s": 9.71445146547012e-17,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 73.28524595336573,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            3.6888998050673424e-18,
+            5.354507557990245e-18
+          ],
+          "H": 7.010337309682478e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670434,
+            0.42586471638429846,
+            1.7999538830848554e-14,
+            -1.0224423801632655e-14
+          ],
+          "H": 4.4983588674008075e-13
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.0161507781910212,
+            0.4254334612363445,
+            -0.030832815112674813,
+            -0.002325840818962475
+          ],
+          "H": 1.5061365451376696
+        },
+        {
+          "t_s": 2.0000000000000013,
+          "stage": "FINISH",
+          "com": [
+            -0.1670039998657618,
+            0.9170048124395915,
+            -0.35418926070840967,
+            0.030493319742019208
+          ],
+          "H": 8.429067800857764
+        },
+        {
+          "t_s": 2.401170143405721,
+          "stage": "LOWER",
+          "com": [
+            -0.4361970988220359,
+            0.8644674226832898,
+            -1.07608891856889,
+            -0.4684890245458791
+          ],
+          "H": 19.61702688765322
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: hip",
+      "trace_sha256": "e1206bf81a64e63b52c9199eab75125422ce5fa6f14e3ea552ea44253684af02",
+      "final_time_s": 2.8267851396872317,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.2_A-0.2_DT0.001": {
+      "dt_s": 0.001,
+      "intervals": 2818,
+      "min_combined_cone_margin_n_s": -6.938893903907228e-18,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 2.517985819849855e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.0008598971506821318,
+      "max_projection_equation_residual": 8.401990854358526e-14,
+      "max_projection_work_residual_j": 4.272780783362378e-13,
+      "max_joint_position_error": 9.997781491577484e-10,
+      "max_joint_velocity_error": 1.7763568394002505e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 5.828670879282072e-16,
+      "max_sliding_law_residual_n_s": 2.42861286636753e-17,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": -0.2628876298865457,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            1.8444499025336712e-18,
+            2.6772537789951225e-18
+          ],
+          "H": 3.505168654841239e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -8.415281520916997e-19,
+            -5.58082293883932e-17
+          ],
+          "H": 4.6352305605346766e-15
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.01619175887651969,
+            0.4254371995775596,
+            -0.030811487755837787,
+            -0.0023238413566748907
+          ],
+          "H": 1.5056688101062659
+        },
+        {
+          "t_s": 2.0009999999998906,
+          "stage": "FINISH",
+          "com": [
+            -0.16747424641287809,
+            0.917138665526067,
+            -0.3441086812469421,
+            -0.013303816119811933
+          ],
+          "H": 9.247131741837007
+        },
+        {
+          "t_s": 2.4010061557854834,
+          "stage": "LOWER",
+          "com": [
+            -0.4348186080643913,
+            0.8656117392936642,
+            -1.0709179997428857,
+            -0.44859453827276
+          ],
+          "H": 20.70815077412597
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: hip",
+      "trace_sha256": "f97b6f8c86eaffce79957b73f1bd36a31fbbb9011eb0a42976ca7b6a8d4bea2b",
+      "final_time_s": 2.8170061557854376,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.2_A-0.2_DT0.0005": {
+      "dt_s": 0.0005,
+      "intervals": 5635,
+      "min_combined_cone_margin_n_s": -8.673617379884035e-19,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.3021142204224816e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.00023232536734263398,
+      "max_projection_equation_residual": 9.222447274683952e-14,
+      "max_projection_work_residual_j": 4.923181681120228e-13,
+      "max_joint_position_error": 9.965395175726144e-10,
+      "max_joint_velocity_error": 1.7763568394002505e-15,
+      "min_gap_m": -4.715806356525576e-10,
+      "max_touching_normal_approach_m_s": 3.469446951953614e-16,
+      "max_sliding_law_residual_n_s": 8.673617379884035e-18,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": -0.277544307776998,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            9.222249512668356e-19,
+            1.3386268894975612e-18
+          ],
+          "H": 1.7525843274206194e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -7.6909742397629e-18,
+            -7.810205582695782e-17
+          ],
+          "H": 6.267850658010766e-15
+        },
+        {
+          "t_s": 0.8004999999999672,
+          "stage": "PULL",
+          "com": [
+            0.016196804743929677,
+            0.4254379303592684,
+            -0.03083515482570792,
+            -0.002277014969474315
+          ],
+          "H": 1.5058309762538071
+        },
+        {
+          "t_s": 2.0009999999998356,
+          "stage": "FINISH",
+          "com": [
+            -0.16724013226946663,
+            0.9172630728851077,
+            -0.34633308543100355,
+            -0.011178680665134846
+          ],
+          "H": 8.891369111560559
+        },
+        {
+          "t_s": 2.401213941720348,
+          "stage": "LOWER",
+          "com": [
+            -0.4341074504829964,
+            0.8660931699574047,
+            -1.0697863506784167,
+            -0.44603388235057084
+          ],
+          "H": 20.758171444502626
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: hip",
+      "trace_sha256": "a0d18689da038836b78b291efab7086a892fe824df40bbaa5dfab169454c1176",
+      "final_time_s": 2.817213941720487,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.2_A-0.4_DT0.002": {
+      "dt_s": 0.002,
+      "intervals": 1318,
+      "min_combined_cone_margin_n_s": -2.0816681711721685e-17,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.3520742565306136e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.005832657565807864,
+      "max_projection_equation_residual": 6.528653485882163e-14,
+      "max_projection_work_residual_j": 2.9872805618058607e-13,
+      "max_joint_position_error": 9.527987288038275e-10,
+      "max_joint_velocity_error": 1.457167719820518e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 1.0547118733938987e-15,
+      "max_sliding_law_residual_n_s": 2.7755575615628914e-17,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": 64.18762039132142,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            3.6888998050673424e-18,
+            5.354507557990245e-18
+          ],
+          "H": 7.010337309682478e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670434,
+            0.42586471638429846,
+            1.7999538830848554e-14,
+            -1.0224423801632655e-14
+          ],
+          "H": 4.4983588674008075e-13
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.0161507781910212,
+            0.4254334612363445,
+            -0.030832815112674813,
+            -0.002325840818962475
+          ],
+          "H": 1.5061365451376696
+        },
+        {
+          "t_s": 2.0000000000000013,
+          "stage": "FINISH",
+          "com": [
+            -0.320270086810521,
+            0.8950602162390832,
+            -0.812877358805371,
+            -0.1335400576581481
+          ],
+          "H": 14.912520821701015
+        },
+        {
+          "t_s": 2.40157390947056,
+          "stage": "LOWER",
+          "com": [
+            -0.831285536796129,
+            0.5605459662563992,
+            -1.5621276038257785,
+            -2.0682406060711003
+          ],
+          "H": 45.512610985901254
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "49b6673cd4539fe55b582fdd941a1553e363d2d787857f115caf7d4c3d7a5b8e",
+      "final_time_s": 2.5426277527542784,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.2_A-0.4_DT0.001": {
+      "dt_s": 0.001,
+      "intervals": 2529,
+      "min_combined_cone_margin_n_s": -5.204170427930421e-18,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 3.078648447285559e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.0009068063583577146,
+      "max_projection_equation_residual": 6.377548229102858e-14,
+      "max_projection_work_residual_j": 3.5338393198697986e-13,
+      "max_joint_position_error": 9.997781491577484e-10,
+      "max_joint_velocity_error": 1.7763568394002505e-15,
+      "min_gap_m": -1.0547118733938987e-15,
+      "max_touching_normal_approach_m_s": 5.828670879282072e-16,
+      "max_sliding_law_residual_n_s": 1.214306433183765e-17,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": -0.36570253724441687,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            1.8444499025336712e-18,
+            2.6772537789951225e-18
+          ],
+          "H": 3.505168654841239e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -8.415281520916997e-19,
+            -5.58082293883932e-17
+          ],
+          "H": 4.6352305605346766e-15
+        },
+        {
+          "t_s": 0.8000000000000006,
+          "stage": "PULL",
+          "com": [
+            0.01619175887651969,
+            0.4254371995775596,
+            -0.030811487755837787,
+            -0.0023238413566748907
+          ],
+          "H": 1.5056688101062659
+        },
+        {
+          "t_s": 2.0009999999998906,
+          "stage": "FINISH",
+          "com": [
+            -0.3209509949232673,
+            0.8951473043161741,
+            -0.7968275565071041,
+            -0.15865412110891394
+          ],
+          "H": 16.315312320703534
+        },
+        {
+          "t_s": 2.4015488950216697,
+          "stage": "LOWER",
+          "com": [
+            -0.8323221271643476,
+            0.5710439972037477,
+            -1.6012427391806796,
+            -1.9657124680952298
+          ],
+          "H": 50.832104967672365
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "3adca97d2f6ac78b5bf2741737d348a8b52f23daa8709790da8aa9f39c7a2ef5",
+      "final_time_s": 2.527548895021656,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    },
+    "PULL_T1.2_A-0.4_DT0.0005": {
+      "dt_s": 0.0005,
+      "intervals": 5055,
+      "min_combined_cone_margin_n_s": 0.0,
+      "min_member_normal_n_s": 0.0,
+      "max_linear_residual_n_s": 4.3098857815948577e-13,
+      "max_angular_quadrature_residual_n_m_s": 0.0002413753242302974,
+      "max_projection_equation_residual": 8.978764726077365e-14,
+      "max_projection_work_residual_j": 5.393947927887478e-13,
+      "max_joint_position_error": 9.965395175726144e-10,
+      "max_joint_velocity_error": 1.7763568394002505e-15,
+      "min_gap_m": -4.715806356525576e-10,
+      "max_touching_normal_approach_m_s": 2.983724378680108e-16,
+      "max_sliding_law_residual_n_s": 8.348356728138384e-18,
+      "max_friction_work_proxy_j": 0.0,
+      "max_positive_impact_work_j": 0.0,
+      "energy_unclosed_sum_j": -0.19176290960934855,
+      "violations": [],
+      "transitions": [
+        {
+          "t_s": 0.0,
+          "stage": "SETUP_HOLD",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            9.222249512668356e-19,
+            1.3386268894975612e-18
+          ],
+          "H": 1.7525843274206194e-17
+        },
+        {
+          "t_s": 0.4000000000000003,
+          "stage": "PRETENSION",
+          "com": [
+            0.023286477326670135,
+            0.4258647163842985,
+            -7.6909742397629e-18,
+            -7.810205582695782e-17
+          ],
+          "H": 6.267850658010766e-15
+        },
+        {
+          "t_s": 0.8004999999999672,
+          "stage": "PULL",
+          "com": [
+            0.016196804743929677,
+            0.4254379303592684,
+            -0.03083515482570792,
+            -0.002277014969474315
+          ],
+          "H": 1.5058309762538071
+        },
+        {
+          "t_s": 2.0009999999998356,
+          "stage": "FINISH",
+          "com": [
+            -0.32032359041881336,
+            0.8955240338014037,
+            -0.7951799305431435,
+            -0.16809968924773136
+          ],
+          "H": 15.881216252401364
+        },
+        {
+          "t_s": 2.40127668651179,
+          "stage": "LOWER",
+          "com": [
+            -0.8302150909869577,
+            0.5730820994531833,
+            -1.602331274585619,
+            -1.957895085318189
+          ],
+          "H": 50.69018127571144
+        }
+      ],
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "trace_sha256": "0729b2306dda7263626baf17e48fb8ecb44f0897aa0b540218bdf7d1a1e9707a",
+      "final_time_s": 2.527276686511832,
+      "bodies": [
+        {
+          "name": "hat",
+          "mass_kg": 43.35000000000001,
+          "inertia_kg_m2": 2.8027053009115557
+        },
+        {
+          "name": "left_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "left_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "left_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "right_thigh",
+          "mass_kg": 7.5,
+          "inertia_kg_m2": 0.148812180870675
+        },
+        {
+          "name": "right_shank",
+          "mass_kg": 3.4875,
+          "inertia_kg_m2": 0.06098714751044086
+        },
+        {
+          "name": "right_foot",
+          "mass_kg": 1.0875000000000001,
+          "inertia_kg_m2": 0.017887267968750002
+        },
+        {
+          "name": "upper_arm",
+          "mass_kg": 4.2,
+          "inertia_kg_m2": 0.04629454763682744
+        },
+        {
+          "name": "forearm",
+          "mass_kg": 3.3,
+          "inertia_kg_m2": 0.04437277192030001
+        },
+        {
+          "name": "load",
+          "mass_kg": 70.0,
+          "inertia_kg_m2": 0.08
+        }
+      ],
+      "contacts": {
+        "left_heel": {
+          "body": "left_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "left_toe": {
+          "body": "left_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "left_sole",
+          "mu": 0.8
+        },
+        "right_heel": {
+          "body": "right_foot",
+          "point": [
+            -0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "right_toe": {
+          "body": "right_foot",
+          "point": [
+            0.11,
+            -0.034
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": "right_sole",
+          "mu": 0.8
+        },
+        "bar_floor": {
+          "body": "load",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            1.0
+          ],
+          "internal": false,
+          "patch": null,
+          "mu": 0.5
+        }
+      }
+    }
+  }
+}
