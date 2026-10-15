@@ -1,0 +1,301 @@
+{
+  "before_repair_harness_false_admission_count": 1,
+  "cases": [
+    {
+      "cold_reopen": "EXACT_PRODUCTION_IDENTITY_PASS",
+      "coupled_overlap": {
+        "duration_seconds": 4.399263955837349,
+        "end_seconds": 4.399263955837349,
+        "start_seconds": 0.0,
+        "unit": "s"
+      },
+      "coupling_qualification": "QUALIFIED",
+      "derived_admission": null,
+      "event_authorities": {
+        "force": {
+          "evidence_reference": "docs/verification/ML593_SEGMENTATION_CONFORMANCE_V1_RESULT.md",
+          "ml413_projection": "REFUSED",
+          "qualification_state": "NOT_QUALIFIED",
+          "reason": "every admitted manufactured reference baseline contains movement, so departure timing is not established",
+          "reason_code": "AUTOMATIC_METHOD_NOT_QUALIFIED",
+          "registry_id": "plate2bar.automatic-segmentation-qualification.v1",
+          "result_role": "SOURCE_BOUND_CANDIDATE_NOT_AUTHORITATIVE_EVENT"
+        },
+        "lpt": {
+          "evidence_reference": "docs/verification/ML593_SEGMENTATION_CONFORMANCE_V1_RESULT.md",
+          "ml413_projection": "REFUSED",
+          "qualification_state": "NOT_QUALIFIED",
+          "reason": "threshold-confirmed motion lags the start of smooth movement beyond the frozen tolerance; it marks confirmed motion, not movement onset",
+          "reason_code": "AUTOMATIC_METHOD_NOT_QUALIFIED",
+          "registry_id": "plate2bar.automatic-segmentation-qualification.v1",
+          "result_role": "SOURCE_BOUND_CANDIDATE_NOT_AUTHORITATIVE_EVENT"
+        }
+      },
+      "open_bundle_import": {
+        "package_seal_sha256": "9d54e86d12ffb06d2ed0ce6a3af71f01b443259eef84cd382e61f1fab5b57b1a",
+        "readiness": "IMPORT_ACCEPTED_NOT_COMPUTATION_READY"
+      },
+      "protocol": "guided_vertical",
+      "raw_component_admission": "PASS",
+      "sample_counts": {
+        "force": 4401,
+        "lpt": 4400
+      },
+      "source_directory": "runs/i3/res524/working/guided-final/SOURCE/trial-00000524-0000",
+      "source_inventory": [
+        {
+          "bytes": 246,
+          "path": "checksums.sha256"
+        },
+        {
+          "bytes": 6036,
+          "path": "manifest.json"
+        },
+        {
+          "bytes": 200334,
+          "path": "streams/force.csv"
+        },
+        {
+          "bytes": 107812,
+          "path": "streams/lpt.csv"
+        }
+      ],
+      "source_manifest_sha256": "a982743d45957321deeec322834ac97d662e671cc8a96a7d64514be4ba11cfab",
+      "sync_negative": "CLOCK_MAPPING_UNQUALIFIED"
+    },
+    {
+      "cold_reopen": "EXACT_PRODUCTION_IDENTITY_PASS",
+      "coupled_overlap": {
+        "duration_seconds": 4.199251955117306,
+        "end_seconds": 4.199251955117306,
+        "start_seconds": 0.0,
+        "unit": "s"
+      },
+      "coupling_qualification": "QUALIFIED",
+      "derived_admission": {
+        "message": "PROCESSING_STATE_UNSUPPORTED:LPT_DISPLACEMENT.source_processing_state:component admission accepts only an explicitly declared raw processing state",
+        "refusal_code": "PROCESSING_STATE_UNSUPPORTED"
+      },
+      "event_authorities": {
+        "force": {
+          "evidence_reference": "docs/verification/ML593_SEGMENTATION_CONFORMANCE_V1_RESULT.md",
+          "ml413_projection": "REFUSED",
+          "qualification_state": "NOT_QUALIFIED",
+          "reason": "every admitted manufactured reference baseline contains movement, so departure timing is not established",
+          "reason_code": "AUTOMATIC_METHOD_NOT_QUALIFIED",
+          "registry_id": "plate2bar.automatic-segmentation-qualification.v1",
+          "result_role": "SOURCE_BOUND_CANDIDATE_NOT_AUTHORITATIVE_EVENT"
+        },
+        "lpt": {
+          "evidence_reference": "docs/verification/ML593_SEGMENTATION_CONFORMANCE_V1_RESULT.md",
+          "ml413_projection": "REFUSED",
+          "qualification_state": "NOT_QUALIFIED",
+          "reason": "threshold-confirmed motion lags the start of smooth movement beyond the frozen tolerance; it marks confirmed motion, not movement onset",
+          "reason_code": "AUTOMATIC_METHOD_NOT_QUALIFIED",
+          "registry_id": "plate2bar.automatic-segmentation-qualification.v1",
+          "result_role": "SOURCE_BOUND_CANDIDATE_NOT_AUTHORITATIVE_EVENT"
+        }
+      },
+      "open_bundle_import": null,
+      "protocol": "back_squat",
+      "raw_component_admission": "PASS",
+      "sample_counts": {
+        "force": 4201,
+        "lpt": 4200
+      },
+      "source_directory": "runs/i3/res524/working/freeweight-final/SOURCE/trial-00000525-0000",
+      "source_inventory": [
+        {
+          "bytes": 417,
+          "path": "checksums.sha256"
+        },
+        {
+          "bytes": 336113,
+          "path": "derived/vertical.csv"
+        },
+        {
+          "bytes": 7295,
+          "path": "manifest.json"
+        },
+        {
+          "bytes": 159660,
+          "path": "streams/angle.csv"
+        },
+        {
+          "bytes": 190352,
+          "path": "streams/force.csv"
+        },
+        {
+          "bytes": 106302,
+          "path": "streams/lpt.csv"
+        }
+      ],
+      "source_manifest_sha256": "733800c82b4fe3c970b14c9d0689ef63c36084f739190dc5691695f825eb7fc9",
+      "sync_negative": "CLOCK_MAPPING_UNQUALIFIED"
+    },
+    {
+      "cold_reopen": "EXACT_PRODUCTION_IDENTITY_PASS",
+      "coupled_overlap": {
+        "duration_seconds": 5.999359961597695,
+        "end_seconds": 5.999359961597695,
+        "start_seconds": 0.0,
+        "unit": "s"
+      },
+      "coupling_qualification": "QUALIFIED",
+      "derived_admission": {
+        "message": "PROCESSING_STATE_UNSUPPORTED:LPT_DISPLACEMENT.source_processing_state:component admission accepts only an explicitly declared raw processing state",
+        "refusal_code": "PROCESSING_STATE_UNSUPPORTED"
+      },
+      "event_authorities": {
+        "force": {
+          "evidence_reference": "docs/verification/ML593_SEGMENTATION_CONFORMANCE_V1_RESULT.md",
+          "ml413_projection": "REFUSED",
+          "qualification_state": "NOT_QUALIFIED",
+          "reason": "every admitted manufactured reference baseline contains movement, so departure timing is not established",
+          "reason_code": "AUTOMATIC_METHOD_NOT_QUALIFIED",
+          "registry_id": "plate2bar.automatic-segmentation-qualification.v1",
+          "result_role": "SOURCE_BOUND_CANDIDATE_NOT_AUTHORITATIVE_EVENT"
+        },
+        "lpt": {
+          "evidence_reference": "docs/verification/ML593_SEGMENTATION_CONFORMANCE_V1_RESULT.md",
+          "ml413_projection": "REFUSED",
+          "qualification_state": "NOT_QUALIFIED",
+          "reason": "threshold-confirmed motion lags the start of smooth movement beyond the frozen tolerance; it marks confirmed motion, not movement onset",
+          "reason_code": "AUTOMATIC_METHOD_NOT_QUALIFIED",
+          "registry_id": "plate2bar.automatic-segmentation-qualification.v1",
+          "result_role": "SOURCE_BOUND_CANDIDATE_NOT_AUTHORITATIVE_EVENT"
+        }
+      },
+      "open_bundle_import": null,
+      "protocol": "deadlift",
+      "raw_component_admission": "PASS",
+      "sample_counts": {
+        "force": 6001,
+        "lpt": 6000
+      },
+      "source_directory": "runs/i3/res524/working/freeweight-final/SOURCE/trial-00000526-0000",
+      "source_inventory": [
+        {
+          "bytes": 417,
+          "path": "checksums.sha256"
+        },
+        {
+          "bytes": 455407,
+          "path": "derived/vertical.csv"
+        },
+        {
+          "bytes": 7272,
+          "path": "manifest.json"
+        },
+        {
+          "bytes": 231458,
+          "path": "streams/angle.csv"
+        },
+        {
+          "bytes": 282866,
+          "path": "streams/force.csv"
+        },
+        {
+          "bytes": 144348,
+          "path": "streams/lpt.csv"
+        }
+      ],
+      "source_manifest_sha256": "5f3808b8d9eb5ce2edabcbbd36dda18e4cd2fa54872ee41439e8ea9b1b9b15de",
+      "sync_negative": "CLOCK_MAPPING_UNQUALIFIED"
+    }
+  ],
+  "expected_product_refusal_instances": 9,
+  "final_declared_stage_control": "PROCESSING_STATE_UNSUPPORTED",
+  "first_blocker": "PROCESSING_STATE_UNSUPPORTED",
+  "fresh_generated_cases": 3,
+  "full_scientific_qualified_case_count": 0,
+  "hidden_truth_read_by_product": 0,
+  "hosted_ci": "NOT_RUN_INTERNAL_LOCAL_CHECKPOINT",
+  "memory_runs": {
+    "deadlift-v1": {
+      "cases": [
+        {
+          "case_id": "trial-00000526-0000",
+          "force_count": 6001,
+          "lpt_count": 6000,
+          "protocol": "deadlift",
+          "source_bytes": 1121268,
+          "source_manifest_sha256": "d80ac0736326f10f1b4f0f9014570f4f4d66ce5f0e26ff453b749b4c1bf26fab",
+          "status": "GENERATED_NOT_QUALIFIED"
+        }
+      ],
+      "cases_per_s": 0.0045765125527987855,
+      "config": {},
+      "elapsed_s": 218.50699379999423,
+      "failed_count": 0,
+      "generated_bytes_before_run_report": 2429986,
+      "generated_count": 1,
+      "memory_scope": "tracemalloc Python allocations; not process peak RSS or native allocations",
+      "production_qualification": "NOT_ESTABLISHED",
+      "protocol": "deadlift",
+      "python_peak_traced_bytes": 74869171,
+      "requested_count": 1,
+      "schema_id": "BSMB-PILOT-RUN-1.0",
+      "seed": 526
+    },
+    "guided-v2": {
+      "cases": [
+        {
+          "case_id": "trial-00000524-0000",
+          "force_count": 4401,
+          "lpt_count": 4400,
+          "protocol": "guided_vertical",
+          "source_bytes": 314429,
+          "source_manifest_sha256": "7b398d12a62cd3dfce54731767ff98e1d9e865f3b49dd2921f485487eacff366",
+          "status": "GENERATED_NOT_QUALIFIED"
+        }
+      ],
+      "cases_per_s": 0.1602183814994613,
+      "config": {},
+      "elapsed_s": 6.241481099990779,
+      "failed_count": 0,
+      "generated_bytes_before_run_report": 536584,
+      "generated_count": 1,
+      "memory_scope": "tracemalloc Python allocations; not process peak RSS or native allocations",
+      "production_qualification": "NOT_ESTABLISHED",
+      "protocol": "guided_vertical",
+      "python_peak_traced_bytes": 22756766,
+      "requested_count": 1,
+      "schema_id": "BSMB-PILOT-RUN-1.0",
+      "seed": 524
+    },
+    "squat-v1": {
+      "cases": [
+        {
+          "case_id": "trial-00000525-0000",
+          "force_count": 4201,
+          "lpt_count": 4200,
+          "protocol": "back_squat",
+          "source_bytes": 799639,
+          "source_manifest_sha256": "8ad024d1019ecdbe6c83bb6a24678afcfb267ce748f959b7cacde5f6e22fc3f6",
+          "status": "GENERATED_NOT_QUALIFIED"
+        }
+      ],
+      "cases_per_s": 0.007668596080583789,
+      "config": {},
+      "elapsed_s": 130.40196529999957,
+      "failed_count": 0,
+      "generated_bytes_before_run_report": 1746697,
+      "generated_count": 1,
+      "memory_scope": "tracemalloc Python allocations; not process peak RSS or native allocations",
+      "production_qualification": "NOT_ESTABLISHED",
+      "protocol": "back_squat",
+      "python_peak_traced_bytes": 50105943,
+      "requested_count": 1,
+      "schema_id": "BSMB-PILOT-RUN-1.0",
+      "seed": 525
+    }
+  },
+  "ml586_matrix": "NOT_RUN_NO_PRODUCT_SOURCE_MODIFICATION",
+  "raw_ingest_and_coupling_pass_count": 3,
+  "scaling_started": false,
+  "schema_id": "BSMB-RES524-RESUME-RECEIPT-1.0",
+  "source_bytes": 2236335,
+  "status": "BLOCKED_PRODUCT_DERIVED_ADMISSION",
+  "unexpected_product_pass_count": 0
+}
