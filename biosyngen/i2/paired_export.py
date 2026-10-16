@@ -309,7 +309,7 @@ def export_case(root: Path, *, protocol, seed, case_id, parameters=None):
         "clocks": {name: asdict(c) for name, c in clocks.items()},
         "termination": world.termination, "source_manifest_sha256": sha(source / "manifest.json")})
     write_csv(truth / "support_intervals.csv", ("start_s", "end_s", "contact_id", "fx_N", "fz_N"),
-        ((f.t_start_s, f.t_end_s, key, *c.force_world_n) for f in world.frames for key, c in f.contact_forces.items()))
+        ((f.t_start_s, f.t_end_s, key, *c.force_world_n) for f in world.frames for key, c in sorted(f.contact_forces.items())))
     if protocol != "guided_vertical":
         from .phases import analyze_jump
         from .squat import analyze_squat

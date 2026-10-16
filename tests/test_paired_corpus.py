@@ -8,9 +8,11 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
+from types import SimpleNamespace
 
 from biosyngen.i2.corpus_config import validate_parameters, ConfigurationRefused
-from biosyngen.i2.paired_export import export_case, sha
+from biosyngen.i2.paired_export import export_case, sha, guided_vertical_world
 from biosyngen_benchmark.paired_source import verify_source, SourceRefused
 from biosyngen_benchmark.paired_events import verify_events
 from scripts.verify_paired_corpus import verify_reference
@@ -20,6 +22,19 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ConfigTests(unittest.TestCase):
+    def test_support_export_is_independent_of_contact_dictionary_order(self):
+        with tempfile.TemporaryDirectory(dir=ROOT / "runs") as tmp:
+            roots = [Path(tmp) / replica for replica in ("a", "b")]
+            for i, root in enumerate(roots):
+                world, cable, reference = guided_vertical_world()
+                if i:
+                    world.frames = [SimpleNamespace(t_start_s=f.t_start_s, t_end_s=f.t_end_s,
+                        contact_forces=dict(reversed(list(f.contact_forces.items())))) for f in world.frames]
+                with patch("biosyngen.i2.paired_export.build_case", return_value=(world, cable, reference)):
+                    export_case(root, protocol="guided_vertical", seed=1, case_id="trial")
+            self.assertEqual((roots[0] / "TRUTH/trial/support_intervals.csv").read_bytes(),
+                             (roots[1] / "TRUTH/trial/support_intervals.csv").read_bytes())
+
     def test_platform_comparison_rejects_moved_events_and_wrong_rates(self):
         case = {"case_id": "case", "protocol": "cmj", "reference_resolution_s": 0.001,
             "source": {"source": "PASS", "synchronization": "BOUNDED_CAPTURE_MAPPING",
