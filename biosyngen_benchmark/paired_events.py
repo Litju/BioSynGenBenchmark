@@ -62,7 +62,7 @@ def verify_events(reference, declared):
             check(f"rep{rep['index']}_model_threshold_completion", end_value, end)
             if end_value is not None:
                 start = next((i for i, t in enumerate(times) if t > end_value), len(times))
-    return {"findings": findings, "passed": all(f["outcome"] != "REJECTED" for f in findings),
+    return {"findings": findings, "passed": bool(findings) and all(f["outcome"] == "PASS" for f in findings),
         "scope": "SAMPLED_PHYSICAL_REFERENCE_ONLY", "time_resolution_s": resolution,
         "missing_events": sum(f["outcome"] == "ABSENT" for f in findings),
         "anatomical_and_product_event_qualification": "NOT_ESTABLISHED"}

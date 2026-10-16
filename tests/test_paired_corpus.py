@@ -52,6 +52,10 @@ class ConfigTests(unittest.TestCase):
         self.assertTrue(verify_events(ref, declared)["passed"])
         declared["events"]["takeoff"]["time_s"] = 20
         self.assertFalse(verify_events(ref, declared)["passed"])
+        ref["contacts"] = [{"left": "STICK", "right": "STICK"} for _ in ref["contacts"]]
+        declared["events"]["takeoff"]["time_s"] = None
+        declared["events"]["touchdown"]["time_s"] = None
+        self.assertFalse(verify_events(ref, declared)["passed"])
 
     def test_domains_and_inapplicable_parameters_fail_closed(self):
         for protocol, parameters in (("back_squat", {"body_mass_kg": 0}),

@@ -65,15 +65,19 @@ def verify_reference(source, truth):
     outcomes = [v["outcome"] for k, v in mechanics["findings"].items() if k in
                 ("LINEAR_MOMENTUM_CLOSURE", "CONTACT_ADMISSIBILITY")]
     event_checks = {"passed": True, "scope": "ANALYTICAL_GUIDE_EVENTS"}
+    model_refusals = []
     if (truth / "model_events.json").exists():
         analysis = json.loads((truth / "model_events.json").read_text())["analysis"]
         event_checks = verify_events(ref, analysis)
+        model_refusals = list(analysis.get("refusals", []))
+        model_refusals.extend(reason for rep in analysis.get("reps", []) for reason in rep.get("refusals", []))
     return {"mechanics": mechanics, "geometry": geometry, "support_transitions": transitions,
         "termination": ref["termination"],
         "independent_reference_events": event_checks,
+        "model_refusals": model_refusals,
         "reference_resolution_s": resolution, "quiet_baseline_max_com_speed_m_s": quiet_max,
         "quiet_baseline": "PASS" if quiet_max < 0.001 else "REJECTED",
-        "passed": all(v == "PASS" for v in outcomes) and geometry["status"] != "REJECTED" and quiet_max < 0.001 and event_checks["passed"] and ref["termination"] == "DURATION_REACHED",
+        "passed": all(v == "PASS" for v in outcomes) and geometry["status"] != "REJECTED" and quiet_max < 0.001 and event_checks["passed"] and not model_refusals and ref["termination"] == "DURATION_REACHED",
         "physical_reference_scope": "SAMPLED_MODEL_SUPPORT_AND_EVENTS_ONLY_NOT_SENSOR_ANATOMY",
         "anatomical_phase_and_empirical_validity": "NOT_ESTABLISHED"}
 

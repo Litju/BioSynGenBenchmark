@@ -113,6 +113,8 @@ angle error and angle resolution propagate through cosine extrema. Binary64
 guards are separate from instrument uncertainty. Slack refuses reconstruction.
 The domain is fixed-anchor planar motion; no arbitrary spatial or moving-anchor
 interpretation is admitted. Inclination and encoder metrology are assumptions.
+The cable is an ideally non-loading observation hypothesis; cable tension,
+attachment compliance and sensor-induced changes to athlete motion are not modeled.
 
 TRUTH is BSMB-PAIRED-TRUTH-1.0: states, body inertial parameters, interval
 reactions (N), instantaneous impulses (N*s), contact topology/modes, physical
@@ -123,6 +125,8 @@ checker reconstructs physical brackets separately and never reads controller
 stages. Root/contact event timestamps are numerical estimates, even where the
 historical model analysis reports zero within-step uncertainty. Missing events
 and unsupported anatomical phases are not converted into successful detections.
+Missing core movement events, early termination and model/rep refusals exclude
+a case from complete-trial reference qualification even if files were generated.
 
 SOURCE contains no protected state arrays, latent event labels or true-time
 arrays. `verify_source` reads SOURCE and an independently supplied manufactured
