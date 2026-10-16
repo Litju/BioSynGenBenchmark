@@ -99,3 +99,61 @@ jobs:
           path: runs/i3/ci/platform-comparison.json
           if-no-files-found: error
           retention-days: 30
+
+  paired-generator:
+    name: Paired generator / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12.10"
+      - name: Record exact source and runtime
+        run: |
+          git rev-parse HEAD
+          python --version
+      - name: Supported matrix, physical checks and two-process source/truth replay
+        run: python -m scripts.reproduce_paired_corpus --out runs/i3/res524/working/ci-replay
+      - name: Upload bounded summaries only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: paired-generator-${{ matrix.os }}
+          path: |
+            runs/i3/res524/working/ci-replay/replay.json
+            runs/i3/res524/working/ci-replay/verification-*.json
+            runs/i3/res524/working/ci-replay/*/run.json
+          if-no-files-found: error
+          retention-days: 30
+
+  paired-platforms:
+    name: Paired Windows/Linux comparison
+    needs: paired-generator
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12.10"
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: paired-generator-*
+          path: runs/i3/res524/working/platforms
+      - name: Compare fixed physical and event tolerances
+        run: python -m scripts.compare_paired_platforms --root runs/i3/res524/working/platforms --out runs/i3/res524/working/platform-comparison.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: paired-platform-comparison
+          path: runs/i3/res524/working/platform-comparison.json
+          if-no-files-found: error
+          retention-days: 30

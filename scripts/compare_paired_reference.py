@@ -15,7 +15,8 @@ from pathlib import Path
 def compare(source, truth, product):
     reference = json.loads((truth / "reference.json").read_text())
     output = json.loads(product.read_text())
-    times, z = reference["physics_times_s"], reference["bar_vertical_m"]
+    times = reference["physics_times_s"]
+    z = reference["attachment_vertical_m"] if "attachment_vertical_m" in reference else reference["bar_vertical_m"]
     report = {"world_kind": reference["world_kind"], "termination": reference["termination"],
         "reference_resolution_s": max(b - a for a, b in zip(times, times[1:])),
         "comparisons_are_post_execution": True, "generator_imports": 0,
