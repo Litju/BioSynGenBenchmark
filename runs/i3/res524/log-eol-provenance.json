@@ -1,0 +1,29 @@
+{
+  "operation": "CRLF to LF only; textual evidence unchanged",
+  "files": {
+    "acquisition-after.txt": {
+      "original_sha256": "f1a84565c3dc81ae6b25a0951f2783ef0f10da75e74680729c9e1a71ce0e702b",
+      "lf_sha256": "0e26f9068058691d9957a31dd476f3b8ba9542831fd4cbd7374968825651b75c"
+    },
+    "acquisition-before.txt": {
+      "original_sha256": "60275ccbc47fc6807c5012522c062584c4f72b6e6e8e4cdcc7dc3701da068f4f",
+      "lf_sha256": "938b590c84916a759d1179db2892ca2e26692514d10ea288824c8f1108482ee7"
+    },
+    "focused-final.txt": {
+      "original_sha256": "0617a533f20d0b6846569c3d52d7434443ec2402d88205fcd26b0e0b0bf1d50e",
+      "lf_sha256": "c7079aa38b388a8e4ff620846eb7e447be5f953f7a2fad8d6f828293d0a8080b"
+    },
+    "geometry-replay.txt": {
+      "original_sha256": "227014ff38860c621772124bad685b6dfb1b77ed3563c83b7a881ef2add35506",
+      "lf_sha256": "00f9775818c5f4f65326447418466a64f30ed5bfd3dd016f7613c08ecd858cde"
+    },
+    "scipy.txt": {
+      "original_sha256": "f76cf5325d101324bc4ec54bc72bbded32d45d5aa5ae8e4bcdc82343b6dcc569",
+      "lf_sha256": "457c4b3ad9dd448688783c68ac7de2d68dc5e6bc4a509b23c47b513734771915"
+    },
+    "windows-suite.txt": {
+      "original_sha256": "0d040a53a39bfedbdf64b78e90aadb41ed4a0fe440eaf723168911cd37e8d1ed",
+      "lf_sha256": "e0fdd15f3066330b572f9d964f303f3a963306a9068b99dc5f0da1c5dba15412"
+    }
+  }
+}

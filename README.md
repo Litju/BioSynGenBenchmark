@@ -2,6 +2,22 @@
 
 Canonical research and program workspace for the Research project [Biomechanical Synthetic Measurement Generation & Benchmarking](https://linear.app/alignerr-cmj/project/biomechanical-synthetic-measurement-generation-and-benchmarking-18565cbe99b1).
 
+## Paired generator candidate (RES-524)
+
+The [generator contract and protocol matrix](docs/i3/RES524_GENERATOR_CONTRACT.md)
+describe native independent 1 kHz FORCE/LPT acquisition, observed cable/angle
+geometry, protected reference exports, effective scientific configuration and
+the bounded corpus CLI. The [16-case configuration](docs/i3/RES524_CORPUS_CONFIG.json)
+is a reproducible development matrix, not an athlete population. Exact candidate
+SHA, final test/CI receipts and readiness are recorded in RES-524. Its branch is
+separate from RES-522/PR #1; Plate2bar integration remains deferred.
+
+    python -m scripts.generate_paired_corpus --protocol deadlift --count 1 --seed 524 --out runs/i3/res524/working/my-deadlift
+
+Use a fresh output directory. SOURCE contains measurements; TRUTH is restricted
+to post-generation reference evaluation. All sensors remain assumed and
+uncalibrated; biological and real paired FORCE/LPT validation are not established.
+
 ## Current I3 qualification and release preparation
 
 RES-522 selectively integrates the qualified RES-517 Coulomb-contact repair and independent regression fixtures into PR #1. The [final closeout dossier](docs/i3/RES522_RELEASE_DOSSIER.md) supersedes earlier source/count claims for this candidate; exact final commit and hosted Windows/Linux results are recorded in the linked RES-522 review receipt. The complete I4 branch, rejected recovery controller and failed scientific evidence remain preserved separately. No recovery optimization or frozen prospective study is included.

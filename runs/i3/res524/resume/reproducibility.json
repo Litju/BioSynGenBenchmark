@@ -1,0 +1,25 @@
+{
+  "file_count": 19,
+  "fresh_process_inventory_equal": true,
+  "sha256_inventory": {
+    "SOURCE/trial-00000524-0000/checksums.sha256": "9d54e86d12ffb06d2ed0ce6a3af71f01b443259eef84cd382e61f1fab5b57b1a",
+    "SOURCE/trial-00000524-0000/manifest.json": "a982743d45957321deeec322834ac97d662e671cc8a96a7d64514be4ba11cfab",
+    "SOURCE/trial-00000524-0000/streams/force.csv": "c1d4491d099ec324c0c1a14d150b5eb145148a76dd4ae1a8f930758be603dba4",
+    "SOURCE/trial-00000524-0000/streams/lpt.csv": "79b9936443d86d9c7a2c5a36b9dbe12bf9620c0cac70f87aa98b61322a5ca6e0",
+    "SOURCE/trial-00000525-0000/checksums.sha256": "56d44d0d9d9710759416163a3315c7565cb090dc6d68bf7edf44564fa57f9e30",
+    "SOURCE/trial-00000525-0000/derived/vertical.csv": "c3dd669967b338c28a3083eb16135de2d2beb66cbd56844b13484273cd15c553",
+    "SOURCE/trial-00000525-0000/manifest.json": "733800c82b4fe3c970b14c9d0689ef63c36084f739190dc5691695f825eb7fc9",
+    "SOURCE/trial-00000525-0000/streams/angle.csv": "e6378b434433f9eec38430bd0be38739a849ca08b3d55b4c563e5ece76ebf409",
+    "SOURCE/trial-00000525-0000/streams/force.csv": "77e2c2b421867852cd8f70f6877eb324e8f05e9c7259a40873261f6e0c703545",
+    "SOURCE/trial-00000525-0000/streams/lpt.csv": "e9c5c47302c2850a734350896c50bc2631ac3f969f1c691444ebd77f2c33c733",
+    "SOURCE/trial-00000526-0000/checksums.sha256": "3ebe8a78ca640e2709f63d8352c0ab769cb35f10e88dd4119e7bf4bb39863e4c",
+    "SOURCE/trial-00000526-0000/derived/vertical.csv": "c20df0e98a74310aacb2986f4deec58bd12a5d11d3885b4e363071fa9ad1c6bd",
+    "SOURCE/trial-00000526-0000/manifest.json": "5f3808b8d9eb5ce2edabcbbd36dda18e4cd2fa54872ee41439e8ea9b1b9b15de",
+    "SOURCE/trial-00000526-0000/streams/angle.csv": "f07debc44c75f76d3487812997173e866c1bb6435158000cb12680d0e8e17ed1",
+    "SOURCE/trial-00000526-0000/streams/force.csv": "4b8cb60d11c75e35b8c4c5911e10598e878e1bc7655e1ad74009211864802f3f",
+    "SOURCE/trial-00000526-0000/streams/lpt.csv": "326c618cdbd80f29b072e5c7bd2878b1c866950652ee5fc2d49470286d7cab44",
+    "TRUTH/trial-00000524-0000/reference.json": "86d6ca63ff86486b8e65920783e57fcef1e8d26598e8e3bf73db000bbae1f0a6",
+    "TRUTH/trial-00000525-0000/reference.json": "bbf01f2c6b644b56478effd59aa4d40f8e5ace50bc8e60bb922b4ebb694929ef",
+    "TRUTH/trial-00000526-0000/reference.json": "0777af2eeb17e048b0b76504f4486f6f2ee9ceb7ba7a077ac982366b50d6b082"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema_id": "BSMB-CORPUS-CONFIG-1.0",
+  "cases": [
+    {"protocol": "guided_vertical", "parameters": {}},
+    {"protocol": "cmj", "parameters": {}},
+    {"protocol": "sj", "parameters": {}},
+    {"protocol": "loaded_cmj", "parameters": {}},
+    {"protocol": "loaded_jump_squat", "parameters": {}},
+    {"protocol": "back_squat", "parameters": {}},
+    {"protocol": "deadlift", "parameters": {}},
+    {"protocol": "bench_press", "parameters": {}},
+    {"protocol": "clean_pull", "parameters": {}},
+    {"protocol": "snatch_pull", "parameters": {}},
+    {"protocol": "power_clean_pull", "parameters": {}},
+    {"protocol": "back_squat", "parameters": {"body_mass_kg": 80, "load_mass_kg": 50, "tempo_scale": 1.1}},
+    {"protocol": "deadlift", "parameters": {"body_mass_kg": 70, "load_mass_kg": 80, "tempo_scale": 0.9}},
+    {"protocol": "guided_vertical", "parameters": {"body_mass_kg": 90, "load_mass_kg": 30, "baseline_s": 1.5, "tempo_scale": 1.2, "force_gain_scale": 0.98, "force_noise_scale": 2}},
+    {"protocol": "guided_vertical", "parameters": {"force_offset_s": 0.3, "lpt_offset_s": -0.2, "force_drift_ppm": 300, "lpt_drift_ppm": -200, "lpt_start_s": 0.5, "force_drop_indices": [500, 501], "lpt_drop_indices": [800]}},
+    {"protocol": "guided_vertical", "parameters": {"jitter_sd_s": 0.000005, "force_adc_range_n": 100}}
+  ]
+}

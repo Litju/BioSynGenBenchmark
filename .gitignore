@@ -20,3 +20,6 @@ runs/i1/res487/replica-b/
 
 # Local app launch configuration; not a research deliverable
 .claude/
+
+# RES-524 fresh manufactured working corpus and disposable product state.
+runs/i3/res524/working/

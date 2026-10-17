@@ -1,0 +1,129 @@
+{
+  "candidate_events": {
+    "force": {
+      "authority": {
+        "evidence_reference": "docs/verification/ML593_SEGMENTATION_CONFORMANCE_V1_RESULT.md",
+        "ml413_projection": "REFUSED",
+        "qualification_state": "NOT_QUALIFIED",
+        "reason": "every admitted manufactured reference baseline contains movement, so departure timing is not established",
+        "reason_code": "AUTOMATIC_METHOD_NOT_QUALIFIED",
+        "registry_id": "plate2bar.automatic-segmentation-qualification.v1",
+        "result_role": "SOURCE_BOUND_CANDIDATE_NOT_AUTHORITATIVE_EVENT"
+      },
+      "events": [
+        {
+          "kind": "FORCE_BASELINE_DEPARTURE",
+          "physical_clock_bracket_s": [
+            1.2649557265495708,
+            1.2659556915507957
+          ],
+          "time_s": 1.2659556915507957
+        },
+        {
+          "kind": "FORCE_BASELINE_DEPARTURE",
+          "physical_clock_bracket_s": [
+            1.9489317873874414,
+            1.9499317523886663
+          ],
+          "time_s": 1.9499317523886663
+        },
+        {
+          "kind": "FORCE_BASELINE_DEPARTURE",
+          "physical_clock_bracket_s": [
+            2.80790172343968,
+            2.808901688440905
+          ],
+          "time_s": 2.808901688440905
+        },
+        {
+          "kind": "FORCE_BASELINE_RECOVERY",
+          "physical_clock_bracket_s": [
+            4.094856680016199,
+            4.095856645017425
+          ],
+          "time_s": 4.095856645017425
+        }
+      ],
+      "numerical_state": "AVAILABLE"
+    },
+    "lpt": {
+      "authority": {
+        "evidence_reference": "docs/verification/ML593_SEGMENTATION_CONFORMANCE_V1_RESULT.md",
+        "ml413_projection": "REFUSED",
+        "qualification_state": "NOT_QUALIFIED",
+        "reason": "threshold-confirmed motion lags the start of smooth movement beyond the frozen tolerance; it marks confirmed motion, not movement onset",
+        "reason_code": "AUTOMATIC_METHOD_NOT_QUALIFIED",
+        "registry_id": "plate2bar.automatic-segmentation-qualification.v1",
+        "result_role": "SOURCE_BOUND_CANDIDATE_NOT_AUTHORITATIVE_EVENT"
+      },
+      "events": [
+        {
+          "kind": "MOTION_ONSET",
+          "physical_clock_bracket_s": [
+            1.4870892253535213,
+            1.4880892853571213
+          ],
+          "time_s": 1.4880892853571213
+        },
+        {
+          "kind": "PEAK_SIGNED_VELOCITY",
+          "physical_clock_bracket_s": [
+            1.9191151469088146,
+            1.9191151469088146
+          ],
+          "time_s": 1.9191151469088146
+        },
+        {
+          "kind": "COORDINATE_REVERSAL",
+          "physical_clock_bracket_s": [
+            2.3681420885253113,
+            2.5061503690221416
+          ],
+          "time_s": 2.3681420885253113
+        },
+        {
+          "kind": "MOTION_ONSET",
+          "physical_clock_bracket_s": [
+            2.505150309018541,
+            2.5061503690221416
+          ],
+          "time_s": 2.5061503690221416
+        },
+        {
+          "kind": "PEAK_SIGNED_VELOCITY",
+          "physical_clock_bracket_s": [
+            2.770166209972598,
+            2.770166209972598
+          ],
+          "time_s": 2.770166209972598
+        },
+        {
+          "kind": "LOW_MOTION_ONSET",
+          "physical_clock_bracket_s": [
+            3.4752085125107506,
+            3.476208572514351
+          ],
+          "time_s": 3.476208572514351
+        }
+      ],
+      "numerical_state": "AVAILABLE"
+    }
+  },
+  "comparisons_are_post_execution": true,
+  "event_phase_conformance": "NOT_QUALIFIED; production candidate authority retained",
+  "generator_imports": 0,
+  "geometry": {
+    "compared_samples": 4200,
+    "interpretation": "ASSUMED_SENSOR_BOUND_NUMERICAL_CONTAINMENT_ONLY",
+    "interval_violations": 0,
+    "max_absolute_vertical_reconstruction_error_m": 0.00010518662845848681,
+    "maximum_interval_width_m": 0.00022559079078643407
+  },
+  "instantaneous_impulse_count": 0,
+  "reference_resolution_s": 0.001000000000000334,
+  "source_manifest_sha256_matches_reference": true,
+  "support_conformance": "NOT_ESTABLISHED; two observed Fz channels do not directly measure bar-floor reaction",
+  "support_reference_transitions": [],
+  "termination": "DURATION_REACHED",
+  "world_kind": "FREE_WEIGHT_MULTIBODY"
+}
