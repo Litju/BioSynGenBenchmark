@@ -100,6 +100,26 @@ class ConfigTests(unittest.TestCase):
             self.assertEqual(rows[0]["sample_index"], "200")
             self.assertNotIn("500", [r["sample_index"] for r in rows])
 
+    def test_cropped_recording_retains_first_acquired_zero_not_first_exported(self):
+        with tempfile.TemporaryDirectory(dir=ROOT / "runs") as tmp:
+            root = Path(tmp)
+            export_case(root, protocol="guided_vertical", seed=12, case_id="cropped",
+                        parameters={"lpt_start_s": 1.7})
+            source = root / "SOURCE/cropped"
+            manifest = json.loads((source / "manifest.json").read_text())
+            notes = json.loads(manifest["operator_notes"])
+            with (source / "streams/lpt.csv").open(newline="") as stream:
+                first = next(csv.DictReader(stream))
+            self.assertEqual(manifest["lpt_stream"]["zero_reference"],
+                             "FIRST_ACQUIRED_ENCODER_SAMPLE")
+            self.assertEqual(notes["observed_encoder_zero_sample_index"], 0)
+            self.assertEqual(int(first["sample_index"]), 1700)
+            self.assertGreater(abs(float(first["displacement_m"])), 0.001)
+            self.assertAlmostEqual(float(first["time_s"]),
+                notes["observed_encoder_zero_native_time_s"] + 1.7, places=9)
+            authority = json.loads((root / "DIAGNOSTICS/cropped/capture_authority.json").read_text())
+            self.assertEqual(verify_source(source, authority)["source"], "PASS")
+
     def test_fresh_process_replay_and_fresh_directory_requirement(self):
         with tempfile.TemporaryDirectory(dir=ROOT / "runs") as tmp:
             parent = Path(tmp)
@@ -194,6 +214,18 @@ class SourceAdversaries(unittest.TestCase):
         result = verify_reference(self.source, self.root / "TRUTH/fixture")
         self.assertTrue(result["passed"], result)
 
+    def test_source_manifest_separates_observed_and_derived_roles(self):
+        manifest = json.loads((self.source / "manifest.json").read_text())
+        roles = {row["path"]: row["role"] for row in manifest["source_files"]}
+        self.assertEqual(manifest["profile_id"], "BSMB-PAIRED-CABLE-ANGLE-1.1")
+        self.assertEqual(manifest["profile_version"], "1.1")
+        self.assertEqual(roles["streams/force.csv"], "FORCE_STREAM")
+        self.assertEqual(roles["streams/lpt.csv"], "LPT_STREAM")
+        self.assertEqual(roles["streams/angle.csv"], "OBSERVED_AUXILIARY_STREAM")
+        self.assertEqual(roles["derived/vertical.csv"], "DERIVED_OBSERVATION")
+        self.assertNotIn("ORIGINAL_SOURCE", roles.values())
+        self.assertEqual(verify_source(self.source, self.authority)["source"], "PASS")
+
     def test_completion_after_record_is_rejected(self):
         truth = self.root / "TRUTH/fixture"
         reference = json.loads((truth / "reference.json").read_text())
@@ -251,6 +283,24 @@ class SourceAdversaries(unittest.TestCase):
         path.write_bytes(path.read_bytes().replace(b"force_left_N", b"wrong_force_N", 1))
         self.reseal()
         with self.assertRaisesRegex(SourceRefused, "SOURCE_COLUMNS_INVALID"):
+            verify_source(self.source, self.authority)
+
+    def test_reendorsed_derived_file_cannot_be_labeled_original_source(self):
+        def mislabel(manifest):
+            for item in manifest["source_files"]:
+                if item["path"] == "derived/vertical.csv":
+                    item["role"] = "ORIGINAL_SOURCE"
+        self.change_manifest(mislabel)
+        with self.assertRaisesRegex(SourceRefused, "SOURCE_ROLE_INVALID"):
+            verify_source(self.source, self.authority)
+
+    def test_wrong_first_acquired_zero_index_refuses(self):
+        def corrupt(manifest):
+            notes = json.loads(manifest["operator_notes"])
+            notes["observed_encoder_zero_sample_index"] = 5
+            manifest["operator_notes"] = json.dumps(notes)
+        self.change_manifest(corrupt)
+        with self.assertRaisesRegex(SourceRefused, "ENCODER_ZERO_INDEX_UNSUPPORTED"):
             verify_source(self.source, self.authority)
 
     def test_inconsistent_absolute_encoder_reference(self):
