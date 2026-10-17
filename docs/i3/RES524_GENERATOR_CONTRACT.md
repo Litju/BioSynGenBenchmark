@@ -1,6 +1,6 @@
 # RES-524 generator contract and Plate2bar handoff
 
-This contract freezes the supported **BSMB-GENERATOR-1.0** candidate. The exact
+This contract freezes the supported **BSMB-GENERATOR-1.1** candidate. The exact
 commit, hosted CI and final readiness receipt belong to RES-524 in Linear.
 It supersedes the old *generator* three-case/metadata-only pilot limits, while
 retaining both earlier blocker dossiers and every historical negative.
@@ -96,12 +96,24 @@ inventory.json, run.json
 ```
 
 The guide alone uses unchanged P2B-OPEN-DUAL-VFORCE-LPT 1.0. Other cases use
-BSMB-PAIRED-CABLE-ANGLE-1.0, BSMB-CABLE-INCLINATION-1.0 and
+BSMB-PAIRED-CABLE-ANGLE-1.1, BSMB-CABLE-INCLINATION-1.0 and
 BSMB-ENCODER-COS-INCLINATION-1.0. Raw CSV headers remain
 `sample_index,time_s,force_left_N,force_right_N` and
 `sample_index,time_s,displacement_m`. FORCE means bilateral **foot-contact**
 reaction only. Encoder displacement is cable-length change relative to the
-observed first absolute encoder sample. Hip belt, bar collar and system COM
+observed **first ACQUIRED** absolute encoder sample (index 0), which may precede
+the first EXPORTED sample when the recording window is cropped. The manifest
+declares `FIRST_ACQUIRED_ENCODER_SAMPLE`; operator notes retain that observed
+reference's index, native timestamp, absolute encoder length and inclination.
+Cropping never silently re-zeros the recording; a first exported displacement
+may therefore be nonzero. This provenance clarification and the roles below
+are the BSMB-PAIRED-CABLE-ANGLE-1.1 / BSMB-GENERATOR-1.1 source revision.
+
+The SOURCE manifest classifies `force.csv` and `lpt.csv` as `FORCE_STREAM`
+and `LPT_STREAM`, `angle.csv` as `OBSERVED_AUXILIARY_STREAM`, and optional
+`derived/vertical.csv` as `DERIVED_OBSERVATION`. A derived reconstruction
+must never bear `ORIGINAL_SOURCE`. Open V1's four-file package shape and
+legacy 500 Hz models remain unchanged. Hip belt, bar collar and system COM
 are distinct. The raw incline CSV carries absolute encoder length, measured
 angle from vertical, common encoder/angle acquisition grid and slack.
 
