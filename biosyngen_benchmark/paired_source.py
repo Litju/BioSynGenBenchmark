@@ -40,8 +40,11 @@ def read_rows(path, columns):
 
 def verify_source(source, capture_authority):
     manifest = json.loads((source / "manifest.json").read_text(encoding="utf-8"))
-    require(manifest["profile_id"] in ("P2B-OPEN-DUAL-VFORCE-LPT", "BSMB-PAIRED-CABLE-ANGLE-1.0") and
-            manifest["profile_version"] == "1.0", "SOURCE_PROFILE_UNSUPPORTED")
+    require(
+        (manifest["profile_id"] == "P2B-OPEN-DUAL-VFORCE-LPT" and manifest["profile_version"] == "1.0")
+        or (manifest["profile_id"] == "BSMB-PAIRED-CABLE-ANGLE-1.1" and manifest["profile_version"] == "1.1"),
+        "SOURCE_PROFILE_UNSUPPORTED",
+    )
     require(capture_authority is not None, "INDEPENDENT_CAPTURE_AUTHORITY_REQUIRED")
     require(capture_authority.get("source_manifest_sha256") == digest(source / "manifest.json"),
             "CAPTURE_AUTHORITY_MANIFEST_MISMATCH")
@@ -55,9 +58,26 @@ def verify_source(source, capture_authority):
     require(set(sealed) == actual - {"checksums.sha256"}, "SOURCE_INVENTORY_MISMATCH")
     for name, value in sealed.items():
         require(digest(source / name) == value, "CHECKSUM_MISMATCH")
+    declared_roles = {}
     for record in manifest["source_files"]:
         require(record["path"] in sealed and sealed[record["path"]] == record["sha256"], "MANIFEST_HASH_MISMATCH")
+        require(record["path"] not in declared_roles, "SOURCE_ROLE_DUPLICATE")
+        declared_roles[record["path"]] = record["role"]
+    expected_roles = {
+        "streams/force.csv": "FORCE_STREAM",
+        "streams/lpt.csv": "LPT_STREAM",
+    }
+    if manifest["profile_id"] == "BSMB-PAIRED-CABLE-ANGLE-1.1":
+        expected_roles["streams/angle.csv"] = "OBSERVED_AUXILIARY_STREAM"
+        if "derived/vertical.csv" in sealed:
+            expected_roles["derived/vertical.csv"] = "DERIVED_OBSERVATION"
+    require(set(declared_roles) == set(expected_roles), "SOURCE_ROLE_INVENTORY_MISMATCH")
+    require(all(declared_roles[p] == role for p, role in expected_roles.items()), "SOURCE_ROLE_INVALID")
     notes = json.loads(manifest["operator_notes"])
+    require(manifest["lpt_stream"]["zero_reference"] == "FIRST_ACQUIRED_ENCODER_SAMPLE",
+            "ENCODER_ZERO_REFERENCE_UNSUPPORTED")
+    require(type(notes.get("observed_encoder_zero_sample_index")) is int and
+            notes["observed_encoder_zero_sample_index"] == 0, "ENCODER_ZERO_INDEX_UNSUPPORTED")
     capture = notes["sync_capture"]
     require(capture == {k: v for k, v in capture_authority.items() if k != "source_manifest_sha256"},
             "CAPTURE_RECEIPT_MISMATCH")
@@ -102,6 +122,15 @@ def verify_source(source, capture_authority):
         coverage[name] = [offset + scale * times[0], offset + scale * times[-1]]
         streams[name] = rows
     require(min(v[1] for v in coverage.values()) > max(v[0] for v in coverage.values()), "NO_CLOCK_OVERLAP")
+    zero_native = notes.get("observed_encoder_zero_native_time_s")
+    require(type(zero_native) in (int, float) and math.isfinite(zero_native),
+            "ENCODER_ZERO_NATIVE_TIME_INVALID")
+    first_lpt = streams["lpt"][0]
+    expected_native_time = zero_native + (
+        int(first_lpt["sample_index"]) - notes["observed_encoder_zero_sample_index"]
+    ) / manifest["lpt_stream"]["timebase"]["nominal_sampling_rate_hz"]
+    require(abs(float(first_lpt["time_s"]) - expected_native_time) < 1e-10,
+            "ENCODER_ZERO_TIMEBASE_MISMATCH")
     jitter = notes["acquisition_jitter_policy"]
     # Receipt uncertainty bounds edge capture, not unobserved sample-time jitter.
     sync_outcome = "REFUSED_UNBOUNDED_SAMPLE_JITTER" if jitter["finite_error_bound_s"] is None else "BOUNDED_CAPTURE_MAPPING"
