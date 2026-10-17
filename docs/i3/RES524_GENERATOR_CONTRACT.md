@@ -177,6 +177,23 @@ receipts and hashes, not bulk SOURCE or TRUTH.
 
 ## Handoff and claim ceiling
 
+Two completion-pass defects were preserved and repaired without changing
+physics. The first full SOURCE/TRUTH replay found process-dependent contact
+row ordering in the clean-pull support CSV: SOURCE and all physical states
+matched, and the two 21,091-line support files were identical as multisets.
+Per-frame rows are now canonical and replay explicitly varies Python hash
+seeds 0/1. A reversed-contact-order regression exercises the original defect.
+The original mismatch is retained under the project-local ignored completion
+evidence, with immutable pre-repair commit 95ac37f.
+
+An operator-reendorsed malformed FORCE header exposed a source-checker false
+accept at cdf8ee8. Exact native CSV columns, manifest columns, SI units and
+profile rates are now checked; the same retained witness refuses with
+SOURCE_COLUMNS_INVALID. Missing sensor streams also have explicit controls.
+Neither repair relabels derived observations or changes a physical law. The
+initial missing-stream test helper attempted to rehash a deleted file and
+errored; its log is retained, and the corrected inventory-refusal control passes.
+
 P2B_DERIVED_COORDINATE_ADMISSION=DEFERRED.
 P2B_EVENT_METHOD_QUALIFICATION=DEFERRED. P2B_WHOLE_PRODUCT=DEFERRED.
 The next Plate2bar task must preserve raw admission, add governed observed

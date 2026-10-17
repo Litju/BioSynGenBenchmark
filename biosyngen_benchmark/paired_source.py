@@ -24,10 +24,12 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def read_rows(path):
+def read_rows(path, columns):
     require(path.is_file(), "SOURCE_FILE_MISSING")
     with path.open(encoding="utf-8-sig", newline="") as stream:
-        rows = list(csv.DictReader(stream))
+        reader = csv.DictReader(stream)
+        require(reader.fieldnames == list(columns), "SOURCE_COLUMNS_INVALID")
+        rows = list(reader)
     require(len(rows) >= 3, "INSUFFICIENT_SAMPLES")
     try:
         require(all(math.isfinite(float(v)) for row in rows for v in row.values()), "NONFINITE_SAMPLE")
@@ -66,15 +68,20 @@ def verify_source(source, capture_authority):
     for name in ("force", "lpt"):
         spec = manifest[f"{name}_stream"]
         require(spec["path"] == f"streams/{name}.csv", "STREAM_PATH_UNSUPPORTED")
+        require(spec["unit"] == ("N" if name == "force" else "m"), "SOURCE_UNIT_UNSUPPORTED")
+        columns = (("sample_index", "time_s", "force_left_N", "force_right_N") if name == "force" else
+                   ("sample_index", "time_s", "displacement_m"))
+        require(spec["columns"] == list(columns), "MANIFEST_COLUMNS_INVALID")
         require(spec["processing"]["state"] == "RAW_UNFILTERED_DECLARED", "PROCESSING_STATE_UNSUPPORTED")
         require(spec["frame_id"] == ("LAB_VERTICAL_Z_UP" if name == "force" or manifest["profile_id"] ==
                 "P2B-OPEN-DUAL-VFORCE-LPT" else "CABLE_LENGTH_COORDINATE"), "FRAME_UNSUPPORTED")
         require(spec["timebase"]["clock_id"] == name, "CLOCK_ID_MISMATCH")
         if name == "lpt":
             require(spec["attachment_point"] in ("BAR_COLLAR", "HIP_BELT"), "ATTACHMENT_UNSUPPORTED")
-        rows = read_rows(source / spec["path"])
+        rows = read_rows(source / spec["path"], columns)
         rate = spec["timebase"]["nominal_sampling_rate_hz"]
-        require(rate in (500, 1000), "RATE_UNSUPPORTED")
+        expected_rate = 500 if name == "lpt" and notes["acquisition_profile"] == "BSMB-FORCE1000-LPT500-1.0" else 1000
+        require(rate == expected_rate, "RATE_UNSUPPORTED")
         indices, times = [int(row["sample_index"]) for row in rows], [float(row["time_s"]) for row in rows]
         require(all(b > a for a, b in zip(indices, indices[1:])) and all(b > a for a, b in zip(times, times[1:])),
                 "CLOCK_RESET_OR_NONMONOTONIC")
@@ -100,7 +107,7 @@ def verify_source(source, capture_authority):
     sync_outcome = "REFUSED_UNBOUNDED_SAMPLE_JITTER" if jitter["finite_error_bound_s"] is None else "BOUNDED_CAPTURE_MAPPING"
     if manifest["profile_id"] != "P2B-OPEN-DUAL-VFORCE-LPT":
         angle_path = source / "streams/angle.csv"
-        angle = read_rows(angle_path)
+        angle = read_rows(angle_path, ("sample_index", "time_s", "encoder_length_m", "inclination_rad", "slack"))
         require(len(angle) == len(streams["lpt"]), "ANGLE_COVERAGE_MISMATCH")
         zero = notes["observed_encoder_zero_m"]
         for a, lpt in zip(angle, streams["lpt"]):
@@ -114,7 +121,7 @@ def verify_source(source, capture_authority):
             require(derived["path"] is None and derived["refusal"] == "SLACK_CABLE_VERTICAL_RECONSTRUCTION_REFUSED",
                     "SLACK_DERIVED_FALSE_ACCEPT")
         elif derived["path"] is not None:
-            reconstructed = read_rows(source / derived["path"])
+            reconstructed = read_rows(source / derived["path"], ("sample_index", "time_s", "displacement_m", "lower_m", "upper_m"))
             require(len(reconstructed) == len(angle), "DERIVED_COVERAGE_MISMATCH")
             zero_height = zero * math.cos(notes["observed_inclination_zero_rad"])
             for a, d in zip(angle, reconstructed):

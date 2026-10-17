@@ -222,6 +222,7 @@ class SourceAdversaries(unittest.TestCase):
 
     def test_wrong_processing_attachment_frame_and_clock(self):
         for key, field, value, code in (("lpt_stream", "processing", {"state": "DERIVED"}, "PROCESSING_STATE_UNSUPPORTED"),
+                ("force_stream", "unit", "kg", "SOURCE_UNIT_UNSUPPORTED"),
                 ("lpt_stream", "attachment_point", "SYSTEM_COM", "ATTACHMENT_UNSUPPORTED"),
                 ("lpt_stream", "frame_id", "LAB_VERTICAL_Z_UP", "FRAME_UNSUPPORTED"),
                 ("force_stream", "timebase", {"clock_id": "lpt"}, "CLOCK_ID_MISMATCH")):
@@ -234,6 +235,22 @@ class SourceAdversaries(unittest.TestCase):
         (self.source / "streams/angle.csv").unlink()
         self.reseal()
         with self.assertRaisesRegex(SourceRefused, "MANIFEST_HASH_MISMATCH"):
+            verify_source(self.source, self.authority)
+
+    def test_missing_sensor_streams(self):
+        for name in ("force", "lpt"):
+            path = self.source / f"streams/{name}.csv"
+            original = path.read_bytes()
+            path.unlink()
+            with self.subTest(stream=name), self.assertRaisesRegex(SourceRefused, "SOURCE_INVENTORY_MISMATCH"):
+                verify_source(self.source, self.authority)
+            path.write_bytes(original)
+
+    def test_malformed_columns_after_operator_rehash(self):
+        path = self.source / "streams/force.csv"
+        path.write_bytes(path.read_bytes().replace(b"force_left_N", b"wrong_force_N", 1))
+        self.reseal()
+        with self.assertRaisesRegex(SourceRefused, "SOURCE_COLUMNS_INVALID"):
             verify_source(self.source, self.authority)
 
     def test_inconsistent_absolute_encoder_reference(self):
