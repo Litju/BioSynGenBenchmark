@@ -27,7 +27,7 @@ from .bench import BenchProtocol, build_bench_press, bench_lpt
 from .olympic import PullProtocol, build_pull, pull_lpt
 from .squat import SquatProtocol, build_back_squat, squat_lpt
 
-SOURCE_PROFILE = "BSMB-PAIRED-CABLE-ANGLE-1.0"
+SOURCE_PROFILE = "BSMB-PAIRED-CABLE-ANGLE-1.1"
 STAMP = "2026-10-15T00:00:00Z"  # Versioned manufactured acquisition epoch, not wall time.
 
 
@@ -50,11 +50,24 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _source_role(relative):
+    """Inventory-role contract; processed coordinates are never original sources."""
+    roles = {
+        "streams/force.csv": "FORCE_STREAM",
+        "streams/lpt.csv": "LPT_STREAM",
+        "streams/angle.csv": "OBSERVED_AUXILIARY_STREAM",
+        "derived/vertical.csv": "DERIVED_OBSERVATION",
+    }
+    if relative not in roles:
+        raise ValueError("UNCLASSIFIED_SOURCE_FILE")
+    return roles[relative]
+
+
 def seal(root, document):
     document["source_files"] = [
         {"path": p.relative_to(root).as_posix(), "byte_length": p.stat().st_size,
          "sha256": sha(p), "media_type": "text/csv" if p.suffix == ".csv" else "application/json",
-         "role": "FORCE_STREAM" if p.name == "force.csv" else "LPT_STREAM" if p.name == "lpt.csv" else "ORIGINAL_SOURCE"}
+         "role": _source_role(p.relative_to(root).as_posix())}
         for p in sorted(root.rglob("*")) if p.is_file()]
     write_json(root / "manifest.json", document)
     with (root / "checksums.sha256").open("x", encoding="utf-8", newline="\n") as stream:
@@ -262,16 +275,16 @@ def export_case(root: Path, *, protocol, seed, case_id, parameters=None):
         "positive_direction": "UP" if protocol == "guided_vertical" else "AWAY_FROM_REEL",
         "timebase": timebase(cable.clock, "lpt"), "device": identity, "attachment_point": cable.attachment.label,
         "cable_direction": "CONSTRAINED_VERTICAL_GUIDE" if protocol == "guided_vertical" else "VARIABLE_INCLINATION_OBSERVED",
-        "angle_correction": "NONE", "zero_reference": "FIRST_RECORDED_ENCODER_SAMPLE",
+        "angle_correction": "NONE", "zero_reference": "FIRST_ACQUIRED_ENCODER_SAMPLE",
         "calibration": calibration, "processing": {"state": "RAW_UNFILTERED_DECLARED"}}
     document = {"profile_id": "P2B-OPEN-DUAL-VFORCE-LPT" if protocol == "guided_vertical" else SOURCE_PROFILE,
-        "profile_version": "1.0", "bundle_id": case_id, "acquisition_id": case_id,
+        "profile_version": "1.0" if protocol == "guided_vertical" else "1.1", "bundle_id": case_id, "acquisition_id": case_id,
         "session_id": "BSMB-DEVELOPMENT", "trial_id": case_id, "created_at_utc": STAMP,
         "force_stream": force_stream, "lpt_stream": lpt_stream,
         "synchronization": {"authority_class": "MANUFACTURED_ANALYTICAL_AFFINE_MAPPING",
             "evidence_reference": "operator_notes:four-edge-capture", "stream_mappings": mappings},
         "operator_notes": json.dumps({"claim_ceilings": list(CLAIM_CEILINGS), "sync_capture": sync,
-            "generator_contract_id": "BSMB-GENERATOR-1.0",
+            "generator_contract_id": "BSMB-GENERATOR-1.1",
             "rights": {"license": "Apache-2.0", "basis": "PROJECT_AUTHORED_MANUFACTURED_ONLY",
                 "external_participant_data": False},
             "apparatus": reference["world_kind"], "acquisition_profile": profile.profile_id,
@@ -279,6 +292,8 @@ def export_case(root: Path, *, protocol, seed, case_id, parameters=None):
             "lpt_encoder_resolution_m": cable.encoder_resolution_m,
             "force_saturated_sample_indices": [s.index for s in force_samples if s.saturated],
             "observed_encoder_zero_m": observed.samples[0].encoder_length_m,
+            "observed_encoder_zero_sample_index": observed.samples[0].index,
+            "observed_encoder_zero_native_time_s": observed.samples[0].native_time_s,
             "observed_inclination_zero_rad": observed.samples[0].inclination_rad,
             "acquisition_jitter_policy": {"distribution": "GAUSSIAN_UNBOUNDED" if p.get("jitter_sd_s", 0) else "ZERO",
                 "standard_deviation_s": p.get("jitter_sd_s", 0), "finite_error_bound_s": None if p.get("jitter_sd_s", 0) else 0},
