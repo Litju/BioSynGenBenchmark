@@ -3,12 +3,26 @@ import argparse
 import json
 from pathlib import Path
 
+REPORT_SCHEMA = "BSMB-PAIRED-QUALIFICATION-REPORT-2.0"
+# Separate qualification denominators; none implies full-stream readiness.
+DENOMINATORS = ("requested_count", "generation_refusal_count", "source_integrity_pass_count",
+    "model_reference_qualified_count", "bounded_synchronization_count", "synchronization_refused_count",
+    "geometry_pass_count", "geometry_not_applicable_guide_count", "not_evaluable_count",
+    "full_case_qualified_count", "expected_refusal_count", "evidence_refused_count", "missing_evidence_count")
+CASE_STATUSES = ("source_integrity", "model_reference_status", "synchronization", "full_case_status",
+    "expected_refusals")
+
 
 def compare(left, right):
+    # Earlier receipts are preserved as written, never reinterpreted here.
+    if left.get("report_schema_id") != REPORT_SCHEMA or right.get("report_schema_id") != REPORT_SCHEMA:
+        raise ValueError("PLATFORM_REPORT_SCHEMA_UNSUPPORTED")
     if left["requested_count"] != 16 or right["requested_count"] != 16:
         raise ValueError("PLATFORM_CASE_DENOMINATOR_MISMATCH")
-    if left["qualified_count"] != 16 or right["qualified_count"] != 16:
+    if left["model_reference_qualified_count"] != 16 or right["model_reference_qualified_count"] != 16:
         raise ValueError("PLATFORM_PHYSICAL_CHECK_FAILED")
+    if any(left[k] != right[k] for k in DENOMINATORS):
+        raise ValueError("PLATFORM_QUALIFICATION_DENOMINATOR_MISMATCH")
     if any(len(report["cases"]) != 16 or len({c["case_id"] for c in report["cases"]}) != 16
            for report in (left, right)):
         raise ValueError("PLATFORM_CASE_INVENTORY_MISMATCH")
@@ -16,10 +30,13 @@ def compare(left, right):
     for a, b in zip(left["cases"], right["cases"]):
         if a["case_id"] != b["case_id"] or a["protocol"] != b["protocol"]:
             raise ValueError("PLATFORM_CASE_IDENTITY_MISMATCH")
+        for field in CASE_STATUSES:
+            if a[field] != b[field]:
+                raise ValueError(f"PLATFORM_CASE_STATUS_MISMATCH:{field}")
         for field in ("source", "synchronization", "nominal_rates_hz", "dropped_sample_counts", "force_saturated_sample_count"):
             if a["source"][field] != b["source"][field]:
                 raise ValueError(f"PLATFORM_SOURCE_DECISION_MISMATCH:{field}")
-        for name in ("LINEAR_MOMENTUM_CLOSURE", "CONTACT_ADMISSIBILITY"):
+        for name in ("LINEAR_MOMENTUM_CLOSURE", "CONTACT_ADMISSIBILITY", "UNILATERAL_SUPPORT_SIGN"):
             if a["mechanics"]["findings"].get(name, {}).get("outcome") != b["mechanics"]["findings"].get(name, {}).get("outcome"):
                 raise ValueError("PLATFORM_MECHANICAL_DECISION_MISMATCH")
         ga, gb = a["geometry"], b["geometry"]
@@ -48,6 +65,7 @@ def compare(left, right):
                     raise ValueError("PLATFORM_EVENT_TIME_DIFFERENCE")
                 differences.append(delta)
     return {"status": "PASS", "compared_cases": 16, "event_times_compared": len(differences),
+        "qualification_denominators": {k: left[k] for k in DENOMINATORS},
         "max_event_time_difference_s": max(differences, default=0),
         "geometry_error_difference_limit_m": 5e-5, "scope": "NUMERICAL_VERIFICATION_ONLY"}
 

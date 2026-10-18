@@ -42,8 +42,16 @@ class ConfigTests(unittest.TestCase):
                 "force_saturated_sample_count": 0},
             "mechanics": {"findings": {"LINEAR_MOMENTUM_CLOSURE": {"outcome": "PASS"}}},
             "geometry": {"status": "PASS", "max_error_m": 0.0001},
-            "independent_reference_events": {"findings": [{"event": "takeoff", "outcome": "PASS", "declared_time_s": 1.5}]}}
-        fixture = {"requested_count": 16, "qualified_count": 16, "cases": [copy.deepcopy(case) for _ in range(16)]}
+            "independent_reference_events": {"findings": [{"event": "takeoff", "outcome": "PASS", "declared_time_s": 1.5}]},
+            "source_integrity": "PASS", "model_reference_status": "MODEL_REFERENCE_QUALIFIED",
+            "synchronization": "BOUNDED_CAPTURE_MAPPING", "full_case_status": "FULL_CASE_QUALIFIED",
+            "expected_refusals": []}
+        fixture = {"report_schema_id": "BSMB-PAIRED-QUALIFICATION-REPORT-2.0", "requested_count": 16,
+            "cases": [copy.deepcopy(case) for _ in range(16)], **{k: 0 for k in (
+                "generation_refusal_count", "synchronization_refused_count", "geometry_not_applicable_guide_count",
+                "not_evaluable_count", "expected_refusal_count", "evidence_refused_count", "missing_evidence_count")},
+            **{k: 16 for k in ("source_integrity_pass_count", "model_reference_qualified_count",
+                "bounded_synchronization_count", "geometry_pass_count", "full_case_qualified_count")}}
         for i, c in enumerate(fixture["cases"]):
             c["case_id"] = f"case-{i}"
         self.assertEqual(compare(fixture, fixture)["status"], "PASS")
@@ -202,6 +210,18 @@ class SourceAdversaries(unittest.TestCase):
         (self.source / "checksums.sha256").write_text(checksums)
         self.authority["source_manifest_sha256"] = sha(manifest_path)
 
+    def rebound_truth(self):
+        # Test-only coherent re-endorsement of TRUTH to the altered SOURCE
+        # manifest, so the same-trial binding holds and geometry is exercised.
+        truth = self.root / f"{self._testMethodName}-truth" / "fixture"
+        shutil.copytree(self.root / "TRUTH/fixture", truth)
+        reference = json.loads((truth / "reference.json").read_text())
+        reference["source_manifest_sha256"] = sha(self.source / "manifest.json")
+        (truth / "reference.json").write_text(json.dumps(reference))
+        (truth / "checksums.sha256").write_text("".join(f"{sha(p)}  {p.name}\n"
+            for p in sorted(truth.iterdir()) if p.name != "checksums.sha256"))
+        return truth
+
     def change_manifest(self, function):
         path = self.source / "manifest.json"
         manifest = json.loads(path.read_text())
@@ -344,7 +364,7 @@ class SourceAdversaries(unittest.TestCase):
             writer.writeheader()
             writer.writerows(rows)
         self.reseal()
-        self.assertEqual(verify_reference(self.source, self.root / "TRUTH/fixture")["geometry"]["status"], "REJECTED")
+        self.assertEqual(verify_reference(self.source, self.rebound_truth())["geometry"]["status"], "REJECTED")
 
     def test_slack_never_produces_a_qualified_vertical_coordinate(self):
         path = self.source / "streams/angle.csv"
