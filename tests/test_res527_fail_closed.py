@@ -590,8 +590,8 @@ class FailClosedQualification(unittest.TestCase):
         self.assertIn("SOURCE/trial-00000524-0000/streams/force.csv", case["partial_artifacts"])
         self.assertTrue((destination / "SOURCE/trial-00000524-0000/streams/force.csv").is_file())
         exit_code, report = self.cli(destination)
-        self.assertEqual((exit_code, report["model_reference_qualified_count"], report["generation_refusal_count"]),
-                         (1, 0, 1))
+        self.assertEqual((exit_code, report["model_reference_qualified_count"], report["generation_refusal_count"],
+                          report["expected_refusal_count"]), (1, 0, 1, 0))
 
 
 if __name__ == "__main__":

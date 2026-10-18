@@ -272,7 +272,8 @@ def classify(result):
     sync = source.get("synchronization") if isinstance(source, dict) else None
     geometry = result.get("geometry", {}).get("status")
     expected = []
-    if "generation_refusal" in result:
+    # A declared scope/parameter refusal is expected; an OS write failure is not.
+    if "generation_refusal" in result and not result["generation_refusal"].startswith("OS_WRITE_FAILURE:"):
         expected.append("GENERATION_REFUSED")
     if sync == "REFUSED_UNBOUNDED_SAMPLE_JITTER":
         expected.append(sync)
