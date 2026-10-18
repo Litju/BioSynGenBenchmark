@@ -74,6 +74,13 @@ def main(argv=None):
             result["status"] = "GENERATED_NOT_EMPIRICALLY_QUALIFIED"
         except (ValueError, ArithmeticError) as exc:
             result.update(status="REFUSED", reason=f"{type(exc).__name__}:{exc}")
+        except OSError as exc:
+            # Partial bytes are retained as failure evidence. The receipt marks
+            # the case refused, so no verifier can qualify the partial bundle.
+            result.update(status="REFUSED", reason=f"OS_WRITE_FAILURE:{type(exc).__name__}:{exc}",
+                partial_artifacts=sorted(path.relative_to(args.out).as_posix() for namespace in
+                    ("SOURCE", "TRUTH", "DIAGNOSTICS") for path in (args.out / namespace / case_id).rglob("*")
+                    if path.is_file()))
         result["elapsed_s"] = time.perf_counter() - before
         result["case_bytes"] = sum(path.stat().st_size for namespace in ("SOURCE", "TRUTH", "DIAGNOSTICS")
             for path in (args.out / namespace / case_id).rglob("*") if path.is_file())

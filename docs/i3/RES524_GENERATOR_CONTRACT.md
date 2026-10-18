@@ -166,6 +166,34 @@ capture authority synchronization refuses. An adversary who can forge the
 entire external authority cannot be authenticated by unkeyed hashes; no device
 security or empirical timing certification is claimed.
 
+RES-527 fail-closed admission (repairing RES-525 F01-F08). The capture receipt
+must declare BSMB-FOUR-EDGE-CAPTURE-1.0 with exactly four finite increasing
+edges per clock, fit edges [0, 3], held-out edges [1, 2] and a finite capture
+bound in (0, 2 microseconds]; the 2 microsecond value is this contract's
+modeled envelope, not device metrology. JSON NaN/Infinity literals refuse.
+Manifest-controlled paths are untrusted: the derived path is exactly
+`derived/vertical.csv` or null, checked as a string before any filesystem use,
+and every SOURCE file opened must be a sealed, link-free member of SOURCE. A
+taut angle-aware recording must declare and seal its derivation; only a slack
+recording may carry the typed null/refusal, reported as
+NOT_EVALUABLE_SLACK_CABLE_REFUSED and never as a full-case pass. The reference
+checker applies BSMB-PAIRED-TRUTH-INVENTORY-1.0: the guide has exactly
+`reference.json` and `support_intervals.csv`; every modeled protocol adds
+`model_events.json`, `mechanics_submission.json` and
+`context_qualification.json`. TRUTH must name the exact current SOURCE manifest
+digest and trial identity. Modeled cases require independent
+LINEAR_MOMENTUM_CLOSURE and CONTACT_ADMISSIBILITY plus the complete per-protocol
+event set; only the positively identified guide keeps its endpoint impulse and
+unilateral-sign analytical ledger and analytical events. Verifier reports
+(BSMB-PAIRED-QUALIFICATION-REPORT-2.0) count source integrity, model-reference,
+bounded synchronization, geometry, full-case, expected-refusal, evidence-refusal,
+missing-evidence and not-evaluable outcomes separately; the 16-case matrix is
+16 model-reference qualifications, 15 bounded manufactured clock maps and one
+explicit unbounded-jitter synchronization refusal, i.e. 15 full cases. Earlier
+receipts without this schema are preserved and refused by the comparator rather
+than reinterpreted. A generator OS write failure is now receipted as a REFUSED
+case with its partial files listed and retained; it can never qualify.
+
 Fresh checks include analytical 3-4-5 geometry, bounded uncertainty containment,
 native odd samples disproving 500 Hz interpolation, 1 ms provider differences,
 force ADC saturation, independent clocks, held-out edges, partial/no overlap,
