@@ -45,7 +45,7 @@ from biosyngen_benchmark.paired_events import verify_events
 REPORT_SCHEMA = "BSMB-PAIRED-QUALIFICATION-REPORT-2.0"
 TRUTH_SCHEMA = "BSMB-PAIRED-TRUTH-1.0"
 TRUTH_INVENTORY_CONTRACT = "BSMB-PAIRED-TRUTH-INVENTORY-1.0"
-TRUTH_ADMISSION_CONTRACT = "BSMB-PAIRED-TRUTH-ADMISSION-1.0"
+TRUTH_ADMISSION_CONTRACT = "BSMB-PAIRED-TRUTH-ADMISSION-1.1"
 MECHANICS_BINDING_CONTRACT = "BSMB-PAIRED-MECHANICS-BINDING-1.1"
 SYNC_TRUTH_CONTRACT = "BSMB-SYNC-TRUTH-BINDING-1.0"
 SUBMISSION_SCHEMA = "BIOSYNGEN_I2_SUBMISSION_V1"
@@ -73,6 +73,12 @@ CONTEXT_REFUSALS = {"biological_validation": "NO_EMPIRICAL_REFERENCE",
     "physiological_peak_force_rfd": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES"}
 CONTEXT_OUTCOMES = frozenset({"NOT_EVALUABLE", "NUMERICAL_SUPPORT_MAINTAINED"})
 CONTEXT_SCOPE = "declared modeled topology only; not empirical qualification"
+# Closed claim-scope authorities written by the generator. Any other value
+# (e.g. an elevated sensor/empirical event assertion) is not admitted.
+EVENT_AUTHORITY = "GENERATOR_MODEL_REFERENCE_NOT_INDEPENDENT_EVALUATOR"
+ANATOMICAL_EVENTS_FROM_SENSORS = "NOT_ESTABLISHED"
+SUPPORTED_CONTEXT = {"loaded_jump_squat": "separable shoulder-shelf contact research fixture"}
+PHYSICAL_EVENT_IDS = frozenset({"CONTACT_IMPACT", "CONTACT_RELEASE", "CONTACT_TOUCHDOWN", "SLIP_ONSET", "STICK_CAPTURE"})
 GUIDE_PROTOCOL = "guided_vertical"
 GUIDE_PROFILE = "P2B-OPEN-DUAL-VFORCE-LPT"
 CABLE_PROFILE = "BSMB-PAIRED-CABLE-ANGLE-1.1"
@@ -250,6 +256,13 @@ def admit_reference(ref, guide):
             times[0] <= i["time_s"] <= times[-1] and i.get("contact_id") in ids and
             vector2(i.get("point_world_m")) and vector2(i.get("impulse_world_n_s")) for i in impulses) and
             all(b["time_s"] >= a["time_s"] for a, b in zip(impulses, impulses[1:])), "REFERENCE_IMPULSES_INVALID")
+    # The simulator's event log is archival (never recomputed), but it may not
+    # carry malformed, out-of-domain or unknown-contact records.
+    events = ref.get("physical_events")
+    require(type(events) is list and all(type(e) is dict and e.get("event_id") in PHYSICAL_EVENT_IDS and
+            finite_number(e.get("time_s")) and times[0] <= e["time_s"] <= times[-1] and
+            type(e.get("contact_ids")) is list and e["contact_ids"] and set(e["contact_ids"]) <= set(ids)
+            for e in events), "REFERENCE_PHYSICAL_EVENTS_INVALID")
     return {"contract": TRUTH_ADMISSION_CONTRACT, "samples": n, "contact_ids": tuple(ids),
             "bodies": sorted(names), "specs": {s["contact_id"]: s for s in specs}}
 
@@ -281,13 +294,14 @@ def admit_support_ledger(truth, times, contact_ids, guide):
     return rows
 
 
-def admit_context(truth, termination):
+def admit_context(truth, termination, protocol):
     """Parsed structure plus retained claim-ceiling refusals. Protocol-specific
     findings are archival model output and are not recomputed here."""
     doc = truth_json(truth / "context_qualification.json")
     require(type(doc) is dict and set(doc) - {"supported_context"} == {"findings", "scope", "termination"} and
             doc["scope"] == CONTEXT_SCOPE and doc["termination"] == termination and
-            type(doc.get("supported_context", "")) is str and type(doc["findings"]) is dict, "CONTEXT_LEDGER_INVALID")
+            doc.get("supported_context") == SUPPORTED_CONTEXT.get(protocol) and type(doc["findings"]) is dict,
+            "CONTEXT_LEDGER_INVALID")
     findings = doc["findings"]
     require(all(type(f) is dict and f.get("outcome") in CONTEXT_OUTCOMES and type(f.get("code")) is str
                 for f in findings.values()) and
@@ -402,6 +416,8 @@ def modeled_events(truth, ref, protocol, resolution):
             "event_authority", "time_resolution_s"} and type(document["analysis"]) is dict and
             finite_number(document["time_resolution_s"]) and
             abs(document["time_resolution_s"] - resolution) <= 1e-12, "MODEL_EVENTS_MALFORMED")
+    require(document["event_authority"] == EVENT_AUTHORITY and
+            document["anatomical_events_from_sensors"] == ANATOMICAL_EVENTS_FROM_SENSORS, "MODEL_EVENTS_AUTHORITY_INVALID")
     analysis = document["analysis"]
     expected = EXPECTED_EVENTS[protocol]
     if expected == REPS:
@@ -493,7 +509,7 @@ def verify_reference(source, truth, protocol=None, *, bundle_root=None):
         event_checks, model_refusals = guide_events(ref, times), []
         binding, context = {"contract": MECHANICS_BINDING_CONTRACT, "status": "NOT_APPLICABLE_GUIDE_LEDGER_ONLY"}, None
     else:
-        context = admit_context(truth, ref["termination"])
+        context = admit_context(truth, ref["termination"], declared)
         submission = truth_json(truth / "mechanics_submission.json")
         binding = bind_mechanics(submission, ref, declared, times, admitted, ledger)
         mechanics = evaluate_i2(submission)
@@ -526,6 +542,7 @@ def verify_reference(source, truth, protocol=None, *, bundle_root=None):
         "mechanics_reference_binding": binding,
         "context_evidence": context,
         "truth_source_binding": "EXACT_SOURCE_MANIFEST_SHA256_UNKEYED",
+        "physical_event_log": "STRUCTURE_ADMITTED_ARCHIVAL_SIMULATOR_LOG_NOT_RECOMPUTED",
         "reference_resolution_s": resolution, "quiet_baseline_max_com_speed_m_s": quiet_max,
         "quiet_baseline": "PASS" if quiet_max < 0.001 else "REJECTED",
         "passed": passed,
