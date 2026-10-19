@@ -194,6 +194,45 @@ receipts without this schema are preserved and refused by the comparator rather
 than reinterpreted. A generator OS write failure is now receipted as a REFUSED
 case with its partial files listed and retained; it can never qualify.
 
+RES-532 admission (repairing RES-525 re-audit R01-R05). Path admission
+BSMB-PAIRED-PATH-ADMISSION-1.0 pins the bundle root given to the verifier and
+checks the root, each SOURCE/TRUTH/DIAGNOSTICS namespace and each case
+directory with lstat/reparse-point tests before anything beneath it is listed
+or opened; symlinks, Windows junctions and other reparse points at any of these
+levels refuse with `*_ROOT_LINK_REFUSED`, and the canonical path must equal the
+pinned canonical root plus the same components. Ancestors above the operator's
+bundle root are trusted; hard links, concurrent mutation and OS sandboxing are
+out of scope. Direct helper calls pin the case's grandparent. TRUTH admission
+BSMB-PAIRED-TRUTH-ADMISSION-1.0 parses every required file before any science:
+a finite strictly increasing physics grid with aligned finite attachment and
+momentum arrays and in-domain true sample times; for modeled protocols one
+state per grid time with identical bodies, finite planar body states, contact
+modes in {OPEN, STICK, SLIDE} that agree with the contact-mode series, typed
+contact specs and in-domain impulses; a support ledger with exact
+`start_s,end_s,contact_id,fx_N,fz_N` header whose every row is exactly one
+positive-duration physics interval, strictly ordered, with complete left/right
+coverage for the guide; a closed model-events envelope whose time resolution
+equals the grid's; and a context ledger that parses, matches the reference
+termination and retains the three claim-ceiling refusals verbatim (its other
+protocol findings are archival model output and are not recomputed). Mechanics
+binding BSMB-PAIRED-MECHANICS-BINDING-1.0 requires the submission to carry the
+protocol's exercise identity, the reference grid, bodies, total mass, gravity,
+initial and per-interval states, contact identities/support groups/friction,
+the exact support ledger and the reference impulses, and the reference
+momentum must equal the momentum recomputed from reference states. This is an
+identity check between two serializations of one trajectory, not physical
+acceptance: the independent I2 evaluator still judges the physics, and a
+complete coherent forgery of every authority remains outside unkeyed-SHA
+claims. Clock admission BSMB-CLOCK-ADMISSION-1.0 propagates the declared edge
+capture bound e through the two-anchor fit: both anchor spans must exceed 2e,
+every scale in [(R-2e)/(N+2e), (R+2e)/(N-2e)] must lie within 1000 ppm of unit
+rate, the offset must be within one hour, recorded samples may not extrapolate
+beyond the anchors' capture bound, and the worst-case mapped-time error over
+the samples must stay below half a native sample period. These are
+verifier-owned contract constants, not device metrology or empirical clock
+authentication. All evidence JSON is duplicate-key free (`DUPLICATE_JSON_KEY`).
+Generated SOURCE/TRUTH bytes and the 16/16/15/1/15 denominators are unchanged.
+
 Fresh checks include analytical 3-4-5 geometry, bounded uncertainty containment,
 native odd samples disproving 500 Hz interpolation, 1 ms provider differences,
 force ADC saturation, independent clocks, held-out edges, partial/no overlap,
