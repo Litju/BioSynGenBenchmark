@@ -333,6 +333,11 @@ def verify_source(source, capture_authority, *, bundle_root=None):
                 require(abs(float(d["displacement_m"]) - expected) < 1e-12, "DERIVED_NOT_FROM_OBSERVED_GEOMETRY")
                 require(float(d["lower_m"]) <= expected <= float(d["upper_m"]), "DERIVED_UNCERTAINTY_INVALID")
     return {"source": "PASS", "synchronization": sync_outcome, "coverage_s": coverage,
+            # Admitted maps and declared jitter bound, for the post-generation
+            # TRUTH sample-time cross-check (the source checker never reads TRUTH).
+            "stream_mappings": {name: {"offset_s": manifest["synchronization"]["stream_mappings"][name]["offset_s"],
+                "drift_scale": manifest["synchronization"]["stream_mappings"][name]["drift_scale"]} for name in streams},
+            "declared_jitter_bound_s": jitter["finite_error_bound_s"],
             "force_saturated_sample_count": (len(notes["force_saturated_sample_indices"])
                 if "force_saturated_sample_indices" in notes else None),
             "dropped_sample_counts": gaps, "nominal_rates_hz": {name: manifest[f"{name}_stream"]["timebase"][
