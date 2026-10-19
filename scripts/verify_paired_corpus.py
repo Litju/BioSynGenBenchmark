@@ -21,6 +21,10 @@ as the reference (BSMB-PAIRED-MECHANICS-BINDING-1.0): exercise, time grid,
 bodies, states, contacts, support ledger and impulses. Both are serializations
 of one simulated trajectory, so exact equality is required; the binding is an
 identity check, the independent I2 evaluator still judges the physics.
+Contact and impulse application points must equal the rigid transform of the
+declared body-A point at the reference state, and each reported force must be
+unilateral along the declared normal (binding 1.1). Per-body inertia has no
+TRUTH authority and is reported as unbound rather than silently trusted.
 """
 
 import argparse
@@ -42,7 +46,7 @@ REPORT_SCHEMA = "BSMB-PAIRED-QUALIFICATION-REPORT-2.0"
 TRUTH_SCHEMA = "BSMB-PAIRED-TRUTH-1.0"
 TRUTH_INVENTORY_CONTRACT = "BSMB-PAIRED-TRUTH-INVENTORY-1.0"
 TRUTH_ADMISSION_CONTRACT = "BSMB-PAIRED-TRUTH-ADMISSION-1.0"
-MECHANICS_BINDING_CONTRACT = "BSMB-PAIRED-MECHANICS-BINDING-1.0"
+MECHANICS_BINDING_CONTRACT = "BSMB-PAIRED-MECHANICS-BINDING-1.1"
 SYNC_TRUTH_CONTRACT = "BSMB-SYNC-TRUTH-BINDING-1.0"
 SUBMISSION_SCHEMA = "BIOSYNGEN_I2_SUBMISSION_V1"
 # Exercise identity each modeled protocol's mechanics submission must carry.
@@ -54,6 +58,13 @@ EXERCISE_FOR_PROTOCOL = {"cmj": "CMJ", "sj": "SJ", "loaded_cmj": "LOADED_CMJ",
 SUPPORT_COLUMNS = ["start_s", "end_s", "contact_id", "fx_N", "fz_N"]
 GUIDE_CONTACTS = ("left", "right")
 CONTACT_MODES = frozenset({"OPEN", "STICK", "SLIDE"})
+CONTACT_KINDS = frozenset({"FOOT", "HEEL", "TOE", "BAR_FLOOR", "BENCH", "CHEST", "RACK", "CATCH"})
+NORMAL_FRAMES = frozenset({"WORLD", "BODY_A", "BODY_B"})
+# Application points are rigid transforms of serialized reference states; the
+# tolerance only absorbs cross-platform last-ulp trigonometry differences.
+POINT_TOLERANCE_M = 1e-9
+# Same unilateral tolerance as the independent I2 evaluator (1e-6 of weight).
+FORCE_TOLERANCE = 1e-6
 FOOT_KINDS = frozenset({"FOOT", "HEEL", "TOE"})
 GROUP_FOR_KIND = {"BENCH": "BENCH", "BAR_FLOOR": "BAR_FLOOR", "RACK": "RACK"}
 # Claim-ceiling refusals every modeled context ledger must retain verbatim.
@@ -155,6 +166,25 @@ def body_vector(body):
     return [*body["position_m"], body["angle_rad"], *body["velocity_m_s"], body["angular_velocity_rad_s"]]
 
 
+def rotate(point, angle):
+    c, s = math.cos(angle), math.sin(angle)
+    return c * point[0] - s * point[1], s * point[0] + c * point[1]
+
+
+def application_point(state, spec):
+    """Contact point on body A: rigid transform of the reference body state."""
+    body = state["bodies"][spec["body_a_id"]]
+    x, z = rotate(spec["local_point_a_m"], body["angle_rad"])
+    return body["position_m"][0] + x, body["position_m"][1] + z
+
+
+def contact_normal(state, spec):
+    if spec["normal_frame"] == "WORLD":
+        return spec["normal_direction"]
+    frame = spec["body_a_id"] if spec["normal_frame"] == "BODY_A" else spec["body_b_id"]
+    return rotate(spec["normal_direction"], state["bodies"][frame]["angle_rad"])
+
+
 def support_group(spec):
     """Declared support-group identity of a contact (the submission's tagging)."""
     if spec["body_b_id"] is not None:
@@ -205,6 +235,14 @@ def admit_reference(ref, guide):
         require(spec.get("body_a_id") in names and (spec.get("body_b_id") is None or spec["body_b_id"] in names)
                 and finite_number(spec.get("friction_coefficient")) and spec["friction_coefficient"] >= 0,
                 "REFERENCE_CONTACT_SPECS_INVALID")
+        # Closed geometric spec: the application point and normal are used to
+        # bind the submission's contact geometry, so they must be well formed.
+        world = spec["body_b_id"] is None
+        normal = spec.get("normal_direction")
+        require(spec["kind"] in CONTACT_KINDS and vector2(spec.get("local_point_a_m")) and vector2(normal) and
+                abs(math.hypot(*normal) - 1) <= 1e-9 and spec.get("normal_frame") in NORMAL_FRAMES and
+                (vector2(spec.get("surface_point_m")) and spec["normal_frame"] == "WORLD" if world else
+                 vector2(spec.get("local_point_b_m"))), "REFERENCE_CONTACT_SPECS_INVALID")
     require(type(ref.get("reference_attachment")) is dict and ref["reference_attachment"].get("body_id") in names,
             "REFERENCE_SCALAR_INVALID")
     impulses = ref.get("impulses_N_s")
@@ -284,15 +322,33 @@ def bind_mechanics(submission, ref, protocol, times, admitted, ledger):
             "MECHANICS_STATE_MISMATCH")
     specs = admitted["specs"]
     groups = {cid: support_group(spec) for cid, spec in specs.items()}
+    weight = ref["mass_kg"] * ref["gravity_m_s2"]
     rows = []
-    for f in frames:
+    for i, f in enumerate(frames):
         require(type(f.get("contacts")) is list, "MECHANICS_CONTACT_MISMATCH")
         for c in f["contacts"]:
             require(type(c) is dict and c.get("name") in specs and c.get("group") == groups[c["name"]] and
                     vector2([c.get("x"), c.get("z")]) and vector2([c.get("fx"), c.get("fz")]),
                     "MECHANICS_CONTACT_MISMATCH")
+            # Independent geometry: the reported application point is the
+            # declared body-A point at the interval-start reference state.
+            spec = specs[c["name"]]
+            x, z = application_point(states[i], spec)
+            require(abs(c["x"] - x) <= POINT_TOLERANCE_M and abs(c["z"] - z) <= POINT_TOLERANCE_M,
+                    "MECHANICS_CONTACT_POINT_MISMATCH")
+            # The declared normal must be unilateral for the reported force.
+            n = contact_normal(states[i], spec)
+            require(c["fx"] * n[0] + c["fz"] * n[1] >= -FORCE_TOLERANCE * weight, "SUPPORT_NORMAL_INCONSISTENT")
             rows.append((f["t0"], f["t1"], c["name"], c["fx"], c["fz"]))
     require(rows == ledger, "SUPPORT_LEDGER_MECHANICS_MISMATCH")
+    # Impulses act at the reference state recorded at the impulse time.
+    at_time = {state["time_s"]: state for state in states}
+    for impulse in ref["impulses_N_s"]:
+        state = at_time.get(impulse["time_s"])
+        require(state is not None, "MECHANICS_IMPULSE_POINT_MISMATCH")
+        x, z = application_point(state, specs[impulse["contact_id"]])
+        require(abs(impulse["point_world_m"][0] - x) <= POINT_TOLERANCE_M and
+                abs(impulse["point_world_m"][1] - z) <= POINT_TOLERANCE_M, "MECHANICS_IMPULSE_POINT_MISMATCH")
     external = {cid: g for cid, g in groups.items() if g != "INTERNAL"}
     require(submission.get("external_support_groups") == sorted(set(external.values())) and
             submission.get("friction_by_group") == {g: specs[cid]["friction_coefficient"] for cid, g in external.items()},
@@ -308,7 +364,12 @@ def bind_mechanics(submission, ref, protocol, times, admitted, ledger):
         require(abs(sum(terms) - momentum) <= 1e-9 * max(1.0, sum(map(abs, terms))), "REFERENCE_MOMENTUM_INCONSISTENT")
     return {"contract": MECHANICS_BINDING_CONTRACT, "status": "BOUND_TO_REFERENCE_TRIAL",
             "exercise_id": submission["exercise_id"], "frames": len(frames), "support_rows": len(rows),
-            "impulses": len(ref["impulses_N_s"]), "scope": "IDENTITY_AND_CONSISTENCY_NOT_PHYSICAL_ACCEPTANCE"}
+            "impulses": len(ref["impulses_N_s"]), "scope": "IDENTITY_AND_CONSISTENCY_NOT_PHYSICAL_ACCEPTANCE",
+            "contact_geometry": "APPLICATION_POINTS_AND_NORMAL_SIGN_FROM_REFERENCE_STATES_AND_SPECS",
+            # TRUTH carries no per-body inertial authority; no qualified claim
+            # (linear momentum, contact admissibility) depends on these values.
+            "per_body_inertia": "NOT_INDEPENDENTLY_BOUND_NO_TRUTH_AUTHORITY",
+            "per_body_mass": "TOTAL_MASS_AND_VERTICAL_MOMENTUM_IDENTITY_ONLY_MIRRORED_SEGMENTS_NOT_SEPARABLE"}
 
 
 def guide_mechanics(rows, ref, times):
