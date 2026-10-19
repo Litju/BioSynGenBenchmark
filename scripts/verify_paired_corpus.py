@@ -336,7 +336,6 @@ def bind_mechanics(submission, ref, protocol, times, admitted, ledger):
             "MECHANICS_STATE_MISMATCH")
     specs = admitted["specs"]
     groups = {cid: support_group(spec) for cid, spec in specs.items()}
-    weight = ref["mass_kg"] * ref["gravity_m_s2"]
     rows = []
     for i, f in enumerate(frames):
         require(type(f.get("contacts")) is list, "MECHANICS_CONTACT_MISMATCH")
@@ -350,9 +349,6 @@ def bind_mechanics(submission, ref, protocol, times, admitted, ledger):
             x, z = application_point(states[i], spec)
             require(abs(c["x"] - x) <= POINT_TOLERANCE_M and abs(c["z"] - z) <= POINT_TOLERANCE_M,
                     "MECHANICS_CONTACT_POINT_MISMATCH")
-            # The declared normal must be unilateral for the reported force.
-            n = contact_normal(states[i], spec)
-            require(c["fx"] * n[0] + c["fz"] * n[1] >= -FORCE_TOLERANCE * weight, "SUPPORT_NORMAL_INCONSISTENT")
             rows.append((f["t0"], f["t1"], c["name"], c["fx"], c["fz"]))
     require(rows == ledger, "SUPPORT_LEDGER_MECHANICS_MISMATCH")
     # Impulses act at the reference state recorded at the impulse time.
@@ -384,6 +380,19 @@ def bind_mechanics(submission, ref, protocol, times, admitted, ledger):
             # (linear momentum, contact admissibility) depends on these values.
             "per_body_inertia": "NOT_INDEPENDENTLY_BOUND_NO_TRUTH_AUTHORITY",
             "per_body_mass": "TOTAL_MASS_AND_VERTICAL_MOMENTUM_IDENTITY_ONLY_MIRRORED_SEGMENTS_NOT_SEPARABLE"}
+
+
+def bind_support_normals(submission, ref, admitted):
+    """Declared contact normals must be unilateral for the reported forces.
+    Run only after the independent evaluator admitted the contacts, so that
+    physical rejection stays the evaluator's authority; this binds the
+    reference spec geometry (e.g. a flipped normal) to the same forces."""
+    specs, states = admitted["specs"], ref["states"]
+    weight = ref["mass_kg"] * ref["gravity_m_s2"]
+    for i, frame in enumerate(submission["frames"]):
+        for c in frame["contacts"]:
+            n = contact_normal(states[i], specs[c["name"]])
+            require(c["fx"] * n[0] + c["fz"] * n[1] >= -FORCE_TOLERANCE * weight, "SUPPORT_NORMAL_INCONSISTENT")
 
 
 def guide_mechanics(rows, ref, times):
@@ -514,6 +523,8 @@ def verify_reference(source, truth, protocol=None, *, bundle_root=None):
         binding = bind_mechanics(submission, ref, declared, times, admitted, ledger)
         mechanics = evaluate_i2(submission)
         require(mechanics["status"] == "EVALUATED", "MECHANICS_SCHEMA_INVALID")
+        if mechanics["findings"].get("CONTACT_ADMISSIBILITY", {}).get("outcome") == "PASS":
+            bind_support_normals(submission, ref, admitted)
         required = MODELED_MECHANICS
         geometry = evaluate_geometry(source, manifest, ref, times, z)
         event_checks, model_refusals = modeled_events(truth, ref, declared, resolution)

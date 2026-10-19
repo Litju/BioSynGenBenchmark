@@ -174,7 +174,7 @@ class Res532Admission(unittest.TestCase):
                 self.assertTrue(all(0 < v < 5e-4 for v in checked["worst_case_mapping_error_s"].values()))
                 result = verify_reference(source, truth)
                 self.assertTrue(result["passed"], result)
-                self.assertEqual(result["truth_admission_contract"], "BSMB-PAIRED-TRUTH-ADMISSION-1.0")
+                self.assertEqual(result["truth_admission_contract"], "BSMB-PAIRED-TRUTH-ADMISSION-1.1")
                 binding = result["mechanics_reference_binding"]["status"]
                 self.assertEqual(binding, "NOT_APPLICABLE_GUIDE_LEDGER_ONLY" if "guide" in case_id
                                  else "BOUND_TO_REFERENCE_TRIAL")
