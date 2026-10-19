@@ -6,7 +6,14 @@ authentication or an empirical synchronization calibration.
 
 Manifest-controlled paths are untrusted. They are validated as strings before
 any filesystem use and every opened file must be a sealed, link-free member of
-SOURCE. This is a software input boundary, not an operating-system sandbox.
+SOURCE. The bundle root, namespace and case directories are admitted with
+lstat/reparse-point checks before anything is listed or opened
+(BSMB-PAIRED-PATH-ADMISSION-1.0). This is a software input boundary, not an
+operating-system sandbox, and it does not defend against concurrent mutation.
+
+Clock admission (BSMB-CLOCK-ADMISSION-1.0) propagates the declared worst-case
+edge-capture bound through the two-anchor fit before any residual or coverage
+is computed; a finite point estimate alone never establishes a bounded map.
 """
 
 import csv
@@ -23,6 +30,14 @@ CAPTURE_CONTRACT = "BSMB-FOUR-EDGE-CAPTURE-1.0"
 # is the admissible upper envelope for this contract, not device metrology.
 CAPTURE_ERROR_BOUND_MAX_S = 2e-6
 SLACK_REFUSAL = "SLACK_CABLE_VERTICAL_RECONSTRUCTION_REFUSED"
+PATH_ADMISSION_CONTRACT = "BSMB-PAIRED-PATH-ADMISSION-1.0"
+CLOCK_ADMISSION_CONTRACT = "BSMB-CLOCK-ADMISSION-1.0"
+# Verifier-owned admissible clock model, fixed independently of generated
+# cases: every scale consistent with the capture bound within 1000 ppm of unit
+# rate, an offset within one hour, and a worst-case mapped-time error below half
+# a native sample period over the recorded samples. Not device metrology.
+CLOCK_DRIFT_MAX = 1e-3
+CLOCK_OFFSET_MAX_S = 3600.0
 
 
 class SourceRefused(ValueError):
@@ -39,12 +54,17 @@ def digest(path):
 
 
 def strict_json(text):
-    """Python accepts NaN/Infinity literals; source evidence must not."""
+    """Python accepts NaN/Infinity literals and keeps the last duplicate key;
+    evidence must not. Every object is one duplicate-free authority."""
     def nonfinite(constant):
         raise SourceRefused("NONFINITE_JSON_NUMBER")
+
+    def unique(pairs):
+        require(len({key for key, _ in pairs}) == len(pairs), "DUPLICATE_JSON_KEY")
+        return dict(pairs)
     try:
-        return json.loads(text, parse_constant=nonfinite)
-    except json.JSONDecodeError:
+        return json.loads(text, parse_constant=nonfinite, object_pairs_hook=unique)
+    except (json.JSONDecodeError, RecursionError):
         raise SourceRefused("MALFORMED_JSON") from None
 
 
@@ -56,6 +76,35 @@ def is_link(path):
     info = os.lstat(path)
     return stat.S_ISLNK(info.st_mode) or bool(
         getattr(info, "st_file_attributes", 0) & stat.FILE_ATTRIBUTE_REPARSE_POINT)
+
+
+def admitted_directory(root, parts, code, missing):
+    """Pinned-root admission, before any listing or open beneath it.
+
+    The bundle root and each namespace/case component must be a real directory
+    (lstat: no symlink, junction or other reparse point) and the canonical path
+    must equal the pinned canonical root plus exactly those components.
+    os.walk(followlinks=False) alone would still traverse a linked start.
+    """
+    root = Path(root)
+    require(os.path.lexists(root), missing)
+    require(not is_link(root) and stat.S_ISDIR(os.lstat(root).st_mode), code)
+    current = root
+    for part in parts:
+        require(type(part) is str and part not in ("", ".", "..") and
+                not any(c in part for c in "/\\:\0"), code)
+        current = current / part
+        require(os.path.lexists(current), missing)
+        require(not is_link(current) and stat.S_ISDIR(os.lstat(current).st_mode), code)
+    pinned = Path(os.path.realpath(root)).joinpath(*parts)
+    require(os.path.normcase(os.path.realpath(current)) == os.path.normcase(str(pinned)), code)
+    return current
+
+
+def admitted_case_directory(path, code, missing):
+    """Direct-helper default: the case's grandparent is the pinned bundle root."""
+    path = Path(path)
+    return admitted_directory(path.parent.parent, (path.parent.name, path.name), code, missing)
 
 
 def safe_relative(name, code):
@@ -83,6 +132,26 @@ def source_inventory(source):
             require(not is_link(Path(directory) / name), "SOURCE_LINK_REFUSED")
         files.update((Path(directory) / name).relative_to(source).as_posix() for name in names)
     return files
+
+
+def resolved_clock_fit(edges, ref, bound):
+    """Worst-case two-anchor fit under +/-bound capture error on every edge.
+
+    Both anchor spans must exceed 2*bound, so the inverse-slope denominator's
+    uncertainty interval excludes zero, and every consistent scale must lie in
+    the admissible drift envelope. Returns (scale, offset, scale_lo, scale_hi).
+    """
+    native_span, reference_span = edges[-1] - edges[0], ref[-1] - ref[0]
+    require(math.isfinite(native_span) and math.isfinite(reference_span) and
+            native_span > 2 * bound and reference_span > 2 * bound, "CLOCK_ANCHOR_SPAN_UNRESOLVED")
+    scale_lo = (reference_span - 2 * bound) / (native_span + 2 * bound)
+    scale_hi = (reference_span + 2 * bound) / (native_span - 2 * bound)
+    require(math.isfinite(scale_hi) and 1 - CLOCK_DRIFT_MAX <= scale_lo <= scale_hi <= 1 + CLOCK_DRIFT_MAX,
+            "CLOCK_SCALE_OUTSIDE_ADMISSIBLE_DRIFT")
+    scale = reference_span / native_span
+    offset = ref[0] - scale * edges[0]
+    require(math.isfinite(offset) and abs(offset) <= CLOCK_OFFSET_MAX_S, "CLOCK_OFFSET_OUTSIDE_ADMISSIBLE")
+    return scale, offset, scale_lo, scale_hi
 
 
 def validate_capture(capture):
@@ -115,8 +184,13 @@ def read_rows(path, columns):
     return rows
 
 
-def verify_source(source, capture_authority):
+def verify_source(source, capture_authority, *, bundle_root=None):
     source = Path(source)
+    if bundle_root is None:
+        admitted_case_directory(source, "SOURCE_ROOT_LINK_REFUSED", "SOURCE_FILE_MISSING")
+    else:
+        require(source == Path(bundle_root) / "SOURCE" / source.name, "SOURCE_ROOT_LINK_REFUSED")
+        admitted_directory(bundle_root, ("SOURCE", source.name), "SOURCE_ROOT_LINK_REFUSED", "SOURCE_FILE_MISSING")
     actual = source_inventory(source)
     manifest = strict_json(contained_file(source, "manifest.json", "UNSAFE_SOURCE_PATH").read_text(encoding="utf-8"))
     require(
@@ -171,7 +245,7 @@ def verify_source(source, capture_authority):
             "CAPTURE_RECEIPT_MISMATCH")
     validate_capture(capture)
     ref = capture["reference_edge_times_s"]
-    streams, coverage, gaps = {}, {}, {}
+    streams, coverage, gaps, mapping_bounds = {}, {}, {}, {}
     for name in ("force", "lpt"):
         spec = manifest[f"{name}_stream"]
         require(spec["path"] == f"streams/{name}.csv", "STREAM_PATH_UNSUPPORTED")
@@ -198,12 +272,19 @@ def verify_source(source, capture_authority):
         require(digest(contained_file(source, spec["path"], "STREAM_PATH_UNSUPPORTED")) ==
                 capture["recording_hashes"][name], "CAPTURE_STREAM_HASH_MISMATCH")
         edges = capture["devices"][name]["edge_native_times_s"]
-        scale = (ref[-1] - ref[0]) / (edges[-1] - edges[0])
-        offset = ref[0] - scale * edges[0]
-        require(math.isfinite(scale) and scale > 0 and math.isfinite(offset), "CLOCK_CAPTURE_INVALID")
-        bound = 2 * capture["capture_error_bound_s"] * scale + 1e-12
+        error = capture["capture_error_bound_s"]
+        scale, offset, scale_lo, scale_hi = resolved_clock_fit(edges, ref, error)
+        bound = 2 * error * scale_hi + 1e-12
         require(all(abs(offset + scale * x - y) <= bound for x, y in zip(edges[1:-1], ref[1:-1])),
                 "HELD_OUT_CAPTURE_RESIDUAL")
+        # Valid fit window: no extrapolation beyond the anchors' capture bound.
+        require(edges[0] - error - 1e-12 <= times[0] and times[-1] <= edges[-1] + error + 1e-12,
+                "CLOCK_SAMPLES_OUTSIDE_FIT_WINDOW")
+        # Worst-case mapped-time error over the recorded samples, all consistent
+        # scales and anchor errors; it must resolve the native sample period.
+        reach = max(abs(times[0] - edges[0]), abs(times[-1] - edges[0]))
+        mapping_bounds[name] = (scale_hi - scale_lo) * reach + 2 * error * scale_hi
+        require(mapping_bounds[name] < 0.5 / rate, "CLOCK_MAPPING_UNCERTAINTY_UNRESOLVED")
         declared = manifest["synchronization"]["stream_mappings"][name]
         require(finite_number(declared["offset_s"]) and finite_number(declared["drift_scale"]),
                 "DECLARED_MAPPING_DISAGREES_WITH_CAPTURE")
@@ -256,4 +337,7 @@ def verify_source(source, capture_authority):
                 if "force_saturated_sample_indices" in notes else None),
             "dropped_sample_counts": gaps, "nominal_rates_hz": {name: manifest[f"{name}_stream"]["timebase"][
                 "nominal_sampling_rate_hz"] for name in streams},
+            "clock_admission_contract": CLOCK_ADMISSION_CONTRACT,
+            "worst_case_mapping_error_s": mapping_bounds,
+            "path_admission_contract": PATH_ADMISSION_CONTRACT,
             "authority_scope": "OUT_OF_BAND_MANUFACTURED_RECEIPT_NOT_EMPIRICAL_AUTHENTICATION"}
