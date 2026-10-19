@@ -304,6 +304,16 @@ class FailClosedQualification(unittest.TestCase):
         second["fz"] += 100000.0  # Net vertical force preserved; one normal becomes tensile.
         dump(path, submission)
         self.reseal_truth(root, "squat")
+        # RES-532: a submission-only edit no longer matches the TRUTH support
+        # ledger; re-endorse the ledger too so the evaluator itself is exercised.
+        with self.assertRaisesRegex(ReferenceRefused, "^SUPPORT_LEDGER_MECHANICS_MISMATCH$"):
+            verify_reference(*self.paths(root, "squat")[:2])
+        with (path.parent / "support_intervals.csv").open("w", newline="") as stream:
+            writer = csv.writer(stream, lineterminator="\n")
+            writer.writerow(("start_s", "end_s", "contact_id", "fx_N", "fz_N"))
+            writer.writerows((f["t0"], f["t1"], c["name"], c["fx"], c["fz"])
+                             for f in submission["frames"] for c in f["contacts"])
+        self.reseal_truth(root, "squat")
         result = verify_reference(*self.paths(root, "squat")[:2])
         self.assertEqual(result["required_mechanics_outcomes"],
                          {"LINEAR_MOMENTUM_CLOSURE": "PASS", "CONTACT_ADMISSIBILITY": "REJECTED"})
