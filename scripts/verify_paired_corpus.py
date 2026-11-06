@@ -434,10 +434,16 @@ def bind_mechanics(submission, ref, protocol, times, admitted, ledger):
     require(rows == ledger, "SUPPORT_LEDGER_MECHANICS_MISMATCH")
     # Impulses act at the reference state recorded at the impulse time.
     at_time = {state["time_s"]: state for state in states}
+    body_body_impulses_checked = 0
     for impulse in ref["impulses_N_s"]:
         state = at_time.get(impulse["time_s"])
         require(state is not None, "MECHANICS_IMPULSE_POINT_MISMATCH")
         spec = specs[impulse["contact_id"]]
+        if spec["body_b_id"] is not None:
+            # Event geometry is checked at the exact impulse state, using the
+            # same mode-aware law as interval states.
+            bind_body_body_contact_state(state, spec)
+            body_body_impulses_checked += 1
         x, z = application_point(state, spec)
         require(abs(impulse["point_world_m"][0] - x) <= POINT_TOLERANCE_M and
                 abs(impulse["point_world_m"][1] - z) <= POINT_TOLERANCE_M, "MECHANICS_IMPULSE_POINT_MISMATCH")
@@ -459,6 +465,7 @@ def bind_mechanics(submission, ref, protocol, times, admitted, ledger):
             "impulses": len(ref["impulses_N_s"]), "scope": "IDENTITY_AND_CONSISTENCY_NOT_PHYSICAL_ACCEPTANCE",
             "contact_geometry": "BODY_A_AND_BODY_B_MODE_AWARE_GEOMETRY_AND_NORMAL_SIGN_FROM_REFERENCE_STATES_AND_SPECS",
             "body_body_contact_states_checked": admitted["body_body_contact_state_count"],
+            "body_body_impulses_checked": body_body_impulses_checked,
             # TRUTH carries no per-body inertial authority; no qualified claim
             # (linear momentum, contact admissibility) depends on these values.
             "per_body_inertia": "NOT_INDEPENDENTLY_BOUND_NO_TRUTH_AUTHORITY",

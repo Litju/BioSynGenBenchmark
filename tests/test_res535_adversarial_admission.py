@@ -228,6 +228,21 @@ class Res535Admission(unittest.TestCase):
         self.assert_denied(self.mutate("loaded_jump_squat", edit), "loaded_jump_squat",
                            "MECHANICS_IMPULSE_POINT_MISMATCH")
 
+    def test_body_b_impulse_event_anchor_mutation_refuses(self):
+        def edit(bundle):
+            ref = self.load(bundle, "loaded_jump_squat", "reference.json")
+            spec = next(s for s in ref["contact_specs"] if s["body_b_id"] is not None)
+            body_impulses = [i for i in ref["impulses_N_s"] if i["contact_id"] == spec["contact_id"]]
+            def mode_at_impulse(impulse):
+                state = next(s for s in ref["states"] if s["time_s"] == impulse["time_s"])
+                return state["contacts"][spec["contact_id"]]["mode"]
+            impulse = next(i for i in body_impulses if mode_at_impulse(i) == "STICK")
+            state = next(s for s in ref["states"] if s["time_s"] == impulse["time_s"])
+            state["contacts"][spec["contact_id"]]["tangent_anchor_m"] += 0.25
+            self.store(bundle, "loaded_jump_squat", "reference.json", ref)
+        self.assert_denied(self.mutate("loaded_jump_squat", edit), "loaded_jump_squat",
+                           "MECHANICS_CONTACT_GEOMETRY_MISMATCH")
+
     def test_body_b_positive_slide_remains_admitted(self):
         root = self.bundle("loaded_jump_squat", "bench_press")
         for case_id in ("loaded_jump_squat", "bench_press"):
@@ -246,6 +261,9 @@ class Res535Admission(unittest.TestCase):
             self.assertGreater(max(slide) - min(slide), 1e-8)
             result = verify_reference(root / "SOURCE" / case_id, self.truth(root, case_id))
             self.assertTrue(result["passed"], result)
+            expected_impulses = sum(i["contact_id"] == spec["contact_id"] for i in ref["impulses_N_s"])
+            self.assertEqual(result["mechanics_reference_binding"]["body_body_impulses_checked"],
+                             expected_impulses)
             self.assertEqual(result["mechanics_reference_binding"]["body_body_contact_states_checked"],
                              len(ref["states"]))
         exit_code, report = self.cli(root)

@@ -253,6 +253,24 @@ authority (`GENERATOR_MODEL_REFERENCE_NOT_INDEPENDENT_EVALUATOR`,
 `anatomical_events_from_sensors = NOT_ESTABLISHED`), the protocol's exact
 context string (loaded jump squat only), and a structurally valid simulator
 event log over its closed event vocabulary (archival, not recomputed).
+BSMB-PAIRED-MECHANICS-BINDING-1.2 closes the two-sided body-to-body contact
+geometry gap. Contact specs must have the exact serialized field inventory,
+distinct body A/body B identities, and finite local points. For every
+reference state, both local points are transformed from their own body poses;
+the declared normal is rotated from its WORLD, BODY_A or BODY_B frame and the
+engine tangent is reconstructed in that frame. OPEN requires normal gap no
+smaller than -1e-9 m. STICK requires absolute normal gap <= 1e-9 m, the
+serialized tangent coordinate to match its tangent anchor within 1e-9 m, and
+normal/tangent relative velocities within 1e-9 m/s. SLIDE requires the same
+normal-gap and normal-velocity bounds plus a slip direction consistent with
+the relative tangential velocity; tangential position remains free. Thus a
+valid slide or nonzero sticking tangent anchor is not rejected by an incorrect
+zero-Euclidean-separation rule. Submitted force points remain bound to body A;
+the body-B mode constraints are checked at each interval reference state, and
+again at each reference impulse time. The 1e-9 m / 1e-9 m/s limits mirror the
+multibody engine's contact-position and velocity constraint tolerances. The
+independent I2 evaluator continues to judge its declared momentum and external
+contact claims; this geometry binding does not expand those claims.
 BSMB-SYNC-TRUTH-BINDING-1.0: a BOUNDED_CAPTURE_MAPPING must place every recorded
 sample, by acquisition index, within the worst-case mapping error plus the
 declared jitter bound of its protected TRUTH sample time; otherwise
