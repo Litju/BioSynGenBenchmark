@@ -46,7 +46,7 @@ REPORT_SCHEMA = "BSMB-PAIRED-QUALIFICATION-REPORT-2.0"
 TRUTH_SCHEMA = "BSMB-PAIRED-TRUTH-1.0"
 TRUTH_INVENTORY_CONTRACT = "BSMB-PAIRED-TRUTH-INVENTORY-1.0"
 TRUTH_ADMISSION_CONTRACT = "BSMB-PAIRED-TRUTH-ADMISSION-1.1"
-MECHANICS_BINDING_CONTRACT = "BSMB-PAIRED-MECHANICS-BINDING-1.1"
+MECHANICS_BINDING_CONTRACT = "BSMB-PAIRED-MECHANICS-BINDING-1.2"
 SYNC_TRUTH_CONTRACT = "BSMB-SYNC-TRUTH-BINDING-1.0"
 SUBMISSION_SCHEMA = "BIOSYNGEN_I2_SUBMISSION_V1"
 # Exercise identity each modeled protocol's mechanics submission must carry.
@@ -60,9 +60,16 @@ GUIDE_CONTACTS = ("left", "right")
 CONTACT_MODES = frozenset({"OPEN", "STICK", "SLIDE"})
 CONTACT_KINDS = frozenset({"FOOT", "HEEL", "TOE", "BAR_FLOOR", "BENCH", "CHEST", "RACK", "CATCH"})
 NORMAL_FRAMES = frozenset({"WORLD", "BODY_A", "BODY_B"})
+CONTACT_SPEC_KEYS = frozenset({"contact_id", "body_a_id", "local_point_a_m", "normal_direction",
+    "friction_coefficient", "restitution", "kind", "surface_point_m", "body_b_id", "local_point_b_m",
+    "side", "measurement_channel_id", "plate_frame", "normal_frame", "friction_group", "surface_extent_m"})
 # Application points are rigid transforms of serialized reference states; the
 # tolerance only absorbs cross-platform last-ulp trigonometry differences.
 POINT_TOLERANCE_M = 1e-9
+# Match the independent simulator's declared position and velocity constraint
+# residuals for body-to-body contacts; sliding tangential position is free.
+BODY_CONTACT_GAP_TOLERANCE_M = 1e-9
+BODY_CONTACT_VELOCITY_TOLERANCE_M_S = 1e-9
 # Same unilateral tolerance as the independent I2 evaluator (1e-6 of weight).
 FORCE_TOLERANCE = 1e-6
 FOOT_KINDS = frozenset({"FOOT", "HEEL", "TOE"})
@@ -179,9 +186,75 @@ def rotate(point, angle):
 
 def application_point(state, spec):
     """Contact point on body A: rigid transform of the reference body state."""
-    body = state["bodies"][spec["body_a_id"]]
-    x, z = rotate(spec["local_point_a_m"], body["angle_rad"])
+    return body_point(state, spec["body_a_id"], spec["local_point_a_m"])
+
+
+def body_point(state, body_id, local_point):
+    body = state["bodies"][body_id]
+    x, z = rotate(local_point, body["angle_rad"])
     return body["position_m"][0] + x, body["position_m"][1] + z
+
+
+def body_point_velocity(state, body_id, local_point):
+    body = state["bodies"][body_id]
+    x, z = rotate(local_point, body["angle_rad"])
+    vx, vz = body["velocity_m_s"]
+    omega = body["angular_velocity_rad_s"]
+    return vx - omega * z, vz + omega * x
+
+
+def body_body_contact_geometry(state, spec):
+    point_a = body_point(state, spec["body_a_id"], spec["local_point_a_m"])
+    point_b = body_point(state, spec["body_b_id"], spec["local_point_b_m"])
+    relative_position = point_a[0] - point_b[0], point_a[1] - point_b[1]
+    velocity_a = body_point_velocity(state, spec["body_a_id"], spec["local_point_a_m"])
+    velocity_b = body_point_velocity(state, spec["body_b_id"], spec["local_point_b_m"])
+    relative_velocity = velocity_a[0] - velocity_b[0], velocity_a[1] - velocity_b[1]
+    if spec["normal_frame"] == "WORLD":
+        normal, frame_omega = spec["normal_direction"], 0.0
+    else:
+        frame_id = spec["body_a_id"] if spec["normal_frame"] == "BODY_A" else spec["body_b_id"]
+        frame = state["bodies"][frame_id]
+        normal = rotate(spec["normal_direction"], frame["angle_rad"])
+        frame_omega = frame["angular_velocity_rad_s"]
+    tangent = normal[1], -normal[0]
+    normal_gap = sum(a * b for a, b in zip(normal, relative_position))
+    tangent_coordinate = sum(a * b for a, b in zip(tangent, relative_position))
+    normal_velocity = (sum(a * b for a, b in zip(normal, relative_velocity))
+                       - frame_omega * tangent_coordinate)
+    tangent_velocity = (sum(a * b for a, b in zip(tangent, relative_velocity))
+                        + frame_omega * normal_gap)
+    return {"point_a": point_a, "point_b": point_b, "normal": normal, "tangent": tangent,
+            "normal_gap_m": normal_gap, "tangent_coordinate_m": tangent_coordinate,
+            "normal_velocity_m_s": normal_velocity, "tangential_velocity_m_s": tangent_velocity}
+
+
+def bind_body_body_contact_state(state, spec):
+    """Bind both material points under the engine's OPEN/STICK/SLIDE law."""
+    status = state["contacts"][spec["contact_id"]]
+    require(type(status) is dict and set(status) == {"mode", "slip_direction", "tangent_anchor_m"},
+            "MECHANICS_CONTACT_GEOMETRY_MISMATCH")
+    mode, direction, anchor = status["mode"], status["slip_direction"], status["tangent_anchor_m"]
+    geometry = body_body_contact_geometry(state, spec)
+    gap, tangent = geometry["normal_gap_m"], geometry["tangent_coordinate_m"]
+    normal_velocity = geometry["normal_velocity_m_s"]
+    tangent_velocity = geometry["tangential_velocity_m_s"]
+    require(type(direction) is int and mode in CONTACT_MODES, "MECHANICS_CONTACT_GEOMETRY_MISMATCH")
+    if mode == "OPEN":
+        require(direction == 0 and anchor is None and gap >= -BODY_CONTACT_GAP_TOLERANCE_M,
+                "MECHANICS_CONTACT_GEOMETRY_MISMATCH")
+    elif mode == "STICK":
+        require(direction == 0 and finite_number(anchor) and abs(gap) <= BODY_CONTACT_GAP_TOLERANCE_M and
+                abs(tangent - anchor) <= POINT_TOLERANCE_M and
+                abs(normal_velocity) <= BODY_CONTACT_VELOCITY_TOLERANCE_M_S and
+                abs(tangent_velocity) <= BODY_CONTACT_VELOCITY_TOLERANCE_M_S,
+                "MECHANICS_CONTACT_GEOMETRY_MISMATCH")
+    else:
+        require(direction in (-1, 1) and anchor is None and abs(gap) <= BODY_CONTACT_GAP_TOLERANCE_M and
+                abs(normal_velocity) <= BODY_CONTACT_VELOCITY_TOLERANCE_M_S and
+                direction * tangent_velocity >= -BODY_CONTACT_VELOCITY_TOLERANCE_M_S,
+                "MECHANICS_CONTACT_GEOMETRY_MISMATCH")
+    return geometry
 
 
 def contact_normal(state, spec):
@@ -218,7 +291,8 @@ def admit_reference(ref, guide):
     if guide:
         return {"contract": TRUTH_ADMISSION_CONTRACT, "samples": n, "contact_ids": GUIDE_CONTACTS}
     specs = ref.get("contact_specs")
-    require(type(specs) is list and specs and all(type(s) is dict and type(s.get("contact_id")) is str and
+    require(type(specs) is list and specs and all(type(s) is dict and set(s) == CONTACT_SPEC_KEYS and
+            type(s.get("contact_id")) is str and
             type(s.get("kind")) is str for s in specs), "REFERENCE_CONTACT_SPECS_INVALID")
     ids = [s["contact_id"] for s in specs]
     require(len(set(ids)) == len(ids), "REFERENCE_CONTACT_SPECS_INVALID")
@@ -238,7 +312,9 @@ def admit_reference(ref, guide):
                 for c in contacts.values()), "REFERENCE_STATES_MALFORMED")
         require(mode == {k: c["mode"] for k, c in contacts.items()}, "REFERENCE_CONTACT_MODES_INCONSISTENT")
     for spec in specs:
-        require(spec.get("body_a_id") in names and (spec.get("body_b_id") is None or spec["body_b_id"] in names)
+        require(spec.get("body_a_id") in names and
+                (spec.get("body_b_id") is None or spec["body_b_id"] in names and
+                 spec["body_b_id"] != spec["body_a_id"])
                 and finite_number(spec.get("friction_coefficient")) and spec["friction_coefficient"] >= 0,
                 "REFERENCE_CONTACT_SPECS_INVALID")
         # Closed geometric spec: the application point and normal are used to
@@ -249,6 +325,10 @@ def admit_reference(ref, guide):
                 abs(math.hypot(*normal) - 1) <= 1e-9 and spec.get("normal_frame") in NORMAL_FRAMES and
                 (vector2(spec.get("surface_point_m")) and spec["normal_frame"] == "WORLD" if world else
                  vector2(spec.get("local_point_b_m"))), "REFERENCE_CONTACT_SPECS_INVALID")
+    body_body_specs = [spec for spec in specs if spec["body_b_id"] is not None]
+    for spec in body_body_specs:
+        for state in states:
+            bind_body_body_contact_state(state, spec)
     require(type(ref.get("reference_attachment")) is dict and ref["reference_attachment"].get("body_id") in names,
             "REFERENCE_SCALAR_INVALID")
     impulses = ref.get("impulses_N_s")
@@ -264,7 +344,8 @@ def admit_reference(ref, guide):
             type(e.get("contact_ids")) is list and e["contact_ids"] and set(e["contact_ids"]) <= set(ids)
             for e in events), "REFERENCE_PHYSICAL_EVENTS_INVALID")
     return {"contract": TRUTH_ADMISSION_CONTRACT, "samples": n, "contact_ids": tuple(ids),
-            "bodies": sorted(names), "specs": {s["contact_id"]: s for s in specs}}
+            "bodies": sorted(names), "specs": {s["contact_id"]: s for s in specs},
+            "body_body_contact_state_count": len(body_body_specs) * n}
 
 
 def admit_support_ledger(truth, times, contact_ids, guide):
@@ -356,7 +437,8 @@ def bind_mechanics(submission, ref, protocol, times, admitted, ledger):
     for impulse in ref["impulses_N_s"]:
         state = at_time.get(impulse["time_s"])
         require(state is not None, "MECHANICS_IMPULSE_POINT_MISMATCH")
-        x, z = application_point(state, specs[impulse["contact_id"]])
+        spec = specs[impulse["contact_id"]]
+        x, z = application_point(state, spec)
         require(abs(impulse["point_world_m"][0] - x) <= POINT_TOLERANCE_M and
                 abs(impulse["point_world_m"][1] - z) <= POINT_TOLERANCE_M, "MECHANICS_IMPULSE_POINT_MISMATCH")
     external = {cid: g for cid, g in groups.items() if g != "INTERNAL"}
@@ -375,7 +457,8 @@ def bind_mechanics(submission, ref, protocol, times, admitted, ledger):
     return {"contract": MECHANICS_BINDING_CONTRACT, "status": "BOUND_TO_REFERENCE_TRIAL",
             "exercise_id": submission["exercise_id"], "frames": len(frames), "support_rows": len(rows),
             "impulses": len(ref["impulses_N_s"]), "scope": "IDENTITY_AND_CONSISTENCY_NOT_PHYSICAL_ACCEPTANCE",
-            "contact_geometry": "APPLICATION_POINTS_AND_NORMAL_SIGN_FROM_REFERENCE_STATES_AND_SPECS",
+            "contact_geometry": "BODY_A_AND_BODY_B_MODE_AWARE_GEOMETRY_AND_NORMAL_SIGN_FROM_REFERENCE_STATES_AND_SPECS",
+            "body_body_contact_states_checked": admitted["body_body_contact_state_count"],
             # TRUTH carries no per-body inertial authority; no qualified claim
             # (linear momentum, contact admissibility) depends on these values.
             "per_body_inertia": "NOT_INDEPENDENTLY_BOUND_NO_TRUTH_AUTHORITY",

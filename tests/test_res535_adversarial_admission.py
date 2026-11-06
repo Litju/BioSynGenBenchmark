@@ -9,6 +9,7 @@ refusal comes from semantic admission rather than a stale checksum.
 """
 import copy
 import json
+import math
 from pathlib import Path
 import shutil
 import subprocess
@@ -23,11 +24,38 @@ ROOT = Path(__file__).resolve().parents[1]
 CASES = {"guide": ("guided_vertical", {}), "jitter": ("guided_vertical", {"jitter_sd_s": 5e-6}),
          "overlap_guide": ("guided_vertical", {"force_drift_ppm": 300, "lpt_drift_ppm": -200, "lpt_start_s": 0.5,
                                                "force_offset_s": 0.3, "lpt_offset_s": -0.2, "lpt_drop_indices": [800]}),
-         "cmj": ("cmj", {}), "deadlift": ("deadlift", {})}
+         "cmj": ("cmj", {}), "deadlift": ("deadlift", {}),
+         "loaded_jump_squat": ("loaded_jump_squat", {}), "bench_press": ("bench_press", {})}
 
 
 def dump(path, value):
     path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def rotate(point, angle):
+    x, z = point
+    c, s = math.cos(angle), math.sin(angle)
+    return c * x - s * z, s * x + c * z
+
+
+def body_point(state, body_id, local_point):
+    body = state["bodies"][body_id]
+    offset = rotate(local_point, body["angle_rad"])
+    return body["position_m"][0] + offset[0], body["position_m"][1] + offset[1]
+
+
+def body_contact_frame(state, spec):
+    if spec["normal_frame"] == "WORLD":
+        normal = spec["normal_direction"]
+    else:
+        frame_id = spec["body_a_id"] if spec["normal_frame"] == "BODY_A" else spec["body_b_id"]
+        normal = rotate(spec["normal_direction"], state["bodies"][frame_id]["angle_rad"])
+    tangent = normal[1], -normal[0]
+    point_a = body_point(state, spec["body_a_id"], spec["local_point_a_m"])
+    point_b = body_point(state, spec["body_b_id"], spec["local_point_b_m"])
+    relative = point_a[0] - point_b[0], point_a[1] - point_b[1]
+    return point_a, point_b, sum(a * b for a, b in zip(normal, relative)), \
+        sum(a * b for a, b in zip(tangent, relative))
 
 
 class Res535Admission(unittest.TestCase):
@@ -128,6 +156,101 @@ class Res535Admission(unittest.TestCase):
         sub = json.loads((self.corpus / "TRUTH" / case_id / "mechanics_submission.json").read_text())
         return next((i, c["name"]) for i, f in enumerate(sub["frames"]) for c in f["contacts"] if c["name"] in names)
 
+    def test_body_b_interval_geometry_mutations_refuse(self):
+        for case_id, axis, delta in (("loaded_jump_squat", 0, 0.25), ("bench_press", 0, 1e-4)):
+            with self.subTest(case=case_id, delta=delta):
+                root = self.bundle(case_id)
+                baseline = verify_reference(root / "SOURCE" / case_id, self.truth(root, case_id))
+                self.assertTrue(baseline["passed"], baseline)
+
+                def edit(bundle):
+                    ref = self.load(bundle, case_id, "reference.json")
+                    spec = next(s for s in ref["contact_specs"] if s["body_b_id"] is not None)
+                    # The first case shifts the declared BODY_B tangent; the
+                    # second shifts its normal by a small resolvable amount.
+                    spec["local_point_b_m"][axis] += delta
+                    self.store(bundle, case_id, "reference.json", ref)
+
+                edit(root)
+                self.reseal_truth(root, case_id)
+                self.assert_denied(root, case_id, "MECHANICS_CONTACT_GEOMETRY_MISMATCH")
+
+    def test_body_b_reference_identity_and_normal_mutations_refuse(self):
+        def same_body(bundle):
+            ref = self.load(bundle, "loaded_jump_squat", "reference.json")
+            spec = next(s for s in ref["contact_specs"] if s["body_b_id"] is not None)
+            spec["body_b_id"] = spec["body_a_id"]
+            self.store(bundle, "loaded_jump_squat", "reference.json", ref)
+        self.assert_denied(self.mutate("loaded_jump_squat", same_body), "loaded_jump_squat",
+                           "REFERENCE_CONTACT_SPECS_INVALID")
+
+        def missing_body_b_point(bundle):
+            ref = self.load(bundle, "loaded_jump_squat", "reference.json")
+            spec = next(s for s in ref["contact_specs"] if s["body_b_id"] is not None)
+            del spec["local_point_b_m"]
+            self.store(bundle, "loaded_jump_squat", "reference.json", ref)
+        self.assert_denied(self.mutate("loaded_jump_squat", missing_body_b_point), "loaded_jump_squat",
+                           "REFERENCE_CONTACT_SPECS_INVALID")
+
+        def flipped_normal(bundle):
+            ref = self.load(bundle, "loaded_jump_squat", "reference.json")
+            spec = next(s for s in ref["contact_specs"] if s["body_b_id"] is not None)
+            spec["normal_direction"] = [-v for v in spec["normal_direction"]]
+            self.store(bundle, "loaded_jump_squat", "reference.json", ref)
+        self.assert_denied(self.mutate("loaded_jump_squat", flipped_normal), "loaded_jump_squat",
+                           "MECHANICS_CONTACT_GEOMETRY_MISMATCH")
+
+    def test_body_b_mode_contradiction_refuses(self):
+        def edit(bundle):
+            ref = self.load(bundle, "loaded_jump_squat", "reference.json")
+            spec = next(s for s in ref["contact_specs"] if s["body_b_id"] is not None)
+            index = next(i for i, state in enumerate(ref["states"])
+                         if state["contacts"][spec["contact_id"]]["mode"] == "OPEN"
+                         and abs(body_contact_frame(state, spec)[2]) > 1e-3)
+            ref["states"][index]["contacts"][spec["contact_id"]]["mode"] = "STICK"
+            ref["contacts"][index][spec["contact_id"]] = "STICK"
+            self.store(bundle, "loaded_jump_squat", "reference.json", ref)
+        self.assert_denied(self.mutate("loaded_jump_squat", edit), "loaded_jump_squat",
+                           "MECHANICS_CONTACT_GEOMETRY_MISMATCH")
+
+    def test_body_b_impulse_point_mutation_refuses(self):
+        def edit(bundle):
+            ref = self.load(bundle, "loaded_jump_squat", "reference.json")
+            sub = self.load(bundle, "loaded_jump_squat", "mechanics_submission.json")
+            spec = next(s for s in ref["contact_specs"] if s["body_b_id"] is not None)
+            impulse = next(i for i in ref["impulses_N_s"] if i["contact_id"] == spec["contact_id"])
+            submitted = next(i for i in sub["impulses"] if i["name"] == impulse["contact_id"] and
+                             i["t"] == impulse["time_s"])
+            impulse["point_world_m"][0] += 0.25
+            submitted["x"] += 0.25
+            self.store(bundle, "loaded_jump_squat", "reference.json", ref)
+            self.store(bundle, "loaded_jump_squat", "mechanics_submission.json", sub)
+        self.assert_denied(self.mutate("loaded_jump_squat", edit), "loaded_jump_squat",
+                           "MECHANICS_IMPULSE_POINT_MISMATCH")
+
+    def test_body_b_positive_slide_remains_admitted(self):
+        root = self.bundle("loaded_jump_squat", "bench_press")
+        for case_id in ("loaded_jump_squat", "bench_press"):
+            ref = self.load(root, case_id, "reference.json")
+            spec = next(s for s in ref["contact_specs"] if s["body_b_id"] is not None)
+            modes = {s["contacts"][spec["contact_id"]]["mode"] for s in ref["states"]}
+            self.assertTrue({"OPEN", "STICK", "SLIDE"} <= modes, modes)
+            anchors = [s["contacts"][spec["contact_id"]]["tangent_anchor_m"] for s in ref["states"]
+                       if s["contacts"][spec["contact_id"]]["mode"] == "STICK"]
+            self.assertTrue(anchors)
+            if case_id == "loaded_jump_squat":
+                self.assertGreater(max(abs(anchor) for anchor in anchors), 1e-2)
+            slide = [body_contact_frame(s, spec)[3] for s in ref["states"]
+                     if s["contacts"][spec["contact_id"]]["mode"] == "SLIDE"]
+            self.assertTrue(slide)
+            self.assertGreater(max(slide) - min(slide), 1e-8)
+            result = verify_reference(root / "SOURCE" / case_id, self.truth(root, case_id))
+            self.assertTrue(result["passed"], result)
+            self.assertEqual(result["mechanics_reference_binding"]["body_body_contact_states_checked"],
+                             len(ref["states"]))
+        exit_code, report = self.cli(root)
+        self.assertEqual((exit_code, report["full_case_qualified_count"]), (0, 2))
+
     # ----- positive controls -----
     def test_positive_controls_qualify_with_versioned_bindings(self):
         cases = ("guide", "overlap_guide", "cmj", "deadlift")
@@ -138,8 +261,8 @@ class Res535Admission(unittest.TestCase):
                 self.assertTrue(result["passed"], result)
                 binding = result["mechanics_reference_binding"]
                 self.assertEqual((binding["contract"], binding["status"], binding["contact_geometry"]),
-                                 ("BSMB-PAIRED-MECHANICS-BINDING-1.1", "BOUND_TO_REFERENCE_TRIAL",
-                                  "APPLICATION_POINTS_AND_NORMAL_SIGN_FROM_REFERENCE_STATES_AND_SPECS"))
+                                 ("BSMB-PAIRED-MECHANICS-BINDING-1.2", "BOUND_TO_REFERENCE_TRIAL",
+                                  "BODY_A_AND_BODY_B_MODE_AWARE_GEOMETRY_AND_NORMAL_SIGN_FROM_REFERENCE_STATES_AND_SPECS"))
                 self.assertEqual(binding["per_body_inertia"], "NOT_INDEPENDENTLY_BOUND_NO_TRUTH_AUTHORITY")
                 self.assertEqual(result["truth_admission_contract"], "BSMB-PAIRED-TRUTH-ADMISSION-1.1")
                 self.assertEqual(result["physical_event_log"], "STRUCTURE_ADMITTED_ARCHIVAL_SIMULATOR_LOG_NOT_RECOMPUTED")
