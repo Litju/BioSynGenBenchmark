@@ -45,3 +45,24 @@ def qualification_matrix():
     return dict(primary_cells=cells, retained_variants=coverage_matrix(),
                 biological_validation="NOT_ESTABLISHED",
                 real_paired_force_lpt_validation="NOT_ESTABLISHED")
+
+
+def qualification_counts(cells):
+    """Count the closed primary denominator; reject omitted or forged cells.
+
+    Counting is not evidence admission: PASS still requires external evaluation.
+    """
+    expected = {(m, d) for m in PRIMARY_MOVEMENTS for d in DOMAINS}
+    seen = set()
+    counts = dict.fromkeys(sorted(DISPOSITIONS), 0)
+    for cell in cells:
+        key = (cell["movement"], cell["domain"])
+        status = cell["disposition"]
+        if key not in expected or key in seen or status not in DISPOSITIONS:
+            raise ValueError("invalid, duplicate or unknown qualification cell")
+        seen.add(key)
+        counts[status] += 1
+    if seen != expected:
+        raise ValueError("incomplete primary qualification denominator")
+    return dict(total=len(expected), counts=counts,
+                evaluated=counts["PASS"] + counts["FAIL"])
