@@ -1,0 +1,8 @@
+{
+  "source_sha": "c0cdb9cd7c1dd2e7d9daf337f2b2999969536cfb",
+  "matplotlib": "3.10.8",
+  "report_sha256": "50ac0326752bd0a8be37c200c132fca3f5e58ceba4dbf53f55482591c08250de",
+  "figure_sha256": "1293e01ee904b404acf268dfa83b5060fc672b3fff098c83b0c37015560bb26d",
+  "visual_inspection": "Inspected: axes, units, values, budget line, unclipped labels and legend verified",
+  "scope": "Synthetic residual diagnostics only"
+}
