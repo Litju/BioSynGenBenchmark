@@ -141,7 +141,7 @@ def analyze_jump(trajectory: ExerciseTrajectory) -> JumpPhaseAnalysis:
                 break
     landing_low = None
     if touchdown is not None:
-        start = next(i for i, f in enumerate(frames) if f.t_end_s > touchdown)
+        start = next((i for i, f in enumerate(frames) if f.t_end_s > touchdown), len(frames))
         for i in range(start, len(frames) - 1):
             if vz[i] < 0.0 <= vz[i + 1]:
                 w = -vz[i] / (vz[i + 1] - vz[i])
