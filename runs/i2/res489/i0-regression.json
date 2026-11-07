@@ -1,0 +1,68 @@
+{
+  "frozen_root": "runs/overnight/i0-queue-20261012 (read only)",
+  "interpretation": "manifest.json differs only in source_sha256 because repaired sources changed; res478 differs only in the reason text of the INVENTED_BILATERAL_FROM_COMBINED_FORCE finding (outcome and code identical).",
+  "purpose": "RES-481 I0 baseline preservation check after P0 repairs",
+  "records": [
+    {
+      "artifact": "end-to-end-run-a/evaluation-report.json",
+      "frozen_sha256": "3ce518e8c868755d0b0afee0985f3456c9453992b5842c0e0b12d776cb0ef065",
+      "identical": true,
+      "regenerated_sha256": "3ce518e8c868755d0b0afee0985f3456c9453992b5842c0e0b12d776cb0ef065"
+    },
+    {
+      "artifact": "end-to-end-run-a/evaluator-input.json",
+      "frozen_sha256": "2d6ad2b067450b82c4592c4676890c16be2b7099e87f7a48976e700e2a37668a",
+      "identical": true,
+      "regenerated_sha256": "2d6ad2b067450b82c4592c4676890c16be2b7099e87f7a48976e700e2a37668a"
+    },
+    {
+      "artifact": "end-to-end-run-a/manifest.json",
+      "differing_json_paths": [
+        "/source_sha256/biosyngen/mechanics.py",
+        "/source_sha256/biosyngen_benchmark/core.py",
+        "/source_sha256/scripts/run_pilot.py"
+      ],
+      "frozen_sha256": "98fe00ad4fdc9dfbcad50bbbe7176edeaa310016eae2fed25a5b126bfbd2bb75",
+      "identical": false,
+      "regenerated_sha256": "b4b95c9966227c31ccf1c663585d33ae4c81b0c410410c54de7bd80695e5fac4"
+    },
+    {
+      "artifact": "end-to-end-run-a/pilot-data.json",
+      "frozen_sha256": "9fc76b01463444e597583139b81a1f1364c0327d589fc59f6f30c82fe98abab6",
+      "identical": true,
+      "regenerated_sha256": "9fc76b01463444e597583139b81a1f1364c0327d589fc59f6f30c82fe98abab6"
+    },
+    {
+      "artifact": "end-to-end-run-a/pilot-figure.svg",
+      "frozen_sha256": "418e2b0948be676ac4cf37f4ccd0f35731aad64bf0d4cce1af8c4252a80bfaa5",
+      "identical": true,
+      "regenerated_sha256": "418e2b0948be676ac4cf37f4ccd0f35731aad64bf0d4cce1af8c4252a80bfaa5"
+    },
+    {
+      "artifact": "end-to-end-run-a/pilot-report.md",
+      "frozen_sha256": "6285669c3df549351b5debe11039d1dfef04c45ad01a77d34650d66cb5468c4b",
+      "identical": true,
+      "regenerated_sha256": "6285669c3df549351b5debe11039d1dfef04c45ad01a77d34650d66cb5468c4b"
+    },
+    {
+      "artifact": "res476-mechanics-fixture.json",
+      "differing_json_paths": [],
+      "frozen_sha256": "fab3bd3ef039efdf618161abbada50f2684abc6d546a17a4c0173f48c6f32dfa",
+      "regenerated_value_identical": true
+    },
+    {
+      "artifact": "res477-observation-fixture.json",
+      "differing_json_paths": [],
+      "frozen_sha256": "3acddc6a41f1593015cae4e43ead6c3c92b50192f60d0b721abc555d4feaee1a",
+      "regenerated_value_identical": true
+    },
+    {
+      "artifact": "res478-benchmark-report.json",
+      "differing_json_paths": [
+        "/reports/adversarial_false_claims/findings[3]/reason"
+      ],
+      "frozen_sha256": "c74660fbcc2db20ecc72a8f1a75ae530ac09dd4f2d7263d34b4a8d1d799f733b",
+      "regenerated_value_identical": false
+    }
+  ]
+}

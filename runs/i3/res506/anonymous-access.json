@@ -1,0 +1,34 @@
+{
+  "issue": "RES-506",
+  "authenticated": false,
+  "files": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/Litju/BioSynGenBenchmark/codex/i3-public-rc/LICENSE",
+      "http_status": 200,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "matches_local": true
+    },
+    {
+      "path": "NOTICE",
+      "url": "https://raw.githubusercontent.com/Litju/BioSynGenBenchmark/codex/i3-public-rc/NOTICE",
+      "http_status": 200,
+      "sha256": "0b6fff0685423d631da8082d095861fdd4d6d544b936f0632dca772ec420ab02",
+      "matches_local": true
+    },
+    {
+      "path": "biosyngen_benchmark/i2_evaluator.py",
+      "url": "https://raw.githubusercontent.com/Litju/BioSynGenBenchmark/codex/i3-public-rc/biosyngen_benchmark/i2_evaluator.py",
+      "http_status": 200,
+      "sha256": "e6a751e9a12ac1e4cb9e98576511643f2d808c60768a69973521198b7302dc09",
+      "matches_local": true
+    },
+    {
+      "path": ".github/workflows/verification.yml",
+      "url": "https://raw.githubusercontent.com/Litju/BioSynGenBenchmark/codex/i3-public-rc/.github/workflows/verification.yml",
+      "http_status": 200,
+      "sha256": "045517e964bbeb2948e5f8d8b4ed7b706e6dff6fb8adfa28fdf5ffabb397c457",
+      "matches_local": true
+    }
+  ]
+}

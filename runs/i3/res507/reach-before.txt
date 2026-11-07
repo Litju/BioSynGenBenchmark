@@ -1,0 +1,76 @@
+FROZEN_SOURCE 3322d89499050eea0004f9e8882666e2a40d5a9a biosyngen/i2/power_clean.py
+test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) ...
+  test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': nan}) ... FAIL
+  test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': inf}) ... FAIL
+  test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': True}) ... FAIL
+  test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': 0}) ... ERROR
+  test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': -1}) ... FAIL
+  test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': 1.2}) ... FAIL
+test_over_reach_is_not_clipped_into_a_feasible_straight_arm (tests.test_i3_reach_domain.ReachDomainTests.test_over_reach_is_not_clipped_into_a_feasible_straight_arm) ... FAIL
+
+======================================================================
+ERROR: test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': 0})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_reach_domain.py", line 16, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    front_rack_feasibility(**arguments)
+  File "git:3322d89499050eea0004f9e8882666e2a40d5a9a:biosyngen/i2/power_clean.py", line 64, in front_rack_feasibility
+ZeroDivisionError: float division by zero
+
+======================================================================
+FAIL: test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': nan})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_reach_domain.py", line 15, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    with self.subTest(arguments=arguments), self.assertRaises(PowerCleanRefused):
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PowerCleanRefused not raised
+
+======================================================================
+FAIL: test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': inf})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_reach_domain.py", line 15, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    with self.subTest(arguments=arguments), self.assertRaises(PowerCleanRefused):
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PowerCleanRefused not raised
+
+======================================================================
+FAIL: test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'rack_offset_m': True})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_reach_domain.py", line 15, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    with self.subTest(arguments=arguments), self.assertRaises(PowerCleanRefused):
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PowerCleanRefused not raised
+
+======================================================================
+FAIL: test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': -1})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_reach_domain.py", line 15, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    with self.subTest(arguments=arguments), self.assertRaises(PowerCleanRefused):
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PowerCleanRefused not raised
+
+======================================================================
+FAIL: test_nonfinite_or_invalid_projection_geometry_is_refused (tests.test_i3_reach_domain.ReachDomainTests.test_nonfinite_or_invalid_projection_geometry_is_refused) (arguments={'grip_projection': 1.2})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_reach_domain.py", line 15, in test_nonfinite_or_invalid_projection_geometry_is_refused
+    with self.subTest(arguments=arguments), self.assertRaises(PowerCleanRefused):
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PowerCleanRefused not raised
+
+======================================================================
+FAIL: test_over_reach_is_not_clipped_into_a_feasible_straight_arm (tests.test_i3_reach_domain.ReachDomainTests.test_over_reach_is_not_clipped_into_a_feasible_straight_arm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_reach_domain.py", line 9, in test_over_reach_is_not_clipped_into_a_feasible_straight_arm
+    self.assertFalse(result.feasible)
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.006s
+
+FAILED (failures=6, errors=1)

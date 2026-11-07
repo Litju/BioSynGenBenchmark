@@ -1,0 +1,19 @@
+test_accumulated_cone_edge_must_slide_not_force_stick (tests.test_i4_projection.ProjectionContactTests.test_accumulated_cone_edge_must_slide_not_force_stick) ... ok
+test_force_driven_block_at_and_across_friction_boundary (tests.test_i4_projection.ProjectionContactTests.test_force_driven_block_at_and_across_friction_boundary) ... ok
+test_free_body_needs_no_projection (tests.test_i4_projection.ProjectionContactTests.test_free_body_needs_no_projection) ... ok
+test_grazing_event_preserves_joint_velocity_constraints (tests.test_i4_projection.ProjectionContactTests.test_grazing_event_preserves_joint_velocity_constraints) ... ok
+test_joint_coupled_mass_matches_reduced_analytical_system (tests.test_i4_projection.ProjectionContactTests.test_joint_coupled_mass_matches_reduced_analytical_system) ... ok
+test_redundant_projection_refuses_instead_of_inventing_force_shares (tests.test_i4_projection.ProjectionContactTests.test_redundant_projection_refuses_instead_of_inventing_force_shares) ... ok
+test_rotating_frame_transport_preserves_world_impulse (tests.test_i4_projection.ProjectionContactTests.test_rotating_frame_transport_preserves_world_impulse) ... ok
+test_rotating_internal_contact_preserves_external_impulse_balance (tests.test_i4_projection.ProjectionContactTests.test_rotating_internal_contact_preserves_external_impulse_balance) ... ok
+test_saved_full_step_combined_cone (tests.test_i4_projection.ProjectionContactTests.test_saved_full_step_combined_cone) ... ok
+test_second_historical_witness_and_projection_joint_impulse_closure (tests.test_i4_projection.ProjectionContactTests.test_second_historical_witness_and_projection_joint_impulse_closure) ... ok
+test_simultaneous_restitution_impact_and_energy (tests.test_i4_projection.ProjectionContactTests.test_simultaneous_restitution_impact_and_energy) ... ok
+test_static_friction_uses_existing_normal_budget (tests.test_i4_projection.ProjectionContactTests.test_static_friction_uses_existing_normal_budget) ... ok
+test_two_patches_are_invariant_to_order_and_mirror (tests.test_i4_projection.ProjectionContactTests.test_two_patches_are_invariant_to_order_and_mirror) ... ok
+test_upward_force_releases_support (tests.test_i4_projection.ProjectionContactTests.test_upward_force_releases_support) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.211s
+
+OK

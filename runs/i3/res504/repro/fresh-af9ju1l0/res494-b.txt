@@ -1,0 +1,1 @@
+{"DEADLIFT_100KG": [], "DEADLIFT_320KG_NOT_LIFTED": ["LOAD_NOT_LIFTED: the bar-floor reaction never reached zero"]}

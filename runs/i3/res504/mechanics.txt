@@ -1,0 +1,11 @@
+test_asymmetric_support_reactions_balance_a_known_external_couple (test_i3_mechanics.IndependentMechanicsTests.test_asymmetric_support_reactions_balance_a_known_external_couple) ... ok
+test_coulomb_capture_and_sliding_match_closed_form_impulses (test_i3_mechanics.IndependentMechanicsTests.test_coulomb_capture_and_sliding_match_closed_form_impulses) ... ok
+test_free_fall_energy_error_refines_at_the_declared_integrator_order (test_i3_mechanics.IndependentMechanicsTests.test_free_fall_energy_error_refines_at_the_declared_integrator_order) ... ok
+test_restitution_impulse_and_exact_impact_energy (test_i3_mechanics.IndependentMechanicsTests.test_restitution_impulse_and_exact_impact_energy) ... ok
+test_rotating_normal_velocity_matches_an_independent_gap_difference (test_i3_mechanics.IndependentMechanicsTests.test_rotating_normal_velocity_matches_an_independent_gap_difference) ... ok
+test_stationary_contact_work_and_com_pseudo_work_are_different (test_i3_mechanics.IndependentMechanicsTests.test_stationary_contact_work_and_com_pseudo_work_are_different) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.009s
+
+OK

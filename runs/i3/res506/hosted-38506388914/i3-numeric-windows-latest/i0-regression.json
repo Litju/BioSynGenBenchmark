@@ -1,0 +1,72 @@
+{
+  "frozen_root": "runs/overnight/i0-queue-20261012 (read only)",
+  "interpretation": "manifest.json differs only in source_sha256 because repaired sources changed; res478 differs only in the reason text of the INVENTED_BILATERAL_FROM_COMBINED_FORCE finding (outcome and code identical).",
+  "purpose": "RES-481 I0 baseline preservation check after P0 repairs",
+  "records": [
+    {
+      "artifact": "end-to-end-run-a/evaluation-report.json",
+      "differing_json_paths": [],
+      "frozen_sha256": "485674f71e4667cac35e960879f2a2aba3983ce874a63772856d2a6677fff29b",
+      "identical": false,
+      "regenerated_sha256": "3ce518e8c868755d0b0afee0985f3456c9453992b5842c0e0b12d776cb0ef065"
+    },
+    {
+      "artifact": "end-to-end-run-a/evaluator-input.json",
+      "differing_json_paths": [],
+      "frozen_sha256": "68e933d01c1b14eb8997f52cb140d73f2b4d808d535754b88c5ca1a6a660ebbe",
+      "identical": false,
+      "regenerated_sha256": "2d6ad2b067450b82c4592c4676890c16be2b7099e87f7a48976e700e2a37668a"
+    },
+    {
+      "artifact": "end-to-end-run-a/manifest.json",
+      "differing_json_paths": [
+        "/source_sha256/biosyngen/mechanics.py",
+        "/source_sha256/biosyngen/observations.py",
+        "/source_sha256/biosyngen_benchmark/core.py",
+        "/source_sha256/scripts/run_pilot.py"
+      ],
+      "frozen_sha256": "ef0e50f9e44af564714cdf3203d012907e158d10b00b0c88519c8e48a040d766",
+      "identical": false,
+      "regenerated_sha256": "b5855c488a7f6923d353f584c9628c80d1b816ff2c80576d620ee1bf3c42206e"
+    },
+    {
+      "artifact": "end-to-end-run-a/pilot-data.json",
+      "differing_json_paths": [],
+      "frozen_sha256": "08b22c40bb908a082acbba280bfa512706cd134f938a77b5bc211d1c652c03fe",
+      "identical": false,
+      "regenerated_sha256": "9fc76b01463444e597583139b81a1f1364c0327d589fc59f6f30c82fe98abab6"
+    },
+    {
+      "artifact": "end-to-end-run-a/pilot-figure.svg",
+      "frozen_sha256": "5d49988255e577a9509b5577c661de93e6b5322a62a6c09c44fe589e1a859531",
+      "identical": false,
+      "regenerated_sha256": "418e2b0948be676ac4cf37f4ccd0f35731aad64bf0d4cce1af8c4252a80bfaa5"
+    },
+    {
+      "artifact": "end-to-end-run-a/pilot-report.md",
+      "frozen_sha256": "7bed0fbb8bb9876b92a9f47c7f133e84451edbc15124234bc0898187d68c3a8e",
+      "identical": false,
+      "regenerated_sha256": "6285669c3df549351b5debe11039d1dfef04c45ad01a77d34650d66cb5468c4b"
+    },
+    {
+      "artifact": "res476-mechanics-fixture.json",
+      "differing_json_paths": [],
+      "frozen_sha256": "fab3bd3ef039efdf618161abbada50f2684abc6d546a17a4c0173f48c6f32dfa",
+      "regenerated_value_identical": true
+    },
+    {
+      "artifact": "res477-observation-fixture.json",
+      "differing_json_paths": [],
+      "frozen_sha256": "3acddc6a41f1593015cae4e43ead6c3c92b50192f60d0b721abc555d4feaee1a",
+      "regenerated_value_identical": true
+    },
+    {
+      "artifact": "res478-benchmark-report.json",
+      "differing_json_paths": [
+        "/reports/adversarial_false_claims/findings[3]/reason"
+      ],
+      "frozen_sha256": "c74660fbcc2db20ecc72a8f1a75ae530ac09dd4f2d7263d34b4a8d1d799f733b",
+      "regenerated_value_identical": false
+    }
+  ]
+}

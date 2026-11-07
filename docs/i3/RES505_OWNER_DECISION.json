@@ -1,0 +1,14 @@
+{
+  "issue": "RES-505",
+  "license": "Apache-2.0",
+  "owner_license_answer_verbatim": "Apache-2.0 (recommended)",
+  "owner_authority_answer_verbatim": "decide whats best is my personal research",
+  "copyright_holder": "Julio Rodriguez",
+  "basis": "Direct owner reply in the I3 execution chat; existing Git attribution and project ownership are consistent with this personal-research declaration.",
+  "scope": ["owned project code", "owned project documentation", "manufactured fixtures and figures", "retained project-authored historical versions"],
+  "registry_disposition": "Project-authored factual identity summary and independently authored descriptions retained; no external registry source code is included or relicensed.",
+  "machine_metadata_disposition": "Canonical project paths and generic local interpreter locations reviewed as nonsecret operator metadata; retained for reproducibility. No participant identity or credential was found in these path-bearing records.",
+  "excluded": [".claude/", "ignored research/", "participant data", "proprietary exports", "locked or consumed holdouts", "external corpora", "sibling evidence root", "external registry source implementation"],
+  "main_merge": "OWNER_APPROVAL_REQUIRED",
+  "empirical_validation": "NOT_ESTABLISHED"
+}

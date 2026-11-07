@@ -1,0 +1,83 @@
+{
+  "issue": "RES-506",
+  "scope": "new captured console logs only; generated artifacts and historical committed failures unchanged",
+  "files": [
+    {
+      "path": "runs/i3/res506/ci-watch-38502977541.txt",
+      "original_sha256": "6e24939085f6cf80244b1a60d384309a4235dd321dbbf4161630cb166a6ca062",
+      "normalized_sha256": "c9408ea414b0025eb98141067fbbd7d5c9c38573a9b0f5ffcf49e7b4c1df3f16",
+      "transformation": "CRLF to LF only",
+      "all_log_lines_identical": true
+    },
+    {
+      "path": "runs/i3/res506/repair1-final-suite.txt",
+      "original_sha256": "794f03d0dad62237b038c1bf50e0dd1b470009abd181c7a29c374dff4f21c1d9",
+      "normalized_sha256": "efd63b18b3e15e3b639d246a677ddd629e2e1790b48769f6e9e4772b337f5317",
+      "transformation": "CRLF to LF only",
+      "all_log_lines_identical": true
+    },
+    {
+      "path": "runs/i3/res506/scipy-windows-job-115665088499.txt",
+      "original_sha256": "c12ebe2b109fe23c6a13d1814c114903cab13a2d9fae120bd4d8fc4819826c56",
+      "normalized_sha256": "206c6a0f10956cef98c044196bd0376f5b059e3ec4023d227cd60990c3b851f5",
+      "transformation": "CRLF to LF only",
+      "all_log_lines_identical": true
+    },
+    {
+      "path": "runs/i3/res506/ci-watch-38502977541.txt",
+      "original_sha256": "c9408ea414b0025eb98141067fbbd7d5c9c38573a9b0f5ffcf49e7b4c1df3f16",
+      "normalized_sha256": "45f261bad17e8ad1c15e1601e22035efceab98e52bd8c439e543f31c4b95bd4e",
+      "transformation": "presentation line endings/trailing whitespace only",
+      "all_nonwhitespace_payload_identical": true
+    },
+    {
+      "path": "runs/i3/res506/linux-qualified-job-115665088742.txt",
+      "original_sha256": "6829133cc515c3f44b2be913c32979c994b366d47c71f5bcc2f03a2d6e4f73b7",
+      "normalized_sha256": "2113d01e042b5d8bf47a7c23e2f8cfca13d840f8070dc1c732a593ec8e192418",
+      "transformation": "presentation line endings/trailing whitespace only",
+      "all_nonwhitespace_payload_identical": true
+    },
+    {
+      "path": "runs/i3/res506/repaired-anonymous-access.json",
+      "original_sha256": "3e4857f41fded9bfa62efc517d9bf619eb60a61b81f8839b1c614f46faf56bc8",
+      "normalized_sha256": "69119c3c57609eba602bbadaf308817a6c59e70578134b47dc586651fe92248c",
+      "transformation": "presentation line endings/trailing whitespace only",
+      "all_nonwhitespace_payload_identical": true
+    },
+    {
+      "path": "runs/i3/res506/scipy-linux-job-115665088837.txt",
+      "original_sha256": "24424bd10592b2c8b729a4e42b1260281b0bb8b2c548d6ff81b31a23d01f4e15",
+      "normalized_sha256": "5179094db19ed91d2aa44d2aa2ce63ec4ec1afdcfeea10fb28f73be1203f5b40",
+      "transformation": "presentation line endings/trailing whitespace only",
+      "all_nonwhitespace_payload_identical": true
+    },
+    {
+      "path": "runs/i3/res506/scipy-windows-job-115665088499.txt",
+      "original_sha256": "206c6a0f10956cef98c044196bd0376f5b059e3ec4023d227cd60990c3b851f5",
+      "normalized_sha256": "4f58e95fb3af26a324e8ae8784406aae9ab5ba10fff458abb92254b70b9e4c29",
+      "transformation": "presentation line endings/trailing whitespace only",
+      "all_nonwhitespace_payload_identical": true
+    },
+    {
+      "path": "runs/i3/res506/ci-watch-38506388914.txt",
+      "original_sha256": "4d09c8a35ebb909384f5e0a829c0ff82e6d454189b4b0090c911f2f948f2cc4a",
+      "normalized_sha256": "8bc168e1d517bac37c135bd3bc13d0ba7127a41f7119dc0d8f5dc64be39270de",
+      "transformation": "presentation line endings/trailing whitespace only",
+      "all_nonwhitespace_payload_identical": true
+    },
+    {
+      "path": "runs/i3/res506/comparison-job-115671307591.txt",
+      "original_sha256": "32fbbcf63ce00ff30cb9ba1b7fedee5df8424cb25a0826a65fbe0b0f40a8efdc",
+      "normalized_sha256": "8c5135124a97eaa8a164b379b20d5fa2d58d5045d48bf46fc49ef5038ffe28a6",
+      "transformation": "presentation line endings/trailing whitespace only",
+      "all_nonwhitespace_payload_identical": true
+    },
+    {
+      "path": "runs/i3/res506/windows-qualified-job-115665088693.txt",
+      "original_sha256": "9f760defde5c4a3cd44f3f0e64f4762f7839f2fb87c9b567083e8ddef327abda",
+      "normalized_sha256": "c7472770715427dec03641b86757bd1755c884aabb2fc28971c896c9f039c705",
+      "transformation": "presentation line endings/trailing whitespace only",
+      "all_nonwhitespace_payload_identical": true
+    }
+  ]
+}

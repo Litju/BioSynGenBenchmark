@@ -1,0 +1,21 @@
+test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator (tests.test_i3_work_reporting.WorkReportingTests.test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator) ... ok
+test_continuous_support_no_penetration_no_adhesion_and_momentum_closure (tests.test_i2e_back_squat.BackSquatMechanicsTests.test_continuous_support_no_penetration_no_adhesion_and_momentum_closure) ... ok
+test_heavier_load_slows_ascent_and_shows_a_sticking_region (tests.test_i2e_back_squat.BackSquatMechanicsTests.test_heavier_load_slows_ascent_and_shows_a_sticking_region) ... ok
+test_loaded_multi_rep_set_has_eccentric_reversal_concentric_and_lockout (tests.test_i2e_back_squat.BackSquatMechanicsTests.test_loaded_multi_rep_set_has_eccentric_reversal_concentric_and_lockout) ... ok
+test_system_com_bar_and_joint_work_are_distinct_quantities (tests.test_i2e_back_squat.BackSquatMechanicsTests.test_system_com_bar_and_joint_work_are_distinct_quantities) ... D:\projects\BioSynGenBenchmark\tests\test_i2e_back_squat.py:101: DeprecationWarning: bar_work_on_bar_j is only a vertical quadrature estimate; use bar_contact_vertical_work_estimate_j
+  self.assertLess(abs(analysis.bar_work_on_bar_j), 0.05 * bar_mass * 9.81 * rep.bar_displacement_m)
+D:\projects\BioSynGenBenchmark\tests\test_i2e_back_squat.py:102: DeprecationWarning: system_com_work_j is COM pseudo-work; use system_com_pseudo_work_j
+  self.assertNotAlmostEqual(analysis.joint_work_j, analysis.system_com_work_j, delta=1e-6)
+ok
+test_bar_slippage_is_refused_statically_or_detected_dynamically (tests.test_i2e_back_squat.BackSquatNegativeControlTests.test_bar_slippage_is_refused_statically_or_detected_dynamically) ... ok
+test_cable_angle_error_and_lpt_rep_segmentation (tests.test_i2e_back_squat.BackSquatNegativeControlTests.test_cable_angle_error_and_lpt_rep_segmentation) ... ok
+test_overload_failure_is_refused_not_reported_as_a_rep (tests.test_i2e_back_squat.BackSquatNegativeControlTests.test_overload_failure_is_refused_not_reported_as_a_rep) ... ok
+test_plate_load_identification_requires_declared_body_mass (tests.test_i2e_back_squat.BackSquatNegativeControlTests.test_plate_load_identification_requires_declared_body_mass) ... ok
+test_safety_pin_contact_makes_the_rep_support_incomplete (tests.test_i2e_back_squat.BackSquatNegativeControlTests.test_safety_pin_contact_makes_the_rep_support_incomplete) ... ok
+test_statically_infeasible_torque_demand_is_refused_at_setup (tests.test_i2e_back_squat.BackSquatNegativeControlTests.test_statically_infeasible_torque_demand_is_refused_at_setup) ... ok
+test_tempo_pause_and_partial_depth_change_latent_rep_structure (tests.test_i2e_back_squat.BackSquatNegativeControlTests.test_tempo_pause_and_partial_depth_change_latent_rep_structure) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 94.857s
+
+OK

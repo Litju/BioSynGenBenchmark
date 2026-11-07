@@ -1,0 +1,105 @@
+{
+  "cases": {
+    "DEADLIFT_100KG": {
+      "analysis": {
+        "bar_floor_return_s": 4.934195,
+        "bar_passes_knee_s": 1.661,
+        "body_weight_n": 735.49875,
+        "descent_onset_s": 3.361,
+        "lift_off_s": 1.077,
+        "lockout_s": 2.281,
+        "peak_bar_height_m": 0.564731,
+        "plate_rise_before_lift_n": 978.052729,
+        "pretension_onset_s": 0.502,
+        "refusals": [],
+        "system_weight_n": 1716.16375
+      },
+      "lpt_samples": 2650,
+      "lpt_slack_samples": 0,
+      "plate_samples": 5301,
+      "protocol": {
+        "bar_floor_friction": 0.5,
+        "bar_over_ankle_x_m": 0.05,
+        "lift_s": 1.4,
+        "load_mass_kg": 100.0,
+        "lockout": {
+          "ankle": 0.05,
+          "elbow": 0.0,
+          "hip": 0.02,
+          "knee": -0.05,
+          "shoulder": 0.0
+        },
+        "lockout_hold_s": 0.6,
+        "lower_s": 1.6,
+        "pretension_s": 0.6,
+        "reset_s": 0.6,
+        "setup_ankle": 0.45,
+        "setup_arm_angle_rad": -0.1,
+        "setup_hold_s": 0.5
+      },
+      "setup_posture": {
+        "ankle": 0.45,
+        "elbow": 0.0,
+        "hip": 2.208402122113562,
+        "knee": -1.884660672549612,
+        "shoulder": 0.6737414495639499
+      },
+      "termination": "DURATION_REACHED"
+    },
+    "DEADLIFT_320KG_NOT_LIFTED": {
+      "analysis": {
+        "bar_floor_return_s": null,
+        "bar_passes_knee_s": null,
+        "body_weight_n": 735.49875,
+        "descent_onset_s": null,
+        "lift_off_s": null,
+        "lockout_s": null,
+        "peak_bar_height_m": 0.0,
+        "plate_rise_before_lift_n": null,
+        "pretension_onset_s": 0.502,
+        "refusals": [
+          "LOAD_NOT_LIFTED: the bar-floor reaction never reached zero"
+        ],
+        "system_weight_n": 3873.62675
+      },
+      "lpt_samples": 2650,
+      "lpt_slack_samples": 0,
+      "plate_samples": 5301,
+      "protocol": {
+        "bar_floor_friction": 0.5,
+        "bar_over_ankle_x_m": 0.05,
+        "lift_s": 1.4,
+        "load_mass_kg": 320.0,
+        "lockout": {
+          "ankle": 0.05,
+          "elbow": 0.0,
+          "hip": 0.02,
+          "knee": -0.05,
+          "shoulder": 0.0
+        },
+        "lockout_hold_s": 0.6,
+        "lower_s": 1.6,
+        "pretension_s": 0.6,
+        "reset_s": 0.6,
+        "setup_ankle": 0.45,
+        "setup_arm_angle_rad": -0.1,
+        "setup_hold_s": 0.5
+      },
+      "setup_posture": {
+        "ankle": 0.45,
+        "elbow": 0.0,
+        "hip": 2.208402122113562,
+        "knee": -1.884660672549612,
+        "shoulder": 0.6737414495639499
+      },
+      "termination": "DURATION_REACHED"
+    }
+  },
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "issue": "RES-494"
+}

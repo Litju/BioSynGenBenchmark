@@ -1,0 +1,2706 @@
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 3 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 4 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 5 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 5 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 6 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 6 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 7 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 7 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  * Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 8 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  * Windows PowerShell controller controls
+  * Independent I1 evaluator challenge suite
+  * Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 8 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  * I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 9 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 9 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 10 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 10 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 11 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 11 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 12 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 12 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 13 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 14 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 14 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 15 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 15 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 16 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+* Python 3.12.10 / ubuntu-latest (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 16 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 17 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 17 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 18 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 18 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 19 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 19 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 20 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 20 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 21 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 21 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 22 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 23 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 23 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 24 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Python 3.12.10 / windows-latest (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  * I3 fresh-process exercise reproduction and benchmark falsifiers
+  * Exact-reference manufactured platform probe
+  * Upload numerical provenance and artifacts
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 24 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ Python 3.12.10 / windows-latest in 23m8s (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+* Exact-reference Windows/Linux comparison (ID 115671307591)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  * Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+  * Recompute exact errors and certified fixture comparison bounds
+  * Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+  * Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  * Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+✓ codex/i3-public-rc Numerical verification Litju/BioSynGenBenchmark#1 · 38506388914
+Triggered via pull_request about 25 minutes ago
+
+JOBS
+✓ SciPy DOP853 / windows-latest in 40s (ID 115665088499)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ Python 3.12.10 / windows-latest in 23m8s (ID 115665088693)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  ✓ Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ Python 3.12.10 / ubuntu-latest in 15m15s (ID 115665088742)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Record qualified runtime and source
+  ✓ Run complete I0, I1, I2 and I3 suite
+  - Windows PowerShell controller controls
+  ✓ Independent I1 evaluator challenge suite
+  ✓ Frozen I0 regression
+  ✓ I1 fresh-process reproduction
+  ✓ I3 fresh-process exercise reproduction and benchmark falsifiers
+  ✓ Exact-reference manufactured platform probe
+  ✓ Upload numerical provenance and artifacts
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ SciPy DOP853 / ubuntu-latest in 22s (ID 115665088837)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Install pinned qualification dependencies
+  ✓ Require independent solver and enforce true test exit
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+✓ Exact-reference Windows/Linux comparison in 20s (ID 115671307591)
+  ✓ Set up job
+  ✓ Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+  ✓ Recompute exact errors and certified fixture comparison bounds
+  ✓ Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+  ✓ Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+  ✓ Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / windows-latest: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+SciPy DOP853 / ubuntu-latest: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+SciPy DOP853 / ubuntu-latest: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Exact-reference Windows/Linux comparison: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+Exact-reference Windows/Linux comparison: .github#1

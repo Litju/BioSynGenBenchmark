@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\runs\i3\res522\local-physics-audit.py", line 13, in <module>
+    exec(compile(source,module.__file__,'exec'),module.__dict__)
+  File "D:\projects\BioSynGenBenchmark\biosyngen\i2\diagnostics.py", line 10, in <module>
+ModuleNotFoundError: No module named 'biosyngen'

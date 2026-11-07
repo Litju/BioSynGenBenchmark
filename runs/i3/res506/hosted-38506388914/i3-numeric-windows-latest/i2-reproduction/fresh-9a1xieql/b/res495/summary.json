@@ -1,0 +1,282 @@
+{
+  "cases": {
+    "BENCH_60KG_2REPS": {
+      "context_qualification": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "stable_supine_support_whole_record": {
+            "code": "BENCH_SUPPORT_TRANSITION_REQUIRES_QUALIFICATION",
+            "maximum_modeled_gap_m": {
+              "bench_pelvis": 0.001931983280232863,
+              "bench_upper_back": 0.001846592039681183
+            },
+            "note": "zero reaction/open mode is distinct from positive geometric separation; neither establishes human technique",
+            "open_intervals_by_stage": {
+              "RELEASE": {
+                "bench_upper_back": 165
+              },
+              "RERACK": {
+                "bench_pelvis": 84,
+                "bench_upper_back": 4
+              },
+              "UNRACK": {
+                "bench_pelvis": 376,
+                "bench_upper_back": 1
+              }
+            },
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "lpt_samples": 4600,
+      "plate_samples": 9201,
+      "protocol": {
+        "bench_height_m": 0.45,
+        "chest_target_m": -0.003,
+        "hook_half_depth_m": 0.05,
+        "leg_drive_n_m": 0.0,
+        "legs": [
+          0.15,
+          -1.4
+        ],
+        "load_mass_kg": 60.0,
+        "lockout_hold_s": 0.5,
+        "lockout_shoulder_elbow": [
+          1.5707963267948966,
+          0.02
+        ],
+        "lower_s": 1.2,
+        "pause_s": 0.0,
+        "press_elbow_kp": 800.0,
+        "press_s": 1.5,
+        "press_shoulder_kp": 800.0,
+        "pretension_s": 0.4,
+        "rack_drop_m": 0.03,
+        "rack_headward_m": 0.15,
+        "repetitions": 2,
+        "rerack_s": 0.6,
+        "setup_hold_s": 0.4,
+        "unrack_s": 1.0,
+        "with_bench": true
+      },
+      "refusals": [],
+      "reps": [
+        {
+          "bar_travel_m": 0.54643,
+          "bench_contact_lost": [],
+          "bottom_reversal_s": 2.928415,
+          "chest_impulse_n_s": 0.970367,
+          "chest_touch_s": 2.928415,
+          "index": 1,
+          "lockout_s": 4.637415,
+          "lowering_onset_s": 1.724231,
+          "rack_contact_during_rep": false,
+          "refusals": [],
+          "sticking_region_s": null
+        },
+        {
+          "bar_travel_m": 0.546259,
+          "bench_contact_lost": [],
+          "bottom_reversal_s": 6.121415,
+          "chest_impulse_n_s": 1.436615,
+          "chest_touch_s": 6.122209,
+          "index": 2,
+          "lockout_s": 7.83711,
+          "lowering_onset_s": 5.066415,
+          "rack_contact_during_rep": false,
+          "refusals": [],
+          "sticking_region_s": null
+        }
+      ],
+      "rerack_s": 8.703824,
+      "support_events": [
+        [
+          1.027,
+          "CONTACT_RELEASE",
+          [
+            "bench_pelvis"
+          ]
+        ],
+        [
+          1.403231,
+          "CONTACT_IMPACT",
+          [
+            "bench_pelvis"
+          ]
+        ],
+        [
+          8.706192,
+          "CONTACT_IMPACT",
+          [
+            "bench_upper_back"
+          ]
+        ],
+        [
+          8.78686,
+          "CONTACT_IMPACT",
+          [
+            "bench_pelvis"
+          ]
+        ],
+        [
+          9.03586,
+          "CONTACT_RELEASE",
+          [
+            "bench_upper_back"
+          ]
+        ]
+      ],
+      "termination": "DURATION_REACHED",
+      "unrack_s": 1.21
+    },
+    "BENCH_60KG_PAUSED_0.8S": {
+      "context_qualification": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "stable_supine_support_whole_record": {
+            "code": "BENCH_SUPPORT_TRANSITION_REQUIRES_QUALIFICATION",
+            "maximum_modeled_gap_m": {
+              "bench_pelvis": 0.001931983280232863,
+              "bench_upper_back": 0.0018628861292733223
+            },
+            "note": "zero reaction/open mode is distinct from positive geometric separation; neither establishes human technique",
+            "open_intervals_by_stage": {
+              "RELEASE": {
+                "bench_upper_back": 166
+              },
+              "RERACK": {
+                "bench_pelvis": 84,
+                "bench_upper_back": 4
+              },
+              "UNRACK": {
+                "bench_pelvis": 376,
+                "bench_upper_back": 1
+              }
+            },
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "lpt_samples": 3400,
+      "plate_samples": 6801,
+      "protocol": {
+        "bench_height_m": 0.45,
+        "chest_target_m": -0.003,
+        "hook_half_depth_m": 0.05,
+        "leg_drive_n_m": 0.0,
+        "legs": [
+          0.15,
+          -1.4
+        ],
+        "load_mass_kg": 60.0,
+        "lockout_hold_s": 0.5,
+        "lockout_shoulder_elbow": [
+          1.5707963267948966,
+          0.02
+        ],
+        "lower_s": 1.2,
+        "pause_s": 0.8,
+        "press_elbow_kp": 800.0,
+        "press_s": 1.5,
+        "press_shoulder_kp": 800.0,
+        "pretension_s": 0.4,
+        "rack_drop_m": 0.03,
+        "rack_headward_m": 0.15,
+        "repetitions": 1,
+        "rerack_s": 0.6,
+        "setup_hold_s": 0.4,
+        "unrack_s": 1.0,
+        "with_bench": true
+      },
+      "refusals": [],
+      "reps": [
+        {
+          "bar_travel_m": 0.54643,
+          "bench_contact_lost": [],
+          "bottom_reversal_s": 2.928415,
+          "chest_impulse_n_s": 0.970367,
+          "chest_touch_s": 2.928415,
+          "index": 1,
+          "lockout_s": 5.438415,
+          "lowering_onset_s": 1.724231,
+          "rack_contact_during_rep": false,
+          "refusals": [],
+          "sticking_region_s": null
+        }
+      ],
+      "rerack_s": 6.303054,
+      "support_events": [
+        [
+          1.027,
+          "CONTACT_RELEASE",
+          [
+            "bench_pelvis"
+          ]
+        ],
+        [
+          1.403231,
+          "CONTACT_IMPACT",
+          [
+            "bench_pelvis"
+          ]
+        ],
+        [
+          6.305434,
+          "CONTACT_IMPACT",
+          [
+            "bench_upper_back"
+          ]
+        ],
+        [
+          6.386119,
+          "CONTACT_IMPACT",
+          [
+            "bench_pelvis"
+          ]
+        ],
+        [
+          6.635119,
+          "CONTACT_RELEASE",
+          [
+            "bench_upper_back"
+          ]
+        ]
+      ],
+      "termination": "DURATION_REACHED",
+      "unrack_s": 1.21
+    }
+  },
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "issue": "RES-495"
+}

@@ -1,0 +1,206 @@
+{
+  "issue": "RES-508",
+  "numerical_source": "57484146cd12859dad34a004d21606cfb67bcd5f",
+  "evidence_source": "3041e39d5c7f132033d5e71aa3cdf5df3a52f888",
+  "commits": [
+    {
+      "sha": "a4ea9e6f927eed9cfd5cfc7250695fbe85b1e5e5",
+      "subject": "RES-503: migrate current execution authority to I3 GPT-6.1 Solo"
+    },
+    {
+      "sha": "90a0ebf2f6397146ce7e300adb794e681961ee64",
+      "subject": "RES-503: freeze I2 provenance inventory and reproduce baseline qualification tests"
+    },
+    {
+      "sha": "385f6075a6e199aa53ec04ea81799674f2eeeec9",
+      "subject": "RES-505: prepare license options and rights-gated open-source governance"
+    },
+    {
+      "sha": "6451db980d23178f54652bd868c0cb06912407d2",
+      "subject": "RES-504: reject independently demonstrated momentum and impulse false passes"
+    },
+    {
+      "sha": "8ff2cd93a1f6d2d33fcb79bad20aee384fad386d",
+      "subject": "RES-504: qualify independent mechanics controls and fresh-process reproduction"
+    },
+    {
+      "sha": "abebe4cc7ba418c89785b3df0107abf3f10c5bc7",
+      "subject": "RES-505: adopt owner-selected Apache-2.0 for personal research software"
+    },
+    {
+      "sha": "18a3fcd7edecc5d9fed0a0fb82b5587af4cb1c87",
+      "subject": "RES-507: correct transported contact wrench power and signed uncertainty reports"
+    },
+    {
+      "sha": "bc641c382e406ec32743e0b53466f6e2cc10ebcb",
+      "subject": "RES-507: label COM pseudo-work and vertical bar-work estimates explicitly"
+    },
+    {
+      "sha": "1f52195fbb872cfb0c928c35bc1366bc13b06c14",
+      "subject": "RES-507: require explicit rack support in bench whole-system force"
+    },
+    {
+      "sha": "fba9f3742e884fee49b7972597789b64ebc9cfd0",
+      "subject": "RES-507: refuse invalid over-reach and apply grip projection once"
+    },
+    {
+      "sha": "569632b09d6345b677f010933e5421c9f823fb0c",
+      "subject": "RES-507: expose contact-work quadrature limits during friction capture"
+    },
+    {
+      "sha": "4e4a6de3fd764956fe29af7c65f6104b461a9b51",
+      "subject": "RES-507: qualify raw artifacts and refuse unsupported exercise contexts"
+    },
+    {
+      "sha": "d4e37c435877e2a9e352a974ecf01d4b68156e63",
+      "subject": "RES-506: enforce hosted Windows Linux verification and exact-reference comparisons"
+    },
+    {
+      "sha": "5434294a09d27b8e4ff1732be0748ca18a0d7082",
+      "subject": "RES-506: record cleared public review inventory and proposed PR scope"
+    },
+    {
+      "sha": "e7904453fd0b574c0b53e100df6e20ff350ea4f0",
+      "subject": "RES-506: preserve hosted Linux energy failure and isolate diagnostic windows"
+    },
+    {
+      "sha": "57484146cd12859dad34a004d21606cfb67bcd5f",
+      "subject": "RES-506: reject hidden energy changes across all sampled window starts"
+    },
+    {
+      "sha": "3041e39d5c7f132033d5e71aa3cdf5df3a52f888",
+      "subject": "RES-506: qualify real hosted Windows Linux CI and preserve independently inspected evidence"
+    }
+  ],
+  "i2_live_snapshot": [
+    {
+      "id": "RES-489",
+      "title": "[BSMB-I2-A] Repair evaluator false-acceptance, nonfinite schema and CI gates",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-489/bsmb-i2-a-repair-evaluator-false-acceptance-nonfinite-schema-and-ci",
+      "updatedAt": "2026-10-13T23:45:37.056Z"
+    },
+    {
+      "id": "RES-490",
+      "title": "[BSMB-I2-B] Inventory every system exercise, test, phase and instrument capability",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-490/bsmb-i2-b-inventory-every-system-exercise-test-phase-and-instrument",
+      "updatedAt": "2026-10-13T23:44:43.760Z"
+    },
+    {
+      "id": "RES-491",
+      "title": "[BSMB-I2-C] Implement reusable bilateral multibody contact, load and actuation foundation",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-491/bsmb-i2-c-implement-reusable-bilateral-multibody-contact-load-and",
+      "updatedAt": "2026-10-13T23:49:29.360Z"
+    },
+    {
+      "id": "RES-492",
+      "title": "[BSMB-I2-D] Complete jump tests: CMJ, SJ, loaded CMJ/jump squat and landing",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-492/bsmb-i2-d-complete-jump-tests-cmj-sj-loaded-cmjjump-squat-and-landing",
+      "updatedAt": "2026-10-13T23:44:43.760Z"
+    },
+    {
+      "id": "RES-493",
+      "title": "[BSMB-I2-E] Implement back squat continuous-support multi-repetition biomechanics",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-493/bsmb-i2-e-implement-back-squat-continuous-support-multi-repetition",
+      "updatedAt": "2026-10-13T14:43:17.016Z"
+    },
+    {
+      "id": "RES-494",
+      "title": "[BSMB-I2-F] Implement deadlift pre-tension, bar-floor support transfer and return",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-494/bsmb-i2-f-implement-deadlift-pre-tension-bar-floor-support-transfer",
+      "updatedAt": "2026-10-13T15:00:10.709Z"
+    },
+    {
+      "id": "RES-495",
+      "title": "[BSMB-I2-G] Implement bench-press upper-body and multi-support mechanics",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-495/bsmb-i2-g-implement-bench-press-upper-body-and-multi-support-mechanics",
+      "updatedAt": "2026-10-13T17:12:11.686Z"
+    },
+    {
+      "id": "RES-496",
+      "title": "[BSMB-I2-H] Model Olympic pulling derivatives: clean pull, snatch pull and variants",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-496/bsmb-i2-h-model-olympic-pulling-derivatives-clean-pull-snatch-pull-and",
+      "updatedAt": "2026-10-13T17:52:23.790Z"
+    },
+    {
+      "id": "RES-497",
+      "title": "[BSMB-I2-I] Implement power-clean turnover, catch and impact transitions",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-497/bsmb-i2-i-implement-power-clean-turnover-catch-and-impact-transitions",
+      "updatedAt": "2026-10-14T00:08:49.120Z"
+    },
+    {
+      "id": "RES-498",
+      "title": "[BSMB-I2-J] Verify complete protocol matrix, dual sensors and independent benchmark with public CI",
+      "status": "In Review",
+      "url": "https://linear.app/alignerr-cmj/issue/RES-498/bsmb-i2-j-verify-complete-protocol-matrix-dual-sensors-and-independent",
+      "updatedAt": "2026-10-13T23:49:21.034Z"
+    }
+  ],
+  "scientific_matrix": [
+    [
+      "RES-489",
+      "VERIFIED_WITH_LIMITATIONS",
+      "Strict schema and independent evaluator controls; I3 repairs nested-input crashes, endpoint-cancellation false acceptance and inadmissible impulses. Prefix checks use unchanged record-scale tolerance and cannot disambiguate co-timed intermediate event states."
+    ],
+    [
+      "RES-490",
+      "VERIFIED_WITH_LIMITATIONS",
+      "Own inventory/coverage contract and factual identifiers retained. Completeness against every future external registry is not certified; external source implementation is excluded."
+    ],
+    [
+      "RES-491",
+      "VERIFIED_WITH_LIMITATIONS",
+      "Analytical support couples, sliding/capture, restitution, transported gaps, wrench reporting, constraints and first-order free fall challenged. Arbitrary coupled impacts/rotated devices and all parameter regimes are not exhaustively qualified."
+    ],
+    [
+      "RES-492",
+      "VERIFIED_WITH_LIMITATIONS; NOT_EVALUABLE; NOT_IMPLEMENTED",
+      "CMJ/SJ/vest-loaded CMJ and separable shoulder-shelf jump squat are numerical fixtures. Ordinary hand-stabilized jump squat and physiological landing peaks/RFD are NOT_EVALUABLE; drop/rebound models are NOT_IMPLEMENTED."
+    ],
+    [
+      "RES-493",
+      "VERIFIED_WITH_LIMITATIONS",
+      "Modeled back-squat repetitions and support closure verified. Controller ringing retained; COM pseudo-work and vertical bar-contact work estimate named explicitly. Human technique/metabolic work unsupported."
+    ],
+    [
+      "RES-494",
+      "VERIFIED_WITH_LIMITATIONS",
+      "Modeled deadlift pre-tension, bar-floor support transfer and return verified. Settling retained; stationary support/contact work differs from COM pseudo-work."
+    ],
+    [
+      "RES-495",
+      "VERIFIED_WITH_LIMITATIONS; NOT_EVALUABLE",
+      "Rep mechanics remain numerical fixtures; whole-support helper requires rack reaction/established absence. Whole-record stable supine support is NOT_EVALUABLE: actual unrack/rerack/release openings and gaps retained."
+    ],
+    [
+      "RES-496",
+      "VERIFIED_WITH_LIMITATIONS; SCIENTIFICALLY_UNSUPPORTED",
+      "Default floor clean/snatch pulls close declared equations. Robust general Olympic technique is SCIENTIFICALLY_UNSUPPORTED by retained 8/10 adversarial failures; rigid-impact physical peaks/RFD NOT_EVALUABLE; hang/block starts NOT_IMPLEMENTED."
+    ],
+    [
+      "RES-497",
+      "VERIFIED_WITH_LIMITATIONS; NOT_IMPLEMENTED",
+      "Pull-only subset and reach-domain refusal verified; full power-clean turnover/catch/front rack NOT_IMPLEMENTED. Planar surrogate infeasibility is not evidence that humans cannot catch."
+    ],
+    [
+      "RES-498",
+      "VERIFIED_WITH_LIMITATIONS; NOT_EVALUABLE",
+      "10/10 curated numerical positives and 76/76 authored fault detections reproduced in separate processes; real hosted Windows/Linux qualification added in I3. Empirical bilateral attribution, anatomical sensor-phase inference and paired human/device validity NOT_EVALUABLE."
+    ]
+  ],
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "owner_actions": "scientific acceptance, main merge, release/tag, Done transitions withheld"
+}

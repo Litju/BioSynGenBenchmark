@@ -1,0 +1,20 @@
+BioSynGenBenchmark
+Copyright 2026 Julio Rodriguez.
+
+Owned project source, documentation and manufactured fixtures/figures in this
+distribution, including retained project-authored historical versions, are
+licensed under the Apache License, Version 2.0. See LICENSE.
+
+Scientific citations and recalled parameter hypotheses retain their attribution
+in source and documentation. External papers, books, vendor exports, participant
+records and restricted datasets are not included or granted a new license.
+The registry identity inventory is a project-authored factual research summary;
+the external registry's source implementation is not part of this distribution.
+
+Historical engineering assistance: Opus 5.5 (I2).
+Independent qualification assistance: GPT-6.1 Solo (I3).
+These identify workflow provenance, not human scientific authorship, biological
+validation or real paired FORCE/LPT validation.
+
+Dependencies are not vendored and retain their own licenses. This NOTICE is
+informational and does not modify the Apache License terms.

@@ -1,0 +1,86 @@
+{
+  "issue": "RES-522",
+  "commands": [
+    {
+      "command": "python -m unittest tests.test_i4_projection -v (before source integration)",
+      "exit": 1,
+      "result": "13 tests; 2 physical failures, 4 unavailable-API errors",
+      "log": "contact-before.txt"
+    },
+    {
+      "command": "python -m unittest tests.test_i4_projection.ProjectionContactTests.test_second_historical_witness_and_projection_joint_impulse_closure -v (before)",
+      "exit": 1,
+      "result": "Legacy projection does not invoke KKT observer; API/observer error, not physical proof",
+      "log": "second-before.txt"
+    },
+    {
+      "command": "Direct second saved-state replay on d758254 source; see exact excess JSON",
+      "exit": 1,
+      "result": "Exact 0.0001479106384707496 N s excess",
+      "log": "second-legacy-reproduction.json"
+    },
+    {
+      "command": "python -m unittest tests.test_i4_projection -v",
+      "exit": 0,
+      "result": "14 passed",
+      "log": "contact-after.txt"
+    },
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "exit": 0,
+      "result": "305 collected, 303 passed, 2 optional SciPy skips; 620.513 s",
+      "log": "regression.txt"
+    },
+    {
+      "command": "py -3.11 -m scripts.require_i3_scipy_checks",
+      "exit": 0,
+      "result": "2 passed, no skips; Python 3.11.9 SciPy 1.17.1 NumPy 2.4.4",
+      "log": "scipy.txt"
+    },
+    {
+      "command": "pwsh -NoProfile -File tests/test_overnight_controller.ps1",
+      "exit": 0,
+      "result": "23 assertions passed",
+      "log": "powershell.txt"
+    },
+    {
+      "command": "python -m scripts.i1_benchmark_suite",
+      "exit": 0,
+      "result": "69/69 agreement; both degenerate canaries rejected; generated default output copied here and original tracked bytes restored",
+      "log": "i1-benchmark.txt"
+    },
+    {
+      "command": "python -m scripts.verify_i3_reproducibility --out runs/i3/res522/reproduction",
+      "exit": 0,
+      "result": "12 fresh workers, complete paired inventories identical, both 10/10 positives and 76/76 authored faults independently gated",
+      "log": "reproduction.txt"
+    },
+    {
+      "command": "python runs/i3/res522/local-physics-audit.py",
+      "exit": 0,
+      "result": "Pinned RES-517 read-only tools; 30/30 physical audits, 101242 intervals, 0 violations; bulk traces local",
+      "log": "local-physics.txt"
+    },
+    {
+      "command": "Initial local audit loader launch",
+      "exit": 1,
+      "result": "Tool path error; root added to sys.path; no solver/controller change",
+      "log": "local-audit-launch-failed.txt"
+    }
+  ],
+  "probe": {
+    "command": "python -m scripts.i3_platform_probe --out runs/i3/res522/local-numeric-probe.json",
+    "passed": true,
+    "metrics": 8,
+    "head_label": "d758254e0b18b12f5d8b670cfd5c536eddfe2824",
+    "limitation": "Precommit working-tree probe; source identity is integration-provenance.json, final exact-commit qualification is hosted CI"
+  },
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "presentation": "New text logs normalized to LF; no original historical evidence changed",
+  "no_solver_repairs_in_closeout": true
+}

@@ -1,0 +1,8 @@
+test_cable_geometry_clock_drift_and_provider_velocity_on_a_radial_path (test_i3_instruments.IndependentInstrumentTests.test_cable_geometry_clock_drift_and_provider_velocity_on_a_radial_path) ... ok
+test_plate_force_moment_cop_and_bilateral_sum_on_independent_wrenches (test_i3_instruments.IndependentInstrumentTests.test_plate_force_moment_cop_and_bilateral_sum_on_independent_wrenches) ... ok
+test_slow_reel_exposes_slack_instead_of_tracking_true_shortening (test_i3_instruments.IndependentInstrumentTests.test_slow_reel_exposes_slack_instead_of_tracking_true_shortening) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.009s
+
+OK

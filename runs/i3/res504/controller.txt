@@ -1,0 +1,2 @@
+FAKE_WORKER_STARTED
+PASS: 23 controller assertions passed.

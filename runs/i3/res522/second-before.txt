@@ -1,0 +1,21 @@
+test_second_historical_witness_and_projection_joint_impulse_closure (tests.test_i4_projection.ProjectionContactTests.test_second_historical_witness_and_projection_joint_impulse_closure) ... ERROR
+
+======================================================================
+ERROR: test_second_historical_witness_and_projection_joint_impulse_closure (tests.test_i4_projection.ProjectionContactTests.test_second_historical_witness_and_projection_joint_impulse_closure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i4_projection.py", line 74, in test_second_historical_witness_and_projection_joint_impulse_closure
+    step=system.advance(restore_state(witness["before"]),witness["dt_s"],excitations=witness["excitations"],
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\biosyngen\multibody.py", line 2152, in advance
+    projected = self._project_velocities(projected, step_modes, contact_ledger=projection_ledger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\tests\test_i4_projection.py", line 57, in project
+    for row, amount in zip(*solved):
+                       ^^^^^^^^^^^^
+TypeError: zip() argument after * must be an iterable, not NoneType
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (errors=1)

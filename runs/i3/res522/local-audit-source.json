@@ -1,0 +1,10 @@
+{
+  "revision": "d5e651c539a29c9b4eb01192e3febf0f6ac8ec4d",
+  "sha256": {
+    "biosyngen/i2/diagnostics.py": "de4c33c55bccedcae32200428c810297f3eff15d0aabd3a1261fa1d90aa46076",
+    "biosyngen_benchmark/i4_diagnostics.py": "81f4c7db64685bb2a215d8dcb775bc477da86fd32b9a712573c2b6c76019c3d3",
+    "scripts/diagnose_i4_recovery.py": "868fd2c0d6d56a25d6bc121fa143d13a4a1aabe7d7290d4b2ce59586c4c66d52",
+    "scripts/check_i4_diagnostics.py": "1bc331a82f89ef11141eebfe67ed9840f9ed7e37808626dc4c701084bb2d3b3c",
+    "scripts/verify_i4_projection.py": "240c33e8123933aa04e8286d8d2a93fa68c708097c7487b222a629150cdfda2b"
+  }
+}

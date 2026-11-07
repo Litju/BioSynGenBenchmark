@@ -1,0 +1,6 @@
+test_all_pass_report_and_failed_counts_have_distinct_exit_gates (test_i3_reproduction_gate.ReproductionGateTests.test_all_pass_report_and_failed_counts_have_distinct_exit_gates) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK

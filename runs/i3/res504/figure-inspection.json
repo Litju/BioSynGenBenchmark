@@ -1,0 +1,45 @@
+{
+  "issue": "RES-504",
+  "renderer": "bundled Node Sharp (SVG rasterization, no data editing)",
+  "purpose": "source audit preview, no journal compliance claim",
+  "sources_preserved": true,
+  "figures": [
+    {
+      "source": "runs\\i2\\res492\\jump_family.svg",
+      "source_sha256": "34596543fc57d9c3b4488a8783a5342cb3962c9cd005cf659161de276ebf2dc2",
+      "preview": "runs\\i3\\res504\\figure-previews\\jump_family.png",
+      "preview_sha256": "9fefd5a2f78ba0e38eab711f31ece9a6fa7233dd220410781d2f1ad9eb4115de"
+    },
+    {
+      "source": "runs\\i2\\res493\\back_squat.svg",
+      "source_sha256": "5416ad0d3801394dde05bf63c3280b267cc0a67902ff573f7f9cdc0db49a3052",
+      "preview": "runs\\i3\\res504\\figure-previews\\back_squat.png",
+      "preview_sha256": "26dd4dffa3906cb55ff4d340f857a392ad2456d850a83edba6cfd8c290ad7a2b"
+    },
+    {
+      "source": "runs\\i2\\res494\\deadlift.svg",
+      "source_sha256": "426a863c62528d4e0c587e96ed530d9d0f9bc81286325c5cce26fb73f83e19bf",
+      "preview": "runs\\i3\\res504\\figure-previews\\deadlift.png",
+      "preview_sha256": "3227be261b40f494b089bdc81f993577a530dc34f7308110e9f38fc70b7bf4c3"
+    },
+    {
+      "source": "runs\\i2\\res495\\bench_press.svg",
+      "source_sha256": "5dac0b14057984919c502dca8a9efc5356847a39ad85a22c8c244143efcdb58d",
+      "preview": "runs\\i3\\res504\\figure-previews\\bench_press.png",
+      "preview_sha256": "a380c15efaa2cbbbac0941aa59aa93993bc685ae432d2e918e33c1f4b5ac0322"
+    },
+    {
+      "source": "runs\\i2\\res496\\olympic_pulls.svg",
+      "source_sha256": "b9033defb73f66419a972998d8202341015cef2fce3c8117e82c669a4c9fda78",
+      "preview": "runs\\i3\\res504\\figure-previews\\olympic_pulls.png",
+      "preview_sha256": "49eeab9bc5ef1b62d7c453f24f28883c9fc4108e8d04e9f97f4934780301a0d8"
+    }
+  ],
+  "findings": [
+    "Source scripts clamp force values before plotting; raw peaks require RES-507 qualification.",
+    "Squat/deadlift show lockout settling oscillations.",
+    "Bench shows transition reaction fluctuations and rerack spike.",
+    "Olympic pulls show short flight/impact spikes; no joint-phase sensor observability.",
+    "Jump plots cap peaks and the shoulder-shelf bar topology needs a context-of-use refusal."
+  ]
+}

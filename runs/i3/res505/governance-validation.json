@@ -1,0 +1,40 @@
+{
+  "actual_license_file_exists": true,
+  "adopted_files_sha256": {
+    ".gitignore": "bce181629ecacda564450242a00d82a88b823f2d6a91d1e27f61a678cab0d2e8",
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "NOTICE": "0b6fff0685423d631da8082d095861fdd4d6d544b936f0632dca772ec420ab02",
+    "docs/i3/RES505_OWNER_DECISION.json": "fae082f30d19975da092bfa1c400c221cd123a75ab15a8952841d43e2170f686"
+  },
+  "adopted_license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "cff_validation": {
+    "PyYAML": "6.0.3",
+    "jsonschema": "4.26.0",
+    "schema_sha256": "0b8d22140da702d766df318dcff3a91af2f39521298dcf36d76315fd99cc169b",
+    "schema_url": "https://raw.githubusercontent.com/citation-file-format/citation-file-format/1.2.0/schema.json",
+    "status": "PASS"
+  },
+  "copyright_authority": "OWNER_DECLARED_PERSONAL_RESEARCH",
+  "excluded_local_entry": ".claude/launch.json",
+  "external_python_import_roots": [
+    "scipy"
+  ],
+  "issue": "RES-505",
+  "proposed_files_sha256": {
+    "CITATION.cff": "9977bec694e62a3c0b32687d68ee2268670111e696ca0479a135685a294b1abe",
+    "CONTRIBUTING.md": "6a7a30f4c7fae7ff672c719017c8319b4a3f4563037d94d90f28d73284f0b9a8",
+    "DATA_AVAILABILITY.md": "3e00b58403ad5e3f864b8e267b5d5d8ea2be3e584e41254168f59b9145390ac7",
+    "README.md": "c42edf5fd3f26d768f24386b5eca8d6b89eeab239f882dc775c255e0e38add20",
+    "SECURITY.md": "1c7f9d3fc78b7a67e1393bf6a2dbed34761a8d8890383560e17da54737197cdf",
+    "docs/i3/RES505_LICENSE_AND_RIGHTS.md": "4759cf145879934cc46f989694ba53d7665c1b4e586f1bd5b9dc7f5d99648e2c",
+    "docs/i3/legal/APACHE-2.0.proposed.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "docs/i3/legal/NOTICE.proposed.txt": "3078c6dac81a6a7c0ec13fac245b564c071e14797dd5c1ae92bc95f635eb2fa3"
+  },
+  "publication": "NOT_PERFORMED",
+  "qualified_plot_environment": {
+    "matplotlib": "3.11.1",
+    "numpy": "2.4.6",
+    "pillow": "12.3.0"
+  },
+  "status": "LICENSE_ADOPTED_OWNER_SELECTED"
+}

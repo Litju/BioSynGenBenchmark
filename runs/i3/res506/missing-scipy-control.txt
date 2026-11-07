@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\projects\BioSynGenBenchmark\scripts\require_i3_scipy_checks.py", line 4, in <module>
+    import scipy
+ModuleNotFoundError: No module named 'scipy'

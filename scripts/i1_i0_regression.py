@@ -8,6 +8,7 @@ runs/i1/res481/i0-regression.json.
 from __future__ import annotations
 
 import hashlib
+import argparse
 import json
 from pathlib import Path
 
@@ -89,14 +90,18 @@ def build() -> dict[str, object]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, default=OUTPUT,
+                        help="write the regression record here; defaults to the historical I1 location")
+    args = parser.parse_args()
     report = build()
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_bytes(_json_text(report))
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_bytes(_json_text(report))
     for record in report["records"]:
         same = record.get("identical", record.get("regenerated_value_identical"))
         detail = "" if same else f" differs at {record.get('differing_json_paths')}"
         print(f"{'IDENTICAL' if same else 'CHANGED  '} {record['artifact']}{detail}")
-    print(f"Wrote {OUTPUT}")
+    print(f"Wrote {args.output}")
 
 
 if __name__ == "__main__":

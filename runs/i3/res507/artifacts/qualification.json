@@ -1,0 +1,3092 @@
+{
+  "cases": {
+    "BACK_SQUAT": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_BACK_SQUAT_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 0,
+      "foot_impacts": 0,
+      "initial_activations": {
+        "left_ankle_extensor": -0.13304983798076928,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.042703543520956254,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.02825008312946679,
+        "right_ankle_extensor": -0.13304983798076928,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.042703543520956254,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.02825008312946679
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 1.887201506178826e-11,
+          "outcome": "PASS",
+          "residual_n_s": 5.482885846730401e-12,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.004633642124999636
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 1793.6887253952445,
+      "stage_diagnostics": {
+        "REP1_ASCENT": {
+          "duration_s": 0.9999999999998901,
+          "n": 1001,
+          "peak_interval_force_n": 1793.6887253952445,
+          "range_n": 914.4191390753656,
+          "sd_n": 278.719440158222
+        },
+        "REP1_DESCENT": {
+          "duration_s": 1.1999999999999231,
+          "n": 1201,
+          "peak_interval_force_n": 1608.5621102776922,
+          "range_n": 512.5757815083407,
+          "sd_n": 169.28580516123017
+        },
+        "REP1_LOCKOUT": {
+          "duration_s": 0.7969999999999122,
+          "frequency_scope": "unwindowed raw controller-stage diagnostic, not a human frequency estimate",
+          "n": 798,
+          "peak_interval_force_n": 1354.138900335361,
+          "range_n": 69.83137021442076,
+          "raw_periodogram_peak_hz": 31,
+          "sd_n": 7.495062801028578
+        },
+        "SET_START_HOLD": {
+          "duration_s": 0.49900000000000033,
+          "n": 500,
+          "peak_interval_force_n": 1323.8977500000005,
+          "range_n": 9.094947017729282e-13,
+          "sd_n": 1.7319785829819725e-13
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 1799.01123046875,
+      "virtual_adc_saturated_samples": 0
+    },
+    "BENCH_PRESS": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "stable_supine_support_whole_record": {
+            "code": "BENCH_SUPPORT_TRANSITION_REQUIRES_QUALIFICATION",
+            "maximum_modeled_gap_m": {
+              "bench_pelvis": 0.0019319832802343617,
+              "bench_upper_back": 0.001846592039681183
+            },
+            "note": "zero reaction/open mode is distinct from positive geometric separation; neither establishes human technique",
+            "open_intervals_by_stage": {
+              "RELEASE": {
+                "bench_upper_back": 165
+              },
+              "RERACK": {
+                "bench_pelvis": 84,
+                "bench_upper_back": 4
+              },
+              "UNRACK": {
+                "bench_pelvis": 376,
+                "bench_upper_back": 1
+              }
+            },
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_BENCH_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 0.10307884164563345,
+      "foot_impacts": 26,
+      "initial_activations": {
+        "elbow_extensor": -0.013157643243895626,
+        "elbow_flexor": 0.0,
+        "shoulder_extensor": -0.016598371453312916,
+        "shoulder_flexor": 0.0
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 4.6630077576992335e-09,
+          "outcome": "PASS",
+          "residual_n_s": 4.654859553365753e-09,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0121798593
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 170.8697946418867,
+      "stage_diagnostics": {
+        "PRETENSION": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 151.73684959747476,
+          "range_n": 8.526512829121202e-14,
+          "sd_n": 1.5721470562463267e-14
+        },
+        "RELEASE": {
+          "duration_s": 0.3961400848822034,
+          "n": 398,
+          "peak_interval_force_n": 158.91905922867116,
+          "range_n": 26.576836455135236,
+          "sd_n": 7.004935855308145
+        },
+        "REP1_LOCKOUT": {
+          "duration_s": 0.49900000000016664,
+          "frequency_scope": "unwindowed raw controller-stage diagnostic, not a human frequency estimate",
+          "n": 500,
+          "peak_interval_force_n": 151.73691769211916,
+          "range_n": 0.00010361077818288322,
+          "raw_periodogram_peak_hz": 2,
+          "sd_n": 3.663512566042958e-05
+        },
+        "REP1_LOWER": {
+          "duration_s": 1.1991846385098184,
+          "n": 1201,
+          "peak_interval_force_n": 151.74264769408046,
+          "range_n": 0.006944733172531414,
+          "sd_n": 0.0013029909788506804
+        },
+        "REP1_PRESS": {
+          "duration_s": 1.499000000000057,
+          "n": 1500,
+          "peak_interval_force_n": 151.73694739039576,
+          "range_n": 0.00023796242280127444,
+          "sd_n": 5.313259457301113e-05
+        },
+        "REP2_LOCKOUT": {
+          "duration_s": 0.49999999999998757,
+          "frequency_scope": "unwindowed raw controller-stage diagnostic, not a human frequency estimate",
+          "n": 501,
+          "peak_interval_force_n": 151.73691701052445,
+          "range_n": 0.00010294124453480435,
+          "raw_periodogram_peak_hz": 2,
+          "sd_n": 3.632720410156128e-05
+        },
+        "REP2_LOWER": {
+          "duration_s": 1.199694869974035,
+          "n": 1201,
+          "peak_interval_force_n": 151.7406354175461,
+          "range_n": 0.004455755988146848,
+          "sd_n": 0.0010695903270495537
+        },
+        "REP2_PRESS": {
+          "duration_s": 1.4990000000005006,
+          "n": 1500,
+          "peak_interval_force_n": 151.73694726107715,
+          "range_n": 0.0002388132538442278,
+          "sd_n": 5.3232878030240285e-05
+        },
+        "RERACK": {
+          "duration_s": 0.599749570640693,
+          "n": 602,
+          "peak_interval_force_n": 170.8697946418867,
+          "range_n": 147.1116763460741,
+          "sd_n": 19.406956615991447
+        },
+        "SETUP_HOLD": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 151.73684959747476,
+          "range_n": 5.684341886080802e-14,
+          "sd_n": 9.532666341148584e-15
+        },
+        "UNRACK": {
+          "duration_s": 0.9992308359925388,
+          "n": 1001,
+          "peak_interval_force_n": 169.59864342421415,
+          "range_n": 68.88236915441107,
+          "sd_n": 16.070569364673652
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 207.672119140625,
+      "virtual_adc_saturated_samples": 0
+    },
+    "BENCH_PRESS_DT0.0005": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "stable_supine_support_whole_record": {
+            "code": "BENCH_SUPPORT_TRANSITION_REQUIRES_QUALIFICATION",
+            "maximum_modeled_gap_m": {
+              "bench_pelvis": 0.0019213580205297842,
+              "bench_upper_back": 0.0019061958057274286
+            },
+            "note": "zero reaction/open mode is distinct from positive geometric separation; neither establishes human technique",
+            "open_intervals_by_stage": {
+              "RELEASE": {
+                "bench_upper_back": 335
+              },
+              "RERACK": {
+                "bench_pelvis": 168,
+                "bench_upper_back": 9
+              },
+              "UNRACK": {
+                "bench_pelvis": 752,
+                "bench_upper_back": 1
+              }
+            },
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_BENCH_STAGED_PD_V1",
+      "dt_s": 0.0005,
+      "foot_impact_impulse_z_n_s": 0.11118068129511216,
+      "foot_impacts": 28,
+      "initial_activations": {
+        "elbow_extensor": -0.013157643243895626,
+        "elbow_flexor": 0.0,
+        "shoulder_extensor": -0.016598371453312916,
+        "shoulder_flexor": 0.0
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 3.413076876679355e-09,
+          "outcome": "PASS",
+          "residual_n_s": 3.398762549178258e-09,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0121798593
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 171.22619977670968,
+      "stage_diagnostics": {
+        "PRETENSION": {
+          "duration_s": 0.39999999999996694,
+          "n": 801,
+          "peak_interval_force_n": 151.73684959747476,
+          "range_n": 8.526512829121202e-14,
+          "sd_n": 1.4818215272092136e-14
+        },
+        "RELEASE": {
+          "duration_s": 0.39668353861562977,
+          "n": 795,
+          "peak_interval_force_n": 158.45619777057962,
+          "range_n": 24.76035323509521,
+          "sd_n": 6.663332205526466
+        },
+        "REP1_LOCKOUT": {
+          "duration_s": 0.4999999999997229,
+          "frequency_scope": "unwindowed raw controller-stage diagnostic, not a human frequency estimate",
+          "n": 1001,
+          "peak_interval_force_n": 151.73685354939,
+          "range_n": 2.5653806687842007e-05,
+          "raw_periodogram_peak_hz": 2,
+          "sd_n": 8.973390056203066e-06
+        },
+        "REP1_LOWER": {
+          "duration_s": 1.199877444224823,
+          "n": 2401,
+          "peak_interval_force_n": 151.742635677061,
+          "range_n": 0.0061945835425092355,
+          "sd_n": 0.0008598159750522576
+        },
+        "REP1_PRESS": {
+          "duration_s": 1.4995000000000558,
+          "n": 3000,
+          "peak_interval_force_n": 151.736889811274,
+          "range_n": 8.777293155048937e-05,
+          "sd_n": 1.2520058057477071e-05
+        },
+        "REP2_LOCKOUT": {
+          "duration_s": 0.4995000000000829,
+          "frequency_scope": "unwindowed raw controller-stage diagnostic, not a human frequency estimate",
+          "n": 1000,
+          "peak_interval_force_n": 151.73685339431958,
+          "range_n": 2.542199976574011e-05,
+          "raw_periodogram_peak_hz": 2,
+          "sd_n": 8.9184525838028e-06
+        },
+        "REP2_LOWER": {
+          "duration_s": 1.199876113636912,
+          "n": 2402,
+          "peak_interval_force_n": 151.7378442051648,
+          "range_n": 0.001240884832611755,
+          "sd_n": 0.0002666543721246526
+        },
+        "REP2_PRESS": {
+          "duration_s": 1.4999999999991687,
+          "n": 3001,
+          "peak_interval_force_n": 151.73688980805636,
+          "range_n": 8.807658005594021e-05,
+          "sd_n": 1.2547146653213384e-05
+        },
+        "RERACK": {
+          "duration_s": 0.5997412823789787,
+          "n": 1203,
+          "peak_interval_force_n": 165.5210397197923,
+          "range_n": 118.3143091337881,
+          "sd_n": 17.83438835728123
+        },
+        "SETUP_HOLD": {
+          "duration_s": 0.3995000000000003,
+          "n": 800,
+          "peak_interval_force_n": 151.73684959747476,
+          "range_n": 8.526512829121202e-14,
+          "sd_n": 1.1479114226745435e-14
+        },
+        "UNRACK": {
+          "duration_s": 0.9998216211446599,
+          "n": 2001,
+          "peak_interval_force_n": 171.22619977670968,
+          "range_n": 70.24656791290522,
+          "sd_n": 15.960276087474801
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 197.601318359375,
+      "virtual_adc_saturated_samples": 0
+    },
+    "BENCH_PRESS_DT0.002": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "stable_supine_support_whole_record": {
+            "code": "BENCH_SUPPORT_TRANSITION_REQUIRES_QUALIFICATION",
+            "maximum_modeled_gap_m": {
+              "bench_pelvis": 0.0019532746203256846,
+              "bench_upper_back": 0.0016442986360105105
+            },
+            "note": "zero reaction/open mode is distinct from positive geometric separation; neither establishes human technique",
+            "open_intervals_by_stage": {
+              "RELEASE": {
+                "bench_upper_back": 77
+              },
+              "RERACK": {
+                "bench_pelvis": 36,
+                "bench_upper_back": 8
+              },
+              "UNRACK": {
+                "bench_pelvis": 187,
+                "bench_upper_back": 1
+              }
+            },
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_BENCH_STAGED_PD_V1",
+      "dt_s": 0.002,
+      "foot_impact_impulse_z_n_s": 0.7655347748237471,
+      "foot_impacts": 28,
+      "initial_activations": {
+        "elbow_extensor": -0.013157643243895626,
+        "elbow_flexor": 0.0,
+        "shoulder_extensor": -0.016598371453312916,
+        "shoulder_flexor": 0.0
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 1.9447554677753942e-11,
+          "outcome": "PASS",
+          "residual_n_s": 8.579886801030057e-12,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0121798593
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 208.73936135955324,
+      "stage_diagnostics": {
+        "PRETENSION": {
+          "duration_s": 0.3980000000000003,
+          "n": 200,
+          "peak_interval_force_n": 151.73684959747476,
+          "range_n": 8.526512829121202e-14,
+          "sd_n": 1.9974214445499115e-14
+        },
+        "RELEASE": {
+          "duration_s": 0.38732962601470433,
+          "n": 196,
+          "peak_interval_force_n": 180.17184299790335,
+          "range_n": 80.82455481103167,
+          "sd_n": 17.519711183396613
+        },
+        "REP1_LOCKOUT": {
+          "duration_s": 0.49999999999994493,
+          "frequency_scope": "unwindowed raw controller-stage diagnostic, not a human frequency estimate",
+          "n": 251,
+          "peak_interval_force_n": 151.7376441662606,
+          "range_n": 0.000803657053296547,
+          "raw_periodogram_peak_hz": 2,
+          "sd_n": 0.0002098182856663178
+        },
+        "REP1_LOWER": {
+          "duration_s": 1.1981344374921286,
+          "n": 601,
+          "peak_interval_force_n": 151.75044770114127,
+          "range_n": 0.017305630673547512,
+          "sd_n": 0.004323689120729074
+        },
+        "REP1_PRESS": {
+          "duration_s": 1.4999999999998352,
+          "n": 751,
+          "peak_interval_force_n": 151.73739192909537,
+          "range_n": 0.0009710158389282242,
+          "sd_n": 0.00022139473971523424
+        },
+        "REP2_LOCKOUT": {
+          "duration_s": 0.4980000000000384,
+          "frequency_scope": "unwindowed raw controller-stage diagnostic, not a human frequency estimate",
+          "n": 250,
+          "peak_interval_force_n": 151.7376450624366,
+          "range_n": 0.0008046179021903299,
+          "raw_periodogram_peak_hz": 2,
+          "sd_n": 0.00020947305955370155
+        },
+        "REP2_LOWER": {
+          "duration_s": 1.1992444121562107,
+          "n": 602,
+          "peak_interval_force_n": 151.75229856816796,
+          "range_n": 0.017489270145375713,
+          "sd_n": 0.004299356026229057
+        },
+        "REP2_PRESS": {
+          "duration_s": 1.4999999999998348,
+          "n": 751,
+          "peak_interval_force_n": 151.73739163908317,
+          "range_n": 0.000971940814622485,
+          "sd_n": 0.00022173944942292356
+        },
+        "RERACK": {
+          "duration_s": 0.5993254759386293,
+          "n": 303,
+          "peak_interval_force_n": 208.73936135955324,
+          "range_n": 208.73936135955324,
+          "sd_n": 26.310328521012664
+        },
+        "SETUP_HOLD": {
+          "duration_s": 0.3980000000000003,
+          "n": 200,
+          "peak_interval_force_n": 151.73684959747473,
+          "range_n": 2.842170943040401e-14,
+          "sd_n": 9.712368083024657e-15
+        },
+        "UNRACK": {
+          "duration_s": 0.999966048398674,
+          "n": 501,
+          "peak_interval_force_n": 168.57130005862234,
+          "range_n": 68.39209893134496,
+          "sd_n": 16.26980792836463
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 377.960205078125,
+      "virtual_adc_saturated_samples": 0
+    },
+    "CLEAN_PULL": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CLEAN_PULL_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 38.284928600649636,
+      "foot_impacts": 18,
+      "initial_activations": {
+        "elbow_extensor": -0.004736495078422524,
+        "elbow_flexor": 0.0,
+        "left_ankle_extensor": 0.0,
+        "left_ankle_flexor": 0.017516999388763332,
+        "left_hip_extensor": -0.18393130316792417,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.22676707686985897,
+        "left_knee_flexor": 0.0,
+        "right_ankle_extensor": 0.0,
+        "right_ankle_flexor": 0.017516999388763332,
+        "right_hip_extensor": -0.18393130316792417,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.22676707686985897,
+        "right_knee_flexor": 0.0,
+        "shoulder_extensor": -0.013789542726225457,
+        "shoulder_flexor": 0.0
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 2.525268882891396e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.0770717651098494e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.006114446275000001
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 4042.754627831817,
+      "stage_diagnostics": {
+        "FINISH": {
+          "duration_s": 0.39999999999995617,
+          "n": 401,
+          "peak_interval_force_n": 1470.1530282588992,
+          "range_n": 76.51063190217201,
+          "sd_n": 9.372968140008036
+        },
+        "LOWER": {
+          "duration_s": 1.5999999999998238,
+          "n": 1601,
+          "peak_interval_force_n": 1675.622817213144,
+          "range_n": 469.7647170236294,
+          "sd_n": 154.49364972337125
+        },
+        "PRETENSION": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 1432.4458633243303,
+          "range_n": 696.9471133243268,
+          "sd_n": 209.54040285492772
+        },
+        "PULL": {
+          "duration_s": 0.9991708831824548,
+          "n": 1003,
+          "peak_interval_force_n": 4042.754627831817,
+          "range_n": 4042.754627831817,
+          "sd_n": 795.3106224293674
+        },
+        "RESET": {
+          "duration_s": 0.49682911681776565,
+          "n": 499,
+          "peak_interval_force_n": 1474.486823024697,
+          "range_n": 627.3721190252273,
+          "sd_n": 187.76789609771893
+        },
+        "SETUP_HOLD": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 735.4987500000036,
+          "range_n": 3.637978807091713e-12,
+          "sd_n": 5.00695906614429e-13
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 2
+    },
+    "CLEAN_PULL_DT0.0005": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CLEAN_PULL_STAGED_PD_V1",
+      "dt_s": 0.0005,
+      "foot_impact_impulse_z_n_s": 38.7378313588328,
+      "foot_impacts": 20,
+      "initial_activations": {
+        "elbow_extensor": -0.004736495078422524,
+        "elbow_flexor": 0.0,
+        "left_ankle_extensor": 0.0,
+        "left_ankle_flexor": 0.017516999388763332,
+        "left_hip_extensor": -0.18393130316792417,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.22676707686985897,
+        "left_knee_flexor": 0.0,
+        "right_ankle_extensor": 0.0,
+        "right_ankle_flexor": 0.017516999388763332,
+        "right_hip_extensor": -0.18393130316792417,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.22676707686985897,
+        "right_knee_flexor": 0.0,
+        "shoulder_extensor": -0.013789542726225457,
+        "shoulder_flexor": 0.0
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 3.531397396727698e-11,
+          "outcome": "PASS",
+          "residual_n_s": 9.194867089945546e-12,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.006114446275000001
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 4038.0757228756092,
+      "stage_diagnostics": {
+        "FINISH": {
+          "duration_s": 0.39950000000004504,
+          "n": 800,
+          "peak_interval_force_n": 1477.6387451797048,
+          "range_n": 80.15512913905059,
+          "sd_n": 9.699253486122572
+        },
+        "LOWER": {
+          "duration_s": 1.5995000000005342,
+          "n": 3200,
+          "peak_interval_force_n": 1675.671035306749,
+          "range_n": 470.2689106714372,
+          "sd_n": 153.89347586948062
+        },
+        "PRETENSION": {
+          "duration_s": 0.39999999999996694,
+          "n": 801,
+          "peak_interval_force_n": 1434.562563138843,
+          "range_n": 699.0638131388398,
+          "sd_n": 209.87314243984096
+        },
+        "PULL": {
+          "duration_s": 0.9998629774040352,
+          "n": 2004,
+          "peak_interval_force_n": 4038.0757228756092,
+          "range_n": 4038.0757228756092,
+          "sd_n": 792.6140533862538
+        },
+        "RESET": {
+          "duration_s": 0.49863702259541887,
+          "n": 999,
+          "peak_interval_force_n": 1475.7691850064714,
+          "range_n": 631.8949213245271,
+          "sd_n": 188.86041552683386
+        },
+        "SETUP_HOLD": {
+          "duration_s": 0.3995000000000003,
+          "n": 800,
+          "peak_interval_force_n": 735.4987500000032,
+          "range_n": 3.183231456205249e-12,
+          "sd_n": 4.3116958019939195e-13
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 1
+    },
+    "CLEAN_PULL_DT0.002": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CLEAN_PULL_STAGED_PD_V1",
+      "dt_s": 0.002,
+      "foot_impact_impulse_z_n_s": 48.89096616876838,
+      "foot_impacts": 26,
+      "initial_activations": {
+        "elbow_extensor": -0.004736495078422524,
+        "elbow_flexor": 0.0,
+        "left_ankle_extensor": 0.0,
+        "left_ankle_flexor": 0.017516999388763332,
+        "left_hip_extensor": -0.18393130316792417,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.22676707686985897,
+        "left_knee_flexor": 0.0,
+        "right_ankle_extensor": 0.0,
+        "right_ankle_flexor": 0.017516999388763332,
+        "right_hip_extensor": -0.18393130316792417,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.22676707686985897,
+        "right_knee_flexor": 0.0,
+        "shoulder_extensor": -0.013789542726225457,
+        "shoulder_flexor": 0.0
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 1.0615508472255897e-11,
+          "outcome": "PASS",
+          "residual_n_s": 8.515410598874951e-13,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.006114446275000001
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 3923.817529459612,
+      "stage_diagnostics": {
+        "FINISH": {
+          "duration_s": 0.3992828364515122,
+          "n": 201,
+          "peak_interval_force_n": 1675.7734915107515,
+          "range_n": 687.3974139754597,
+          "sd_n": 87.72204520676426
+        },
+        "LOWER": {
+          "duration_s": 1.5999999999998238,
+          "n": 801,
+          "peak_interval_force_n": 1870.3782372359697,
+          "range_n": 948.1332668439071,
+          "sd_n": 205.99344516574445
+        },
+        "PRETENSION": {
+          "duration_s": 0.3980000000000003,
+          "n": 200,
+          "peak_interval_force_n": 1429.8393436262822,
+          "range_n": 694.3405936262019,
+          "sd_n": 209.41674116448667
+        },
+        "PULL": {
+          "duration_s": 0.9999909739190812,
+          "n": 504,
+          "peak_interval_force_n": 3923.817529459612,
+          "range_n": 3923.817529459612,
+          "sd_n": 792.7004110897723
+        },
+        "RESET": {
+          "duration_s": 0.49272618962958337,
+          "n": 248,
+          "peak_interval_force_n": 1472.920505665645,
+          "range_n": 618.5840811674252,
+          "sd_n": 185.26191874045523
+        },
+        "SETUP_HOLD": {
+          "duration_s": 0.3980000000000003,
+          "n": 200,
+          "peak_interval_force_n": 735.4987500000756,
+          "range_n": 7.560174708487466e-11,
+          "sd_n": 1.384442880205711e-11
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 2
+    },
+    "CMJ": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CMJ_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 114.0243150099675,
+      "foot_impacts": 26,
+      "initial_activations": {
+        "left_ankle_extensor": -0.07270122259615386,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.022384494426350036,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.016918980776474603,
+        "right_ankle_extensor": -0.07270122259615386,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.022384494426350036,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.016918980776474603
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8570000000000007,
+        "takeoff_system_vz_m_s": 1.9112748167399893,
+        "touchdown_s": 1.2343344209863079
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 1.9909407455998007e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.7054219147993877e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0019122967499999998
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5308.735901705522,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 1594.4261103351396,
+          "range_n": 1474.9584597963064,
+          "sd_n": 498.8797786405114
+        },
+        "FLIGHT": {
+          "duration_s": 0.3763344209863072,
+          "n": 378,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.34986130531693593,
+          "n": 352,
+          "peak_interval_force_n": 5308.735901705522,
+          "range_n": 5308.735901705522,
+          "sd_n": 872.4374392871407
+        },
+        "PROPULSION": {
+          "duration_s": 0.15600000000000014,
+          "n": 157,
+          "peak_interval_force_n": 2495.1372035664504,
+          "range_n": 2495.1372035664504,
+          "sd_n": 711.8345931514759
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 735.4987500000005,
+          "range_n": 1.2505552149377763e-12,
+          "sd_n": 1.967056085756344e-13
+        },
+        "STAND": {
+          "duration_s": 1.0138042736967565,
+          "n": 1019,
+          "peak_interval_force_n": 1725.2517739983891,
+          "range_n": 1583.4728952272137,
+          "sd_n": 220.52672813322252
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 3
+    },
+    "CMJ_M67.5_S0.9": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CMJ_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 103.85481804255419,
+      "foot_impacts": 34,
+      "initial_activations": {
+        "left_ankle_extensor": -0.07270122259615386,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.022384494426350036,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.016918980776474603,
+        "right_ankle_extensor": -0.07270122259615386,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.022384494426350036,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.016918980776474603
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8577289472546954,
+        "takeoff_system_vz_m_s": 1.9020995070883937,
+        "touchdown_s": 1.2338773174182138
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 1.743671873555286e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.5368515488001222e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0017210670749999999
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 4748.755953672126,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.39972894725469504,
+          "n": 402,
+          "peak_interval_force_n": 1434.8913254869453,
+          "range_n": 1327.3172933749381,
+          "sd_n": 447.7845609502199
+        },
+        "FLIGHT": {
+          "duration_s": 0.37514837016351843,
+          "n": 377,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.34931743667029513,
+          "n": 353,
+          "peak_interval_force_n": 4748.755953672126,
+          "range_n": 4748.755953672126,
+          "sd_n": 796.4491974398912
+        },
+        "PROPULSION": {
+          "duration_s": 0.15600000000000014,
+          "n": 157,
+          "peak_interval_force_n": 2242.6236567554574,
+          "range_n": 2242.6236567554574,
+          "sd_n": 645.8559605698058
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 661.9488750000007,
+          "range_n": 1.2505552149377763e-12,
+          "sd_n": 1.680293341775846e-13
+        },
+        "STAND": {
+          "duration_s": 1.0148052459114913,
+          "n": 1018,
+          "peak_interval_force_n": 1531.7606466532188,
+          "range_n": 1332.7253411181682,
+          "sd_n": 202.83468543875986
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 3
+    },
+    "CMJ_M67.5_S1.0": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CMJ_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 94.91703650815587,
+      "foot_impacts": 28,
+      "initial_activations": {
+        "left_ankle_extensor": -0.06543110033653847,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.02014604498371503,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.015227082698827143,
+        "right_ankle_extensor": -0.06543110033653847,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.02014604498371503,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.015227082698827143
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8497289472546777,
+        "takeoff_system_vz_m_s": 2.02580529947104,
+        "touchdown_s": 1.2506696373004869
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 1.8474111129762605e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.4857809427226698e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0017210670749999999
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5108.857572349468,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.3997289472546774,
+          "n": 402,
+          "peak_interval_force_n": 1434.891325486957,
+          "range_n": 1327.3172933749524,
+          "sd_n": 447.7845609502041
+        },
+        "FLIGHT": {
+          "duration_s": 0.3999406900458091,
+          "n": 401,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.34943042725308615,
+          "n": 352,
+          "peak_interval_force_n": 5108.857572349468,
+          "range_n": 5108.857572349468,
+          "sd_n": 811.7450718697435
+        },
+        "PROPULSION": {
+          "duration_s": 0.14800000000000013,
+          "n": 149,
+          "peak_interval_force_n": 2412.24723999417,
+          "range_n": 2412.24723999417,
+          "sd_n": 694.5437378976578
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 661.9488750000007,
+          "range_n": 1.2505552149377763e-12,
+          "sd_n": 1.752314597279302e-13
+        },
+        "STAND": {
+          "duration_s": 0.9978999354464273,
+          "n": 1000,
+          "peak_interval_force_n": 1502.9968170353573,
+          "range_n": 1288.0642279448452,
+          "sd_n": 206.21458382332474
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 4
+    },
+    "CMJ_M67.5_S1.1": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CMJ_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 72.00894281777907,
+      "foot_impacts": 20,
+      "initial_activations": {
+        "left_ankle_extensor": -0.05948281848776224,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.018314586348831846,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.01384280245347922,
+        "right_ankle_extensor": -0.05948281848776224,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.018314586348831846,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.01384280245347922
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8437289472547074,
+        "takeoff_system_vz_m_s": 2.1306698263815003,
+        "touchdown_s": 1.2661873546504312
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 1.9809931472991593e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.3086235220449716e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0017210670749999999
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5415.558487362635,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.39972894725470703,
+          "n": 402,
+          "peak_interval_force_n": 1434.891325486959,
+          "range_n": 1327.317293374948,
+          "sd_n": 447.784560950215
+        },
+        "FLIGHT": {
+          "duration_s": 0.4214584073957238,
+          "n": 423,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.3490461996195682,
+          "n": 351,
+          "peak_interval_force_n": 5415.558487362635,
+          "range_n": 5415.558487362635,
+          "sd_n": 856.9764847659077
+        },
+        "PROPULSION": {
+          "duration_s": 0.14200000000000013,
+          "n": 143,
+          "peak_interval_force_n": 2575.7414715970735,
+          "range_n": 2575.7414715970735,
+          "sd_n": 748.7010888085151
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 661.9488750000007,
+          "range_n": 1.2505552149377763e-12,
+          "sd_n": 1.7917212339197921e-13
+        },
+        "STAND": {
+          "duration_s": 0.9827664457300009,
+          "n": 985,
+          "peak_interval_force_n": 1388.6414135465484,
+          "range_n": 905.129285750806,
+          "sd_n": 138.45641938974873
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 2
+    },
+    "CMJ_M75.0_S0.9": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CMJ_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 101.10106089235896,
+      "foot_impacts": 16,
+      "initial_activations": {
+        "left_ankle_extensor": -0.08077913621794873,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.024871660473722263,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.018798867529416226,
+        "right_ankle_extensor": -0.08077913621794873,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.024871660473722263,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.018798867529416226
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8660000000000007,
+        "takeoff_system_vz_m_s": 1.7839084607332862,
+        "touchdown_s": 1.2177557879666658
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 1.9333867840032326e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.5258426466768782e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0019122967499999998
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 4775.818237351837,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 1594.4261103351369,
+          "range_n": 1474.9584597963087,
+          "sd_n": 498.8797786405112
+        },
+        "FLIGHT": {
+          "duration_s": 0.3507557879666652,
+          "n": 352,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.3496188791945827,
+          "n": 352,
+          "peak_interval_force_n": 4775.818237351837,
+          "range_n": 4775.818237351837,
+          "sd_n": 820.2919711222943
+        },
+        "PROPULSION": {
+          "duration_s": 0.16500000000000015,
+          "n": 166,
+          "peak_interval_force_n": 2319.290999671011,
+          "range_n": 2319.290999671011,
+          "sd_n": 664.3855115474142
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 735.4987500000007,
+          "range_n": 1.3642420526593924e-12,
+          "sd_n": 2.0259768541445399e-13
+        },
+        "STAND": {
+          "duration_s": 1.0306253328387518,
+          "n": 1034,
+          "peak_interval_force_n": 1627.3956637204083,
+          "range_n": 1558.4374452221937,
+          "sd_n": 170.20155442499347
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 3
+    },
+    "CMJ_M75.0_S1.1": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CMJ_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 109.42658125918707,
+      "foot_impacts": 20,
+      "initial_activations": {
+        "left_ankle_extensor": -0.06609202054195805,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.020349540387590938,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.015380891614976914,
+        "right_ankle_extensor": -0.06609202054195805,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.020349540387590938,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.015380891614976914
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8510000000000006,
+        "takeoff_system_vz_m_s": 2.010778129548461,
+        "touchdown_s": 1.2497494508767364
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 2.0321522242738865e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.6012219328231936e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0019122967499999998
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5733.193546125947,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 1594.4261103351407,
+          "range_n": 1474.9584597962944,
+          "sd_n": 498.8797786405105
+        },
+        "FLIGHT": {
+          "duration_s": 0.39774945087673574,
+          "n": 399,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.3496327488125788,
+          "n": 352,
+          "peak_interval_force_n": 5733.193546125947,
+          "range_n": 5733.193546125947,
+          "sd_n": 910.469934906915
+        },
+        "PROPULSION": {
+          "duration_s": 0.15000000000000013,
+          "n": 151,
+          "peak_interval_force_n": 2665.0199980369935,
+          "range_n": 2665.0199980369935,
+          "sd_n": 773.2815149750456
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 735.4987500000005,
+          "range_n": 1.2505552149377763e-12,
+          "sd_n": 1.8817909621156845e-13
+        },
+        "STAND": {
+          "duration_s": 0.9986178003106851,
+          "n": 1001,
+          "peak_interval_force_n": 1684.8065616145514,
+          "range_n": 1526.2326363455145,
+          "sd_n": 230.9450067802699
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 3
+    },
+    "CMJ_M82.5_S0.9": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CMJ_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 85.9089295692918,
+      "foot_impacts": 8,
+      "initial_activations": {
+        "left_ankle_extensor": -0.08885704983974362,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.027358826521094486,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.02067875428235785,
+        "right_ankle_extensor": -0.08885704983974362,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.027358826521094486,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.02067875428235785
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8750000000000007,
+        "takeoff_system_vz_m_s": 1.6744200784235828,
+        "touchdown_s": 1.2052373988802176
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 1.9518608951329952e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.8914647625933867e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.002103526425
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 4841.90775053672,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 1754.3658144927629,
+          "range_n": 1622.5487455035893,
+          "sd_n": 549.6482594496882
+        },
+        "FLIGHT": {
+          "duration_s": 0.32923739888021697,
+          "n": 331,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.3496987811575927,
+          "n": 352,
+          "peak_interval_force_n": 4841.90775053672,
+          "range_n": 4841.90775053672,
+          "sd_n": 772.496843307269
+        },
+        "PROPULSION": {
+          "duration_s": 0.17400000000000015,
+          "n": 175,
+          "peak_interval_force_n": 2388.415233962533,
+          "range_n": 2388.415233962533,
+          "sd_n": 682.0039747870994
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 809.0486250000007,
+          "range_n": 1.2505552149377763e-12,
+          "sd_n": 1.6680054242736866e-13
+        },
+        "STAND": {
+          "duration_s": 1.04306381996219,
+          "n": 1045,
+          "peak_interval_force_n": 1251.5735335789473,
+          "range_n": 705.7143729769407,
+          "sd_n": 130.6180380840003
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 3
+    },
+    "CMJ_M82.5_S1.0": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CMJ_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 109.81194113785459,
+      "foot_impacts": 16,
+      "initial_activations": {
+        "left_ankle_extensor": -0.07997134485576925,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.024622943868985038,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.018610878854122062,
+        "right_ankle_extensor": -0.07997134485576925,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.024622943868985038,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.018610878854122062
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8650000000000007,
+        "takeoff_system_vz_m_s": 1.8053939101203333,
+        "touchdown_s": 1.220529154475393
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 2.049205249932129e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.6233916988461772e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.002103526425
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5313.76408064004,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 1754.365814492771,
+          "range_n": 1622.5487455035873,
+          "sd_n": 549.6482594496902
+        },
+        "FLIGHT": {
+          "duration_s": 0.35452915447539224,
+          "n": 356,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.3494143135031218,
+          "n": 351,
+          "peak_interval_force_n": 5313.76408064004,
+          "range_n": 5313.76408064004,
+          "sd_n": 914.2634698604287
+        },
+        "PROPULSION": {
+          "duration_s": 0.16400000000000015,
+          "n": 165,
+          "peak_interval_force_n": 2569.8359528928795,
+          "range_n": 2569.8359528928795,
+          "sd_n": 728.4098223557921
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 809.0486250000007,
+          "range_n": 1.2505552149377763e-12,
+          "sd_n": 1.7696683034427938e-13
+        },
+        "STAND": {
+          "duration_s": 1.0280565320214856,
+          "n": 1031,
+          "peak_interval_force_n": 1409.6352443748915,
+          "range_n": 1092.8545323078854,
+          "sd_n": 146.35651869483158
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 2
+    },
+    "CMJ_M82.5_S1.1": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CMJ_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 126.99191140804135,
+      "foot_impacts": 20,
+      "initial_activations": {
+        "left_ankle_extensor": -0.07270122259615386,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.022384494426350033,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.016918980776474603,
+        "right_ankle_extensor": -0.07270122259615386,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.022384494426350033,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.016918980776474603
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8580000000000007,
+        "takeoff_system_vz_m_s": 1.909658388358342,
+        "touchdown_s": 1.2354238606886823
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 2.0250467969162855e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.7430126786344147e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.002103526425
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5852.434517936899,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 1754.3658144927658,
+          "range_n": 1622.5487455035966,
+          "sd_n": 549.64825944969
+        },
+        "FLIGHT": {
+          "duration_s": 0.3764238606886816,
+          "n": 378,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.3496892601703314,
+          "n": 352,
+          "peak_interval_force_n": 5852.434517936899,
+          "range_n": 5852.434517936899,
+          "sd_n": 965.8358645494045
+        },
+        "PROPULSION": {
+          "duration_s": 0.15700000000000014,
+          "n": 158,
+          "peak_interval_force_n": 2745.5331898351715,
+          "range_n": 2745.5331898351715,
+          "sd_n": 786.9808877709368
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 809.0486250000007,
+          "range_n": 1.1368683772161603e-12,
+          "sd_n": 1.7340462545233455e-13
+        },
+        "STAND": {
+          "duration_s": 1.0128868791409866,
+          "n": 1016,
+          "peak_interval_force_n": 1871.9055446397601,
+          "range_n": 1737.9076809910669,
+          "sd_n": 234.9996786289973
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 5
+    },
+    "DEADLIFT": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_DEADLIFT_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 0.019792955190831935,
+      "foot_impacts": 2,
+      "initial_activations": {
+        "elbow_extensor": -0.004809563149696089,
+        "elbow_flexor": 0.0,
+        "left_ankle_extensor": 0.0,
+        "left_ankle_flexor": 0.012826051776099807,
+        "left_hip_extensor": -0.18376129161494895,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.2257246440670449,
+        "left_knee_flexor": 0.0,
+        "right_ankle_extensor": 0.0,
+        "right_ankle_flexor": 0.012826051776099807,
+        "right_hip_extensor": -0.18376129161494895,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.2257246440670449,
+        "right_knee_flexor": 0.0,
+        "shoulder_extensor": -0.014002268649944832,
+        "shoulder_flexor": 0.0
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 5.6211035825981526e-11,
+          "outcome": "PASS",
+          "residual_n_s": 5.1884718743622216e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.009095667875
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 2152.6015758035433,
+      "stage_diagnostics": {
+        "LIFT": {
+          "duration_s": 1.399999999999846,
+          "n": 1401,
+          "peak_interval_force_n": 2152.6015758035433,
+          "range_n": 1046.3530728047094,
+          "sd_n": 292.6640608411657
+        },
+        "LOCKOUT_HOLD": {
+          "duration_s": 0.5999999999999339,
+          "frequency_scope": "unwindowed raw controller-stage diagnostic, not a human frequency estimate",
+          "n": 601,
+          "peak_interval_force_n": 1730.0174960525117,
+          "range_n": 16.18065354279088,
+          "raw_periodogram_peak_hz": 2,
+          "sd_n": 2.8663825905874334
+        },
+        "LOWER": {
+          "duration_s": 1.599000000000136,
+          "n": 1600,
+          "peak_interval_force_n": 2026.3690640706322,
+          "range_n": 580.085432035871,
+          "sd_n": 193.90411155654112
+        },
+        "PRETENSION": {
+          "duration_s": 0.5999999999999892,
+          "n": 601,
+          "peak_interval_force_n": 1752.169872931866,
+          "range_n": 1016.671122931868,
+          "sd_n": 304.19788188471534
+        },
+        "RESET": {
+          "duration_s": 0.5960000000000942,
+          "n": 598,
+          "peak_interval_force_n": 1792.525078543811,
+          "range_n": 924.3735802976088,
+          "sd_n": 276.72589117146003
+        },
+        "SETUP_HOLD": {
+          "duration_s": 0.49900000000000033,
+          "n": 500,
+          "peak_interval_force_n": 735.49875,
+          "range_n": 2.2737367544323206e-12,
+          "sd_n": 4.179978554532196e-13
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 2156.219482421875,
+      "virtual_adc_saturated_samples": 0
+    },
+    "LOADED_CMJ": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_LOADED_CMJ_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 100.92920143603932,
+      "foot_impacts": 18,
+      "initial_activations": {
+        "left_ankle_extensor": -0.09281742772435897,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.029157510791218765,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.020696014894138644,
+        "right_ankle_extensor": -0.09281742772435897,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.029157510791218765,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.020696014894138644
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8843796094307894,
+        "takeoff_system_vz_m_s": 1.7155132067567742,
+        "touchdown_s": 1.2194702727132765
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 2.76685341304983e-11,
+          "outcome": "PASS",
+          "residual_n_s": 2.03961708633571e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0024222425499999998
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5127.25922313989,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.39937960943078904,
+          "n": 401,
+          "peak_interval_force_n": 2090.1490703826494,
+          "range_n": 1968.3661221875182,
+          "sd_n": 672.1500491885865
+        },
+        "FLIGHT": {
+          "duration_s": 0.33409066328248704,
+          "n": 336,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.34922752504154686,
+          "n": 351,
+          "peak_interval_force_n": 5127.25922313989,
+          "range_n": 5114.695131509259,
+          "sd_n": 908.6590815134064
+        },
+        "PROPULSION": {
+          "duration_s": 0.18300000000000016,
+          "n": 184,
+          "peak_interval_force_n": 2677.6214792549035,
+          "range_n": 2677.6214792549035,
+          "sd_n": 750.6732145149298
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 931.6317500000002,
+          "range_n": 5.684341886080801e-13,
+          "sd_n": 1.0223109735895007e-13
+        },
+        "STAND": {
+          "duration_s": 1.029302202245177,
+          "n": 1032,
+          "peak_interval_force_n": 1753.8706207299847,
+          "range_n": 1293.9804321653428,
+          "sd_n": 167.9231291072823
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 2
+    },
+    "LOADED_JUMP_SQUAT": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "ordinary_hand_stabilized_jump_squat": {
+            "code": "HAND_STABILIZATION_NOT_IMPLEMENTED",
+            "first_bar_open_state_s": 0.8190000000000006,
+            "open_intervals": 363,
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "supported_context": "separable shoulder-shelf contact research fixture",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_LOADED_JUMP_SQUAT_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 29.309766234020174,
+      "foot_impacts": 18,
+      "initial_activations": {
+        "left_ankle_extensor": -0.10287553028846158,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.03254401897365316,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.022584531952970718,
+        "right_ankle_extensor": -0.10287553028846158,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.03254401897365316,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.022584531952970718
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8420000000000006,
+        "takeoff_system_vz_m_s": 1.4069124371859347,
+        "touchdown_s": 1.0964177958980945
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 1.3741896509600338e-11,
+          "outcome": "PASS",
+          "residual_n_s": 3.4784111355157243e-12,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0026772154499999997
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5347.860953122795,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 1812.0365475092,
+          "range_n": 1337.3510481984258,
+          "sd_n": 448.22811733365097
+        },
+        "FLIGHT": {
+          "duration_s": 0.2534177958980939,
+          "n": 255,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.34900527778567336,
+          "n": 352,
+          "peak_interval_force_n": 5347.860953122795,
+          "range_n": 5347.860953122795,
+          "sd_n": 1300.1024846391958
+        },
+        "PROPULSION": {
+          "duration_s": 0.14100000000000013,
+          "n": 142,
+          "peak_interval_force_n": 3086.837958889996,
+          "range_n": 3086.837958889996,
+          "sd_n": 926.648009951197
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 1029.6982500000008,
+          "range_n": 1.5916157281026244e-12,
+          "sd_n": 2.657441821860524e-13
+        },
+        "STAND": {
+          "duration_s": 1.1525769263162324,
+          "n": 1154,
+          "peak_interval_force_n": 1422.4258606007002,
+          "range_n": 988.9939848644697,
+          "sd_n": 155.48702894872972
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 1
+    },
+    "LOADED_JUMP_SQUAT_DT0.0005": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "ordinary_hand_stabilized_jump_squat": {
+            "code": "HAND_STABILIZATION_NOT_IMPLEMENTED",
+            "first_bar_open_state_s": 0.8189999999999652,
+            "open_intervals": 733,
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "supported_context": "separable shoulder-shelf contact research fixture",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_LOADED_JUMP_SQUAT_STAGED_PD_V1",
+      "dt_s": 0.0005,
+      "foot_impact_impulse_z_n_s": 28.54035065221177,
+      "foot_impacts": 18,
+      "initial_activations": {
+        "left_ankle_extensor": -0.10287553028846158,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.03254401897365316,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.022584531952970718,
+        "right_ankle_extensor": -0.10287553028846158,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.03254401897365316,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.022584531952970718
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8419999999999627,
+        "takeoff_system_vz_m_s": 1.4123758981197727,
+        "touchdown_s": 1.0975245508421505
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 2.4783730623312294e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.9293872055570205e-12,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0026772154499999997
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5318.969347349017,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.39999999999997804,
+          "n": 801,
+          "peak_interval_force_n": 1811.3938309200348,
+          "range_n": 1336.7510510482186,
+          "sd_n": 448.0527315180888
+        },
+        "FLIGHT": {
+          "duration_s": 0.2550245508421879,
+          "n": 512,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.3498187690556702,
+          "n": 704,
+          "peak_interval_force_n": 5318.969347349017,
+          "range_n": 5318.969347349017,
+          "sd_n": 1293.8404045138548
+        },
+        "PROPULSION": {
+          "duration_s": 0.14099999999998447,
+          "n": 283,
+          "peak_interval_force_n": 3079.358179840655,
+          "range_n": 3079.358179840655,
+          "sd_n": 917.2334787497473
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2995000000000002,
+          "n": 600,
+          "peak_interval_force_n": 1029.6982500000008,
+          "range_n": 1.3642420526593924e-12,
+          "sd_n": 2.0195197361430212e-13
+        },
+        "STAND": {
+          "duration_s": 1.1516566801021795,
+          "n": 2305,
+          "peak_interval_force_n": 1389.7810966290224,
+          "range_n": 869.263334953547,
+          "sd_n": 154.64016279155098
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 1
+    },
+    "LOADED_JUMP_SQUAT_DT0.002": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "ordinary_hand_stabilized_jump_squat": {
+            "code": "HAND_STABILIZATION_NOT_IMPLEMENTED",
+            "first_bar_open_state_s": 0.8200000000000006,
+            "open_intervals": 177,
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "supported_context": "separable shoulder-shelf contact research fixture",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_LOADED_JUMP_SQUAT_STAGED_PD_V1",
+      "dt_s": 0.002,
+      "foot_impact_impulse_z_n_s": 29.433171507022333,
+      "foot_impacts": 18,
+      "initial_activations": {
+        "left_ankle_extensor": -0.10287553028846158,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.03254401897365316,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.0,
+        "left_knee_flexor": -0.022584531952970718,
+        "right_ankle_extensor": -0.10287553028846158,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.03254401897365316,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.0,
+        "right_knee_flexor": -0.022584531952970718
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.8420000000000006,
+        "takeoff_system_vz_m_s": 1.405124573313387,
+        "touchdown_s": 1.0952073774999684
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 7.531752999057062e-13,
+          "outcome": "PASS",
+          "residual_n_s": 1.3200551762793111e-13,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0026772154499999997
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5447.606690215912,
+      "stage_diagnostics": {
+        "COUNTERMOVEMENT": {
+          "duration_s": 0.3980000000000003,
+          "n": 200,
+          "peak_interval_force_n": 1813.550711117502,
+          "range_n": 1334.6575232506068,
+          "sd_n": 448.4661061863082
+        },
+        "FLIGHT": {
+          "duration_s": 0.2512073774999678,
+          "n": 127,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.3492571424366899,
+          "n": 177,
+          "peak_interval_force_n": 5447.606690215912,
+          "range_n": 5447.606690215912,
+          "sd_n": 1286.2512467866636
+        },
+        "PROPULSION": {
+          "duration_s": 0.14000000000000012,
+          "n": 71,
+          "peak_interval_force_n": 3098.238517467049,
+          "range_n": 3098.238517467049,
+          "sd_n": 933.3395727366524
+        },
+        "QUIET_STANCE": {
+          "duration_s": 0.2980000000000002,
+          "n": 150,
+          "peak_interval_force_n": 1029.6982500000013,
+          "range_n": 3.183231456205249e-12,
+          "sd_n": 5.853124268562722e-13
+        },
+        "STAND": {
+          "duration_s": 1.1515354800633417,
+          "n": 577,
+          "peak_interval_force_n": 1450.9148682923974,
+          "range_n": 1020.2666674036516,
+          "sd_n": 158.87345358629048
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 1
+    },
+    "POWER_CLEAN_PULL_ONLY": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_CLEAN_PULL_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 2.448816367266706,
+      "foot_impacts": 6,
+      "initial_activations": {
+        "elbow_extensor": -0.004736495078422524,
+        "elbow_flexor": 0.0,
+        "left_ankle_extensor": 0.0,
+        "left_ankle_flexor": 0.017516999388763332,
+        "left_hip_extensor": -0.18393130316792417,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.22676707686985897,
+        "left_knee_flexor": 0.0,
+        "right_ankle_extensor": 0.0,
+        "right_ankle_flexor": 0.017516999388763332,
+        "right_hip_extensor": -0.18393130316792417,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.22676707686985897,
+        "right_knee_flexor": 0.0,
+        "shoulder_extensor": -0.013789542726225457,
+        "shoulder_flexor": 0.0
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 2.0335733097454067e-11,
+          "outcome": "PASS",
+          "residual_n_s": 8.929301742455209e-12,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.005692760325
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 1974.74262756784,
+      "stage_diagnostics": {
+        "FINISH": {
+          "duration_s": 0.39999999999995595,
+          "n": 401,
+          "peak_interval_force_n": 1380.956000371751,
+          "range_n": 109.24607428503668,
+          "sd_n": 11.893574199506205
+        },
+        "LOWER": {
+          "duration_s": 1.5999999999998238,
+          "n": 1601,
+          "peak_interval_force_n": 1555.5533030076817,
+          "range_n": 432.68542880267387,
+          "sd_n": 142.92217540850928
+        },
+        "PRETENSION": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 1332.6896015562102,
+          "range_n": 597.1908515562069,
+          "sd_n": 179.5583920256295
+        },
+        "PULL": {
+          "duration_s": 0.9998502434290852,
+          "n": 1001,
+          "peak_interval_force_n": 1974.74262756784,
+          "range_n": 1532.3031462841705,
+          "sd_n": 457.86891449014723
+        },
+        "RESET": {
+          "duration_s": 0.49614975657113547,
+          "n": 499,
+          "peak_interval_force_n": 1370.33844041321,
+          "range_n": 542.1360096078191,
+          "sd_n": 161.79551881017795
+        },
+        "SETUP_HOLD": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 735.4987500000036,
+          "range_n": 3.637978807091713e-12,
+          "sd_n": 4.996978667672091e-13
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 2735.137939453125,
+      "virtual_adc_saturated_samples": 0
+    },
+    "SJ": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_SJ_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 89.6218721093282,
+      "foot_impacts": 24,
+      "initial_activations": {
+        "left_ankle_extensor": -0.07270122259615382,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.0959754237935576,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.2193551359340789,
+        "left_knee_flexor": 0.0,
+        "right_ankle_extensor": -0.07270122259615382,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.0959754237935576,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.2193551359340789,
+        "right_knee_flexor": 0.0
+      },
+      "jump": {
+        "refusals": [],
+        "takeoff_s": 0.45700000000000035,
+        "takeoff_system_vz_m_s": 1.886924197907734,
+        "touchdown_s": 0.828328985653516
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 4.490630090003833e-12,
+          "outcome": "PASS",
+          "residual_n_s": 1.2154513506779097e-13,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.0019122967499999998
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5166.297715241478,
+      "stage_diagnostics": {
+        "FLIGHT": {
+          "duration_s": 0.37032898565351563,
+          "n": 372,
+          "peak_interval_force_n": 0,
+          "range_n": 0,
+          "sd_n": 0.0
+        },
+        "LANDING": {
+          "duration_s": 0.3491911019088856,
+          "n": 351,
+          "peak_interval_force_n": 5166.297715241478,
+          "range_n": 5166.297715241478,
+          "sd_n": 840.4565072753792
+        },
+        "PROPULSION": {
+          "duration_s": 0.15600000000000014,
+          "n": 157,
+          "peak_interval_force_n": 2556.081116194282,
+          "range_n": 2556.081116194282,
+          "sd_n": 733.2343983294004
+        },
+        "STAND": {
+          "duration_s": 1.4204799124375986,
+          "n": 1425,
+          "peak_interval_force_n": 1731.5459585488736,
+          "range_n": 1382.4684866624686,
+          "sd_n": 176.78721411879403
+        },
+        "STATIC_SQUAT_HOLD": {
+          "duration_s": 0.2990000000000002,
+          "n": 300,
+          "peak_interval_force_n": 735.4987500000004,
+          "range_n": 7.958078640513122e-13,
+          "sd_n": 1.516032914496728e-13
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 2
+    },
+    "SNATCH_PULL": {
+      "context": {
+        "findings": {
+          "biological_validation": {
+            "code": "NO_EMPIRICAL_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "physiological_peak_force_rfd": {
+            "code": "RIGID_CONTACT_AND_UNCALIBRATED_CONTROL_SENSOR_STAGES",
+            "outcome": "NOT_EVALUABLE"
+          },
+          "real_paired_force_lpt": {
+            "code": "NO_ADMITTED_REAL_PAIRED_REFERENCE",
+            "outcome": "NOT_EVALUABLE"
+          }
+        },
+        "scope": "declared modeled topology only; not empirical qualification",
+        "termination": "DURATION_REACHED"
+      },
+      "controller_id": "I2_SNATCH_PULL_STAGED_PD_V1",
+      "dt_s": 0.001,
+      "foot_impact_impulse_z_n_s": 52.00227176988612,
+      "foot_impacts": 12,
+      "initial_activations": {
+        "elbow_extensor": -0.0041652038687423135,
+        "elbow_flexor": 0.0,
+        "left_ankle_extensor": -0.05386795453840598,
+        "left_ankle_flexor": 0.0,
+        "left_hip_extensor": -0.14124828020831884,
+        "left_hip_flexor": 0.0,
+        "left_knee_extensor": 0.2741828602330826,
+        "left_knee_flexor": 0.0,
+        "right_ankle_extensor": -0.05386795453840598,
+        "right_ankle_flexor": 0.0,
+        "right_hip_extensor": -0.14124828020831884,
+        "right_hip_flexor": 0.0,
+        "right_knee_extensor": 0.2741828602330826,
+        "right_knee_flexor": 0.0,
+        "shoulder_extensor": -0.012126320361466663,
+        "shoulder_flexor": 0.0
+      },
+      "model_task_completed": true,
+      "numerical_findings": {
+        "ANATOMICAL_PHASES": {
+          "code": "MOTION_CAPTURE_REQUIRED",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "BILATERAL_FORCE": {
+          "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE",
+          "outcome": "NOT_EVALUABLE"
+        },
+        "CONTACT_ADMISSIBILITY": {
+          "code": "ADMISSIBLE",
+          "cone_violations": 0,
+          "impulse_cone_violations": 0,
+          "outcome": "PASS",
+          "tensile_impulses": 0,
+          "tensile_intervals": 0
+        },
+        "LINEAR_MOMENTUM_CLOSURE": {
+          "code": "MOMENTUM_CLOSED",
+          "max_prefix_residual_n_s": 3.142019977531163e-11,
+          "outcome": "PASS",
+          "residual_n_s": 1.429761864457646e-11,
+          "scope": "recorded interval-end prefix balances; not between-sample or biological validity",
+          "tolerance_n_s": 0.006114446275000001
+        }
+      },
+      "numerical_status": "EVALUATED",
+      "peak_interval_foot_force_n": 5861.595040083158,
+      "stage_diagnostics": {
+        "FINISH": {
+          "duration_s": 0.39909530654022407,
+          "n": 401,
+          "peak_interval_force_n": 2060.251259283326,
+          "range_n": 1039.2896275621717,
+          "sd_n": 157.01677597154
+        },
+        "LOWER": {
+          "duration_s": 1.5999999999998238,
+          "n": 1601,
+          "peak_interval_force_n": 1738.314104180439,
+          "range_n": 572.2991709401499,
+          "sd_n": 184.9259495222704
+        },
+        "PRETENSION": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 1412.9767836566793,
+          "range_n": 677.4780336566793,
+          "sd_n": 202.57274164189738
+        },
+        "PULL": {
+          "duration_s": 0.9995136082412761,
+          "n": 1003,
+          "peak_interval_force_n": 5861.595040083158,
+          "range_n": 5861.595040083158,
+          "sd_n": 840.9095065986518
+        },
+        "RESET": {
+          "duration_s": 0.4973910852186765,
+          "n": 499,
+          "peak_interval_force_n": 1464.4911064742414,
+          "range_n": 650.5504778184643,
+          "sd_n": 192.51636343400912
+        },
+        "SETUP_HOLD": {
+          "duration_s": 0.3990000000000003,
+          "n": 400,
+          "peak_interval_force_n": 735.4987500000003,
+          "range_n": 4.547473508864641e-13,
+          "sd_n": 7.866398057710758e-14
+        }
+      },
+      "termination": "DURATION_REACHED",
+      "virtual_adc_peak_fz_total_n": 10000.0,
+      "virtual_adc_saturated_samples": 2
+    }
+  },
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "grid": [
+    {
+      "capacity_scale": 0.9,
+      "case": "CMJ_M67.5_S0.9",
+      "completed": true,
+      "mass_kg": 67.5
+    },
+    {
+      "capacity_scale": 1.0,
+      "case": "CMJ_M67.5_S1.0",
+      "completed": true,
+      "mass_kg": 67.5
+    },
+    {
+      "capacity_scale": 1.1,
+      "case": "CMJ_M67.5_S1.1",
+      "completed": true,
+      "mass_kg": 67.5
+    },
+    {
+      "capacity_scale": 0.9,
+      "case": "CMJ_M75.0_S0.9",
+      "completed": true,
+      "mass_kg": 75.0
+    },
+    {
+      "capacity_scale": 1.0,
+      "case": "CMJ",
+      "completed": true,
+      "mass_kg": 75.0
+    },
+    {
+      "capacity_scale": 1.1,
+      "case": "CMJ_M75.0_S1.1",
+      "completed": true,
+      "mass_kg": 75.0
+    },
+    {
+      "capacity_scale": 0.9,
+      "case": "CMJ_M82.5_S0.9",
+      "completed": true,
+      "mass_kg": 82.5
+    },
+    {
+      "capacity_scale": 1.0,
+      "case": "CMJ_M82.5_S1.0",
+      "completed": true,
+      "mass_kg": 82.5
+    },
+    {
+      "capacity_scale": 1.1,
+      "case": "CMJ_M82.5_S1.1",
+      "completed": true,
+      "mass_kg": 82.5
+    }
+  ],
+  "grid_completed": {
+    "completed": 9,
+    "interpretation": "curated deterministic model grid, not a human population feasibility rate",
+    "n": 9
+  },
+  "grid_definition": {
+    "capacity_scale": [
+      0.9,
+      1.0,
+      1.1
+    ],
+    "mass_kg": [
+      67.5,
+      75.0,
+      82.5
+    ],
+    "retuning": false
+  },
+  "issue": "RES-507"
+}

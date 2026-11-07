@@ -1,4 +1,4 @@
-"""Benchmark-authored analytic positive controls and mutation negatives (RES-485).
+"""Benchmark-authored analytic positive controls and mutation negatives (RES-489).
 
 The positive controls below are written from closed-form mechanics inside the
 benchmark package. They share no code, parameters or model family with the
@@ -72,6 +72,36 @@ def tumbling_ballistic_control(duration_s: float = 0.5, dt: float = 0.001) -> di
         })
     return {"gravity_m_s2": G, "bodies": [{"name": "rigid", "mass_kg": m, "inertia_kg_m2": inertia}],
             "frames": frames, "declared_impulsive_events": []}
+
+
+def two_body_free_fall_control(duration_s: float = 0.4, dt: float = 0.001) -> dict:
+    """Unseen two-body family with closed-form free flight and independent motion.
+
+    Distinct masses, horizontal velocities, elevations and spins make the
+    aggregate checks exercise multi-body COM and angular-momentum arithmetic
+    without using generator topology or parameters.
+    """
+    bodies = [
+        {"name": "falling_left", "mass_kg": 2.0, "inertia_kg_m2": 0.04},
+        {"name": "falling_right", "mass_kg": 3.5, "inertia_kg_m2": 0.09},
+    ]
+    initial = [(-0.25, 1.35, 0.32, 0.40, 0.2, 1.1),
+               (0.18, 1.10, -0.17, -0.05, -0.3, -0.7)]
+    frames = []
+    n = int(round(duration_s / dt))
+    for k in range(n + 1):
+        t = k * dt
+        states = []
+        for x0, z0, vx, vz0, theta0, omega in initial:
+            states.append([x0 + vx * t, z0 + vz0 * t - 0.5 * G * t * t,
+                           theta0 + omega * t, vx, vz0 - G * t, omega])
+        frames.append({
+            "t": t, "body_states": states, "contacts": [],
+            "joint_power_w": 0.0, "internal_dissipation_power_w": 0.0,
+            "internal_elastic_energy_j": 0.0,
+        })
+    return {"gravity_m_s2": G, "bodies": bodies, "frames": frames,
+            "declared_impulsive_events": []}
 
 
 # Mutations (each returns a modified deep copy) ---------------------------------

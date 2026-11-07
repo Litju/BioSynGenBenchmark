@@ -1,0 +1,135 @@
+{
+  "cases": {
+    "CLEAN_PULL": {
+      "analysis": {
+        "bar_peak_height_m": 0.574878,
+        "bar_return_s": 4.021183,
+        "first_pull_end_s": 1.203,
+        "flight_segments_s": [
+          [
+            1.313999999999966,
+            1.399617708980508
+          ],
+          [
+            1.4786365032186672,
+            1.5633102639186964
+          ]
+        ],
+        "heel_release_s": 1.305,
+        "lift_off_s": 0.794,
+        "peak_bar_velocity_m_s": 1.591612,
+        "refusals": [],
+        "second_pull_end_s": 1.271,
+        "transition_s": null
+      },
+      "lpt_samples": 2150,
+      "plate_samples": 4301,
+      "protocol": {
+        "ankle_effort": 1.0,
+        "bar_over_ankle_x_m": 0.05,
+        "extension": {
+          "ankle": 0.05,
+          "elbow": 0.0,
+          "hip": 0.02,
+          "knee": -0.05,
+          "shoulder": 0.0
+        },
+        "finish_hold_s": 0.4,
+        "leg_effort": 1.0,
+        "load_mass_kg": 70.0,
+        "lower_s": 1.6,
+        "pretension_s": 0.4,
+        "pull_s": 1.0,
+        "reset_s": 0.5,
+        "setup_ankle": null,
+        "setup_arm_angle_rad": -0.1,
+        "setup_hold_s": 0.4,
+        "variant": "CLEAN_PULL"
+      },
+      "setup_posture": {
+        "ankle": 0.45,
+        "elbow": 0.0,
+        "hip": 2.231827,
+        "knee": -1.907471,
+        "shoulder": 0.674356
+      },
+      "termination": "DURATION_REACHED",
+      "variant": {
+        "grip_abduction_rad": 0.174533,
+        "protocol_id": "OLYMPIC_PULL_DERIVATIVE_DUAL_V1",
+        "variant_id": "CLEAN_PULL_DUAL_V1"
+      }
+    },
+    "SNATCH_PULL": {
+      "analysis": {
+        "bar_peak_height_m": 0.660197,
+        "bar_return_s": 3.9892,
+        "first_pull_end_s": 1.156,
+        "flight_segments_s": [
+          [
+            1.4019999999999564,
+            1.5640318117868128
+          ],
+          [
+            1.5700318117868122,
+            1.5714191843126086
+          ],
+          [
+            3.9891996201908886,
+            3.9901996201908885
+          ]
+        ],
+        "heel_release_s": 1.402,
+        "lift_off_s": 0.812,
+        "peak_bar_velocity_m_s": 1.605024,
+        "refusals": [],
+        "second_pull_end_s": 1.25,
+        "transition_s": null
+      },
+      "lpt_samples": 2150,
+      "plate_samples": 4301,
+      "protocol": {
+        "ankle_effort": 1.0,
+        "bar_over_ankle_x_m": 0.05,
+        "extension": {
+          "ankle": 0.05,
+          "elbow": 0.0,
+          "hip": 0.02,
+          "knee": -0.05,
+          "shoulder": 0.0
+        },
+        "finish_hold_s": 0.4,
+        "leg_effort": 1.0,
+        "load_mass_kg": 70.0,
+        "lower_s": 1.6,
+        "pretension_s": 0.4,
+        "pull_s": 1.0,
+        "reset_s": 0.5,
+        "setup_ankle": null,
+        "setup_arm_angle_rad": -0.1,
+        "setup_hold_s": 0.4,
+        "variant": "SNATCH_PULL"
+      },
+      "setup_posture": {
+        "ankle": 0.65,
+        "elbow": 0.0,
+        "hip": 2.252857,
+        "knee": -2.334321,
+        "shoulder": 0.468536
+      },
+      "termination": "DURATION_REACHED",
+      "variant": {
+        "grip_abduction_rad": 0.523599,
+        "protocol_id": "OLYMPIC_PULL_DERIVATIVE_DUAL_V1",
+        "variant_id": "SNATCH_PULL_DUAL_V1"
+      }
+    }
+  },
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "issue": "RES-496"
+}

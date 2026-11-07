@@ -1,0 +1,16 @@
+FROZEN_SOURCE 3322d89499050eea0004f9e8882666e2a40d5a9a biosyngen/multibody.py
+test_capture_endpoint_quadrature_is_not_exact_continuous_friction_work (tests.test_i3_step_work_scope.StepWorkScopeTests.test_capture_endpoint_quadrature_is_not_exact_continuous_friction_work) ... ERROR
+
+======================================================================
+ERROR: test_capture_endpoint_quadrature_is_not_exact_continuous_friction_work (tests.test_i3_step_work_scope.StepWorkScopeTests.test_capture_endpoint_quadrature_is_not_exact_continuous_friction_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i3_step_work_scope.py", line 19, in test_capture_endpoint_quadrature_is_not_exact_continuous_friction_work
+    self.assertEqual(result.contact_work_estimate_j,0.0)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StepResult' object has no attribute 'contact_work_estimate_j'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (errors=1)

@@ -1,0 +1,122 @@
+{
+  "metrics": {
+    "capture_normal_impulse_n_s": {
+      "certified_triangle_bound_exact": {
+        "denominator": 21990232555520000000,
+        "numerator": 2261
+      },
+      "cross_platform_difference_exact": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "regression_budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      }
+    },
+    "capture_tangent_impulse_n_s": {
+      "certified_triangle_bound_exact": {
+        "denominator": 18014398509481984000,
+        "numerator": 111
+      },
+      "cross_platform_difference_exact": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "regression_budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      }
+    },
+    "capture_velocity_m_s": {
+      "certified_triangle_bound_exact": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "cross_platform_difference_exact": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "regression_budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      }
+    },
+    "impact_impulse_n_s": {
+      "certified_triangle_bound_exact": {
+        "denominator": 70368744177664000,
+        "numerator": 9
+      },
+      "cross_platform_difference_exact": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "regression_budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      }
+    },
+    "impact_velocity_m_s": {
+      "certified_triangle_bound_exact": {
+        "denominator": 7036874417766400,
+        "numerator": 3
+      },
+      "cross_platform_difference_exact": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "regression_budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      }
+    },
+    "impact_work_j": {
+      "certified_triangle_bound_exact": {
+        "denominator": 1759218604441600000,
+        "numerator": 87
+      },
+      "cross_platform_difference_exact": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "regression_budget": {
+        "denominator": 1000000000000,
+        "numerator": 1
+      }
+    },
+    "support_left_n": {
+      "certified_triangle_bound_exact": {
+        "denominator": 219902325555200000,
+        "numerator": 2929
+      },
+      "cross_platform_difference_exact": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "regression_budget": {
+        "denominator": 10000000000,
+        "numerator": 1
+      }
+    },
+    "support_right_n": {
+      "certified_triangle_bound_exact": {
+        "denominator": 109951162777600000,
+        "numerator": 3223
+      },
+      "cross_platform_difference_exact": {
+        "denominator": 1,
+        "numerator": 0
+      },
+      "regression_budget": {
+        "denominator": 10000000000,
+        "numerator": 1
+      }
+    }
+  },
+  "passed": true,
+  "scope": "specified exact-rational fixtures only",
+  "sources": [
+    "runs/i3/ci/platforms/i3-numeric-ubuntu-latest/numeric-probe.json",
+    "runs/i3/ci/platforms/i3-numeric-windows-latest/numeric-probe.json"
+  ]
+}

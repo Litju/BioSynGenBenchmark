@@ -1,0 +1,6 @@
+test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator (tests.test_i3_work_reporting.WorkReportingTests.test_work_names_identify_the_actual_com_pseudo_work_and_vertical_estimator) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK

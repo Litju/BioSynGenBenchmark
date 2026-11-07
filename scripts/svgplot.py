@@ -79,7 +79,7 @@ class Panel:
                     segments.append(pts)
                 pts = []
                 continue
-            pts.append(f"{_f(self.px(x))},{_f(self.py(min(max(y, self.yr[0]), self.yr[1])))}")
+            pts.append(f"{_f(self.px(x))},{_f(self.py(y))}")
         if pts:
             segments.append(pts)
         d = f' stroke-dasharray="{dash}"' if dash else ""
@@ -97,7 +97,7 @@ class Panel:
                 continue
             fill = "none" if hollow else color
             self.items.append(
-                f'<circle cx="{_f(self.px(x))}" cy="{_f(self.py(min(max(y, self.yr[0]), self.yr[1])))}" r="{r}" '
+                f'<circle cx="{_f(self.px(x))}" cy="{_f(self.py(y))}" r="{r}" '
                 f'fill="{fill}" stroke="{color}" stroke-width="0.8"/>'
             )
         if label:

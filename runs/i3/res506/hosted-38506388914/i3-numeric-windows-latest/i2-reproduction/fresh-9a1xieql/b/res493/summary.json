@@ -1,0 +1,254 @@
+{
+  "cases": {
+    "SET_60KG_3REPS": {
+      "bar_contact_vertical_work_estimate_j": 0.502,
+      "joint_work_j": -1.726,
+      "lpt_samples": 4750,
+      "lpt_span_m": 0.3772,
+      "plate_samples": 9501,
+      "protocol": {
+        "ascent_effort": 1.0,
+        "ascent_time_s": 1.0,
+        "balance_com_x_m": 0.04,
+        "bar_friction": 0.8,
+        "bottom_ankle_knee": [
+          0.6,
+          -1.75
+        ],
+        "bottom_pause_s": 0.0,
+        "descent_time_s": 1.2,
+        "load_mass_kg": 60.0,
+        "lockout_hold_s": 0.8,
+        "repetitions": 3,
+        "safety_pin_height_m": null,
+        "stance_ankle_knee": [
+          0.08,
+          -0.12
+        ],
+        "start_hold_s": 0.5
+      },
+      "refusals": [],
+      "reps": [
+        {
+          "ascent_onset_s": 1.788,
+          "bar_displacement_m": 0.377473,
+          "bar_slip_m": 1.67e-07,
+          "bottom_reversal_s": 1.68,
+          "descent_onset_s": 0.665,
+          "index": 1,
+          "mean_ascent_velocity_m_s": 0.483783,
+          "peak_ascent_velocity_m_s": 0.952872,
+          "peak_descent_velocity_m_s": -0.718017,
+          "refusals": [],
+          "rep_end_s": 2.561,
+          "sticking_region_s": null
+        },
+        {
+          "ascent_onset_s": 4.789,
+          "bar_displacement_m": 0.377473,
+          "bar_slip_m": 1.67e-07,
+          "bottom_reversal_s": 4.683,
+          "descent_onset_s": 3.668,
+          "index": 2,
+          "mean_ascent_velocity_m_s": 0.483253,
+          "peak_ascent_velocity_m_s": 0.952916,
+          "peak_descent_velocity_m_s": -0.718019,
+          "refusals": [],
+          "rep_end_s": 5.563,
+          "sticking_region_s": null
+        },
+        {
+          "ascent_onset_s": 7.789,
+          "bar_displacement_m": 0.377473,
+          "bar_slip_m": 1.67e-07,
+          "bottom_reversal_s": 7.683,
+          "descent_onset_s": 6.668,
+          "index": 3,
+          "mean_ascent_velocity_m_s": 0.483253,
+          "peak_ascent_velocity_m_s": 0.952916,
+          "peak_descent_velocity_m_s": -0.71802,
+          "refusals": [],
+          "rep_end_s": 8.563,
+          "sticking_region_s": null
+        }
+      ],
+      "system_com_pseudo_work_j": 0.976,
+      "system_weight_n": 1323.89775,
+      "termination": "DURATION_REACHED",
+      "work_definitions": {
+        "bar_contact_vertical_work_estimate_j": "vertical shoulder-force times bar-COM vertical velocity, end-step quadrature; excludes horizontal/rotational and impact work",
+        "joint_work_j": "sum of modeled active/passive joint torque-times-rate, left-step quadrature; not metabolic work",
+        "system_com_pseudo_work_j": "foot force times system-COM vertical velocity, end-step quadrature; pseudo-work, not work of stationary foot contact"
+      }
+    },
+    "SINGLE_160KG": {
+      "bar_contact_vertical_work_estimate_j": 2.14,
+      "joint_work_j": 0.397,
+      "lpt_samples": 1750,
+      "lpt_span_m": 0.3808,
+      "plate_samples": 3501,
+      "protocol": {
+        "ascent_effort": 1.0,
+        "ascent_time_s": 1.0,
+        "balance_com_x_m": 0.04,
+        "bar_friction": 0.8,
+        "bottom_ankle_knee": [
+          0.6,
+          -1.75
+        ],
+        "bottom_pause_s": 0.0,
+        "descent_time_s": 1.2,
+        "load_mass_kg": 160.0,
+        "lockout_hold_s": 0.8,
+        "repetitions": 1,
+        "safety_pin_height_m": null,
+        "stance_ankle_knee": [
+          0.08,
+          -0.12
+        ],
+        "start_hold_s": 0.5
+      },
+      "refusals": [],
+      "reps": [
+        {
+          "ascent_onset_s": 1.796,
+          "bar_displacement_m": 0.377772,
+          "bar_slip_m": 0.000185856,
+          "bottom_reversal_s": 1.686,
+          "descent_onset_s": 0.661,
+          "index": 1,
+          "mean_ascent_velocity_m_s": 0.346232,
+          "peak_ascent_velocity_m_s": 0.691665,
+          "peak_descent_velocity_m_s": -0.708686,
+          "refusals": [],
+          "rep_end_s": 2.887088,
+          "sticking_region_s": [
+            2.147,
+            2.548
+          ]
+        }
+      ],
+      "system_com_pseudo_work_j": 3.25,
+      "system_weight_n": 2304.56275,
+      "termination": "DURATION_REACHED",
+      "work_definitions": {
+        "bar_contact_vertical_work_estimate_j": "vertical shoulder-force times bar-COM vertical velocity, end-step quadrature; excludes horizontal/rotational and impact work",
+        "joint_work_j": "sum of modeled active/passive joint torque-times-rate, left-step quadrature; not metabolic work",
+        "system_com_pseudo_work_j": "foot force times system-COM vertical velocity, end-step quadrature; pseudo-work, not work of stationary foot contact"
+      }
+    },
+    "SINGLE_60KG_PARTIAL_DEPTH": {
+      "bar_contact_vertical_work_estimate_j": -0.012,
+      "joint_work_j": -0.121,
+      "lpt_samples": 1750,
+      "lpt_span_m": 0.1413,
+      "plate_samples": 3501,
+      "protocol": {
+        "ascent_effort": 1.0,
+        "ascent_time_s": 1.0,
+        "balance_com_x_m": 0.04,
+        "bar_friction": 0.8,
+        "bottom_ankle_knee": [
+          0.35,
+          -1.0
+        ],
+        "bottom_pause_s": 0.0,
+        "descent_time_s": 1.2,
+        "load_mass_kg": 60.0,
+        "lockout_hold_s": 0.8,
+        "repetitions": 1,
+        "safety_pin_height_m": null,
+        "stance_ankle_knee": [
+          0.08,
+          -0.12
+        ],
+        "start_hold_s": 0.5
+      },
+      "refusals": [],
+      "reps": [
+        {
+          "ascent_onset_s": 1.804,
+          "bar_displacement_m": 0.141543,
+          "bar_slip_m": 7.1e-08,
+          "bottom_reversal_s": 1.69,
+          "descent_onset_s": 0.727,
+          "index": 1,
+          "mean_ascent_velocity_m_s": 0.192317,
+          "peak_ascent_velocity_m_s": 0.331648,
+          "peak_descent_velocity_m_s": -0.265139,
+          "refusals": [],
+          "rep_end_s": 2.526,
+          "sticking_region_s": null
+        }
+      ],
+      "system_com_pseudo_work_j": -0.007,
+      "system_weight_n": 1323.89775,
+      "termination": "DURATION_REACHED",
+      "work_definitions": {
+        "bar_contact_vertical_work_estimate_j": "vertical shoulder-force times bar-COM vertical velocity, end-step quadrature; excludes horizontal/rotational and impact work",
+        "joint_work_j": "sum of modeled active/passive joint torque-times-rate, left-step quadrature; not metabolic work",
+        "system_com_pseudo_work_j": "foot force times system-COM vertical velocity, end-step quadrature; pseudo-work, not work of stationary foot contact"
+      }
+    },
+    "SINGLE_60KG_PAUSE_0.6S": {
+      "bar_contact_vertical_work_estimate_j": 0.166,
+      "joint_work_j": -0.567,
+      "lpt_samples": 2050,
+      "lpt_span_m": 0.3772,
+      "plate_samples": 4101,
+      "protocol": {
+        "ascent_effort": 1.0,
+        "ascent_time_s": 1.0,
+        "balance_com_x_m": 0.04,
+        "bar_friction": 0.8,
+        "bottom_ankle_knee": [
+          0.6,
+          -1.75
+        ],
+        "bottom_pause_s": 0.6,
+        "descent_time_s": 1.2,
+        "load_mass_kg": 60.0,
+        "lockout_hold_s": 0.8,
+        "repetitions": 1,
+        "safety_pin_height_m": null,
+        "stance_ankle_knee": [
+          0.08,
+          -0.12
+        ],
+        "start_hold_s": 0.5
+      },
+      "refusals": [],
+      "reps": [
+        {
+          "ascent_onset_s": 2.383,
+          "bar_displacement_m": 0.377473,
+          "bar_slip_m": 1.66e-07,
+          "bottom_reversal_s": 1.68,
+          "descent_onset_s": 0.665,
+          "index": 1,
+          "mean_ascent_velocity_m_s": 0.479315,
+          "peak_ascent_velocity_m_s": 0.948095,
+          "peak_descent_velocity_m_s": -0.718017,
+          "refusals": [],
+          "rep_end_s": 3.162,
+          "sticking_region_s": null
+        }
+      ],
+      "system_com_pseudo_work_j": 0.325,
+      "system_weight_n": 1323.89775,
+      "termination": "DURATION_REACHED",
+      "work_definitions": {
+        "bar_contact_vertical_work_estimate_j": "vertical shoulder-force times bar-COM vertical velocity, end-step quadrature; excludes horizontal/rotational and impact work",
+        "joint_work_j": "sum of modeled active/passive joint torque-times-rate, left-step quadrature; not metabolic work",
+        "system_com_pseudo_work_j": "foot force times system-COM vertical velocity, end-step quadrature; pseudo-work, not work of stationary foot contact"
+      }
+    }
+  },
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "issue": "RES-493"
+}

@@ -1,0 +1,70 @@
+test_accumulated_cone_edge_must_slide_not_force_stick (tests.test_i4_projection.ProjectionContactTests.test_accumulated_cone_edge_must_slide_not_force_stick) ... ERROR
+test_force_driven_block_at_and_across_friction_boundary (tests.test_i4_projection.ProjectionContactTests.test_force_driven_block_at_and_across_friction_boundary) ... ok
+test_free_body_needs_no_projection (tests.test_i4_projection.ProjectionContactTests.test_free_body_needs_no_projection) ... ok
+test_grazing_event_preserves_joint_velocity_constraints (tests.test_i4_projection.ProjectionContactTests.test_grazing_event_preserves_joint_velocity_constraints) ... FAIL
+test_joint_coupled_mass_matches_reduced_analytical_system (tests.test_i4_projection.ProjectionContactTests.test_joint_coupled_mass_matches_reduced_analytical_system) ... ok
+test_redundant_projection_refuses_instead_of_inventing_force_shares (tests.test_i4_projection.ProjectionContactTests.test_redundant_projection_refuses_instead_of_inventing_force_shares) ... ok
+test_rotating_frame_transport_preserves_world_impulse (tests.test_i4_projection.ProjectionContactTests.test_rotating_frame_transport_preserves_world_impulse) ... ERROR
+test_rotating_internal_contact_preserves_external_impulse_balance (tests.test_i4_projection.ProjectionContactTests.test_rotating_internal_contact_preserves_external_impulse_balance) ... ERROR
+test_saved_full_step_combined_cone (tests.test_i4_projection.ProjectionContactTests.test_saved_full_step_combined_cone) ... FAIL
+test_simultaneous_restitution_impact_and_energy (tests.test_i4_projection.ProjectionContactTests.test_simultaneous_restitution_impact_and_energy) ... ok
+test_static_friction_uses_existing_normal_budget (tests.test_i4_projection.ProjectionContactTests.test_static_friction_uses_existing_normal_budget) ... ERROR
+test_two_patches_are_invariant_to_order_and_mirror (tests.test_i4_projection.ProjectionContactTests.test_two_patches_are_invariant_to_order_and_mirror) ... ok
+test_upward_force_releases_support (tests.test_i4_projection.ProjectionContactTests.test_upward_force_releases_support) ... ok
+
+======================================================================
+ERROR: test_accumulated_cone_edge_must_slide_not_force_stick (tests.test_i4_projection.ProjectionContactTests.test_accumulated_cone_edge_must_slide_not_force_stick)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i4_projection.py", line 182, in test_accumulated_cone_edge_must_slide_not_force_stick
+    after=system._project_velocities(state,state.contacts,contact_ledger=ledger,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PlanarMultibodySystem._project_velocities() got an unexpected keyword argument 'accumulated_impulses'
+
+======================================================================
+ERROR: test_rotating_frame_transport_preserves_world_impulse (tests.test_i4_projection.ProjectionContactTests.test_rotating_frame_transport_preserves_world_impulse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i4_projection.py", line 149, in test_rotating_frame_transport_preserves_world_impulse
+    n,t=system._transport_contact_impulses({"seat":(1.,0.1)},old,new)["seat"]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'PlanarMultibodySystem' object has no attribute '_transport_contact_impulses'
+
+======================================================================
+ERROR: test_rotating_internal_contact_preserves_external_impulse_balance (tests.test_i4_projection.ProjectionContactTests.test_rotating_internal_contact_preserves_external_impulse_balance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i4_projection.py", line 65, in test_rotating_internal_contact_preserves_external_impulse_balance
+    total=system._transport_contact_impulses(step.contact_impulses_n_s,before,state)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'PlanarMultibodySystem' object has no attribute '_transport_contact_impulses'
+
+======================================================================
+ERROR: test_static_friction_uses_existing_normal_budget (tests.test_i4_projection.ProjectionContactTests.test_static_friction_uses_existing_normal_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i4_projection.py", line 193, in test_static_friction_uses_existing_normal_budget
+    after=system._project_velocities(state,state.contacts,contact_ledger=ledger,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PlanarMultibodySystem._project_velocities() got an unexpected keyword argument 'accumulated_impulses'
+
+======================================================================
+FAIL: test_grazing_event_preserves_joint_velocity_constraints (tests.test_i4_projection.ProjectionContactTests.test_grazing_event_preserves_joint_velocity_constraints)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i4_projection.py", line 80, in test_grazing_event_preserves_joint_velocity_constraints
+    self.assertLess(max(abs(r.velocity) for r in system._joint_rows(step.state)),1e-9)
+AssertionError: 1.3411920797290477e-05 not less than 1e-09
+
+======================================================================
+FAIL: test_saved_full_step_combined_cone (tests.test_i4_projection.ProjectionContactTests.test_saved_full_step_combined_cone)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\tests\test_i4_projection.py", line 176, in test_saved_full_step_combined_cone
+    self.assertLessEqual(abs(t),0.8*n+1e-8)
+AssertionError: 0.3073952528748301 not less than or equal to 0.30500383813370374
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.079s
+
+FAILED (failures=2, errors=4)

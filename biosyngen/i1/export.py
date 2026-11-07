@@ -23,6 +23,7 @@ def kinematic_export(traj: JumpTrajectory, lpt_model=None) -> dict:
     if body.bar is not None:
         bodies.append({"name": "bar", "mass_kg": body.bar.mass_kg, "inertia_kg_m2": 0.0})
     frames = []
+    collapsed_times = []
     for s in traj.samples:
         q, qd = list(s.q), list(s.qd)
         states = []
@@ -58,10 +59,22 @@ def kinematic_export(traj: JumpTrajectory, lpt_model=None) -> dict:
             frame["internal_dissipation_power_w"] = body.coupling_damping_power(q, qd)
         if lpt_model is not None:
             frame["lpt_attachment_m"] = list(lpt_attachment_point(s, traj, lpt_model))
-        frames.append(frame)
+        if frames and frame["t"] == frames[-1]["t"]:
+            # Solver event handling can emit both one-sided contact records at
+            # the same time. Keep the right-continuous record and expose the
+            # boundary so the sampled-data evaluator never integrates across it.
+            collapsed_times.append(frame["t"])
+            frames[-1] = frame
+        else:
+            frames.append(frame)
     impulses = [
         {"t": e.time_s, "kind": e.kind} for e in traj.events if e.kind == "HEEL_STRIKE"
     ]
+    event_boundaries = [{"t": e.time_s, "kind": e.kind} for e in traj.events
+                        if e.kind in {"HEEL_OFF", "TAKEOFF", "HEEL_STRIKE", "SLIP_ONSET", "SLIP_STOP",
+                                      "CONTROL_BREAKPOINT"}]
+    event_boundaries.extend({"t": t, "kind": "SAME_TIME_SAMPLE_COLLAPSE"} for t in collapsed_times)
+    event_boundaries.sort(key=lambda event: (event["t"], event["kind"]))
     nm = traj.scenario.nm
     return {
         "gravity_m_s2": traj.scenario.body.gravity_m_s2,
@@ -69,6 +82,7 @@ def kinematic_export(traj: JumpTrajectory, lpt_model=None) -> dict:
         "bodies": bodies,
         "frames": frames,
         "declared_impulsive_events": impulses,
+        "declared_event_boundaries": event_boundaries,
         "activation_scope": {
             "status": "ASSUMED_UNCALIBRATED",
             "tau_act_s": nm.activation_time_constant_s,
