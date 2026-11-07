@@ -1,4 +1,6 @@
 import unittest
+import json
+from pathlib import Path
 
 from biosyngen_benchmark.scientific_matrix import (
     DOMAINS, PRIMARY_MOVEMENTS, qualification_matrix, qualification_counts,
@@ -6,6 +8,14 @@ from biosyngen_benchmark.scientific_matrix import (
 
 
 class ScientificMatrixTests(unittest.TestCase):
+    def test_registered_scientific_spec_covers_exact_primary_domains(self):
+        path = Path(__file__).resolve().parents[1]/"docs/benchmark/MOVEMENT_CREDIBILITY_SPEC_V1.json"
+        spec = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(tuple(spec["primary_movements"]), PRIMARY_MOVEMENTS)
+        self.assertEqual(tuple(spec["domains"]), DOMAINS)
+        for domain in spec["domains"].values():
+            self.assertEqual(set(domain), {"claim", "oracle", "falsifier", "acceptance"})
+            self.assertTrue(all(domain.values()))
     def test_exact_cartesian_inventory_without_implicit_passes(self):
         cells = qualification_matrix()["primary_cells"]
         self.assertEqual(len(cells), 120)

@@ -16,7 +16,7 @@ DOMAINS = (
 DISPOSITIONS = frozenset(("PASS", "FAIL", "REFUSED", "NOT_IMPLEMENTED",
                           "NOT_EVALUABLE", "EVIDENCE_PENDING"))
 MISSING = {
-    "DROP_JUMP": "No integrated compliant impact, braking and reactive rebound model",
+    "DROP_JUMP": "Experimental compliant rebound exists; platform support and final recovery remain unqualified",
     "POWER_CLEAN": "Pull only; wrist/spatial shoulder, rack catch and recovery absent",
     "POWER_SNATCH": "Spatial wide-grip overhead receiving and recovery absent",
     "CLEAN": "Full-depth front-rack receiving and standing recovery absent",
