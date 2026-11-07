@@ -3,7 +3,7 @@
 This campaign extends the existing independent evaluator. It does not replace
 its schema or promote generator/controller labels into independent references.
 The 10 x 12 matrix reports whole-domain readiness separately from bounded
-numerical subclaims. Its current 90 pending, 20 not implemented and 10 not
+numerical subclaims. Its default 90 pending, 20 not implemented and 10 not
 evaluable inventory cells are not qualified passes. A fresh report replaces the
 default candidate movement cell with measured FAIL when final recovery collapses;
 successful integration duration alone remains EVIDENCE_PENDING.
@@ -21,6 +21,15 @@ empirical error budget. Every interval-end prefix is tested so intermediate
 errors cannot disappear through final cancellation. Coordinate translations
 do not change the conditioning length or tolerance. Candidate tolerances
 remain forbidden.
+
+Fault sensitivity is counted only when the corresponding angular baseline
+passes. Rejecting a mutated copy of an already failing baseline does not
+demonstrate discrimination. The initial reports' 10/10 spin-rejection count
+therefore comprises five eligible positive baselines and five already failing
+baselines; those published records are retained. The current runner separately
+reports attempted/rejected cases, eligible controls and ineligible baselines,
+and requires every eligible control to reject. The nominal integration step
+and observed time range are recorded alongside each angular result.
 
 Analytical tests include static support, translated coordinates, an angular
 impulse, wrong inertia, off-centre support with an otherwise passing linear
@@ -101,7 +110,7 @@ independent acceptance by a separate author of this final revision.
 | Deadlift | Retained floor/grip support transfer; feet exclude bar-floor support |
 | Bench press | Retained feet/bench/chest/rack model; stable unrack/rerack and complete anatomical qualification pending |
 | SJ | Retained static flexed start; countermovement refusal preserved |
-| Drop jump | New experimental compliant rebound; pre-release platform support absent and final recovery fails |
+| Drop jump | Experimental compliant rebound and explicit withdrawn-platform support option; final recovery fails |
 | Power clean | Pull-only; spatial receiving/catch/recovery absent |
 | Power snatch | Full spatial overhead receiving model absent |
 | Clean | Full-depth front-rack receiving model absent |
@@ -129,6 +138,26 @@ No aggregate literature mean/SD was converted into manufactured participants or
 ground truth. Agreement, bias, limits of agreement, ICC/CV/SEM/MDC, calibration
 coverage and human test-retest reliability are NOT_EVALUABLE without matched
 licensed experimental observations and preregistered uncertainty budgets.
+
+### Population-specific abstract screen, 2026-11-07
+
+The [elite clean/snatch study](https://pubmed.ncbi.nlm.nih.gov/41352184/)
+examined 10 elite lifters at 80% of competition maximum. It reports terminal
+shoulder external rotation and distinct grip widths, approximately 1.00 m for
+snatch and 0.58 m for clean. Our inference: the current single planar arm chain
+cannot represent those receiving variables. The assumed adult model has no
+independently measured competition maximum or matched elite cohort. This
+supports the missing-DOF refusal, not biological validation or a numeric
+population acceptance range.
+
+The [GymAware study](https://pubmed.ncbi.nlm.nih.gov/29851551/) used 13
+resistance-trained participants across three visits, with squat/bench/deadlift
+at 80% 1RM and CMJ. Its reference acquisition was 150 Hz motion capture and
+1500 Hz force plate. Deadlift mean-velocity agreement was weaker than the other
+reported variables. These device/protocol conditions do not match the simulated
+independent 1 kHz clocks or supply transferable calibration, 1RM, noise bounds
+or raw paired observations. No participant data or literature observations
+were manufactured from the abstract. All empirical cells remain NOT_EVALUABLE.
 
 ## Figures and interpretation
 

@@ -138,6 +138,7 @@ def main(argv=None):
         f["n"] > 0 and f["detected"] == f["n"] for f in baseline_results["fault_detection"].values())
     angular_negatives = baseline_results["angular_negative_controls"]
     baseline_valid = baseline_valid and angular_negatives["n"] > 0 and angular_negatives["detected"] == angular_negatives["n"]
+    baseline_valid = baseline_valid and angular_negatives["rejected"] == angular_negatives["attempted"]
     valid = baseline_valid and all(c["termination"] == "DURATION_REACHED" and
                 all(c["measured"]["findings"][k]["outcome"] == "PASS" for k in ("LINEAR_MOMENTUM_CLOSURE", "CONTACT_ADMISSIBILITY")) and
                 all(f["detected"] for f in c["falsifiers"].values()) for c in cases)

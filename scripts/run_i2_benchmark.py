@@ -40,6 +40,14 @@ def families():
     yield "POWER_CLEAN_PULL_ONLY", build_power_clean()
 
 
+def angular_control_counts(results):
+    controls = [case["angular_spin_negative"] for case in results.values()]
+    eligible = sum(c["eligible_positive"] for c in controls)
+    return dict(detected=sum(c["detected"] is True for c in controls), n=eligible,
+                attempted=len(controls), rejected=sum(c["rejected"] for c in controls),
+                ineligible_baseline_count=len(controls)-eligible)
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", default="runs/i2/res498")
@@ -50,7 +58,7 @@ def main(argv=None) -> int:
     results = {}
     tallies: dict[str, list[int]] = {}
     for name, scenario in families():
-        submission = export_submission(scenario.run())
+        submission = export_submission(scenario.run(dt_s=.001))
         if args.angular:
             submission["claims"].append("ANGULAR_MOMENTUM_CLOSURE")
         positive = evaluate_i2(submission)
@@ -58,14 +66,20 @@ def main(argv=None) -> int:
                 "momentum_residual_n_s": positive["findings"]["LINEAR_MOMENTUM_CLOSURE"].get("residual_n_s"),
                 "faults": {}}
         if args.angular:
+            case["angular_conditions"] = dict(nominal_step_s=.001,
+                observed_start_s=submission["frames"][0]["t0"],
+                observed_end_s=submission["frames"][-1]["t1"])
             case["angular_momentum"] = positive["findings"]["ANGULAR_MOMENTUM_CLOSURE"]
             # A spin change without external angular impulse must be rejected.
             from copy import deepcopy
             spin = deepcopy(submission)
             spin["frames"][len(spin["frames"])//2]["body_states"][0][5] += 1
             finding = evaluate_i2(spin)["findings"]["ANGULAR_MOMENTUM_CLOSURE"]
+            eligible = case["angular_momentum"]["outcome"] == "PASS"
+            rejected = finding["outcome"] == "REJECTED"
             case["angular_spin_negative"] = dict(measured=finding, expected="REJECTED",
-                detected=finding["outcome"] == "REJECTED")
+                eligible_positive=eligible, rejected=rejected,
+                detected=rejected if eligible else None)
         controls = [(f, fn, expected, claim) for f, (fn, expected, claim) in FAULTS.items()]
         controls += [(f"OMIT_{g}", (lambda s, g=g: drop_group(s, g)), ("REJECTED",), "LINEAR_MOMENTUM_CLOSURE")
                      for g in submission["external_support_groups"]]
@@ -93,8 +107,7 @@ def main(argv=None) -> int:
         summary["angular_invariants"] = dict(
             passed=sum(c["angular_momentum"]["outcome"] == "PASS" for c in results.values()),
             n=len(results), scope="Bounded planar invariant; not full multibody qualification")
-        summary["angular_negative_controls"] = dict(
-            detected=sum(c["angular_spin_negative"]["detected"] for c in results.values()), n=len(results))
+        summary["angular_negative_controls"] = angular_control_counts(results)
     (out / "benchmark.json").write_text(json.dumps(summary, indent=2, sort_keys=True, default=str) + "\n",
                                         encoding="utf-8", newline="\n")
     print(json.dumps({"positive": summary["positive_controls"], "faults": summary["fault_detection"]}, indent=1, default=str))
