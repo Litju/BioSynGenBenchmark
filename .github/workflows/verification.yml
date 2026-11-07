@@ -38,6 +38,8 @@ jobs:
         run: pwsh -NoProfile -File tests/test_overnight_controller.ps1
       - name: Independent I1 evaluator challenge suite
         run: python -m scripts.i1_benchmark_suite
+      - name: Execute claim-specific movement credibility and preserved failures
+        run: python -m scripts.run_movement_credibility --out runs/i3/ci/credibility
       - name: Frozen I0 regression
         run: python -m scripts.i1_i0_regression --output runs/i3/ci/i0-regression.json
       - name: I1 fresh-process reproduction

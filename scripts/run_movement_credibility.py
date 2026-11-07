@@ -27,6 +27,26 @@ def recovery_finding(trial):
         scope="Experimental default candidate only; no broad movement qualification")
 
 
+def energy_finding(trial, law):
+    """Record energy discrepancies without promoting an unbudgeted residual."""
+    from biosyngen.i2.export import export_submission
+    from biosyngen_benchmark.i2_evaluator import energy_diagnostics
+    system = trial.model.system
+    final = trial.frames[-1].state
+    stored = sum(law.stiffness*max(0, -system.contact_kinematics(final, cid).gap_m)**
+                 (law.exponent+1)/(law.exponent+1)
+                 for ids in trial.model.contact_ids.values() for cid in ids)
+    work = sum(f.joint_power_w*(f.t_end_s-f.t_start_s) for f in trial.frames)
+    dissipated = sum(sum(f.contact_dissipated_power_w.values())*(f.t_end_s-f.t_start_s)
+                     for f in trial.frames)
+    projection = sum(f.constraint_projection_work_j for f in trial.frames)
+    rigid_estimate = sum(f.rigid_contact_work_estimate_j for f in trial.frames)
+    return energy_diagnostics(export_submission(trial), joint_work_j=work,
+        contact_dissipation_j=dissipated, initial_stored_energy_j=0,
+        final_stored_energy_j=stored, numerical_projection_work_j=projection,
+        rigid_contact_work_estimate_j=rigid_estimate)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", required=True)
@@ -38,7 +58,7 @@ def main(argv=None):
     started = time.monotonic()
     sha = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
     dirty = bool(subprocess.check_output(["git", "status", "--porcelain"], text=True).strip())
-    baseline = subprocess.run([sys.executable, "-m", "scripts.run_i2_benchmark", "--out", str(out/"baseline")],
+    baseline = subprocess.run([sys.executable, "-m", "scripts.run_i2_benchmark", "--angular", "--out", str(out/"baseline")],
                               capture_output=True, text=True, timeout=1200)
     (out/"baseline.log").write_text(baseline.stdout + baseline.stderr, encoding="utf-8")
     if baseline.returncode:
@@ -49,8 +69,10 @@ def main(argv=None):
     from biosyngen_benchmark.i2_evaluator import evaluate_i2, FAULTS, fault_outcome
     cases = []
     for dt in (.0004, .0002, .0001):
-        trial = build_drop_jump_candidate(duration_s=.5).run(dt)
+        scenario = build_drop_jump_candidate(duration_s=.5)
+        trial = scenario.run(dt)
         submission = export_submission(trial)
+        submission["claims"].append("ANGULAR_MOMENTUM_CLOSURE")
         result = evaluate_i2(submission)
         faults = {}
         for name, (mutate, expected, claim) in FAULTS.items():
@@ -65,10 +87,23 @@ def main(argv=None):
             tolerance_basis="Existing evaluator MOMENTUM_TOLERANCE and FORCE_TOLERANCE; no candidate tolerance",
             falsifiers=faults, submission_sha256=hashlib.sha256(payload).hexdigest(),
             termination=trial.termination, completion="FULL_EXERCISE_NOT_QUALIFIED"))
+        cases[-1]["energy"] = energy_finding(trial, scenario.contact_law)
     matrix = qualification_matrix()
     recovery = build_drop_jump_candidate().run()
     recovery_evidence = recovery_finding(recovery)
+    baseline_results = json.loads((out/"baseline"/"benchmark.json").read_text(encoding="utf-8"))
+    names = {"COUNTERMOVEMENT_JUMP": "CMJ", "SQUAT_JUMP": "SJ"}
     for cell in matrix["primary_cells"]:
+        name = names.get(cell["movement"], cell["movement"])
+        if name in baseline_results["families"] and cell["domain"] == "MULTIBODY":
+            angular = baseline_results["families"][name]["angular_momentum"]
+            cell["evidence"] = dict(angular_momentum=angular,
+                linear_momentum_residual_n_s=baseline_results["families"][name]["momentum_residual_n_s"])
+            if angular["outcome"] in ("REJECTED", "INVALID"):
+                cell.update(disposition="FAIL", reason="Measured planar angular balance fails the independent numerical budget")
+        if cell["movement"] == "DROP_JUMP" and cell["domain"] == "CONTACT_ENERGY":
+            cell.update(disposition="NOT_EVALUABLE", evidence=[c["energy"] for c in cases],
+                        reason="Energy residuals measured; no independent energy error budget or full-recovery qualification")
         if cell["movement"] == "DROP_JUMP" and cell["domain"] == "MOVEMENT":
             cell.update(disposition=recovery_evidence["measured"], evidence=recovery_evidence,
                         reason="Measured terminal recovery; see explicit candidate failure evidence")
@@ -79,7 +114,7 @@ def main(argv=None):
         matrix=matrix, denominators=counts, bounded_drop_cases=cases,
         terminal_recovery=recovery_evidence, full_campaign_ready=False,
         baseline_sha256=digest(out/"baseline"/"benchmark.json"),
-        baseline=json.loads((out/"baseline"/"benchmark.json").read_text(encoding="utf-8")),
+        baseline=baseline_results,
         elapsed_s=time.monotonic()-started, data_rights="OWNED_MANUFACTURED_ONLY_NO_REAL_DATA_ADMITTED",
         independent_final_sha_acceptance="PENDING",
         claim_ceilings=["NUMERICAL_VERIFICATION_ONLY", "SIMULATED_MEASUREMENT_ONLY",
@@ -101,6 +136,8 @@ def main(argv=None):
     positive = baseline_results["positive_controls"]
     baseline_valid = positive["n"] > 0 and positive["passed"] == positive["n"] and all(
         f["n"] > 0 and f["detected"] == f["n"] for f in baseline_results["fault_detection"].values())
+    angular_negatives = baseline_results["angular_negative_controls"]
+    baseline_valid = baseline_valid and angular_negatives["n"] > 0 and angular_negatives["detected"] == angular_negatives["n"]
     valid = baseline_valid and all(c["termination"] == "DURATION_REACHED" and
                 all(c["measured"]["findings"][k]["outcome"] == "PASS" for k in ("LINEAR_MOMENTUM_CLOSURE", "CONTACT_ADMISSIBILITY")) and
                 all(f["detected"] for f in c["falsifiers"].values()) for c in cases)

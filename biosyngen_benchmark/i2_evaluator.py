@@ -39,6 +39,7 @@ KNOWN_GROUPS = {"FOOT_LEFT", "FOOT_RIGHT", "BENCH", "BAR_FLOOR", "RACK", "INTERN
 MOMENTUM_TOLERANCE = 1e-6
 FORCE_TOLERANCE = 1e-6
 KNOWN_CLAIMS = {"LINEAR_MOMENTUM_CLOSURE", "CONTACT_ADMISSIBILITY", "BILATERAL_FORCE", "ANATOMICAL_PHASES"}
+KNOWN_CLAIMS.add("ANGULAR_MOMENTUM_CLOSURE")
 
 
 def _finite(value) -> bool:
@@ -173,6 +174,87 @@ def _momentum(sub, states) -> tuple[float, float]:
     return px, pz
 
 
+def _angular_balance(sub):
+    """Newton-Euler balance about the fixed initial COM, including gravity.
+
+    Same relative numerical budget as linear momentum, scaled by initial
+    radius of gyration. This is a bounded planar invariant, not 3-D anatomy.
+    """
+    bodies, initial = sub["bodies"], sub["initial_body_states"]
+    mass = sum(b["mass_kg"] for b in bodies)
+    ox = sum(b["mass_kg"]*s[0] for b, s in zip(bodies, initial))/mass
+    oz = sum(b["mass_kg"]*s[1] for b, s in zip(bodies, initial))/mass
+
+    def angular(states):
+        return sum(b["inertia_kg_m2"]*s[5] + b["mass_kg"]*((s[0]-ox)*s[4]-(s[1]-oz)*s[3])
+                   for b, s in zip(bodies, states))
+
+    radius = math.sqrt(sum(b["inertia_kg_m2"] + b["mass_kg"]*((s[0]-ox)**2+(s[1]-oz)**2)
+                           for b, s in zip(bodies, initial))/mass)
+    duration = sub["frames"][-1]["t1"]-sub["frames"][0]["t0"]
+    tolerance = MOMENTUM_TOLERANCE*mass*sub["gravity_m_s2"]*duration*radius
+    original = angular(initial)
+    impulse = maximum = residual = 0.0
+    before = initial
+    impact_index = 0
+    external = set(sub["external_support_groups"])
+    for index, frame in enumerate(sub["frames"]):
+        h = frame["t1"]-frame["t0"]
+        impulse -= sum((s[0]-ox)*b["mass_kg"]*sub["gravity_m_s2"] for b, s in zip(bodies, before))*h
+        impulse += sum(((c["x"]-ox)*c["fz"]-(c["z"]-oz)*c["fx"])*h
+                       for c in frame["contacts"] if c["group"] in external)
+        while impact_index < len(sub["impulses"]) and sub["impulses"][impact_index]["t"] <= frame["t1"]:
+            impact = sub["impulses"][impact_index]
+            if impact["group"] in external:
+                impulse += (impact["x"]-ox)*impact["jz"]-(impact["z"]-oz)*impact["jx"]
+            impact_index += 1
+        residual = abs(angular(frame["body_states"])-original-impulse)
+        if not all(_finite(v) for v in (ox, oz, radius, tolerance, original, impulse, residual)):
+            return {"outcome": "INVALID", "code": "ANGULAR_NUMERIC_OVERFLOW"}
+        if index+1 == len(sub["frames"]) or sub["frames"][index+1]["t1"] != frame["t1"]:
+            maximum = max(maximum, residual)
+        before = frame["body_states"]
+    return dict(outcome="PASS" if maximum <= tolerance else "REJECTED",
+                code="PLANAR_ANGULAR_BALANCE", residual_kg_m2_s=residual,
+                max_prefix_residual_kg_m2_s=maximum, tolerance_kg_m2_s=tolerance,
+                reference_origin_m=[ox, oz], initial_radius_of_gyration_m=radius,
+                scope="Fixed-origin planar interval-end balance; no spatial or biological qualification")
+
+
+def energy_diagnostics(sub, *, joint_work_j, contact_dissipation_j,
+                       initial_stored_energy_j, final_stored_energy_j,
+                       numerical_projection_work_j, rigid_contact_work_estimate_j):
+    """Independent state-energy arithmetic; declared work is evidence, not an oracle.
+
+    An energy error budget and exact rigid-friction work are not supplied by
+    the V1 format, so a small residual cannot produce a qualified PASS.
+    """
+    quantities = dict(joint_work_j=joint_work_j, contact_dissipation_j=contact_dissipation_j,
+        initial_contact_stored_energy_j=initial_stored_energy_j,
+        final_contact_stored_energy_j=final_stored_energy_j,
+        numerical_projection_work_j=numerical_projection_work_j,
+        rigid_contact_work_estimate_j=rigid_contact_work_estimate_j)
+    if (_schema_problems(sub) or not all(_finite(v) for v in quantities.values()) or
+            min(contact_dissipation_j, initial_stored_energy_j, final_stored_energy_j) < 0):
+        return dict(outcome="INVALID", code="INVALID_ENERGY_EVIDENCE")
+    if not sub["frames"]:
+        return dict(outcome="NOT_EVALUABLE", code="NO_ENERGY_OBSERVATION")
+    def energy(states):
+        return sum(.5*b["mass_kg"]*(s[3]**2+s[4]**2)+.5*b["inertia_kg_m2"]*s[5]**2+
+                   b["mass_kg"]*sub["gravity_m_s2"]*s[1] for b, s in zip(sub["bodies"], states))
+    try:
+        residual = (energy(sub["frames"][-1]["body_states"])-energy(sub["initial_body_states"])+
+                    final_stored_energy_j-initial_stored_energy_j-joint_work_j+contact_dissipation_j)
+        adjusted = residual-numerical_projection_work_j
+    except OverflowError:
+        return dict(outcome="INVALID", code="ENERGY_NUMERIC_OVERFLOW")
+    if not _finite(residual) or not _finite(adjusted):
+        return dict(outcome="INVALID", code="ENERGY_NUMERIC_OVERFLOW")
+    return dict(outcome="NOT_EVALUABLE", code="NO_INDEPENDENT_ENERGY_ERROR_BUDGET",
+        raw_energy_residual_j=residual, projection_adjusted_residual_j=adjusted, **quantities,
+        limitation="Declared work is not independently observed; rigid contact work is approximate; projection is numerical")
+
+
 def evaluate_i2(sub) -> dict:
     problems = _schema_problems(sub)
     if problems:
@@ -186,6 +268,8 @@ def evaluate_i2(sub) -> dict:
                        "code": "NO_POSITIVE_DURATION_OBSERVATION"}
         findings["LINEAR_MOMENTUM_CLOSURE"] = dict(no_evidence)
         findings["CONTACT_ADMISSIBILITY"] = dict(no_evidence)
+        if "ANGULAR_MOMENTUM_CLOSURE" in sub["claims"]:
+            findings["ANGULAR_MOMENTUM_CLOSURE"] = dict(no_evidence)
         findings["BILATERAL_FORCE"] = {
             "outcome": "NOT_EVALUABLE", "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE"}
         findings["ANATOMICAL_PHASES"] = {
@@ -283,6 +367,11 @@ def evaluate_i2(sub) -> dict:
     }
     findings["BILATERAL_FORCE"] = {"outcome": "NOT_EVALUABLE", "code": "NO_ADMITTED_BILATERAL_CALIBRATION_REFERENCE"}
     findings["ANATOMICAL_PHASES"] = {"outcome": "NOT_EVALUABLE", "code": "MOTION_CAPTURE_REQUIRED"}
+    if "ANGULAR_MOMENTUM_CLOSURE" in sub["claims"]:
+        try:
+            findings["ANGULAR_MOMENTUM_CLOSURE"] = _angular_balance(sub)
+        except (OverflowError, ZeroDivisionError):
+            findings["ANGULAR_MOMENTUM_CLOSURE"] = {"outcome": "INVALID", "code": "ANGULAR_NUMERIC_OVERFLOW"}
     return {"status": "EVALUATED", "problems": [], "findings": findings,
             "claim_ceilings": ["NUMERICAL_VERIFICATION_ONLY", "SIMULATED_MEASUREMENT_ONLY",
                                "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED", "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"]}

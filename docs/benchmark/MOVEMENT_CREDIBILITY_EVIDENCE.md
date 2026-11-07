@@ -8,6 +8,36 @@ evaluable inventory cells are not qualified passes. A fresh report replaces the
 default candidate movement cell with measured FAIL when final recovery collapses;
 successful integration duration alone remains EVIDENCE_PENDING.
 
+## Continued mechanical invariant checks
+
+The existing strict I2 submission schema now optionally accepts the claim
+`ANGULAR_MOMENTUM_CLOSURE`. Its independent checker integrates moments of
+external forces and impulses, including gravity, about the fixed initial
+system COM. Angular momentum is computed as `sum(I*omega + r cross m*v)`.
+The numerical budget is the existing relative momentum budget (1e-6) times
+system weight, observation duration and initial system radius of gyration.
+It is a bounded planar discretization check, not a spatial model or an
+empirical error budget. Every interval-end prefix is tested so intermediate
+errors cannot disappear through final cancellation. Coordinate translations
+do not change the conditioning length or tolerance. Candidate tolerances
+remain forbidden.
+
+Analytical tests include static support, translated coordinates, an angular
+impulse, wrong inertia, off-centre support with an otherwise passing linear
+balance, intermediate spin cancellation, absent observations and a forged
+tolerance. Run `python -m unittest discover -s tests -p test_res598_angular_credibility.py -v`.
+
+The fresh movement runner requests this claim for every implemented baseline
+and the bounded rebound candidates. A failed angular invariant makes the
+corresponding implemented movement's MULTIBODY cell FAIL; a passing isolated
+invariant does not qualify the entire domain. The runner also records actual
+joint work, contact dissipation, stored energy, raw energy residual and
+projection correction separately. The DROP_JUMP CONTACT_ENERGY cell remains
+NOT_EVALUABLE without an independent error budget and final recovery. Hosted
+Windows/Linux jobs now execute the scientific report, in addition to the
+historical regression/falsifier suite. The report retains biological and
+real-device abstentions and all 120 primary cells.
+
 ## Executable evidence
 
 ```
