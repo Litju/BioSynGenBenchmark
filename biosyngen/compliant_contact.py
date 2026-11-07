@@ -7,10 +7,11 @@ Reference: https://simbody.github.io/simbody-3.6-doxygen/api/classSimTK_1_1HuntC
 Here a includes the reference's 3/2 coefficient. Friction is a regularized
 Coulomb law; it permits creep and does not assert exact static sticking.
 """
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import math
 
-from .multibody import DynamicsError
+from .multibody import (AppliedWrench, ContactMode, ContactState, DynamicsError,
+                        PlanarMultibodySystem)
 
 
 def finite(value, name):
@@ -54,3 +55,51 @@ class HuntCrossleyContact:
         for value in (normal, tangent, stored, dissipated):
             finite(value, "computed contact response")
         return CompliantResponse(normal, tangent, stored, dissipated)
+
+
+class CompliantPlanarStepper:
+    """Replace selected world contacts with finite forces, preserving rigid others.
+
+    Responses are evaluated at interval start (explicit first-order stepping).
+    Finite compliance permits material deformation below the nominal surface.
+    Refinement is mandatory; this adapter supplies no automatic stability claim.
+    """
+    def __init__(self, system, laws):
+        self.geometry = system
+        self.laws = dict(laws)
+        self.specs = {s.contact_id: s for s in system.contacts if s.contact_id in laws}
+        if not self.laws or set(self.specs) != set(self.laws):
+            raise DynamicsError("compliant contacts must identify existing surfaces")
+        if any(s.body_b_id is not None for s in self.specs.values()):
+            raise DynamicsError("compliant body-body contact is not implemented")
+        if any(not isinstance(law, HuntCrossleyContact) for law in self.laws.values()):
+            raise DynamicsError("explicit compliant constitutive law required")
+        self.dynamics = PlanarMultibodySystem(
+            system.bodies, system.joints,
+            [s for s in system.contacts if s.contact_id not in laws],
+            gravity_m_s2=system.gravity_m_s2, clock_id=system.clock_id,
+            actuators=system.actuators, linear_solver=system._linear_solver,
+            linear_solver_id=system.linear_solver_id)
+
+    def advance(self, state, dt_s, *, excitations=None, external_wrenches=()):
+        wrenches = list(external_wrenches)
+        responses = {}
+        for cid, spec in self.specs.items():
+            kin = self.geometry.contact_kinematics(state, cid)
+            response = self.laws[cid].evaluate(kin.gap_m, kin.normal_velocity_m_s,
+                                                kin.tangential_velocity_m_s)
+            responses[cid] = response
+            force = tuple(response.normal_n*n + response.tangent_n*t
+                          for n, t in zip(kin.normal_world, kin.tangent_world))
+            wrenches.append(AppliedWrench(spec.body_a_id, cid, force, spec.local_point_a_m))
+        rigid_state = replace(state, contacts={k: v for k, v in state.contacts.items() if k not in self.laws})
+        step = self.dynamics.advance(rigid_state, dt_s, excitations=excitations,
+                                     external_wrenches=wrenches)
+        contacts = dict(step.state.contacts)
+        contacts.update({cid: ContactState() for cid in self.laws})
+        geometric_state = replace(step.state, contacts=contacts)
+        for cid in self.laws:
+            kin = self.geometry.contact_kinematics(geometric_state, cid)
+            contacts[cid] = (ContactState(ContactMode.SLIDE, slip_direction=1 if kin.tangential_velocity_m_s >= 0 else -1)
+                             if kin.gap_m < 0 else ContactState())
+        return replace(step, state=replace(step.state, contacts=contacts)), responses
