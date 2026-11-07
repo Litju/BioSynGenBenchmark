@@ -1,0 +1,1 @@
+{"status": "CANDIDATE_EXECUTED_NOT_SCIENTIFICALLY_QUALIFIED", "raw_component_admission": "PASS", "derived_admission": {"refusal_code": "PROCESSING_STATE_UNSUPPORTED", "message": "PROCESSING_STATE_UNSUPPORTED:LPT_DISPLACEMENT.source_processing_state:component admission accepts only an explicitly declared raw processing state"}, "cold_reopen": "EXACT_PRODUCTION_IDENTITY_PASS"}

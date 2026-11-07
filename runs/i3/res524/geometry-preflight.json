@@ -1,0 +1,54 @@
+{
+  "case": "BACK_SQUAT_ONE_REPETITION_DEVELOPMENT_ONLY",
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "elapsed_generation_and_probe_s": 12.978211199995712,
+  "first_blocker": "UNQUALIFIED_CABLE_TO_VERTICAL_COORDINATE",
+  "force_clock": {
+    "drift_ppm": 35.0,
+    "jitter_sd_s": 2e-06,
+    "offset_s": 0.0021,
+    "sample_period_s": 0.001
+  },
+  "force_count": 3501,
+  "force_saturated_samples": 0,
+  "geometry": {
+    "error_acceptance_authority": "NONE; diagnostics do not establish vertical equivalence",
+    "initial_angle_deg": 0.0,
+    "max_abs_cable_minus_vertical_travel_index": 1733,
+    "max_abs_cable_minus_vertical_travel_m": 0.0002919332768636096,
+    "max_angle_deg": 1.3559348618956228,
+    "max_horizontal_offset_m": 0.024672840277035334,
+    "worst_state_index": 1733
+  },
+  "limitation": "Fixed reel is initially vertical but full-path vertical equivalence has no qualification authority. This probe never grants admission, even for zero measured residual.",
+  "lpt_clock": {
+    "drift_ppm": -60.0,
+    "jitter_sd_s": 5e-06,
+    "offset_s": -0.0137,
+    "sample_period_s": 0.001
+  },
+  "lpt_count": 3500,
+  "lpt_slack_samples": 0,
+  "physical_duration_s": 3.4999999999997256,
+  "production_execution_count": 0,
+  "production_truth_access_count": 0,
+  "profile_id": "BSMB-FORCE1000-LPT1000-1.0",
+  "schema_id": "BSMB-ACQUISITION-GEOMETRY-PREFLIGHT-1.0",
+  "source_bundle_count": 0,
+  "source_hashes": {
+    "biosyngen\\i2\\acquisition.py": "d9609f1ed44c4bf5e9d24fa2850efd8369af3b7c150340d375cce1284419eb67",
+    "biosyngen\\i2\\instruments.py": "e6b508f46a088e76749f21ffe6a4e8464c476605e438e73b17b263bc3b4abca6",
+    "biosyngen\\i2\\squat.py": "a22d816a6c004f57dcc725eaa66bb4d4c4644ce1cec262d68069400ca347273d",
+    "biosyngen\\multibody.py": "5f2c4246998301b7fc96e34a5499f4af6dcebb47797aa000f6175eb6af34376d",
+    "scripts\\probe_acquisition_geometry.py": "9eb6085ee29cfda732a3a82b1bc0802a109ef76e2b010cd38561cf3d4c1a0136"
+  },
+  "status": "BLOCKED_GEOMETRY_QUALIFICATION",
+  "trajectory_frame_count": 3500,
+  "trajectory_termination": "DURATION_REACHED",
+  "truth_injection_count": 0
+}

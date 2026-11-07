@@ -1,0 +1,1 @@
+PROCESSING_STATE_UNSUPPORTED:LPT_DISPLACEMENT.source_processing_state:component admission accepts only an explicitly declared raw processing state

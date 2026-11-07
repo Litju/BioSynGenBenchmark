@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "D:\projects\BioSynGenBenchmark\scripts\qualify_paired_source.py", line 204, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "D:\projects\BioSynGenBenchmark\scripts\qualify_paired_source.py", line 194, in main
+    result = execute(args.source.resolve(), args.state, protocol=args.protocol)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\BioSynGenBenchmark\scripts\qualify_paired_source.py", line 121, in execute
+    opened = import_open_bundle(source, state_root / "preserved-open", STAMP)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\plate2bar-instrument\src\plate2bar_instrument\measurement\open_bundle.py", line 1429, in import_open_bundle
+    metadata = _validate_manifest(document)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\plate2bar-instrument\src\plate2bar_instrument\measurement\open_bundle.py", line 795, in _validate_manifest
+    left_status = _validate_identity(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\plate2bar-instrument\src\plate2bar_instrument\measurement\open_bundle.py", line 430, in _validate_identity
+    item = _exact_keys(value, {"identity_status", *DETAIL_FIELDS}, field)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\plate2bar-instrument\src\plate2bar_instrument\measurement\open_bundle.py", line 392, in _exact_keys
+    _refuse("MANIFEST_SCHEMA_INVALID", field, "manifest fields are not exact")
+  File "D:\projects\plate2bar-instrument\src\plate2bar_instrument\measurement\open_bundle.py", line 172, in _refuse
+    raise MeasurementRefusal(code, field, message)
+plate2bar_instrument.measurement.model.MeasurementRefusal: MANIFEST_SCHEMA_INVALID:manifest.force_stream.left_plate:manifest fields are not exact

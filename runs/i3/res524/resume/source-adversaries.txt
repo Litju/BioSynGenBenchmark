@@ -1,0 +1,1 @@
+[{"case": "corruption", "expected": "CHECKSUM_MISMATCH", "actual": "CHECKSUM_MISMATCH"}, {"case": "different_physical_trial", "expected": "CHECKSUM_MISMATCH", "actual": "CHECKSUM_MISMATCH"}, {"case": "unqualified_cable_frame", "expected": "UNKNOWN_FRAME", "actual": "UNKNOWN_FRAME"}]

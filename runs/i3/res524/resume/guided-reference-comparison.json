@@ -1,0 +1,128 @@
+{
+  "analytical_reference_events_s": {
+    "bottom_s": 2.2,
+    "mathematical_motion_start_s": 1.2,
+    "motion_end_s": 3.2
+  },
+  "candidate_events": {
+    "force": {
+      "authority": {
+        "evidence_reference": "docs/verification/ML593_SEGMENTATION_CONFORMANCE_V1_RESULT.md",
+        "ml413_projection": "REFUSED",
+        "qualification_state": "NOT_QUALIFIED",
+        "reason": "every admitted manufactured reference baseline contains movement, so departure timing is not established",
+        "reason_code": "AUTOMATIC_METHOD_NOT_QUALIFIED",
+        "registry_id": "plate2bar.automatic-segmentation-qualification.v1",
+        "result_role": "SOURCE_BOUND_CANDIDATE_NOT_AUTHORITATIVE_EVENT"
+      },
+      "events": [
+        {
+          "kind": "FORCE_BASELINE_DEPARTURE",
+          "physical_clock_bracket_s": [
+            1.2639557615483459,
+            1.2649557265495708
+          ],
+          "time_s": 1.2649557265495708
+        },
+        {
+          "kind": "FORCE_BASELINE_DEPARTURE",
+          "physical_clock_bracket_s": [
+            1.8749343772967946,
+            1.8759343422980197
+          ],
+          "time_s": 1.8759343422980197
+        },
+        {
+          "kind": "FORCE_BASELINE_DEPARTURE",
+          "physical_clock_bracket_s": [
+            2.540911068112616,
+            2.5419110331138413
+          ],
+          "time_s": 2.5419110331138413
+        },
+        {
+          "kind": "FORCE_BASELINE_RECOVERY",
+          "physical_clock_bracket_s": [
+            3.219887303944362,
+            3.220887268945587
+          ],
+          "time_s": 3.220887268945587
+        }
+      ],
+      "numerical_state": "AVAILABLE"
+    },
+    "lpt": {
+      "authority": {
+        "evidence_reference": "docs/verification/ML593_SEGMENTATION_CONFORMANCE_V1_RESULT.md",
+        "ml413_projection": "REFUSED",
+        "qualification_state": "NOT_QUALIFIED",
+        "reason": "threshold-confirmed motion lags the start of smooth movement beyond the frozen tolerance; it marks confirmed motion, not movement onset",
+        "reason_code": "AUTOMATIC_METHOD_NOT_QUALIFIED",
+        "registry_id": "plate2bar.automatic-segmentation-qualification.v1",
+        "result_role": "SOURCE_BOUND_CANDIDATE_NOT_AUTHORITATIVE_EVENT"
+      },
+      "events": [
+        {
+          "kind": "MOTION_ONSET",
+          "physical_clock_bracket_s": [
+            1.4180850851051061,
+            1.4190851451087065
+          ],
+          "time_s": 1.4190851451087065
+        },
+        {
+          "kind": "PEAK_SIGNED_VELOCITY",
+          "physical_clock_bracket_s": [
+            1.8421105266315978,
+            1.8821129267756065
+          ],
+          "time_s": null
+        },
+        {
+          "kind": "COORDINATE_REVERSAL",
+          "physical_clock_bracket_s": [
+            2.1931315878952735,
+            2.2211332679960796
+          ],
+          "time_s": 2.1931315878952735
+        },
+        {
+          "kind": "MOTION_ONSET",
+          "physical_clock_bracket_s": [
+            2.22013320799248,
+            2.2211332679960796
+          ],
+          "time_s": 2.2211332679960796
+        },
+        {
+          "kind": "PEAK_SIGNED_VELOCITY",
+          "physical_clock_bracket_s": [
+            2.5481528891733505,
+            2.5481528891733505
+          ],
+          "time_s": 2.5481528891733505
+        },
+        {
+          "kind": "LOW_MOTION_ONSET",
+          "physical_clock_bracket_s": [
+            3.2001920115206914,
+            3.201192071524291
+          ],
+          "time_s": 3.201192071524291
+        }
+      ],
+      "numerical_state": "AVAILABLE"
+    }
+  },
+  "comparisons_are_post_execution": true,
+  "confirmed_motion_minus_mathematical_start_s": 0.21908514510870658,
+  "event_phase_conformance": "NOT_QUALIFIED; production candidate authority retained",
+  "generator_imports": 0,
+  "geometry": {},
+  "reference_resolution_s": 0.001000000000000334,
+  "reversal_bracket_contains_exact_bottom": true,
+  "source_manifest_sha256_matches_reference": true,
+  "support_reference_transitions": [],
+  "termination": "DURATION_REACHED",
+  "world_kind": "IDEAL_VERTICAL_GUIDE_TWO_MASS_APPARATUS"
+}
