@@ -1,0 +1,75 @@
+{
+  "source_sha": "429da6376122bb5a19f8ccb41174efb367e30055",
+  "evaluator_sha256": "05e8d4aea101dca908ea21351479f387a0fa240026152eb4c3f4b489d00dc7f0",
+  "scope": "NUMERICAL_VERIFICATION_ONLY; one CMJ fixture, no independent final-SHA acceptance",
+  "cases": [
+    {
+      "dt_s": 0.001,
+      "termination": "DURATION_REACHED",
+      "angular": {
+        "outcome": "REJECTED",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.022379812106263722,
+        "max_prefix_residual_kg_m2_s": 0.025763080833684594,
+        "tolerance_kg_m2_s": 0.0008059381643655516,
+        "reference_origin_m": [
+          0.040000000000000015,
+          1.0357610942716178
+        ],
+        "initial_radius_of_gyration_m": 0.42145036556985815,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      }
+    },
+    {
+      "dt_s": 0.0005,
+      "termination": "DURATION_REACHED",
+      "angular": {
+        "outcome": "REJECTED",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.010797971415941264,
+        "max_prefix_residual_kg_m2_s": 0.01251777383240343,
+        "tolerance_kg_m2_s": 0.0008059381643655516,
+        "reference_origin_m": [
+          0.040000000000000015,
+          1.0357610942716178
+        ],
+        "initial_radius_of_gyration_m": 0.42145036556985815,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      }
+    },
+    {
+      "dt_s": 0.00025,
+      "termination": "DURATION_REACHED",
+      "angular": {
+        "outcome": "REJECTED",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.005296975263882987,
+        "max_prefix_residual_kg_m2_s": 0.006155150356445135,
+        "tolerance_kg_m2_s": 0.0008059381643655516,
+        "reference_origin_m": [
+          0.040000000000000015,
+          1.0357610942716178
+        ],
+        "initial_radius_of_gyration_m": 0.42145036556985815,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      }
+    },
+    {
+      "dt_s": 3.125e-05,
+      "termination": "DURATION_REACHED",
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.0006547112998121218,
+        "max_prefix_residual_kg_m2_s": 0.0007627332827107314,
+        "tolerance_kg_m2_s": 0.0008059381643655516,
+        "reference_origin_m": [
+          0.040000000000000015,
+          1.0357610942716178
+        ],
+        "initial_radius_of_gyration_m": 0.42145036556985815,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      }
+    }
+  ]
+}

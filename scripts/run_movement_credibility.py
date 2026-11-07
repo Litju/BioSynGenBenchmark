@@ -142,7 +142,9 @@ def main(argv=None):
     valid = baseline_valid and all(c["termination"] == "DURATION_REACHED" and
                 all(c["measured"]["findings"][k]["outcome"] == "PASS" for k in ("LINEAR_MOMENTUM_CLOSURE", "CONTACT_ADMISSIBILITY")) and
                 all(f["detected"] for f in c["falsifiers"].values()) for c in cases)
-    print(json.dumps(dict(source_sha=sha, bounded_numerical_gate=valid, bytes=size, elapsed_s=report["elapsed_s"], denominators=counts)))
+    print(json.dumps(dict(source_sha=sha, bounded_linear_contact_gate=valid,
+        angular_invariants=baseline_results["angular_invariants"], full_campaign_ready=False,
+        bytes=size, elapsed_s=report["elapsed_s"], denominators=counts)))
     return 0 if valid else 1
 
 

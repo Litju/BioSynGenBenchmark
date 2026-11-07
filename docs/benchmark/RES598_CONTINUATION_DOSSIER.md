@@ -14,6 +14,9 @@ New commits preserved in order:
 * `00d278ee7a56676ee852099d44dea49d3f1fd241`: separate numerical projection and approximate rigid work.
 * `0865edcbe3a8f7e1058ff45f67ed6b25754b8bc6`: non-rewriting integration into existing PR #10.
 * `c0cdb9cd7c1dd2e7d9daf337f2b2999969536cfb`: independent angular and energy checks.
+* `cc7396e2526cd8733bf07e2c851848b002a38f40`: measured report, inspected comparison figure and dossier.
+* `429da6376122bb5a19f8ccb41174efb367e30055`: mandatory default nonlinear-contact/friction DOP853 test.
+* `9219c3511ecc8eef8a7e5bc6fec279176b0783bb`: eligible-control denominator correction and explicit nominal-step context.
 
 All new source/tests/probes are owned code and manufactured data. No external
 recordings, participant information, private holdouts or third-party code are
@@ -48,7 +51,9 @@ The report contains all 120 cells: 0 PASS, 3 FAIL, 18 NOT_IMPLEMENTED,
 domain tests. A bounded invariant cannot qualify a whole domain.
 
 Historical linear/contact positives: 10/10; original negative controls: 76/76
-detected. New angular spin negatives: 10/10 detected. Three bounded drop cases
+detected. Angular spin mutations: 10/10 rejected, of which only 5/5 have
+passing angular baselines and support a discriminative fault-detection claim.
+The other five already-failing baselines remain explicit. Three bounded drop cases
 retain 15/15 original fault detections. Maximum final linear residual across
 the 10 baseline fixtures: 5.2305160e-11 N s.
 
@@ -96,6 +101,51 @@ actuation and uncertainty studies, and a separate final-SHA assessor are still
 required. Hosted jobs are not declared green until observed successful. Source
 and hidden-TRUTH roles and the original admission negatives are preserved.
 No licensed matched human/device evidence is admitted.
+
+## Clean replay and additional numerical receipts
+
+`python -m scripts.run_movement_credibility --out runs/i3/res598/continuation-20261107-clean-replay`
+completed with exit 0 in 284.812 s, numerical source
+`cc7396e2526cd8733bf07e2c851848b002a38f40`, `source_dirty=false`.
+All bounded physical submission hashes, baseline results, matrix and evaluator
+hash match the first run. The second report/figure are retained separately;
+the clean report does not retroactively alter the first run's dirty flag.
+
+`python -m scripts.reproduce_paired_corpus --out runs/i3/res524/working/continuation-20261107-replay`
+completed with exit 0: two fresh processes with PYTHONHASHSEED 0/1, 16 cases
+per replica, all 188 inventoried files identical. Each replica has source
+integrity 16/16, model-reference qualification 16/16, bounded synchronization
+15/16 and exactly one expected synchronization refusal. These are source/model
+context qualifications, not new full-movement or device validation. Each
+replica is 473168581 bytes; the bounded pair totals 946337162 bytes. Raw
+working outputs remain outside committed history; the small receipt is retained.
+
+The stronger mandatory SciPy run now passes 3/3 unskipped tests (exit 0).
+For the independent nonlinear contact reference, velocity error decreases
+from 9.6553299e-5 to 4.8223232e-5 m/s across 0.02/0.01 ms production steps;
+reference refinement is 2.9798891e-9 m/s. Doubling damping creates a
+0.3119075 m/s discrepancy, outside the predeclared 0.0005 m/s fixture budget.
+This qualifies this scalar numerical fixture only.
+
+All 10 baseline movement fixtures use a nominal 1 ms physics step. The added
+CMJ refinement script in the clean-replay directory executes 1/0.5/0.25/
+0.03125 ms. Maximum angular residual decreases 0.0257631/0.0125178/0.00615515/
+0.000762733 kg m2/s. The final fixture passes the unchanged 0.000805938
+kg m2/s budget; the baseline matrix's 1 ms CMJ FAIL is retained. This is
+observed numerical refinement, not acceptance of every CMJ state/parameter or
+an improved production integrator. It does not establish full recovery or
+biological validity. The evaluator, generator and runner bytes used by the
+clean replay remained unchanged while the later SciPy test was added.
+
+The refinement receipt reads Git SHA at the end of the run (429da637...),
+after starting on cc7396e...; this limitation is retained. The numerical
+generator/evaluator files did not change between those revisions, and the
+receipt includes the evaluator byte hash. It is not independent final-SHA
+acceptance. The current report console labels its successful executable
+subgate `bounded_linear_contact_gate` and explicitly prints angular pass
+counts and `full_campaign_ready=false`, rather than implying that all
+numerical/mechanical domains passed. Later fresh outputs use the ignored,
+bounded `runs/i3/res598/working/` convention; published receipts remain versioned.
 
 NUMERICAL_VERIFICATION_ONLY
 SIMULATED_MEASUREMENT_ONLY

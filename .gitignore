@@ -23,3 +23,6 @@ runs/i1/res487/replica-b/
 
 # RES-524 fresh manufactured working corpus and disposable product state.
 runs/i3/res524/working/
+
+# RES-598 bounded fresh-process scientific verification output.
+runs/i3/res598/working/
