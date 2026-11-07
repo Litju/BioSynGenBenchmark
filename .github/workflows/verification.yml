@@ -44,6 +44,8 @@ jobs:
         run: python -m scripts.run_i1 --replicate --out runs/i3/ci/i1/run
       - name: I3 fresh-process exercise reproduction and benchmark falsifiers
         run: python -m scripts.verify_i3_reproducibility --out runs/i3/ci/i2-reproduction
+      - name: Movement credibility numerical subclaims and explicit refusals
+        run: python -m scripts.run_movement_credibility --out runs/i3/ci/movement-credibility
       - name: Exact-reference manufactured platform probe
         run: python -m scripts.i3_platform_probe --out runs/i3/ci/numeric-probe.json
       - name: Upload numerical provenance and artifacts

@@ -1,0 +1,123 @@
+{
+  "CMJ": {
+    "figure": "cmj.png",
+    "sha256": "f1585e836529b7f2fdbcdebfb0621d9ba7919f07dd8bc0905fcac55a59993111",
+    "termination": "DURATION_REACHED",
+    "force_samples": 2601,
+    "lpt_samples": 2600,
+    "acquisition": "native dual-1kHz independent clocks",
+    "visual_inspection": "RENDERED_INSPECTED_2026-11-07",
+    "mechanics_source_sha": "a7dde6a382e8c739db1bd2a9aa837f5decb996d3",
+    "plot_script_working_bytes_sha256": "b98af266cb304c6599584ae2750007bbddf761a95adfde78878979d5778ba43a"
+  },
+  "SJ": {
+    "figure": "sj.png",
+    "sha256": "017abe36adbc954f6d4994bd9f7fc49fe533f32b535ecebc481884e783d5ba24",
+    "termination": "DURATION_REACHED",
+    "force_samples": 2601,
+    "lpt_samples": 2600,
+    "acquisition": "native dual-1kHz independent clocks",
+    "visual_inspection": "RENDERED_INSPECTED_2026-11-07",
+    "mechanics_source_sha": "a7dde6a382e8c739db1bd2a9aa837f5decb996d3",
+    "plot_script_working_bytes_sha256": "b98af266cb304c6599584ae2750007bbddf761a95adfde78878979d5778ba43a"
+  },
+  "LOADED_CMJ": {
+    "figure": "loaded_cmj.png",
+    "sha256": "07e69fdc82d8ba280e7b92fed5cae6fc10c79e1fca922c6593e68e16e4cdcac9",
+    "termination": "DURATION_REACHED",
+    "force_samples": 2601,
+    "lpt_samples": 2600,
+    "acquisition": "native dual-1kHz independent clocks",
+    "visual_inspection": "RENDERED_INSPECTED_2026-11-07",
+    "mechanics_source_sha": "a7dde6a382e8c739db1bd2a9aa837f5decb996d3",
+    "plot_script_working_bytes_sha256": "b98af266cb304c6599584ae2750007bbddf761a95adfde78878979d5778ba43a"
+  },
+  "LOADED_JUMP_SQUAT": {
+    "figure": "loaded_jump_squat.png",
+    "sha256": "41e2de17141241918fbabc4096b18a5b92375593e6f2fbe42bf30f2a707f900c",
+    "termination": "DURATION_REACHED",
+    "force_samples": 2601,
+    "lpt_samples": 2600,
+    "acquisition": "native dual-1kHz independent clocks",
+    "visual_inspection": "RENDERED_INSPECTED_2026-11-07",
+    "mechanics_source_sha": "a7dde6a382e8c739db1bd2a9aa837f5decb996d3",
+    "plot_script_working_bytes_sha256": "b98af266cb304c6599584ae2750007bbddf761a95adfde78878979d5778ba43a"
+  },
+  "BACK_SQUAT": {
+    "figure": "back_squat.png",
+    "sha256": "47ad893695dd1e8b44837fa6ce81121b3bab7b41286ec0a61ad4adbfbbb21660",
+    "termination": "DURATION_REACHED",
+    "force_samples": 3501,
+    "lpt_samples": 3500,
+    "acquisition": "native dual-1kHz independent clocks",
+    "visual_inspection": "RENDERED_INSPECTED_2026-11-07",
+    "mechanics_source_sha": "a7dde6a382e8c739db1bd2a9aa837f5decb996d3",
+    "plot_script_working_bytes_sha256": "b98af266cb304c6599584ae2750007bbddf761a95adfde78878979d5778ba43a"
+  },
+  "DEADLIFT": {
+    "figure": "deadlift.png",
+    "sha256": "e7e1441708d7ad16040b6956801686e94c7ed084a5d9ba39d93d7f5f532a8f0c",
+    "termination": "DURATION_REACHED",
+    "force_samples": 5301,
+    "lpt_samples": 5300,
+    "acquisition": "native dual-1kHz independent clocks",
+    "visual_inspection": "RENDERED_INSPECTED_2026-11-07",
+    "mechanics_source_sha": "a7dde6a382e8c739db1bd2a9aa837f5decb996d3",
+    "plot_script_working_bytes_sha256": "b98af266cb304c6599584ae2750007bbddf761a95adfde78878979d5778ba43a"
+  },
+  "BENCH_PRESS": {
+    "figure": "bench_press.png",
+    "sha256": "de5c73f49032e98dcbc2f28b226850cda404c3d9fee873ac8800dd2b5fea4709",
+    "termination": "DURATION_REACHED",
+    "force_samples": 9201,
+    "lpt_samples": 9200,
+    "acquisition": "native dual-1kHz independent clocks",
+    "visual_inspection": "RENDERED_INSPECTED_2026-11-07",
+    "mechanics_source_sha": "a7dde6a382e8c739db1bd2a9aa837f5decb996d3",
+    "plot_script_working_bytes_sha256": "b98af266cb304c6599584ae2750007bbddf761a95adfde78878979d5778ba43a"
+  },
+  "CLEAN_PULL": {
+    "figure": "clean_pull.png",
+    "sha256": "c6fbc45b58bb1ab416d89de1e16ca9eaeb5677e622272004fbb80a73aeea0397",
+    "termination": "DURATION_REACHED",
+    "force_samples": 4301,
+    "lpt_samples": 4300,
+    "acquisition": "native dual-1kHz independent clocks",
+    "visual_inspection": "RENDERED_INSPECTED_2026-11-07",
+    "mechanics_source_sha": "a7dde6a382e8c739db1bd2a9aa837f5decb996d3",
+    "plot_script_working_bytes_sha256": "b98af266cb304c6599584ae2750007bbddf761a95adfde78878979d5778ba43a"
+  },
+  "SNATCH_PULL": {
+    "figure": "snatch_pull.png",
+    "sha256": "0741b0692db7540eac3c96422d214d62ac67f18d0abbe4000166b0cd99d59f8b",
+    "termination": "DURATION_REACHED",
+    "force_samples": 4301,
+    "lpt_samples": 4300,
+    "acquisition": "native dual-1kHz independent clocks",
+    "visual_inspection": "RENDERED_INSPECTED_2026-11-07",
+    "mechanics_source_sha": "a7dde6a382e8c739db1bd2a9aa837f5decb996d3",
+    "plot_script_working_bytes_sha256": "b98af266cb304c6599584ae2750007bbddf761a95adfde78878979d5778ba43a"
+  },
+  "POWER_CLEAN_PULL_ONLY": {
+    "figure": "power_clean_pull_only.png",
+    "sha256": "58262af48b1378359861a437151dfeb10f0562e6a89602ed5462fbdc5582432b",
+    "termination": "DURATION_REACHED",
+    "force_samples": 4301,
+    "lpt_samples": 4300,
+    "acquisition": "native dual-1kHz independent clocks",
+    "visual_inspection": "RENDERED_INSPECTED_2026-11-07",
+    "mechanics_source_sha": "a7dde6a382e8c739db1bd2a9aa837f5decb996d3",
+    "plot_script_working_bytes_sha256": "b98af266cb304c6599584ae2750007bbddf761a95adfde78878979d5778ba43a"
+  },
+  "DROP_REBOUND_CANDIDATE": {
+    "figure": "drop_rebound_candidate.png",
+    "sha256": "c7c5fbfd6236f76d3af6073c672653a6fbcceccb25c674b75f515e9d4d2cb7b1",
+    "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+    "force_samples": 1289,
+    "lpt_samples": 1289,
+    "acquisition": "native dual-1kHz independent clocks",
+    "visual_inspection": "RENDERED_INSPECTED_2026-11-07",
+    "mechanics_source_sha": "a7dde6a382e8c739db1bd2a9aa837f5decb996d3",
+    "plot_script_working_bytes_sha256": "b98af266cb304c6599584ae2750007bbddf761a95adfde78878979d5778ba43a"
+  }
+}
