@@ -105,7 +105,10 @@ def analyze_jump(trajectory: ExerciseTrajectory) -> JumpPhaseAnalysis:
                     release[side], release_i[side] = f.t_end_s, i
         if all(r is not None for r in release.values()):
             break
-    takeoff_i = max(release_i.values()) if all(r is not None for r in release_i.values()) else None
+    # Flight requires simultaneous bilateral release with a complete persistence window.
+    takeoff_i = next((i for i in range(len(frames) - 2)
+                     if all(_foot_open(trajectory, g.state, side)
+                            for g in frames[i:i + 3] for side in ("left", "right"))), None)
     takeoff = frames[takeoff_i].t_end_s if takeoff_i is not None else None
 
     # Touchdown: first impact or touchdown event on a foot after takeoff.
