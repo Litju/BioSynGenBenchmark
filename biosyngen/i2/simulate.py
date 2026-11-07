@@ -264,6 +264,8 @@ class LatentFrame:
     # Constitutive response at interval start; integrate power over this interval.
     contact_stored_energy_j: Mapping[str, float] = field(default_factory=dict)
     contact_dissipated_power_w: Mapping[str, float] = field(default_factory=dict)
+    constraint_projection_work_j: float = 0.0
+    rigid_contact_work_estimate_j: float = 0.0
 
 
 @dataclass(frozen=True, slots=True)
@@ -437,6 +439,7 @@ def simulate(
             passive, actuator_power + passive_power, controller.stage.name,
             {cid: r.stored_energy_j for cid, r in compliant_responses.items()},
             {cid: r.dissipated_power_w for cid, r in compliant_responses.items()},
+            step.constraint_projection_work_j, step.contact_work_estimate_j,
         ))
         state = step.state
         below = body_points_below_floor(model, state)

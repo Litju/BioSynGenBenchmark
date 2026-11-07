@@ -131,3 +131,14 @@ The analytical support test requires weight balance within 1e-7 N, free-flight
 momentum within 1e-8 kg m/s, no ground force before touchdown and no platform
 force after release. Invalid times are refused. No completed drop jump, RSI,
 biological claim or sensor admission is established by this extension.
+
+Projection-energy corrections and the solver's approximate rigid-contact
+work are now separately retained in latent frames. The latter is post-step
+impulse quadrature plus instantaneous-impact work, not exact continuous
+friction work. Neither may be silently credited as physiological work.
+
+`python -m runs.i3.res597.continuation.flight_placement_probe` preserves a
+further bounded diagnostic: flight hip targets 1.2/1.6/2.0 rad, with the original
+landing control, all fail at 1.3556/1.3988/1.5248 s respectively (dt=0.0004 s,
+3 s requested). Moving the feet through feasible joint targets delays but
+does not solve recovery. No production control was changed by these probes.
