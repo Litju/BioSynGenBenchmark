@@ -86,3 +86,24 @@ NUMERICAL_VERIFICATION_ONLY
 SIMULATED_MEASUREMENT_ONLY
 BIOLOGICAL_VALIDATION=NOT_ESTABLISHED
 REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED
+
+## 2026-11-07 landing counterexamples
+
+`python scripts/res597_landing_counterexamples.py` (exit 0) reproduces three
+failed 3 s requests at dt=0.0004 s. The script asserts the failure, prints
+the actual control parameters, transitions and terminal momentum, and does
+not change the production controller. Completion denominator: 0/3.
+
+| Landing control | Knee-floor termination (s) | Terminal momentum x,z (kg m/s) |
+| --- | ---: | --- |
+| Baseline | 1.3020 | 138.8801, -234.9230 |
+| Existing ankle COM balance | 1.2896 | 159.4781, -215.9162 |
+| Softer ankle plus ankle/hip COM balance | 1.2500 | 152.4046, -197.9124 |
+
+Both attempted control repairs fail earlier than baseline. Joint posture
+tracking alone does not establish stable whole-body recovery. These witnesses
+do not prove that every possible controller fails; they falsify these two
+proposed repairs. No support, contact, impulse, event or anatomical model was
+added. Stop after the two repair attempts under AGENTS.md. Stable final
+recovery remains unimplemented/unqualified, and no RSI admission follows.
+The script contains owned code and synthetic-only outputs; no external data.
