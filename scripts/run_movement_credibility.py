@@ -19,6 +19,14 @@ def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def recovery_finding(trial):
+    return dict(termination=trial.termination,
+        end_time_s=trial.frames[-1].t_end_s if trial.frames else None,
+        claim="Complete terminal landing recovery", expected="DURATION_REACHED with supported recovery",
+        measured="FAIL" if trial.termination != "DURATION_REACHED" else "EVIDENCE_PENDING",
+        scope="Experimental default candidate only; no broad movement qualification")
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", required=True)
@@ -58,11 +66,18 @@ def main(argv=None):
             falsifiers=faults, submission_sha256=hashlib.sha256(payload).hexdigest(),
             termination=trial.termination, completion="FULL_EXERCISE_NOT_QUALIFIED"))
     matrix = qualification_matrix()
+    recovery = build_drop_jump_candidate().run()
+    recovery_evidence = recovery_finding(recovery)
+    for cell in matrix["primary_cells"]:
+        if cell["movement"] == "DROP_JUMP" and cell["domain"] == "MOVEMENT":
+            cell.update(disposition=recovery_evidence["measured"], evidence=recovery_evidence,
+                        reason="Measured terminal recovery; see explicit candidate failure evidence")
     counts = qualification_counts(matrix["primary_cells"])
     report = dict(schema="BSMB-MOVEMENT-CREDIBILITY-1", source_sha=sha,
         source_dirty=dirty, runner_sha256=digest(__file__),
         evaluator_sha256=digest("biosyngen_benchmark/i2_evaluator.py"),
         matrix=matrix, denominators=counts, bounded_drop_cases=cases,
+        terminal_recovery=recovery_evidence, full_campaign_ready=False,
         baseline_sha256=digest(out/"baseline"/"benchmark.json"),
         baseline=json.loads((out/"baseline"/"benchmark.json").read_text(encoding="utf-8")),
         elapsed_s=time.monotonic()-started, data_rights="OWNED_MANUFACTURED_ONLY_NO_REAL_DATA_ADMITTED",
