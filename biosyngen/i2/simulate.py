@@ -331,8 +331,14 @@ def simulate(
     limits: Mapping[str, JointLimit] | None = None,
     scenario: Mapping[str, object] | None = None,
     max_steps: int = 200_000,
+    compliant_contacts=None,
 ) -> ExerciseTrajectory:
     system = model.system
+    if compliant_contacts:
+        from ..compliant_contact import CompliantPlanarStepper
+        compliant_stepper = CompliantPlanarStepper(system, compliant_contacts)
+    else:
+        compliant_stepper = None
     limits = limits or DEFAULT_LIMITS
     state = initial_state
     frames: list[LatentFrame] = []
@@ -351,12 +357,29 @@ def simulate(
             torque * rates[system.actuator_joint_id(actuator_id)] for actuator_id, torque in torques.items()
         )
         try:
-            step = system.advance(state, h, excitations=excitations, external_wrenches=wrenches)
+            if compliant_stepper is None:
+                step = system.advance(state, h, excitations=excitations, external_wrenches=wrenches)
+                compliant_responses = {}
+            else:
+                step, compliant_responses = compliant_stepper.advance(
+                    state, h, excitations=excitations, external_wrenches=wrenches)
         except ConstraintSolveError as exc:
             termination = f"CONSTRAINT_SOLVE_REFUSED: {exc}"
             break
         elapsed = step.elapsed_s
         forces: dict[str, ContactForceSample] = {}
+        for cid, response in compliant_responses.items():
+            kin = system.contact_kinematics(state, cid)
+            force = tuple(response.normal_n*n + response.tangent_n*t
+                          for n, t in zip(kin.normal_world, kin.tangent_world))
+            forces[cid] = ContactForceSample(cid, kin.point_a_world_m, force,
+                                             response.normal_n, response.tangent_n)
+            was_open = state.contacts[cid].mode is ContactMode.OPEN
+            is_open = step.state.contacts[cid].mode is ContactMode.OPEN
+            if was_open != is_open:
+                events.append(ContactEvent("CONTACT_RELEASE" if is_open else "CONTACT_TOUCHDOWN",
+                                            (cid,), step.state.time_s,
+                                            detail="finite compliant contact; interval-bracketed event"))
         if elapsed > 0.0:
             for ledger, frame_state in (
                 (step.contact_impulses_n_s, state),
