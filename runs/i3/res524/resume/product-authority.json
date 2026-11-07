@@ -1,0 +1,19 @@
+{
+  "native_extension_sha256": {
+    "_core.cp312-win_amd64.pyd": "7152a80f4fc90a05bbdfc98cec805fb29af91a31572d327ab6f2f6cee7c3de10",
+    "_ml47.cp312-win_amd64.pyd": "e8ab2a49678176927b9f29e461f3da64c10b73430746a73d623751569774cfa1"
+  },
+  "plate2bar_checked_out_sha": "9a60eab55b9c527ca65acb3070de77d840d555b0",
+  "plate2bar_remote_main": "74ec9520b005fb1096c1afe89e14043455725636",
+  "product_sources_sha256": {
+    "docs/contracts/schemas/p2b-open-dual-vforce-lpt-1.0.schema.json": "17cb0fce7625200d11cf6a9f52e8c95362015705775643b2e9ab31584b0f726a",
+    "src/plate2bar_instrument/computation/processing.py": "48f73f3ed8873ef6097d10e2a386cad9b3d37edb9c7eee882d7fabf085cfe2f4",
+    "src/plate2bar_instrument/measurement/component_pipeline.py": "1f8299e010f8d8c94875b766da9033c332287168a3beaab597f537678c37a6ea",
+    "src/plate2bar_instrument/measurement/lpt_component_pipeline.py": "01a4e2c4598e095cc09e5e129bd2f5aed97a44183b9bbc434dab3600d82420bd",
+    "src/plate2bar_instrument/measurement/open_bundle.py": "4f1ee21090f276768e930c82986e946e82460774cef595ebb254cecae612c6b9",
+    "src/plate2bar_instrument/measurement/segmentation_qualification.py": "00de5b33e6e6273a87320ad8f8ad995ab2696032cb439ce5e9fd21dd3d6c00bb"
+  },
+  "python": "3.12.10",
+  "relevant_contract_diff_to_remote_main": "EMPTY",
+  "truth_guard_scope": "Python open audit only; native OS calls not audited"
+}

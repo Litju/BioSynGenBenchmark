@@ -1,0 +1,1 @@
+{"status": "CANDIDATE_EXECUTED_NOT_SCIENTIFICALLY_QUALIFIED", "raw_component_admission": "PASS", "derived_admission": null, "cold_reopen": "EXACT_PRODUCTION_IDENTITY_PASS"}

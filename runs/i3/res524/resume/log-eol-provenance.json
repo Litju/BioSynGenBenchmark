@@ -1,0 +1,85 @@
+{
+  "files": {
+    "cold-process-reopen.txt": {
+      "lf_sha256": "7dd675aa1a9228a25f7a4cbd5fa1998e541ee68a9ee993ab45d052845423a65b",
+      "original_sha256": "d75767396ab5266fc86a187218ccbc4a46c9216adec5149abb11f0bcdde17410"
+    },
+    "deadlift-product-final.txt": {
+      "lf_sha256": "847f5e1d2bc1c3b2737a5ab98062e751224fe7d9f55ae92799aec9e171fb18c6",
+      "original_sha256": "b29c74ce40fc465b6951505bb376cb2dd809db188dc19685cdc1129b36a0c566"
+    },
+    "declared-stage-after-repair.txt": {
+      "lf_sha256": "d8a071a812ee5c72141bf4a38b8f35f9188314b176220a706309822ecafa00bc",
+      "original_sha256": "3a03b6979d27e5cd56c9b58cc4c30343e689edc93684dcafee8a100ed5bef1b4"
+    },
+    "declared-stage-before-repair.txt": {
+      "lf_sha256": "36738bed4f7bf3c4a10d43126bbf9d316989ad7735fced294e84a6807b6388c2",
+      "original_sha256": "f875df5498320ef241151f716803e281734c4b2c4e380685ec60392d269d1f4d"
+    },
+    "focused-final.txt": {
+      "lf_sha256": "1fb5aeb23e6fb7f16bc7efff6d049b488e3a2052f01b0aab59f3cc27bead4e92",
+      "original_sha256": "0dd10f7cb89ec81d8fa9bc5855272fb3282e24efddc15c209898d9fc7966c7b2"
+    },
+    "focused-reviewed.txt": {
+      "lf_sha256": "5faf9a1e4b49e672ecec440859fae7cce5359f6b4756be708d5fe6ea35a046a1",
+      "original_sha256": "2653c3b8854f833564b5c4c5df9faf42e63b03224269113ed2be97d8a865ce4a"
+    },
+    "guided-integration-attempt2.txt": {
+      "lf_sha256": "36738bed4f7bf3c4a10d43126bbf9d316989ad7735fced294e84a6807b6388c2",
+      "original_sha256": "f875df5498320ef241151f716803e281734c4b2c4e380685ec60392d269d1f4d"
+    },
+    "guided-product-final.txt": {
+      "lf_sha256": "36738bed4f7bf3c4a10d43126bbf9d316989ad7735fced294e84a6807b6388c2",
+      "original_sha256": "f875df5498320ef241151f716803e281734c4b2c4e380685ec60392d269d1f4d"
+    },
+    "original-schema-failure.txt": {
+      "lf_sha256": "403a8b5f258d106b04226c9d31a6b75290a142d6529057cf4f45790a6ec98e8d",
+      "original_sha256": "c1797418f22a621fe22f2118b3c1f6676d0d1dce7ffd3b7072fc25ba66fb32b4"
+    },
+    "product-boundary-tests.txt": {
+      "lf_sha256": "13d241bf314bf46dc88ca53964da146b3562d04fe60f3c4cf7791c1bdcc57270",
+      "original_sha256": "fc98bb5d554146bcdace8456295ab8c4e4f0fe0a26d530eeb12139bec342a00f"
+    },
+    "review-integration-check.txt": {
+      "lf_sha256": "847f5e1d2bc1c3b2737a5ab98062e751224fe7d9f55ae92799aec9e171fb18c6",
+      "original_sha256": "b29c74ce40fc465b6951505bb376cb2dd809db188dc19685cdc1129b36a0c566"
+    },
+    "scipy.txt": {
+      "lf_sha256": "fc178392b20e9439fcf55af432ff5f181a1488a6d6b94090538af6f00cadb5ad",
+      "original_sha256": "4b2777c33f4538bf40309bc8f0a3a295d640b5bf8aba79899ebbd12f79460de8"
+    },
+    "source-adversaries.txt": {
+      "lf_sha256": "427ff0ddd5bb3ac3907ed6a9941970bd6053386d6f1894eac3441a90b85835c2",
+      "original_sha256": "f78fe1eb336b45dc3f869c2563156f87ffa338d832a1cdde9935ef58f4d177b4"
+    },
+    "source-stage-adversaries-final.txt": {
+      "lf_sha256": "935f1ed27f7bcbf960a82629f25ffa722205615803e186798aef35e75990482d",
+      "original_sha256": "c5f8a546de4d3b8d4a010850705a02110c818a8d89897535955fc8cee59a5128"
+    },
+    "squat-product-final.txt": {
+      "lf_sha256": "847f5e1d2bc1c3b2737a5ab98062e751224fe7d9f55ae92799aec9e171fb18c6",
+      "original_sha256": "b29c74ce40fc465b6951505bb376cb2dd809db188dc19685cdc1129b36a0c566"
+    },
+    "squat-product.txt": {
+      "lf_sha256": "847f5e1d2bc1c3b2737a5ab98062e751224fe7d9f55ae92799aec9e171fb18c6",
+      "original_sha256": "b29c74ce40fc465b6951505bb376cb2dd809db188dc19685cdc1129b36a0c566"
+    },
+    "stage-map-valid-source.txt": {
+      "lf_sha256": "847f5e1d2bc1c3b2737a5ab98062e751224fe7d9f55ae92799aec9e171fb18c6",
+      "original_sha256": "b29c74ce40fc465b6951505bb376cb2dd809db188dc19685cdc1129b36a0c566"
+    },
+    "truth-access-negative.txt": {
+      "lf_sha256": "e47ac298cf98c5dde124928b131358402709d84cfc38d90d43d60950ad7d561e",
+      "original_sha256": "92f00c3abaf8e98b7f4958f37189fc03644dcb4c33cf028fe52f775596d2474f"
+    },
+    "truth-guard-integration.txt": {
+      "lf_sha256": "847f5e1d2bc1c3b2737a5ab98062e751224fe7d9f55ae92799aec9e171fb18c6",
+      "original_sha256": "b29c74ce40fc465b6951505bb376cb2dd809db188dc19685cdc1129b36a0c566"
+    },
+    "windows-suite.txt": {
+      "lf_sha256": "8012281a8f0036b8d3b32f85184fcb26e5c4eebf94863f84a52ae225eb926c54",
+      "original_sha256": "184c07a8157f5732882512e81fb39981ff059d4257285aa52fe31e0b7bf2c16f"
+    }
+  },
+  "operation": "CRLF to LF only; text and original failures retained"
+}

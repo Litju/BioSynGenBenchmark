@@ -1,0 +1,1 @@
+[{"case": "guided", "cold_process_coupling_equal": true}, {"case": "squat", "cold_process_coupling_equal": true}, {"case": "deadlift", "cold_process_coupling_equal": true}]
