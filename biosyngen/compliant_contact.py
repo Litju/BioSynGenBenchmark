@@ -64,9 +64,17 @@ class CompliantPlanarStepper:
     Finite compliance permits material deformation below the nominal surface.
     Refinement is mandatory; this adapter supplies no automatic stability claim.
     """
-    def __init__(self, system, laws):
+    def __init__(self, system, laws, *, release_times=None):
         self.geometry = system
         self.laws = dict(laws)
+        self.release_times = dict(release_times or {})
+        rigid_ids = {s.contact_id for s in system.contacts if s.contact_id not in laws}
+        if not set(self.release_times) <= rigid_ids:
+            raise DynamicsError("release times must identify rigid contacts")
+        for time in self.release_times.values():
+            if finite(time, "support release time") < 0:
+                raise DynamicsError("support release time must be nonnegative")
+        self._removed = frozenset()
         self.specs = {s.contact_id: s for s in system.contacts if s.contact_id in laws}
         if not self.laws or set(self.specs) != set(self.laws):
             raise DynamicsError("compliant contacts must identify existing surfaces")
@@ -82,6 +90,17 @@ class CompliantPlanarStepper:
             linear_solver_id=system.linear_solver_id)
 
     def advance(self, state, dt_s, *, excitations=None, external_wrenches=()):
+        removed = frozenset(cid for cid, time in self.release_times.items() if state.time_s >= time)
+        if any(state.time_s < time < state.time_s + dt_s for time in self.release_times.values()):
+            raise DynamicsError("integration interval must end at support release")
+        if removed != self._removed:
+            self.dynamics = PlanarMultibodySystem(
+                self.geometry.bodies, self.geometry.joints,
+                [s for s in self.geometry.contacts if s.contact_id not in self.laws and s.contact_id not in removed],
+                gravity_m_s2=self.geometry.gravity_m_s2, clock_id=self.geometry.clock_id,
+                actuators=self.geometry.actuators, linear_solver=self.geometry._linear_solver,
+                linear_solver_id=self.geometry.linear_solver_id)
+            self._removed = removed
         wrenches = list(external_wrenches)
         responses = {}
         for cid, spec in self.specs.items():
@@ -92,10 +111,12 @@ class CompliantPlanarStepper:
             force = tuple(response.normal_n*n + response.tangent_n*t
                           for n, t in zip(kin.normal_world, kin.tangent_world))
             wrenches.append(AppliedWrench(spec.body_a_id, cid, force, spec.local_point_a_m))
-        rigid_state = replace(state, contacts={k: v for k, v in state.contacts.items() if k not in self.laws})
+        rigid_state = replace(state, contacts={k: v for k, v in state.contacts.items()
+                                             if k not in self.laws and k not in removed})
         step = self.dynamics.advance(rigid_state, dt_s, excitations=excitations,
                                      external_wrenches=wrenches)
         contacts = dict(step.state.contacts)
+        contacts.update({cid: ContactState() for cid in removed})
         contacts.update({cid: ContactState() for cid in self.laws})
         geometric_state = replace(step.state, contacts=contacts)
         for cid in self.laws:

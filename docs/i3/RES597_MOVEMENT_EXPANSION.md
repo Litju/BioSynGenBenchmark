@@ -86,3 +86,59 @@ NUMERICAL_VERIFICATION_ONLY
 SIMULATED_MEASUREMENT_ONLY
 BIOLOGICAL_VALIDATION=NOT_ESTABLISHED
 REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED
+
+## 2026-11-07 landing counterexamples
+
+`python scripts/res597_landing_counterexamples.py` (exit 0) reproduces three
+failed 3 s requests at dt=0.0004 s. The script asserts the failure, prints
+the actual control parameters, transitions and terminal momentum, and does
+not change the production controller. Completion denominator: 0/3.
+
+| Landing control | Knee-floor termination (s) | Terminal momentum x,z (kg m/s) |
+| --- | ---: | --- |
+| Baseline | 1.3020 | 138.8801, -234.9230 |
+| Existing ankle COM balance | 1.2896 | 159.4781, -215.9162 |
+| Softer ankle plus ankle/hip COM balance | 1.2500 | 152.4046, -197.9124 |
+
+Both attempted control repairs fail earlier than baseline. Joint posture
+tracking alone does not establish stable whole-body recovery. These witnesses
+do not prove that every possible controller fails; they falsify these two
+proposed repairs. No support, contact, impulse, event or anatomical model was
+added. Stop after the two repair attempts under AGENTS.md. Stable final
+recovery remains unimplemented/unqualified, and no RSI admission follows.
+The script contains owned code and synthetic-only outputs; no external data.
+
+## Continued support and energy work
+
+The owner subsequently directed continued execution. The candidate now accepts
+`platform_release_s`: rigid elevated heel/toe support is integrated until that
+time, then withdrawn without an impulse or a body-state reset. Integration
+ends exactly at release even when it falls between nominal steps. Platform
+contacts have separate `PLATFORM` identities and no plate binding. Ground
+plate contacts remain open during support and free descent. This models a
+withdrawn stationary platform, not a human step off a fixed box. The historical
+post-release default and its failure witnesses are preserved.
+
+Latent frames now retain each compliant contact's start-of-interval potential
+energy and dissipated power. Energy balance uses actual joint work and this
+dissipation, not force times COM velocity. At 0.5 s, dt=0.0004/0.0002/0.0001 s
+give energy residuals 63.3005153/28.2569551/12.9130961 J and integrated contact
+dissipation 76.3780728/44.8512968/30.6297285 J. These are convergent but large:
+convergence alone does not admit energy closure or validate the contact law.
+
+Reproduce: `python -m unittest discover -s tests -p test_res597_platform_release.py -v`.
+The analytical support test requires weight balance within 1e-7 N, free-flight
+momentum within 1e-8 kg m/s, no ground force before touchdown and no platform
+force after release. Invalid times are refused. No completed drop jump, RSI,
+biological claim or sensor admission is established by this extension.
+
+Projection-energy corrections and the solver's approximate rigid-contact
+work are now separately retained in latent frames. The latter is post-step
+impulse quadrature plus instantaneous-impact work, not exact continuous
+friction work. Neither may be silently credited as physiological work.
+
+`python -m runs.i3.res597.continuation.flight_placement_probe` preserves a
+further bounded diagnostic: flight hip targets 1.2/1.6/2.0 rad, with the original
+landing control, all fail at 1.3556/1.3988/1.5248 s respectively (dt=0.0004 s,
+3 s requested). Moving the feet through feasible joint targets delays but
+does not solve recovery. No production control was changed by these probes.
