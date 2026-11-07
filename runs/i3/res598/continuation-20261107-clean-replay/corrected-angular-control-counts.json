@@ -1,0 +1,10 @@
+{
+  "basis": "Reclassification of immutable clean-replay case outcomes; no new physical observations",
+  "counts": {
+    "detected": 5,
+    "n": 5,
+    "attempted": 10,
+    "rejected": 10,
+    "ineligible_baseline_count": 5
+  }
+}

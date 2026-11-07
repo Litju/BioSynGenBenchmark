@@ -1,0 +1,8 @@
+{
+  "source_sha": "c0cdb9cd7c1dd2e7d9daf337f2b2999969536cfb",
+  "matplotlib": "3.10.8",
+  "report_sha256": "50ac0326752bd0a8be37c200c132fca3f5e58ceba4dbf53f55482591c08250de",
+  "figure_sha256": "b6124c6158f56063f32ffb3b92a31d35fa2e19032a67312e32658a87a06474d1",
+  "visual_inspection": "Inspected; budget legend overlapped SJ bar, superseded by residuals-inspected.png",
+  "scope": "Synthetic residual diagnostics only"
+}

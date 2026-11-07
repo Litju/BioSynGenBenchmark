@@ -1,0 +1,25 @@
+{
+  "cases_per_replica": 16,
+  "fresh_process_reproduction": "PASS",
+  "matching_files": 188,
+  "python_hash_seeds": [
+    0,
+    1
+  ],
+  "qualification_denominators": {
+    "bounded_synchronization_count": 15,
+    "evidence_refused_count": 0,
+    "expected_refusal_count": 1,
+    "full_case_qualified_count": 15,
+    "generation_refusal_count": 0,
+    "geometry_not_applicable_guide_count": 4,
+    "geometry_pass_count": 12,
+    "missing_evidence_count": 0,
+    "model_reference_qualified_count": 16,
+    "not_evaluable_count": 0,
+    "requested_count": 16,
+    "source_integrity_pass_count": 16,
+    "synchronization_refused_count": 1
+  },
+  "replicas": 2
+}

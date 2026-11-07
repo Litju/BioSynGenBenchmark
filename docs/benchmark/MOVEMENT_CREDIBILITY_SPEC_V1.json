@@ -1,0 +1,25 @@
+{
+  "schema": "BSMB-MOVEMENT-CREDIBILITY-SPEC-1",
+  "context_of_use": "Numerical research verification of declared synthetic mechanical models; no clinical, athlete-performance or device decisions",
+  "population": "Manufactured adult anthropometry; no empirical human cohort admitted",
+  "primary_movements": ["COUNTERMOVEMENT_JUMP", "BACK_SQUAT", "DEADLIFT", "BENCH_PRESS", "SQUAT_JUMP", "DROP_JUMP", "POWER_CLEAN", "POWER_SNATCH", "CLEAN", "SNATCH"],
+  "cell_rule": "Cartesian product of primary_movements and domains; no silent omission or promotion of pending/refused cells",
+  "domains": {
+    "MATHEMATICS": {"claim": "Correct equations, SI units and frames", "oracle": "Analytic solutions, coordinate and time-origin invariance", "falsifier": "Wrong gravity, units or rotated force frame", "acceptance": "Per-equation analytic error budget required"},
+    "NUMERICS": {"claim": "Converged numerical solution", "oracle": "Step refinement and distinct integrator", "falsifier": "Nonconvergent steps or unstable stiffness", "acceptance": "Observed refinement with predeclared quantity-specific error budgets"},
+    "MULTIBODY": {"claim": "Articulated momentum, inertia and constraint closure", "oracle": "Independent Newton-Euler force and impulse integration", "falsifier": "Wrong mass/inertia or omitted support", "acceptance": "Existing I2 momentum budget applies only to its bounded momentum subclaim"},
+    "CONTACT_ENERGY": {"claim": "Admissible finite or impulsive contact with energy closure", "oracle": "Potential gradient, impulse momentum, friction cone and work ledger", "falsifier": "Adhesion, energy creation, absent catch impulse or excess friction", "acceptance": "Contact-type-specific convergence and uncertainty required"},
+    "ANATOMY": {"claim": "Declared joint and segment geometry is feasible", "oracle": "Independent segment reach and joint range constraints", "falsifier": "Impossible grip, penetration or missing spatial catch DOFs", "acceptance": "No anatomical promotion beyond explicitly modeled DOFs"},
+    "NEUROMUSCULAR": {"claim": "Bounded actuator hypothesis", "oracle": "Declared capacity, activation and work limits", "falsifier": "Unbounded torque or neural inference from artificial control", "acceptance": "Human neural control remains unestablished"},
+    "MOVEMENT": {"claim": "Physical start, event topology and completion", "oracle": "Contact and state predicates independent of controller labels", "falsifier": "False completion, missed rebound or fake receiving", "acceptance": "All required physical events and recovery must exist"},
+    "MEASUREMENT": {"claim": "Simulated FORCE/LPT conforms to declared acquisition", "oracle": "Native clock, cable geometry, calibration and provenance contracts", "falsifier": "Clock shift, substituted COM displacement or altered original zero", "acceptance": "Existing paired-source admission plus exercise-specific measurement budgets"},
+    "IDENTIFIABILITY": {"claim": "Reported inverse quantities are observable", "oracle": "Matched-source different-latent counterexamples and support ledger", "falsifier": "Feet-only whole-system power or anatomical labels from scalar channels", "acceptance": "Unsupported inverse claims must refuse"},
+    "BIOLOGY": {"claim": "Matched independent human external validity", "oracle": "Licensed calibrated population-specific independent recordings", "falsifier": "Ineligible population, leaked calibration split or absent rights", "acceptance": "NOT_EVALUABLE without admitted data and predeclared agreement margins"},
+    "RELIABILITY_UNCERTAINTY": {"claim": "Repeatability and quantified uncertainty", "oracle": "Independent regeneration, perturbations and experimental repeats where admitted", "falsifier": "Simulator determinism relabeled human reliability", "acceptance": "Separate numerical, parametric, device and biological uncertainties"},
+    "INTEGRITY": {"claim": "Independent reproducible provenance and honest denominators", "oracle": "Exact SHA, hashes, source boundaries and adversarial admission", "falsifier": "Forged/nonfinite evidence, TRUTH leakage or omitted refusal cells", "acceptance": "No independent final-SHA acceptance by implementation author"}
+  },
+  "evidence_record_requires": ["context_of_use", "population", "claim", "oracle", "conditions", "expected", "measured", "tolerance_basis", "uncertainty", "falsifiers", "submission_sha256"],
+  "default_artifact_budget_bytes": 1073741824,
+  "empirical_data_policy": "No recordings admitted; source rights and experimental matching required before any pilot",
+  "claim_ceilings": ["NUMERICAL_VERIFICATION_ONLY", "SIMULATED_MEASUREMENT_ONLY", "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED", "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"]
+}

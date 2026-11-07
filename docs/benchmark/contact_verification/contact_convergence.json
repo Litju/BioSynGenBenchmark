@@ -1,0 +1,40 @@
+{
+  "context": "1 kg, 0.1 m release, 9.81 m/s\u00b2, k=10000 N/m, damping=0.3 s/m, 0.3 s duration",
+  "reference_method": "Distinct scalar RK4 at 10 microseconds",
+  "reference_z_m": 0.05393388044775009,
+  "reference_v_m_s": -0.17272830694868163,
+  "rows": [
+    {
+      "dt_s": 0.0004,
+      "velocity_m_s": -0.17389413029993214,
+      "impulse_n_s": 2.7691058697000797,
+      "energy_j": 0.5435705228067972,
+      "dissipation_j": 0.4392739206978398,
+      "peak_force_n": 141.41031668647022,
+      "velocity_error_m_s": 0.0011658233512505112,
+      "energy_closure_error_j": 0.0018444435046370833
+    },
+    {
+      "dt_s": 0.0002,
+      "velocity_m_s": -0.17329520792696165,
+      "impulse_n_s": 2.7697047920730564,
+      "energy_j": 0.5438016628404961,
+      "dissipation_j": 0.43808917459995894,
+      "peak_force_n": 141.0945234215949,
+      "velocity_error_m_s": 0.0005669009782800216,
+      "energy_closure_error_j": 0.00089083744045515
+    },
+    {
+      "dt_s": 0.0001,
+      "velocity_m_s": -0.17301287013415803,
+      "impulse_n_s": 2.7699871298658136,
+      "energy_j": 0.5439029303696258,
+      "dissipation_j": 0.4375269921783649,
+      "peak_force_n": 140.93520666371677,
+      "velocity_error_m_s": 0.0002845631854763997,
+      "energy_closure_error_j": 0.00042992254799067986
+    }
+  ],
+  "figure_sha256": "9c1cbb6befbcb67706eebd4acb8e21b31789a9226d3d5b5ec1b05071bcc0c837",
+  "scope": "Numerical contact fixture only; not full articulated energy qualification"
+}
