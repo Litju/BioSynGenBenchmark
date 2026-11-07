@@ -8,8 +8,9 @@ import numpy
 def main():
     print(sys.version, "SciPy", scipy.__version__, "NumPy", numpy.__version__, flush=True)
     suite=unittest.defaultTestLoader.loadTestsFromName("tests.test_i1_solver_crosscheck")
+    suite.addTests(unittest.defaultTestLoader.loadTestsFromName("tests.test_res598_nonlinear_scipy"))
     result=unittest.TextTestRunner(verbosity=2).run(suite)
-    return 0 if result.wasSuccessful() and result.testsRun==2 and not result.skipped else 1
+    return 0 if result.wasSuccessful() and result.testsRun==3 and not result.skipped else 1
 
 
 if __name__=="__main__":

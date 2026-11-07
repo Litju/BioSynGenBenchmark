@@ -38,6 +38,18 @@ Windows/Linux jobs now execute the scientific report, in addition to the
 historical regression/falsifier suite. The report retains biological and
 real-device abstentions and all 120 primary cells.
 
+The mandatory SciPy runner now also checks the default nonlinear material
+law (k=500000 N/m^1.5, exponent=1.5, damping=0.5 s/m) and regularized friction
+(mu=0.8, transition=0.01 m/s) against a separately coded DOP853 scalar-body
+reference. This manufactured 1 kg body falls from 0.15 m with initial lateral
+speed 0.5 m/s. Production steps 0.02 and 0.01 ms must refine and the finer
+velocity must agree within the predeclared numerical fixture budget of
+0.0005 m/s; stricter reference integration must change velocity by less than
+one tenth of the candidate error. Doubling damping is a separate negative
+witness. These are contact-equation checks, not fitted footwear or biological
+evidence. `python -m scripts.require_i3_scipy_checks` now requires 3 unskipped
+checks, rather than allowing the new material/friction test to remain optional.
+
 ## Executable evidence
 
 ```
