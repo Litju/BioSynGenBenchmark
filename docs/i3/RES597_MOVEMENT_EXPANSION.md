@@ -107,3 +107,27 @@ proposed repairs. No support, contact, impulse, event or anatomical model was
 added. Stop after the two repair attempts under AGENTS.md. Stable final
 recovery remains unimplemented/unqualified, and no RSI admission follows.
 The script contains owned code and synthetic-only outputs; no external data.
+
+## Continued support and energy work
+
+The owner subsequently directed continued execution. The candidate now accepts
+`platform_release_s`: rigid elevated heel/toe support is integrated until that
+time, then withdrawn without an impulse or a body-state reset. Integration
+ends exactly at release even when it falls between nominal steps. Platform
+contacts have separate `PLATFORM` identities and no plate binding. Ground
+plate contacts remain open during support and free descent. This models a
+withdrawn stationary platform, not a human step off a fixed box. The historical
+post-release default and its failure witnesses are preserved.
+
+Latent frames now retain each compliant contact's start-of-interval potential
+energy and dissipated power. Energy balance uses actual joint work and this
+dissipation, not force times COM velocity. At 0.5 s, dt=0.0004/0.0002/0.0001 s
+give energy residuals 63.3005153/28.2569551/12.9130961 J and integrated contact
+dissipation 76.3780728/44.8512968/30.6297285 J. These are convergent but large:
+convergence alone does not admit energy closure or validate the contact law.
+
+Reproduce: `python -m unittest discover -s tests -p test_res597_platform_release.py -v`.
+The analytical support test requires weight balance within 1e-7 N, free-flight
+momentum within 1e-8 kg m/s, no ground force before touchdown and no platform
+force after release. Invalid times are refused. No completed drop jump, RSI,
+biological claim or sensor admission is established by this extension.
