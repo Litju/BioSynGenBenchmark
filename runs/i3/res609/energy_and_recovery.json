@@ -1,0 +1,492 @@
+{
+  "issue": "RES-609",
+  "source_sha": "3fc92c402dcb10a4c545c41a04cae4571c110bb1",
+  "source_dirty": false,
+  "python": "3.12.13",
+  "evaluator_sha256": "4b7d1d33ff122509906ac035f899dea379cd1c6d718dd5cbba6c740299b0cb91",
+  "contact_sha256": "df8139c84091e990289d2654d6177b9a8bc9a04711dfbc133e9519dcaf087e01",
+  "energy": [
+    {
+      "scheme": "EXPLICIT_INTERVAL_START_V1",
+      "projection": "MASS_METRIC_V1",
+      "dt_s": 0.0004,
+      "termination": "DURATION_REACHED",
+      "wall_s": 2.5914512000163086,
+      "generator_declared_dissipation_j": 76.37807282387557,
+      "legacy_raw_residual_j": 63.30051525966594,
+      "independent": {
+        "declared_dissipation": {
+          "outcome": "REJECTED",
+          "code": "DECLARED_DISSIPATION_MISMATCH",
+          "declared_j": 76.37807282387557,
+          "recomputed_j": -36.548389605988966,
+          "difference_j": 112.92646242986453
+        },
+        "passive_contact": {
+          "outcome": "REJECTED",
+          "code": "PASSIVE_CONTACT_ENERGY_CREATION",
+          "contact_work_j": 36.548389605988966,
+          "contact_dissipation_j": -36.548389605988966,
+          "stored_energy_change_j": 0.0,
+          "summed_abs_contact_work_j": 112.08851497803653
+        },
+        "ledger": {
+          "outcome": "NOT_EVALUABLE",
+          "code": "NO_PREDECLARED_ENERGY_BUDGET",
+          "mechanical_energy_change_j": 123.0385418821661,
+          "joint_work_discrete_j": 150.99593869537063,
+          "contact_work_j": 36.548389605988966,
+          "numerical_dissipation_j": 64.43867021638255,
+          "numerical_projection_work_j": -0.0005318717834370545,
+          "closure_residual_j": -0.0665843310275136
+        },
+        "scope": "Exported-sample quadrature; joint work declared; no tissue/footwear or biological claim"
+      },
+      "linear": "PASS",
+      "angular": "REJECTED",
+      "contact": "PASS"
+    },
+    {
+      "scheme": "EXPLICIT_INTERVAL_START_V1",
+      "projection": "MASS_METRIC_V1",
+      "dt_s": 0.0002,
+      "termination": "DURATION_REACHED",
+      "wall_s": 5.049820899963379,
+      "generator_declared_dissipation_j": 44.851296790812064,
+      "legacy_raw_residual_j": 28.256955052778842,
+      "independent": {
+        "declared_dissipation": {
+          "outcome": "REJECTED",
+          "code": "DECLARED_DISSIPATION_MISMATCH",
+          "declared_j": 44.851296790812064,
+          "recomputed_j": -6.132475130317478,
+          "difference_j": 50.983771921129545
+        },
+        "passive_contact": {
+          "outcome": "REJECTED",
+          "code": "PASSIVE_CONTACT_ENERGY_CREATION",
+          "contact_work_j": 6.132475130317478,
+          "contact_dissipation_j": -6.132475130317478,
+          "stored_energy_change_j": 0.0,
+          "summed_abs_contact_work_j": 88.56477078289169
+        },
+        "ledger": {
+          "outcome": "NOT_EVALUABLE",
+          "code": "NO_PREDECLARED_ENERGY_BUDGET",
+          "mechanical_energy_change_j": 123.18611623742163,
+          "joint_work_discrete_j": 145.86580622585763,
+          "contact_work_j": 6.132475130317478,
+          "numerical_dissipation_j": 28.78447123654148,
+          "numerical_projection_work_j": -6.432700217828824e-05,
+          "closure_residual_j": -0.02762955520981336
+        },
+        "scope": "Exported-sample quadrature; joint work declared; no tissue/footwear or biological claim"
+      },
+      "linear": "PASS",
+      "angular": "REJECTED",
+      "contact": "PASS"
+    },
+    {
+      "scheme": "EXPLICIT_INTERVAL_START_V1",
+      "projection": "MASS_METRIC_V1",
+      "dt_s": 0.0001,
+      "termination": "DURATION_REACHED",
+      "wall_s": 10.005615199974272,
+      "generator_declared_dissipation_j": 30.62972851809914,
+      "legacy_raw_residual_j": 12.913096070104697,
+      "independent": {
+        "declared_dissipation": {
+          "outcome": "REJECTED",
+          "code": "DECLARED_DISSIPATION_MISMATCH",
+          "declared_j": 30.62972851809914,
+          "recomputed_j": 7.356768788621713,
+          "difference_j": 23.272959729477428
+        },
+        "passive_contact": {
+          "outcome": "PASS",
+          "code": "PASSIVE_CONTACT_ENERGY_CREATION",
+          "contact_work_j": -7.356768788621713,
+          "contact_dissipation_j": 7.356768788621713,
+          "stored_energy_change_j": 0.0,
+          "summed_abs_contact_work_j": 82.1679088741849
+        },
+        "ledger": {
+          "outcome": "NOT_EVALUABLE",
+          "code": "NO_PREDECLARED_ENERGY_BUDGET",
+          "mechanical_energy_change_j": 123.13645015137274,
+          "joint_work_discrete_j": 143.67966108922275,
+          "contact_work_j": -7.356768788621713,
+          "numerical_dissipation_j": 13.17312545318581,
+          "numerical_projection_work_j": -7.731478035566397e-06,
+          "closure_residual_j": -0.013308964564448189
+        },
+        "scope": "Exported-sample quadrature; joint work declared; no tissue/footwear or biological claim"
+      },
+      "linear": "PASS",
+      "angular": "REJECTED",
+      "contact": "PASS"
+    },
+    {
+      "scheme": "IMPLICIT_DISCRETE_GRADIENT_V2",
+      "projection": "MASS_METRIC_V1",
+      "dt_s": 0.0004,
+      "termination": "DURATION_REACHED",
+      "wall_s": 8.599956000049133,
+      "generator_declared_dissipation_j": 18.218344718418155,
+      "legacy_raw_residual_j": 4.1155877935853376,
+      "independent": {
+        "declared_dissipation": {
+          "outcome": "PASS",
+          "code": "DECLARED_DISSIPATION_MISMATCH",
+          "declared_j": 18.218344718418155,
+          "recomputed_j": 18.2183447184176,
+          "difference_j": 5.542233338928781e-13
+        },
+        "passive_contact": {
+          "outcome": "PASS",
+          "code": "PASSIVE_CONTACT_ENERGY_CREATION",
+          "contact_work_j": -18.2183447184176,
+          "contact_dissipation_j": 18.2183447184176,
+          "stored_energy_change_j": 0.0,
+          "summed_abs_contact_work_j": 80.89437813773714
+        },
+        "ledger": {
+          "outcome": "NOT_EVALUABLE",
+          "code": "NO_PREDECLARED_ENERGY_BUDGET",
+          "mechanical_energy_change_j": 123.74592573817665,
+          "joint_work_discrete_j": 148.94594332606843,
+          "contact_work_j": -18.2183447184176,
+          "numerical_dissipation_j": 6.931259138890402,
+          "numerical_projection_work_j": -0.0004955980666636606,
+          "closure_residual_j": -0.04991813251711186
+        },
+        "scope": "Exported-sample quadrature; joint work declared; no tissue/footwear or biological claim"
+      },
+      "linear": "PASS",
+      "angular": "REJECTED",
+      "contact": "PASS"
+    },
+    {
+      "scheme": "IMPLICIT_DISCRETE_GRADIENT_V2",
+      "projection": "MASS_METRIC_V1",
+      "dt_s": 0.0002,
+      "termination": "DURATION_REACHED",
+      "wall_s": 15.308096799999475,
+      "generator_declared_dissipation_j": 18.48769622584197,
+      "legacy_raw_residual_j": 1.9958254733015188,
+      "independent": {
+        "declared_dissipation": {
+          "outcome": "PASS",
+          "code": "DECLARED_DISSIPATION_MISMATCH",
+          "declared_j": 18.48769622584197,
+          "recomputed_j": 18.487696225841656,
+          "difference_j": 3.126388037344441e-13
+        },
+        "passive_contact": {
+          "outcome": "PASS",
+          "code": "PASSIVE_CONTACT_ENERGY_CREATION",
+          "contact_work_j": -18.487696225841656,
+          "contact_dissipation_j": 18.487696225841656,
+          "stored_energy_change_j": 0.0,
+          "summed_abs_contact_work_j": 81.07619775572502
+        },
+        "ledger": {
+          "outcome": "NOT_EVALUABLE",
+          "code": "NO_PREDECLARED_ENERGY_BUDGET",
+          "mechanical_energy_change_j": 123.48603365778706,
+          "joint_work_discrete_j": 145.42185731867,
+          "contact_work_j": -18.487696225841656,
+          "numerical_dissipation_j": 3.422149108033584,
+          "numerical_projection_work_j": -5.978731201139453e-05,
+          "closure_residual_j": -0.025918539695680032
+        },
+        "scope": "Exported-sample quadrature; joint work declared; no tissue/footwear or biological claim"
+      },
+      "linear": "PASS",
+      "angular": "REJECTED",
+      "contact": "PASS"
+    },
+    {
+      "scheme": "IMPLICIT_DISCRETE_GRADIENT_V2",
+      "projection": "MASS_METRIC_V1",
+      "dt_s": 0.0001,
+      "termination": "DURATION_REACHED",
+      "wall_s": 28.86512319999747,
+      "generator_declared_dissipation_j": 18.643365402580958,
+      "legacy_raw_residual_j": 0.9808665160196206,
+      "independent": {
+        "declared_dissipation": {
+          "outcome": "PASS",
+          "code": "DECLARED_DISSIPATION_MISMATCH",
+          "declared_j": 18.643365402580958,
+          "recomputed_j": 18.643365402582972,
+          "difference_j": 2.014388655879884e-12
+        },
+        "passive_contact": {
+          "outcome": "PASS",
+          "code": "PASSIVE_CONTACT_ENERGY_CREATION",
+          "contact_work_j": -18.643365402582972,
+          "contact_dissipation_j": 18.643365402582972,
+          "stored_energy_change_j": 0.0,
+          "summed_abs_contact_work_j": 81.17547528881586
+        },
+        "ledger": {
+          "outcome": "NOT_EVALUABLE",
+          "code": "NO_PREDECLARED_ENERGY_BUDGET",
+          "mechanical_energy_change_j": 123.20989716676263,
+          "joint_work_discrete_j": 143.56645988025858,
+          "contact_work_j": -18.643365402582972,
+          "numerical_dissipation_j": 1.6995460486070342,
+          "numerical_projection_work_j": -7.335910936490109e-06,
+          "closure_residual_j": -0.013643926395003891
+        },
+        "scope": "Exported-sample quadrature; joint work declared; no tissue/footwear or biological claim"
+      },
+      "linear": "PASS",
+      "angular": "REJECTED",
+      "contact": "PASS"
+    },
+    {
+      "scheme": "IMPLICIT_DISCRETE_GRADIENT_V2",
+      "projection": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "dt_s": 0.0004,
+      "termination": "DURATION_REACHED",
+      "wall_s": 10.29010380001273,
+      "generator_declared_dissipation_j": 18.218307565329432,
+      "legacy_raw_residual_j": 4.1049859026230635,
+      "independent": {
+        "declared_dissipation": {
+          "outcome": "PASS",
+          "code": "DECLARED_DISSIPATION_MISMATCH",
+          "declared_j": 18.218307565329432,
+          "recomputed_j": 18.218307565328914,
+          "difference_j": 5.186961971048731e-13
+        },
+        "passive_contact": {
+          "outcome": "PASS",
+          "code": "PASSIVE_CONTACT_ENERGY_CREATION",
+          "contact_work_j": -18.218307565328914,
+          "contact_dissipation_j": 18.218307565328914,
+          "stored_energy_change_j": 0.0,
+          "summed_abs_contact_work_j": 80.8944355926025
+        },
+        "ledger": {
+          "outcome": "NOT_EVALUABLE",
+          "code": "NO_PREDECLARED_ENERGY_BUDGET",
+          "mechanical_energy_change_j": 123.7382037744386,
+          "joint_work_discrete_j": 148.94845284640587,
+          "contact_work_j": -18.218307565328914,
+          "numerical_dissipation_j": 6.931041656741324,
+          "numerical_projection_work_j": -0.01088494598559464,
+          "closure_residual_j": -0.05001490391143637
+        },
+        "scope": "Exported-sample quadrature; joint work declared; no tissue/footwear or biological claim"
+      },
+      "linear": "PASS",
+      "angular": "PASS",
+      "contact": "PASS"
+    },
+    {
+      "scheme": "IMPLICIT_DISCRETE_GRADIENT_V2",
+      "projection": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "dt_s": 0.0002,
+      "termination": "DURATION_REACHED",
+      "wall_s": 17.572481799987145,
+      "generator_declared_dissipation_j": 18.48769037407425,
+      "legacy_raw_residual_j": 1.990630751667485,
+      "independent": {
+        "declared_dissipation": {
+          "outcome": "PASS",
+          "code": "DECLARED_DISSIPATION_MISMATCH",
+          "declared_j": 18.48769037407425,
+          "recomputed_j": 18.487690374074173,
+          "difference_j": 7.815970093361102e-14
+        },
+        "passive_contact": {
+          "outcome": "PASS",
+          "code": "PASSIVE_CONTACT_ENERGY_CREATION",
+          "contact_work_j": -18.487690374074173,
+          "contact_dissipation_j": 18.487690374074173,
+          "stored_energy_change_j": 0.0,
+          "summed_abs_contact_work_j": 81.07621381127602
+        },
+        "ledger": {
+          "outcome": "NOT_EVALUABLE",
+          "code": "NO_PREDECLARED_ENERGY_BUDGET",
+          "mechanical_energy_change_j": 123.48223315528196,
+          "joint_work_discrete_j": 145.42316049321502,
+          "contact_work_j": -18.487690374074173,
+          "numerical_dissipation_j": 3.4220936087543237,
+          "numerical_projection_work_j": -0.0052003470600539,
+          "closure_residual_j": -0.025943008044510663
+        },
+        "scope": "Exported-sample quadrature; joint work declared; no tissue/footwear or biological claim"
+      },
+      "linear": "PASS",
+      "angular": "PASS",
+      "contact": "PASS"
+    },
+    {
+      "scheme": "IMPLICIT_DISCRETE_GRADIENT_V2",
+      "projection": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "dt_s": 0.0001,
+      "termination": "DURATION_REACHED",
+      "wall_s": 32.58627339999657,
+      "generator_declared_dissipation_j": 18.64336576509506,
+      "legacy_raw_residual_j": 0.9783069723177,
+      "independent": {
+        "declared_dissipation": {
+          "outcome": "PASS",
+          "code": "DECLARED_DISSIPATION_MISMATCH",
+          "declared_j": 18.64336576509506,
+          "recomputed_j": 18.64336576509713,
+          "difference_j": 2.071232074740692e-12
+        },
+        "passive_contact": {
+          "outcome": "PASS",
+          "code": "PASSIVE_CONTACT_ENERGY_CREATION",
+          "contact_work_j": -18.64336576509713,
+          "contact_dissipation_j": 18.64336576509713,
+          "stored_energy_change_j": 0.0,
+          "summed_abs_contact_work_j": 81.17548004743531
+        },
+        "ledger": {
+          "outcome": "NOT_EVALUABLE",
+          "code": "NO_PREDECLARED_ENERGY_BUDGET",
+          "mechanical_energy_change_j": 123.20802289051744,
+          "joint_work_discrete_j": 143.5671246484582,
+          "contact_work_j": -18.64336576509713,
+          "numerical_dissipation_j": 1.699532401994499,
+          "numerical_projection_work_j": -0.0025535789077366644,
+          "closure_residual_j": -0.0136500119413836
+        },
+        "scope": "Exported-sample quadrature; joint work declared; no tissue/footwear or biological claim"
+      },
+      "linear": "PASS",
+      "angular": "PASS",
+      "contact": "PASS"
+    }
+  ],
+  "recovery": [
+    {
+      "recovery": "HISTORICAL_STAGES",
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "end_time_s": 1.2795999999999244,
+      "commands": [
+        [
+          0.1748000000000009,
+          "BRAKING",
+          ""
+        ],
+        [
+          0.213200000000002,
+          "REACTIVE_PROPULSION",
+          ""
+        ],
+        [
+          0.30640000000000467,
+          "FLIGHT",
+          ""
+        ],
+        [
+          0.7779999999999796,
+          "FINAL_LANDING",
+          ""
+        ]
+      ],
+      "takeoff_centroidal_angular_momentum_kg_m2_s": -13.713686912338673,
+      "touchdown_mean_ankle_minus_com_x_m": -0.5028178495187724,
+      "terminal_linear_momentum_kg_m_s": [
+        144.27655176779132,
+        -230.8160523221017
+      ],
+      "completed": false
+    },
+    {
+      "recovery": "ATTEMPT_1_CMJ_FLIGHT_ABSORB_STAND",
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "end_time_s": 1.1683999999999366,
+      "commands": [
+        [
+          0.1748000000000009,
+          "BRAKING",
+          ""
+        ],
+        [
+          0.213200000000002,
+          "REACTIVE_PROPULSION",
+          ""
+        ],
+        [
+          0.30640000000000467,
+          "FLIGHT",
+          ""
+        ],
+        [
+          0.729199999999985,
+          "LANDING",
+          "foot contact sensed"
+        ],
+        [
+          1.0795999999999464,
+          "STAND",
+          "declared absorption time"
+        ]
+      ],
+      "takeoff_centroidal_angular_momentum_kg_m2_s": -13.713686912338673,
+      "touchdown_mean_ankle_minus_com_x_m": -0.5078123585012395,
+      "terminal_linear_momentum_kg_m_s": [
+        98.35730090554694,
+        -238.5918410818922
+      ],
+      "completed": false
+    },
+    {
+      "recovery": "ATTEMPT_2_BALANCED_PROPULSION_PLUS_1",
+      "termination": "BODY_GROUND_CONTACT_NOT_MODELED: left_knee, right_knee",
+      "end_time_s": 1.3595999999999155,
+      "commands": [
+        [
+          0.1748000000000009,
+          "BRAKING",
+          ""
+        ],
+        [
+          0.212800000000002,
+          "REACTIVE_PROPULSION",
+          ""
+        ],
+        [
+          0.3148000000000049,
+          "FLIGHT",
+          "both feet released (touch)"
+        ],
+        [
+          0.6791999999999905,
+          "LANDING",
+          "foot contact sensed"
+        ],
+        [
+          1.0295999999999519,
+          "STAND",
+          "declared absorption time"
+        ]
+      ],
+      "takeoff_centroidal_angular_momentum_kg_m2_s": -10.25473674697969,
+      "touchdown_mean_ankle_minus_com_x_m": -0.37460187633243547,
+      "terminal_linear_momentum_kg_m_s": [
+        136.03222808457673,
+        -247.99356229507669
+      ],
+      "completed": false
+    }
+  ],
+  "completed_drop_jumps": 0,
+  "wall_s": 42.84399999998277,
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ]
+}

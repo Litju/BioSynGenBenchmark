@@ -26,6 +26,17 @@ _CONTACT_IMPULSE_TOLERANCE_N_S = 1e-8
 _CONSTRAINT_TOLERANCE = 1e-9
 _IMPACT_ENERGY_TOLERANCE_J = 1e-8
 _OFF_SURFACE_GAP_M = 1.0
+# Drift-correction policies. V1 is the historical minimal mass-metric position
+# projection; it moves body COMs without a force and so changes angular
+# momentum by sum m (dr x v) with no recorded impulse. V2 keeps that position
+# projection and then removes exactly this unrecorded change with the minimal
+# mass-metric velocity correction that leaves every active joint/contact
+# velocity row and the linear momentum unchanged (a conserving projection onto
+# the momentum level set). The correction is numerical, not physiological,
+# and its energy is part of the separately reported projection work (RES-609).
+PROJECTION_MASS_METRIC_V1 = "MASS_METRIC_V1"
+PROJECTION_ANGULAR_NEUTRAL_V2 = "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2"
+PROJECTION_POLICIES = (PROJECTION_MASS_METRIC_V1, PROJECTION_ANGULAR_NEUTRAL_V2)
 
 
 class DynamicsError(ValueError):
@@ -696,7 +707,13 @@ class PlanarMultibodySystem:
         actuators: Sequence[ActuatorHypothesis] = (),
         linear_solver: Callable[[list[list[float]], list[float]], list[float]] | None = None,
         linear_solver_id: str | None = None,
+        projection_policy: str = PROJECTION_MASS_METRIC_V1,
     ) -> None:
+        if projection_policy not in PROJECTION_POLICIES:
+            raise DynamicsError(f"unknown position projection policy {projection_policy!r}")
+        self.projection_policy = projection_policy
+        self.angular_restoration_ledger = {"restored_steps": 0, "restored_kg_m2_s": 0.0,
+                                           "unavailable_steps": 0, "unrestored_kg_m2_s": 0.0}
         if not bodies:
             raise DynamicsError("a multibody system requires at least one body")
         self.bodies = tuple(bodies)
@@ -2123,6 +2140,8 @@ class PlanarMultibodySystem:
             )
             unprojected_impact_state = impact_state
             impact_state = self._project_positions(impact_state, impact_modes)
+            unrecorded = (self.angular_momentum(impact_state)
+                          - self.angular_momentum(unprojected_impact_state))
             closing = tuple(
                 contact_id for contact_id in impact_ids
                 if self._contact_data(contact_id, impact_state).normal_velocity_m_s < -_CONTACT_VELOCITY_TOLERANCE_M_S
@@ -2141,6 +2160,7 @@ class PlanarMultibodySystem:
                     impact_state, impact_modes, contact_ledger=projection_ledger,
                     accumulated_impulses=scaled_impulses, impulse_state=state,
                 )
+                impact_state = self._restore_angular_momentum(impact_state, impact_state.contacts, unrecorded)
                 if support_contract is not None:
                     self.validate_support_contract(impact_state, support_contract)
                 events.append(ContactEvent(
@@ -2175,11 +2195,13 @@ class PlanarMultibodySystem:
                 },
             )
         projected = self._project_positions(predicted, step_modes)
+        unrecorded = self.angular_momentum(projected) - self.angular_momentum(predicted)
         projection_ledger: dict[str, tuple[float, float]] = {}
         projected = self._project_velocities(
             projected, step_modes, contact_ledger=projection_ledger,
             accumulated_impulses=contact_impulses, impulse_state=state,
         )
+        projected = self._restore_angular_momentum(projected, projected.contacts, unrecorded)
         if support_contract is not None:
             self.validate_support_contract(projected, support_contract)
         for contact_id, old_mode in step_modes.items():
@@ -2299,6 +2321,67 @@ class PlanarMultibodySystem:
                 for k, value in row:
                     q[k] += value * amount / diagonal[k]
         raise ConstraintSolveError("position projection did not converge")
+
+    def _restore_angular_momentum(
+        self,
+        state: MultibodyState,
+        contact_states: Mapping[str, ContactState],
+        unrecorded_change_kg_m2_s: float,
+    ) -> MultibodyState:
+        """Remove an unrecorded angular-momentum change by a minimal velocity correction.
+
+        Solves min |dv|_M subject to J dv = 0 for every active joint/contact
+        row, sum m dv = 0 (x and z) and dL = -unrecorded change. The momentum
+        rows make the result independent of the reference point. V1 returns
+        the state unchanged. If the active rows leave no admissible direction
+        (for example every support stuck) the change cannot be removed
+        internally; the state is returned unchanged and the amount is added to
+        ``angular_restoration_ledger`` so it stays visible, never silently erased.
+        """
+        if self.projection_policy != PROJECTION_ANGULAR_NEUTRAL_V2 or unrecorded_change_kg_m2_s == 0.0:
+            return state
+        diagonal = self._mass_diagonal()
+        q = self._position_vector(state)
+        qd = self._velocity_vector(state)
+        rows = [row for row, _ in self._projection_rows(state, contact_states)]
+        rows.append(tuple(diagonal[k] if k % 3 == 0 else 0.0 for k in range(self.dof_count)))
+        rows.append(tuple(diagonal[k] if k % 3 == 1 else 0.0 for k in range(self.dof_count)))
+        angular = [0.0] * self.dof_count
+        for index in range(len(self.bodies)):
+            angular[3 * index] = -diagonal[3 * index] * q[3 * index + 1]
+            angular[3 * index + 1] = diagonal[3 * index + 1] * q[3 * index]
+            angular[3 * index + 2] = diagonal[3 * index + 2]
+        rows.append(tuple(angular))
+        rhs = [0.0] * (len(rows) - 1) + [-unrecorded_change_kg_m2_s]
+        sparse_rows = [_sparse(row) for row in rows]
+        gram = _weighted_products(sparse_rows, sparse_rows, [1.0 / value for value in diagonal])
+        ledger = self.angular_restoration_ledger
+        try:
+            multipliers = self._solve_linear(gram, rhs)
+        except ArithmeticError:
+            ledger["unavailable_steps"] += 1
+            ledger["unrestored_kg_m2_s"] += unrecorded_change_kg_m2_s
+            return state
+        correction = [0.0] * self.dof_count
+        for row, amount in zip(sparse_rows, multipliers):
+            for k, value in row:
+                correction[k] += value * amount / diagonal[k]
+        achieved = [sum(value * correction[k] for k, value in row) for row in sparse_rows]
+        if any(abs(a - b) > 1e-9 * max(1.0, abs(unrecorded_change_kg_m2_s)) for a, b in zip(achieved, rhs)):
+            ledger["unavailable_steps"] += 1
+            ledger["unrestored_kg_m2_s"] += unrecorded_change_kg_m2_s
+            return state
+        ledger["restored_steps"] += 1
+        ledger["restored_kg_m2_s"] += unrecorded_change_kg_m2_s
+        qd = [v + dv for v, dv in zip(qd, correction)]
+        return self._states_from_vectors(q, qd, state.time_s, state.contacts, state.activations)
+
+    def with_projection_policy(self, policy: str) -> "PlanarMultibodySystem":
+        """Same bodies, joints, contacts and actuators under another declared policy."""
+        return PlanarMultibodySystem(
+            self.bodies, self.joints, self.contacts, gravity_m_s2=self.gravity_m_s2,
+            clock_id=self.clock_id, actuators=self.actuators, linear_solver=self._linear_solver,
+            linear_solver_id=self.linear_solver_id, projection_policy=policy)
 
     def _transport_contact_impulses(
         self,

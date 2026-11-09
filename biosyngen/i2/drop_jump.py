@@ -26,9 +26,9 @@ class DropJumpCandidate:
     platform_release_s: float | None = None
     platform_ids: tuple[str, ...] = ()
 
-    def run(self, dt_s=.0002):
+    def run(self, dt_s=.0002, *, compliant_scheme=None):
         return simulate("DROP_JUMP_CANDIDATE", self.model, self.controller, self.initial_state,
-                        duration_s=self.duration_s, dt_s=dt_s,
+                        duration_s=self.duration_s, dt_s=dt_s, compliant_scheme=compliant_scheme,
                         compliant_contacts={cid: self.contact_law for ids in self.model.contact_ids.values() for cid in ids},
                         contact_release_times={cid: self.platform_release_s for cid in self.platform_ids},
                         scenario={"status": "EXPERIMENTAL_NOT_QUALIFIED", "drop_height_m": self.drop_height_m,
@@ -62,7 +62,8 @@ def build_drop_jump_candidate(*, drop_height_m=.15, contact_law=None, duration_s
         model.system = PlanarMultibodySystem(original.bodies, original.joints,
             [*original.contacts, *platforms], gravity_m_s2=original.gravity_m_s2,
             clock_id=original.clock_id, actuators=original.actuators,
-            linear_solver=original._linear_solver, linear_solver_id=original.linear_solver_id)
+            linear_solver=original._linear_solver, linear_solver_id=original.linear_solver_id,
+            projection_policy=original.projection_policy)
     initial = replace(base,
         bodies={key: replace(b, position_m=(b.position_m[0], b.position_m[1]+drop_height_m))
                 for key, b in base.bodies.items()},

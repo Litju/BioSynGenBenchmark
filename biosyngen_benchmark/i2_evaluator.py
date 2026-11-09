@@ -255,6 +255,94 @@ def energy_diagnostics(sub, *, joint_work_j, contact_dissipation_j,
         limitation="Declared work is not independently observed; rigid contact work is approximate; projection is numerical")
 
 
+PASSIVE_DISSIPATION_ROUNDOFF = 1e-9   # relative to the summed |F . dp| magnitude
+
+
+def discrete_energy_ledger(sub, *, groups, joint_work_discrete_j, initial_stored_energy_j,
+                           final_stored_energy_j, numerical_projection_work_j,
+                           declared_contact_dissipation_j=None):
+    """RES-609 independent discrete work arithmetic from exported forces and states.
+
+    Contact work is recomputed here as sum F . (p_next - p) over consecutive
+    frames of each named contact in ``groups``; it never reads a generator
+    work channel. A passive nonadhesive contact that starts and ends with the
+    declared stored energies must dissipate: D = -W_contact - dU >= 0 up to
+    round-off, else PASSIVE_CONTACT_ENERGY_CREATION is REJECTED. The full
+    symplectic-step ledger dE - W_joint - W_contact + D_num - W_proj uses the
+    numerical dissipation D_num = sum 1/2 (m |dv|^2 + I dw^2) computed from
+    the exported states. Joint work stays declared evidence, so the closure is
+    reported with NO_PREDECLARED_ENERGY_BUDGET rather than promoted to PASS.
+    A declared dissipation, when supplied, must equal the recomputed one to
+    the same round-off scale (DECLARED_DISSIPATION_MISMATCH otherwise).
+    """
+    values = (joint_work_discrete_j, initial_stored_energy_j, final_stored_energy_j, numerical_projection_work_j)
+    if _schema_problems(sub) or not all(_finite(v) for v in values) or min(initial_stored_energy_j, final_stored_energy_j) < 0:
+        return dict(outcome="INVALID", code="INVALID_ENERGY_EVIDENCE")
+    frames = sub["frames"]
+    if len(frames) < 2:
+        return dict(outcome="NOT_EVALUABLE", code="NO_ENERGY_OBSERVATION")
+    groups = set(groups)
+    work = magnitude = 0.0
+    unpaired = 0
+    for frame, following in zip(frames, frames[1:]):
+        if following["t0"] != frame["t1"]:
+            return dict(outcome="INVALID", code="DISCONTINUOUS_FRAME_RECORD")
+        later = {c["name"]: c for c in following["contacts"]}
+        for c in frame["contacts"]:
+            if c["group"] not in groups:
+                continue
+            nxt = later.get(c["name"])
+            if nxt is None:
+                unpaired += abs(c["fx"]) + abs(c["fz"]) > 0.0
+                continue
+            term = c["fx"] * (nxt["x"] - c["x"]) + c["fz"] * (nxt["z"] - c["z"])
+            work += term
+            magnitude += abs(term)
+    final_load = sum(abs(c["fx"]) + abs(c["fz"]) for c in frames[-1]["contacts"] if c["group"] in groups)
+    if unpaired or final_load > 0.0:
+        return dict(outcome="NOT_EVALUABLE", code="CONTACT_DISPLACEMENT_NOT_OBSERVED",
+                    unpaired_loaded_samples=unpaired, final_interval_load_n=final_load)
+    bodies = sub["bodies"]
+    g = sub["gravity_m_s2"]
+
+    def energy(states):
+        return sum(.5*b["mass_kg"]*(s[3]**2+s[4]**2)+.5*b["inertia_kg_m2"]*s[5]**2+b["mass_kg"]*g*s[1]
+                   for b, s in zip(bodies, states))
+
+    numerical = 0.0
+    before = sub["initial_body_states"]
+    for frame in frames:
+        after = frame["body_states"]
+        numerical += sum(.5*b["mass_kg"]*((a[3]-o[3])**2+(a[4]-o[4])**2)+.5*b["inertia_kg_m2"]*(a[5]-o[5])**2
+                         for b, a, o in zip(bodies, after, before))
+        before = after
+    stored_change = final_stored_energy_j - initial_stored_energy_j
+    dissipated = -work - stored_change
+    # The last frame carries no load, so its (unobserved) displacement does no work.
+    change = energy(frames[-1]["body_states"]) - energy(sub["initial_body_states"])
+    closure = change - joint_work_discrete_j - work + numerical - numerical_projection_work_j
+    if not all(_finite(v) for v in (work, dissipated, numerical, closure, change)):
+        return dict(outcome="INVALID", code="ENERGY_NUMERIC_OVERFLOW")
+    passive = "PASS" if dissipated >= -PASSIVE_DISSIPATION_ROUNDOFF * max(1.0, magnitude) else "REJECTED"
+    declared = None
+    if declared_contact_dissipation_j is not None:
+        if not _finite(declared_contact_dissipation_j):
+            return dict(outcome="INVALID", code="INVALID_ENERGY_EVIDENCE")
+        gap = abs(declared_contact_dissipation_j - dissipated)
+        declared = dict(outcome="PASS" if gap <= 1e-6 * max(1.0, magnitude) else "REJECTED",
+                        code="DECLARED_DISSIPATION_MISMATCH", declared_j=declared_contact_dissipation_j,
+                        recomputed_j=dissipated, difference_j=gap)
+    return dict(declared_dissipation=declared,
+        passive_contact=dict(outcome=passive, code="PASSIVE_CONTACT_ENERGY_CREATION",
+                             contact_work_j=work, contact_dissipation_j=dissipated,
+                             stored_energy_change_j=stored_change, summed_abs_contact_work_j=magnitude),
+        ledger=dict(outcome="NOT_EVALUABLE", code="NO_PREDECLARED_ENERGY_BUDGET",
+                    mechanical_energy_change_j=change, joint_work_discrete_j=joint_work_discrete_j,
+                    contact_work_j=work, numerical_dissipation_j=numerical,
+                    numerical_projection_work_j=numerical_projection_work_j, closure_residual_j=closure),
+        scope="Exported-sample quadrature; joint work declared; no tissue/footwear or biological claim")
+
+
 def evaluate_i2(sub) -> dict:
     problems = _schema_problems(sub)
     if problems:
