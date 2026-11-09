@@ -26,3 +26,6 @@ runs/i3/res524/working/
 
 # RES-598 bounded fresh-process scientific verification output.
 runs/i3/res598/working/
+
+# OpenSim writes a process log into the working directory.
+opensim.log
