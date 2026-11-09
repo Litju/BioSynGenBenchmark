@@ -1,0 +1,99 @@
+{
+  "issue": "RES-610",
+  "host": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.13",
+    "machine": "AMD64"
+  },
+  "dt_s": 0.001,
+  "analytic": {
+    "spin_energy_j": 1.600065,
+    "spin_momentum_norm": 0.8000231246657812,
+    "rest_force_n": 9.81,
+    "slide_distance_m": 0.4077471967380224
+  },
+  "results": [
+    {
+      "backend": "mujoco",
+      "available": true,
+      "version": "3.3.7",
+      "package": {
+        "license": "Apache-2.0",
+        "classifiers": [],
+        "installed_bytes": 22845035,
+        "moco_available": null
+      },
+      "fixtures": {
+        "spin": {
+          "max_energy_error_j": 2.398081733190338e-13,
+          "max_momentum_vector_error": 6.129239350024184e-07,
+          "energy0_j": 1.600065
+        },
+        "double_pendulum": {
+          "max_energy_error_j": 2.436589525700583e-07
+        },
+        "rest": {
+          "settled_normal_force_n": 9.809999999999985,
+          "penetration_m": 0.00010775542021632112
+        },
+        "slide": {
+          "distance_m": 0.4070201429434226,
+          "final_speed_m_s": 1.8322758593396257e-19
+        }
+      },
+      "error": null,
+      "wall_s": 0.5778161999769509,
+      "peak_rss_mb": 50.05859375,
+      "exit_code": 0
+    },
+    {
+      "backend": "opensim",
+      "available": true,
+      "version": "version 4.6-2026-06-22-85aaf64, build date 18:27:55 Jun 22 2026",
+      "package": {
+        "license": "Apache 2.0",
+        "classifiers": [],
+        "installed_bytes": 268322174,
+        "moco_available": true
+      },
+      "fixtures": {
+        "spin": {
+          "max_invariant_error": 2.508428131875462e-09,
+          "energy0_j": 1.600065,
+          "note": "FreeJoint coordinates are body-fixed rotations; speed initialization is OpenSim-native"
+        },
+        "double_pendulum": {
+          "max_energy_error_j": 2.6018270204986038e-08
+        },
+        "rest": {
+          "settled_normal_force_n": 9.80999977030408,
+          "height_m": 0.10462171408643767
+        },
+        "slide": {
+          "distance_m": 0.4075501307941989,
+          "final_speed_m_s": 9.909187068271147e-12,
+          "note": "regularized Hunt-Crossley friction, transition velocity 0.01 m/s"
+        }
+      },
+      "error": null,
+      "wall_s": 3.8176576999831013,
+      "peak_rss_mb": 88.046875,
+      "exit_code": 0
+    },
+    {
+      "backend": "drake",
+      "available": false,
+      "import_error": "ModuleNotFoundError: No module named 'pydrake'",
+      "exit_code": 0
+    }
+  ],
+  "drake_wheel_probe": {
+    "exit_code": 1,
+    "tail": "ERROR: Could not find a version that satisfies the requirement drake (from versions: none)\n\nERROR: No matching distribution found for drake"
+  },
+  "source_sha": "c2d1e9188999b2b628c9d22667de177e7515b7df",
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY"
+  ],
+  "redaction": "pip upgrade notices (containing a local interpreter path) removed from drake_wheel_probe.tail"
+}
