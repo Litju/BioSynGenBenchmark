@@ -266,6 +266,13 @@ class LatentFrame:
     contact_dissipated_power_w: Mapping[str, float] = field(default_factory=dict)
     constraint_projection_work_j: float = 0.0
     rigid_contact_work_estimate_j: float = 0.0
+    # RES-609: actuator+passive torque times the actual relative joint-angle
+    # change over the interval (the work the discrete step actually applies).
+    joint_work_discrete_j: float = 0.0
+    # RES-609 implicit compliant scheme: exact interval contact work F.dp and
+    # end-of-interval stored energy per contact (empty under the V1 scheme).
+    contact_work_j: Mapping[str, float] = field(default_factory=dict)
+    contact_stored_energy_end_j: Mapping[str, float] = field(default_factory=dict)
 
 
 @dataclass(frozen=True, slots=True)
@@ -341,14 +348,18 @@ def simulate(
     max_steps: int = 200_000,
     compliant_contacts=None,
     contact_release_times=None,
+    compliant_scheme=None,
 ) -> ExerciseTrajectory:
     system = model.system
     if compliant_contacts:
-        from ..compliant_contact import CompliantPlanarStepper
-        compliant_stepper = CompliantPlanarStepper(system, compliant_contacts, release_times=contact_release_times)
+        from ..compliant_contact import CompliantPlanarStepper, EXPLICIT_INTERVAL_START_V1
+        compliant_stepper = CompliantPlanarStepper(system, compliant_contacts, release_times=contact_release_times,
+                                                   scheme=compliant_scheme or EXPLICIT_INTERVAL_START_V1)
     else:
         if contact_release_times:
             raise ValueError("scheduled support release requires the compliant stepper")
+        if compliant_scheme is not None:
+            raise ValueError("a compliant step scheme requires compliant contacts")
         compliant_stepper = None
     limits = limits or DEFAULT_LIMITS
     state = initial_state
@@ -434,12 +445,21 @@ def simulate(
                         (normal * kin.normal_world[0] + tangential * kin.tangent_world[0],
                          normal * kin.normal_world[1] + tangential * kin.tangent_world[1]),
                     ))
+        joint_work = 0.0
+        for joint_id, _, _ in joint_items(model):
+            change = system.joint_state(step.state, joint_id)[0] - system.joint_state(state, joint_id)[0]
+            applied = passive.get(joint_id, 0.0) + sum(
+                torque for actuator_id, torque in torques.items() if system.actuator_joint_id(actuator_id) == joint_id)
+            joint_work += applied * change
         frames.append(LatentFrame(
             state.time_s, step.state.time_s, step.state, forces, dict(state.activations), torques,
             passive, actuator_power + passive_power, controller.stage.name,
             {cid: r.stored_energy_j for cid, r in compliant_responses.items()},
             {cid: r.dissipated_power_w for cid, r in compliant_responses.items()},
             step.constraint_projection_work_j, step.contact_work_estimate_j,
+            joint_work,
+            {cid: r.contact_work_j for cid, r in compliant_responses.items() if r.contact_work_j is not None},
+            {cid: r.stored_energy_end_j for cid, r in compliant_responses.items() if r.stored_energy_end_j is not None},
         ))
         state = step.state
         below = body_points_below_floor(model, state)

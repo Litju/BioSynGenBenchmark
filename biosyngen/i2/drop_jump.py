@@ -26,9 +26,9 @@ class DropJumpCandidate:
     platform_release_s: float | None = None
     platform_ids: tuple[str, ...] = ()
 
-    def run(self, dt_s=.0002):
+    def run(self, dt_s=.0002, *, compliant_scheme=None):
         return simulate("DROP_JUMP_CANDIDATE", self.model, self.controller, self.initial_state,
-                        duration_s=self.duration_s, dt_s=dt_s,
+                        duration_s=self.duration_s, dt_s=dt_s, compliant_scheme=compliant_scheme,
                         compliant_contacts={cid: self.contact_law for ids in self.model.contact_ids.values() for cid in ids},
                         contact_release_times={cid: self.platform_release_s for cid in self.platform_ids},
                         scenario={"status": "EXPERIMENTAL_NOT_QUALIFIED", "drop_height_m": self.drop_height_m,
