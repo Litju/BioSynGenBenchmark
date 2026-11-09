@@ -1,0 +1,861 @@
+{
+  "issue": "RES-609",
+  "source_sha": "3fc92c402dcb10a4c545c41a04cae4571c110bb1",
+  "source_dirty": false,
+  "nominal_step_s": 0.001,
+  "evaluator_sha256": "4b7d1d33ff122509906ac035f899dea379cd1c6d718dd5cbba6c740299b0cb91",
+  "multibody_sha256": "9695343a6dee161a24b1436337b60a1cac2f176fc708d064e61e3045d9a65635",
+  "python": "3.12.13",
+  "wall_s": 90.23399999999674,
+  "table": [
+    {
+      "fixture": "CMJ",
+      "budget_kg_m2_s": 0.0008059381643655516,
+      "v1_budget_kg_m2_s": 0.0008059381643655516,
+      "v1_outcome": "REJECTED",
+      "v1_max_prefix": 0.025763080833684594,
+      "v2_outcome": "PASS",
+      "v2_max_prefix": 4.2485369459943634e-05,
+      "v1_termination": "DURATION_REACHED",
+      "v2_termination": "DURATION_REACHED",
+      "v2_linear": "PASS",
+      "v2_contact": "PASS",
+      "v2_spin_negative": "REJECTED",
+      "v2_spin_detected": true,
+      "max_com_shift_v1_v2_m": 0.0025577153053038043,
+      "wall_s_v1": 7.100110199942719,
+      "wall_s_v2": 8.20619669998996,
+      "v2_angular_restoration": {
+        "restored_steps": 2086,
+        "restored_kg_m2_s": -0.022301442059887717,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "SJ",
+      "budget_kg_m2_s": 0.0006975950311038027,
+      "v1_budget_kg_m2_s": 0.0006975950311038027,
+      "v1_outcome": "REJECTED",
+      "v1_max_prefix": 0.02724596606448282,
+      "v2_outcome": "PASS",
+      "v2_max_prefix": 1.501201688292042e-05,
+      "v1_termination": "DURATION_REACHED",
+      "v2_termination": "DURATION_REACHED",
+      "v2_linear": "PASS",
+      "v2_contact": "PASS",
+      "v2_spin_negative": "REJECTED",
+      "v2_spin_detected": true,
+      "max_com_shift_v1_v2_m": 0.004475736577906142,
+      "wall_s_v1": 6.626845300022978,
+      "wall_s_v2": 7.597446300031152,
+      "v2_angular_restoration": {
+        "restored_steps": 1561,
+        "restored_kg_m2_s": -0.023849928088495433,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "LOADED_CMJ",
+      "budget_kg_m2_s": 0.0009376035260823489,
+      "v1_budget_kg_m2_s": 0.0009376035260823489,
+      "v1_outcome": "REJECTED",
+      "v1_max_prefix": 0.021310006577041296,
+      "v2_outcome": "PASS",
+      "v2_max_prefix": 4.30681491220275e-05,
+      "v1_termination": "DURATION_REACHED",
+      "v2_termination": "DURATION_REACHED",
+      "v2_linear": "PASS",
+      "v2_contact": "PASS",
+      "v2_spin_negative": "REJECTED",
+      "v2_spin_detected": true,
+      "max_com_shift_v1_v2_m": 0.0026600197445830792,
+      "wall_s_v1": 8.59580220002681,
+      "wall_s_v2": 10.123130000021774,
+      "v2_angular_restoration": {
+        "restored_steps": 1966,
+        "restored_kg_m2_s": -0.018672123048498527,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "LOADED_JUMP_SQUAT",
+      "budget_kg_m2_s": 0.0010626053132827126,
+      "v1_budget_kg_m2_s": 0.0010626053132827126,
+      "v1_outcome": "REJECTED",
+      "v1_max_prefix": 0.023153733753886296,
+      "v2_outcome": "PASS",
+      "v2_max_prefix": 0.00010445252734214705,
+      "v1_termination": "DURATION_REACHED",
+      "v2_termination": "DURATION_REACHED",
+      "v2_linear": "PASS",
+      "v2_contact": "PASS",
+      "v2_spin_negative": "REJECTED",
+      "v2_spin_detected": true,
+      "max_com_shift_v1_v2_m": 0.0006641406758175598,
+      "wall_s_v1": 9.848592499969527,
+      "wall_s_v2": 11.093793999985792,
+      "v2_angular_restoration": {
+        "restored_steps": 1675,
+        "restored_kg_m2_s": -0.021182145956143913,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "BACK_SQUAT",
+      "budget_kg_m2_s": 0.00170780752378234,
+      "v1_budget_kg_m2_s": 0.00170780752378234,
+      "v1_outcome": "PASS",
+      "v1_max_prefix": 0.00040637239494312194,
+      "v2_outcome": "PASS",
+      "v2_max_prefix": 1.336754618108671e-07,
+      "v1_termination": "DURATION_REACHED",
+      "v2_termination": "DURATION_REACHED",
+      "v2_linear": "PASS",
+      "v2_contact": "PASS",
+      "v2_spin_negative": "REJECTED",
+      "v2_spin_detected": true,
+      "max_com_shift_v1_v2_m": 2.5127618507552727e-07,
+      "wall_s_v1": 13.90093090001028,
+      "wall_s_v2": 15.655818500032183,
+      "v2_angular_restoration": {
+        "restored_steps": 1987,
+        "restored_kg_m2_s": -0.00018142028118995745,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "DEADLIFT",
+      "budget_kg_m2_s": 0.00249703620458253,
+      "v1_budget_kg_m2_s": 0.00249703620458253,
+      "v1_outcome": "PASS",
+      "v1_max_prefix": 0.0007887780266195854,
+      "v2_outcome": "PASS",
+      "v2_max_prefix": 1.1680832345817294e-07,
+      "v1_termination": "DURATION_REACHED",
+      "v2_termination": "DURATION_REACHED",
+      "v2_linear": "PASS",
+      "v2_contact": "PASS",
+      "v2_spin_negative": "REJECTED",
+      "v2_spin_detected": true,
+      "max_com_shift_v1_v2_m": 2.129330278299495e-07,
+      "wall_s_v1": 24.379697300028056,
+      "wall_s_v2": 30.115641899988987,
+      "v2_angular_restoration": {
+        "restored_steps": 4409,
+        "restored_kg_m2_s": 3.7919926652236254e-05,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "BENCH_PRESS",
+      "budget_kg_m2_s": 0.006224146607000637,
+      "v1_budget_kg_m2_s": 0.006224146607000637,
+      "v1_outcome": "PASS",
+      "v1_max_prefix": 0.0029287246301828163,
+      "v2_outcome": "PASS",
+      "v2_max_prefix": 9.329483239284286e-06,
+      "v1_termination": "DURATION_REACHED",
+      "v2_termination": "DURATION_REACHED",
+      "v2_linear": "PASS",
+      "v2_contact": "PASS",
+      "v2_spin_negative": "REJECTED",
+      "v2_spin_detected": true,
+      "max_com_shift_v1_v2_m": 3.120323557774462e-07,
+      "wall_s_v1": 56.90343820000999,
+      "wall_s_v2": 66.86501849995693,
+      "v2_angular_restoration": {
+        "restored_steps": 7090,
+        "restored_kg_m2_s": -0.001535838018186464,
+        "unavailable_steps": 178,
+        "unrestored_kg_m2_s": -2.2138404239153975e-09
+      }
+    },
+    {
+      "fixture": "CLEAN_PULL",
+      "budget_kg_m2_s": 0.0017460617562939731,
+      "v1_budget_kg_m2_s": 0.0017460617562939731,
+      "v1_outcome": "PASS",
+      "v1_max_prefix": 0.000997952726316198,
+      "v2_outcome": "PASS",
+      "v2_max_prefix": 5.6048745491033e-05,
+      "v1_termination": "DURATION_REACHED",
+      "v2_termination": "DURATION_REACHED",
+      "v2_linear": "PASS",
+      "v2_contact": "PASS",
+      "v2_spin_negative": "REJECTED",
+      "v2_spin_detected": true,
+      "max_com_shift_v1_v2_m": 1.5510899674166206e-06,
+      "wall_s_v1": 20.176202299946453,
+      "wall_s_v2": 24.555184600001667,
+      "v2_angular_restoration": {
+        "restored_steps": 3629,
+        "restored_kg_m2_s": -0.0001599712926385298,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "SNATCH_PULL",
+      "budget_kg_m2_s": 0.0015128834781024253,
+      "v1_budget_kg_m2_s": 0.0015128834781024253,
+      "v1_outcome": "REJECTED",
+      "v1_max_prefix": 0.002806671360943369,
+      "v2_outcome": "PASS",
+      "v2_max_prefix": 0.0001318145685402783,
+      "v1_termination": "DURATION_REACHED",
+      "v2_termination": "DURATION_REACHED",
+      "v2_linear": "PASS",
+      "v2_contact": "PASS",
+      "v2_spin_negative": "REJECTED",
+      "v2_spin_detected": true,
+      "max_com_shift_v1_v2_m": 2.7046678733446987e-05,
+      "wall_s_v1": 20.13895809999667,
+      "wall_s_v2": 24.16220160003286,
+      "v2_angular_restoration": {
+        "restored_steps": 3516,
+        "restored_kg_m2_s": -0.0005654308091359948,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "POWER_CLEAN_PULL_ONLY",
+      "budget_kg_m2_s": 0.001653059449406389,
+      "v1_budget_kg_m2_s": 0.001653059449406389,
+      "v1_outcome": "PASS",
+      "v1_max_prefix": 0.0010701633684251366,
+      "v2_outcome": "PASS",
+      "v2_max_prefix": 8.374583070902553e-07,
+      "v1_termination": "DURATION_REACHED",
+      "v2_termination": "DURATION_REACHED",
+      "v2_linear": "PASS",
+      "v2_contact": "PASS",
+      "v2_spin_negative": "REJECTED",
+      "v2_spin_detected": true,
+      "max_com_shift_v1_v2_m": 1.9501508326578485e-06,
+      "wall_s_v1": 20.415573100035544,
+      "wall_s_v2": 24.42826379998587,
+      "v2_angular_restoration": {
+        "restored_steps": 3600,
+        "restored_kg_m2_s": -0.0001598756602015747,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    }
+  ],
+  "cases": [
+    {
+      "fixture": "CMJ",
+      "policy": "MASS_METRIC_V1",
+      "termination": "DURATION_REACHED",
+      "wall_s": 7.100110199942719,
+      "frames": 2605,
+      "angular": {
+        "outcome": "REJECTED",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.022379812106263722,
+        "max_prefix_residual_kg_m2_s": 0.025763080833684594,
+        "tolerance_kg_m2_s": 0.0008059381643655516,
+        "reference_origin_m": [
+          0.040000000000000015,
+          1.0357610942716178
+        ],
+        "initial_radius_of_gyration_m": 0.42145036556985815,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 1.620498180088248e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 0,
+        "restored_kg_m2_s": 0.0,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "CMJ",
+      "policy": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "termination": "DURATION_REACHED",
+      "wall_s": 8.20619669998996,
+      "frames": 2603,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 4.0765309043528514e-05,
+        "max_prefix_residual_kg_m2_s": 4.2485369459943634e-05,
+        "tolerance_kg_m2_s": 0.0008059381643655516,
+        "reference_origin_m": [
+          0.040000000000000015,
+          1.0357610942716178
+        ],
+        "initial_radius_of_gyration_m": 0.42145036556985815,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 1.6644172151636383e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 2086,
+        "restored_kg_m2_s": -0.022301442059887717,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "SJ",
+      "policy": "MASS_METRIC_V1",
+      "termination": "DURATION_REACHED",
+      "wall_s": 6.626845300022978,
+      "frames": 2604,
+      "angular": {
+        "outcome": "REJECTED",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.023860662841640005,
+        "max_prefix_residual_kg_m2_s": 0.02724596606448282,
+        "tolerance_kg_m2_s": 0.0006975950311038027,
+        "reference_origin_m": [
+          0.03999999999999999,
+          0.8435752135698347
+        ],
+        "initial_radius_of_gyration_m": 0.3647943401586614,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 5.428244659322345e-13,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 0,
+        "restored_kg_m2_s": 0.0,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "SJ",
+      "policy": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "termination": "DURATION_REACHED",
+      "wall_s": 7.597446300031152,
+      "frames": 2604,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 8.913380275588079e-06,
+        "max_prefix_residual_kg_m2_s": 1.501201688292042e-05,
+        "tolerance_kg_m2_s": 0.0006975950311038027,
+        "reference_origin_m": [
+          0.03999999999999999,
+          0.8435752135698347
+        ],
+        "initial_radius_of_gyration_m": 0.3647943401586614,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 6.026412008308668e-13,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 1561,
+        "restored_kg_m2_s": -0.023849928088495433,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "LOADED_CMJ",
+      "policy": "MASS_METRIC_V1",
+      "termination": "DURATION_REACHED",
+      "wall_s": 8.59580220002681,
+      "frames": 2603,
+      "angular": {
+        "outcome": "REJECTED",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.018735328298202014,
+        "max_prefix_residual_kg_m2_s": 0.021310006577041296,
+        "tolerance_kg_m2_s": 0.0009376035260823489,
+        "reference_origin_m": [
+          0.04,
+          1.0753789770213924
+        ],
+        "initial_radius_of_gyration_m": 0.38708077606941094,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 1.964402251974917e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 0,
+        "restored_kg_m2_s": 0.0,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "LOADED_CMJ",
+      "policy": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "termination": "DURATION_REACHED",
+      "wall_s": 10.123130000021774,
+      "frames": 2605,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 3.58096308453737e-05,
+        "max_prefix_residual_kg_m2_s": 4.30681491220275e-05,
+        "tolerance_kg_m2_s": 0.0009376035260823489,
+        "reference_origin_m": [
+          0.04,
+          1.0753789770213924
+        ],
+        "initial_radius_of_gyration_m": 0.38708077606941094,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 1.9059864797554837e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 1966,
+        "restored_kg_m2_s": -0.018672123048498527,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "LOADED_JUMP_SQUAT",
+      "policy": "MASS_METRIC_V1",
+      "termination": "DURATION_REACHED",
+      "wall_s": 9.848592499969527,
+      "frames": 2604,
+      "angular": {
+        "outcome": "REJECTED",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.0211291709058671,
+        "max_prefix_residual_kg_m2_s": 0.023153733753886296,
+        "tolerance_kg_m2_s": 0.0010626053132827126,
+        "reference_origin_m": [
+          0.04000000000000002,
+          1.1443981733961157
+        ],
+        "initial_radius_of_gyration_m": 0.39690691060471534,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 3.6892459573389935e-12,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 0,
+        "restored_kg_m2_s": 0.0,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "LOADED_JUMP_SQUAT",
+      "policy": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "termination": "DURATION_REACHED",
+      "wall_s": 11.093793999985792,
+      "frames": 2605,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 9.941958705322884e-05,
+        "max_prefix_residual_kg_m2_s": 0.00010445252734214705,
+        "tolerance_kg_m2_s": 0.0010626053132827126,
+        "reference_origin_m": [
+          0.04000000000000002,
+          1.1443981733961157
+        ],
+        "initial_radius_of_gyration_m": 0.39690691060471534,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 4.03523568726083e-12,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 1675,
+        "restored_kg_m2_s": -0.021182145956143913,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "BACK_SQUAT",
+      "policy": "MASS_METRIC_V1",
+      "termination": "DURATION_REACHED",
+      "wall_s": 13.90093090001028,
+      "frames": 3500,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.0001813292337505294,
+        "max_prefix_residual_kg_m2_s": 0.00040637239494312194,
+        "tolerance_kg_m2_s": 0.00170780752378234,
+        "reference_origin_m": [
+          0.040000000000000015,
+          1.2051077046427232
+        ],
+        "initial_radius_of_gyration_m": 0.36856698849665137,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 5.442563066893058e-12,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 0,
+        "restored_kg_m2_s": 0.0,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "BACK_SQUAT",
+      "policy": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "termination": "DURATION_REACHED",
+      "wall_s": 15.655818500032183,
+      "frames": 3500,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 9.067966092683039e-08,
+        "max_prefix_residual_kg_m2_s": 1.336754618108671e-07,
+        "tolerance_kg_m2_s": 0.00170780752378234,
+        "reference_origin_m": [
+          0.040000000000000015,
+          1.2051077046427232
+        ],
+        "initial_radius_of_gyration_m": 0.36856698849665137,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 5.1265129294431055e-12,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 1987,
+        "restored_kg_m2_s": -0.00018142028118995745,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "DEADLIFT",
+      "policy": "MASS_METRIC_V1",
+      "termination": "DURATION_REACHED",
+      "wall_s": 24.379697300028056,
+      "frames": 5301,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 3.802872965552595e-05,
+        "max_prefix_residual_kg_m2_s": 0.0007887780266195854,
+        "tolerance_kg_m2_s": 0.00249703620458253,
+        "reference_origin_m": [
+          0.028221279266973837,
+          0.39462430958506517
+        ],
+        "initial_radius_of_gyration_m": 0.2745302751704234,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 5.230516020304776e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 0,
+        "restored_kg_m2_s": 0.0,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "DEADLIFT",
+      "policy": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "termination": "DURATION_REACHED",
+      "wall_s": 30.115641899988987,
+      "frames": 5301,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 1.1680832345817294e-07,
+        "max_prefix_residual_kg_m2_s": 1.1680832345817294e-07,
+        "tolerance_kg_m2_s": 0.00249703620458253,
+        "reference_origin_m": [
+          0.028221279266973837,
+          0.39462430958506517
+        ],
+        "initial_radius_of_gyration_m": 0.2745302751704234,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 5.236466815716767e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 4409,
+        "restored_kg_m2_s": 3.7919926652236254e-05,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "BENCH_PRESS",
+      "policy": "MASS_METRIC_V1",
+      "termination": "DURATION_REACHED",
+      "wall_s": 56.90343820000999,
+      "frames": 9204,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.0015428967228829985,
+        "max_prefix_residual_kg_m2_s": 0.0029287246301828163,
+        "tolerance_kg_m2_s": 0.006224146607000637,
+        "reference_origin_m": [
+          -0.751024273679599,
+          0.8270578950135016
+        ],
+        "initial_radius_of_gyration_m": 0.5110195818929236,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 2.036582014142141e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 0,
+        "restored_kg_m2_s": 0.0,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "BENCH_PRESS",
+      "policy": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "termination": "DURATION_REACHED",
+      "wall_s": 66.86501849995693,
+      "frames": 9204,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 7.049689251831248e-06,
+        "max_prefix_residual_kg_m2_s": 9.329483239284286e-06,
+        "tolerance_kg_m2_s": 0.006224146607000637,
+        "reference_origin_m": [
+          -0.751024273679599,
+          0.8270578950135016
+        ],
+        "initial_radius_of_gyration_m": 0.5110195818929236,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 1.934419291416134e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 7090,
+        "restored_kg_m2_s": -0.001535838018186464,
+        "unavailable_steps": 178,
+        "unrestored_kg_m2_s": -2.2138404239153975e-09
+      }
+    },
+    {
+      "fixture": "CLEAN_PULL",
+      "policy": "MASS_METRIC_V1",
+      "termination": "DURATION_REACHED",
+      "wall_s": 20.176202299946453,
+      "frames": 4304,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.0002159289046916868,
+        "max_prefix_residual_kg_m2_s": 0.000997952726316198,
+        "tolerance_kg_m2_s": 0.0017460617562939731,
+        "reference_origin_m": [
+          0.023286477326670135,
+          0.4258647163842985
+        ],
+        "initial_radius_of_gyration_m": 0.2855633491184732,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 1.0667799976715742e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 0,
+        "restored_kg_m2_s": 0.0,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "CLEAN_PULL",
+      "policy": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "termination": "DURATION_REACHED",
+      "wall_s": 24.555184600001667,
+      "frames": 4304,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 5.603772406703733e-05,
+        "max_prefix_residual_kg_m2_s": 5.6048745491033e-05,
+        "tolerance_kg_m2_s": 0.0017460617562939731,
+        "reference_origin_m": [
+          0.023286477326670135,
+          0.4258647163842985
+        ],
+        "initial_radius_of_gyration_m": 0.2855633491184732,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 1.0115797088872114e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 3629,
+        "restored_kg_m2_s": -0.0001599712926385298,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "SNATCH_PULL",
+      "policy": "MASS_METRIC_V1",
+      "termination": "DURATION_REACHED",
+      "wall_s": 20.13895809999667,
+      "frames": 4304,
+      "angular": {
+        "outcome": "REJECTED",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.0006954224276212173,
+        "max_prefix_residual_kg_m2_s": 0.002806671360943369,
+        "tolerance_kg_m2_s": 0.0015128834781024253,
+        "reference_origin_m": [
+          0.03966221405177959,
+          0.3809729635541153
+        ],
+        "initial_radius_of_gyration_m": 0.2474277162738543,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 1.3801793041778865e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 0,
+        "restored_kg_m2_s": 0.0,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "SNATCH_PULL",
+      "policy": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "termination": "DURATION_REACHED",
+      "wall_s": 24.16220160003286,
+      "frames": 4304,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.00013122989162939191,
+        "max_prefix_residual_kg_m2_s": 0.0001318145685402783,
+        "tolerance_kg_m2_s": 0.0015128834781024253,
+        "reference_origin_m": [
+          0.03966221405177959,
+          0.3809729635541153
+        ],
+        "initial_radius_of_gyration_m": 0.2474277162738543,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 1.389516279814984e-11,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 3516,
+        "restored_kg_m2_s": -0.0005654308091359948,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "POWER_CLEAN_PULL_ONLY",
+      "policy": "MASS_METRIC_V1",
+      "termination": "DURATION_REACHED",
+      "wall_s": 20.415573100035544,
+      "frames": 4302,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 0.0001589118331402073,
+        "max_prefix_residual_kg_m2_s": 0.0010701633684251366,
+        "tolerance_kg_m2_s": 0.001653059449406389,
+        "reference_origin_m": [
+          0.021307697869386473,
+          0.44074358426461707
+        ],
+        "initial_radius_of_gyration_m": 0.29037924574953694,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 9.286460489477122e-12,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 0,
+        "restored_kg_m2_s": 0.0,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    },
+    {
+      "fixture": "POWER_CLEAN_PULL_ONLY",
+      "policy": "MASS_METRIC_ANGULAR_MOMENTUM_RESTORING_V2",
+      "termination": "DURATION_REACHED",
+      "wall_s": 24.42826379998587,
+      "frames": 4302,
+      "angular": {
+        "outcome": "PASS",
+        "code": "PLANAR_ANGULAR_BALANCE",
+        "residual_kg_m2_s": 8.314445325563469e-07,
+        "max_prefix_residual_kg_m2_s": 8.374583070902553e-07,
+        "tolerance_kg_m2_s": 0.001653059449406389,
+        "reference_origin_m": [
+          0.021307697869386473,
+          0.44074358426461707
+        ],
+        "initial_radius_of_gyration_m": 0.29037924574953694,
+        "scope": "Fixed-origin planar interval-end balance; no spatial or biological qualification"
+      },
+      "linear": "PASS",
+      "linear_residual_n_s": 9.547918011776346e-12,
+      "contact": "PASS",
+      "spin_negative": "REJECTED",
+      "angular_restoration": {
+        "restored_steps": 3600,
+        "restored_kg_m2_s": -0.0001598756602015747,
+        "unavailable_steps": 0,
+        "unrestored_kg_m2_s": 0.0
+      }
+    }
+  ],
+  "claim_ceilings": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "scope": "Planar fixed-origin interval-end angular balance; V1 failures are retained RED evidence"
+}
