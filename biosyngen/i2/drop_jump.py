@@ -62,7 +62,8 @@ def build_drop_jump_candidate(*, drop_height_m=.15, contact_law=None, duration_s
         model.system = PlanarMultibodySystem(original.bodies, original.joints,
             [*original.contacts, *platforms], gravity_m_s2=original.gravity_m_s2,
             clock_id=original.clock_id, actuators=original.actuators,
-            linear_solver=original._linear_solver, linear_solver_id=original.linear_solver_id)
+            linear_solver=original._linear_solver, linear_solver_id=original.linear_solver_id,
+            projection_policy=original.projection_policy)
     initial = replace(base,
         bodies={key: replace(b, position_m=(b.position_m[0], b.position_m[1]+drop_height_m))
                 for key, b in base.bodies.items()},

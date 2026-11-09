@@ -87,7 +87,7 @@ class CompliantPlanarStepper:
             [s for s in system.contacts if s.contact_id not in laws],
             gravity_m_s2=system.gravity_m_s2, clock_id=system.clock_id,
             actuators=system.actuators, linear_solver=system._linear_solver,
-            linear_solver_id=system.linear_solver_id)
+            linear_solver_id=system.linear_solver_id, projection_policy=system.projection_policy)
 
     def advance(self, state, dt_s, *, excitations=None, external_wrenches=()):
         removed = frozenset(cid for cid, time in self.release_times.items() if state.time_s >= time)
@@ -99,7 +99,7 @@ class CompliantPlanarStepper:
                 [s for s in self.geometry.contacts if s.contact_id not in self.laws and s.contact_id not in removed],
                 gravity_m_s2=self.geometry.gravity_m_s2, clock_id=self.geometry.clock_id,
                 actuators=self.geometry.actuators, linear_solver=self.geometry._linear_solver,
-                linear_solver_id=self.geometry.linear_solver_id)
+                linear_solver_id=self.geometry.linear_solver_id, projection_policy=self.geometry.projection_policy)
             self._removed = removed
         wrenches = list(external_wrenches)
         responses = {}
