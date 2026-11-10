@@ -64,8 +64,9 @@ class HandBarRelation:
     grip_frac: float
 
 
-def qualified_relation(tilt_deg=0.0, grip_frac=.6, settle_s=1.0):
-    fx, *_ = run_trial(FixtureSpec(tilt_deg=tilt_deg), grip_frac, settle_s, record_every=10**9, recorder=_Null())
+def qualified_relation(tilt_deg=0.0, grip_frac=.6, settle_s=1.0, human=None):
+    """Relation measured with the *subject's* compiled hands (human=None: nominal)."""
+    fx, *_ = run_trial(FixtureSpec(tilt_deg=tilt_deg, human=human), grip_frac, settle_s, record_every=10**9, recorder=_Null())
     m, d = fx.model, fx.data
     h, b = fx.body_id("l_hand"), fx.body_id("barbell")
     r = d.xmat[h].reshape(3, 3)
@@ -407,7 +408,7 @@ def build_certified_candidate(spec=None, depth="POWER", tilt_deg=0.0, grip_frac=
     from .model_v2 import HumanV2Spec
     from .plant_v2 import HumanV2Plant
     plant = HumanV2Plant.build(spec or HumanV2Spec())
-    relation = qualified_relation(tilt_deg, grip_frac)
+    relation = qualified_relation(tilt_deg, grip_frac, human=spec)
     candidate = solve_supported_candidate(plant, relation, depth, max_nfev)
     static = qualify_static(plant)
     return plant, candidate, static, relation

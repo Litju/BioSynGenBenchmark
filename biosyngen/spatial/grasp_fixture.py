@@ -47,6 +47,9 @@ class FixtureSpec:
     initial_finger_distal: float = .2
     initial_thumb: float = 0.0
     timestep_s: float = .001
+    # Subject whose compiled hands are mounted (None: nominal HumanV2Spec, unchanged behavior). The grip
+    # offset above is the nominal-hand value (0.447 hand lengths) and scales with the subject's hand.
+    human: HumanV2Spec | None = None
 
 
 def _rotation(tilt_deg):
@@ -64,7 +67,8 @@ def _quat(rot):
 
 
 def build_fixture_mjcf(spec=FixtureSpec()):
-    v2 = ET.fromstring(build_mjcf_v2(HumanV2Spec()))
+    human = spec.human or HumanV2Spec()
+    v2 = ET.fromstring(build_mjcf_v2(human))
     bodies = {b.get("name"): b for b in v2.iter("body")}
     root = ET.Element("mujoco", model="RES624_ISOLATED_GRASP")
     ET.SubElement(root, "compiler", angle="radian", inertiafromgeom="false", autolimits="true")
@@ -95,7 +99,8 @@ def build_fixture_mjcf(spec=FixtureSpec()):
     inertial = bar.find("inertial")
     inertial.set("mass", str(spec.bar_mass_kg))
     inertial.set("diaginertia", " ".join(str(scale*v) for v in bar_inertia(eq)))
-    local = np.array([-(PALM_HALF_THICKNESS+SHAFT_RADIUS+spec.initial_gap_m), 0, spec.grip_along_palm_m])
+    hand_scale = human.profile.dimensions.hand_length_m/HumanV2Spec().profile.dimensions.hand_length_m
+    local = np.array([-(PALM_HALF_THICKNESS*human.profile.stature_m/HumanV2Spec().profile.stature_m+SHAFT_RADIUS+spec.initial_gap_m), 0, spec.grip_along_palm_m*hand_scale])
     centre = np.array([0, 0, spec.mount_height_m]) + rot @ local
     bar.set("pos", " ".join(map(str, centre)))
     for site in list(bar.findall("site")):
