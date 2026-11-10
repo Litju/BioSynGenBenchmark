@@ -15,6 +15,7 @@ import json
 from pathlib import Path
 
 from scripts.res618_fullbody_qualification import run as frozen_run
+from scripts.res624_receipt import full_receipt
 
 # Historical drops: Windows 0.3760531196714312 m, Linux 0.376222 m. The canary
 # asserts the qualitative failure (no hand contact, drop > 0.3 m), not a value.
@@ -27,10 +28,11 @@ def main(argv=None):
     a = ap.parse_args(argv)
     r = frozen_run()
     hand = [c for c in r["final_contacts"] if "bar_shaft" in (c["geom1"], c["geom2"])]
-    reproduced = r["outcome"] == "FAIL" and r["bar_drop_m"] > MIN_DROP_M and not hand
+    reproduced = (r["outcome"] == "FAIL" and r["code"] == "RECEIVING_NOT_QUALIFIED_AFTER_TWO_REPAIRS"
+                  and r["bar_drop_m"] > MIN_DROP_M and not hand)
     out = dict(issue="RES-624", canary="RES618_FROZEN_RED", reproduced=reproduced, frozen_outcome=r["outcome"],
                frozen_code=r["code"], bar_drop_m=r["bar_drop_m"], final_hand_contacts=len(hand),
-               final_contacts=[(c["geom1"], c["geom2"]) for c in r["final_contacts"]], source_sha=r["source_sha"])
+               final_contacts=[(c["geom1"], c["geom2"]) for c in r["final_contacts"]], source_sha=r["source_sha"], receipt=full_receipt())
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     Path(a.out).write_text(json.dumps(out, indent=2, sort_keys=True)+"\n", encoding="utf-8")
     print(json.dumps(out, indent=2))

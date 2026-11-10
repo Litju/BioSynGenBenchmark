@@ -34,6 +34,7 @@ from biosyngen_benchmark.receiving_acceptance import evaluate_receiving
 from biosyngen_benchmark.rigid_body_check import angular_discretization_check
 from biosyngen_benchmark.spatial_oracle import dynamic_balance, mass_properties
 from scripts.res624_grasp_diagnosis import CLAIMS, source_receipt
+from scripts.res624_receipt import full_receipt
 from scripts.res624_receiving_campaign import build_nominal, frame_metrics
 
 HOLD_S = .3
@@ -155,7 +156,7 @@ def run(out):
         pp, ss, ff = hold(q, **kw)
         sens[label] = dict(evaluator=evaluate_receiving(ff, dt, ss["verdict"])["outcome"], metrics=frame_metrics(ff),
                            bar_trajectory_distance_from_nominal_m=traj_distance(frames, ff, 1, 1))
-    report = dict(issue="RES-624", gate="F", **source_receipt(), hold_s=HOLD_S,
+    report = dict(issue="RES-624", gate="F", **source_receipt(), receipt=full_receipt(dict(nominal=p)), hold_s=HOLD_S,
                   mass_inertia=masses, evaluator=verdict,
                   bar_linear=dynamic_balance(frames, dt, members={"barbell"}),
                   bar_angular=angular_discretization_check(frames, dt),

@@ -34,9 +34,16 @@ from biosyngen.spatial.receiving_grasp_v2 import actuator_export, forward_receiv
 from biosyngen.spatial.receiving_v2 import solve_candidate
 from biosyngen_benchmark.receiving_acceptance import evaluate_receiving
 from scripts.res624_grasp_diagnosis import CLAIMS, source_receipt
+from scripts.res624_receipt import full_receipt
 from scripts.res624_receiving_campaign import build_nominal, cases, clone, run_case
 
 EXPECTED_QUALIFIED = ("nominal_0p3s_red_window", "nominal_2s", "nominal_10s")
+# Preregistered expectation per case. "QUALIFIED": the independent evaluator must qualify the hold.
+# ("REFUSED", code): the evaluator must report that failure category (a physical negative control).
+# finger_release_at_1s is judged in two parts: the pre-release hold must qualify, and the full run must
+# show the contact loss (GRASP_SLIP:CONTACT_LOST) caused by the commanded release.
+NEGATIVE_EXPECTATION = {"finger_release_at_1s": "GRASP_SLIP", "arm_capacity_half_threshold": "ACTUATOR_INFEASIBLE"}
+ANTHROPOMETRIC = ("anthropometry_70kg_1p70m", "anthropometry_80kg_1p80m")
 
 
 def red_frames(duration_s=.3):
@@ -113,33 +120,58 @@ def run(out, quick=False):
     _, nominal = build_nominal()
     red, red_static, red_drop = red_frames()
     red_eval = evaluate_receiving(red, .001, red_static)
-    results, nominal_frames = {}, None
+    results, nominal_frames, plants = {}, None, {}
     for name, spec, mod, dur, kw in cases(quick):
         frames, static, plant = run_case(name, spec, mod, dur, kw, nominal)
-        r = evaluate_receiving(frames, plant.model.opt.timestep, static["verdict"],
-                               end_s=kw.get("release_at_s"))
-        results[name] = dict(static_verdict=static["verdict"], outcome=r["outcome"], reason=str(r.get("reason")),
-                             all_failures=[f"{x['outcome']}:{x['reason']}" for x in r.get("failures", [])],
-                             evidence={k: v for k, v in r["evidence"].items()
-                                       if k in ("bar_displacement_in_hand_m", "hand_support_ratio_mean", "hand_support_ratio_min",
-                                                "min_hand_contacts", "min_cop_margin_m", "min_com_projection_margin_m",
-                                                "floor_vertical_over_weight_mean", "max_penetration_m", "posture_saturation_samples",
-                                                "contact_problems", "over_capacity")},
-                             bar_linear_residual_n_s=r["evidence"].get("bar_newton_euler", {}).get("max_step_linear_residual_n_s"),
-                             bar_angular_excess_n_m_s=r["evidence"].get("bar_angular_discretization", {}).get("max_excess_over_discretization_n_m_s"),
-                             system_step_residual_n_s=r["evidence"].get("system_newton_euler", {}).get("max_step_linear_residual_n_s"))
+        dt = plant.model.opt.timestep
+        release = kw.get("release_at_s")
+        r = evaluate_receiving(frames, dt, static["verdict"])
+        codes = [f"{x['outcome']}:{x['reason']}" for x in r.get("failures", [])]
+        entry = dict(static_verdict=static["verdict"], outcome=r["outcome"], reason=str(r.get("reason")), all_failures=codes,
+                     evidence={k: v for k, v in r["evidence"].items()
+                               if k in ("bar_displacement_in_hand_m", "hand_support_ratio_mean", "hand_support_ratio_min",
+                                        "min_hand_contacts", "min_cop_margin_m", "min_com_projection_margin_m",
+                                        "floor_vertical_over_weight_mean", "max_penetration_m", "posture_saturation_samples",
+                                        "contact_problems", "over_capacity")},
+                     bar_linear_residual_n_s=r["evidence"].get("bar_newton_euler", {}).get("max_step_linear_residual_n_s"),
+                     bar_angular_excess_n_m_s=r["evidence"].get("bar_angular_discretization", {}).get("max_excess_over_discretization_n_m_s"),
+                     system_step_residual_n_s=r["evidence"].get("system_newton_euler", {}).get("max_step_linear_residual_n_s"),
+                     bar_mass_kg=next(b for b in frames[0]["bodies"] if b["name"] == "barbell")["mass"],
+                     model_total_mass_kg=sum(b["mass"] for b in frames[0]["bodies"]))
+        if release is not None:
+            pre = [f for f in frames if f["t"] <= release]
+            rp = evaluate_receiving(pre, dt, static["verdict"])
+            entry["pre_release"] = dict(outcome=rp["outcome"], all_failures=[f"{x['outcome']}:{x['reason']}" for x in rp.get("failures", [])])
+            entry["expectation"] = "pre-release QUALIFIED and post-release GRASP_SLIP"
+            entry["expectation_met"] = rp["outcome"] == "RECEIVING_HOLD_QUALIFIED" and any(c.startswith("GRASP_SLIP:CONTACT_LOST") for c in codes)
+        elif name in NEGATIVE_EXPECTATION:
+            entry["expectation"] = "REFUSED:" + NEGATIVE_EXPECTATION[name]
+            entry["expectation_met"] = (r["outcome"] != "RECEIVING_HOLD_QUALIFIED"
+                                        and any(c.startswith(NEGATIVE_EXPECTATION[name]+":") for c in codes)
+                                        and static["verdict"] != "STATIC_EQUILIBRIUM_CERTIFIED")
+        else:
+            entry["expectation"] = "QUALIFIED"
+            entry["expectation_met"] = r["outcome"] == "RECEIVING_HOLD_QUALIFIED"
+        results[name] = entry
+        plants[name] = plant
         if name == "nominal_2s":
-            nominal_frames = (frames, plant.model.opt.timestep, static["verdict"])
+            nominal_frames = (frames, dt, static["verdict"])
     adv = adversarial(*nominal_frames, nominal)
     required = [n for n in EXPECTED_QUALIFIED if n in results]
     red_refused = red_eval["outcome"] != "RECEIVING_HOLD_QUALIFIED" and red_static != "STATIC_EQUILIBRIUM_CERTIFIED"
+    anthro = {n: results[n]["expectation_met"] for n in ANTHROPOMETRIC if n in results}
+    core_met = all(v["expectation_met"] for k, v in results.items() if k not in ANTHROPOMETRIC)
     final = ("RECEIVING_HOLD_QUALIFIED" if all(results[n]["outcome"] == "RECEIVING_HOLD_QUALIFIED" for n in required)
-             and red_refused and all(a["refused"] for a in adv.values()) else "RECEIVING_NOT_QUALIFIED")
-    report = dict(issue="RES-624", **source_receipt(), final_verdict=final, scope="declared Human V2 computational model; "
+             and core_met and red_refused and all(a["refused"] for a in adv.values()) else "RECEIVING_NOT_QUALIFIED")
+    report = dict(issue="RES-624", **source_receipt(), receipt=full_receipt(plants), final_verdict=final, scope="declared Human V2 computational model; "
                   "20 kg unplated bar; static overhead POWER receiving hold, not a lift or catch",
                   red_canary=dict(static_verdict=red_static, outcome=red_eval["outcome"], reason=str(red_eval.get("reason")),
                                   bar_drop_m=red_drop, refused=red_refused),
-                  cases=results, adversarial=adv, required_qualified=required, claims=CLAIMS)
+                  cases=results, adversarial=adv, required_qualified=required,
+                  expectations_met=sum(v["expectation_met"] for v in results.values()), expectations_total=len(results),
+                  adversarial_refused=sum(a["refused"] for a in adv.values()), adversarial_total=len(adv),
+                  anthropometric_generalization=("QUALIFIED_BOTH" if anthro and all(anthro.values()) else
+                                                 "NOT_CERTIFIED" if anthro else "NOT_RUN"), claims=CLAIMS)
     (out/"receiving_qualification.json").write_text(json.dumps(report, indent=2, sort_keys=True, default=float)+"\n", encoding="utf-8")
     return report
 
@@ -152,7 +184,7 @@ def main(argv=None):
     r = run(a.out, a.quick)
     print("FINAL", r["final_verdict"], "| RED canary", r["red_canary"])
     for k, v in r["cases"].items():
-        print(f'{k:28s} {v["static_verdict"]:30s} {v["outcome"]:26s} {v["all_failures"]}')
+        print(f'{k:28s} {v["static_verdict"]:30s} {v["outcome"]:26s} expect[{v["expectation"]}]={v["expectation_met"]} {v["all_failures"][:3]}')
     for k, v in r["adversarial"].items():
         print(f'ADV {k:28s} expected={v["expected"]:24s} observed={v["observed"]:24s} refused={v["refused"]}')
     return 0 if r["final_verdict"] == "RECEIVING_HOLD_QUALIFIED" else 1
