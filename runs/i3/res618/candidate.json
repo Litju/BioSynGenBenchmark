@@ -1,0 +1,28 @@
+{
+  "source_sha": "f3949a63cf105fab4eee7ed96ec3ac29982ce4a2",
+  "source_dirty": true,
+  "model": "human-v2.0-b_FOOT_CANDIDATE_UNQUALIFIED",
+  "body_count_excluding_world": 21,
+  "generalized_dof": 49,
+  "actuator_count": 37,
+  "total_system_mass_kg": 135.0,
+  "initial_min_contact_distance_m": 0,
+  "standing_final_pelvis_height_m": 0.9679540968349593,
+  "standing_final_max_generalized_speed": 0.00045702511745854415,
+  "standing_final_min_contact_distance_m": -5.117808654325588e-05,
+  "receiving": "NOT_EVALUABLE",
+  "anatomical_gates": "INCOMPLETE",
+  "limitations": [
+    "legacy upper body and grip remain",
+    "shoe equipment mass omitted",
+    "manufactured anthropometry",
+    "no grip/rack transition",
+    "standing probe only"
+  ],
+  "claims": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ]
+}

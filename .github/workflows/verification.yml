@@ -180,4 +180,12 @@ jobs:
       - name: Install pinned spatial dependencies (MuJoCo Apache-2.0, not vendored)
         run: python -m pip install mujoco==3.3.7 scipy==1.17.1 numpy==2.4.4
       - name: Spatial plant, receiving equilibria and independent oracle (fail on skip)
-        run: python -m scripts.require_spatial_checks
+        run: python -m scripts.require_spatial_checks tests.test_res618_anthropometry tests.test_res618_feet tests.test_res618_inertial_oracle tests.test_res618_fullbody tests.test_res618_v2_interface
+      - name: Human V2 physical receiving qualification (retains FAIL)
+        run: python -m scripts.res618_fullbody_qualification
+      - name: Preserve Human V2 physical failure evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: human-v2-receiving-${{ matrix.os }}
+          path: runs/i3/res618/fullbody_receiving_failure.json
