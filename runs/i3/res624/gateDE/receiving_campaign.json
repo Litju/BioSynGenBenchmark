@@ -1,0 +1,668 @@
+{
+  "claims": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "forward": {
+    "anthropometry_70kg_1p70m": {
+      "max_utilization": 0.32804428106868394,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.0024093169193316025,
+        "bar_z_change_m": -0.0005386384842458458,
+        "com_x_drift_m": 0.0046574885303130725,
+        "duration_s": 1.9999999999998905,
+        "floor_vertical_over_weight_mean": 0.9999473845987763,
+        "hand_support_mean": 0.9999320978189712,
+        "hand_support_min": 0.9922805602683652,
+        "min_hand_contacts": 8,
+        "posture_saturation_samples": 0
+      },
+      "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "static_verdict": "POSE_INADMISSIBLE"
+    },
+    "anthropometry_80kg_1p80m": {
+      "max_utilization": 0.38514164475312795,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.0037741705351766095,
+        "bar_z_change_m": 0.000323185333467535,
+        "com_x_drift_m": 0.003378068847109783,
+        "duration_s": 1.9999999999998905,
+        "floor_vertical_over_weight_mean": 1.000035880320116,
+        "hand_support_mean": 1.0001627465492589,
+        "hand_support_min": 0.9998517733000873,
+        "min_hand_contacts": 8,
+        "posture_saturation_samples": 0
+      },
+      "static_code": "STATIC_GRASP_INFEASIBLE",
+      "static_verdict": "STATIC_GRASP_INFEASIBLE"
+    },
+    "arm_capacity_half_threshold": {
+      "max_utilization": 1.9891168423687127,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.6741301981278637,
+        "bar_z_change_m": -1.182370030033468,
+        "com_x_drift_m": -0.10459603904392978,
+        "duration_s": 1.0000000000000007,
+        "floor_vertical_over_weight_mean": 0.9365833635588487,
+        "hand_support_mean": 0.6854035042683982,
+        "hand_support_min": 0.0,
+        "min_hand_contacts": 0,
+        "posture_saturation_samples": 13205
+      },
+      "static_code": "ACTUATOR_INFEASIBLE",
+      "static_verdict": "ACTUATOR_INFEASIBLE"
+    },
+    "bar_mass_15kg": {
+      "max_utilization": 0.32900772483523555,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.0012228492470035442,
+        "bar_z_change_m": 0.0005070730847664962,
+        "com_x_drift_m": 0.0056425360112552225,
+        "duration_s": 1.9999999999998905,
+        "floor_vertical_over_weight_mean": 1.0000219461387134,
+        "hand_support_mean": 1.0001412587780618,
+        "hand_support_min": 0.9994697187922471,
+        "min_hand_contacts": 10,
+        "posture_saturation_samples": 0
+      },
+      "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    },
+    "bar_mass_25kg": {
+      "max_utilization": 0.38865394875918513,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.001263878238947272,
+        "bar_z_change_m": -2.1153755509484284e-06,
+        "com_x_drift_m": 0.003528688173409053,
+        "duration_s": 1.9999999999998905,
+        "floor_vertical_over_weight_mean": 1.0000120302403597,
+        "hand_support_mean": 1.0000641253365978,
+        "hand_support_min": 0.9976769401144999,
+        "min_hand_contacts": 10,
+        "posture_saturation_samples": 0
+      },
+      "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    },
+    "bar_push_40N_50ms": {
+      "max_utilization": 0.35871795465221934,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.0011893498566091652,
+        "bar_z_change_m": 0.00020000451682222753,
+        "com_x_drift_m": 0.005343080996689412,
+        "duration_s": 1.9999999999998905,
+        "floor_vertical_over_weight_mean": 0.9999836469684998,
+        "hand_support_mean": 0.9999684505644155,
+        "hand_support_min": 0.9866698437305766,
+        "min_hand_contacts": 10,
+        "posture_saturation_samples": 0
+      },
+      "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    },
+    "finger_release_at_1s": {
+      "max_utilization": 0.35871795465221934,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.4103904076412326,
+        "bar_z_change_m": -0.32569480569353426,
+        "com_x_drift_m": 0.029584470147640818,
+        "duration_s": 1.9999999999998905,
+        "floor_vertical_over_weight_mean": 0.9922864072300568,
+        "hand_support_mean": 0.8264125973332226,
+        "hand_support_min": 0.0,
+        "min_hand_contacts": 0,
+        "posture_saturation_samples": 531
+      },
+      "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    },
+    "hand_friction_0p6": {
+      "max_utilization": 0.3587179546522189,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.0011856126253800027,
+        "bar_z_change_m": 9.944936719374908e-05,
+        "com_x_drift_m": 0.0037927660219388426,
+        "duration_s": 1.9999999999998905,
+        "floor_vertical_over_weight_mean": 1.000013483475731,
+        "hand_support_mean": 1.000084787160225,
+        "hand_support_min": 0.9985096090192118,
+        "min_hand_contacts": 10,
+        "posture_saturation_samples": 0
+      },
+      "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    },
+    "nominal_0p3s_red_window": {
+      "max_utilization": 0.35871795465221934,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.00028063088699969746,
+        "bar_z_change_m": -0.0007020706658584785,
+        "com_x_drift_m": -1.9403898229491956e-05,
+        "duration_s": 0.3000000000000002,
+        "floor_vertical_over_weight_mean": 1.0000384845675314,
+        "hand_support_mean": 1.0003497742044085,
+        "hand_support_min": 0.9983341358509834,
+        "min_hand_contacts": 10,
+        "posture_saturation_samples": 0
+      },
+      "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    },
+    "nominal_10s": {
+      "max_utilization": 0.35871795465221934,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.0013541644021785569,
+        "bar_z_change_m": 0.001913263641354801,
+        "com_x_drift_m": 0.01317286634937144,
+        "duration_s": 9.999999999999897,
+        "floor_vertical_over_weight_mean": 1.000001494749547,
+        "hand_support_mean": 1.0000111881292646,
+        "hand_support_min": 0.9983341358509834,
+        "min_hand_contacts": 8,
+        "posture_saturation_samples": 0
+      },
+      "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    },
+    "nominal_2s": {
+      "max_utilization": 0.35871795465221934,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.001216027196877507,
+        "bar_z_change_m": 9.606269412221202e-05,
+        "com_x_drift_m": 0.0037900986248148305,
+        "duration_s": 1.9999999999998905,
+        "floor_vertical_over_weight_mean": 1.0000131669092183,
+        "hand_support_mean": 1.0000841166314942,
+        "hand_support_min": 0.9983341358509834,
+        "min_hand_contacts": 10,
+        "posture_saturation_samples": 0
+      },
+      "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    },
+    "pelvis_push_60N_100ms": {
+      "max_utilization": 0.35871795465221934,
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.001208652468272907,
+        "bar_z_change_m": 0.00033996210110776026,
+        "com_x_drift_m": 0.005027375395791553,
+        "duration_s": 1.9999999999998905,
+        "floor_vertical_over_weight_mean": 0.9999986871710542,
+        "hand_support_mean": 1.0000355462007442,
+        "hand_support_min": 0.975405338561437,
+        "min_hand_contacts": 10,
+        "posture_saturation_samples": 0
+      },
+      "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    }
+  },
+  "gate": "D/E",
+  "issue": "RES-624",
+  "nominal": {
+    "arm_capacity_threshold_scale": 0.142578125,
+    "candidate": {
+      "evaluations": 2000,
+      "optimizer_success": false,
+      "palm_tilt_from_vertical_deg": 2.628948631099919,
+      "residual_norm": 0.08896684381865931,
+      "variables": {
+        "ankle_dorsi": 0.7399998967256952,
+        "bar_x": -0.058390200082962786,
+        "bar_z": 1.5609169851171691,
+        "elbow_flex": 0.1414411452031997,
+        "forearm_sup": 0.5388974266393887,
+        "forefoot_flex": 0.13642068563885995,
+        "girdle_elev": 0.0960752760307589,
+        "girdle_prot": -0.02168751468202273,
+        "hip_abd": 0.5598173835948494,
+        "hip_flex": 1.680691714624008,
+        "hip_rot": -0.08543522117333767,
+        "knee_flex": 2.254496418095659,
+        "lumbar_flex": -0.2885830164779269,
+        "mtp_flex": 0.3282941856523276,
+        "pelvis_pitch": 0.5266983885703732,
+        "pelvis_x": -0.002066893302883096,
+        "pelvis_z": 0.49148840694853896,
+        "sh_abd": 0.3665233710248712,
+        "sh_flex": 2.989999912263812,
+        "sh_rot": -0.20992171591687692,
+        "subtalar_inv": 0.06564441337841956,
+        "thoracic_flex": -0.17497110524557724,
+        "wrist_dev": -0.3399999218387173,
+        "wrist_flex": -1.2899998577225908
+      }
+    },
+    "certificate": {
+      "bar_contact_force_n": [
+        -8.881784197001252e-16,
+        8.881784197001252e-16,
+        196.20000000000002
+      ],
+      "bar_weight_n": 196.20000000000002,
+      "capacity_margin": 0.6412820453477807,
+      "code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "contact_forces": [
+        {
+          "dist": -9.996738958992918e-05,
+          "force_on_body2": [
+            69.14476882542965,
+            25.376551044797623,
+            343.7431626999063
+          ],
+          "geom1": "floor",
+          "geom2": "l_hindfoot_sole",
+          "point": [
+            0.03205806266795523,
+            0.14544561173091686,
+            -4.998369479496459e-05
+          ]
+        },
+        {
+          "dist": -0.00010001075915875776,
+          "force_on_body2": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "geom1": "floor",
+          "geom2": "l_forefoot_sole",
+          "point": [
+            0.1322999352812837,
+            0.20431600651508716,
+            -5.000537957937888e-05
+          ]
+        },
+        {
+          "dist": -0.0001000205861930864,
+          "force_on_body2": [
+            -69.14476882542957,
+            69.14476882542957,
+            122.23183730009356
+          ],
+          "geom1": "floor",
+          "geom2": "l_mtp_sole",
+          "point": [
+            0.15709975476781834,
+            0.21888053034619614,
+            -5.00102930965432e-05
+          ]
+        },
+        {
+          "dist": -9.996738958992918e-05,
+          "force_on_body2": [
+            69.14476882542904,
+            -25.376551044798106,
+            343.74316269990743
+          ],
+          "geom1": "floor",
+          "geom2": "r_hindfoot_sole",
+          "point": [
+            0.03205806266795523,
+            -0.14544561173091686,
+            -4.998369479496459e-05
+          ]
+        },
+        {
+          "dist": -0.00010001075915875776,
+          "force_on_body2": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "geom1": "floor",
+          "geom2": "r_forefoot_sole",
+          "point": [
+            0.1322999352812837,
+            -0.20431600651508716,
+            -5.000537957937888e-05
+          ]
+        },
+        {
+          "dist": -0.0001000205861930864,
+          "force_on_body2": [
+            -69.14476882542915,
+            -69.14476882542914,
+            122.23183730009285
+          ],
+          "geom1": "floor",
+          "geom2": "r_mtp_sole",
+          "point": [
+            0.15709975476781834,
+            -0.21888053034619614,
+            -5.00102930965432e-05
+          ]
+        },
+        {
+          "dist": 6.856686867108552e-05,
+          "force_on_body2": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "l_finger_flex_pad",
+          "point": [
+            -0.0721501758967354,
+            0.28401465574423446,
+            1.5636781763672742
+          ]
+        },
+        {
+          "dist": 0.00013903499354862327,
+          "force_on_body2": [
+            -0.5145169201308457,
+            -0.32427700950451727,
+            -0.22798082344379572
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "l_finger_flex_pad",
+          "point": [
+            -0.07218471909416313,
+            0.21602908870879156,
+            1.5636850810720166
+          ]
+        },
+        {
+          "dist": -0.00026878854112210096,
+          "force_on_body2": [
+            4.950137159893709,
+            -5.2857362221789,
+            7.701504030356425
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "l_finger_distal_pad",
+          "point": [
+            -0.05900311608052324,
+            0.2820277034082337,
+            1.5747690375363663
+          ]
+        },
+        {
+          "dist": -0.00014002213563060924,
+          "force_on_body2": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "l_finger_distal_pad",
+          "point": [
+            -0.0590059448609177,
+            0.21805559618846224,
+            1.5748333303335826
+          ]
+        },
+        {
+          "dist": -7.726043557108875e-07,
+          "force_on_body2": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "l_thumb_opposition_pad",
+          "point": [
+            -0.05903173056158032,
+            0.28597033833946867,
+            1.5469320781695612
+          ]
+        },
+        {
+          "dist": 3.435402549800161e-05,
+          "force_on_body2": [
+            -4.324810174599563,
+            -0.20636416055973117,
+            -105.57999092789586
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "l_thumb_opposition_pad",
+          "point": [
+            -0.05903255285810791,
+            0.3039430019039109,
+            1.5469145608652635
+          ]
+        },
+        {
+          "dist": 6.856686867108552e-05,
+          "force_on_body2": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "r_finger_flex_pad",
+          "point": [
+            -0.0721501758967354,
+            -0.28401465574423446,
+            1.5636781763672742
+          ]
+        },
+        {
+          "dist": 0.00013903499354862327,
+          "force_on_body2": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "r_finger_flex_pad",
+          "point": [
+            -0.07218471909416313,
+            -0.21602908870879156,
+            1.5636850810720166
+          ]
+        },
+        {
+          "dist": -0.00026878854112210096,
+          "force_on_body2": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "r_finger_distal_pad",
+          "point": [
+            -0.05900311608052324,
+            -0.2820277034082337,
+            1.5747690375363663
+          ]
+        },
+        {
+          "dist": -0.00014002213563060924,
+          "force_on_body2": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "r_finger_distal_pad",
+          "point": [
+            -0.0590059448609177,
+            -0.21805559618846224,
+            1.5748333303335826
+          ]
+        },
+        {
+          "dist": -7.726043557108875e-07,
+          "force_on_body2": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "r_thumb_opposition_pad",
+          "point": [
+            -0.05903173056158032,
+            -0.28597033833946867,
+            1.5469320781695612
+          ]
+        },
+        {
+          "dist": 3.435402549800161e-05,
+          "force_on_body2": [
+            -0.1108100651632995,
+            5.816377392243148,
+            -98.09353227901678
+          ],
+          "geom1": "bar_shaft",
+          "geom2": "r_thumb_opposition_pad",
+          "point": [
+            -0.05903255285810791,
+            -0.3039430019039109,
+            1.5469145608652635
+          ]
+        }
+      ],
+      "contacts": 18,
+      "cop": [
+        0.06485826818215411,
+        -3.812129061430872e-18
+      ],
+      "cop_hull_margin_m": 0.03280020551419888,
+      "feasible": true,
+      "floor_contacts": 6,
+      "floor_vertical_n": 931.95,
+      "hand_contacts": 12,
+      "joints_at_limit": [],
+      "max_generalized_residual": 1.1368683772161603e-13,
+      "max_penetration_m": 0.00026878854112210096,
+      "max_utilization": 0.35871795465221934,
+      "min_joint_limit_margin_rad": 0.010000078161282677,
+      "most_loaded_actuators": [
+        [
+          "l_girdle_elev",
+          0.35871795465221934
+        ],
+        [
+          "r_knee_flex",
+          0.35871795465221934
+        ],
+        [
+          "l_knee_flex",
+          0.3587179546522185
+        ],
+        [
+          "r_hip_rot",
+          0.3587179546522183
+        ],
+        [
+          "l_hip_rot",
+          0.3587179546522172
+        ],
+        [
+          "r_girdle_elev",
+          0.35871771574543
+        ]
+      ],
+      "residual_tolerance": 0.00073575,
+      "total_weight_n": 931.95,
+      "undeclared_penetrations": []
+    },
+    "qpos": [
+      -0.002066893302883096,
+      0.0,
+      0.49148840694853896,
+      0.9655235469863748,
+      0.0,
+      0.2603157317851725,
+      0.0,
+      -0.2885830164779269,
+      0.0,
+      0.0,
+      -0.17497110524557724,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0960752760307589,
+      -0.02168751468202273,
+      0.1466093484099485,
+      0.2989999912263812,
+      2.989999912263812,
+      0.3665233710248712,
+      -0.20992171591687692,
+      0.1414411452031997,
+      0.5388974266393887,
+      -1.2899998577225908,
+      -0.3399999218387173,
+      1.7229919529322024,
+      1.3285412847366074,
+      6.57068638712648e-05,
+      0.0960752760307589,
+      -0.02168751468202273,
+      0.1466093484099485,
+      0.2989999912263812,
+      2.989999912263812,
+      0.3665233710248712,
+      -0.20992171591687692,
+      0.1414411452031997,
+      0.5388974266393887,
+      -1.2899998577225908,
+      -0.3399999218387173,
+      1.7229919529322024,
+      1.3285412847366074,
+      6.57068638712648e-05,
+      1.680691714624008,
+      0.5598173835948494,
+      -0.08543522117333767,
+      2.254496418095659,
+      0.7399998967256952,
+      0.06564441337841956,
+      0.13642068563885995,
+      0.3282941856523276,
+      1.680691714624008,
+      0.5598173835948494,
+      -0.08543522117333767,
+      2.254496418095659,
+      0.7399998967256952,
+      0.06564441337841956,
+      0.13642068563885995,
+      0.3282941856523276,
+      -0.058390200082962786,
+      0.0,
+      1.5609169851171691,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "relation": {
+      "finger_distal": 1.3285412847366074,
+      "finger_flex": 1.7229919529322024,
+      "grip_frac": 0.6,
+      "shaft_point_hand": [
+        -0.029928953467754756,
+        -8.197183076374959e-06,
+        -0.07451403868428737
+      ],
+      "thumb_opposition": 6.57068638712648e-05,
+      "tilt_deg": 0.0
+    },
+    "self_intersection": {
+      "min_distance_m": 0.005966305319262698,
+      "pairs_checked": 528,
+      "penetrating": []
+    },
+    "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+  },
+  "source_dirty": false,
+  "source_sha": "167e91b7fd5c3eabec4848692e1b7745c1e65e88",
+  "source_sha256": {
+    "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
+    "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
+    "biosyngen/spatial/model_v2.py": "4a0865035c24dd4be2d0cdff7c36ce55837a7aa70812cbc65606c43013cc0c7f",
+    "biosyngen/spatial/plant_v2.py": "c3a321d6e6436926bde5f705831e4c11d360f879ee63fcea63edd86197b54001",
+    "biosyngen/spatial/receiving_v2.py": "0a8014e1ee371d1416be413977e61f14fe84be21b49040081c9d9222a961dedc",
+    "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
+    "scripts/res624_grasp_diagnosis.py": "e3aba138fa09e8fa5ce182f59dd819bd73a8f87d0fb831282e5f2ebf99557e64"
+  },
+  "static_adversarials": {
+    "bar_displaced_50mm_out_of_hands": "STATIC_GRASP_INFEASIBLE",
+    "bar_lifted_20mm_into_fingers": "POSE_INADMISSIBLE",
+    "frozen_res618_kinematic_candidate": "STATIC_GRASP_INFEASIBLE",
+    "nominal_at_20pct_capacity": "ACTUATOR_INFEASIBLE"
+  }
+}
