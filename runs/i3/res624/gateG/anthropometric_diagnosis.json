@@ -1,0 +1,319 @@
+{
+  "bar_mass_identity": {
+    "bar_15kg": {
+      "engine_gravity_bias_z_n": 147.15,
+      "expected_weight_n": 147.15,
+      "identity": {
+        "bar_body_mass": 15.0,
+        "bar_matches_declared": true,
+        "human_mass_kg": 75.0,
+        "human_subtree_matches": true,
+        "subtree_mass_root": 75.0,
+        "total_mass": 90.0
+      },
+      "qpos_preserved": true,
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    },
+    "bar_20kg": {
+      "engine_gravity_bias_z_n": 196.20000000000002,
+      "expected_weight_n": 196.20000000000002,
+      "identity": {
+        "bar_body_mass": 20.0,
+        "bar_matches_declared": true,
+        "human_mass_kg": 75.0,
+        "human_subtree_matches": true,
+        "subtree_mass_root": 75.0,
+        "total_mass": 95.0
+      },
+      "qpos_preserved": true,
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    },
+    "bar_25kg": {
+      "engine_gravity_bias_z_n": 245.25,
+      "expected_weight_n": 245.25,
+      "identity": {
+        "bar_body_mass": 25.0,
+        "bar_matches_declared": true,
+        "human_mass_kg": 75.0,
+        "human_subtree_matches": true,
+        "subtree_mass_root": 75.0,
+        "total_mass": 100.0
+      },
+      "qpos_preserved": true,
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+    }
+  },
+  "claims": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "gate": "G",
+  "issue": "RES-624",
+  "source_dirty": false,
+  "source_sha": "2851de84bc21ddcf28b77d0b60562891d87eb622",
+  "source_sha256": {
+    "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
+    "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
+    "biosyngen/spatial/model_v2.py": "4a0865035c24dd4be2d0cdff7c36ce55837a7aa70812cbc65606c43013cc0c7f",
+    "biosyngen/spatial/plant_v2.py": "c3a321d6e6436926bde5f705831e4c11d360f879ee63fcea63edd86197b54001",
+    "biosyngen/spatial/receiving_v2.py": "0a8014e1ee371d1416be413977e61f14fe84be21b49040081c9d9222a961dedc",
+    "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
+    "scripts/res624_grasp_diagnosis.py": "e3aba138fa09e8fa5ce182f59dd819bd73a8f87d0fb831282e5f2ebf99557e64"
+  },
+  "subjects": {
+    "70kg_1p70m": {
+      "clauses": {
+        "cop_hull_margin_m": 0.03351177111122757,
+        "feasible": true,
+        "floor_contacts": 6,
+        "floor_vertical_n": 882.9000000000003,
+        "generalized_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+        "hand_contacts": 12,
+        "joints_at_limit": [],
+        "max_contact_penetration_m": 0.00027569747845066807,
+        "max_generalized_residual": 4.547473508864641e-13,
+        "max_utilization": 0.3265327914744904,
+        "min_geom_distance_m": 0.007347601777043036,
+        "min_joint_limit_margin_rad": 0.010000235993522733,
+        "most_loaded_actuators": [
+          [
+            "l_hip_rot",
+            0.3265327914744904
+          ],
+          [
+            "r_girdle_elev",
+            0.3265327914744904
+          ],
+          [
+            "l_knee_flex",
+            0.3265327914744903
+          ],
+          [
+            "l_forefoot_flex",
+            0.3265327914744903
+          ],
+          [
+            "r_hip_rot",
+            0.32653279147449027
+          ],
+          [
+            "r_knee_flex",
+            0.32653279147449027
+          ]
+        ],
+        "penetration_bound_m": 0.0014000000000000002,
+        "residual_tolerance": 0.0006867,
+        "self_intersections": [],
+        "total_weight_n": 882.9000000000001,
+        "undeclared_penetrations": [],
+        "verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+      },
+      "mass": {
+        "bar_body_mass": 20.0,
+        "bar_matches_declared": true,
+        "human_mass_kg": 70.0,
+        "human_subtree_matches": true,
+        "subtree_mass_root": 70.0,
+        "total_mass": 90.0
+      },
+      "optimizer_success": false,
+      "residual_norm": 0.10209353204783059,
+      "variables": {
+        "ankle_dorsi": 0.7231777314099521,
+        "bar_x": -0.03984900149503729,
+        "bar_z": 1.5252123331894862,
+        "elbow_flex": 0.18333437886937157,
+        "forearm_sup": 0.6470591662590169,
+        "forefoot_flex": 0.13027708011232755,
+        "girdle_elev": 0.11564158639865028,
+        "girdle_prot": -0.05411109265941127,
+        "hip_abd": 0.5235582144076502,
+        "hip_flex": 1.6854917906650186,
+        "hip_rot": -0.07415835079194527,
+        "knee_flex": 2.2398184809015644,
+        "lumbar_flex": -0.25095808689827553,
+        "mtp_flex": 0.3412537721725825,
+        "pelvis_pitch": 0.5219909090038333,
+        "pelvis_x": -0.007853831809635232,
+        "pelvis_z": 0.48305540730729957,
+        "sh_abd": 0.4518113471717752,
+        "sh_flex": 2.989873772403573,
+        "sh_rot": -0.28709135032285116,
+        "subtalar_inv": 0.04012068814551606,
+        "thoracic_flex": -0.16323092845370418,
+        "wrist_dev": -0.3399993115009724,
+        "wrist_flex": -1.2899997640064773
+      }
+    },
+    "80kg_1p80m": {
+      "clauses": {
+        "cop_hull_margin_m": 0.029585501978012418,
+        "feasible": true,
+        "floor_contacts": 6,
+        "floor_vertical_n": 980.9999999999999,
+        "generalized_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+        "hand_contacts": 12,
+        "joints_at_limit": [],
+        "max_contact_penetration_m": 0.00024783903346503426,
+        "max_generalized_residual": 3.019806626980426e-14,
+        "max_utilization": 0.38457142153041984,
+        "min_geom_distance_m": 0.008337930021793012,
+        "min_joint_limit_margin_rad": 0.010000003444179395,
+        "most_loaded_actuators": [
+          [
+            "l_hip_rot",
+            0.38457142153041984
+          ],
+          [
+            "r_hip_rot",
+            0.3845714215304197
+          ],
+          [
+            "l_knee_flex",
+            0.38457142153041957
+          ],
+          [
+            "r_knee_flex",
+            0.38457142153041957
+          ],
+          [
+            "l_girdle_elev",
+            0.38457142153041945
+          ],
+          [
+            "r_girdle_elev",
+            0.3842676897119198
+          ]
+        ],
+        "penetration_bound_m": 0.0014000000000000002,
+        "residual_tolerance": 0.0007847999999999999,
+        "self_intersections": [],
+        "total_weight_n": 981.0,
+        "undeclared_penetrations": [],
+        "verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+      },
+      "mass": {
+        "bar_body_mass": 20.0,
+        "bar_matches_declared": true,
+        "human_mass_kg": 80.0,
+        "human_subtree_matches": true,
+        "subtree_mass_root": 80.0,
+        "total_mass": 100.0
+      },
+      "optimizer_success": false,
+      "residual_norm": 0.06807718310019542,
+      "variables": {
+        "ankle_dorsi": 0.7399999088470885,
+        "bar_x": -0.08227352420245748,
+        "bar_z": 1.6235075216978032,
+        "elbow_flex": 0.11236768228251441,
+        "forearm_sup": 0.4777725955281941,
+        "forefoot_flex": 0.1373968926638091,
+        "girdle_elev": 0.1747532003048632,
+        "girdle_prot": -0.057360662773643545,
+        "hip_abd": 0.6334356230807732,
+        "hip_flex": 1.6531884699333066,
+        "hip_rot": -0.1305472863983703,
+        "knee_flex": 2.247245008336081,
+        "lumbar_flex": -0.30075298765892516,
+        "mtp_flex": 0.3187360626389291,
+        "pelvis_pitch": 0.5220184932272006,
+        "pelvis_x": 0.0008526931754297061,
+        "pelvis_z": 0.5085284013889507,
+        "sh_abd": 0.4821172996803455,
+        "sh_flex": 2.9899999965558206,
+        "sh_rot": -0.13521845136672342,
+        "subtalar_inv": 0.12376781756221852,
+        "thoracic_flex": -0.18381924466262853,
+        "wrist_dev": -0.33999997250932285,
+        "wrist_flex": -1.2899995824361101
+      }
+    },
+    "nominal": {
+      "clauses": {
+        "cop_hull_margin_m": 0.03280020551419888,
+        "feasible": true,
+        "floor_contacts": 6,
+        "floor_vertical_n": 931.95,
+        "generalized_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+        "hand_contacts": 12,
+        "joints_at_limit": [],
+        "max_contact_penetration_m": 0.00026878854112210096,
+        "max_generalized_residual": 1.1368683772161603e-13,
+        "max_utilization": 0.35871795465221934,
+        "min_geom_distance_m": 0.005966305319262698,
+        "min_joint_limit_margin_rad": 0.010000078161282677,
+        "most_loaded_actuators": [
+          [
+            "l_girdle_elev",
+            0.35871795465221934
+          ],
+          [
+            "r_knee_flex",
+            0.35871795465221934
+          ],
+          [
+            "l_knee_flex",
+            0.3587179546522185
+          ],
+          [
+            "r_hip_rot",
+            0.3587179546522183
+          ],
+          [
+            "l_hip_rot",
+            0.3587179546522172
+          ],
+          [
+            "r_girdle_elev",
+            0.35871771574543
+          ]
+        ],
+        "penetration_bound_m": 0.0014000000000000002,
+        "residual_tolerance": 0.00073575,
+        "self_intersections": [],
+        "total_weight_n": 931.95,
+        "undeclared_penetrations": [],
+        "verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
+      },
+      "mass": {
+        "bar_body_mass": 20.0,
+        "bar_matches_declared": true,
+        "human_mass_kg": 75.0,
+        "human_subtree_matches": true,
+        "subtree_mass_root": 75.0,
+        "total_mass": 95.0
+      },
+      "optimizer_success": false,
+      "residual_norm": 0.08896684381865931,
+      "variables": {
+        "ankle_dorsi": 0.7399998967256952,
+        "bar_x": -0.058390200082962786,
+        "bar_z": 1.5609169851171691,
+        "elbow_flex": 0.1414411452031997,
+        "forearm_sup": 0.5388974266393887,
+        "forefoot_flex": 0.13642068563885995,
+        "girdle_elev": 0.0960752760307589,
+        "girdle_prot": -0.02168751468202273,
+        "hip_abd": 0.5598173835948494,
+        "hip_flex": 1.680691714624008,
+        "hip_rot": -0.08543522117333767,
+        "knee_flex": 2.254496418095659,
+        "lumbar_flex": -0.2885830164779269,
+        "mtp_flex": 0.3282941856523276,
+        "pelvis_pitch": 0.5266983885703732,
+        "pelvis_x": -0.002066893302883096,
+        "pelvis_z": 0.49148840694853896,
+        "sh_abd": 0.3665233710248712,
+        "sh_flex": 2.989999912263812,
+        "sh_rot": -0.20992171591687692,
+        "subtalar_inv": 0.06564441337841956,
+        "thoracic_flex": -0.17497110524557724,
+        "wrist_dev": -0.3399999218387173,
+        "wrist_flex": -1.2899998577225908
+      }
+    }
+  }
+}

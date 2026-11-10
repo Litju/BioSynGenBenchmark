@@ -1,0 +1,737 @@
+{
+  "adversarial": {
+    "actuator_capacity_exceeded": {
+      "expected": "ACTUATOR_INFEASIBLE",
+      "observed": "ACTUATOR_INFEASIBLE",
+      "reason": "CAPACITY",
+      "refused": true
+    },
+    "declared_friction_violated": {
+      "expected": "CONTACT_INADMISSIBLE",
+      "observed": "CONTACT_INADMISSIBLE",
+      "reason": "[('OUTSIDE_FRICTION_CONE', 'bar_shaft', 'l_finger_distal_pad', 7.46028233188684, 140.12422621849663), ('OUTSIDE_FRICTION_CONE', 'bar_shaft', 'l_finger_distal_pad', 13.6819241225828, 89.03484283732088), ('OUTSIDE_FRICTION_CONE', 'bar_shaft', 'l_thumb_opposition_pad', 17.118353580096606, 286.3821101211199)]",
+      "refused": true
+    },
+    "hand_contacts_deleted": {
+      "expected": "NUMERICAL_NOT_QUALIFIED",
+      "observed": "NUMERICAL_NOT_QUALIFIED",
+      "reason": "BAR_BALANCE_OPEN_UNDECLARED_LOAD",
+      "refused": true
+    },
+    "non_foot_floor_contact": {
+      "expected": "RECEIVING_UNSTABLE",
+      "observed": "RECEIVING_UNSTABLE",
+      "reason": "NON_FOOT_FLOOR_CONTACT",
+      "refused": true
+    },
+    "static_not_certified": {
+      "expected": "STATIC_NOT_CERTIFIED",
+      "observed": "STATIC_NOT_CERTIFIED",
+      "reason": "STATIC_GRASP_INFEASIBLE",
+      "refused": true
+    },
+    "undeclared_bar_support": {
+      "expected": "NUMERICAL_NOT_QUALIFIED",
+      "observed": "NUMERICAL_NOT_QUALIFIED",
+      "reason": "BAR_BALANCE_OPEN_UNDECLARED_LOAD",
+      "refused": true
+    }
+  },
+  "adversarial_refused": 6,
+  "adversarial_total": 6,
+  "anthropometric_generalization": "QUALIFIED_BOTH",
+  "cases": {
+    "anthropometry_70kg_1p70m": {
+      "all_failures": [],
+      "bar_angular_excess_n_m_s": 0.0,
+      "bar_linear_residual_n_s": 2.5454844444816364e-16,
+      "bar_mass_kg": 20.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.0014461853211630682,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 1.0000087425886781,
+        "hand_support_ratio_mean": 1.0000773488123702,
+        "hand_support_ratio_min": 0.9982796530316738,
+        "max_penetration_m": 0.0004934855041725042,
+        "min_com_projection_margin_m": 0.03348267848458914,
+        "min_cop_margin_m": 0.032937997676710636,
+        "min_hand_contacts": 8,
+        "over_capacity": 0,
+        "posture_saturation_samples": 0
+      },
+      "expectation": "QUALIFIED",
+      "expectation_met": true,
+      "model_total_mass_kg": 90.0,
+      "outcome": "RECEIVING_HOLD_QUALIFIED",
+      "reason": "None",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "system_step_residual_n_s": 5.418879032624976e-05
+    },
+    "anthropometry_80kg_1p80m": {
+      "all_failures": [],
+      "bar_angular_excess_n_m_s": 2.0981535499081053e-18,
+      "bar_linear_residual_n_s": 2.275494189242601e-16,
+      "bar_mass_kg": 20.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.0013935175672380332,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 1.0000138733792885,
+        "hand_support_ratio_mean": 1.0000882320616638,
+        "hand_support_ratio_min": 0.9996719533083329,
+        "max_penetration_m": 0.00047417168744145685,
+        "min_com_projection_margin_m": 0.02952513199290263,
+        "min_cop_margin_m": 0.029112782731395635,
+        "min_hand_contacts": 8,
+        "over_capacity": 0,
+        "posture_saturation_samples": 0
+      },
+      "expectation": "QUALIFIED",
+      "expectation_met": true,
+      "model_total_mass_kg": 100.0,
+      "outcome": "RECEIVING_HOLD_QUALIFIED",
+      "reason": "None",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "system_step_residual_n_s": 4.071536825071035e-06
+    },
+    "arm_capacity_half_threshold": {
+      "all_failures": [
+        "NUMERICAL_NOT_QUALIFIED:SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD",
+        "CONTACT_INADMISSIBLE:PENETRATION",
+        "ACTUATOR_INFEASIBLE:CAPACITY",
+        "GRASP_SLIP:CONTACT_LOST",
+        "RECEIVING_UNSTABLE:COM_OUTSIDE_SUPPORT",
+        "RECEIVING_UNSTABLE:DEGENERATE_SUPPORT",
+        "RECEIVING_UNSTABLE:LOST_BILATERAL_FOOT_SUPPORT",
+        "STATIC_NOT_CERTIFIED:ACTUATOR_INFEASIBLE"
+      ],
+      "bar_angular_excess_n_m_s": 0.0,
+      "bar_linear_residual_n_s": 1.1462429763689277e-14,
+      "bar_mass_kg": 20.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.6741301981278637,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 0.972235524973247,
+        "hand_support_ratio_mean": 0.6854035042683982,
+        "hand_support_ratio_min": 0.0,
+        "max_penetration_m": 0.0022204314450424267,
+        "min_com_projection_margin_m": -0.14511878398397499,
+        "min_cop_margin_m": 1.0159705884401786e-06,
+        "min_hand_contacts": 0,
+        "over_capacity": 0,
+        "posture_saturation_samples": 13205
+      },
+      "expectation": "REFUSED:ACTUATOR_INFEASIBLE",
+      "expectation_met": true,
+      "model_total_mass_kg": 94.99999999999999,
+      "outcome": "NUMERICAL_NOT_QUALIFIED",
+      "reason": "SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD",
+      "static_verdict": "ACTUATOR_INFEASIBLE",
+      "system_step_residual_n_s": 0.010187683505650597
+    },
+    "bar_mass_15kg": {
+      "all_failures": [],
+      "bar_angular_excess_n_m_s": 0.0,
+      "bar_linear_residual_n_s": 2.0010004234034494e-16,
+      "bar_mass_kg": 15.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.0012335546776947649,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 1.0000152466876953,
+        "hand_support_ratio_mean": 1.0001105819997238,
+        "hand_support_ratio_min": 0.9991070678896502,
+        "max_penetration_m": 0.0004848054341631113,
+        "min_com_projection_margin_m": 0.03970646804238753,
+        "min_cop_margin_m": 0.039160310270179945,
+        "min_hand_contacts": 10,
+        "over_capacity": 0,
+        "posture_saturation_samples": 0
+      },
+      "expectation": "QUALIFIED",
+      "expectation_met": true,
+      "model_total_mass_kg": 89.99999999999999,
+      "outcome": "RECEIVING_HOLD_QUALIFIED",
+      "reason": "None",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "system_step_residual_n_s": 6.000106900166624e-06
+    },
+    "bar_mass_25kg": {
+      "all_failures": [],
+      "bar_angular_excess_n_m_s": 1.2171334056452262e-18,
+      "bar_linear_residual_n_s": 2.2928965462670016e-16,
+      "bar_mass_kg": 25.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.0012573927345931732,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 1.000017357168346,
+        "hand_support_ratio_mean": 1.000079607151238,
+        "hand_support_ratio_min": 0.9983352673591669,
+        "max_penetration_m": 0.00048337594003562516,
+        "min_com_projection_margin_m": 0.026546665669633606,
+        "min_cop_margin_m": 0.025970065961862836,
+        "min_hand_contacts": 10,
+        "over_capacity": 0,
+        "posture_saturation_samples": 0
+      },
+      "expectation": "QUALIFIED",
+      "expectation_met": true,
+      "model_total_mass_kg": 99.99999999999999,
+      "outcome": "RECEIVING_HOLD_QUALIFIED",
+      "reason": "None",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "system_step_residual_n_s": 7.378524137564501e-06
+    },
+    "bar_push_40N_50ms": {
+      "all_failures": [],
+      "bar_angular_excess_n_m_s": 0.0,
+      "bar_linear_residual_n_s": 3.5711601951400986e-16,
+      "bar_mass_kg": 20.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.0011893498566091652,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 0.9999836469684998,
+        "hand_support_ratio_mean": 0.9999684505644155,
+        "hand_support_ratio_min": 0.9866698437305766,
+        "max_penetration_m": 0.00048349561440100795,
+        "min_com_projection_margin_m": 0.03277275419484993,
+        "min_cop_margin_m": 0.032333603231495874,
+        "min_hand_contacts": 10,
+        "over_capacity": 0,
+        "posture_saturation_samples": 0
+      },
+      "expectation": "QUALIFIED",
+      "expectation_met": true,
+      "model_total_mass_kg": 94.99999999999999,
+      "outcome": "RECEIVING_HOLD_QUALIFIED",
+      "reason": "None",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "system_step_residual_n_s": 6.63613639477872e-06
+    },
+    "finger_release_at_1s": {
+      "all_failures": [
+        "NUMERICAL_NOT_QUALIFIED:SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD",
+        "CONTACT_INADMISSIBLE:PENETRATION",
+        "ACTUATOR_INFEASIBLE:CAPACITY",
+        "GRASP_SLIP:CONTACT_LOST",
+        "RECEIVING_UNSTABLE:COM_OUTSIDE_SUPPORT",
+        "RECEIVING_UNSTABLE:DEGENERATE_SUPPORT",
+        "RECEIVING_UNSTABLE:LOST_BILATERAL_FOOT_SUPPORT",
+        "RECEIVING_UNSTABLE:NO_FLOOR_SUPPORT"
+      ],
+      "bar_angular_excess_n_m_s": 0.0,
+      "bar_linear_residual_n_s": 4.579669976578771e-15,
+      "bar_mass_kg": 20.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.4103904076412326,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 0.9967285153996757,
+        "hand_support_ratio_mean": 0.8264125973332226,
+        "hand_support_ratio_min": 0.0,
+        "max_penetration_m": 0.003381905409305592,
+        "min_com_projection_margin_m": -0.1495942548611783,
+        "min_cop_margin_m": 2.9789113167040413e-07,
+        "min_hand_contacts": 0,
+        "over_capacity": 0,
+        "posture_saturation_samples": 531
+      },
+      "expectation": "pre-release QUALIFIED and post-release GRASP_SLIP",
+      "expectation_met": true,
+      "model_total_mass_kg": 94.99999999999999,
+      "outcome": "NUMERICAL_NOT_QUALIFIED",
+      "pre_release": {
+        "all_failures": [],
+        "outcome": "RECEIVING_HOLD_QUALIFIED"
+      },
+      "reason": "SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "system_step_residual_n_s": 0.002074438193065886
+    },
+    "hand_friction_0p6": {
+      "all_failures": [],
+      "bar_angular_excess_n_m_s": 1.2327373407204265e-18,
+      "bar_linear_residual_n_s": 2.2811768190143007e-16,
+      "bar_mass_kg": 20.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.0011856126253800027,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 1.000013483475731,
+        "hand_support_ratio_mean": 1.000084787160225,
+        "hand_support_ratio_min": 0.9985096090192118,
+        "max_penetration_m": 0.00048363002784965366,
+        "min_com_projection_margin_m": 0.03277233616321719,
+        "min_cop_margin_m": 0.032336447240058935,
+        "min_hand_contacts": 10,
+        "over_capacity": 0,
+        "posture_saturation_samples": 0
+      },
+      "expectation": "QUALIFIED",
+      "expectation_met": true,
+      "model_total_mass_kg": 94.99999999999999,
+      "outcome": "RECEIVING_HOLD_QUALIFIED",
+      "reason": "None",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "system_step_residual_n_s": 6.620586033518638e-06
+    },
+    "nominal_0p3s_red_window": {
+      "all_failures": [],
+      "bar_angular_excess_n_m_s": 0.0,
+      "bar_linear_residual_n_s": 1.698512811546858e-16,
+      "bar_mass_kg": 20.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.00028063088699969746,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 1.0000384845675314,
+        "hand_support_ratio_mean": 1.0003497742044085,
+        "hand_support_ratio_min": 0.9983341358509834,
+        "max_penetration_m": 0.00047118345917259406,
+        "min_com_projection_margin_m": 0.03277275419484993,
+        "min_cop_margin_m": 0.03241437246237436,
+        "min_hand_contacts": 10,
+        "over_capacity": 0,
+        "posture_saturation_samples": 0
+      },
+      "expectation": "QUALIFIED",
+      "expectation_met": true,
+      "model_total_mass_kg": 94.99999999999999,
+      "outcome": "RECEIVING_HOLD_QUALIFIED",
+      "reason": "None",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "system_step_residual_n_s": 6.63613639477872e-06
+    },
+    "nominal_10s": {
+      "all_failures": [],
+      "bar_angular_excess_n_m_s": 0.0,
+      "bar_linear_residual_n_s": 2.8443688831380347e-16,
+      "bar_mass_kg": 20.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.0013541644021785569,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 1.000001494749547,
+        "hand_support_ratio_mean": 1.0000111881292646,
+        "hand_support_ratio_min": 0.9983341358509834,
+        "max_penetration_m": 0.0004888053250717197,
+        "min_com_projection_margin_m": 0.03277275419484993,
+        "min_cop_margin_m": 0.032333603231495874,
+        "min_hand_contacts": 8,
+        "over_capacity": 0,
+        "posture_saturation_samples": 0
+      },
+      "expectation": "QUALIFIED",
+      "expectation_met": true,
+      "model_total_mass_kg": 94.99999999999999,
+      "outcome": "RECEIVING_HOLD_QUALIFIED",
+      "reason": "None",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "system_step_residual_n_s": 6.63613639477872e-06
+    },
+    "nominal_2s": {
+      "all_failures": [],
+      "bar_angular_excess_n_m_s": 0.0,
+      "bar_linear_residual_n_s": 2.0058529261653737e-16,
+      "bar_mass_kg": 20.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.001216027196877507,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 1.0000131669092183,
+        "hand_support_ratio_mean": 1.0000841166314942,
+        "hand_support_ratio_min": 0.9983341358509834,
+        "max_penetration_m": 0.00048347901125338037,
+        "min_com_projection_margin_m": 0.03277275419484993,
+        "min_cop_margin_m": 0.032333603231495874,
+        "min_hand_contacts": 10,
+        "over_capacity": 0,
+        "posture_saturation_samples": 0
+      },
+      "expectation": "QUALIFIED",
+      "expectation_met": true,
+      "model_total_mass_kg": 94.99999999999999,
+      "outcome": "RECEIVING_HOLD_QUALIFIED",
+      "reason": "None",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "system_step_residual_n_s": 6.63613639477872e-06
+    },
+    "pelvis_push_60N_100ms": {
+      "all_failures": [],
+      "bar_angular_excess_n_m_s": 0.0,
+      "bar_linear_residual_n_s": 2.27975251421272e-16,
+      "bar_mass_kg": 20.0,
+      "evidence": {
+        "bar_displacement_in_hand_m": 0.001208652468272907,
+        "contact_problems": 0,
+        "floor_vertical_over_weight_mean": 0.9999986871710542,
+        "hand_support_ratio_mean": 1.0000355462007442,
+        "hand_support_ratio_min": 0.975405338561437,
+        "max_penetration_m": 0.00048352276525000064,
+        "min_com_projection_margin_m": 0.03277275419484993,
+        "min_cop_margin_m": 0.032333603231495874,
+        "min_hand_contacts": 10,
+        "over_capacity": 0,
+        "posture_saturation_samples": 0
+      },
+      "expectation": "QUALIFIED",
+      "expectation_met": true,
+      "model_total_mass_kg": 94.99999999999999,
+      "outcome": "RECEIVING_HOLD_QUALIFIED",
+      "reason": "None",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "system_step_residual_n_s": 6.63613639477872e-06
+    }
+  },
+  "claims": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "expectations_met": 12,
+  "expectations_total": 12,
+  "final_verdict": "RECEIVING_HOLD_QUALIFIED",
+  "issue": "RES-624",
+  "receipt": {
+    "branch": "work/RES-624-grasp-contact-recovery",
+    "controller": {
+      "com_kd": 900.0,
+      "com_kp": 3000.0,
+      "grip_fraction": 0.6,
+      "identity": "biosyngen.spatial.receiving_grasp_v2.EquilibriumHoldController"
+    },
+    "evaluator": {
+      "identity": "biosyngen_benchmark.receiving_acceptance.evaluate_receiving",
+      "sha256": {
+        "biosyngen_benchmark/receiving_acceptance.py": "184085aa46283fcd44546650455796158bb85d68e59c1aa062c94633a5d62971",
+        "biosyngen_benchmark/rigid_body_check.py": "035434534c8abd5ae3c07e21640905bceff863931e6f7878ce6c1f73c0a0cbf1",
+        "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019"
+      }
+    },
+    "head": "2851de84bc21ddcf28b77d0b60562891d87eb622",
+    "machine": "AMD64",
+    "models": {
+      "anthropometry_70kg_1p70m": {
+        "bar_mass_kg": 20.0,
+        "human_mass_kg": 70.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "6d36c881f7d9b5cca468b602a1eefc1ec6c812ec97e424343226cd73906da9ad",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      },
+      "anthropometry_80kg_1p80m": {
+        "bar_mass_kg": 20.0,
+        "human_mass_kg": 80.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "349a03746faa69ba768c2f0024f744b100bda8127f56f5a35c4b1ddf8c12eaf0",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      },
+      "arm_capacity_half_threshold": {
+        "bar_mass_kg": 20.0,
+        "human_mass_kg": 75.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "f6783dd06e224cc4d81708f379193e810b55c46939f74cc45a6ea7c0e1f39153",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      },
+      "bar_mass_15kg": {
+        "bar_mass_kg": 15.0,
+        "human_mass_kg": 75.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "0592d76529aa3b468ef4e34b6ebf3cd8030530bf6c206edcbb7b36c358ac26a2",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      },
+      "bar_mass_25kg": {
+        "bar_mass_kg": 25.0,
+        "human_mass_kg": 75.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "d394d676d3e03e95e9f49d3138267248acab6f5414f6c697625001b34819c4f8",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      },
+      "bar_push_40N_50ms": {
+        "bar_mass_kg": 20.0,
+        "human_mass_kg": 75.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "8adf612ce2d168138235605708576b65037c7bb34ac1db38de13966b565b205b",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      },
+      "finger_release_at_1s": {
+        "bar_mass_kg": 20.0,
+        "human_mass_kg": 75.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "8adf612ce2d168138235605708576b65037c7bb34ac1db38de13966b565b205b",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      },
+      "hand_friction_0p6": {
+        "bar_mass_kg": 20.0,
+        "human_mass_kg": 75.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "18b394ab397d8ecf2a26176ee3ea57db16c9d8094bfdbe6a0ea073d01ba3d22c",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      },
+      "nominal_0p3s_red_window": {
+        "bar_mass_kg": 20.0,
+        "human_mass_kg": 75.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "8adf612ce2d168138235605708576b65037c7bb34ac1db38de13966b565b205b",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      },
+      "nominal_10s": {
+        "bar_mass_kg": 20.0,
+        "human_mass_kg": 75.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "8adf612ce2d168138235605708576b65037c7bb34ac1db38de13966b565b205b",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      },
+      "nominal_2s": {
+        "bar_mass_kg": 20.0,
+        "human_mass_kg": 75.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "8adf612ce2d168138235605708576b65037c7bb34ac1db38de13966b565b205b",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      },
+      "pelvis_push_60N_100ms": {
+        "bar_mass_kg": 20.0,
+        "human_mass_kg": 75.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "8adf612ce2d168138235605708576b65037c7bb34ac1db38de13966b565b205b",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      }
+    },
+    "mujoco": "3.3.7",
+    "numpy": "2.4.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+    "python": "3.12.13",
+    "scipy": "1.17.1",
+    "source_sha256": {
+      "biosyngen/spatial/anthropometry.py": "79599f4d28922908dc13b368631bbf080efa34b820d4ba7be4295f996f322e7d",
+      "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
+      "biosyngen/spatial/grasp_fixture.py": "b308c02f2703caedba13c7127b74ce72777cf832183eb5d5de828148231e1132",
+      "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
+      "biosyngen/spatial/model_v2.py": "4a0865035c24dd4be2d0cdff7c36ce55837a7aa70812cbc65606c43013cc0c7f",
+      "biosyngen/spatial/plant_v2.py": "c3a321d6e6436926bde5f705831e4c11d360f879ee63fcea63edd86197b54001",
+      "biosyngen/spatial/receiving_grasp_v2.py": "e4f57b8bc5658468605c4fcd73aeceb887169744770d46cd8c5673870e191760",
+      "biosyngen/spatial/receiving_v2.py": "0a8014e1ee371d1416be413977e61f14fe84be21b49040081c9d9222a961dedc",
+      "biosyngen_benchmark/receiving_acceptance.py": "184085aa46283fcd44546650455796158bb85d68e59c1aa062c94633a5d62971",
+      "biosyngen_benchmark/rigid_body_check.py": "035434534c8abd5ae3c07e21640905bceff863931e6f7878ce6c1f73c0a0cbf1",
+      "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019",
+      "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
+      "scripts/res624_anthropometric_diagnosis.py": "38edba00a44dfa5f40edc91600f0fbb4f27948f44fe2198ac8ec2e21ad5c8c79",
+      "scripts/res624_numerical_verification.py": "ca4a5f4adc28658ca37a765c1cbd2fe08a054a9e24166fecddeaab4953fc6381",
+      "scripts/res624_receiving_campaign.py": "4c95f9d9069aef549c7a810906b23cecfbac1a3855c32dba321bf25342a4e17f",
+      "scripts/res624_receiving_qualification.py": "a2ddfdd6b3191c5bd6c4fbdd5ef8e042bd61be3945e56753b2af69d6a072eef3",
+      "scripts/res624_red_canary.py": "51f92f9e2cacc04a4d0e6a014306037e17a950f48252d4eb620eb9f0d5f9238a"
+    },
+    "uncommitted_outside_evidence": [],
+    "worktree_clean": true
+  },
+  "red_canary": {
+    "bar_drop_m": 0.3760531196714312,
+    "outcome": "NUMERICAL_NOT_QUALIFIED",
+    "reason": "SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD",
+    "refused": true,
+    "static_verdict": "STATIC_GRASP_INFEASIBLE"
+  },
+  "required_qualified": [
+    "nominal_0p3s_red_window",
+    "nominal_2s",
+    "nominal_10s"
+  ],
+  "scope": "declared Human V2 computational model; 20 kg unplated bar; static overhead POWER receiving hold, not a lift or catch",
+  "source_dirty": false,
+  "source_sha": "2851de84bc21ddcf28b77d0b60562891d87eb622",
+  "source_sha256": {
+    "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
+    "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
+    "biosyngen/spatial/model_v2.py": "4a0865035c24dd4be2d0cdff7c36ce55837a7aa70812cbc65606c43013cc0c7f",
+    "biosyngen/spatial/plant_v2.py": "c3a321d6e6436926bde5f705831e4c11d360f879ee63fcea63edd86197b54001",
+    "biosyngen/spatial/receiving_v2.py": "0a8014e1ee371d1416be413977e61f14fe84be21b49040081c9d9222a961dedc",
+    "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
+    "scripts/res624_grasp_diagnosis.py": "e3aba138fa09e8fa5ce182f59dd819bd73a8f87d0fb831282e5f2ebf99557e64"
+  }
+}
