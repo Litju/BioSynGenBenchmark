@@ -31,7 +31,8 @@ def _report(final="RECEIVING_HOLD_QUALIFIED", disp=.0012):
                 evidence=dict(bar_displacement_in_hand_m=disp, hand_support_ratio_mean=1.0, floor_vertical_over_weight_mean=1.0))
     q = dict(receipt=dict(head="h", mujoco="3.3.7", scipy="1.17.1", numpy="2.4.4"), final_verdict=final,
              cases=dict(nominal_2s=case), adversarial=dict(a=dict(observed="X")))
-    n = dict(checks=dict(x=True), energy=dict(relative_to_gross_flux=8e-5), timestep_refinement=dict(observed_ratio=1.94),
+    n = dict(checks=dict(x=True), energy=dict(relative_to_gross_flux=8e-5), timestep_refinement=dict(observed_ratio=1.94, bar_traj_max_diff_1ms_vs_0p5ms_m=1.5e-5, bar_traj_max_diff_0p5ms_vs_0p25ms_m=7.9e-6),
+             energy_refinement=dict(observed_order=[1.0, 1.0]),
              fingerprint=dict(sha256="f"))
     return q, n
 
@@ -62,6 +63,23 @@ class PlatformComparison(unittest.TestCase):
     def test_large_numeric_difference_is_detected(self):
         r = self.run_compare(lambda q, n: q["cases"]["nominal_2s"]["evidence"].update(bar_displacement_in_hand_m=.0012+5e-3))
         self.assertEqual(r["outcome"], "PLATFORM_COMPARISON_FAILED")
+
+    def test_negative_case_expectation_difference_is_detected(self):
+        def mutate(q, n):
+            q["cases"]["nominal_2s"].update(expectation="REFUSED:X", expectation_met=False)
+        r = self.run_compare(mutate)
+        self.assertEqual(r["outcome"], "PLATFORM_COMPARISON_FAILED")
+
+    def test_energy_order_and_trajectory_convergence_gated(self):
+        r = self.run_compare(lambda q, n: n["energy_refinement"].update(observed_order=[1.6, 1.0]))
+        self.assertEqual(r["outcome"], "PLATFORM_COMPARISON_FAILED")
+        r = self.run_compare(lambda q, n: n["timestep_refinement"].update(bar_traj_max_diff_0p5ms_vs_0p25ms_m=3e-5))
+        self.assertEqual(r["outcome"], "PLATFORM_COMPARISON_FAILED")
+
+    def test_ratio_noise_alone_is_tolerated(self):
+        r = self.run_compare(lambda q, n: n["timestep_refinement"].update(observed_ratio=2.4, bar_traj_max_diff_1ms_vs_0p5ms_m=8e-5,
+                                                                          bar_traj_max_diff_0p5ms_vs_0p25ms_m=3.4e-5))
+        self.assertEqual(r["outcome"], "PLATFORMS_CONSISTENT", r["problems"])
 
     def test_version_mismatch_is_detected(self):
         r = self.run_compare(lambda q, n: q["receipt"].update(mujoco="3.4.0"))
