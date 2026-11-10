@@ -1,4 +1,126 @@
-# RES-618 implementation checkpoint — incomplete
+# RES-618 implementation receipt — receiving FAIL after two repairs
+
+## Current result (supersedes the historical checkpoint below)
+
+An executable full-body anatomical candidate now exists as
+`HUMAN_V2_TORQUE_FULLBODY`, version `2.1.0`: **32 bodies including the independent
+barbell, 64 generalized velocity DoF, 48 bounded actuators**, and four declared
+scapular rhythm constraints. The human mass remains 75 kg; the default V2
+equipment is a 20 kg unplated shaft, giving 95 kg system mass. The old foot-only
+candidate and V1 remain separately named and unchanged.
+
+Commit `46b9667bba11da6e988f6e14f802519e90520716` adds an independent mass/COM/inertia
+decomposition oracle and deliberate faults. Commit
+`173d1452d8277373b40bc08272115f204eeb2b57` adds the typed parameter authority and
+integrated full-body model. `HumanV2Plant` now exports physical contact,
+bounded torque, saturation and work channels without interpreting scapular
+joint constraints as hand/bar grip. No hand/bar weld/connect is used.
+
+The topology includes lumbar, thorax, cervical and independent head bodies;
+bilateral explicit clavicle and scapula; palm, grouped proximal/distal fingers
+and thumb; and the previous articulated feet. Existing parent mass ledgers
+are partitioned rather than adding human mass. New segment inertias are
+manufactured box hypotheses; they are not subject-measured inertias or a
+claim that V1's compound inertia is conserved. The full-body parameter
+authority remains incomplete: foot dimensions do not yet drive all pads,
+new-segment tensor overrides are not exposed, and physiological population
+ROM/strength authority is not established. Reduced scapular coupling is
+explicitly `up=.4*GH_abduction`, `tilt=.1*GH_flexion`; these numbers are original
+uncalibrated hypotheses, not Seth's ellipsoidal model or fitted research data.
+Human-human self-collision qualification remains incomplete. The unplated
+shaft inherits a collision mask that omits shaft/floor contact; that limitation
+must be corrected and independently tested in a subsequent authorized repair.
+
+28 focused tests PASS (exit 0, 0.489 s), including actual full-body integration,
+deterministic standing replay, three mass/stature profiles, bilateral inertia,
+head-COM finite-difference Jacobian, scapular coupling/asymmetry, inward thumb
+opposition, parameter consumption and bounded motor output. These passing
+checks do **not** qualify gripping, load transfer or receiving.
+
+The first overhead candidate failed with -7.5589 mm contact distance and a
+collapsing 0.3 s hold. Repair 1 exposed midfoot/MTP coordinates and permitted
+unloaded toes; kinematic convergence improved but the single palm-center
+target permitted the bar through tilted palms (-10.9578 mm). Repair 2 added
+shaft/palm orientation closure, finger coordinates and explicit hand-pad
+nonpenetration penalties. Initial penetration reduced to -0.200119 mm, but
+the actual bounded forward hold still lost the bar: **1.6615317915 m →
+1.2854786718 m in 0.3 s**, a **0.3760531197 m drop**, with maximum generalized
+speed **15.6952410936**. Rendered candidate/failed states confirm loss of support.
+Optimizer convergence is deliberately not receiving success.
+
+The independent whole-system balance reports maximum step residuals
+0.0018378803 N s linear and 0.0002884837 N m s angular. No convergence-derived
+acceptance budgets have qualified these numbers. The final contact cone check
+passes, which does not establish a supported bar or feasible receiving.
+
+`AGENTS.md` requires: "Stop at a blocker, after two repair attempts, or at six
+elapsed hours." Two repairs of this receiving failure were executed and their
+original witnesses preserved. Further mechanism repairs stop at this boundary.
+The issue stays In Progress; it is not accepted, Done or ready for V2 adoption
+by RES-611. No owner merge/release decision was taken.
+
+Reproduction (project virtualenv, from the RES-618 worktree):
+
+```powershell
+python -m unittest tests.test_res618_anthropometry tests.test_res618_feet tests.test_res618_inertial_oracle tests.test_res618_fullbody tests.test_res618_v2_interface -v
+python -m scripts.res618_fullbody_qualification
+python -m scripts.res618_render_fullbody
+```
+
+The qualification command returns **exit 1 / FAIL**, preserving the physical
+witness. The renderer returns exit 0. The neutral, overhead-candidate and
+failed-after-300-ms PNGs were each opened and inspected; they are diagnostic
+figures, not validated movement examples. The CI spatial jobs now execute the
+same failing physical gate and retain JSON artifacts, so unit-test GREEN
+cannot silently imply receiving qualification. Final-head CI and independent
+final-SHA review must be reported separately from the older published head.
+
+```text
+ISSUE=RES-618
+MODEL=HUMAN_V2_TORQUE_FULLBODY
+BASE_SHA=ac837e463f1bf76c7b48ad58cc2075617dba3d26
+BRANCH=work/RES-618-human-v2-anatomy
+COMMIT_SHAS=see Git history and exact SHA receipts in RES-618
+DRAFT_PR=https://github.com/Litju/BioSynGenBenchmark/pull/13
+V1_MODEL_PRESERVED=YES
+V2_MODEL_VERSION=2.1.0
+BODY_COUNT=32 including barbell; 31 human
+GENERALIZED_DOF=64
+ACTUATOR_COUNT=48
+TOTAL_MASS_RECONCILIATION=75 kg human + 20 kg default bar; numerical tests PASS
+COM_AND_INERTIA_VERIFICATION=PARTIAL; manufactured tensors, independent decomposition tests
+ARTICULATED_FEET_AND_MTP=EXECUTABLE; dynamics qualification incomplete
+WEIGHTLIFTING_SHOE_GEOMETRY=EXECUTABLE; massless equipment assumption
+SCAPULA_CLAVICLE_SHOULDER=EXECUTABLE reduced hypothesis; biomechanical qualification incomplete
+FUNCTIONAL_FINGER_GRIP=ARTICULATED CONTACT GEOMETRY EXECUTABLE; load-bearing grasp FAIL
+FRONT_RACK_LOAD_TRANSFER=NOT_EVALUABLE
+HEAD_NECK_AND_THORAX=EXECUTABLE; focused FK/inertial checks PASS
+JOINT_LIMITS_AND_ACTUATOR_BOUNDS=EXECUTABLE; uncalibrated hypotheses
+FRONT_RACK_POWER=NOT_EVALUABLE
+FRONT_RACK_FULL=NOT_EVALUABLE
+OVERHEAD_POWER=FAIL; actual bar drop 0.3760531197 m in 0.3 s
+OVERHEAD_FULL=NOT_EVALUABLE
+DYNAMIC_RECEIVING_FEASIBILITY=FAIL
+MOMENTUM_VERIFICATION=MEASURED; no qualified convergence budget
+ANGULAR_MOMENTUM_VERIFICATION=MEASURED; no qualified convergence budget
+CONTACT_ENERGY_VERIFICATION=NOT_EVALUABLE
+TIMESTEP_CONVERGENCE=NOT_EVALUABLE
+ADVERSARIAL_CONTROLS=PASS within focused tested scope; full campaign incomplete
+ANTHROPOMETRIC_SENSITIVITY=3 mass/stature profiles; dynamic sensitivity incomplete
+RENDERED_FIGURES_INSPECTED=3 full-body diagnostic PNGs plus earlier foot candidate
+FULL_WINDOWS_TESTS=see subsequent exact-head run record
+FULL_LINUX_TESTS=see hosted exact-head run record
+MANDATORY_SCIPY=see hosted exact-head run record
+MANDATORY_MUJOCO=focused tests PASS; receiving qualification FAIL
+HOSTED_CI_FINAL_SHA=see Linear exact-head run record; expected receiving RED
+INDEPENDENT_FINAL_SHA_REVIEW=NOT_PERFORMED
+RES611_COMPATIBILITY=NOT_QUALIFIED; do not transfer V1 trajectories
+RES612_BENCHMARK_HANDOFF=plain export interface available; acceptance pending
+RETAINED_LIMITATIONS=failed grasp/control; incomplete contact/energy/ROM/parameter authority
+NEXT_ACTION=resolve witnessed grasp/load-support failure in a new authorized repair campaign
+```
+
+## Historical foot-only checkpoint (retained)
 
 This checkpoint does not deliver HUMAN_V2_TORQUE_FULLBODY. Gates A and B are
 partial; C–H are not implemented or qualified. No scientific acceptance is

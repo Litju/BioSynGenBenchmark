@@ -1,0 +1,17 @@
+{
+  "model": "HUMAN_V2_TORQUE_FULLBODY_2.1.0",
+  "source_state": "173d145 plus uncommitted plant_v2.py, receiving_v2.py and inward thumb-axis correction",
+  "configuration": "OVERHEAD/POWER",
+  "outcome": "FAIL",
+  "optimizer_evaluations": 200,
+  "optimizer_success": false,
+  "residual_norm": 11.390137508577123,
+  "initial_min_contact_distance_m": -0.007558890103429005,
+  "hold_duration_s": 0.3,
+  "hold_final_pelvis_z_m": 0.09628504362056299,
+  "hold_max_generalized_speed": 10.734862664125792,
+  "hold_final_bar_z_m": 0.6398340899712639,
+  "diagnostic": "solver omitted new midfoot/MTP coordinates and required all three stepped shoe pads on floor",
+  "command": "p=HumanV2Plant.build(); r=solve_candidate(p,'OVERHEAD','POWER',200); h=forward_hold(p,.3)",
+  "claims": ["NUMERICAL_VERIFICATION_ONLY", "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED"]
+}

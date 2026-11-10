@@ -1,0 +1,17 @@
+{
+  "outcome": "FAIL",
+  "repair_attempt": 1,
+  "change": "Include articulated midfoot/MTP coordinates and permit unloaded toe pad",
+  "optimizer_success": true,
+  "optimizer_evaluations": 166,
+  "residual_norm": 0.016282624613358308,
+  "initial_min_contact_distance_m": -0.010957843304639699,
+  "hold_duration_s": 0.3,
+  "hold_final_pelvis_z_m": 0.5695792930859099,
+  "hold_max_generalized_speed": 10.058833869222164,
+  "hold_final_bar_z_m": 1.2289559629945734,
+  "diagnostic": "Single palm-center closure permits the shaft to cross tilted palms; proximal finger and thumb also penetrate",
+  "source_state": "uncommitted receiving_v2.py after foot-coordinate repair",
+  "command": "p=HumanV2Plant.build(); r=solve_candidate(p,'OVERHEAD','POWER',1000); h=forward_hold(p,.3)",
+  "claims": ["NUMERICAL_VERIFICATION_ONLY", "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED"]
+}

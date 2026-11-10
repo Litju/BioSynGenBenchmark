@@ -142,7 +142,7 @@ def build_mjcf_v2(spec=HumanV2Spec()):
         for body, tag, frac, length, width, axis, lo, hi, cap in (
             (finger, "finger_flex", .20, .24*dims.hand_length_m, dims.hand_width_m*.85, (0, 1, 0), 0, 2.0, 12),
             (distal, "finger_distal", .10, .19*dims.hand_length_m, dims.hand_width_m*.80, (0, 1, 0), 0, 1.6, 8),
-            (thumb, "thumb_opposition", .15, .29*dims.hand_length_m, .018*s, (sign, 0, 0), -.2, 1.4, 8)):
+            (thumb, "thumb_opposition", .15, .29*dims.hand_length_m, .018*s, (-sign, 0, 0), -.2, 1.4, 8)):
             _box_inertial(body, hand_mass*frac, (0, 0, -length/2), (.016*s, width, length))
             _hinge(body, actuator, side+"_"+tag, axis, lo, hi, cap)
             ET.SubElement(body, "geom", name=side+"_"+tag+"_pad", type="box", pos=f"0 0 {-length/2}",
