@@ -382,13 +382,22 @@ def forward_receiving_hold(plant, certificate, duration_s=2.0, grip_frac=.6, pus
             f["actuators"] = actuator_export(plant)
             f["energy"] = dict(qvel_dot_actuator=float(d.qvel @ d.qfrc_actuator),
                                qvel_dot_passive=float(d.qvel @ d.qfrc_passive),
-                               qvel_dot_constraint=float(d.qvel @ d.qfrc_constraint))
+                               qvel_dot_constraint=float(d.qvel @ d.qfrc_constraint),
+                               armature_ke_j=float(.5*np.sum(m.dof_armature*d.qvel**2)))
             frames.append(f)
+            forces = (d.qfrc_actuator.copy(), d.qfrc_passive.copy(), d.qfrc_constraint.copy())
+        else:
+            forces = None
         mujoco.mj_step(m, d)
+        if forces is not None:
+            # Generalized power of the same step forces at the *end-of-step* velocity (trapezoid work).
+            f["energy"].update(qvel_next_dot_actuator=float(d.qvel @ forces[0]), qvel_next_dot_passive=float(d.qvel @ forces[1]),
+                               qvel_next_dot_constraint=float(d.qvel @ forces[2]))
     mujoco.mj_forward(m, d)
     f = plant.export_frame()
     f["hand_frames"] = hand_frames(plant)
     f["actuators"] = actuator_export(plant)
+    f["energy"] = dict(armature_ke_j=float(.5*np.sum(m.dof_armature*d.qvel**2)))
     frames.append(f)
     return frames
 
