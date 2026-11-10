@@ -1,0 +1,475 @@
+{
+  "all_consistent": true,
+  "claims": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "gate": "B",
+  "issue": "RES-624",
+  "matrix": [
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        5
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        1
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": "floor",
+      "intended": true,
+      "pair": "barbell-floor",
+      "parent_filtered": false,
+      "role": "load-bearing when dropped/missed"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        5
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        1
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_sleeve_l",
+      "geom_b": "floor",
+      "intended": true,
+      "pair": "barbell_sleeve-floor",
+      "parent_filtered": false,
+      "role": "load-bearing when dropped/missed"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        4
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": "l_palm_collision",
+      "intended": true,
+      "pair": "barbell-palm",
+      "parent_filtered": false,
+      "role": "load-bearing grasp"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        4
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": "l_finger_flex_pad",
+      "intended": true,
+      "pair": "barbell-proximal_fingers",
+      "parent_filtered": false,
+      "role": "load-bearing grasp"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        4
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": "r_finger_distal_pad",
+      "intended": true,
+      "pair": "barbell-distal_fingers",
+      "parent_filtered": false,
+      "role": "load-bearing grasp"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        4
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": "l_thumb_opposition_pad",
+      "intended": true,
+      "pair": "barbell-thumb",
+      "parent_filtered": false,
+      "role": "load-bearing grasp"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        4
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": null,
+      "intended": true,
+      "pair": "barbell-forearm",
+      "parent_filtered": false,
+      "role": "realistic collision"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        4
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": "head_collision",
+      "intended": true,
+      "pair": "barbell-head",
+      "parent_filtered": false,
+      "role": "realistic collision"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        4
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": "neck_collision",
+      "intended": true,
+      "pair": "barbell-neck",
+      "parent_filtered": false,
+      "role": "realistic collision"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        4
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": "thorax_collision",
+      "intended": true,
+      "pair": "barbell-thorax",
+      "parent_filtered": false,
+      "role": "realistic collision"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        4
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": null,
+      "intended": true,
+      "pair": "barbell-thigh",
+      "parent_filtered": false,
+      "role": "realistic collision"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        4
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": null,
+      "intended": true,
+      "pair": "barbell-shin",
+      "parent_filtered": false,
+      "role": "realistic collision"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        5,
+        1
+      ],
+      "consistent": true,
+      "contype": [
+        2,
+        1
+      ],
+      "engine_detected": true,
+      "geom_a": "bar_shaft",
+      "geom_b": "l_forefoot_sole",
+      "intended": true,
+      "pair": "barbell-foot",
+      "parent_filtered": false,
+      "role": "realistic collision"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        1,
+        5
+      ],
+      "consistent": true,
+      "contype": [
+        1,
+        1
+      ],
+      "engine_detected": true,
+      "geom_a": "l_hindfoot_sole",
+      "geom_b": "floor",
+      "intended": true,
+      "pair": "foot-ground",
+      "parent_filtered": false,
+      "role": "load-bearing support"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        1,
+        5
+      ],
+      "consistent": true,
+      "contype": [
+        1,
+        1
+      ],
+      "engine_detected": true,
+      "geom_a": "r_mtp_sole",
+      "geom_b": "floor",
+      "intended": true,
+      "pair": "forefoot-ground",
+      "parent_filtered": false,
+      "role": "load-bearing support"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        2,
+        5
+      ],
+      "consistent": true,
+      "contype": [
+        4,
+        1
+      ],
+      "engine_detected": true,
+      "geom_a": null,
+      "geom_b": "floor",
+      "intended": true,
+      "pair": "shin-ground",
+      "parent_filtered": false,
+      "role": "realistic collision (kneeling/fall)"
+    },
+    {
+      "bitmask": true,
+      "compiled_rule": true,
+      "conaffinity": [
+        2,
+        5
+      ],
+      "consistent": true,
+      "contype": [
+        4,
+        1
+      ],
+      "engine_detected": true,
+      "geom_a": "r_palm_collision",
+      "geom_b": "floor",
+      "intended": true,
+      "pair": "hand-ground",
+      "parent_filtered": false,
+      "role": "realistic collision (fall)"
+    },
+    {
+      "bitmask": false,
+      "compiled_rule": false,
+      "conaffinity": [
+        2,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        4,
+        4
+      ],
+      "engine_detected": false,
+      "geom_a": "l_palm_collision",
+      "geom_b": "l_finger_flex_pad",
+      "intended": false,
+      "pair": "palm-own_fingers",
+      "parent_filtered": true,
+      "role": "parent/child joint neighbours"
+    },
+    {
+      "bitmask": false,
+      "compiled_rule": false,
+      "conaffinity": [
+        2,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        4,
+        4
+      ],
+      "engine_detected": false,
+      "geom_a": null,
+      "geom_b": null,
+      "intended": false,
+      "pair": "thigh-shin_self",
+      "parent_filtered": true,
+      "role": "human self-collision excluded (inherited policy)"
+    },
+    {
+      "bitmask": false,
+      "compiled_rule": false,
+      "conaffinity": [
+        2,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        4,
+        4
+      ],
+      "engine_detected": false,
+      "geom_a": "l_palm_collision",
+      "geom_b": "head_collision",
+      "intended": false,
+      "pair": "hand-head_self",
+      "parent_filtered": false,
+      "role": "human self-collision excluded (inherited policy)"
+    },
+    {
+      "bitmask": false,
+      "compiled_rule": false,
+      "conaffinity": [
+        2,
+        2
+      ],
+      "consistent": true,
+      "contype": [
+        4,
+        4
+      ],
+      "engine_detected": false,
+      "geom_a": null,
+      "geom_b": "thorax_collision",
+      "intended": false,
+      "pair": "forearm-thorax_self",
+      "parent_filtered": false,
+      "role": "human self-collision excluded (inherited policy)"
+    }
+  ],
+  "outcome": "PASS",
+  "solver": {
+    "cone": "elliptic",
+    "contact_friction_rule": "max of the two geoms' sliding friction (MuJoCo solmix default)",
+    "explicit_excludes": 0,
+    "explicit_pairs": 0,
+    "filterparent_enabled": true,
+    "foot_floor_mu": 0.8,
+    "geom_solimp_unique": [
+      [
+        0.95,
+        0.99,
+        0.001
+      ]
+    ],
+    "geom_solref_unique": [
+      [
+        0.005,
+        1.0
+      ]
+    ],
+    "hand_shaft_mu": 1.0,
+    "impratio": 10.0,
+    "integrator": 3,
+    "iterations": 200,
+    "noslip_iterations": 0,
+    "solver": 2,
+    "timestep_s": 0.001,
+    "tolerance": 1e-10
+  },
+  "v1_unchanged": {
+    "note": "RES-610 V1 masks intentionally untouched (its grip welds hold the bar); the inherited shaft/floor pair remains ineligible there",
+    "shaft_floor_engine_detected": false,
+    "shaft_floor_rule_eligible": false
+  },
+  "v2_unplated_drop": {
+    "final_bar_z_m": 0.024996670847454307,
+    "final_speed_m_s": 8.96455019324565e-16,
+    "lands": true,
+    "max_bar_floor_contacts": 4,
+    "sleeve_radius_m": 0.025
+  }
+}
