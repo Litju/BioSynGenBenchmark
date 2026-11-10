@@ -22,7 +22,7 @@ read from the controller; they are derived from forces and states in
 from __future__ import annotations
 
 from collections.abc import Callable, Mapping, Sequence
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 import math
 
 from ..multibody import (
@@ -30,6 +30,7 @@ from ..multibody import (
     ConstraintSolveError,
     ContactEvent,
     ContactMode,
+    ContactState,
     MultibodyState,
 )
 from .human import ARM_JOINTS, EXTENSION_SIGN, JOINTS, SIDES, HumanModel, Posture
@@ -139,6 +140,7 @@ class StagedJointController:
     stage_start_s: float = 0.0
     commands: list[tuple[float, str, str]] = field(default_factory=list)
     _entry_posture: dict[str, float] = field(default_factory=dict)
+    additional_support_ids: Mapping[str, tuple[str, ...]] = field(default_factory=dict)
 
     @property
     def stage(self) -> ControlStage:
@@ -160,7 +162,8 @@ class StagedJointController:
         self.update_stage(model, state)
         stage = self.stage
         feet_supported = all(
-            any(state.contacts[c].mode is not ContactMode.OPEN for c in model.contact_ids[side])
+            any(state.contacts[c].mode is not ContactMode.OPEN
+                for c in (*model.contact_ids[side], *self.additional_support_ids.get(side, ())))
             for side in SIDES
         )
         elapsed = state.time_s - self.stage_start_s
@@ -258,6 +261,11 @@ class LatentFrame:
     passive_torques_n_m: Mapping[str, float]
     joint_power_w: float
     controller_stage: str
+    # Constitutive response at interval start; integrate power over this interval.
+    contact_stored_energy_j: Mapping[str, float] = field(default_factory=dict)
+    contact_dissipated_power_w: Mapping[str, float] = field(default_factory=dict)
+    constraint_projection_work_j: float = 0.0
+    rigid_contact_work_estimate_j: float = 0.0
 
 
 @dataclass(frozen=True, slots=True)
@@ -331,18 +339,37 @@ def simulate(
     limits: Mapping[str, JointLimit] | None = None,
     scenario: Mapping[str, object] | None = None,
     max_steps: int = 200_000,
+    compliant_contacts=None,
+    contact_release_times=None,
 ) -> ExerciseTrajectory:
     system = model.system
+    if compliant_contacts:
+        from ..compliant_contact import CompliantPlanarStepper
+        compliant_stepper = CompliantPlanarStepper(system, compliant_contacts, release_times=contact_release_times)
+    else:
+        if contact_release_times:
+            raise ValueError("scheduled support release requires the compliant stepper")
+        compliant_stepper = None
     limits = limits or DEFAULT_LIMITS
     state = initial_state
     frames: list[LatentFrame] = []
     impacts: list[ImpactImpulse] = []
     events: list[ContactEvent] = []
     termination = "DURATION_REACHED"
+    released = set()
     for _ in range(max_steps):
         if state.time_s >= duration_s - 1e-12:
             break
         h = min(dt_s, duration_s - state.time_s)
+        for cid, time in (contact_release_times or {}).items():
+            if time > state.time_s:
+                h = min(h, time - state.time_s)
+            elif cid not in released:
+                # Withdrawing a stationary support applies no impulse or state reset.
+                state = replace(state, contacts={**state.contacts, cid: ContactState()})
+                events.append(ContactEvent("CONTACT_RELEASE", (cid,), state.time_s,
+                                           detail="commanded platform withdrawal; no impulse"))
+                released.add(cid)
         excitations = controller.excitations(model, state)
         wrenches, passive, passive_power = _passive_wrenches(model, state, limits)
         _, torques, _ = system._assemble_generalized_forces(state, excitations, wrenches)
@@ -351,12 +378,29 @@ def simulate(
             torque * rates[system.actuator_joint_id(actuator_id)] for actuator_id, torque in torques.items()
         )
         try:
-            step = system.advance(state, h, excitations=excitations, external_wrenches=wrenches)
+            if compliant_stepper is None:
+                step = system.advance(state, h, excitations=excitations, external_wrenches=wrenches)
+                compliant_responses = {}
+            else:
+                step, compliant_responses = compliant_stepper.advance(
+                    state, h, excitations=excitations, external_wrenches=wrenches)
         except ConstraintSolveError as exc:
             termination = f"CONSTRAINT_SOLVE_REFUSED: {exc}"
             break
         elapsed = step.elapsed_s
         forces: dict[str, ContactForceSample] = {}
+        for cid, response in compliant_responses.items():
+            kin = system.contact_kinematics(state, cid)
+            force = tuple(response.normal_n*n + response.tangent_n*t
+                          for n, t in zip(kin.normal_world, kin.tangent_world))
+            forces[cid] = ContactForceSample(cid, kin.point_a_world_m, force,
+                                             response.normal_n, response.tangent_n)
+            was_open = state.contacts[cid].mode is ContactMode.OPEN
+            is_open = step.state.contacts[cid].mode is ContactMode.OPEN
+            if was_open != is_open:
+                events.append(ContactEvent("CONTACT_RELEASE" if is_open else "CONTACT_TOUCHDOWN",
+                                            (cid,), step.state.time_s,
+                                            detail="finite compliant contact; interval-bracketed event"))
         if elapsed > 0.0:
             for ledger, frame_state in (
                 (step.contact_impulses_n_s, state),
@@ -393,6 +437,9 @@ def simulate(
         frames.append(LatentFrame(
             state.time_s, step.state.time_s, step.state, forces, dict(state.activations), torques,
             passive, actuator_power + passive_power, controller.stage.name,
+            {cid: r.stored_energy_j for cid, r in compliant_responses.items()},
+            {cid: r.dissipated_power_w for cid, r in compliant_responses.items()},
+            step.constraint_projection_work_j, step.contact_work_estimate_j,
         ))
         state = step.state
         below = body_points_below_floor(model, state)

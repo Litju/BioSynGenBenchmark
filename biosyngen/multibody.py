@@ -146,6 +146,7 @@ class PlanarJoint:
 
 
 class ContactKind(str, Enum):
+    PLATFORM = "PLATFORM"
     FOOT = "FOOT"
     HEEL = "HEEL"
     TOE = "TOE"
