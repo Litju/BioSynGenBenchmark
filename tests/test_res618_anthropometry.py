@@ -2,13 +2,16 @@
 from dataclasses import replace
 import unittest
 
-import mujoco
-import numpy as np
+try:
+    import mujoco
+    import numpy as np
+    from biosyngen.spatial.anthropometry import HumanSubjectProfile, SegmentInertia, inertial_migration
+    from biosyngen.spatial.model import build_mjcf
+except ImportError:
+    mujoco = None
 
-from biosyngen.spatial.anthropometry import HumanSubjectProfile, SegmentInertia, inertial_migration
-from biosyngen.spatial.model import build_mjcf
 
-
+@unittest.skipIf(mujoco is None, "MuJoCo required; mandatory in spatial CI")
 class Anthropometry(unittest.TestCase):
     def test_compiled_mass_and_inertia_across_profiles(self):
         for mass, height in ((40, 1.4), (75, 1.75), (180, 2.1)):

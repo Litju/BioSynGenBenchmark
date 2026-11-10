@@ -29,6 +29,10 @@ def build_foot_candidate(profile=HumanSubjectProfile(), shoe=ShoeSpec()):
     root = ET.fromstring(inertial_migration(profile))
     root.set("model", "human-v2.0-b_FOOT_CANDIDATE_UNQUALIFIED")
     s = profile.stature_m / 1.75
+    pelvis = root.find(".//body[@name='pelvis']")
+    pos = list(map(float, pelvis.get("pos").split()))
+    pos[2] += shoe.sole_thickness_m + shoe.heel_elevation_m
+    pelvis.set("pos", " ".join(map(repr, pos)))
     actuator = root.find("actuator")
     for side in ("l", "r"):
         foot = root.find(f".//body[@name='{side}_foot']")

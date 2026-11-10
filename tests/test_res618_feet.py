@@ -1,10 +1,14 @@
 """Foot candidate compilation/FK/ballistic falsifiers; no receiving PASS."""
 import unittest
-import mujoco
-import numpy as np
-from biosyngen.spatial.feet_v2 import ShoeSpec, build_foot_candidate
+try:
+    import mujoco
+    import numpy as np
+    from biosyngen.spatial.feet_v2 import ShoeSpec, build_foot_candidate
+except ImportError:
+    mujoco = None
 
 
+@unittest.skipIf(mujoco is None, "MuJoCo required; mandatory in spatial CI")
 class Feet(unittest.TestCase):
     def test_partition_and_bounds(self):
         m = mujoco.MjModel.from_xml_string(build_foot_candidate())
@@ -25,6 +29,13 @@ class Feet(unittest.TestCase):
             g = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_GEOM, "l_hindfoot_sole")
             heights.append(m.geom_pos[g, 2] - m.geom_size[g, 2])
         self.assertAlmostEqual(heights[0] - heights[1], .02)
+
+    def test_initial_floor_clearance(self):
+        for heel in (0, .02, .04):
+            m = mujoco.MjModel.from_xml_string(build_foot_candidate(shoe=ShoeSpec(heel)))
+            d = mujoco.MjData(m)
+            mujoco.mj_forward(m, d)
+            self.assertGreaterEqual(min((c.dist for c in d.contact), default=0), -1e-12)
 
     def test_mtp_moves_toe_contact(self):
         m = mujoco.MjModel.from_xml_string(build_foot_candidate())
