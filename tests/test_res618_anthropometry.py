@@ -51,3 +51,40 @@ class Anthropometry(unittest.TestCase):
                    {"tensor_kg_m2": ((3, 0, 0), (0, 1, 0), (0, 0, 1))}):
             with self.assertRaises(ValueError):
                 replace(good, **kw)
+
+    def test_registry_mass_units_and_joint_strength_reach_compiler(self):
+        from biosyngen.spatial.anthropometry import HumanDimensions
+        p = HumanSubjectProfile()
+        joints = tuple(replace(j, capacity_nm=123) if j.name == "l_knee_flex" else j for j in p.joint_authority)
+        m = mujoco.MjModel.from_xml_string(inertial_migration(replace(p, joint_authority=joints)))
+        a = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_ACTUATOR, "l_knee_flex")
+        np.testing.assert_array_equal(m.actuator_forcerange[a], [-123, 123])
+        with self.assertRaises(ValueError):
+            HumanDimensions(thigh_m=43)
+        with self.assertRaises(ValueError):
+            inertial_migration(replace(p, joint_authority=joints[:-1]))
+        with self.assertRaises(ValueError):
+            replace(p, joint_authority=joints + joints[:1])
+        with self.assertRaises(ValueError):
+            replace(p, relative_parameter_uncertainty=float("nan"))
+
+    def test_complete_segment_registry_is_enforced_and_compiled(self):
+        import xml.etree.ElementTree as ET
+        p = HumanSubjectProfile()
+        root = ET.fromstring(inertial_migration(p))
+        registry = []
+        for body in root.iter("body"):
+            if body.get("name") == "barbell":
+                continue
+            i = body.find("inertial")
+            registry.append(SegmentInertia(body.get("name"), float(i.get("mass")),
+                                          tuple(map(float, i.get("pos").split())),
+                                          tuple(map(tuple, np.diag(list(map(float, i.get("diaginertia").split())))))))
+        registry = tuple(registry)
+        modified = tuple(replace(v, com_m=(.01, 0, .02)) if v.name == "pelvis" else v for v in registry)
+        m = mujoco.MjModel.from_xml_string(inertial_migration(replace(p, segment_inertias=modified)))
+        b = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_BODY, "pelvis")
+        np.testing.assert_allclose(m.body_ipos[b], [.01, 0, .02])
+        for bad in (registry[:-1], registry+registry[:1], tuple(replace(v, mass_kg=v.mass_kg*1.01) for v in registry)):
+            with self.assertRaises(ValueError):
+                inertial_migration(replace(p, segment_inertias=bad))
