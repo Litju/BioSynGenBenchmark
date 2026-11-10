@@ -12,7 +12,9 @@ from .feet_v2 import ShoeSpec, build_foot_candidate
 from .model import AthleteBarbellSpec, bar_inertia
 
 MODEL_ID = "HUMAN_V2_TORQUE_FULLBODY"
-MODEL_VERSION = "2.2.0"
+MODEL_VERSION = "2.1.0"
+# RES-624 Gate B contact-mask revision; the preserved RES-618 interface version is unchanged.
+CONTACT_POLICY = "RES624_B1_BAR_FLOOR_ELIGIBLE"
 
 
 def _numbers(values):

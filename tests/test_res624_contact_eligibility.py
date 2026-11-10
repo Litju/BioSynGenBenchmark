@@ -48,6 +48,11 @@ class ContactEligibility(unittest.TestCase):
         self.assertFalse(row["engine_detected"])
         self.assertFalse(row["consistent"])
 
+    def test_contact_policy_is_exported_without_changing_interface_version(self):
+        frame = self.plant.export_frame()
+        self.assertEqual(frame["model_version"], "2.1.0")
+        self.assertEqual(frame["contact_policy"], "RES624_B1_BAR_FLOOR_ELIGIBLE")
+
     def test_v1_masks_are_untouched(self):
         from biosyngen.spatial.grasp_diagnostics import pair_eligibility
         from biosyngen.spatial.model import AthleteBarbellSpec, build_mjcf

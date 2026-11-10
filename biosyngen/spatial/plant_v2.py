@@ -2,7 +2,7 @@
 import mujoco
 import numpy as np
 
-from .model_v2 import HumanV2Spec, build_mjcf_v2, MODEL_ID, MODEL_VERSION
+from .model_v2 import HumanV2Spec, build_mjcf_v2, MODEL_ID, MODEL_VERSION, CONTACT_POLICY
 from .plant import SpatialPlant
 
 
@@ -58,7 +58,7 @@ class HumanV2Plant(SpatialPlant):
 
     def export_frame(self):
         frame = super().export_frame()
-        frame.update(model_id=MODEL_ID, model_version=MODEL_VERSION,
+        frame.update(model_id=MODEL_ID, model_version=MODEL_VERSION, contact_policy=CONTACT_POLICY,
                      joint_angles=self.joint_angles(),
                      actuator_force_nm=self.data.actuator_force.tolist(),
                      actuator_velocity_rad_s=self.data.actuator_velocity.tolist(),
