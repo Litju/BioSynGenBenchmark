@@ -42,7 +42,15 @@ class IsolatedGrasp(unittest.TestCase):
         h = self.held
         # Implicit-in-velocity integrator: the step impulse of exported loads equals dP to rounding.
         self.assertLess(h["oracle_bar_newton_euler"]["max_step_linear_residual_n_s"], 1e-10)
-        self.assertLess(h["oracle_bar_newton_euler"]["max_step_angular_residual_n_m_s"], 1e-4)
+        # Angular: derived bound (gyroscopic + inertia-rotation discretization), not a picked threshold.
+        from biosyngen.spatial.grasp_fixture import FixtureSpec, run_trial
+        from biosyngen_benchmark.rigid_body_check import angular_discretization_check
+        _, _, frames, *_ = run_trial(FixtureSpec(tilt_deg=90), 1.0, 1.0)
+        a = angular_discretization_check(frames, .001)
+        self.assertEqual(a["outcome"], "PASS", a)
+        hidden = [dict(f, contacts=[c for c in f["contacts"] if not c["geom2"].startswith("l_") and not c["geom1"].startswith("l_")])
+                  for f in frames]
+        self.assertEqual(angular_discretization_check(hidden, .001)["outcome"], "REJECTED")
         r = h["mount_reaction_final"]
         self.assertAlmostEqual(r["sum_vertical_n"], r["analytic_static_n"], delta=1e-3)
 
