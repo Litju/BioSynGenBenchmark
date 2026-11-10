@@ -83,7 +83,8 @@ def contact_rows(m, d, dt):
         slip = vrel - (vrel @ frame[0])*frame[0]
         tangent = math.hypot(f6[1], f6[2])
         mu = float(c.friction[0])
-        rows.append(dict(geom1=_name(m, mujoco.mjtObj.mjOBJ_GEOM, c.geom1), geom2=_name(m, mujoco.mjtObj.mjOBJ_GEOM, c.geom2),
+        rows.append(dict(geom1=_name(m, mujoco.mjtObj.mjOBJ_GEOM, c.geom1) or f"geom{int(c.geom1)}",
+                         geom2=_name(m, mujoco.mjtObj.mjOBJ_GEOM, c.geom2) or f"geom{int(c.geom2)}",
                          body1=_name(m, mujoco.mjtObj.mjOBJ_BODY, b1), body2=_name(m, mujoco.mjtObj.mjOBJ_BODY, b2),
                          point=c.pos.tolist(), normal=frame[0].tolist(), force_on_body2=world.tolist(),
                          normal_force_n=float(f6[0]), tangent_force_n=float(tangent), friction=mu,
@@ -168,6 +169,7 @@ class GraspRecorder:
         self.actuator_work_j += actuator_power*dt
         ext = d.xfrc_applied[self.bar].copy()
         support = float(bar_force[2]/self.weight)
+        hand_force = sum((np.asarray(c["force_on_bar"]) for c in on_bar if c["other"][:2] in ("l_", "r_")), np.zeros(3))
         rec = dict(step=len(self.records), t=float(d.time),
                    bar=dict(position=com.tolist(), orientation=d.xquat[self.bar].tolist(), linear_velocity=v.tolist(),
                             angular_velocity=w.tolist(), linear_momentum=(mass*v).tolist(),
@@ -175,6 +177,7 @@ class GraspRecorder:
                             axial_spin_rad_s=float(w @ rot[:, 1]),
                             contact_force_n=bar_force.tolist(), contact_moment_about_com_n_m=bar_moment.tolist(),
                             applied_external_n=ext[:3].tolist(), support_ratio=support,
+                            hand_contact_force_n=hand_force.tolist(), hand_support_ratio=float(hand_force[2]/self.weight),
                             active_contacts=len(on_bar),
                             active_hand_contacts=sum(1 for c in on_bar if c["other"] and c["other"][:2] in ("l_", "r_"))),
                    bar_contacts=on_bar, hands=hands,
