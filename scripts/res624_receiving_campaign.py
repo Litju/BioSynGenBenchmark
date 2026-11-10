@@ -158,6 +158,12 @@ def run_case(name, spec, modifier, duration, kwargs, nominal):
         modifier = ("arm_capacity", .5*nominal["arm_capacity_threshold"])
     if modifier:
         {"mass": _set_bar_mass, "friction": _set_hand_friction, "arm_capacity": _scale_arm_capacity}[modifier[0]](plant, modifier[1])
+        # Recompute derived constants (body_subtreemass etc.): without this a runtime mass edit is
+        # simulated with the old 20 kg while exported as the new mass (caught by the evaluator).
+        # mj_setConst evaluates at qpos0 and overwrites the state: restore the certified state.
+        qpos, qvel = plant.data.qpos.copy(), plant.data.qvel.copy()
+        mujoco.mj_setConst(plant.model, plant.data)
+        plant.data.qpos[:], plant.data.qvel[:] = qpos, qvel
         mujoco.mj_forward(plant.model, plant.data)
     static = qualify_static(plant)
     cert = static["certificate"]

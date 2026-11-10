@@ -57,13 +57,13 @@
     "bar_mass_15kg": {
       "max_utilization": 0.32900772483523555,
       "metrics": {
-        "bar_displacement_in_hand_m": 0.0012228492470035442,
-        "bar_z_change_m": 0.0005070730847664962,
-        "com_x_drift_m": 0.0056425360112552225,
+        "bar_displacement_in_hand_m": 0.0012335546776947649,
+        "bar_z_change_m": 0.0005013452234337024,
+        "com_x_drift_m": 0.0056440227403699444,
         "duration_s": 1.9999999999998905,
-        "floor_vertical_over_weight_mean": 1.0000219461387134,
-        "hand_support_mean": 1.0001412587780618,
-        "hand_support_min": 0.9994697187922471,
+        "floor_vertical_over_weight_mean": 1.0000152466876953,
+        "hand_support_mean": 1.0001105819997238,
+        "hand_support_min": 0.9991070678896501,
         "min_hand_contacts": 10,
         "posture_saturation_samples": 0
       },
@@ -73,13 +73,13 @@
     "bar_mass_25kg": {
       "max_utilization": 0.38865394875918513,
       "metrics": {
-        "bar_displacement_in_hand_m": 0.001263878238947272,
-        "bar_z_change_m": -2.1153755509484284e-06,
-        "com_x_drift_m": 0.003528688173409053,
+        "bar_displacement_in_hand_m": 0.0012573927345931732,
+        "bar_z_change_m": 3.0091708407287143e-06,
+        "com_x_drift_m": 0.0035137906501860883,
         "duration_s": 1.9999999999998905,
-        "floor_vertical_over_weight_mean": 1.0000120302403597,
-        "hand_support_mean": 1.0000641253365978,
-        "hand_support_min": 0.9976769401144999,
+        "floor_vertical_over_weight_mean": 1.000017357168346,
+        "hand_support_mean": 1.000079607151238,
+        "hand_support_min": 0.9983352673591669,
         "min_hand_contacts": 10,
         "posture_saturation_samples": 0
       },
@@ -649,7 +649,7 @@
     "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
   },
   "source_dirty": false,
-  "source_sha": "167e91b7fd5c3eabec4848692e1b7745c1e65e88",
+  "source_sha": "8678859edcf68adf1f5ec647597ef1766a98e97e",
   "source_sha256": {
     "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
     "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
