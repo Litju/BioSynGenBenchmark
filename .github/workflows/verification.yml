@@ -180,4 +180,4 @@ jobs:
       - name: Install pinned spatial dependencies (MuJoCo Apache-2.0, not vendored)
         run: python -m pip install mujoco==3.3.7 scipy==1.17.1 numpy==2.4.4
       - name: Spatial plant, receiving equilibria and independent oracle (fail on skip)
-        run: python -m scripts.require_spatial_checks tests.test_res618_anthropometry tests.test_res618_feet
+        run: python -m scripts.require_spatial_checks tests.test_res618_anthropometry tests.test_res618_feet tests.test_res618_inertial_oracle
