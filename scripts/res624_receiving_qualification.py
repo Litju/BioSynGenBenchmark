@@ -33,6 +33,7 @@ from biosyngen.spatial.plant_v2 import HumanV2Plant
 from biosyngen.spatial.receiving_grasp_v2 import (actuator_export, bar_frame, forward_receiving_hold, hand_frames,
                                                    qualify_static)
 from biosyngen.spatial.receiving_v2 import solve_candidate
+from biosyngen_benchmark.qualification_scope import REQUIRED_NOMINAL, qualify_scope
 from biosyngen_benchmark.receiving_acceptance import evaluate_receiving
 from scripts.res624_grasp_diagnosis import CLAIMS, source_receipt
 from scripts.res624_receipt import full_receipt
@@ -204,6 +205,13 @@ def run(out, quick=False):
                      system_step_residual_n_s=r["evidence"].get("system_newton_euler", {}).get("max_step_linear_residual_n_s"),
                      bar_mass_kg=next(b for b in frames[0]["bodies"] if b["name"] == "barbell")["mass"],
                      model_total_mass_kg=sum(b["mass"] for b in frames[0]["bodies"]))
+        profile = plant.spec.profile
+        bar_mass = entry["bar_mass_kg"]
+        human_mass = entry["model_total_mass_kg"]-bar_mass
+        entry["subject"] = dict(body_mass_kg=float(profile.body_mass_kg), stature_m=float(profile.stature_m),
+                                model_human_mass_kg=float(human_mass), bar_mass_kg=float(bar_mass),
+                                mass_consistent=bool(abs(human_mass-float(profile.body_mass_kg)) <= 1e-3),
+                                source="declared subject profile" if spec is not None else "nominal profile")
         if release is not None:
             pre = [f for f in frames if f["t"] <= release]
             rp = evaluate_receiving(pre, dt, static["verdict"])
@@ -227,11 +235,7 @@ def run(out, quick=False):
     required = [n for n in EXPECTED_QUALIFIED if n in results]
     red_refused = red_eval["outcome"] != "RECEIVING_HOLD_QUALIFIED" and red_static != "STATIC_EQUILIBRIUM_CERTIFIED"
     anthro = {n: results[n]["expectation_met"] for n in ANTHROPOMETRIC if n in results}
-    core_met = all(v["expectation_met"] for k, v in results.items() if k not in ANTHROPOMETRIC)
-    final = ("RECEIVING_HOLD_QUALIFIED" if all(results[n]["outcome"] == "RECEIVING_HOLD_QUALIFIED" for n in required)
-             and core_met and red_refused and all(a["refused"] for a in adv.values())
-             and all(p["qualified"] for p in pos.values()) else "RECEIVING_NOT_QUALIFIED")
-    report = dict(issue="RES-624", **source_receipt(), receipt=full_receipt(plants), final_verdict=final, scope="declared Human V2 computational model; "
+    report = dict(issue="RES-624", **source_receipt(), receipt=full_receipt(plants), scope="declared Human V2 computational model; "
                   "20 kg unplated bar; static overhead POWER receiving hold, not a lift or catch",
                   red_canary=dict(static_verdict=red_static, outcome=red_eval["outcome"], reason=str(red_eval.get("reason")),
                                   bar_drop_m=red_drop, refused=red_refused),
@@ -240,7 +244,15 @@ def run(out, quick=False):
                   adversarial_refused=sum(a["refused"] for a in adv.values()), adversarial_total=len(adv),
                   adversarial_positive_qualified=sum(p["qualified"] for p in pos.values()), adversarial_positive_total=len(pos),
                   anthropometric_generalization=("QUALIFIED_BOTH" if anthro and all(anthro.values()) else
-                                                 "NOT_CERTIFIED" if anthro else "NOT_RUN"), claims=CLAIMS)
+                                                 "NOT_CERTIFIED" if anthro else "NOT_RUN"), claims=CLAIMS,
+                  quick=bool(quick))
+    required_nominal = REQUIRED_NOMINAL if not quick else tuple(n for n in REQUIRED_NOMINAL if n in results)
+    verdicts = qualify_scope(report, required_nominal=required_nominal)
+    report["verdicts"] = verdicts
+    report["final_verdict"] = verdicts["overall"]["verdict"]
+    report["scope_statement"] = verdicts["scope_statement"]
+    report["anthropometric_generalization"] = ("QUALIFIED_BOTH" if verdicts["anthropometric_generalization"]["qualified"]
+                                               else "NOT_CERTIFIED" if anthro else "NOT_RUN")
     (out/"receiving_qualification.json").write_text(json.dumps(report, indent=2, sort_keys=True, default=float)+"\n", encoding="utf-8")
     return report
 
@@ -251,12 +263,15 @@ def main(argv=None):
     ap.add_argument("--quick", action="store_true")
     a = ap.parse_args(argv)
     r = run(a.out, a.quick)
-    print("FINAL", r["final_verdict"], "| RED canary", r["red_canary"])
+    print("FINAL", r["final_verdict"], "|", r["scope_statement"], "| RED canary", r["red_canary"])
+    print("VERDICTS", json.dumps({k: v.get("verdict") for k, v in r["verdicts"].items() if isinstance(v, dict) and "verdict" in v}))
     for k, v in r["cases"].items():
         print(f'{k:28s} {v["static_verdict"]:30s} {v["outcome"]:26s} expect[{v["expectation"]}]={v["expectation_met"]} {v["all_failures"][:3]}')
     for k, v in r["adversarial"].items():
         print(f'ADV {k:28s} expected={v["expected"]:24s} observed={v["observed"]:24s} refused={v["refused"]}')
-    return 0 if r["final_verdict"] == "RECEIVING_HOLD_QUALIFIED" else 1
+    nominal_ok = r["verdicts"]["nominal"]["qualified"]
+    general_ok = r["verdicts"]["anthropometric_generalization"]["qualified"]
+    return 0 if nominal_ok and (a.quick or general_ok) else 1
 
 
 if __name__ == "__main__":
