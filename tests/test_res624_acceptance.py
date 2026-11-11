@@ -56,8 +56,17 @@ class Acceptance(unittest.TestCase):
         out = adversarial(self.frames, self.dt, self.static["verdict"], self.nominal)
         for name, r in out.items():
             self.assertTrue(r["refused"], (name, r))
-        self.assertEqual(set(out), {"hand_contacts_deleted", "declared_friction_violated", "actuator_capacity_exceeded",
-                                    "non_foot_floor_contact", "static_not_certified", "undeclared_bar_support"})
+        self.assertTrue({"hand_contacts_deleted", "declared_friction_violated", "actuator_capacity_exceeded",
+                         "non_foot_floor_contact", "static_not_certified", "undeclared_bar_support",
+                         "external_support_hand_load_5pct", "unilateral_support_left_only", "forearm_relabelled_support",
+                         "thigh_relabelled_support", "torso_relabelled_support", "segment_only_no_grasp_contact",
+                         "forged_pad_body_identity", "forged_pad_contact_point", "misassigned_contact_moment",
+                         "reversed_hand_forces"} <= set(out))
+        for name in ("external_support_hand_load_5pct", "forearm_relabelled_support", "thigh_relabelled_support"):
+            self.assertEqual(out[name]["observed"], "GRASP_UNSUPPORTED", out[name])
+        self.assertEqual(out["unilateral_support_left_only"]["observed"], "GRASP_NOT_BILATERAL")
+        self.assertEqual(out["segment_only_no_grasp_contact"]["observed"], "GRASP_GEOMETRY_INFEASIBLE")
+        self.assertEqual(out["forged_pad_body_identity"]["observed"], "GRASP_IDENTITY_UNADMISSIBLE")
 
     def test_truncated_or_nonfinite_frames_are_not_qualified(self):
         import copy

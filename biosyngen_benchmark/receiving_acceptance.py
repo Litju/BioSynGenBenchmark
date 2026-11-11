@@ -1,27 +1,54 @@
 """RES-624 independent, outcome-derived overhead-receiving acceptance (frames only).
 
 Consumes only plain exported frames (bodies, contacts, declared external
-loads, hand frames, actuator force/capacity) plus the generator's declared
-static verdict. It imports neither the generator nor a physics engine; every
-balance is recomputed by :mod:`biosyngen_benchmark.spatial_oracle`.
+loads, hand frames, actuator force/capacity) plus the generator's
+declared static verdict. It imports neither the generator nor a physics engine;
+every balance is recomputed by :mod:`biosyngen_benchmark.spatial_oracle` and
+:mod:`biosyngen_benchmark.grasp_contract`.
 
 Outcome codes, checked in this order (the first failure is the verdict; all
 failing categories are listed under ``failures``):
-  NUMERICAL_NOT_QUALIFIED   nonfinite data, or the bar / whole-system discrete
-                            Newton-Euler balance does not close with the
-                            exported loads (=> an undeclared force acts)
-  CONTACT_INADMISSIBLE      adhesive or outside-cone contact force, non-vertical
-                            floor normal, penetration beyond the declared bound
-  ACTUATOR_INFEASIBLE       actuator force beyond declared capacity, or posture
-                            (non-grip) actuators saturated after settling
-  GRASP_GEOMETRY_INFEASIBLE no hand-bar contact after settling begins
-  GRASP_SLIP                hand-bar contact lost, or the bar moves by more than
-                            one shaft radius relative to a hand frame
-  RECEIVING_UNSTABLE        loss of bilateral foot support, non-foot floor
-                            contact, COP or COM projection outside the support hull
-  STATIC_NOT_CERTIFIED      generator's static certificate was not
-                            STATIC_EQUILIBRIUM_CERTIFIED
-  RECEIVING_HOLD_QUALIFIED  all of the above pass (GRASP_SUPPORTED holds)
+  NUMERICAL_NOT_QUALIFIED      nonfinite data, or the bar / whole-system
+                               discrete Newton-Euler balance does not close
+                               with the exported loads (=> an undeclared force)
+  CONTACT_INADMISSIBLE         adhesive, outside-cone, undeclared-friction or
+                               non-vertical-floor contact, penetration beyond
+                               the declared bound, or an inadmissible
+                               grasp-interface contact
+  ACTUATOR_INFEASIBLE          actuator force beyond declared capacity, or
+                               posture (non-grip) actuators saturated
+  GRASP_IDENTITY_UNADMISSIBLE  a contact claims a declared grasping body/geom
+                               but the barbell, bar geom, body, geom or contact
+                               point does not match the versioned contract
+  GRASP_GEOMETRY_INFEASIBLE    no permitted palm/finger/thumb contact with the
+                               bare shaft after settling begins
+  GRASP_SLIP                   permitted contact lost, or bar motion relative
+                               to the hand frames beyond the declared grip model
+  GRASP_UNSUPPORTED            permitted contacts exist, but the hand wrench
+                               does not carry the bar's gravito-inertial load
+  GRASP_NOT_BILATERAL          both hands are not load-bearing (one hand below
+                               the declared minimum support share)
+  RECEIVING_UNSTABLE           loss of bilateral foot support, non-foot floor
+                               contact, COP or COM projection outside the hull
+  STATIC_NOT_CERTIFIED         generator's static certificate was not
+                               STATIC_EQUILIBRIUM_CERTIFIED
+  RECEIVING_HOLD_QUALIFIED     all of the above pass (GRASP_SUPPORTED holds)
+
+Support is not a contact count. The evaluator distinguishes (1) geometric
+palm/finger/thumb contact, (2) active load-bearing contact, (3) bilateral
+support, (4) stable relative bar pose and (5) complete receiving qualification.
+The load-bearing test integrates the hand-on-bar wrench over the declared
+window and compares it with the bar's exact discrete momentum balance::
+
+    m dv/dt = m g + F_hand + F_other
+    dH/dt   = M_hand + M_other + (c - o) x m g
+
+Only contacts inside the versioned grasp contract may contribute to F_hand;
+every other bar contact (forearm, thigh, torso, ...) and every declared
+external load is part of F_other and therefore cannot masquerade as grasp
+support. The hand impulse must carry at least (1 - SUPPORT_SHORTFALL) of the
+bar weight impulse, with no restriction to a 50/50 split; asymmetric bilateral
+sharing is permitted and each hand only has to exceed BILATERAL_MIN_SHARE.
 
 Declared tolerances and their basis:
   * Bar / system linear balance: |dP - dt*F| <= 1e-6 * W * dt per step, i.e. any
@@ -35,9 +62,20 @@ Declared tolerances and their basis:
     contact forces and realized internal joint forces differ by an internal,
     zero-mean term (measured 6.6e-6 N s implicitfast, 3.5e-6 implicit, present
     with zero armature); the bar alone has no joints and closes to 1e-16.
-  * Bar angular balance: the one-step residual about the moving bar COM may not
-    exceed the engine step's rigid-body discretization terms dt|w x Iw| +
-    |(I_k+1 - I_k) w| by more than 1e-6*W*dt*0.25 m (rigid_body_check).
+  * Grasp support: the integrated hand wrench must reproduce the bar's exact
+    weight / momentum impulse to 0.1 % of W*T (force) and 0.1 % of W*L*T
+    (moment). The nominal hold closes to ~1e-15 and ~5e-9 respectively.
+  * Support shortfall: the hand impulse must carry >= 98 % of the bar weight
+    impulse. The remaining 2 % allows the bar's own momentum change and
+    bounded declared perturbations, but not a second support path.
+  * Bilateral share: each hand >= 2 % of the weight impulse (3.9 N for the
+    20 kg bar); the measured nominal split is 49.96/50.08 %.
+  * Bar angular balance: the one-step residual about the moving bar COM may
+    not exceed the engine step's rigid-body discretization terms
+    dt|w x Iw| + |(I_k+1 - I_k) w| by more than 1e-6*W*dt*0.25 m
+    (rigid_body_check); it is applied after settling, where the measured
+    residual-to-bound ratio is 0.018 rather than ~1 during the impact
+    transient.
   * Penetration <= 0.1 shaft radius (1.4 mm): beyond it the contact geometry no
     longer represents the declared rigid shaft/pad surfaces.
   * Slip bound = shaft radius (14 mm), as in Gate C.
@@ -49,11 +87,15 @@ import math
 
 import numpy as np
 
+from .grasp_contract import BAR_BODY, BILATERAL_MIN_SHARE, CONTRACT_VERSION, classify_frame
 from .rigid_body_check import angular_discretization_check
 from .spatial_oracle import WORLD, _hull, contact_admissibility, dynamic_balance, support_polygon
 
 SHAFT_RADIUS_M = .014
 GRIP_ACTUATORS = ("_finger_flex", "_finger_distal", "_thumb_opposition")
+SUPPORT_SHORTFALL = .02
+WRENCH_TOLERANCE = 1e-3
+ACTIVE_FRAME_FRACTION = .9
 
 
 def _finite_frames(frames):
@@ -67,11 +109,6 @@ def _finite_frames(frames):
     return True
 
 
-def _hand_contacts(frame, bar):
-    return [c for c in frame["contacts"] if bar in (c["body1"], c["body2"])
-            and (c["body1"] if c["body2"] == bar else c["body2"])[:2] in ("l_", "r_")]
-
-
 def _hull_margin(points, xy):
     hull = _hull(points)
     if len(hull) < 3:
@@ -80,10 +117,110 @@ def _hull_margin(points, xy):
                for a, b in zip(hull, hull[1:]+hull[:1]))
 
 
+def _support_balance(window, dt_s, bar, weight, ledgers, grip_half_width_m):
+    """Integrate the hand-on-bar wrench against the bar's exact discrete balance.
+
+    ``window`` frames are consecutive, and ``ledgers[k]`` classifies frame k.
+    Force balance is exact about any origin; the angular balance is taken about
+    the bar COM, where dH/dt = M exactly (the moving-point correction
+    v x m v vanishes). The *support* ratio is the separate physical statement
+    that the permitted hand contacts carried the bar's weight impulse.
+    """
+    g = np.asarray(window[0]["gravity"], float)
+    body0 = next(b for b in window[0]["bodies"] if b["name"] == bar)
+    mass = float(body0["mass"])
+    total_t = float(window[-1]["t"]-window[0]["t"])
+    j_hand = np.zeros(3)
+    j_other = np.zeros(3)
+    k_hand = np.zeros(3)
+    k_other = np.zeros(3)
+    sides = {s: 0.0 for s in ("l", "r")}
+    active_frames = {s: 0 for s in ("l", "r")}
+    per_frame_ratio = []
+    worst_force_ratio = worst_moment_ratio = 0.0
+    first_wrench_failure = None
+    for k, (a, b) in enumerate(zip(window, window[1:])):
+        ledger = ledgers[k]
+        valid = {r["index"] for r in ledger["contacts"] if r["admissible"]}
+        hand_rows = [r for r in ledger["contacts"] if r["admissible"]]
+        A = next(x for x in a["bodies"] if x["name"] == bar)
+        B = next(x for x in b["bodies"] if x["name"] == bar)
+        c_a = np.asarray(A["com"], float)
+        f_hand = sum((np.asarray(r["force_on_bar"], float) for r in hand_rows), np.zeros(3))
+        m_hand = sum((np.cross(np.asarray(r["point"], float)-c_a, np.asarray(r["force_on_bar"], float))
+                      for r in hand_rows), np.zeros(3))
+        f_other = np.zeros(3)
+        m_other = np.zeros(3)
+        for index, c in enumerate(a["contacts"]):
+            if bar not in (c["body1"], c["body2"]) or index in valid:
+                continue
+            force = np.asarray(c["force_on_body2"], float)
+            if c["body2"] != bar:
+                force = -force
+            point = np.asarray(c["point"], float)
+            f_other = f_other + force
+            m_other = m_other + np.cross(point-c_a, force)
+        for e in a.get("external", ()):
+            if e["body"] == bar:
+                force = np.asarray(e["force"], float)
+                f_other = f_other + force
+                m_other = m_other + np.cross(np.asarray(e["point"], float)-c_a, force)
+        accel = (np.asarray(B["v"], float)-np.asarray(A["v"], float))/dt_s
+        f_required = mass*accel - mass*g - f_other
+        h_a = np.asarray(A["inertia_world"], float)@np.asarray(A["w"], float)
+        h_b = np.asarray(B["inertia_world"], float)@np.asarray(B["w"], float)
+        m_required = (h_b-h_a)/dt_s - m_other
+        force_ratio = float(np.linalg.norm(f_hand-f_required))/max(weight, 1e-9)
+        moment_ratio = float(np.linalg.norm(m_hand-m_required))/max(weight*grip_half_width_m, 1e-9)
+        worst_force_ratio = max(worst_force_ratio, force_ratio)
+        worst_moment_ratio = max(worst_moment_ratio, moment_ratio)
+        if first_wrench_failure is None and force_ratio > WRENCH_TOLERANCE:
+            first_wrench_failure = dict(code="GRASP_UNSUPPORTED", reason="SUPPORT_FORCE_WRENCH_MISMATCH",
+                                        t_s=float(window[k]["t"]))
+        if first_wrench_failure is None and moment_ratio > WRENCH_TOLERANCE:
+            first_wrench_failure = dict(code="GRASP_UNSUPPORTED", reason="SUPPORT_MOMENT_WRENCH_MISMATCH",
+                                        t_s=float(window[k]["t"]))
+        j_hand = j_hand + dt_s*f_hand
+        j_other = j_other + dt_s*f_other
+        k_hand = k_hand + dt_s*m_hand
+        k_other = k_other + dt_s*m_other
+        per_frame_ratio.append(f_hand[2]/weight)
+        for side in sides:
+            rows = [r for r in hand_rows if r["side"] == side]
+            f_side = sum((np.asarray(r["force_on_bar"], float) for r in rows), np.zeros(3))
+            sides[side] += dt_s*f_side[2]
+            if any(r["active"] for r in rows):
+                active_frames[side] += 1
+    weight_impulse = weight*total_t
+    j_required = mass*(np.asarray(next(x for x in window[-1]["bodies"] if x["name"] == bar)["v"], float)
+                       - np.asarray(next(x for x in window[0]["bodies"] if x["name"] == bar)["v"], float)) \
+        - mass*g*total_t - j_other
+    impulse_res = float(np.linalg.norm(j_hand-j_required))
+    A0 = next(x for x in window[0]["bodies"] if x["name"] == bar)
+    A1 = next(x for x in window[-1]["bodies"] if x["name"] == bar)
+    h0 = np.asarray(A0["inertia_world"], float)@np.asarray(A0["w"], float)
+    h1 = np.asarray(A1["inertia_world"], float)@np.asarray(A1["w"], float)
+    k_required = (h1-h0) - k_other
+    moment_impulse_res = float(np.linalg.norm(k_hand-k_required))
+    support_ratio = float(j_hand[2]/weight_impulse) if weight_impulse else 0.0
+    shares = {s: float(sides[s]/weight_impulse) if weight_impulse else 0.0 for s in sides}
+    return dict(hand_impulse_n_s=j_hand.tolist(), other_impulse_n_s=j_other.tolist(),
+                required_impulse_n_s=j_required.tolist(), weight_impulse_n_s=float(weight_impulse),
+                support_ratio=support_ratio, support_share=shares,
+                support_force_residual_ratio=impulse_res/weight_impulse if weight_impulse else 0.0,
+                support_moment_residual_ratio=moment_impulse_res/(weight*grip_half_width_m*total_t) if weight_impulse else 0.0,
+                worst_step_force_residual_ratio=worst_force_ratio, worst_step_moment_residual_ratio=worst_moment_ratio,
+                hand_support_ratio_min=float(min(per_frame_ratio)) if per_frame_ratio else None,
+                hand_support_ratio_mean=float(np.mean(per_frame_ratio)) if per_frame_ratio else None,
+                active_frame_fraction={s: active_frames[s]/max(1, len(window)) for s in sides},
+                first_wrench_failure=first_wrench_failure)
+
+
 def evaluate_receiving(frames, dt_s, static_verdict, *, bar="barbell", settle_s=.1, end_s=None,
                        shaft_radius_m=SHAFT_RADIUS_M, grip_half_width_m=.25):
     end_s = frames[-1]["t"] if end_s is None else end_s
-    evidence = dict(frames=len(frames), dt_s=dt_s, window=[settle_s, end_s])
+    evidence = dict(frames=len(frames), dt_s=dt_s, window=[settle_s, end_s],
+                    grasp_contract=CONTRACT_VERSION)
     window = [f for f in frames if settle_s <= f["t"] <= end_s]
     if len(frames) < 2 or not window or not _finite_frames(frames):
         return dict(outcome="NUMERICAL_NOT_QUALIFIED", reason="NONFINITE_OR_EMPTY", evidence=evidence)
@@ -91,21 +228,28 @@ def evaluate_receiving(frames, dt_s, static_verdict, *, bar="barbell", settle_s=
     weight = bodies[bar]["mass"]*float(np.linalg.norm(frames[0]["gravity"]))
     total_weight = sum(b["mass"] for b in bodies.values())*float(np.linalg.norm(frames[0]["gravity"]))
     failures = []
+    first_events = []
 
-    def fail(code, reason):
+    def fail(code, reason, t_s=None):
         failures.append(dict(outcome=code, reason=reason))
+        if t_s is not None:
+            first_events.append(dict(code=code, reason=str(reason), t_s=float(t_s)))
     # 1. numerical / undeclared-force closure (bar alone and the whole system).
     bar_nE = dynamic_balance(frames, dt_s, members={bar}, about=frames[0]["bodies"][0]["com"])
     sys_nE = dynamic_balance(frames, dt_s, about=frames[0]["bodies"][0]["com"])
     lin_tol = 1e-6*weight*dt_s
-    bar_ang = angular_discretization_check(frames, dt_s, bar, grip_half_width_m)
+    bar_ang = angular_discretization_check(window, dt_s, bar)
+    bar_ang["tolerance_n_m_s"] = bar_ang["excess_tolerance_n_m_s"]
     sys_step_tol = 1e-4*total_weight*dt_s
     sys_cum_tol = 1e-6*total_weight*dt_s*(len(frames)-1)
     evidence.update(bar_newton_euler=bar_nE, bar_angular_discretization=bar_ang, system_newton_euler=sys_nE,
                     tolerances=dict(bar_linear_n_s=lin_tol, system_step_linear_n_s=sys_step_tol,
-                                    system_cumulative_linear_n_s=sys_cum_tol))
-    if bar_nE["max_step_linear_residual_n_s"] > lin_tol or bar_ang["outcome"] != "PASS":
+                                    system_cumulative_linear_n_s=sys_cum_tol,
+                                    bar_angular_n_m_s=bar_ang["tolerance_n_m_s"]))
+    if bar_nE["max_step_linear_residual_n_s"] > lin_tol:
         fail("NUMERICAL_NOT_QUALIFIED", "BAR_BALANCE_OPEN_UNDECLARED_LOAD")
+    if bar_ang["outcome"] != "PASS":
+        fail("NUMERICAL_NOT_QUALIFIED", bar_ang.get("reason", "BAR_ANGULAR_DISCRETIZATION_MISMATCH"))
     if sys_nE["max_step_linear_residual_n_s"] > sys_step_tol or sys_nE["cumulative_linear_residual_n_s"] > sys_cum_tol:
         fail("NUMERICAL_NOT_QUALIFIED", "SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD")
     # 2. contact admissibility.
@@ -131,10 +275,30 @@ def evaluate_receiving(frames, dt_s, static_verdict, *, bar="barbell", settle_s=
     evidence.update(over_capacity=over, posture_saturation_samples=posture_sat)
     if over or posture_sat:
         fail("ACTUATOR_INFEASIBLE", "CAPACITY")
-    # 4. grasp: persistent hand-bar contact and bounded bar motion in each hand frame.
-    counts = [len(_hand_contacts(f, bar)) for f in window]
-    if counts[0] == 0 and max(counts) == 0:
-        fail("GRASP_GEOMETRY_INFEASIBLE", "NO_HAND_BAR_CONTACT")
+    # 4. grasp identity, geometry, relative slip, load-bearing support and bilateral share.
+    ledgers = [classify_frame(f, bar) for f in window]
+    identity_problems = sorted({str(p) for led in ledgers for p in led["identity_problems"]})
+    contract_problems = sorted({str((r["geom"], p)) for led in ledgers for r in led["contacts"] for p in r["problems"]})
+    nongrasp_max = max((len(led["nongrasp"]) for led in ledgers), default=0)
+    geometric = [len(led["contacts"]) for led in ledgers]
+    active = [sum(1 for r in led["contacts"] if r["active"]) for led in ledgers]
+    active_side = {s: [sum(1 for r in led["contacts"] if r["active"] and r["side"] == s) for led in ledgers] for s in ("l", "r")}
+    evidence.update(grasp_contract=CONTRACT_VERSION, grasp_identity_problems=identity_problems,
+                    grasp_contract_problems=contract_problems, nongrasp_bar_contacts_max=nongrasp_max,
+                    min_grasp_contacts=min(geometric) if geometric else 0,
+                    min_grasp_active_contacts=min(active) if active else 0,
+                    min_grasp_active_contacts_left=min(active_side["l"]) if active_side["l"] else 0,
+                    min_grasp_active_contacts_right=min(active_side["r"]) if active_side["r"] else 0,
+                    min_hand_contacts=min(geometric) if geometric else 0)
+    if contract_problems:
+        fail("CONTACT_INADMISSIBLE", contract_problems[:3])
+    if identity_problems:
+        fail("GRASP_IDENTITY_UNADMISSIBLE", identity_problems[:3])
+        # A forged grasp identity can only ever be refused; do not let a later
+        # support test turn the verdict into something weaker.
+    if max(geometric) == 0:
+        fail("GRASP_GEOMETRY_INFEASIBLE", "NO_PERMITTED_GRASP_CONTACT")
+    # Relative bar pose in each hand frame (Gate A: COM only; Gate B adds SO(3)).
     ref = window[0]
     disp = 0.0
     for f in window:
@@ -146,16 +310,32 @@ def evaluate_receiving(frames, dt_s, static_verdict, *, bar="barbell", settle_s=
             r1 = np.asarray(f["hand_frames"][side]["rotation"])
             p1 = np.asarray(f["hand_frames"][side]["position"])
             disp = max(disp, float(np.linalg.norm(r1.T @ (np.asarray(bar_now)-p1) - r0.T @ (np.asarray(bar_ref)-p0))))
-    support = []
-    for f in window:
-        fz = 0.0
-        for c in _hand_contacts(f, bar):
-            fz += c["force_on_body2"][2]*(1 if c["body2"] == bar else -1)
-        support.append(fz/weight)
-    evidence.update(min_hand_contacts=min(counts), bar_displacement_in_hand_m=disp,
-                    hand_support_ratio_mean=float(np.mean(support)), hand_support_ratio_min=float(np.min(support)))
-    if min(counts) == 0 or disp >= shaft_radius_m:
-        fail("GRASP_SLIP", "CONTACT_LOST" if min(counts) == 0 else "BAR_MOVED_IN_HAND")
+    support = _support_balance(window, dt_s, bar, weight, ledgers, grip_half_width_m)
+    evidence.update(min_hand_contacts=min(geometric) if geometric else 0, bar_displacement_in_hand_m=disp,
+                    hand_support_ratio_mean=support["hand_support_ratio_mean"],
+                    hand_support_ratio_min=support["hand_support_ratio_min"],
+                    hand_support_impulse_ratio=support["support_ratio"],
+                    hand_support_share=support["support_share"],
+                    hand_support_force_residual_ratio=support["support_force_residual_ratio"],
+                    hand_support_moment_residual_ratio=support["support_moment_residual_ratio"],
+                    hand_active_frame_fraction=support["active_frame_fraction"],
+                    grasp_impulse=support)
+    if min(geometric) == 0:
+        t = next(f["t"] for f, n in zip(window, geometric) if n == 0)
+        fail("GRASP_SLIP", "CONTACT_LOST", t)
+    elif disp >= shaft_radius_m:
+        fail("GRASP_SLIP", "BAR_MOVED_IN_HAND")
+    elif support["first_wrench_failure"]:
+        ev = support["first_wrench_failure"]
+        fail("GRASP_UNSUPPORTED", ev["reason"], ev["t_s"])
+    elif (support["support_ratio"] < 1-SUPPORT_SHORTFALL
+          or support["support_force_residual_ratio"] > WRENCH_TOLERANCE
+          or support["support_moment_residual_ratio"] > WRENCH_TOLERANCE):
+        fail("GRASP_UNSUPPORTED", "INSUFFICIENT_HAND_SUPPORT", window[0]["t"])
+    elif any(support["support_share"][s] < BILATERAL_MIN_SHARE for s in ("l", "r")):
+        fail("GRASP_NOT_BILATERAL", "UNILATERAL_OR_NON_LOAD_BEARING_HAND")
+    elif any(support["active_frame_fraction"][s] < ACTIVE_FRAME_FRACTION for s in ("l", "r")):
+        fail("GRASP_NOT_BILATERAL", "HAND_NOT_CONTINUOUSLY_LOAD_BEARING")
     # 5. whole-body support and stability.
     worst_cop, worst_com, floor_ratio, unstable = math.inf, math.inf, [], set()
     for f in window:
@@ -183,7 +363,12 @@ def evaluate_receiving(frames, dt_s, static_verdict, *, bar="barbell", settle_s=
         fail("RECEIVING_UNSTABLE", reason)
     if static_verdict != "STATIC_EQUILIBRIUM_CERTIFIED":
         fail("STATIC_NOT_CERTIFIED", static_verdict)
+    evidence["first_events"] = first_events
     if failures:
         # Declared order decides the verdict; every failing category is still reported.
-        return dict(outcome=failures[0]["outcome"], reason=failures[0]["reason"], failures=failures, evidence=evidence)
-    return dict(outcome="RECEIVING_HOLD_QUALIFIED", grasp="GRASP_SUPPORTED", failures=[], evidence=evidence)
+        first = failures[0]
+        first_event = next((e for e in first_events if e["code"] == first["outcome"]), None)
+        return dict(outcome=first["outcome"], reason=first["reason"], failures=failures, evidence=evidence,
+                    first_failure=first_event)
+    return dict(outcome="RECEIVING_HOLD_QUALIFIED", grasp="GRASP_SUPPORTED", failures=[], evidence=evidence,
+                first_failure=None)

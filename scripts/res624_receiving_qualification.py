@@ -36,6 +36,7 @@ from biosyngen_benchmark.receiving_acceptance import evaluate_receiving
 from scripts.res624_grasp_diagnosis import CLAIMS, source_receipt
 from scripts.res624_receipt import full_receipt
 from scripts.res624_receiving_campaign import build_nominal, cases, clone, run_case
+from scripts import res624_adversarial_scenes as scenes
 
 EXPECTED_QUALIFIED = ("nominal_0p3s_red_window", "nominal_2s", "nominal_10s")
 # Preregistered expectation per case. "QUALIFIED": the independent evaluator must qualify the hold.
@@ -80,7 +81,16 @@ def adversarial(frames, dt, verdict, nominal):
 
     def run(name, expected, fr, v=verdict):
         r = evaluate_receiving(fr, dt, v)
-        out[name] = dict(expected=expected, observed=r["outcome"], reason=str(r.get("reason")), refused=r["outcome"] == expected)
+        ev = r.get("evidence", {})
+        out[name] = dict(expected=expected, observed=r["outcome"], reason=str(r.get("reason")),
+                         refused=r["outcome"] == expected,
+                         evidence={k: ev.get(k) for k in ("hand_support_impulse_ratio", "hand_support_share",
+                                                          "hand_support_force_residual_ratio",
+                                                          "hand_support_moment_residual_ratio",
+                                                          "min_grasp_contacts", "min_grasp_active_contacts",
+                                                          "grasp_identity_problems", "nongrasp_bar_contacts_max",
+                                                          "bar_angular_discretization")},
+                         first_failure=r.get("first_failure"))
     deleted = copy.deepcopy(frames)
     for f in deleted:
         f["contacts"] = [c for c in f["contacts"] if not _is_hand_bar(c)]
@@ -111,6 +121,33 @@ def adversarial(frames, dt, verdict, nominal):
     for f in hidden:
         f["external"] = []
     run("undeclared_bar_support", "NUMERICAL_NOT_QUALIFIED", hidden, static["verdict"])
+    # Gate A false-support family: the bar-side wrench, the system force balance,
+    # contact admissibility and the static verdict are preserved; only the body
+    # claimed to carry the load changes.
+    run("external_support_hand_load_5pct", "GRASP_UNSUPPORTED",
+        scenes.redistribute_hand_load(frames, {"l": .05, "r": .05}))
+    run("unilateral_support_left_only", "GRASP_NOT_BILATERAL",
+        scenes.redistribute_hand_load(frames, {"l": 2., "r": 0.}))
+    for segment in ("forearm", "thigh", "torso"):
+        run(f"{segment}_relabelled_support", "GRASP_UNSUPPORTED", scenes.move_load_to_segment(frames, segment))
+    run("segment_only_no_grasp_contact", "GRASP_GEOMETRY_INFEASIBLE", scenes.segment_only(frames, "thigh"))
+    run("forged_pad_body_identity", "GRASP_IDENTITY_UNADMISSIBLE", scenes.forge_grasp_geom_body(frames))
+    run("forged_pad_contact_point", "GRASP_IDENTITY_UNADMISSIBLE", scenes.forge_contact_point(frames))
+    run("misassigned_contact_moment", "NUMERICAL_NOT_QUALIFIED", scenes.swap_contact_sites(frames))
+    run("reversed_hand_forces", "NUMERICAL_NOT_QUALIFIED", scenes.reverse_one_hand(frames, "l"))
+    return out
+
+
+def positive_controls(frames, dt, verdict):
+    """Controls that must keep qualifying: asymmetric bilateral sharing and the elliptic model."""
+    out = {}
+    asymmetric = scenes.redistribute_hand_load(frames, {"l": .6, "r": 1.4})
+    r = evaluate_receiving(asymmetric, dt, verdict)
+    ev = r.get("evidence", {})
+    out["asymmetric_30_70_bilateral_support"] = dict(
+        observed=r["outcome"], qualified=r["outcome"] == "RECEIVING_HOLD_QUALIFIED",
+        support_ratio=ev.get("hand_support_impulse_ratio"), support_share=ev.get("hand_support_share"),
+        note="asymmetric hand load sharing is physically admissible; only the bilateral minimum share is gated")
     return out
 
 
@@ -132,9 +169,15 @@ def run(out, quick=False):
                                if k in ("bar_displacement_in_hand_m", "hand_support_ratio_mean", "hand_support_ratio_min",
                                         "min_hand_contacts", "min_cop_margin_m", "min_com_projection_margin_m",
                                         "floor_vertical_over_weight_mean", "max_penetration_m", "posture_saturation_samples",
-                                        "contact_problems", "over_capacity")},
+                                        "contact_problems", "over_capacity", "min_grasp_contacts", "min_grasp_active_contacts",
+                                        "hand_support_impulse_ratio", "hand_support_share",
+                                        "hand_support_force_residual_ratio", "hand_support_moment_residual_ratio",
+                                        "hand_active_frame_fraction", "nongrasp_bar_contacts_max",
+                                        "grasp_identity_problems", "grasp_contract_problems")},
+                     first_failure=r.get("first_failure"),
                      bar_linear_residual_n_s=r["evidence"].get("bar_newton_euler", {}).get("max_step_linear_residual_n_s"),
-                     bar_angular_excess_n_m_s=r["evidence"].get("bar_angular_discretization", {}).get("max_excess_over_discretization_n_m_s"),
+                     bar_angular_residual_n_m_s=r["evidence"].get("bar_angular_discretization", {}).get("max_residual_n_m_s"),
+                     bar_angular_tolerance_n_m_s=r["evidence"].get("bar_angular_discretization", {}).get("tolerance_n_m_s"),
                      system_step_residual_n_s=r["evidence"].get("system_newton_euler", {}).get("max_step_linear_residual_n_s"),
                      bar_mass_kg=next(b for b in frames[0]["bodies"] if b["name"] == "barbell")["mass"],
                      model_total_mass_kg=sum(b["mass"] for b in frames[0]["bodies"]))
@@ -157,19 +200,22 @@ def run(out, quick=False):
         if name == "nominal_2s":
             nominal_frames = (frames, dt, static["verdict"])
     adv = adversarial(*nominal_frames, nominal)
+    pos = positive_controls(*nominal_frames)
     required = [n for n in EXPECTED_QUALIFIED if n in results]
     red_refused = red_eval["outcome"] != "RECEIVING_HOLD_QUALIFIED" and red_static != "STATIC_EQUILIBRIUM_CERTIFIED"
     anthro = {n: results[n]["expectation_met"] for n in ANTHROPOMETRIC if n in results}
     core_met = all(v["expectation_met"] for k, v in results.items() if k not in ANTHROPOMETRIC)
     final = ("RECEIVING_HOLD_QUALIFIED" if all(results[n]["outcome"] == "RECEIVING_HOLD_QUALIFIED" for n in required)
-             and core_met and red_refused and all(a["refused"] for a in adv.values()) else "RECEIVING_NOT_QUALIFIED")
+             and core_met and red_refused and all(a["refused"] for a in adv.values())
+             and all(p["qualified"] for p in pos.values()) else "RECEIVING_NOT_QUALIFIED")
     report = dict(issue="RES-624", **source_receipt(), receipt=full_receipt(plants), final_verdict=final, scope="declared Human V2 computational model; "
                   "20 kg unplated bar; static overhead POWER receiving hold, not a lift or catch",
                   red_canary=dict(static_verdict=red_static, outcome=red_eval["outcome"], reason=str(red_eval.get("reason")),
                                   bar_drop_m=red_drop, refused=red_refused),
-                  cases=results, adversarial=adv, required_qualified=required,
+                  cases=results, adversarial=adv, adversarial_positive=pos, required_qualified=required,
                   expectations_met=sum(v["expectation_met"] for v in results.values()), expectations_total=len(results),
                   adversarial_refused=sum(a["refused"] for a in adv.values()), adversarial_total=len(adv),
+                  adversarial_positive_qualified=sum(p["qualified"] for p in pos.values()), adversarial_positive_total=len(pos),
                   anthropometric_generalization=("QUALIFIED_BOTH" if anthro and all(anthro.values()) else
                                                  "NOT_CERTIFIED" if anthro else "NOT_RUN"), claims=CLAIMS)
     (out/"receiving_qualification.json").write_text(json.dumps(report, indent=2, sort_keys=True, default=float)+"\n", encoding="utf-8")

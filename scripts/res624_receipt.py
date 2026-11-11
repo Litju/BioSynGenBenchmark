@@ -22,10 +22,13 @@ SOURCES = (
     "biosyngen/spatial/grasp_fixture.py", "biosyngen/spatial/grasp_mechanics.py", "biosyngen/spatial/grasp_diagnostics.py",
     "biosyngen/spatial/receiving_grasp_v2.py", "biosyngen/spatial/receiving_v2.py",
     "biosyngen_benchmark/receiving_acceptance.py", "biosyngen_benchmark/spatial_oracle.py", "biosyngen_benchmark/rigid_body_check.py",
+    "biosyngen_benchmark/grasp_contract.py",
     "scripts/res624_receiving_campaign.py", "scripts/res624_receiving_qualification.py", "scripts/res624_numerical_verification.py",
-    "scripts/res624_red_canary.py", "scripts/res624_anthropometric_diagnosis.py", "scripts/res618_fullbody_qualification.py",
+    "scripts/res624_adversarial_scenes.py", "scripts/res624_red_canary.py", "scripts/res624_anthropometric_diagnosis.py",
+    "scripts/res618_fullbody_qualification.py",
 )
-EVALUATOR = ("biosyngen_benchmark/receiving_acceptance.py", "biosyngen_benchmark/spatial_oracle.py", "biosyngen_benchmark/rigid_body_check.py")
+EVALUATOR = ("biosyngen_benchmark/receiving_acceptance.py", "biosyngen_benchmark/spatial_oracle.py",
+             "biosyngen_benchmark/rigid_body_check.py", "biosyngen_benchmark/grasp_contract.py")
 
 
 def _git(*args):
