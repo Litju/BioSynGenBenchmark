@@ -33,6 +33,7 @@ from biosyngen.spatial.plant_v2 import HumanV2Plant
 from biosyngen.spatial.receiving_grasp_v2 import (actuator_export, bar_frame, forward_receiving_hold, hand_frames,
                                                    qualify_static)
 from biosyngen.spatial.receiving_v2 import solve_candidate
+from biosyngen_benchmark.failure_signature import adversarial_signature, case_failure_signature
 from biosyngen_benchmark.qualification_scope import REQUIRED_NOMINAL, qualify_scope
 from biosyngen_benchmark.receiving_acceptance import evaluate_receiving
 from scripts.res624_grasp_diagnosis import CLAIMS, source_receipt
@@ -93,6 +94,7 @@ def adversarial(frames, dt, verdict, nominal):
                                                           "grasp_identity_problems", "nongrasp_bar_contacts_max",
                                                           "bar_angular_discretization")},
                          first_failure=r.get("first_failure"))
+        out[name]["signature"] = adversarial_signature(out[name])
     deleted = copy.deepcopy(frames)
     for f in deleted:
         f["contacts"] = [c for c in f["contacts"] if not _is_hand_bar(c)]
@@ -181,7 +183,7 @@ def run(out, quick=False):
     _, nominal = build_nominal()
     red, red_static, red_drop = red_frames()
     red_eval = evaluate_receiving(red, .001, red_static)
-    results, nominal_frames, plants = {}, None, {}
+    results, nominal_frames, plants, negative_frames = {}, None, {}, {}
     for name, spec, mod, dur, kw in cases(quick):
         frames, static, plant = run_case(name, spec, mod, dur, kw, nominal)
         dt = plant.model.opt.timestep
@@ -218,11 +220,13 @@ def run(out, quick=False):
             entry["pre_release"] = dict(outcome=rp["outcome"], all_failures=[f"{x['outcome']}:{x['reason']}" for x in rp.get("failures", [])])
             entry["expectation"] = "pre-release QUALIFIED and post-release GRASP_SLIP"
             entry["expectation_met"] = rp["outcome"] == "RECEIVING_HOLD_QUALIFIED" and any(c.startswith("GRASP_SLIP:CONTACT_LOST") for c in codes)
+            negative_frames[name] = (frames, dt, static["verdict"], r, entry["expectation"], release, "GRASP_SLIP")
         elif name in NEGATIVE_EXPECTATION:
             entry["expectation"] = "REFUSED:" + NEGATIVE_EXPECTATION[name]
             entry["expectation_met"] = (r["outcome"] != "RECEIVING_HOLD_QUALIFIED"
                                         and any(c.startswith(NEGATIVE_EXPECTATION[name]+":") for c in codes)
                                         and static["verdict"] != "STATIC_EQUILIBRIUM_CERTIFIED")
+            negative_frames[name] = (frames, dt, static["verdict"], r, entry["expectation"], None, NEGATIVE_EXPECTATION[name])
         else:
             entry["expectation"] = "QUALIFIED"
             entry["expectation_met"] = r["outcome"] == "RECEIVING_HOLD_QUALIFIED"
@@ -235,7 +239,11 @@ def run(out, quick=False):
     required = [n for n in EXPECTED_QUALIFIED if n in results]
     red_refused = red_eval["outcome"] != "RECEIVING_HOLD_QUALIFIED" and red_static != "STATIC_EQUILIBRIUM_CERTIFIED"
     anthro = {n: results[n]["expectation_met"] for n in ANTHROPOMETRIC if n in results}
-    report = dict(issue="RES-624", **source_receipt(), receipt=full_receipt(plants), scope="declared Human V2 computational model; "
+    receipt = full_receipt(plants)
+    for name, (fr, dtc, sv, res, exp, onset, code) in negative_frames.items():
+        results[name]["failure_signature"] = case_failure_signature(
+            name, fr, dtc, sv, res, exp, receipt, onset_s=onset, required_code=code)
+    report = dict(issue="RES-624", **source_receipt(), receipt=receipt, scope="declared Human V2 computational model; "
                   "20 kg unplated bar; static overhead POWER receiving hold, not a lift or catch",
                   red_canary=dict(static_verdict=red_static, outcome=red_eval["outcome"], reason=str(red_eval.get("reason")),
                                   bar_drop_m=red_drop, refused=red_refused),

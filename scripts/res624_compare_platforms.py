@@ -14,8 +14,15 @@ must be identical. The measured quantities must agree within tolerances far belo
   * bar trajectory refinement           both platforms: differences < 1 mm and decreasing with dt. The ratio of
                                         two ~1e-5 m differences is noise-amplified by contact chatter across
                                         platforms (hosted measurement 1.88 vs 2.37), so it is reported, not gated.
-  * physical negative controls (release, halved arm capacity) end in chaotic impact: only the preregistered
-    expectation (and its named failure category) is compared, not incidental secondary categories.
+  * physical negative controls (release, halved arm capacity) are compared through a predeclared physical
+    failure signature: required/observed category, primary reason, first failure and contact-loss event
+    (within 20 ms), pre-failure qualified interval, support ratio/share and bar displacement (within the
+    declared tolerances), and model/solver/source identity. Incidental post-impact trajectories, secondary
+    failure categories and force chatter are reported, not gated. A different primary mechanism, a
+    different first contact-loss event beyond tolerance, different pre-failure support, a different
+    source/solver identity or a missing signature fails the comparison.
+  * frame-level adversarial controls are compared on expected/observed/primary reason, not merely on a
+    generic refusal.
   * exact Git HEAD, MuJoCo, SciPy and NumPy versions must match.
 """
 from __future__ import annotations
@@ -25,7 +32,10 @@ import json
 import sys
 from pathlib import Path
 
-TOL = dict(displacement_m=1e-3, ratio=1e-2, energy_relative=5e-3, trajectory_m=1e-3)
+from biosyngen_benchmark.negative_signature import compare_case_signatures
+
+TOL = dict(displacement_m=1e-3, ratio=1e-2, energy_relative=5e-3, trajectory_m=1e-3,
+           failure_onset_s=5e-2, pre_failure_support=1e-2, pre_failure_displacement_m=1e-3)
 
 
 def load(root, name, platform):
@@ -51,20 +61,47 @@ def compare(root):
             problems.append(f"case {name} missing on one platform")
             continue
         negative = ca["expectation"] != "QUALIFIED"
-        for k in (("static_verdict", "expectation_met") if negative else ("static_verdict", "outcome", "all_failures", "expectation_met")):
-            if ca[k] != cb[k]:
-                problems.append(f"{name}.{k}: {ca[k]} vs {cb[k]}")
-        ea, eb = ca["evidence"], cb["evidence"]
-        for k, tol in (("bar_displacement_in_hand_m", TOL["displacement_m"]), ("hand_support_ratio_mean", TOL["ratio"]),
-                       ("floor_vertical_over_weight_mean", TOL["ratio"])):
-            if k in ea and k in eb:
-                d = abs(ea[k]-eb[k])
-                deltas[f"{name}.{k}"] = d
-                if d > tol and ca["expectation"] == "QUALIFIED":
-                    problems.append(f"{name}.{k} differs by {d:.3e} > {tol}")
-    for k in qa["adversarial"]:
-        if qa["adversarial"][k]["observed"] != qb["adversarial"][k]["observed"]:
-            problems.append(f"adversarial {k} observed differs")
+        if negative:
+            for k in ("static_verdict", "expectation_met"):
+                if ca[k] != cb[k]:
+                    problems.append(f"{name}.{k}: {ca[k]} vs {cb[k]}")
+            problems += [f"{name}: {p}" for p in compare_case_signatures(
+                ca.get("failure_signature"), cb.get("failure_signature"),
+                onset_tolerance_s=TOL["failure_onset_s"], support_tolerance=TOL["pre_failure_support"],
+                displacement_tolerance_m=TOL["pre_failure_displacement_m"])]
+            fa = (ca.get("failure_signature") or {}).get("first_event") or {}
+            fb = (cb.get("failure_signature") or {}).get("first_event") or {}
+            if fa.get("t_s") is not None and fb.get("t_s") is not None:
+                deltas[f"{name}.failure_onset_s"] = abs(float(fa["t_s"])-float(fb["t_s"]))
+            pa = (ca.get("failure_signature") or {}).get("qualified_prefix") or {}
+            pb = (cb.get("failure_signature") or {}).get("qualified_prefix") or {}
+            if pa.get("support_ratio") is not None and pb.get("support_ratio") is not None:
+                deltas[f"{name}.pre_failure_support"] = abs(float(pa["support_ratio"])-float(pb["support_ratio"]))
+        else:
+            for k in ("static_verdict", "outcome", "all_failures", "expectation_met"):
+                if ca[k] != cb[k]:
+                    problems.append(f"{name}.{k}: {ca[k]} vs {cb[k]}")
+            ea, eb = ca["evidence"], cb["evidence"]
+            for k, tol in (("bar_displacement_in_hand_m", TOL["displacement_m"]), ("hand_support_ratio_mean", TOL["ratio"]),
+                           ("floor_vertical_over_weight_mean", TOL["ratio"])):
+                if k in ea and k in eb:
+                    d = abs(ea[k]-eb[k])
+                    deltas[f"{name}.{k}"] = d
+                    if d > tol:
+                        problems.append(f"{name}.{k} differs by {d:.3e} > {tol}")
+    for name in sorted(set(qa.get("adversarial", {})) | set(qb.get("adversarial", {}))):
+        aa = (qa.get("adversarial") or {}).get(name)
+        ab = (qb.get("adversarial") or {}).get(name)
+        if aa is None or ab is None:
+            problems.append(f"adversarial {name} missing on one platform")
+            continue
+        sa, sb = aa.get("signature"), ab.get("signature")
+        if not sa or not sb:
+            problems.append(f"adversarial {name}: negative signature missing")
+            continue
+        for key in ("expected", "observed", "reason"):
+            if sa.get(key) != sb.get(key):
+                problems.append(f"adversarial {name}.{key}: {sa.get(key)} vs {sb.get(key)}")
     if na["checks"] != nb["checks"]:
         problems.append("numerical-verification checks differ")
     d = abs(na["energy"]["relative_to_gross_flux"]-nb["energy"]["relative_to_gross_flux"])

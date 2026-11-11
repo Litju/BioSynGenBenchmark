@@ -30,7 +30,7 @@ def _report(final="RECEIVING_HOLD_QUALIFIED", disp=.0012):
                 expectation="QUALIFIED", expectation_met=True,
                 evidence=dict(bar_displacement_in_hand_m=disp, hand_support_ratio_mean=1.0, floor_vertical_over_weight_mean=1.0))
     q = dict(receipt=dict(head="h", mujoco="3.3.7", scipy="1.17.1", numpy="2.4.4"), final_verdict=final,
-             cases=dict(nominal_2s=case), adversarial=dict(a=dict(observed="X")))
+             cases=dict(nominal_2s=case), adversarial=dict(a=dict(observed="X", signature=dict(expected="X", observed="X", reason="R"))))
     n = dict(checks=dict(x=True), energy=dict(relative_to_gross_flux=8e-5), timestep_refinement=dict(observed_ratio=1.94, bar_traj_max_diff_1ms_vs_0p5ms_m=1.5e-5, bar_traj_max_diff_0p5ms_vs_0p25ms_m=7.9e-6),
              energy_refinement=dict(observed_order=[1.0, 1.0]),
              fingerprint=dict(sha256="f"))

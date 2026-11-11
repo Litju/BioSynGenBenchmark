@@ -405,27 +405,38 @@ def evaluate_receiving(frames, dt_s, static_verdict, *, bar="barbell", settle_s=
         fail("NUMERICAL_NOT_QUALIFIED", "SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD")
     # 2. contact admissibility.
     problems, max_pen = [], 0.0
+    first_contact_t = None
     for f in frames:
-        problems += contact_admissibility(f)["problems"]
-        max_pen = max([max_pen] + [-c["dist"] for c in f["contacts"]])
+        frame_problems = contact_admissibility(f)["problems"]
+        frame_pen = max([-c["dist"] for c in f["contacts"]], default=0.)
+        if (frame_problems or frame_pen > .1*shaft_radius_m) and first_contact_t is None:
+            first_contact_t = float(f["t"])
+        problems += frame_problems
+        max_pen = max(max_pen, frame_pen)
     evidence.update(contact_problems=len(problems), max_penetration_m=max_pen)
     if problems or max_pen > .1*shaft_radius_m:
-        fail("CONTACT_INADMISSIBLE", (problems[:3] or "PENETRATION"))
+        fail("CONTACT_INADMISSIBLE", (problems[:3] or "PENETRATION"), first_contact_t)
     # 3. actuator capacity.
     over, posture_sat = 0, 0
+    first_capacity_t = None
     for f in window:
         a = f.get("actuators")
         if a is None:
-            fail("ACTUATOR_INFEASIBLE", "ACTUATOR_EXPORT_MISSING")
+            fail("ACTUATOR_INFEASIBLE", "ACTUATOR_EXPORT_MISSING", f["t"])
             break
+        frame_capacity = False
         for name, force, cap in zip(a["names"], a["force"], a["capacity"]):
             if abs(force) > cap*(1+1e-9):
                 over += 1
+                frame_capacity = True
             elif abs(force) >= cap*(1-1e-9) and not name.endswith(GRIP_ACTUATORS):
                 posture_sat += 1
+                frame_capacity = True
+        if frame_capacity and first_capacity_t is None:
+            first_capacity_t = float(f["t"])
     evidence.update(over_capacity=over, posture_saturation_samples=posture_sat)
     if over or posture_sat:
-        fail("ACTUATOR_INFEASIBLE", "CAPACITY")
+        fail("ACTUATOR_INFEASIBLE", "CAPACITY", first_capacity_t)
     # 4. grasp identity, geometry, relative slip, load-bearing support and bilateral share.
     ledgers = [classify_frame(f, bar) for f in window]
     identity_problems = sorted({str(p) for led in ledgers for p in led["identity_problems"]})
