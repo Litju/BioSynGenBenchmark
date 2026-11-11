@@ -351,6 +351,14 @@ def hand_frames(plant):
     return out
 
 
+def bar_frame(plant):
+    """Barbell body-frame pose: position, rotation and shaft (local y) axis."""
+    m, d = plant.model, plant.data
+    b = plant.body_id("barbell")
+    R = d.xmat[b].reshape(3, 3)
+    return dict(position=d.xpos[b].tolist(), rotation=R.tolist(), axis=R[:, 1].tolist())
+
+
 def actuator_export(plant):
     m, d = plant.model, plant.data
     names = [mujoco.mj_id2name(m, mujoco.mjtObj.mjOBJ_ACTUATOR, a) for a in range(m.nu)]
@@ -380,6 +388,7 @@ def forward_receiving_hold(plant, certificate, duration_s=2.0, grip_frac=.6, pus
             f["external"] = [dict(body=mujoco.mj_id2name(m, mujoco.mjtObj.mjOBJ_BODY, b), point=d.xipos[b].tolist(),
                                   force=d.xfrc_applied[b, :3].tolist()) for b in range(1, m.nbody) if np.any(d.xfrc_applied[b])]
             f["hand_frames"] = hand_frames(plant)
+            f["bar_frame"] = bar_frame(plant)
             f["actuators"] = actuator_export(plant)
             f["energy"] = dict(qvel_dot_actuator=float(d.qvel @ d.qfrc_actuator),
                                qvel_dot_passive=float(d.qvel @ d.qfrc_passive),
@@ -397,6 +406,7 @@ def forward_receiving_hold(plant, certificate, duration_s=2.0, grip_frac=.6, pus
     mujoco.mj_forward(m, d)
     f = plant.export_frame()
     f["hand_frames"] = hand_frames(plant)
+    f["bar_frame"] = bar_frame(plant)
     f["actuators"] = actuator_export(plant)
     f["energy"] = dict(armature_ke_j=float(.5*np.sum(m.dof_armature*d.qvel**2)))
     frames.append(f)

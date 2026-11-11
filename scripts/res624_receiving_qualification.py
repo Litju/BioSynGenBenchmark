@@ -30,7 +30,8 @@ import mujoco
 
 from biosyngen.spatial.model_v2 import HumanV2Spec
 from biosyngen.spatial.plant_v2 import HumanV2Plant
-from biosyngen.spatial.receiving_grasp_v2 import actuator_export, forward_receiving_hold, hand_frames, qualify_static
+from biosyngen.spatial.receiving_grasp_v2 import (actuator_export, bar_frame, forward_receiving_hold, hand_frames,
+                                                   qualify_static)
 from biosyngen.spatial.receiving_v2 import solve_candidate
 from biosyngen_benchmark.receiving_acceptance import evaluate_receiving
 from scripts.res624_grasp_diagnosis import CLAIMS, source_receipt
@@ -62,12 +63,12 @@ def red_frames(duration_s=.3):
         d.xfrc_applied[plant.body_id("barbell"), 0] = 0
         mujoco.mj_forward(m, d)
         f = plant.export_frame()
-        f["hand_frames"], f["actuators"] = hand_frames(plant), actuator_export(plant)
+        f["hand_frames"], f["bar_frame"], f["actuators"] = hand_frames(plant), bar_frame(plant), actuator_export(plant)
         frames.append(f)
         mujoco.mj_step(m, d)
     mujoco.mj_forward(m, d)
     f = plant.export_frame()
-    f["hand_frames"], f["actuators"] = hand_frames(plant), actuator_export(plant)
+    f["hand_frames"], f["bar_frame"], f["actuators"] = hand_frames(plant), bar_frame(plant), actuator_export(plant)
     frames.append(f)
     return frames, static["verdict"], float(frames[0]["bodies"][-1]["com"][2]-frames[-1]["bodies"][-1]["com"][2])
 
@@ -135,11 +136,19 @@ def adversarial(frames, dt, verdict, nominal):
     run("forged_pad_contact_point", "GRASP_IDENTITY_UNADMISSIBLE", scenes.forge_contact_point(frames))
     run("misassigned_contact_moment", "NUMERICAL_NOT_QUALIFIED", scenes.swap_contact_sites(frames))
     run("reversed_hand_forces", "NUMERICAL_NOT_QUALIFIED", scenes.reverse_one_hand(frames, "l"))
+    # Gate B relative bar pose: the COM can stay put while the bar tilts, slips
+    # along its axis or the reported hand frame is wrong.
+    run("bar_tilt_10deg_zero_translation", "GRASP_SLIP", scenes.rotate_reported_bar_ramp(frames, tilt_deg=10.))
+    run("bar_axial_slip_5mm", "GRASP_SLIP", scenes.translate_bar_axially(frames, .005))
+    run("right_hand_frame_10deg_offset", "GRASP_SLIP", scenes.offset_hand_frame(frames, "r", 10., "x"))
+    run("hand_frames_ramp_5deg", "GRASP_SLIP", scenes.ramp_hand_frames(frames, "r", 4., "z"))
+    run("right_grip_zero_load_left_carries_all", "GRASP_NOT_BILATERAL",
+        scenes.redistribute_hand_load(frames, {"l": 2., "r": 0.}))
     return out
 
 
 def positive_controls(frames, dt, verdict):
-    """Controls that must keep qualifying: asymmetric bilateral sharing and the elliptic model."""
+    """Controls that must keep qualifying: asymmetric sharing and permitted grip motion."""
     out = {}
     asymmetric = scenes.redistribute_hand_load(frames, {"l": .6, "r": 1.4})
     r = evaluate_receiving(asymmetric, dt, verdict)
@@ -148,6 +157,20 @@ def positive_controls(frames, dt, verdict):
         observed=r["outcome"], qualified=r["outcome"] == "RECEIVING_HOLD_QUALIFIED",
         support_ratio=ev.get("hand_support_impulse_ratio"), support_share=ev.get("hand_support_share"),
         note="asymmetric hand load sharing is physically admissible; only the bilateral minimum share is gated")
+    twist = scenes.rotate_reported_bar_ramp(frames, twist_deg=30.)
+    r = evaluate_receiving(twist, dt, verdict)
+    pose = r.get("evidence", {}).get("relative_bar_pose", {})
+    out["bar_shaft_twist_30deg"] = dict(
+        observed=r["outcome"], qualified=r["outcome"] == "RECEIVING_HOLD_QUALIFIED",
+        twist_deg=pose.get("max_twist_deg"), axisymmetric=pose.get("axisymmetric"), twist_gated=pose.get("twist_gated"),
+        note="the unplated shaft/sleeve body is axisymmetric, so rotation about its own shaft is permitted by the declared grip")
+    small = scenes.small_legitimate_relative_motion(frames)
+    r = evaluate_receiving(small, dt, verdict)
+    pose = r.get("evidence", {}).get("relative_bar_pose", {})
+    out["small_relative_motion_within_grip"] = dict(
+        observed=r["outcome"], qualified=r["outcome"] == "RECEIVING_HOLD_QUALIFIED",
+        tilt_deg=pose.get("max_tilt_deg"), contact_site_drift_m=pose.get("max_contact_site_drift_m"),
+        note="0.5 deg reported tilt and 0.5 mm hand-frame translation are inside the declared grip bounds")
     return out
 
 
@@ -173,7 +196,7 @@ def run(out, quick=False):
                                         "hand_support_impulse_ratio", "hand_support_share",
                                         "hand_support_force_residual_ratio", "hand_support_moment_residual_ratio",
                                         "hand_active_frame_fraction", "nongrasp_bar_contacts_max",
-                                        "grasp_identity_problems", "grasp_contract_problems")},
+                                        "grasp_identity_problems", "grasp_contract_problems", "relative_bar_pose")},
                      first_failure=r.get("first_failure"),
                      bar_linear_residual_n_s=r["evidence"].get("bar_newton_euler", {}).get("max_step_linear_residual_n_s"),
                      bar_angular_residual_n_m_s=r["evidence"].get("bar_angular_discretization", {}).get("max_residual_n_m_s"),

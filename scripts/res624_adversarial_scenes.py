@@ -21,6 +21,7 @@ NUMERICAL_VERIFICATION_ONLY.
 from __future__ import annotations
 
 import copy
+import math
 
 import numpy as np
 
@@ -228,4 +229,104 @@ def segment_only(frames, segment="thigh", bar=BAR_BODY):
             else:
                 contact["body2"] = body_l if row["side"] == "l" else body_r
                 contact["geom2"] = geom_l if row["side"] == "l" else geom_r
+    return out
+
+def rotate_reported_bar(frames, tilt_deg=0.0, twist_deg=0.0, bar=BAR_BODY):
+    """Rotate only the *reported* bar orientation.
+
+    ``tilt_deg`` rotates the shaft axis away from the hand grip axis (the
+    invalid "large rotation with almost no COM translation" control);
+    ``twist_deg`` rolls the bar about its own shaft (a permitted rotation for
+    the declared axisymmetric unplated shaft).
+    """
+    out = copy.deepcopy(frames)
+    for frame in out:
+        R = np.asarray(frame["bar_frame"]["rotation"], float)
+        if tilt_deg:
+            a = math.radians(tilt_deg)
+            R = np.array([[1., 0., 0.], [0., math.cos(a), -math.sin(a)], [0., math.sin(a), math.cos(a)]]) @ R
+        if twist_deg:
+            a = math.radians(twist_deg)
+            R = R @ np.array([[math.cos(a), 0., math.sin(a)], [0., 1., 0.], [-math.sin(a), 0., math.cos(a)]])
+        frame["bar_frame"]["rotation"] = R.tolist()
+        frame["bar_frame"]["axis"] = R[:, 1].tolist()
+    return out
+
+
+def translate_bar_axially(frames, shift_m=.005, start_s=.1, bar=BAR_BODY):
+    """Slide the bar along its own shaft axis relative to the hands.
+
+    The bar's COM, body-frame origin and the bar-side contact points all move by
+    the same amount, so the contact wrench and the angular balance about the bar
+    COM are unchanged; only the hand-relative axial position changes. That
+    isolates the axial-slip criterion from the balance checks.
+    """
+    out = copy.deepcopy(frames)
+    t0, t1 = float(start_s), float(frames[-1]["t"])
+    for frame in out:
+        frac = 0.0 if t1 <= t0 else max(0., min(1., (frame["t"]-t0)/(t1-t0)))
+        d = shift_m*frac*np.asarray(frame["bar_frame"]["axis"], float)
+        frame["bar_frame"]["position"] = (np.asarray(frame["bar_frame"]["position"], float)+d).tolist()
+        body = next(b for b in frame["bodies"] if b["name"] == bar)
+        body["com"] = (np.asarray(body["com"], float)+d).tolist()
+        for c in frame["contacts"]:
+            if bar in (c["body1"], c["body2"]):
+                c["point"] = (np.asarray(c["point"], float)+d).tolist()
+    return out
+
+
+def rotate_reported_bar_ramp(frames, tilt_deg=0.0, twist_deg=0.0, start_s=.1, bar=BAR_BODY):
+    """Rotate only the reported bar orientation progressively after settling."""
+    out = copy.deepcopy(frames)
+    t0, t1 = float(start_s), float(frames[-1]["t"])
+    for frame in out:
+        frac = 0.0 if t1 <= t0 else max(0., min(1., (frame["t"]-t0)/(t1-t0)))
+        R = np.asarray(frame["bar_frame"]["rotation"], float)
+        if tilt_deg and frac:
+            a = math.radians(tilt_deg*frac)
+            R = np.array([[1., 0., 0.], [0., math.cos(a), -math.sin(a)], [0., math.sin(a), math.cos(a)]]) @ R
+        if twist_deg and frac:
+            a = math.radians(twist_deg*frac)
+            R = R @ np.array([[math.cos(a), 0., math.sin(a)], [0., 1., 0.], [-math.sin(a), 0., math.cos(a)]])
+        frame["bar_frame"]["rotation"] = R.tolist()
+        frame["bar_frame"]["axis"] = R[:, 1].tolist()
+    return out
+
+
+def offset_hand_frame(frames, side="r", angle_deg=10.0, axis="x"):
+    """Report a constant hand-frame orientation offset (wrong grip frame)."""
+    out = copy.deepcopy(frames)
+    a = math.radians(angle_deg)
+    c, s = math.cos(a), math.sin(a)
+    Roff = {"x": np.array([[1., 0., 0.], [0., c, -s], [0., s, c]]),
+            "y": np.array([[c, 0., s], [0., 1., 0.], [-s, 0., c]]),
+            "z": np.array([[c, -s, 0.], [s, c, 0.], [0., 0., 1.]])}[axis]
+    for frame in out:
+        Rh = np.asarray(frame["hand_frames"][side]["rotation"], float)
+        frame["hand_frames"][side]["rotation"] = (Roff@Rh).tolist()
+    return out
+
+
+def ramp_hand_frames(frames, side="r", angle_deg=5.0, axis="x"):
+    """Rotate one reported hand frame progressively (hands rotating in the grip)."""
+    out = copy.deepcopy(frames)
+    t0, t1 = out[0]["t"], out[-1]["t"]
+    for frame in out:
+        frac = 0.0 if t1 <= t0 else max(0., min(1., (frame["t"]-t0)/(t1-t0)))
+        a = math.radians(angle_deg*frac)
+        c, s = math.cos(a), math.sin(a)
+        Roff = {"x": np.array([[1., 0., 0.], [0., c, -s], [0., s, c]]),
+                "y": np.array([[c, 0., s], [0., 1., 0.], [-s, 0., c]]),
+                "z": np.array([[c, -s, 0.], [s, c, 0.], [0., 0., 1.]])}[axis]
+        Rh = np.asarray(frame["hand_frames"][side]["rotation"], float)
+        frame["hand_frames"][side]["rotation"] = (Roff@Rh).tolist()
+    return out
+
+
+def small_legitimate_relative_motion(frames, side="r", tilt_deg=.5, hand_shift_m=.0005, bar=BAR_BODY):
+    """Small orientation/position change inside the declared grip bounds (must pass)."""
+    out = rotate_reported_bar(frames, tilt_deg=tilt_deg, bar=bar)
+    d = np.array([hand_shift_m, 0., 0.])
+    for frame in out:
+        frame["hand_frames"][side]["position"] = (np.asarray(frame["hand_frames"][side]["position"], float)+d).tolist()
     return out

@@ -70,6 +70,18 @@ Declared tolerances and their basis:
     bounded declared perturbations, but not a second support path.
   * Bilateral share: each hand >= 2 % of the weight impulse (3.9 N for the
     20 kg bar); the measured nominal split is 49.96/50.08 %.
+  * Relative bar pose: the shaft axis may tilt at most 2 deg in a hand frame
+    (the axis moves r*sin(2 deg) = 0.49 mm, 3.5 % of the shaft radius; nominal
+    0.47 deg), the perpendicular relative angular rate is bounded at 0.2 rad/s
+    (2.8 mm/s at the shaft surface; nominal 0.042 rad/s), axial slip at 2 mm
+    (0.14 shaft radius; nominal 0.15 mm) and load-bearing contact-site
+    migration at 5 mm (0.36 shaft radius; nominal 2.3 mm over 2 s). The shaft
+    axis must be within 5 deg of the hand frame's declared local y grip axis
+    (nominal 0.05 deg). Rotation about the shaft axis is reported and gated
+    (15 deg) only when the exported bar inertia is not axisymmetric about it;
+    the declared unplated shaft/sleeve body is axisymmetric, so a shaft roll is
+    permitted by the declared grip rather than treated as slip. Angles use
+    SO(3) geodesics with acos-on-trace wrapping, not Euler differences.
   * Bar angular balance: the one-step residual about the moving bar COM may
     not exceed the engine step's rigid-body discretization terms
     dt|w x Iw| + |(I_k+1 - I_k) w| by more than 1e-6*W*dt*0.25 m
@@ -96,6 +108,25 @@ GRIP_ACTUATORS = ("_finger_flex", "_finger_distal", "_thumb_opposition")
 SUPPORT_SHORTFALL = .02
 WRENCH_TOLERANCE = 1e-3
 ACTIVE_FRAME_FRACTION = .9
+# Gate B relative-pose bounds. The shaft axis may tilt by at most 2 deg in a
+# hand frame (the axis moves r*sin(2 deg) = 0.49 mm, 3.5 % of the shaft radius,
+# inside the pad contact); the measured nominal maximum is 0.47 deg. The
+# perpendicular relative angular rate is bounded at 0.2 rad/s (2.8 mm/s at the
+# shaft surface; nominal 0.042 rad/s). Axial slip is bounded at 2 mm (0.14
+# shaft radius; nominal 0.15 mm) and the load-bearing contact site may migrate
+# at most 5 mm in the hand frame (0.36 shaft radius; nominal 2.3 mm over 2 s).
+TILT_MAX_DEG = 2.0
+OMEGA_REL_PERP_MAX_RAD_S = .2
+AXIAL_SLIP_MAX_M = .002
+CONTACT_SITE_DRIFT_MAX_M = .005
+# The declared grip seats the shaft along the hand frame's local y axis. A
+# reported hand frame whose shaft axis is more than 5 deg away from that axis
+# does not represent the declared hand (nominal misalignment 0.05 deg).
+INITIAL_GRIP_ALIGNMENT_MAX_DEG = 5.0
+# Rotation about the shaft axis is only gated when the exported bar inertia is
+# not axisymmetric about that axis; the unplated shaft/sleeve body is
+# axisymmetric, so the declared grip permits the shaft to roll in the hand.
+TWIST_MAX_DEG_NON_AXISYMMETRIC = 15.0
 
 
 def _finite_frames(frames):
@@ -115,6 +146,122 @@ def _hull_margin(points, xy):
         return -math.inf
     return min(((b[0]-a[0])*(xy[1]-a[1])-(b[1]-a[1])*(xy[0]-a[0]))/math.dist(a, b)
                for a, b in zip(hull, hull[1:]+hull[:1]))
+
+
+def _rotation_angle(R):
+    """SO(3) geodesic angle in radians, wrapped through acos on the trace."""
+    return math.acos(float(np.clip((np.trace(R)-1.)/2., -1., 1.)))
+
+
+def _rotation_axis(R):
+    """Unit axis of a rotation matrix (the antisymmetric part, small-angle safe)."""
+    v = np.array([R[2, 1]-R[1, 2], R[0, 2]-R[2, 0], R[1, 0]-R[0, 1]])
+    n = float(np.linalg.norm(v))
+    if n <= 1e-12:
+        return np.zeros(3)
+    return v/n
+
+
+def _bar_axisymmetry(frame, bar=BAR_BODY):
+    """True when the exported bar inertia is axisymmetric about its local y shaft axis."""
+    I = np.asarray(next(b for b in frame["bodies"] if b["name"] == bar)["inertia_world"], float)
+    R = np.asarray(frame["bar_frame"]["rotation"], float)
+    eigvals, eigvecs = np.linalg.eigh(I)
+    order = np.argsort(eigvals)
+    eigvals, eigvecs = eigvals[order], eigvecs[:, order]
+    axis = R[:, 1]
+    aligned = abs(float(eigvecs[:, 0] @ axis)) > 1.-1e-6
+    equal_transverse = abs(float(eigvals[2]-eigvals[1])) <= 1e-6*max(1., float(eigvals[2]))
+    return bool(aligned and equal_transverse)
+
+
+def _relative_pose(window, bar, ledgers):
+    """Per-side relative bar pose, shaft-axis slip and load-site migration.
+
+    Uses SO(3) relative rotations (no Euler angles): the shaft tilt is the angle
+    between the bar's local y axis and the reference shaft axis expressed in the
+    hand frame; the full relative rotation is the geodesic of
+    ``R_rel(t) R_rel(0)^T``; its projection on the reference shaft axis is the
+    permitted shaft-axis twist. Axial slip is the hand-frame shaft-axis
+    component of the bar's position change; contact-site drift is the
+    normal-force-weighted mean active contact point expressed in the hand
+    frame. Angle wrapping is handled by acos on the trace.
+    """
+    ref = window[0]
+    axis0_world = np.asarray(ref["bar_frame"]["rotation"], float)[:, 1]
+    sides = ("l", "r")
+    R0 = {s: np.asarray(ref["hand_frames"][s]["rotation"], float) for s in sides}
+    p0 = {s: np.asarray(ref["hand_frames"][s]["position"], float) for s in sides}
+    axis0_hand = {s: R0[s].T@axis0_world for s in sides}
+    Rrel0 = {s: R0[s].T@np.asarray(ref["bar_frame"]["rotation"], float) for s in sides}
+    q0 = {s: R0[s].T@(np.asarray(next(b for b in ref["bodies"] if b["name"] == bar)["com"], float)-p0[s]) for s in sides}
+    site0 = {s: None for s in sides}
+    out = dict(axisymmetric=_bar_axisymmetry(ref, bar), twist_gated=False,
+               initial_grip_axis_misalignment_deg={s: 0. for s in sides},
+               max_tilt_deg={s: 0. for s in sides}, max_twist_deg={s: 0. for s in sides},
+               max_geodesic_deg={s: 0. for s in sides}, max_omega_rel_rad_s={s: 0. for s in sides},
+               max_omega_rel_perp_rad_s={s: 0. for s in sides}, max_axial_slip_m={s: 0. for s in sides},
+               max_com_displacement_m={s: 0. for s in sides}, max_contact_site_drift_m={s: 0. for s in sides},
+               first={})
+    if not out["axisymmetric"]:
+        out["twist_gated"] = True
+    for side in sides:
+        axis_now = R0[side].T@axis0_world
+        misalignment = math.degrees(math.acos(float(np.clip(axis_now@np.array([0., 1., 0.]), -1., 1.))))
+        out["initial_grip_axis_misalignment_deg"][side] = misalignment
+        if misalignment > INITIAL_GRIP_ALIGNMENT_MAX_DEG and "HAND_FRAME_GRIP_AXIS_MISALIGNED" not in out["first"]:
+            out["first"]["HAND_FRAME_GRIP_AXIS_MISALIGNED"] = dict(
+                t_s=float(ref["t"]), value=float(misalignment), limit=INITIAL_GRIP_ALIGNMENT_MAX_DEG, side=side)
+    for f, ledger in zip(window, ledgers):
+        Rbar = np.asarray(f["bar_frame"]["rotation"], float)
+        axis_world = Rbar[:, 1]
+        c = np.asarray(next(b for b in f["bodies"] if b["name"] == bar)["com"], float)
+        wbar = np.asarray(next(b for b in f["bodies"] if b["name"] == bar)["w"], float)
+        for side in sides:
+            Rh = np.asarray(f["hand_frames"][side]["rotation"], float)
+            ph = np.asarray(f["hand_frames"][side]["position"], float)
+            wh = np.asarray(next(b for b in f["bodies"] if b["name"] == side+"_hand")["w"], float)
+            axis_now = Rh.T@axis_world
+            tilt = math.degrees(math.acos(float(np.clip(axis_now@axis0_hand[side], -1., 1.))))
+            Rd = (Rh.T@Rbar)@Rrel0[side].T
+            geodesic = math.degrees(_rotation_angle(Rd))
+            twist = geodesic*float(_rotation_axis(Rd)@axis0_hand[side])
+            q = Rh.T@(c-ph)
+            axial = float((q-q0[side])@axis0_hand[side])
+            disp = float(np.linalg.norm(q-q0[side]))
+            wrel = wbar-wh
+            wperp = wrel-float(wrel@axis_world)*axis_world
+            rows = [r for r in ledger["contacts"] if r["side"] == side and r["active"]]
+            drift = 0.
+            if rows:
+                weights = np.array([max(r["normal_force"], 0.) for r in rows])
+                pts = np.array([np.asarray(r["point"], float) for r in rows])
+                site = Rh.T@((pts*weights[:, None]).sum(0)/weights.sum()-ph)
+                if site0[side] is None:
+                    site0[side] = site
+                drift = float(np.linalg.norm(site-site0[side]))
+            out["max_tilt_deg"][side] = max(out["max_tilt_deg"][side], tilt)
+            out["max_twist_deg"][side] = max(out["max_twist_deg"][side], abs(twist))
+            out["max_geodesic_deg"][side] = max(out["max_geodesic_deg"][side], geodesic)
+            out["max_omega_rel_rad_s"][side] = max(out["max_omega_rel_rad_s"][side], float(np.linalg.norm(wrel)))
+            out["max_omega_rel_perp_rad_s"][side] = max(out["max_omega_rel_perp_rad_s"][side], float(np.linalg.norm(wperp)))
+            out["max_axial_slip_m"][side] = max(out["max_axial_slip_m"][side], abs(axial))
+            out["max_com_displacement_m"][side] = max(out["max_com_displacement_m"][side], disp)
+            out["max_contact_site_drift_m"][side] = max(out["max_contact_site_drift_m"][side], drift)
+            for key, value, limit in (("RELATIVE_ROTATION_EXCEEDS_GRIP", tilt, TILT_MAX_DEG),
+                                      ("RELATIVE_ANGULAR_VELOCITY_EXCEEDS_GRIP", float(np.linalg.norm(wperp)),
+                                       OMEGA_REL_PERP_MAX_RAD_S),
+                                      ("AXIAL_SLIP_EXCEEDS_GRIP", abs(axial), AXIAL_SLIP_MAX_M),
+                                      ("CONTACT_SITE_SLIP_EXCEEDS_GRIP", drift, CONTACT_SITE_DRIFT_MAX_M)):
+                if value > limit and key not in out["first"]:
+                    out["first"][key] = dict(t_s=float(f["t"]), value=float(value), limit=float(limit), side=side)
+            if out["twist_gated"] and abs(twist) > TWIST_MAX_DEG_NON_AXISYMMETRIC and "SHAFT_TWIST_EXCEEDS_GRIP" not in out["first"]:
+                out["first"]["SHAFT_TWIST_EXCEEDS_GRIP"] = dict(t_s=float(f["t"]), value=float(abs(twist)),
+                                                                limit=TWIST_MAX_DEG_NON_AXISYMMETRIC, side=side)
+    out["limits"] = dict(tilt_deg=TILT_MAX_DEG, omega_rel_perp_rad_s=OMEGA_REL_PERP_MAX_RAD_S,
+                         axial_slip_m=AXIAL_SLIP_MAX_M, contact_site_drift_m=CONTACT_SITE_DRIFT_MAX_M,
+                         twist_deg=TWIST_MAX_DEG_NON_AXISYMMETRIC if out["twist_gated"] else None)
+    return out
 
 
 def _support_balance(window, dt_s, bar, weight, ledgers, grip_half_width_m):
@@ -224,6 +371,10 @@ def evaluate_receiving(frames, dt_s, static_verdict, *, bar="barbell", settle_s=
     window = [f for f in frames if settle_s <= f["t"] <= end_s]
     if len(frames) < 2 or not window or not _finite_frames(frames):
         return dict(outcome="NUMERICAL_NOT_QUALIFIED", reason="NONFINITE_OR_EMPTY", evidence=evidence)
+    missing = sorted({k for f in window for k in ("hand_frames", "bar_frame") if k not in f})
+    if missing:
+        return dict(outcome="NUMERICAL_NOT_QUALIFIED", reason="FRAME_SCHEMA_MISSING:" + ",".join(missing),
+                    evidence=evidence)
     bodies = {b["name"]: b for b in frames[0]["bodies"]}
     weight = bodies[bar]["mass"]*float(np.linalg.norm(frames[0]["gravity"]))
     total_weight = sum(b["mass"] for b in bodies.values())*float(np.linalg.norm(frames[0]["gravity"]))
@@ -298,18 +449,11 @@ def evaluate_receiving(frames, dt_s, static_verdict, *, bar="barbell", settle_s=
         # support test turn the verdict into something weaker.
     if max(geometric) == 0:
         fail("GRASP_GEOMETRY_INFEASIBLE", "NO_PERMITTED_GRASP_CONTACT")
-    # Relative bar pose in each hand frame (Gate A: COM only; Gate B adds SO(3)).
-    ref = window[0]
-    disp = 0.0
-    for f in window:
-        bar_now = next(b for b in f["bodies"] if b["name"] == bar)["com"]
-        bar_ref = next(b for b in ref["bodies"] if b["name"] == bar)["com"]
-        for side in ("l", "r"):
-            r0 = np.asarray(ref["hand_frames"][side]["rotation"])
-            p0 = np.asarray(ref["hand_frames"][side]["position"])
-            r1 = np.asarray(f["hand_frames"][side]["rotation"])
-            p1 = np.asarray(f["hand_frames"][side]["position"])
-            disp = max(disp, float(np.linalg.norm(r1.T @ (np.asarray(bar_now)-p1) - r0.T @ (np.asarray(bar_ref)-p0))))
+    # Relative bar pose in each hand frame (SO(3) orientation, axial slip and
+    # load-bearing contact-site migration, not COM translation alone).
+    pose = _relative_pose(window, bar, ledgers)
+    evidence["relative_bar_pose"] = pose
+    disp = max(pose["max_com_displacement_m"].values())
     support = _support_balance(window, dt_s, bar, weight, ledgers, grip_half_width_m)
     evidence.update(min_hand_contacts=min(geometric) if geometric else 0, bar_displacement_in_hand_m=disp,
                     hand_support_ratio_mean=support["hand_support_ratio_mean"],
@@ -325,6 +469,10 @@ def evaluate_receiving(frames, dt_s, static_verdict, *, bar="barbell", settle_s=
         fail("GRASP_SLIP", "CONTACT_LOST", t)
     elif disp >= shaft_radius_m:
         fail("GRASP_SLIP", "BAR_MOVED_IN_HAND")
+    elif pose["first"]:
+        reason = next(iter(pose["first"]))
+        ev = pose["first"][reason]
+        fail("GRASP_SLIP", reason, ev["t_s"])
     elif support["first_wrench_failure"]:
         ev = support["first_wrench_failure"]
         fail("GRASP_UNSUPPORTED", ev["reason"], ev["t_s"])
