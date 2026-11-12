@@ -277,15 +277,15 @@
           "code": "RIGID_BODY_ANGULAR_DISCRETE",
           "excess_tolerance_n_m_s": 4.905e-08,
           "max_excess_over_discretization_n_m_s": 0.0,
-          "max_residual_n_m_s": 1.7343762260085098e-09,
-          "max_residual_to_bound_ratio": 0.0868238825932302,
+          "max_residual_n_m_s": 1.7343762251594389e-09,
+          "max_residual_to_bound_ratio": 0.0868238649064552,
           "outcome": "PASS"
         },
         "bar_angular_reference": {
           "attitude_tolerance_rad": 5e-05,
           "code": "RIGID_BODY_ANGULAR_REFERENCE",
           "max_attitude_residual_rad": 3.8223729546012693e-07,
-          "max_residual_n_m_s": 1.7343762266637892e-09,
+          "max_residual_n_m_s": 1.7343762254845121e-09,
           "outcome": "PASS",
           "reason": null,
           "steps": 1900,
@@ -294,15 +294,15 @@
           "worst_step_t_s": 0.1300000000000001
         },
         "grasp_identity_problems": [],
-        "hand_support_force_residual_ratio": 5.819066115975204e-14,
-        "hand_support_impulse_ratio": -0.002097848621247454,
-        "hand_support_moment_residual_ratio": 7.0148200779409e-10,
+        "hand_support_force_residual_ratio": 5.790624046446798e-14,
+        "hand_support_impulse_ratio": 0.05000420806387186,
+        "hand_support_moment_residual_ratio": 7.01482013471274e-10,
         "hand_support_share": {
-          "l": -0.0010615959977832556,
-          "r": -0.0010362526234642011
+          "l": 0.024974789251697087,
+          "r": 0.025029418812174752
         },
-        "min_grasp_active_contacts": 2,
-        "min_grasp_contacts": 2,
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
         "nongrasp_bar_contacts_max": 12
       },
       "expected": "GRASP_UNSUPPORTED",
@@ -318,9 +318,9 @@
         "expected": "GRASP_UNSUPPORTED",
         "identity_fields": {
           "identity_problems": 0,
-          "min_grasp_active_contacts": 2,
-          "min_grasp_contacts": 2,
-          "support_ratio": -0.002097848621247454
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 0.05000420806387186
         },
         "observed": "GRASP_UNSUPPORTED",
         "reason": "INSUFFICIENT_HAND_SUPPORT"
@@ -952,15 +952,15 @@
           "code": "RIGID_BODY_ANGULAR_DISCRETE",
           "excess_tolerance_n_m_s": 4.905e-08,
           "max_excess_over_discretization_n_m_s": 0.0,
-          "max_residual_n_m_s": 1.7343762260085098e-09,
-          "max_residual_to_bound_ratio": 0.0868238825932302,
+          "max_residual_n_m_s": 1.7343762251594389e-09,
+          "max_residual_to_bound_ratio": 0.0868238649064552,
           "outcome": "PASS"
         },
         "bar_angular_reference": {
           "attitude_tolerance_rad": 5e-05,
           "code": "RIGID_BODY_ANGULAR_REFERENCE",
           "max_attitude_residual_rad": 3.8223729546012693e-07,
-          "max_residual_n_m_s": 1.7343762266637892e-09,
+          "max_residual_n_m_s": 1.7343762254845121e-09,
           "outcome": "PASS",
           "reason": null,
           "steps": 1900,
@@ -969,15 +969,15 @@
           "worst_step_t_s": 0.1300000000000001
         },
         "grasp_identity_problems": [],
-        "hand_support_force_residual_ratio": 5.819066115975204e-14,
-        "hand_support_impulse_ratio": -0.002097848621247454,
-        "hand_support_moment_residual_ratio": 7.0148200779409e-10,
+        "hand_support_force_residual_ratio": 5.790624046446798e-14,
+        "hand_support_impulse_ratio": 0.05000420806387186,
+        "hand_support_moment_residual_ratio": 7.01482013471274e-10,
         "hand_support_share": {
-          "l": -0.0010615959977832556,
-          "r": -0.0010362526234642011
+          "l": 0.024974789251697087,
+          "r": 0.025029418812174752
         },
-        "min_grasp_active_contacts": 2,
-        "min_grasp_contacts": 2,
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
         "nongrasp_bar_contacts_max": 12
       },
       "expected": "GRASP_UNSUPPORTED",
@@ -993,9 +993,9 @@
         "expected": "GRASP_UNSUPPORTED",
         "identity_fields": {
           "identity_problems": 0,
-          "min_grasp_active_contacts": 2,
-          "min_grasp_contacts": 2,
-          "support_ratio": -0.002097848621247454
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 0.05000420806387186
         },
         "observed": "GRASP_UNSUPPORTED",
         "reason": "INSUFFICIENT_HAND_SUPPORT"
@@ -1007,15 +1007,15 @@
           "code": "RIGID_BODY_ANGULAR_DISCRETE",
           "excess_tolerance_n_m_s": 4.905e-08,
           "max_excess_over_discretization_n_m_s": 0.0,
-          "max_residual_n_m_s": 1.7343762260085098e-09,
-          "max_residual_to_bound_ratio": 0.0868238825932302,
+          "max_residual_n_m_s": 1.7343762251594389e-09,
+          "max_residual_to_bound_ratio": 0.0868238649064552,
           "outcome": "PASS"
         },
         "bar_angular_reference": {
           "attitude_tolerance_rad": 5e-05,
           "code": "RIGID_BODY_ANGULAR_REFERENCE",
           "max_attitude_residual_rad": 3.8223729546012693e-07,
-          "max_residual_n_m_s": 1.7343762266637892e-09,
+          "max_residual_n_m_s": 1.7343762254845121e-09,
           "outcome": "PASS",
           "reason": null,
           "steps": 1900,
@@ -1024,15 +1024,15 @@
           "worst_step_t_s": 0.1300000000000001
         },
         "grasp_identity_problems": [],
-        "hand_support_force_residual_ratio": 5.819066115975204e-14,
-        "hand_support_impulse_ratio": -0.002097848621247454,
-        "hand_support_moment_residual_ratio": 7.0148200779409e-10,
+        "hand_support_force_residual_ratio": 5.790624046446798e-14,
+        "hand_support_impulse_ratio": 0.05000420806387186,
+        "hand_support_moment_residual_ratio": 7.01482013471274e-10,
         "hand_support_share": {
-          "l": -0.0010615959977832556,
-          "r": -0.0010362526234642011
+          "l": 0.024974789251697087,
+          "r": 0.025029418812174752
         },
-        "min_grasp_active_contacts": 2,
-        "min_grasp_contacts": 2,
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
         "nongrasp_bar_contacts_max": 12
       },
       "expected": "GRASP_UNSUPPORTED",
@@ -1048,9 +1048,9 @@
         "expected": "GRASP_UNSUPPORTED",
         "identity_fields": {
           "identity_problems": 0,
-          "min_grasp_active_contacts": 2,
-          "min_grasp_contacts": 2,
-          "support_ratio": -0.002097848621247454
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 0.05000420806387186
         },
         "observed": "GRASP_UNSUPPORTED",
         "reason": "INSUFFICIENT_HAND_SUPPORT"
@@ -1595,7 +1595,7 @@
             "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
             "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019"
           },
-          "head": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
+          "head": "adf1332227dd35181f6264f60240bcf63ef741bf",
           "model_parameter_set_sha256": "f6783dd06e224cc4d81708f379193e810b55c46939f74cc45a6ea7c0e1f39153",
           "mujoco": "3.3.7",
           "numpy": "2.4.4",
@@ -2161,7 +2161,7 @@
             "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
             "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019"
           },
-          "head": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
+          "head": "adf1332227dd35181f6264f60240bcf63ef741bf",
           "model_parameter_set_sha256": "8adf612ce2d168138235605708576b65037c7bb34ac1db38de13966b565b205b",
           "mujoco": "3.3.7",
           "numpy": "2.4.4",
@@ -2854,7 +2854,7 @@
         "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019"
       }
     },
-    "head": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
+    "head": "adf1332227dd35181f6264f60240bcf63ef741bf",
     "machine": "AMD64",
     "models": {
       "anthropometry_70kg_1p70m": {
@@ -3157,7 +3157,7 @@
       "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
       "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019",
       "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
-      "scripts/res624_adversarial_scenes.py": "9ed68e8162ece8b2ea4a510a72c87b26eca7c8e18df8e80e846f673322cf0539",
+      "scripts/res624_adversarial_scenes.py": "d4ed0a4ad201fb85aff7e7ffe230a51f33e9059b13a0ce90521d25ef85b97b0f",
       "scripts/res624_anthropometric_diagnosis.py": "38edba00a44dfa5f40edc91600f0fbb4f27948f44fe2198ac8ec2e21ad5c8c79",
       "scripts/res624_numerical_verification.py": "ea7c42cb2d5e82d5999407fc54a12fe144b4960a82831a4ccc0fe328723902d0",
       "scripts/res624_receiving_campaign.py": "4c95f9d9069aef549c7a810906b23cecfbac1a3855c32dba321bf25342a4e17f",
@@ -3198,7 +3198,7 @@
   "scope": "declared Human V2 computational model; 20 kg unplated bar; static overhead POWER receiving hold, not a lift or catch",
   "scope_statement": "declared scope qualified: the nominal 20 kg overhead receiving hold AND every preregistered required subject case (70 kg/1.70 m, 80 kg/1.80 m) pass. This is a model-scoped numerical result, not a population generalization or biological validation.",
   "source_dirty": false,
-  "source_sha": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
+  "source_sha": "adf1332227dd35181f6264f60240bcf63ef741bf",
   "source_sha256": {
     "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
     "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",

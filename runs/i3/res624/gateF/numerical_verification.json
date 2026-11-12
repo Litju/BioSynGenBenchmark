@@ -315,7 +315,7 @@
         "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019"
       }
     },
-    "head": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
+    "head": "adf1332227dd35181f6264f60240bcf63ef741bf",
     "machine": "AMD64",
     "models": {
       "nominal": {
@@ -365,7 +365,7 @@
       "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
       "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019",
       "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
-      "scripts/res624_adversarial_scenes.py": "9ed68e8162ece8b2ea4a510a72c87b26eca7c8e18df8e80e846f673322cf0539",
+      "scripts/res624_adversarial_scenes.py": "d4ed0a4ad201fb85aff7e7ffe230a51f33e9059b13a0ce90521d25ef85b97b0f",
       "scripts/res624_anthropometric_diagnosis.py": "38edba00a44dfa5f40edc91600f0fbb4f27948f44fe2198ac8ec2e21ad5c8c79",
       "scripts/res624_numerical_verification.py": "ea7c42cb2d5e82d5999407fc54a12fe144b4960a82831a4ccc0fe328723902d0",
       "scripts/res624_receiving_campaign.py": "4c95f9d9069aef549c7a810906b23cecfbac1a3855c32dba321bf25342a4e17f",
@@ -408,7 +408,7 @@
     }
   },
   "source_dirty": false,
-  "source_sha": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
+  "source_sha": "adf1332227dd35181f6264f60240bcf63ef741bf",
   "source_sha256": {
     "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
     "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",

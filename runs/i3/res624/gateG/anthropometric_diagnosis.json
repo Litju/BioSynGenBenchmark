@@ -52,7 +52,7 @@
   "gate": "G",
   "issue": "RES-624",
   "source_dirty": false,
-  "source_sha": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
+  "source_sha": "adf1332227dd35181f6264f60240bcf63ef741bf",
   "source_sha256": {
     "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
     "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
