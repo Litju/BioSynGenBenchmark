@@ -105,9 +105,10 @@ def _rotate(R, vecs):
 
 @unittest.skipIf(np is None, "NumPy/SciPy required")
 class AnalyticAngularOracle(unittest.TestCase):
-    D = np.array([.08, .05, .03])
-    R0 = np.array([[.36, -.48, .8], [.8, .36, -.48], [-.48, -.8, -.36]])
-    W0 = np.array([2.0, .5, 1.0])
+    # Plain lists: the stdlib CI imports this module without NumPy and converts them in the tests.
+    D = [.08, .05, .03]
+    R0 = [[.36, -.48, .8], [.8, .36, -.48], [-.48, -.8, -.36]]
+    W0 = [2.0, .5, 1.0]
 
     def run_check(self, frames, tolerance=1e-7):
         from biosyngen_benchmark.rigid_body_check import angular_reference_check

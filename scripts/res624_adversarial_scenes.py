@@ -130,38 +130,35 @@ def redistribute_hand_load(frames, factors, bar=BAR_BODY):
 def move_load_to_segment(frames, segment="forearm", touch_fraction=.05, bar=BAR_BODY):
     """Relabel the load-bearing permitted contacts onto a non-grasp segment body.
 
-    One small permitted finger-pad contact per side is retained (``touch_fraction``
-    of one original contact force) at the *same point*, and its force is
-    subtracted from the relabelled segment contact there, so the bar-side
-    wrench and the whole-system balance stay exact. The bar is now carried by
-    the forearm/thigh/torso and only touched by the fingers.
+    Every permitted pad keeps a small ``touch_fraction`` of its original force
+    at the same point (fingers still touching); the relabelled segment contact
+    at that point carries the rest. The bar-side wrench and the whole-system
+    balance stay exact, but only the small finger touches count as grasp, so
+    the hand support ratio is ~``touch_fraction``. Keeping the full pad set
+    also keeps the load-weighted contact site as stable as the genuine hold,
+    so the scene exercises the support gate rather than a contact-site slip.
     """
     out = copy.deepcopy(frames)
     body_l, body_r, geom_l, geom_r = SEGMENTS[segment]
     for frame in out:
         ledger = classify_frame(frame, bar)
-        keep = {}
+        touches = []
         for row in ledger["contacts"]:
             contact = frame["contacts"][row["index"]]
+            original_force = np.asarray(contact["force_on_body2"], float)
+            touch = dict(contact)
+            touch["body1" if contact["body2"] == bar else "body2"] = row["body"]
+            touch["geom1" if contact["body2"] == bar else "geom2"] = row["geom"]
+            touch["force_on_body2"] = (touch_fraction*original_force).tolist()
+            touches.append(touch)
+            contact["force_on_body2"] = ((1.-touch_fraction)*original_force).tolist()
             if contact["body2"] == bar:
                 contact["body1"] = body_l if row["side"] == "l" else body_r
                 contact["geom1"] = geom_l if row["side"] == "l" else geom_r
             else:
                 contact["body2"] = body_l if row["side"] == "l" else body_r
                 contact["geom2"] = geom_l if row["side"] == "l" else geom_r
-            keep.setdefault(row["side"], row)
-        for side in ("l", "r"):
-            row = keep.get(side)
-            if row is None:
-                continue
-            contact = frame["contacts"][row["index"]]
-            force = np.asarray(contact["force_on_body2"], float)*touch_fraction
-            touch = dict(contact)
-            touch["body1" if contact["body2"] == bar else "body2"] = row["body"]
-            touch["geom1" if contact["body2"] == bar else "geom2"] = row["geom"]
-            touch["force_on_body2"] = force.tolist()
-            frame["contacts"].append(touch)
-            contact["force_on_body2"] = (np.asarray(contact["force_on_body2"], float)-force).tolist()
+        frame["contacts"].extend(touches)
     return out
 
 
