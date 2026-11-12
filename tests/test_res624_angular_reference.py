@@ -221,6 +221,17 @@ class NominalAngularConvergence(unittest.TestCase):
         window = [f for f in self.frames if f["t"] >= .1]
         return angular_reference_check(window, self.plant.model.opt.timestep)
 
+    def test_incorrect_bar_inertia_is_rejected_on_the_real_hold(self):
+        import copy
+        from biosyngen_benchmark.rigid_body_check import angular_reference_check
+        frames = copy.deepcopy([f for f in self.frames if f["t"] >= .1])
+        for f in frames:
+            body = next(b for b in f["bodies"] if b["name"] == "barbell")
+            body["inertia_world"] = (1.2*np.asarray(body["inertia_world"])).tolist()
+        r = angular_reference_check(frames, self.plant.model.opt.timestep)
+        self.assertEqual(r["outcome"], "REJECTED")
+        self.assertGreater(r["max_residual_n_m_s"]/r["tolerance_n_m_s"], 10.)
+
     def test_nominal_reference_passes_and_refines_with_dt(self):
         import mujoco
         from biosyngen.spatial.plant_v2 import HumanV2Plant

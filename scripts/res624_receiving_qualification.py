@@ -147,6 +147,8 @@ def adversarial(frames, dt, verdict, nominal):
     run("hand_frames_ramp_5deg", "GRASP_SLIP", scenes.ramp_hand_frames(frames, "r", 4., "z"))
     run("right_grip_zero_load_left_carries_all", "GRASP_NOT_BILATERAL",
         scenes.redistribute_hand_load(frames, {"l": 2., "r": 0.}))
+    # Gate F: an incorrect declared bar inertia must not pass the independent angular oracle.
+    run("incorrect_bar_inertia", "NUMERICAL_NOT_QUALIFIED", scenes.scale_bar_inertia(frames, 1.2))
     return out
 
 

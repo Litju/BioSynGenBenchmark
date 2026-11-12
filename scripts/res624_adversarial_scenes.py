@@ -215,6 +215,15 @@ def reverse_one_hand(frames, side="l", bar=BAR_BODY):
     return out
 
 
+def scale_bar_inertia(frames, factor=1.2, bar=BAR_BODY):
+    """Scale the exported barbell inertia without changing its mass or trajectory."""
+    out = copy.deepcopy(frames)
+    for frame in out:
+        body = next(b for b in frame["bodies"] if b["name"] == bar)
+        body["inertia_world"] = (factor*np.asarray(body["inertia_world"], float)).tolist()
+    return out
+
+
 def segment_only(frames, segment="thigh", bar=BAR_BODY):
     """Relabel every permitted hand contact onto a segment: no permitted grasp contact remains."""
     out = copy.deepcopy(frames)
