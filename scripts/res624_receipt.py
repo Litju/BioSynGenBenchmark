@@ -60,9 +60,14 @@ def model_identity(plant):
                 solver=solver_config(m))
 
 
+def _status_path(line):
+    """Path of a porcelain status line (the leading status space may be stripped)."""
+    return line[2:].strip().replace("\\", "/")
+
+
 def full_receipt(plants=None, ignore_prefixes=("runs/i3/res624/",)):
     status = [ln for ln in _git("status", "--porcelain").splitlines()
-              if not any(ln[3:].replace("\\", "/").startswith(p) for p in ignore_prefixes)]
+              if not any(_status_path(ln).startswith(p) for p in ignore_prefixes)]
     r = dict(head=_git("rev-parse", "HEAD"), branch=_git("rev-parse", "--abbrev-ref", "HEAD"),
              worktree_clean=not status, uncommitted_outside_evidence=status,
              python=sys.version.split()[0], mujoco=mujoco.__version__, scipy=scipy.__version__, numpy=np.__version__,
