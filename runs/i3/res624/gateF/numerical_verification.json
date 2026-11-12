@@ -1,0 +1,604 @@
+{
+  "bar_angular": {
+    "code": "RIGID_BODY_ANGULAR_DISCRETE",
+    "excess_tolerance_n_m_s": 4.905e-08,
+    "max_excess_over_discretization_n_m_s": 0.0,
+    "max_residual_n_m_s": 4.77921840311639e-07,
+    "max_residual_to_bound_ratio": 0.9999999999998923,
+    "outcome": "PASS"
+  },
+  "bar_angular_reference": {
+    "attitude_tolerance_rad": 5e-05,
+    "code": "RIGID_BODY_ANGULAR_REFERENCE",
+    "max_attitude_residual_rad": 3.8223729546012693e-07,
+    "max_residual_n_m_s": 1.7343762281939404e-09,
+    "outcome": "PASS",
+    "reason": null,
+    "steps": 200,
+    "substeps": 16,
+    "tolerance_n_m_s": 1e-07,
+    "worst_step_t_s": 0.1300000000000001
+  },
+  "bar_linear": {
+    "code": "DISCRETE_NEWTON_EULER",
+    "cumulative_angular_residual_n_m_s": 8.363843300261e-09,
+    "cumulative_linear_residual_n_s": 2.995066201719844e-15,
+    "max_step_angular_residual_n_m_s": 4.779218403132421e-07,
+    "max_step_linear_residual_n_s": 1.698512811546858e-16,
+    "steps": 300
+  },
+  "checks": {
+    "angular_reference": true,
+    "deterministic": true,
+    "energy_residual_below_1pct_of_flux": true,
+    "energy_residual_decreasing": true,
+    "evaluator": true,
+    "mass_inertia": true,
+    "refinement_all_qualified": true,
+    "refinement_converging": true,
+    "solver_tolerance_insensitive": true
+  },
+  "claims": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "contact_impulses": {
+    "bar_weight_impulse_n_s": 58.86000000000005,
+    "floor_on_human_impulse_n_s": [
+      0.025269511372004384,
+      0.001620185428288911,
+      279.5710456080911
+    ],
+    "hand_on_bar_impulse_n_s": [
+      -0.016623414801136646,
+      0.00027002497683565317,
+      58.85168970529025
+    ],
+    "system_weight_impulse_n_s": 279.58500000000015
+  },
+  "contact_model_sensitivity": {
+    "declared_model": "elliptic cone, impratio 10, Newton, tol 1e-10",
+    "pyramidal_cone": "NUMERICAL_NOT_QUALIFIED",
+    "qualified_for_alternative_cone": false
+  },
+  "deterministic_replay_bitwise": true,
+  "energy": {
+    "delta_mechanical_j": -0.17290653472753093,
+    "explicit_start_of_step_residual_j": 0.004000419358991036,
+    "gross_flux_j": 0.8452961131503953,
+    "ledger_residual_j": -7.166927198515305e-05,
+    "note": "signed work; residual is the integrator/solver discretization remainder after rotor KE is included",
+    "relative_to_gross_flux": -8.478599495512128e-05,
+    "work_j": {
+      "actuator": 0.2302609370753424,
+      "constraint": -0.395679654257922,
+      "external": 0.0,
+      "passive": -0.007416148272966171
+    }
+  },
+  "energy_refinement": {
+    "abs_residual_j": [
+      7.166927198515305e-05,
+      3.5900509008757187e-05,
+      1.7971485950785127e-05
+    ],
+    "accepted_bound": "residual must decrease monotonically with dt (discretization remainder, not a modelling error) and stay below 1% of gross power flux at the declared dt=1 ms; the observed order is reported, not assumed",
+    "gross_flux_j": [
+      0.8452961131503953,
+      0.7837345154556481,
+      0.7711924343738404
+    ],
+    "observed_order": [
+      0.9973504005468219,
+      0.998294597888617
+    ],
+    "ratios": [
+      1.9963302461163104,
+      1.9976372074669089
+    ],
+    "relative": [
+      8.478599495512128e-05,
+      4.580697710867732e-05,
+      2.330350396315394e-05
+    ]
+  },
+  "evaluator": {
+    "evidence": {
+      "bar_angular_bound": {
+        "code": "RIGID_BODY_ANGULAR_DISCRETE",
+        "excess_tolerance_n_m_s": 4.905e-08,
+        "max_excess_over_discretization_n_m_s": 0.0,
+        "max_residual_n_m_s": 1.7343762272982e-09,
+        "max_residual_to_bound_ratio": 0.018404909243866535,
+        "outcome": "PASS"
+      },
+      "bar_angular_reference": {
+        "attitude_tolerance_rad": 5e-05,
+        "code": "RIGID_BODY_ANGULAR_REFERENCE",
+        "max_attitude_residual_rad": 3.8223729546012693e-07,
+        "max_residual_n_m_s": 1.7343762281939404e-09,
+        "outcome": "PASS",
+        "reason": null,
+        "steps": 200,
+        "substeps": 16,
+        "tolerance_n_m_s": 1e-07,
+        "worst_step_t_s": 0.1300000000000001
+      },
+      "bar_displacement_in_hand_m": 0.00028063088699969746,
+      "bar_newton_euler": {
+        "code": "DISCRETE_NEWTON_EULER",
+        "cumulative_angular_residual_n_m_s": 8.36384359452964e-09,
+        "cumulative_linear_residual_n_s": 2.995066201719844e-15,
+        "max_step_angular_residual_n_m_s": 4.779218403121721e-07,
+        "max_step_linear_residual_n_s": 1.698512811546858e-16,
+        "steps": 300
+      },
+      "contact_problems": 0,
+      "dt_s": 0.001,
+      "first_events": [],
+      "floor_vertical_over_weight_mean": 1.0000384845675314,
+      "frames": 301,
+      "grasp_contract": "RES624_GRASP_CONTACT_CONTRACT_V1",
+      "grasp_contract_problems": [],
+      "grasp_identity_problems": [],
+      "grasp_impulse": {
+        "active_frame_fraction": {
+          "l": 0.9950248756218906,
+          "r": 0.9950248756218906
+        },
+        "first_wrench_failure": null,
+        "hand_impulse_n_s": [
+          0.010924864240087121,
+          1.6080109006499178e-06,
+          39.253739819149146
+        ],
+        "hand_support_ratio_mean": 1.0003501482963593,
+        "hand_support_ratio_min": 0.9983341358509834,
+        "other_impulse_n_s": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "required_impulse_n_s": [
+          0.010924864240087089,
+          1.6080109006550756e-06,
+          39.25373981914917
+        ],
+        "support_force_residual_ratio": 5.432290565332472e-16,
+        "support_moment_residual_ratio": 5.528091699692794e-09,
+        "support_ratio": 1.0003501482963588,
+        "support_share": {
+          "l": 0.4995867183614745,
+          "r": 0.500763429934884
+        },
+        "weight_impulse_n_s": 39.24000000000003,
+        "worst_step_force_residual_ratio": 7.24835523539705e-16,
+        "worst_step_moment_residual_ratio": 3.53593522385037e-08
+      },
+      "hand_active_frame_fraction": {
+        "l": 0.9950248756218906,
+        "r": 0.9950248756218906
+      },
+      "hand_support_force_residual_ratio": 5.432290565332472e-16,
+      "hand_support_impulse_ratio": 1.0003501482963588,
+      "hand_support_moment_residual_ratio": 5.528091699692794e-09,
+      "hand_support_ratio_mean": 1.0003501482963593,
+      "hand_support_ratio_min": 0.9983341358509834,
+      "hand_support_share": {
+        "l": 0.4995867183614745,
+        "r": 0.500763429934884
+      },
+      "max_penetration_m": 0.00047118345917259406,
+      "min_com_projection_margin_m": 0.03277275419484993,
+      "min_cop_margin_m": 0.03241437246237436,
+      "min_grasp_active_contacts": 10,
+      "min_grasp_active_contacts_left": 5,
+      "min_grasp_active_contacts_right": 5,
+      "min_grasp_contacts": 10,
+      "min_hand_contacts": 10,
+      "nongrasp_bar_contacts_max": 0,
+      "over_capacity": 0,
+      "posture_saturation_samples": 0,
+      "relative_bar_pose": {
+        "axisymmetric": true,
+        "first": {},
+        "initial_grip_axis_misalignment_deg": {
+          "l": 0.22767573417463743,
+          "r": 0.22871773556047897
+        },
+        "limits": {
+          "axial_slip_m": 0.002,
+          "contact_site_drift_m": 0.005,
+          "omega_rel_perp_rad_s": 0.2,
+          "tilt_deg": 2.0,
+          "twist_deg": null
+        },
+        "max_axial_slip_m": {
+          "l": 2.2085282773014527e-05,
+          "r": 2.2120798016801178e-05
+        },
+        "max_com_displacement_m": {
+          "l": 0.0002739962043228473,
+          "r": 0.00028063088699969746
+        },
+        "max_contact_site_drift_m": {
+          "l": 0.00020948094226765134,
+          "r": 0.00020400199766414462
+        },
+        "max_geodesic_deg": {
+          "l": 0.20105238514343848,
+          "r": 0.19505596067770367
+        },
+        "max_omega_rel_perp_rad_s": {
+          "l": 0.012009311629927053,
+          "r": 0.011888240938214112
+        },
+        "max_omega_rel_rad_s": {
+          "l": 0.041799713483841865,
+          "r": 0.04089234496178834
+        },
+        "max_tilt_deg": {
+          "l": 0.06393682406327476,
+          "r": 0.0650919650483135
+        },
+        "max_twist_deg": {
+          "l": 0.19061516292739475,
+          "r": 0.18387457752342456
+        },
+        "twist_gated": false
+      },
+      "system_newton_euler": {
+        "code": "DISCRETE_NEWTON_EULER",
+        "cumulative_angular_residual_n_m_s": 2.438117917308473e-08,
+        "cumulative_linear_residual_n_s": 6.203066071867242e-08,
+        "max_step_angular_residual_n_m_s": 5.313474606138219e-06,
+        "max_step_linear_residual_n_s": 6.63613639477872e-06,
+        "steps": 300
+      },
+      "tolerances": {
+        "bar_angular_n_m_s": 1e-07,
+        "bar_linear_n_s": 1.962e-07,
+        "system_cumulative_linear_n_s": 0.000279585,
+        "system_step_linear_n_s": 9.3195e-05
+      },
+      "window": [
+        0.1,
+        0.3000000000000002
+      ]
+    },
+    "failures": [],
+    "first_failure": null,
+    "grasp": "GRASP_SUPPORTED",
+    "outcome": "RECEIVING_HOLD_QUALIFIED"
+  },
+  "fingerprint": {
+    "bar_com_sum": [
+      -17.59927997083528,
+      -0.0007420002992062826,
+      469.6671874503463
+    ],
+    "final_bar_com": [
+      -0.05866895471913108,
+      -1.3983215019867536e-06,
+      1.5602149144513107
+    ],
+    "sha256": "f5ca0309055c35174813dc81511a0c7d31671b7f34e18f60e4fb0689e18169cf"
+  },
+  "gate": "F",
+  "hold_s": 0.3,
+  "issue": "RES-624",
+  "mass_inertia": {
+    "code": "MASS_INERTIA",
+    "outcome": "PASS",
+    "problems": []
+  },
+  "outcome": "NUMERICALLY_VERIFIED_FOR_DECLARED_CONTACT_MODEL",
+  "receipt": {
+    "branch": "work/RES-624-grasp-contact-recovery",
+    "controller": {
+      "com_kd": 900.0,
+      "com_kp": 3000.0,
+      "grip_fraction": 0.6,
+      "identity": "biosyngen.spatial.receiving_grasp_v2.EquilibriumHoldController"
+    },
+    "evaluator": {
+      "identity": "biosyngen_benchmark.receiving_acceptance.evaluate_receiving",
+      "sha256": {
+        "biosyngen_benchmark/failure_signature.py": "1ace5ee5b7a14890b71b20ffbf6544ef0b8b091b35f219c6bb8d82e01907692c",
+        "biosyngen_benchmark/grasp_contract.py": "49507a1f2427882e5fa0fa5a42b9616e3f5f15a0d07d3f769aba6e1c4f6d40de",
+        "biosyngen_benchmark/negative_signature.py": "efc4f1be7a458dea06a58a62f3f2ff896d556b9dad67215c15529fc9aa81585e",
+        "biosyngen_benchmark/qualification_scope.py": "bced6f8f047e7e1faa21c52fab9dabf6a811d2b71e3f9e8b5d35c746c89de4fc",
+        "biosyngen_benchmark/receiving_acceptance.py": "44fea11e17be5c1cce026c3424f6438fd362e50dbaaadfa94dff95d130cbbe60",
+        "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
+        "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019"
+      }
+    },
+    "head": "adf1332227dd35181f6264f60240bcf63ef741bf",
+    "machine": "AMD64",
+    "models": {
+      "nominal": {
+        "bar_mass_kg": 20.0,
+        "human_mass_kg": 75.0,
+        "nbody": 33,
+        "ngeom": 37,
+        "nu": 48,
+        "parameter_set_sha256": "8adf612ce2d168138235605708576b65037c7bb34ac1db38de13966b565b205b",
+        "solver": {
+          "cone": 1,
+          "gravity": [
+            0.0,
+            0.0,
+            -9.81
+          ],
+          "impratio": 10.0,
+          "integrator": 3,
+          "iterations": 200,
+          "noslip_iterations": 0,
+          "solver": 2,
+          "timestep_s": 0.001,
+          "tolerance": 1e-10
+        }
+      }
+    },
+    "mujoco": "3.3.7",
+    "numpy": "2.4.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+    "python": "3.12.13",
+    "scipy": "1.17.1",
+    "source_sha256": {
+      "biosyngen/spatial/anthropometry.py": "79599f4d28922908dc13b368631bbf080efa34b820d4ba7be4295f996f322e7d",
+      "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
+      "biosyngen/spatial/grasp_fixture.py": "b308c02f2703caedba13c7127b74ce72777cf832183eb5d5de828148231e1132",
+      "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
+      "biosyngen/spatial/model_v2.py": "4a0865035c24dd4be2d0cdff7c36ce55837a7aa70812cbc65606c43013cc0c7f",
+      "biosyngen/spatial/plant_v2.py": "c3a321d6e6436926bde5f705831e4c11d360f879ee63fcea63edd86197b54001",
+      "biosyngen/spatial/receiving_grasp_v2.py": "cf444e5d67816a1cbccab930e8a4c10e3a608758a84d8377e8675e94e78af985",
+      "biosyngen/spatial/receiving_v2.py": "0a8014e1ee371d1416be413977e61f14fe84be21b49040081c9d9222a961dedc",
+      "biosyngen_benchmark/failure_signature.py": "1ace5ee5b7a14890b71b20ffbf6544ef0b8b091b35f219c6bb8d82e01907692c",
+      "biosyngen_benchmark/grasp_contract.py": "49507a1f2427882e5fa0fa5a42b9616e3f5f15a0d07d3f769aba6e1c4f6d40de",
+      "biosyngen_benchmark/negative_signature.py": "efc4f1be7a458dea06a58a62f3f2ff896d556b9dad67215c15529fc9aa81585e",
+      "biosyngen_benchmark/qualification_scope.py": "bced6f8f047e7e1faa21c52fab9dabf6a811d2b71e3f9e8b5d35c746c89de4fc",
+      "biosyngen_benchmark/receiving_acceptance.py": "44fea11e17be5c1cce026c3424f6438fd362e50dbaaadfa94dff95d130cbbe60",
+      "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
+      "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019",
+      "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
+      "scripts/res624_adversarial_scenes.py": "d4ed0a4ad201fb85aff7e7ffe230a51f33e9059b13a0ce90521d25ef85b97b0f",
+      "scripts/res624_anthropometric_diagnosis.py": "38edba00a44dfa5f40edc91600f0fbb4f27948f44fe2198ac8ec2e21ad5c8c79",
+      "scripts/res624_numerical_verification.py": "ea7c42cb2d5e82d5999407fc54a12fe144b4960a82831a4ccc0fe328723902d0",
+      "scripts/res624_receiving_campaign.py": "4c95f9d9069aef549c7a810906b23cecfbac1a3855c32dba321bf25342a4e17f",
+      "scripts/res624_receiving_qualification.py": "87cc4afec87ff575b36909e3bf6e4099f8e00c68688419beac1faf9b1015c8a0",
+      "scripts/res624_red_canary.py": "51f92f9e2cacc04a4d0e6a014306037e17a950f48252d4eb620eb9f0d5f9238a"
+    },
+    "uncommitted_outside_evidence": [],
+    "worktree_clean": true
+  },
+  "solver_sensitivity": {
+    "pyramidal_cone": {
+      "bar_trajectory_distance_from_nominal_m": 0.0021566003245357605,
+      "evaluator": "NUMERICAL_NOT_QUALIFIED",
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.0008576437937814778,
+        "bar_z_change_m": -0.0014339025776788361,
+        "com_x_drift_m": 0.004149626579600746,
+        "duration_s": 0.3000000000000002,
+        "floor_vertical_over_weight_mean": 0.9994154154897965,
+        "hand_support_mean": 1.009428199172878,
+        "hand_support_min": 0.6667371252464411,
+        "min_hand_contacts": 4,
+        "posture_saturation_samples": 319
+      }
+    },
+    "tolerance_1e-8": {
+      "bar_trajectory_distance_from_nominal_m": 2.731006657843773e-10,
+      "evaluator": "RECEIVING_HOLD_QUALIFIED",
+      "metrics": {
+        "bar_displacement_in_hand_m": 0.0002806307043343025,
+        "bar_z_change_m": -0.0007020707043785546,
+        "com_x_drift_m": -1.9403691456088e-05,
+        "duration_s": 0.3000000000000002,
+        "floor_vertical_over_weight_mean": 1.0000384848414077,
+        "hand_support_mean": 1.0003497747496586,
+        "hand_support_min": 0.9983341229563644,
+        "min_hand_contacts": 10,
+        "posture_saturation_samples": 0
+      }
+    }
+  },
+  "source_dirty": false,
+  "source_sha": "adf1332227dd35181f6264f60240bcf63ef741bf",
+  "source_sha256": {
+    "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
+    "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
+    "biosyngen/spatial/model_v2.py": "4a0865035c24dd4be2d0cdff7c36ce55837a7aa70812cbc65606c43013cc0c7f",
+    "biosyngen/spatial/plant_v2.py": "c3a321d6e6436926bde5f705831e4c11d360f879ee63fcea63edd86197b54001",
+    "biosyngen/spatial/receiving_v2.py": "0a8014e1ee371d1416be413977e61f14fe84be21b49040081c9d9222a961dedc",
+    "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
+    "scripts/res624_grasp_diagnosis.py": "e3aba138fa09e8fa5ce182f59dd819bd73a8f87d0fb831282e5f2ebf99557e64"
+  },
+  "system": {
+    "code": "DISCRETE_NEWTON_EULER",
+    "cumulative_angular_residual_n_m_s": 1.1286145891878795e-08,
+    "cumulative_linear_residual_n_s": 6.203066071867242e-08,
+    "max_step_angular_residual_n_m_s": 8.425823316467975e-06,
+    "max_step_linear_residual_n_s": 6.63613639477872e-06,
+    "steps": 300
+  },
+  "timestep_refinement": {
+    "bar_traj_max_diff_0p5ms_vs_0p25ms_m": 7.929841226159419e-06,
+    "bar_traj_max_diff_1ms_vs_0p5ms_m": 1.5372849469518176e-05,
+    "observed_ratio": 1.938607474107468,
+    "runs": {
+      "0.00025": {
+        "bar_angular": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 1.22625e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.5952348431180283e-08,
+          "max_residual_to_bound_ratio": 0.999999999998493,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 8.161702118890975e-08,
+          "max_residual_n_m_s": 1.7804637004538596e-10,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 800,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.11650000000000009
+        },
+        "energy": {
+          "delta_mechanical_j": -0.1742709482580267,
+          "explicit_start_of_step_residual_j": 0.000775268408317098,
+          "gross_flux_j": 0.7711924343738404,
+          "ledger_residual_j": -1.7971485950785127e-05,
+          "note": "signed work; residual is the integrator/solver discretization remainder after rotor KE is included",
+          "relative_to_gross_flux": -2.330350396315394e-05,
+          "work_j": {
+            "actuator": 0.23075029874714556,
+            "constraint": -0.3981917066849627,
+            "external": 0.0,
+            "passive": -0.006811568834258782
+          }
+        },
+        "evaluator": "RECEIVING_HOLD_QUALIFIED",
+        "metrics": {
+          "bar_displacement_in_hand_m": 0.00028181167121177505,
+          "bar_z_change_m": -0.0007048604478785414,
+          "com_x_drift_m": -2.137350331489485e-05,
+          "duration_s": 0.29999999999999466,
+          "floor_vertical_over_weight_mean": 1.0000501670251876,
+          "hand_support_mean": 1.000447355045788,
+          "hand_support_min": 0.9991634133590904,
+          "min_hand_contacts": 10,
+          "posture_saturation_samples": 0
+        },
+        "system_linear": {
+          "code": "DISCRETE_NEWTON_EULER",
+          "cumulative_angular_residual_n_m_s": 2.9825813460140924e-09,
+          "cumulative_linear_residual_n_s": 1.4851041051341337e-08,
+          "max_step_angular_residual_n_m_s": 5.11942508893542e-07,
+          "max_step_linear_residual_n_s": 4.0371964147061303e-07,
+          "steps": 1200
+        }
+      },
+      "0.0005": {
+        "bar_angular": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 2.4525e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 2.3092491522246685e-07,
+          "max_residual_to_bound_ratio": 0.9999999999996108,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 8.688795409866128e-08,
+          "max_residual_n_m_s": 6.615334460394765e-10,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 400,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.11900000000000009
+        },
+        "energy": {
+          "delta_mechanical_j": -0.17386013165980785,
+          "explicit_start_of_step_residual_j": 0.0016515176117217756,
+          "gross_flux_j": 0.7837345154556481,
+          "ledger_residual_j": -3.5900509008757187e-05,
+          "note": "signed work; residual is the integrator/solver discretization remainder after rotor KE is included",
+          "relative_to_gross_flux": -4.580697710867732e-05,
+          "work_j": {
+            "actuator": 0.23075055116490928,
+            "constraint": -0.3976645569607191,
+            "external": 0.0,
+            "passive": -0.006910225354989249
+          }
+        },
+        "evaluator": "RECEIVING_HOLD_QUALIFIED",
+        "metrics": {
+          "bar_displacement_in_hand_m": 0.0002812540821297197,
+          "bar_z_change_m": -0.0007040221441187988,
+          "com_x_drift_m": -2.0842252650407622e-05,
+          "duration_s": 0.3000000000000002,
+          "floor_vertical_over_weight_mean": 1.000050264321577,
+          "hand_support_mean": 1.0004341576571072,
+          "hand_support_min": 0.999123595459127,
+          "min_hand_contacts": 10,
+          "posture_saturation_samples": 0
+        },
+        "system_linear": {
+          "code": "DISCRETE_NEWTON_EULER",
+          "cumulative_angular_residual_n_m_s": 5.810411603978334e-09,
+          "cumulative_linear_residual_n_s": 2.9748002129013097e-08,
+          "max_step_angular_residual_n_m_s": 2.092104560346313e-06,
+          "max_step_linear_residual_n_s": 1.647376148237331e-06,
+          "steps": 600
+        }
+      },
+      "0.001": {
+        "bar_angular": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 4.77921840311639e-07,
+          "max_residual_to_bound_ratio": 0.9999999999998923,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 200,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "energy": {
+          "delta_mechanical_j": -0.17290653472753093,
+          "explicit_start_of_step_residual_j": 0.004000419358991036,
+          "gross_flux_j": 0.8452961131503953,
+          "ledger_residual_j": -7.166927198515305e-05,
+          "note": "signed work; residual is the integrator/solver discretization remainder after rotor KE is included",
+          "relative_to_gross_flux": -8.478599495512128e-05,
+          "work_j": {
+            "actuator": 0.2302609370753424,
+            "constraint": -0.395679654257922,
+            "external": 0.0,
+            "passive": -0.007416148272966171
+          }
+        },
+        "evaluator": "RECEIVING_HOLD_QUALIFIED",
+        "metrics": {
+          "bar_displacement_in_hand_m": 0.00028063088699969746,
+          "bar_z_change_m": -0.0007020706658584785,
+          "com_x_drift_m": -1.9403898229491956e-05,
+          "duration_s": 0.3000000000000002,
+          "floor_vertical_over_weight_mean": 1.0000384845675314,
+          "hand_support_mean": 1.0003497742044085,
+          "hand_support_min": 0.9983341358509834,
+          "min_hand_contacts": 10,
+          "posture_saturation_samples": 0
+        },
+        "system_linear": {
+          "code": "DISCRETE_NEWTON_EULER",
+          "cumulative_angular_residual_n_m_s": 1.1286145891878795e-08,
+          "cumulative_linear_residual_n_s": 6.203066071867242e-08,
+          "max_step_angular_residual_n_m_s": 8.425823316467975e-06,
+          "max_step_linear_residual_n_s": 6.63613639477872e-06,
+          "steps": 300
+        }
+      }
+    }
+  }
+}

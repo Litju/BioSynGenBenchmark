@@ -13,6 +13,8 @@ from .model import AthleteBarbellSpec, bar_inertia
 
 MODEL_ID = "HUMAN_V2_TORQUE_FULLBODY"
 MODEL_VERSION = "2.1.0"
+# RES-624 Gate B contact-mask revision; the preserved RES-618 interface version is unchanged.
+CONTACT_POLICY = "RES624_B1_BAR_FLOOR_ELIGIBLE"
 
 
 def _numbers(values):
@@ -163,6 +165,16 @@ def build_mjcf_v2(spec=HumanV2Spec()):
         for geom in list(bar.findall("geom")):
             if geom.get("name", "").startswith("plate_"):
                 bar.remove(geom)
+    # RES-624 Gate B: the inherited shaft (contype 2, conaffinity 4) and the
+    # mask-less sleeves never collided with the floor (contype 1, conaffinity
+    # 5): (2&5)|(1&4) == 0. A dropped or missed V2 bar must land. Bit 1 is
+    # added to the shaft and sleeves only; hand/segment (4/2) and foot (1/1)
+    # policies are unchanged, so human self-collision stays excluded and V1
+    # (model.py) is untouched.
+    for geom in bar.findall("geom"):
+        if geom.get("name") in ("bar_shaft", "bar_sleeve_l", "bar_sleeve_r"):
+            geom.set("contype", "2")
+            geom.set("conaffinity", "5")
     for geom in root.findall(".//geom"):
         if geom.get("class") == "foot" or geom.get("name", "").endswith("_sole"):
             geom.set("rgba", ".2 .45 .8 1")

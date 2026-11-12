@@ -1,0 +1,386 @@
+{
+  "bar_weight_n": 196.20000000000002,
+  "candidate": {
+    "initial_bar_z_m": 1.6615317915145724,
+    "min_contact_distance_m": -0.000200119301004378,
+    "optimizer_success": true,
+    "residual_norm": 0.021533050156252443
+  },
+  "chronology": {
+    "final_hand_contacts": 0,
+    "first_hand_recontact_step": 37,
+    "first_hand_recontact_t": 0.037000000000000026,
+    "first_zero_hand_contact_step": 7,
+    "first_zero_hand_contact_t": 0.007,
+    "initial_support_ratio": -0.03613593233520744,
+    "max_support_ratio": 1.4927542998079695,
+    "min_support_ratio": -0.0768641655931326,
+    "state": "LOST",
+    "support_established_step": 37,
+    "support_established_t": 0.037000000000000026,
+    "support_lost_step": 61,
+    "support_lost_t": 0.06100000000000005,
+    "threshold_fraction_of_weight": 0.5
+  },
+  "claims": [
+    "NUMERICAL_VERIFICATION_ONLY",
+    "SIMULATED_MEASUREMENT_ONLY",
+    "BIOLOGICAL_VALIDATION=NOT_ESTABLISHED",
+    "REAL_PAIRED_FORCE_LPT_VALIDATION=NOT_ESTABLISHED"
+  ],
+  "controls": {
+    "hidden_support": {
+      "applied_external_max_n": 196.20000000000002,
+      "bar_drop_m": 0.0215617380232207,
+      "contact_support_state": "NEVER_ESTABLISHED",
+      "expected": "BAR_HELD_BY_UNDECLARED_EXTERNAL_FORCE_NOT_CONTACT",
+      "max_contact_support_ratio": 0.0,
+      "observed": "BAR_HELD_BY_UNDECLARED_EXTERNAL_FORCE_NOT_CONTACT"
+    },
+    "ineligible": {
+      "expected": "NO_ELIGIBLE_CONTACT_PAIR",
+      "hand_contacts_any_step": 0,
+      "observed": "NO_ELIGIBLE_CONTACT_PAIR"
+    },
+    "plated_floor_positive": {
+      "expected": "SUSTAINED",
+      "final_support_ratio_mean": 1.0,
+      "floor_eligible_via": "plate geoms (contype 2, conaffinity 5)",
+      "observed": "SUSTAINED"
+    },
+    "unreachable": {
+      "expected": "CONTACT_GEOMETRY_CANNOT_CLOSE",
+      "observed": "CONTACT_GEOMETRY_CANNOT_CLOSE",
+      "pads_within_margin": []
+    }
+  },
+  "controls_classified": true,
+  "frozen_red": {
+    "bar_drop_m": 0.3760531196714312,
+    "code": "RECEIVING_NOT_QUALIFIED_AFTER_TWO_REPAIRS",
+    "final_bar_z_m": 1.2854786718431412,
+    "final_contacts": [
+      [
+        "floor",
+        "l_hindfoot_sole"
+      ],
+      [
+        "floor",
+        "r_hindfoot_sole"
+      ]
+    ],
+    "historical_windows_drop_m": 0.3760531196714312,
+    "initial_bar_z_m": 1.6615317915145724,
+    "outcome": "FAIL"
+  },
+  "gate": "A",
+  "initial_support_diagnosis": {
+    "actual_initial_contact_force_n": [
+      112.94922791134539,
+      2.5579538487363607e-13,
+      -997.5167508298036
+    ],
+    "actual_initial_support_ratio": -5.08418323562591,
+    "any_eligible_pair": true,
+    "closure_margin_m": 0.001,
+    "contact_normal_vertical_components_into_bar": [
+      0.10743311852048018,
+      0.10743311852048017,
+      -0.9016108092250384,
+      -0.9016108092250386,
+      0.10743311852048018,
+      0.10743311852048017,
+      -0.9016108092250384,
+      -0.9016108092250386
+    ],
+    "eligibility": {
+      "l": {
+        "finger_distal_pad": {
+          "bitmask": true,
+          "conaffinity": [
+            4,
+            2
+          ],
+          "contype": [
+            2,
+            4
+          ],
+          "eligible": true,
+          "excluded": false,
+          "geom1": "bar_shaft",
+          "geom2": "l_finger_distal_pad",
+          "parent_filtered": false,
+          "same_body": false,
+          "welded": false
+        },
+        "finger_flex_pad": {
+          "bitmask": true,
+          "conaffinity": [
+            4,
+            2
+          ],
+          "contype": [
+            2,
+            4
+          ],
+          "eligible": true,
+          "excluded": false,
+          "geom1": "bar_shaft",
+          "geom2": "l_finger_flex_pad",
+          "parent_filtered": false,
+          "same_body": false,
+          "welded": false
+        },
+        "palm_collision": {
+          "bitmask": true,
+          "conaffinity": [
+            4,
+            2
+          ],
+          "contype": [
+            2,
+            4
+          ],
+          "eligible": true,
+          "excluded": false,
+          "geom1": "bar_shaft",
+          "geom2": "l_palm_collision",
+          "parent_filtered": false,
+          "same_body": false,
+          "welded": false
+        },
+        "thumb_opposition_pad": {
+          "bitmask": true,
+          "conaffinity": [
+            4,
+            2
+          ],
+          "contype": [
+            2,
+            4
+          ],
+          "eligible": true,
+          "excluded": false,
+          "geom1": "bar_shaft",
+          "geom2": "l_thumb_opposition_pad",
+          "parent_filtered": false,
+          "same_body": false,
+          "welded": false
+        }
+      },
+      "r": {
+        "finger_distal_pad": {
+          "bitmask": true,
+          "conaffinity": [
+            4,
+            2
+          ],
+          "contype": [
+            2,
+            4
+          ],
+          "eligible": true,
+          "excluded": false,
+          "geom1": "bar_shaft",
+          "geom2": "r_finger_distal_pad",
+          "parent_filtered": false,
+          "same_body": false,
+          "welded": false
+        },
+        "finger_flex_pad": {
+          "bitmask": true,
+          "conaffinity": [
+            4,
+            2
+          ],
+          "contype": [
+            2,
+            4
+          ],
+          "eligible": true,
+          "excluded": false,
+          "geom1": "bar_shaft",
+          "geom2": "r_finger_flex_pad",
+          "parent_filtered": false,
+          "same_body": false,
+          "welded": false
+        },
+        "palm_collision": {
+          "bitmask": true,
+          "conaffinity": [
+            4,
+            2
+          ],
+          "contype": [
+            2,
+            4
+          ],
+          "eligible": true,
+          "excluded": false,
+          "geom1": "bar_shaft",
+          "geom2": "r_palm_collision",
+          "parent_filtered": false,
+          "same_body": false,
+          "welded": false
+        },
+        "thumb_opposition_pad": {
+          "bitmask": true,
+          "conaffinity": [
+            4,
+            2
+          ],
+          "contype": [
+            2,
+            4
+          ],
+          "eligible": true,
+          "excluded": false,
+          "geom1": "bar_shaft",
+          "geom2": "r_thumb_opposition_pad",
+          "parent_filtered": false,
+          "same_body": false,
+          "welded": false
+        }
+      }
+    },
+    "failure_class": "INCORRECT_RELATIVE_ORIENTATION_NO_SUPPORTING_CONTACT_TOPOLOGY",
+    "initial_saturation_count": 23,
+    "pads_in_contact": [
+      "l_finger_flex_pad",
+      "r_finger_flex_pad"
+    ],
+    "pads_within_margin": [
+      "l_finger_flex_pad",
+      "l_palm_collision",
+      "r_finger_flex_pad",
+      "r_palm_collision"
+    ],
+    "palm_normal_elevation_deg": {
+      "l": 6.167367130122012,
+      "r": 6.167367130122012
+    },
+    "required_bar_support_force_n": [
+      -0.0,
+      -0.0,
+      196.20000000000002
+    ],
+    "topology_active": {
+      "code": "UNSUPPORTABLE_BY_CONTACTS",
+      "contacts": 4,
+      "feasible": false,
+      "normal_forces_n": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "residual_force_n": 196.20000000000002,
+      "residual_moment_n_m": 0.0
+    },
+    "topology_within_margin": {
+      "code": "UNSUPPORTABLE_BY_CONTACTS",
+      "contacts": 8,
+      "feasible": false,
+      "normal_forces_n": [
+        0.0,
+        89.04861502252108,
+        0.0,
+        0.0,
+        0.0,
+        89.04861502252105,
+        0.0,
+        0.0
+      ],
+      "residual_force_n": 157.93291835280354,
+      "residual_moment_n_m": 2.4933647205431826
+    }
+  },
+  "instrumentation_bitwise_identical_to_forward_hold": true,
+  "issue": "RES-624",
+  "outcome": "RED_REPRODUCED_AND_DIAGNOSED",
+  "source_dirty": true,
+  "source_sha": "82ff59b121ed92bd4424c38a1c1bb1573d00b4aa",
+  "source_sha256": {
+    "biosyngen/spatial/grasp_diagnostics.py": "bf14752602536998fbc4da00c02c40e8b86550d43f1c207a2d531e09139dc50e",
+    "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
+    "biosyngen/spatial/model_v2.py": "780ed1c8634bdb87c365dce822994c0428d7e7a73de6aa97fe025f162cf8dd88",
+    "biosyngen/spatial/plant_v2.py": "0f2048defa08573261dbe457ccefcf7567f23700725a8240caab9e99f074e599",
+    "biosyngen/spatial/receiving_v2.py": "0a8014e1ee371d1416be413977e61f14fe84be21b49040081c9d9222a961dedc",
+    "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
+    "scripts/res624_grasp_diagnosis.py": "e3aba138fa09e8fa5ce182f59dd819bd73a8f87d0fb831282e5f2ebf99557e64"
+  },
+  "step0_bar_contact_force_n": [
+    1.0089995453183276,
+    -4.884981308350689e-14,
+    -7.089869924167701
+  ],
+  "step0_bar_contacts": [
+    {
+      "force_on_bar": [
+        0.5044997726591058,
+        -3.239566399386596,
+        -3.5449349620839348
+      ],
+      "normal_n": 3.4143721503413147,
+      "pad": "l_finger_flex_pad",
+      "tangent_n": 3.4143721503413147,
+      "utilization": 1.0
+    },
+    {
+      "force_on_bar": [
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      "normal_n": 0.0,
+      "pad": "l_finger_flex_pad",
+      "tangent_n": 0.0,
+      "utilization": 0.0
+    },
+    {
+      "force_on_bar": [
+        0.5044997726592216,
+        3.2395663993865473,
+        -3.5449349620837656
+      ],
+      "normal_n": 3.4143721503412126,
+      "pad": "r_finger_flex_pad",
+      "tangent_n": 3.4143721503412126,
+      "utilization": 1.0
+    },
+    {
+      "force_on_bar": [
+        0.0,
+        -0.0,
+        -0.0
+      ],
+      "normal_n": 0.0,
+      "pad": "r_finger_flex_pad",
+      "tangent_n": 0.0,
+      "utilization": 0.0
+    }
+  ],
+  "step0_support_ratio": -0.03613593233520744,
+  "terminal": {
+    "actuator_work_j": -262.4830499454942,
+    "bar_angular_momentum_about_com": [
+      -6.007042412187881e-15,
+      0.0307626725434507,
+      5.068267168692251e-15
+    ],
+    "bar_contacts": [],
+    "bar_linear_momentum": [
+      2.4711551428044616,
+      -1.9568224687461005e-14,
+      -53.558506189618925
+    ],
+    "contact_work_j": 0.013429847136832125,
+    "floor_contacts": 2
+  },
+  "thumb_transient": {
+    "steps": [
+      37,
+      67
+    ]
+  }
+}

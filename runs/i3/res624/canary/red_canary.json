@@ -1,0 +1,75 @@
+{
+  "bar_drop_m": 0.3760531196714312,
+  "canary": "RES618_FROZEN_RED",
+  "final_contacts": [
+    [
+      "floor",
+      "l_hindfoot_sole"
+    ],
+    [
+      "floor",
+      "r_hindfoot_sole"
+    ]
+  ],
+  "final_hand_contacts": 0,
+  "frozen_code": "RECEIVING_NOT_QUALIFIED_AFTER_TWO_REPAIRS",
+  "frozen_outcome": "FAIL",
+  "issue": "RES-624",
+  "receipt": {
+    "branch": "work/RES-624-grasp-contact-recovery",
+    "controller": {
+      "com_kd": 900.0,
+      "com_kp": 3000.0,
+      "grip_fraction": 0.6,
+      "identity": "biosyngen.spatial.receiving_grasp_v2.EquilibriumHoldController"
+    },
+    "evaluator": {
+      "identity": "biosyngen_benchmark.receiving_acceptance.evaluate_receiving",
+      "sha256": {
+        "biosyngen_benchmark/failure_signature.py": "1ace5ee5b7a14890b71b20ffbf6544ef0b8b091b35f219c6bb8d82e01907692c",
+        "biosyngen_benchmark/grasp_contract.py": "49507a1f2427882e5fa0fa5a42b9616e3f5f15a0d07d3f769aba6e1c4f6d40de",
+        "biosyngen_benchmark/negative_signature.py": "efc4f1be7a458dea06a58a62f3f2ff896d556b9dad67215c15529fc9aa81585e",
+        "biosyngen_benchmark/qualification_scope.py": "bced6f8f047e7e1faa21c52fab9dabf6a811d2b71e3f9e8b5d35c746c89de4fc",
+        "biosyngen_benchmark/receiving_acceptance.py": "44fea11e17be5c1cce026c3424f6438fd362e50dbaaadfa94dff95d130cbbe60",
+        "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
+        "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019"
+      }
+    },
+    "head": "adf1332227dd35181f6264f60240bcf63ef741bf",
+    "machine": "AMD64",
+    "mujoco": "3.3.7",
+    "numpy": "2.4.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+    "python": "3.12.13",
+    "scipy": "1.17.1",
+    "source_sha256": {
+      "biosyngen/spatial/anthropometry.py": "79599f4d28922908dc13b368631bbf080efa34b820d4ba7be4295f996f322e7d",
+      "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
+      "biosyngen/spatial/grasp_fixture.py": "b308c02f2703caedba13c7127b74ce72777cf832183eb5d5de828148231e1132",
+      "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
+      "biosyngen/spatial/model_v2.py": "4a0865035c24dd4be2d0cdff7c36ce55837a7aa70812cbc65606c43013cc0c7f",
+      "biosyngen/spatial/plant_v2.py": "c3a321d6e6436926bde5f705831e4c11d360f879ee63fcea63edd86197b54001",
+      "biosyngen/spatial/receiving_grasp_v2.py": "cf444e5d67816a1cbccab930e8a4c10e3a608758a84d8377e8675e94e78af985",
+      "biosyngen/spatial/receiving_v2.py": "0a8014e1ee371d1416be413977e61f14fe84be21b49040081c9d9222a961dedc",
+      "biosyngen_benchmark/failure_signature.py": "1ace5ee5b7a14890b71b20ffbf6544ef0b8b091b35f219c6bb8d82e01907692c",
+      "biosyngen_benchmark/grasp_contract.py": "49507a1f2427882e5fa0fa5a42b9616e3f5f15a0d07d3f769aba6e1c4f6d40de",
+      "biosyngen_benchmark/negative_signature.py": "efc4f1be7a458dea06a58a62f3f2ff896d556b9dad67215c15529fc9aa81585e",
+      "biosyngen_benchmark/qualification_scope.py": "bced6f8f047e7e1faa21c52fab9dabf6a811d2b71e3f9e8b5d35c746c89de4fc",
+      "biosyngen_benchmark/receiving_acceptance.py": "44fea11e17be5c1cce026c3424f6438fd362e50dbaaadfa94dff95d130cbbe60",
+      "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
+      "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019",
+      "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
+      "scripts/res624_adversarial_scenes.py": "d4ed0a4ad201fb85aff7e7ffe230a51f33e9059b13a0ce90521d25ef85b97b0f",
+      "scripts/res624_anthropometric_diagnosis.py": "38edba00a44dfa5f40edc91600f0fbb4f27948f44fe2198ac8ec2e21ad5c8c79",
+      "scripts/res624_numerical_verification.py": "ea7c42cb2d5e82d5999407fc54a12fe144b4960a82831a4ccc0fe328723902d0",
+      "scripts/res624_receiving_campaign.py": "4c95f9d9069aef549c7a810906b23cecfbac1a3855c32dba321bf25342a4e17f",
+      "scripts/res624_receiving_qualification.py": "87cc4afec87ff575b36909e3bf6e4099f8e00c68688419beac1faf9b1015c8a0",
+      "scripts/res624_red_canary.py": "51f92f9e2cacc04a4d0e6a014306037e17a950f48252d4eb620eb9f0d5f9238a"
+    },
+    "uncommitted_outside_evidence": [],
+    "worktree_clean": true
+  },
+  "reproduced": true,
+  "source_sha": "adf1332227dd35181f6264f60240bcf63ef741bf"
+}
