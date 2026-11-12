@@ -16,15 +16,17 @@ No merge, release, tag, Done transition or owner scientific acceptance is claime
 | Repository | https://github.com/Litju/BioSynGenBenchmark |
 | Branch | `work/RES-624-grasp-contact-recovery` |
 | Base | `82ff59b121ed92bd4424c38a1c1bb1573d00b4aa` (`work/RES-618-human-v2-anatomy`, PR #13) |
-| Code head qualified by the committed evidence | `7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa` |
-| Evidence commit (this package + regenerated receipts) | `b71382439dbccc1bdd407e6aa7d0d7accbb5bbe1` |
+| Code head qualified by the committed evidence | `adf1332227dd35181f6264f60240bcf63ef741bf` |
+| Evidence commit (this package + regenerated receipts) | `feae87c43e16fcffea1eb77b5740a293d93e9646` |
 | PR | https://github.com/Litju/BioSynGenBenchmark/pull/15 (draft, stacked on #13) |
 | Runtime | Python 3.12.13, MuJoCo 3.3.7, SciPy 1.17.1, NumPy 2.4.4, Windows 11 (local qualification) |
 | Solver | elliptic cone, impratio 10, Newton, tolerance 1e-10, 200 iterations, timestep 1 ms |
 | Qualification receipts | `worktree_clean=true`, `head=7c6c20d` (code) |
 
-The exact-head hosted Windows/Linux CI result for the final source SHA is recorded on PR #15. CI results at
-`807d4f8` (run 42816090274, 11/11 green) are **historical and superseded** by the evaluator repairs below.
+The exact-head hosted Windows/Linux CI result for the final source SHA is recorded on PR #15. The first final-head
+run (`5fe9c50`, run 43196141237) exposed two non-physical robustness defects - a NumPy-optional test import in the
+stdlib job and an overly fragile single-touch segment-support scene - both fixed in `adf1332`; that run is
+**historical and superseded**, as is the earlier green run at `807d4f8` (42816090274) before the evaluator repairs.
 
 ## What was repaired (Gates A–E)
 
@@ -111,7 +113,7 @@ The exact-head hosted Windows/Linux CI result for the final source SHA is record
 
 ## Final qualification outcomes
 
-`runs/i3/res624/qualification/receiving_qualification.json` at code head `7c6c20d`:
+`runs/i3/res624/qualification/receiving_qualification.json` at code head `adf1332`:
 
 - 12/12 preregistered case expectations; 22/22 adversarial refusals; 2/2 pose-positive controls qualified.
 - Verdicts: `NOMINAL_RECEIVING_HOLD_QUALIFIED`, `ANTHROPOMETRIC_GENERALIZATION_QUALIFIED`,
@@ -138,7 +140,7 @@ the bar wrench, system force balance, admissibility and static verdict and diffe
 
 ## Numerical, convergence and energy evidence
 
-`runs/i3/res624/gateF/numerical_verification.json` at `7c6c20d`:
+`runs/i3/res624/gateF/numerical_verification.json` at `adf1332`:
 
 | Check | Result |
 |---|---|
