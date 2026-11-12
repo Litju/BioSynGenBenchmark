@@ -26,12 +26,16 @@
     "evaluator": {
       "identity": "biosyngen_benchmark.receiving_acceptance.evaluate_receiving",
       "sha256": {
-        "biosyngen_benchmark/receiving_acceptance.py": "184085aa46283fcd44546650455796158bb85d68e59c1aa062c94633a5d62971",
-        "biosyngen_benchmark/rigid_body_check.py": "035434534c8abd5ae3c07e21640905bceff863931e6f7878ce6c1f73c0a0cbf1",
+        "biosyngen_benchmark/failure_signature.py": "1ace5ee5b7a14890b71b20ffbf6544ef0b8b091b35f219c6bb8d82e01907692c",
+        "biosyngen_benchmark/grasp_contract.py": "49507a1f2427882e5fa0fa5a42b9616e3f5f15a0d07d3f769aba6e1c4f6d40de",
+        "biosyngen_benchmark/negative_signature.py": "efc4f1be7a458dea06a58a62f3f2ff896d556b9dad67215c15529fc9aa81585e",
+        "biosyngen_benchmark/qualification_scope.py": "bced6f8f047e7e1faa21c52fab9dabf6a811d2b71e3f9e8b5d35c746c89de4fc",
+        "biosyngen_benchmark/receiving_acceptance.py": "44fea11e17be5c1cce026c3424f6438fd362e50dbaaadfa94dff95d130cbbe60",
+        "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
         "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019"
       }
     },
-    "head": "2851de84bc21ddcf28b77d0b60562891d87eb622",
+    "head": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
     "machine": "AMD64",
     "mujoco": "3.3.7",
     "numpy": "2.4.4",
@@ -46,21 +50,26 @@
       "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
       "biosyngen/spatial/model_v2.py": "4a0865035c24dd4be2d0cdff7c36ce55837a7aa70812cbc65606c43013cc0c7f",
       "biosyngen/spatial/plant_v2.py": "c3a321d6e6436926bde5f705831e4c11d360f879ee63fcea63edd86197b54001",
-      "biosyngen/spatial/receiving_grasp_v2.py": "e4f57b8bc5658468605c4fcd73aeceb887169744770d46cd8c5673870e191760",
+      "biosyngen/spatial/receiving_grasp_v2.py": "cf444e5d67816a1cbccab930e8a4c10e3a608758a84d8377e8675e94e78af985",
       "biosyngen/spatial/receiving_v2.py": "0a8014e1ee371d1416be413977e61f14fe84be21b49040081c9d9222a961dedc",
-      "biosyngen_benchmark/receiving_acceptance.py": "184085aa46283fcd44546650455796158bb85d68e59c1aa062c94633a5d62971",
-      "biosyngen_benchmark/rigid_body_check.py": "035434534c8abd5ae3c07e21640905bceff863931e6f7878ce6c1f73c0a0cbf1",
+      "biosyngen_benchmark/failure_signature.py": "1ace5ee5b7a14890b71b20ffbf6544ef0b8b091b35f219c6bb8d82e01907692c",
+      "biosyngen_benchmark/grasp_contract.py": "49507a1f2427882e5fa0fa5a42b9616e3f5f15a0d07d3f769aba6e1c4f6d40de",
+      "biosyngen_benchmark/negative_signature.py": "efc4f1be7a458dea06a58a62f3f2ff896d556b9dad67215c15529fc9aa81585e",
+      "biosyngen_benchmark/qualification_scope.py": "bced6f8f047e7e1faa21c52fab9dabf6a811d2b71e3f9e8b5d35c746c89de4fc",
+      "biosyngen_benchmark/receiving_acceptance.py": "44fea11e17be5c1cce026c3424f6438fd362e50dbaaadfa94dff95d130cbbe60",
+      "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
       "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019",
       "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
+      "scripts/res624_adversarial_scenes.py": "9ed68e8162ece8b2ea4a510a72c87b26eca7c8e18df8e80e846f673322cf0539",
       "scripts/res624_anthropometric_diagnosis.py": "38edba00a44dfa5f40edc91600f0fbb4f27948f44fe2198ac8ec2e21ad5c8c79",
-      "scripts/res624_numerical_verification.py": "ca4a5f4adc28658ca37a765c1cbd2fe08a054a9e24166fecddeaab4953fc6381",
+      "scripts/res624_numerical_verification.py": "ea7c42cb2d5e82d5999407fc54a12fe144b4960a82831a4ccc0fe328723902d0",
       "scripts/res624_receiving_campaign.py": "4c95f9d9069aef549c7a810906b23cecfbac1a3855c32dba321bf25342a4e17f",
-      "scripts/res624_receiving_qualification.py": "a2ddfdd6b3191c5bd6c4fbdd5ef8e042bd61be3945e56753b2af69d6a072eef3",
+      "scripts/res624_receiving_qualification.py": "87cc4afec87ff575b36909e3bf6e4099f8e00c68688419beac1faf9b1015c8a0",
       "scripts/res624_red_canary.py": "51f92f9e2cacc04a4d0e6a014306037e17a950f48252d4eb620eb9f0d5f9238a"
     },
     "uncommitted_outside_evidence": [],
     "worktree_clean": true
   },
   "reproduced": true,
-  "source_sha": "2851de84bc21ddcf28b77d0b60562891d87eb622"
+  "source_sha": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa"
 }

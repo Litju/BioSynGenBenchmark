@@ -7,36 +7,36 @@
   ],
   "forward": {
     "anthropometry_70kg_1p70m": {
-      "max_utilization": 0.32804428106868394,
+      "max_utilization": 0.3265327914744904,
       "metrics": {
-        "bar_displacement_in_hand_m": 0.0024093169193316025,
-        "bar_z_change_m": -0.0005386384842458458,
-        "com_x_drift_m": 0.0046574885303130725,
+        "bar_displacement_in_hand_m": 0.0014461853211630682,
+        "bar_z_change_m": -5.4105221796163505e-06,
+        "com_x_drift_m": 0.004116781922098675,
         "duration_s": 1.9999999999998905,
-        "floor_vertical_over_weight_mean": 0.9999473845987763,
-        "hand_support_mean": 0.9999320978189712,
-        "hand_support_min": 0.9922805602683652,
+        "floor_vertical_over_weight_mean": 1.0000087425886781,
+        "hand_support_mean": 1.0000773488123702,
+        "hand_support_min": 0.9982796530316739,
         "min_hand_contacts": 8,
         "posture_saturation_samples": 0
       },
       "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
-      "static_verdict": "POSE_INADMISSIBLE"
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
     },
     "anthropometry_80kg_1p80m": {
-      "max_utilization": 0.38514164475312795,
+      "max_utilization": 0.38457142153041984,
       "metrics": {
-        "bar_displacement_in_hand_m": 0.0037741705351766095,
-        "bar_z_change_m": 0.000323185333467535,
-        "com_x_drift_m": 0.003378068847109783,
+        "bar_displacement_in_hand_m": 0.0013935175672380332,
+        "bar_z_change_m": 9.994056742024249e-05,
+        "com_x_drift_m": 0.0032569207570411762,
         "duration_s": 1.9999999999998905,
-        "floor_vertical_over_weight_mean": 1.000035880320116,
-        "hand_support_mean": 1.0001627465492589,
-        "hand_support_min": 0.9998517733000873,
+        "floor_vertical_over_weight_mean": 1.0000138733792885,
+        "hand_support_mean": 1.0000882320616638,
+        "hand_support_min": 0.9996719533083329,
         "min_hand_contacts": 8,
         "posture_saturation_samples": 0
       },
-      "static_code": "STATIC_GRASP_INFEASIBLE",
-      "static_verdict": "STATIC_GRASP_INFEASIBLE"
+      "static_code": "STATIC_EQUILIBRIUM_FEASIBLE",
+      "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
     },
     "arm_capacity_half_threshold": {
       "max_utilization": 1.9891168423687127,
@@ -649,7 +649,7 @@
     "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED"
   },
   "source_dirty": false,
-  "source_sha": "8678859edcf68adf1f5ec647597ef1766a98e97e",
+  "source_sha": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
   "source_sha256": {
     "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
     "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",

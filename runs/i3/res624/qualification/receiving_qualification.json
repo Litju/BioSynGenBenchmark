@@ -1,100 +1,1440 @@
 {
   "adversarial": {
     "actuator_capacity_exceeded": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.0868238664855487,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 7.014820098016716e-10,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
       "expected": "ACTUATOR_INFEASIBLE",
+      "first_failure": {
+        "code": "ACTUATOR_INFEASIBLE",
+        "reason": "CAPACITY",
+        "t_s": 0.10000000000000007
+      },
       "observed": "ACTUATOR_INFEASIBLE",
       "reason": "CAPACITY",
-      "refused": true
+      "refused": true,
+      "signature": {
+        "expected": "ACTUATOR_INFEASIBLE",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 1.0000841612774374
+        },
+        "observed": "ACTUATOR_INFEASIBLE",
+        "reason": "CAPACITY"
+      }
+    },
+    "bar_axial_slip_5mm": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762167132895e-09,
+          "max_residual_to_bound_ratio": 0.08682386643306662,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762169030998e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 7.014820117487963e-10,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "GRASP_SLIP",
+      "first_failure": {
+        "code": "GRASP_SLIP",
+        "reason": "AXIAL_SLIP_EXCEEDS_GRIP",
+        "t_s": 0.8320000000000006
+      },
+      "observed": "GRASP_SLIP",
+      "reason": "AXIAL_SLIP_EXCEEDS_GRIP",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_SLIP",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 1.0000841612774374
+        },
+        "observed": "GRASP_SLIP",
+        "reason": "AXIAL_SLIP_EXCEEDS_GRIP"
+      }
+    },
+    "bar_tilt_10deg_zero_translation": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.0868238664855487,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 9.18782230080533e-05,
+          "max_residual_n_m_s": 1.734376228389621e-09,
+          "outcome": "REJECTED",
+          "reason": "ANGULAR_ATTITUDE_REFERENCE_MISMATCH",
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 7.014820098016716e-10,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "NUMERICAL_NOT_QUALIFIED",
+      "first_failure": null,
+      "observed": "NUMERICAL_NOT_QUALIFIED",
+      "reason": "ANGULAR_ATTITUDE_REFERENCE_MISMATCH",
+      "refused": true,
+      "signature": {
+        "expected": "NUMERICAL_NOT_QUALIFIED",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 1.0000841612774374
+        },
+        "observed": "NUMERICAL_NOT_QUALIFIED",
+        "reason": "ANGULAR_ATTITUDE_REFERENCE_MISMATCH"
+      }
     },
     "declared_friction_violated": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.0868238664855487,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 0.0,
+        "hand_support_moment_residual_ratio": 7.014820098016716e-10,
+        "hand_support_share": {
+          "l": 0.0,
+          "r": 0.0
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
       "expected": "CONTACT_INADMISSIBLE",
+      "first_failure": {
+        "code": "CONTACT_INADMISSIBLE",
+        "reason": "[('OUTSIDE_FRICTION_CONE', 'bar_shaft', 'l_finger_distal_pad', 7.46028233188684, 140.12422621849663), ('OUTSIDE_FRICTION_CONE', 'bar_shaft', 'l_finger_distal_pad', 13.6819241225828, 89.03484283732088), ('OUTSIDE_FRICTION_CONE', 'bar_shaft', 'l_thumb_opposition_pad', 17.118353580096606, 286.3821101211199)]",
+        "t_s": 0.0
+      },
       "observed": "CONTACT_INADMISSIBLE",
       "reason": "[('OUTSIDE_FRICTION_CONE', 'bar_shaft', 'l_finger_distal_pad', 7.46028233188684, 140.12422621849663), ('OUTSIDE_FRICTION_CONE', 'bar_shaft', 'l_finger_distal_pad', 13.6819241225828, 89.03484283732088), ('OUTSIDE_FRICTION_CONE', 'bar_shaft', 'l_thumb_opposition_pad', 17.118353580096606, 286.3821101211199)]",
-      "refused": true
+      "refused": true,
+      "signature": {
+        "expected": "CONTACT_INADMISSIBLE",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 0.0
+        },
+        "observed": "CONTACT_INADMISSIBLE",
+        "reason": "[('OUTSIDE_FRICTION_CONE', 'bar_shaft', 'l_finger_distal_pad', 7.46028233188684, 140.12422621849663), ('OUTSIDE_FRICTION"
+      }
+    },
+    "external_support_hand_load_5pct": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762248395495e-09,
+          "max_residual_to_bound_ratio": 0.08682386653782556,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762252130505e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.790624046446798e-14,
+        "hand_support_impulse_ratio": 0.05000420806387186,
+        "hand_support_moment_residual_ratio": 7.01482013471274e-10,
+        "hand_support_share": {
+          "l": 0.024974789251697087,
+          "r": 0.025029418812174752
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "GRASP_UNSUPPORTED",
+      "first_failure": {
+        "code": "GRASP_UNSUPPORTED",
+        "reason": "INSUFFICIENT_HAND_SUPPORT",
+        "t_s": 0.10000000000000007
+      },
+      "observed": "GRASP_UNSUPPORTED",
+      "reason": "INSUFFICIENT_HAND_SUPPORT",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_UNSUPPORTED",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 0.05000420806387186
+        },
+        "observed": "GRASP_UNSUPPORTED",
+        "reason": "INSUFFICIENT_HAND_SUPPORT"
+      }
+    },
+    "forearm_relabelled_support": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762260085098e-09,
+          "max_residual_to_bound_ratio": 0.0868238825932302,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762266637892e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.819066115975204e-14,
+        "hand_support_impulse_ratio": -0.002097848621247454,
+        "hand_support_moment_residual_ratio": 7.0148200779409e-10,
+        "hand_support_share": {
+          "l": -0.0010615959977832556,
+          "r": -0.0010362526234642011
+        },
+        "min_grasp_active_contacts": 2,
+        "min_grasp_contacts": 2,
+        "nongrasp_bar_contacts_max": 12
+      },
+      "expected": "GRASP_UNSUPPORTED",
+      "first_failure": {
+        "code": "GRASP_UNSUPPORTED",
+        "reason": "INSUFFICIENT_HAND_SUPPORT",
+        "t_s": 0.10000000000000007
+      },
+      "observed": "GRASP_UNSUPPORTED",
+      "reason": "INSUFFICIENT_HAND_SUPPORT",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_UNSUPPORTED",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 2,
+          "min_grasp_contacts": 2,
+          "support_ratio": -0.002097848621247454
+        },
+        "observed": "GRASP_UNSUPPORTED",
+        "reason": "INSUFFICIENT_HAND_SUPPORT"
+      }
+    },
+    "forged_pad_body_identity": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.0868238664855487,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [
+          "('GRASP_BODY_GEOM_MISMATCH', 'l_finger_flex_pad', 'l_forearm', 'l_fingers_proximal')"
+        ],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 7.014820098016716e-10,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 9,
+        "min_grasp_contacts": 9,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "GRASP_IDENTITY_UNADMISSIBLE",
+      "first_failure": null,
+      "observed": "GRASP_IDENTITY_UNADMISSIBLE",
+      "reason": "[\"('GRASP_BODY_GEOM_MISMATCH', 'l_finger_flex_pad', 'l_forearm', 'l_fingers_proximal')\"]",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_IDENTITY_UNADMISSIBLE",
+        "identity_fields": {
+          "identity_problems": 1,
+          "min_grasp_active_contacts": 9,
+          "min_grasp_contacts": 9,
+          "support_ratio": 1.0000841612774374
+        },
+        "observed": "GRASP_IDENTITY_UNADMISSIBLE",
+        "reason": "[\"('GRASP_BODY_GEOM_MISMATCH', 'l_finger_flex_pad', 'l_forearm', 'l_fingers_proximal')\"]"
+      }
+    },
+    "forged_pad_contact_point": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.0868238664855487,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [
+          "('CONTACT_POINT_OFF_REGISTERED_INTERFACE', 'l_finger_flex_pad', 'l_fingers_proximal')"
+        ],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 7.014820098016716e-10,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 9,
+        "min_grasp_contacts": 9,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "GRASP_IDENTITY_UNADMISSIBLE",
+      "first_failure": null,
+      "observed": "GRASP_IDENTITY_UNADMISSIBLE",
+      "reason": "[\"('CONTACT_POINT_OFF_REGISTERED_INTERFACE', 'l_finger_flex_pad', 'l_fingers_proximal')\"]",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_IDENTITY_UNADMISSIBLE",
+        "identity_fields": {
+          "identity_problems": 1,
+          "min_grasp_active_contacts": 9,
+          "min_grasp_contacts": 9,
+          "support_ratio": 1.0000841612774374
+        },
+        "observed": "GRASP_IDENTITY_UNADMISSIBLE",
+        "reason": "[\"('CONTACT_POINT_OFF_REGISTERED_INTERFACE', 'l_finger_flex_pad', 'l_fingers_proximal')\"]"
+      }
     },
     "hand_contacts_deleted": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 3.705534754587777e-05,
+          "max_residual_n_m_s": 3.714958198106664e-05,
+          "max_residual_to_bound_ratio": 7251.9428283579555,
+          "outcome": "REJECTED"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 7.606893192589597e-07,
+          "max_residual_n_m_s": 3.714958198106901e-05,
+          "outcome": "REJECTED",
+          "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 1.00008422623988,
+        "hand_support_impulse_ratio": 0.0,
+        "hand_support_moment_residual_ratio": 2.3621421257508395e-05,
+        "hand_support_share": {
+          "l": 0.0,
+          "r": 0.0
+        },
+        "min_grasp_active_contacts": 0,
+        "min_grasp_contacts": 0,
+        "nongrasp_bar_contacts_max": 0
+      },
       "expected": "NUMERICAL_NOT_QUALIFIED",
+      "first_failure": null,
       "observed": "NUMERICAL_NOT_QUALIFIED",
       "reason": "BAR_BALANCE_OPEN_UNDECLARED_LOAD",
-      "refused": true
+      "refused": true,
+      "signature": {
+        "expected": "NUMERICAL_NOT_QUALIFIED",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 0,
+          "min_grasp_contacts": 0,
+          "support_ratio": 0.0
+        },
+        "observed": "NUMERICAL_NOT_QUALIFIED",
+        "reason": "BAR_BALANCE_OPEN_UNDECLARED_LOAD"
+      }
+    },
+    "hand_frames_ramp_5deg": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.0868238664855487,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 7.014820098016716e-10,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "GRASP_SLIP",
+      "first_failure": null,
+      "observed": "GRASP_SLIP",
+      "reason": "BAR_MOVED_IN_HAND",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_SLIP",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 1.0000841612774374
+        },
+        "observed": "GRASP_SLIP",
+        "reason": "BAR_MOVED_IN_HAND"
+      }
+    },
+    "incorrect_bar_inertia": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 7.3160718977901176e-06,
+          "max_residual_n_m_s": 7.4291532200168145e-06,
+          "max_residual_to_bound_ratio": 1208.6571938501704,
+          "outcome": "REJECTED"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 4.46040318819758e-07,
+          "max_residual_n_m_s": 7.429153220019151e-06,
+          "outcome": "REJECTED",
+          "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 4.72430264452075e-06,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "NUMERICAL_NOT_QUALIFIED",
+      "first_failure": null,
+      "observed": "NUMERICAL_NOT_QUALIFIED",
+      "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
+      "refused": true,
+      "signature": {
+        "expected": "NUMERICAL_NOT_QUALIFIED",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 1.0000841612774374
+        },
+        "observed": "NUMERICAL_NOT_QUALIFIED",
+        "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH"
+      }
+    },
+    "misassigned_contact_moment": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 1.7451083625837892e-05,
+          "max_residual_n_m_s": 1.7453350919784978e-05,
+          "max_residual_to_bound_ratio": 40465.34946420106,
+          "outcome": "REJECTED"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 4.846887578752861e-07,
+          "max_residual_n_m_s": 1.7453350919784995e-05,
+          "outcome": "REJECTED",
+          "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 1.9989999999998906
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.733442108800301e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 0.0002510826511336458,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "NUMERICAL_NOT_QUALIFIED",
+      "first_failure": null,
+      "observed": "NUMERICAL_NOT_QUALIFIED",
+      "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
+      "refused": true,
+      "signature": {
+        "expected": "NUMERICAL_NOT_QUALIFIED",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 1.0000841612774374
+        },
+        "observed": "NUMERICAL_NOT_QUALIFIED",
+        "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH"
+      }
     },
     "non_foot_floor_contact": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.0868238664855487,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 7.014820098016716e-10,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
       "expected": "RECEIVING_UNSTABLE",
+      "first_failure": null,
       "observed": "RECEIVING_UNSTABLE",
       "reason": "NON_FOOT_FLOOR_CONTACT",
-      "refused": true
+      "refused": true,
+      "signature": {
+        "expected": "RECEIVING_UNSTABLE",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 1.0000841612774374
+        },
+        "observed": "RECEIVING_UNSTABLE",
+        "reason": "NON_FOOT_FLOOR_CONTACT"
+      }
     },
-    "static_not_certified": {
-      "expected": "STATIC_NOT_CERTIFIED",
-      "observed": "STATIC_NOT_CERTIFIED",
-      "reason": "STATIC_GRASP_INFEASIBLE",
-      "refused": true
-    },
-    "undeclared_bar_support": {
+    "reversed_hand_forces": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.07171680945647381,
+          "max_residual_n_m_s": 0.07171689664557275,
+          "max_residual_to_bound_ratio": 163002850.08356172,
+          "outcome": "REJECTED"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 1.0314402517404675e-05,
+          "max_residual_n_m_s": 0.07171689664557279,
+          "outcome": "REJECTED",
+          "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1360000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 1.0091530308544203,
+        "hand_support_impulse_ratio": 0.5005883762434956,
+        "hand_support_moment_residual_ratio": 1.430266686610972,
+        "hand_support_share": {
+          "l": 0.0,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 5,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
       "expected": "NUMERICAL_NOT_QUALIFIED",
+      "first_failure": null,
       "observed": "NUMERICAL_NOT_QUALIFIED",
       "reason": "BAR_BALANCE_OPEN_UNDECLARED_LOAD",
-      "refused": true
+      "refused": true,
+      "signature": {
+        "expected": "NUMERICAL_NOT_QUALIFIED",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 5,
+          "min_grasp_contacts": 10,
+          "support_ratio": 0.5005883762434956
+        },
+        "observed": "NUMERICAL_NOT_QUALIFIED",
+        "reason": "BAR_BALANCE_OPEN_UNDECLARED_LOAD"
+      }
+    },
+    "right_grip_zero_load_left_carries_all": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.08682391936389984,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.71823933846247e-14,
+        "hand_support_impulse_ratio": 0.998991570067884,
+        "hand_support_moment_residual_ratio": 7.014827202853725e-10,
+        "hand_support_share": {
+          "l": 0.998991570067884,
+          "r": 0.0
+        },
+        "min_grasp_active_contacts": 5,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "GRASP_NOT_BILATERAL",
+      "first_failure": null,
+      "observed": "GRASP_NOT_BILATERAL",
+      "reason": "UNILATERAL_OR_NON_LOAD_BEARING_HAND",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_NOT_BILATERAL",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 5,
+          "min_grasp_contacts": 10,
+          "support_ratio": 0.998991570067884
+        },
+        "observed": "GRASP_NOT_BILATERAL",
+        "reason": "UNILATERAL_OR_NON_LOAD_BEARING_HAND"
+      }
+    },
+    "right_hand_frame_10deg_offset": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.0868238664855487,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 7.014820098016716e-10,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "GRASP_SLIP",
+      "first_failure": {
+        "code": "GRASP_SLIP",
+        "reason": "HAND_FRAME_GRIP_AXIS_MISALIGNED",
+        "t_s": 0.10000000000000007
+      },
+      "observed": "GRASP_SLIP",
+      "reason": "HAND_FRAME_GRIP_AXIS_MISALIGNED",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_SLIP",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 1.0000841612774374
+        },
+        "observed": "GRASP_SLIP",
+        "reason": "HAND_FRAME_GRIP_AXIS_MISALIGNED"
+      }
+    },
+    "segment_only_no_grasp_contact": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.0868238664855487,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 0.0,
+        "hand_support_moment_residual_ratio": 7.014820098016716e-10,
+        "hand_support_share": {
+          "l": 0.0,
+          "r": 0.0
+        },
+        "min_grasp_active_contacts": 0,
+        "min_grasp_contacts": 0,
+        "nongrasp_bar_contacts_max": 12
+      },
+      "expected": "GRASP_GEOMETRY_INFEASIBLE",
+      "first_failure": null,
+      "observed": "GRASP_GEOMETRY_INFEASIBLE",
+      "reason": "NO_PERMITTED_GRASP_CONTACT",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_GEOMETRY_INFEASIBLE",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 0,
+          "min_grasp_contacts": 0,
+          "support_ratio": 0.0
+        },
+        "observed": "GRASP_GEOMETRY_INFEASIBLE",
+        "reason": "NO_PERMITTED_GRASP_CONTACT"
+      }
+    },
+    "static_not_certified": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.0868238664855487,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 7.014820098016716e-10,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "STATIC_NOT_CERTIFIED",
+      "first_failure": null,
+      "observed": "STATIC_NOT_CERTIFIED",
+      "reason": "STATIC_GRASP_INFEASIBLE",
+      "refused": true,
+      "signature": {
+        "expected": "STATIC_NOT_CERTIFIED",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 1.0000841612774374
+        },
+        "observed": "STATIC_NOT_CERTIFIED",
+        "reason": "STATIC_GRASP_INFEASIBLE"
+      }
+    },
+    "thigh_relabelled_support": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762260085098e-09,
+          "max_residual_to_bound_ratio": 0.0868238825932302,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762266637892e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.819066115975204e-14,
+        "hand_support_impulse_ratio": -0.002097848621247454,
+        "hand_support_moment_residual_ratio": 7.0148200779409e-10,
+        "hand_support_share": {
+          "l": -0.0010615959977832556,
+          "r": -0.0010362526234642011
+        },
+        "min_grasp_active_contacts": 2,
+        "min_grasp_contacts": 2,
+        "nongrasp_bar_contacts_max": 12
+      },
+      "expected": "GRASP_UNSUPPORTED",
+      "first_failure": {
+        "code": "GRASP_UNSUPPORTED",
+        "reason": "INSUFFICIENT_HAND_SUPPORT",
+        "t_s": 0.10000000000000007
+      },
+      "observed": "GRASP_UNSUPPORTED",
+      "reason": "INSUFFICIENT_HAND_SUPPORT",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_UNSUPPORTED",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 2,
+          "min_grasp_contacts": 2,
+          "support_ratio": -0.002097848621247454
+        },
+        "observed": "GRASP_UNSUPPORTED",
+        "reason": "INSUFFICIENT_HAND_SUPPORT"
+      }
+    },
+    "torso_relabelled_support": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762260085098e-09,
+          "max_residual_to_bound_ratio": 0.0868238825932302,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762266637892e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.819066115975204e-14,
+        "hand_support_impulse_ratio": -0.002097848621247454,
+        "hand_support_moment_residual_ratio": 7.0148200779409e-10,
+        "hand_support_share": {
+          "l": -0.0010615959977832556,
+          "r": -0.0010362526234642011
+        },
+        "min_grasp_active_contacts": 2,
+        "min_grasp_contacts": 2,
+        "nongrasp_bar_contacts_max": 12
+      },
+      "expected": "GRASP_UNSUPPORTED",
+      "first_failure": {
+        "code": "GRASP_UNSUPPORTED",
+        "reason": "INSUFFICIENT_HAND_SUPPORT",
+        "t_s": 0.10000000000000007
+      },
+      "observed": "GRASP_UNSUPPORTED",
+      "reason": "INSUFFICIENT_HAND_SUPPORT",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_UNSUPPORTED",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 2,
+          "min_grasp_contacts": 2,
+          "support_ratio": -0.002097848621247454
+        },
+        "observed": "GRASP_UNSUPPORTED",
+        "reason": "INSUFFICIENT_HAND_SUPPORT"
+      }
+    },
+    "undeclared_bar_support": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 5.919826128425023e-09,
+          "max_residual_to_bound_ratio": 0.018663640724371308,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 4.636153336198385e-07,
+          "max_residual_n_m_s": 5.919826128621395e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 100,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.10200000000000008
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 0.1529051987767592,
+        "hand_support_impulse_ratio": 0.8440990806331439,
+        "hand_support_moment_residual_ratio": 1.878032026162337e-08,
+        "hand_support_share": {
+          "l": 0.4214754585809958,
+          "r": 0.42262362205214854
+        },
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "NUMERICAL_NOT_QUALIFIED",
+      "first_failure": null,
+      "observed": "NUMERICAL_NOT_QUALIFIED",
+      "reason": "BAR_BALANCE_OPEN_UNDECLARED_LOAD",
+      "refused": true,
+      "signature": {
+        "expected": "NUMERICAL_NOT_QUALIFIED",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 10,
+          "min_grasp_contacts": 10,
+          "support_ratio": 0.8440990806331439
+        },
+        "observed": "NUMERICAL_NOT_QUALIFIED",
+        "reason": "BAR_BALANCE_OPEN_UNDECLARED_LOAD"
+      }
+    },
+    "unilateral_support_left_only": {
+      "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.08682391936389984,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
+        "grasp_identity_problems": [],
+        "hand_support_force_residual_ratio": 5.71823933846247e-14,
+        "hand_support_impulse_ratio": 0.998991570067884,
+        "hand_support_moment_residual_ratio": 7.014827202853725e-10,
+        "hand_support_share": {
+          "l": 0.998991570067884,
+          "r": 0.0
+        },
+        "min_grasp_active_contacts": 5,
+        "min_grasp_contacts": 10,
+        "nongrasp_bar_contacts_max": 0
+      },
+      "expected": "GRASP_NOT_BILATERAL",
+      "first_failure": null,
+      "observed": "GRASP_NOT_BILATERAL",
+      "reason": "UNILATERAL_OR_NON_LOAD_BEARING_HAND",
+      "refused": true,
+      "signature": {
+        "expected": "GRASP_NOT_BILATERAL",
+        "identity_fields": {
+          "identity_problems": 0,
+          "min_grasp_active_contacts": 5,
+          "min_grasp_contacts": 10,
+          "support_ratio": 0.998991570067884
+        },
+        "observed": "GRASP_NOT_BILATERAL",
+        "reason": "UNILATERAL_OR_NON_LOAD_BEARING_HAND"
+      }
     }
   },
-  "adversarial_refused": 6,
-  "adversarial_total": 6,
+  "adversarial_positive": {
+    "asymmetric_30_70_bilateral_support": {
+      "note": "asymmetric hand load sharing is physically admissible; only the bilateral minimum share is gated",
+      "observed": "RECEIVING_HOLD_QUALIFIED",
+      "qualified": true,
+      "support_ratio": 1.0005211977612571,
+      "support_share": {
+        "l": 0.29969747102036504,
+        "r": 0.7008237267408935
+      }
+    },
+    "small_relative_motion_within_grip": {
+      "contact_site_drift_m": {
+        "l": 0.0022246484206490686,
+        "r": 0.0022712262077768343
+      },
+      "note": "0.5 deg reported tilt and 0.5 mm hand-frame translation are inside the declared grip bounds",
+      "observed": "RECEIVING_HOLD_QUALIFIED",
+      "qualified": true,
+      "tilt_deg": {
+        "l": 0.29666636221999443,
+        "r": 0.31244769499215325
+      }
+    }
+  },
+  "adversarial_positive_qualified": 2,
+  "adversarial_positive_total": 2,
+  "adversarial_refused": 22,
+  "adversarial_total": 22,
   "anthropometric_generalization": "QUALIFIED_BOTH",
   "cases": {
     "anthropometry_70kg_1p70m": {
       "all_failures": [],
-      "bar_angular_excess_n_m_s": 0.0,
+      "bar_angular_bound_residual_n_m_s": 2.5564150612689127e-08,
+      "bar_angular_residual_n_m_s": 2.5564150613480164e-08,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 2.5454844444816364e-16,
       "bar_mass_kg": 20.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 2.5564150612689127e-08,
+          "max_residual_to_bound_ratio": 0.1617021341021384,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 6.005519218924487e-06,
+          "max_residual_n_m_s": 2.5564150613480164e-08,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 1.8009999999999124
+        },
         "bar_displacement_in_hand_m": 0.0014461853211630682,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 1.0000087425886781,
-        "hand_support_ratio_mean": 1.0000773488123702,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.9994739610731194,
+          "r": 0.9994739610731194
+        },
+        "hand_support_force_residual_ratio": 5.840181722641435e-14,
+        "hand_support_impulse_ratio": 1.0000773499821467,
+        "hand_support_moment_residual_ratio": 2.8340597632720843e-09,
+        "hand_support_ratio_mean": 1.0000773499820883,
         "hand_support_ratio_min": 0.9982796530316738,
+        "hand_support_share": {
+          "l": 0.5000086605990992,
+          "r": 0.500068689383046
+        },
         "max_penetration_m": 0.0004934855041725042,
         "min_com_projection_margin_m": 0.03348267848458914,
         "min_cop_margin_m": 0.032937997676710636,
+        "min_grasp_active_contacts": 8,
+        "min_grasp_contacts": 8,
         "min_hand_contacts": 8,
+        "nongrasp_bar_contacts_max": 0,
         "over_capacity": 0,
-        "posture_saturation_samples": 0
+        "posture_saturation_samples": 0,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {},
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.23991264696249415,
+            "r": 0.2405494107750267
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 0.000211139521738825,
+            "r": 0.0002093383789673543
+          },
+          "max_com_displacement_m": {
+            "l": 0.0014074285223239533,
+            "r": 0.0014461853211630682
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.0016177983641486706,
+            "r": 0.0016649568748550157
+          },
+          "max_geodesic_deg": {
+            "l": 1.402263883904182,
+            "r": 1.3904983287984638
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 0.01685473759875667,
+            "r": 0.01729815744998225
+          },
+          "max_omega_rel_rad_s": {
+            "l": 0.09064170656719348,
+            "r": 0.08917354209137665
+          },
+          "max_tilt_deg": {
+            "l": 0.37892077330527346,
+            "r": 0.3863819024707351
+          },
+          "max_twist_deg": {
+            "l": 1.3500949610779018,
+            "r": 1.3357349535211764
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "QUALIFIED",
       "expectation_met": true,
+      "first_failure": null,
       "model_total_mass_kg": 90.0,
       "outcome": "RECEIVING_HOLD_QUALIFIED",
       "reason": "None",
       "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "subject": {
+        "bar_mass_kg": 20.0,
+        "body_mass_kg": 70.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 70.0,
+        "source": "declared subject profile",
+        "stature_m": 1.7
+      },
       "system_step_residual_n_s": 5.418879032624976e-05
     },
     "anthropometry_80kg_1p80m": {
       "all_failures": [],
-      "bar_angular_excess_n_m_s": 2.0981535499081053e-18,
+      "bar_angular_bound_residual_n_m_s": 1.3038400594112007e-08,
+      "bar_angular_residual_n_m_s": 1.303840059491976e-08,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 2.275494189242601e-16,
       "bar_mass_kg": 20.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.3038400594112007e-08,
+          "max_residual_to_bound_ratio": 0.09394134650975866,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 7.303089353348684e-07,
+          "max_residual_n_m_s": 1.303840059491976e-08,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.21800000000000017
+        },
         "bar_displacement_in_hand_m": 0.0013935175672380332,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 1.0000138733792885,
-        "hand_support_ratio_mean": 1.0000882320616638,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.9994739610731194,
+          "r": 0.9994739610731194
+        },
+        "hand_support_force_residual_ratio": 5.824933207982875e-14,
+        "hand_support_impulse_ratio": 1.0000882852708175,
+        "hand_support_moment_residual_ratio": 3.871830386944283e-10,
+        "hand_support_ratio_mean": 1.000088285270759,
         "hand_support_ratio_min": 0.9996719533083329,
+        "hand_support_share": {
+          "l": 0.4974900077040125,
+          "r": 0.5025982775668031
+        },
         "max_penetration_m": 0.00047417168744145685,
         "min_com_projection_margin_m": 0.02952513199290263,
         "min_cop_margin_m": 0.029112782731395635,
+        "min_grasp_active_contacts": 8,
+        "min_grasp_contacts": 8,
         "min_hand_contacts": 8,
+        "nongrasp_bar_contacts_max": 0,
         "over_capacity": 0,
-        "posture_saturation_samples": 0
+        "posture_saturation_samples": 0,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {},
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.19617709408393846,
+            "r": 0.21312606230702802
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 0.00012776634109217037,
+            "r": 0.00012518774860784273
+          },
+          "max_com_displacement_m": {
+            "l": 0.0012346537079498967,
+            "r": 0.0013935175672380332
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.0017390469402571028,
+            "r": 0.0013763604894932464
+          },
+          "max_geodesic_deg": {
+            "l": 0.5454805318004641,
+            "r": 0.5480120197330642
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 0.01469836321229302,
+            "r": 0.018420823805861655
+          },
+          "max_omega_rel_rad_s": {
+            "l": 0.022202567903828997,
+            "r": 0.02330223740211983
+          },
+          "max_tilt_deg": {
+            "l": 0.28024748461502347,
+            "r": 0.31436144235156177
+          },
+          "max_twist_deg": {
+            "l": 0.4679849584163138,
+            "r": 0.4488803313433992
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "QUALIFIED",
       "expectation_met": true,
+      "first_failure": null,
       "model_total_mass_kg": 100.0,
       "outcome": "RECEIVING_HOLD_QUALIFIED",
       "reason": "None",
       "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "subject": {
+        "bar_mass_kg": 20.0,
+        "body_mass_kg": 80.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 80.0,
+        "source": "declared subject profile",
+        "stature_m": 1.8
+      },
       "system_step_residual_n_s": 4.071536825071035e-06
     },
     "arm_capacity_half_threshold": {
       "all_failures": [
+        "NUMERICAL_NOT_QUALIFIED:ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
         "NUMERICAL_NOT_QUALIFIED:SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD",
         "CONTACT_INADMISSIBLE:PENETRATION",
         "ACTUATOR_INFEASIBLE:CAPACITY",
@@ -104,110 +1444,563 @@
         "RECEIVING_UNSTABLE:LOST_BILATERAL_FOOT_SUPPORT",
         "STATIC_NOT_CERTIFIED:ACTUATOR_INFEASIBLE"
       ],
-      "bar_angular_excess_n_m_s": 0.0,
+      "bar_angular_bound_residual_n_m_s": 0.004631063238348563,
+      "bar_angular_residual_n_m_s": 0.004631063238338559,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 1.1462429763689277e-14,
       "bar_mass_kg": 20.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 0.004631063238348563,
+          "max_residual_to_bound_ratio": 0.06556549755392034,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 0.0015638830356737355,
+          "max_residual_n_m_s": 0.004631063238338559,
+          "outcome": "REJECTED",
+          "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
+          "steps": 900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.9990000000000008
+        },
         "bar_displacement_in_hand_m": 0.6741301981278637,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 0.972235524973247,
-        "hand_support_ratio_mean": 0.6854035042683982,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.7469478357380688,
+          "r": 0.7447280799112098
+        },
+        "hand_support_force_residual_ratio": 1.7197072862315958e-16,
+        "hand_support_impulse_ratio": 0.6861650637175856,
+        "hand_support_moment_residual_ratio": 0.01871633283905548,
+        "hand_support_ratio_mean": 0.6861650637175853,
         "hand_support_ratio_min": 0.0,
+        "hand_support_share": {
+          "l": 0.3483401387765414,
+          "r": 0.33782492494104405
+        },
         "max_penetration_m": 0.0022204314450424267,
         "min_com_projection_margin_m": -0.14511878398397499,
         "min_cop_margin_m": 1.0159705884401786e-06,
+        "min_grasp_active_contacts": 0,
+        "min_grasp_contacts": 0,
         "min_hand_contacts": 0,
+        "nongrasp_bar_contacts_max": 1,
         "over_capacity": 0,
-        "posture_saturation_samples": 13205
+        "posture_saturation_samples": 13205,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {
+            "AXIAL_SLIP_EXCEEDS_GRIP": {
+              "limit": 0.002,
+              "side": "l",
+              "t_s": 0.6510000000000005,
+              "value": 0.0020454907528177275
+            },
+            "CONTACT_SITE_SLIP_EXCEEDS_GRIP": {
+              "limit": 0.005,
+              "side": "l",
+              "t_s": 0.1300000000000001,
+              "value": 0.005018418438895178
+            },
+            "RELATIVE_ANGULAR_VELOCITY_EXCEEDS_GRIP": {
+              "limit": 0.2,
+              "side": "r",
+              "t_s": 0.5570000000000004,
+              "value": 0.21985246783831777
+            },
+            "RELATIVE_ROTATION_EXCEEDS_GRIP": {
+              "limit": 2.0,
+              "side": "r",
+              "t_s": 0.33900000000000025,
+              "value": 2.002852394799376
+            }
+          },
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.5013318726270677,
+            "r": 0.49712551061638266
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 0.14204692241328196,
+            "r": 0.13904888185811737
+          },
+          "max_com_displacement_m": {
+            "l": 0.6741301981278637,
+            "r": 0.6692928488233671
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.08317173439966585,
+            "r": 0.08098901525038846
+          },
+          "max_geodesic_deg": {
+            "l": 179.95573119502336,
+            "r": 179.77571196908661
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 2.7795655592244124,
+            "r": 2.7368948240760087
+          },
+          "max_omega_rel_rad_s": {
+            "l": 83.11199471202418,
+            "r": 83.00507290183103
+          },
+          "max_tilt_deg": {
+            "l": 17.671771526189673,
+            "r": 15.230594218844015
+          },
+          "max_twist_deg": {
+            "l": 179.54337951981228,
+            "r": 179.35745187235767
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "REFUSED:ACTUATOR_INFEASIBLE",
       "expectation_met": true,
+      "failure_signature": {
+        "actuator_saturation_s": 0.0,
+        "case": "arm_capacity_half_threshold",
+        "commanded_transition_s": null,
+        "contact_loss_s": 0.7750000000000006,
+        "expected": "REFUSED:ACTUATOR_INFEASIBLE",
+        "first_event": {
+          "code": "ACTUATOR_INFEASIBLE",
+          "reason": "CAPACITY",
+          "t_s": 0.10000000000000007
+        },
+        "identity": {
+          "controller": "biosyngen.spatial.receiving_grasp_v2.EquilibriumHoldController",
+          "evaluator": {
+            "biosyngen_benchmark/failure_signature.py": "1ace5ee5b7a14890b71b20ffbf6544ef0b8b091b35f219c6bb8d82e01907692c",
+            "biosyngen_benchmark/grasp_contract.py": "49507a1f2427882e5fa0fa5a42b9616e3f5f15a0d07d3f769aba6e1c4f6d40de",
+            "biosyngen_benchmark/negative_signature.py": "efc4f1be7a458dea06a58a62f3f2ff896d556b9dad67215c15529fc9aa81585e",
+            "biosyngen_benchmark/qualification_scope.py": "bced6f8f047e7e1faa21c52fab9dabf6a811d2b71e3f9e8b5d35c746c89de4fc",
+            "biosyngen_benchmark/receiving_acceptance.py": "44fea11e17be5c1cce026c3424f6438fd362e50dbaaadfa94dff95d130cbbe60",
+            "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
+            "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019"
+          },
+          "head": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
+          "model_parameter_set_sha256": "f6783dd06e224cc4d81708f379193e810b55c46939f74cc45a6ea7c0e1f39153",
+          "mujoco": "3.3.7",
+          "numpy": "2.4.4",
+          "scipy": "1.17.1"
+        },
+        "observed": "NUMERICAL_NOT_QUALIFIED",
+        "qualified_prefix": {
+          "bar_displacement_m": null,
+          "duration_s": 0.0,
+          "outcome": null,
+          "support_ratio": null
+        },
+        "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
+        "secondary_failures": [
+          "NUMERICAL_NOT_QUALIFIED:SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD",
+          "CONTACT_INADMISSIBLE:PENETRATION",
+          "ACTUATOR_INFEASIBLE:CAPACITY",
+          "GRASP_SLIP:CONTACT_LOST",
+          "RECEIVING_UNSTABLE:COM_OUTSIDE_SUPPORT",
+          "RECEIVING_UNSTABLE:DEGENERATE_SUPPORT",
+          "RECEIVING_UNSTABLE:LOST_BILATERAL_FOOT_SUPPORT",
+          "STATIC_NOT_CERTIFIED:ACTUATOR_INFEASIBLE"
+        ]
+      },
+      "first_failure": null,
       "model_total_mass_kg": 94.99999999999999,
       "outcome": "NUMERICAL_NOT_QUALIFIED",
-      "reason": "SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD",
+      "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
       "static_verdict": "ACTUATOR_INFEASIBLE",
+      "subject": {
+        "bar_mass_kg": 20.0,
+        "body_mass_kg": 75.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 74.99999999999999,
+        "source": "nominal profile",
+        "stature_m": 1.75
+      },
       "system_step_residual_n_s": 0.010187683505650597
     },
     "bar_mass_15kg": {
       "all_failures": [],
-      "bar_angular_excess_n_m_s": 0.0,
+      "bar_angular_bound_residual_n_m_s": 2.170747453183657e-09,
+      "bar_angular_residual_n_m_s": 2.1707474544306922e-09,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 2.0010004234034494e-16,
       "bar_mass_kg": 15.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 3.67875e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 2.170747453183657e-09,
+          "max_residual_to_bound_ratio": 0.04058329290933028,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 4.490172616636601e-07,
+          "max_residual_n_m_s": 2.1707474544306922e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.10400000000000008
+        },
         "bar_displacement_in_hand_m": 0.0012335546776947649,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 1.0000152466876953,
-        "hand_support_ratio_mean": 1.0001105819997238,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.9994739610731194,
+          "r": 0.9994739610731194
+        },
+        "hand_support_force_residual_ratio": 5.875761593714277e-14,
+        "hand_support_impulse_ratio": 1.0001106352097167,
+        "hand_support_moment_residual_ratio": 4.690850882824204e-10,
+        "hand_support_ratio_mean": 1.000110635209658,
         "hand_support_ratio_min": 0.9991070678896502,
+        "hand_support_share": {
+          "l": 0.4975127823460857,
+          "r": 0.5025978528636292
+        },
         "max_penetration_m": 0.0004848054341631113,
         "min_com_projection_margin_m": 0.03970646804238753,
         "min_cop_margin_m": 0.039160310270179945,
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
         "min_hand_contacts": 10,
+        "nongrasp_bar_contacts_max": 0,
         "over_capacity": 0,
-        "posture_saturation_samples": 0
+        "posture_saturation_samples": 0,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {},
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.22556710755499645,
+            "r": 0.23181425476259931
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 0.00010504961003905977,
+            "r": 0.00010545284680429959
+          },
+          "max_com_displacement_m": {
+            "l": 0.0010450911511020984,
+            "r": 0.0012335546776947649
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.0019897021387161626,
+            "r": 0.0022739551606440317
+          },
+          "max_geodesic_deg": {
+            "l": 0.7930024730190938,
+            "r": 0.7811786628868126
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 0.011876744465727705,
+            "r": 0.011727592160059808
+          },
+          "max_omega_rel_rad_s": {
+            "l": 0.04144618607302287,
+            "r": 0.0410540629790702
+          },
+          "max_tilt_deg": {
+            "l": 0.2722205394594594,
+            "r": 0.3108078900178418
+          },
+          "max_twist_deg": {
+            "l": 0.7448139744718786,
+            "r": 0.7166849372647628
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "QUALIFIED",
       "expectation_met": true,
+      "first_failure": null,
       "model_total_mass_kg": 89.99999999999999,
       "outcome": "RECEIVING_HOLD_QUALIFIED",
       "reason": "None",
       "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "subject": {
+        "bar_mass_kg": 15.0,
+        "body_mass_kg": 75.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 74.99999999999999,
+        "source": "nominal profile",
+        "stature_m": 1.75
+      },
       "system_step_residual_n_s": 6.000106900166624e-06
     },
     "bar_mass_25kg": {
       "all_failures": [],
-      "bar_angular_excess_n_m_s": 1.2171334056452262e-18,
+      "bar_angular_bound_residual_n_m_s": 3.4072172609052354e-09,
+      "bar_angular_residual_n_m_s": 3.4072172619233396e-09,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 2.2928965462670016e-16,
       "bar_mass_kg": 25.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 6.13125e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 3.4072172609052354e-09,
+          "max_residual_to_bound_ratio": 0.03345867336567864,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.4882724019049657e-07,
+          "max_residual_n_m_s": 3.4072172619233396e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.10700000000000008
+        },
         "bar_displacement_in_hand_m": 0.0012573927345931732,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 1.000017357168346,
-        "hand_support_ratio_mean": 1.000079607151238,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.9994739610731194,
+          "r": 0.9994739610731194
+        },
+        "hand_support_force_residual_ratio": 5.97741836835381e-14,
+        "hand_support_impulse_ratio": 1.000079659484119,
+        "hand_support_moment_residual_ratio": 1.2227465124090687e-09,
+        "hand_support_ratio_mean": 1.0000796594840593,
         "hand_support_ratio_min": 0.9983352673591669,
+        "hand_support_share": {
+          "l": 0.5003477497364186,
+          "r": 0.499731909747699
+        },
         "max_penetration_m": 0.00048337594003562516,
         "min_com_projection_margin_m": 0.026546665669633606,
         "min_cop_margin_m": 0.025970065961862836,
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
         "min_hand_contacts": 10,
+        "nongrasp_bar_contacts_max": 0,
         "over_capacity": 0,
-        "posture_saturation_samples": 0
+        "posture_saturation_samples": 0,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {},
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.22754174284480141,
+            "r": 0.22626964373174346
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 0.00022020424896759979,
+            "r": 0.0002215695414341037
+          },
+          "max_com_displacement_m": {
+            "l": 0.0012573927345931732,
+            "r": 0.0011833767401149202
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.002344533079985756,
+            "r": 0.0022603122364182235
+          },
+          "max_geodesic_deg": {
+            "l": 0.9201621107105492,
+            "r": 0.9123971115294318
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 0.01252204775408368,
+            "r": 0.012514491097869845
+          },
+          "max_omega_rel_rad_s": {
+            "l": 0.042855668294170146,
+            "r": 0.041080913081958534
+          },
+          "max_tilt_deg": {
+            "l": 0.3211044531821455,
+            "r": 0.3053202380497367
+          },
+          "max_twist_deg": {
+            "l": 0.8623156578982191,
+            "r": 0.8597943312221952
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "QUALIFIED",
       "expectation_met": true,
+      "first_failure": null,
       "model_total_mass_kg": 99.99999999999999,
       "outcome": "RECEIVING_HOLD_QUALIFIED",
       "reason": "None",
       "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "subject": {
+        "bar_mass_kg": 25.0,
+        "body_mass_kg": 75.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 74.99999999999999,
+        "source": "nominal profile",
+        "stature_m": 1.75
+      },
       "system_step_residual_n_s": 7.378524137564501e-06
     },
     "bar_push_40N_50ms": {
       "all_failures": [],
-      "bar_angular_excess_n_m_s": 0.0,
+      "bar_angular_bound_residual_n_m_s": 6.7890519321402165e-09,
+      "bar_angular_residual_n_m_s": 6.789051932146951e-09,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 3.5711601951400986e-16,
       "bar_mass_kg": 20.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 6.7890519321402165e-09,
+          "max_residual_to_bound_ratio": 0.9999995393655859,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 4.325650791251152e-06,
+          "max_residual_n_m_s": 6.789051932146951e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 1.0000000000000007
+        },
         "bar_displacement_in_hand_m": 0.0011893498566091652,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 0.9999836469684998,
-        "hand_support_ratio_mean": 0.9999684505644155,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.9994739610731194,
+          "r": 0.9994739610731194
+        },
+        "hand_support_force_residual_ratio": 5.794436349748485e-14,
+        "hand_support_impulse_ratio": 0.9999679257493324,
+        "hand_support_moment_residual_ratio": 6.947416702364371e-10,
+        "hand_support_ratio_mean": 0.9999679257492744,
         "hand_support_ratio_min": 0.9866698437305766,
+        "hand_support_share": {
+          "l": 0.49944074546367817,
+          "r": 0.5005271802856549
+        },
         "max_penetration_m": 0.00048349561440100795,
         "min_com_projection_margin_m": 0.03277275419484993,
         "min_cop_margin_m": 0.032333603231495874,
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
         "min_hand_contacts": 10,
+        "nongrasp_bar_contacts_max": 0,
         "over_capacity": 0,
-        "posture_saturation_samples": 0
+        "posture_saturation_samples": 0,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {},
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.22767573417463743,
+            "r": 0.22871773556047897
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 0.00015710041107098432,
+            "r": 0.00015762307653601374
+          },
+          "max_com_displacement_m": {
+            "l": 0.0011424352434400858,
+            "r": 0.0011893498566091652
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.0021995240569556906,
+            "r": 0.0022430538396556237
+          },
+          "max_geodesic_deg": {
+            "l": 0.8860610068132406,
+            "r": 0.8776127623865128
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 0.012009311629927053,
+            "r": 0.011888240938214112
+          },
+          "max_omega_rel_rad_s": {
+            "l": 0.041799713483841865,
+            "r": 0.04089234496178834
+          },
+          "max_tilt_deg": {
+            "l": 0.2976513980666867,
+            "r": 0.30732505629727686
+          },
+          "max_twist_deg": {
+            "l": 0.8345694618059255,
+            "r": 0.8220424869247052
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "QUALIFIED",
       "expectation_met": true,
+      "first_failure": null,
       "model_total_mass_kg": 94.99999999999999,
       "outcome": "RECEIVING_HOLD_QUALIFIED",
       "reason": "None",
       "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "subject": {
+        "bar_mass_kg": 20.0,
+        "body_mass_kg": 75.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 74.99999999999999,
+        "source": "nominal profile",
+        "stature_m": 1.75
+      },
       "system_step_residual_n_s": 6.63613639477872e-06
     },
     "finger_release_at_1s": {
       "all_failures": [
+        "NUMERICAL_NOT_QUALIFIED:ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
         "NUMERICAL_NOT_QUALIFIED:SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD",
         "CONTACT_INADMISSIBLE:PENETRATION",
         "ACTUATOR_INFEASIBLE:CAPACITY",
@@ -217,162 +2010,816 @@
         "RECEIVING_UNSTABLE:LOST_BILATERAL_FOOT_SUPPORT",
         "RECEIVING_UNSTABLE:NO_FLOOR_SUPPORT"
       ],
-      "bar_angular_excess_n_m_s": 0.0,
+      "bar_angular_bound_residual_n_m_s": 0.010409553850889363,
+      "bar_angular_residual_n_m_s": 0.010409553851175831,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 4.579669976578771e-15,
       "bar_mass_kg": 20.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 0.010409553850889363,
+          "max_residual_to_bound_ratio": 0.9991154601986981,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 0.002465248611033904,
+          "max_residual_n_m_s": 0.010409553851175831,
+          "outcome": "REJECTED",
+          "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 1.8629999999999056
+        },
         "bar_displacement_in_hand_m": 0.4103904076412326,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 0.9967285153996757,
-        "hand_support_ratio_mean": 0.8264125973332226,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.7911625460284061,
+          "r": 0.7911625460284061
+        },
+        "hand_support_force_residual_ratio": 5.794436486899688e-14,
+        "hand_support_impulse_ratio": 0.7832078672035288,
+        "hand_support_moment_residual_ratio": 0.0008152250995390317,
+        "hand_support_ratio_mean": 0.7832078672034835,
         "hand_support_ratio_min": 0.0,
+        "hand_support_share": {
+          "l": 0.39118763539312557,
+          "r": 0.3920202318104031
+        },
         "max_penetration_m": 0.003381905409305592,
         "min_com_projection_margin_m": -0.1495942548611783,
         "min_cop_margin_m": 2.9789113167040413e-07,
+        "min_grasp_active_contacts": 0,
+        "min_grasp_contacts": 0,
         "min_hand_contacts": 0,
+        "nongrasp_bar_contacts_max": 2,
         "over_capacity": 0,
-        "posture_saturation_samples": 531
+        "posture_saturation_samples": 531,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {
+            "AXIAL_SLIP_EXCEEDS_GRIP": {
+              "limit": 0.002,
+              "side": "l",
+              "t_s": 1.6249999999999318,
+              "value": 0.0020748727787096403
+            },
+            "CONTACT_SITE_SLIP_EXCEEDS_GRIP": {
+              "limit": 0.005,
+              "side": "l",
+              "t_s": 1.0000000000000007,
+              "value": 0.015303538299186925
+            },
+            "RELATIVE_ANGULAR_VELOCITY_EXCEEDS_GRIP": {
+              "limit": 0.2,
+              "side": "r",
+              "t_s": 1.614999999999933,
+              "value": 0.2082516861288445
+            },
+            "RELATIVE_ROTATION_EXCEEDS_GRIP": {
+              "limit": 2.0,
+              "side": "r",
+              "t_s": 1.8809999999999036,
+              "value": 2.001350951163283
+            }
+          },
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.22767573417463743,
+            "r": 0.22871773556047897
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 0.009283748860450882,
+            "r": 0.010672879535799576
+          },
+          "max_com_displacement_m": {
+            "l": 0.4103904076412326,
+            "r": 0.410352810688105
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.07338172649567078,
+            "r": 0.07340199073858805
+          },
+          "max_geodesic_deg": {
+            "l": 179.7881366672692,
+            "r": 179.71274537010353
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 0.42323281165386295,
+            "r": 0.5487966313495172
+          },
+          "max_omega_rel_rad_s": {
+            "l": 61.58789238039531,
+            "r": 61.6305183175708
+          },
+          "max_tilt_deg": {
+            "l": 1.9229268535788826,
+            "r": 2.4060174794013167
+          },
+          "max_twist_deg": {
+            "l": 179.77158181139498,
+            "r": 179.67561218090162
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "pre-release QUALIFIED and post-release GRASP_SLIP",
       "expectation_met": true,
+      "failure_signature": {
+        "actuator_saturation_s": 1.6489999999999292,
+        "case": "finger_release_at_1s",
+        "commanded_transition_s": 1.0,
+        "contact_loss_s": 1.6029999999999343,
+        "expected": "pre-release QUALIFIED and post-release GRASP_SLIP",
+        "first_event": {
+          "code": "GRASP_SLIP",
+          "reason": "CONTACT_LOST",
+          "t_s": 1.6029999999999343
+        },
+        "identity": {
+          "controller": "biosyngen.spatial.receiving_grasp_v2.EquilibriumHoldController",
+          "evaluator": {
+            "biosyngen_benchmark/failure_signature.py": "1ace5ee5b7a14890b71b20ffbf6544ef0b8b091b35f219c6bb8d82e01907692c",
+            "biosyngen_benchmark/grasp_contract.py": "49507a1f2427882e5fa0fa5a42b9616e3f5f15a0d07d3f769aba6e1c4f6d40de",
+            "biosyngen_benchmark/negative_signature.py": "efc4f1be7a458dea06a58a62f3f2ff896d556b9dad67215c15529fc9aa81585e",
+            "biosyngen_benchmark/qualification_scope.py": "bced6f8f047e7e1faa21c52fab9dabf6a811d2b71e3f9e8b5d35c746c89de4fc",
+            "biosyngen_benchmark/receiving_acceptance.py": "44fea11e17be5c1cce026c3424f6438fd362e50dbaaadfa94dff95d130cbbe60",
+            "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
+            "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019"
+          },
+          "head": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
+          "model_parameter_set_sha256": "8adf612ce2d168138235605708576b65037c7bb34ac1db38de13966b565b205b",
+          "mujoco": "3.3.7",
+          "numpy": "2.4.4",
+          "scipy": "1.17.1"
+        },
+        "observed": "NUMERICAL_NOT_QUALIFIED",
+        "qualified_prefix": {
+          "active_frame_fraction": {
+            "l": 0.9988864142538976,
+            "r": 0.9988864142538976
+          },
+          "bar_displacement_m": 0.0007351077871638305,
+          "duration_s": 0.9970000000000008,
+          "outcome": "RECEIVING_HOLD_QUALIFIED",
+          "relative_tilt_deg": {
+            "l": 0.17469202262477895,
+            "r": 0.18024949063159654
+          },
+          "support_ratio": 1.0002073945690542,
+          "support_share": {
+            "l": 0.49954128445144685,
+            "r": 0.5006661101176073
+          }
+        },
+        "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
+        "secondary_failures": [
+          "NUMERICAL_NOT_QUALIFIED:SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD",
+          "CONTACT_INADMISSIBLE:PENETRATION",
+          "ACTUATOR_INFEASIBLE:CAPACITY",
+          "GRASP_SLIP:CONTACT_LOST",
+          "RECEIVING_UNSTABLE:COM_OUTSIDE_SUPPORT",
+          "RECEIVING_UNSTABLE:DEGENERATE_SUPPORT",
+          "RECEIVING_UNSTABLE:LOST_BILATERAL_FOOT_SUPPORT",
+          "RECEIVING_UNSTABLE:NO_FLOOR_SUPPORT"
+        ]
+      },
+      "first_failure": null,
       "model_total_mass_kg": 94.99999999999999,
       "outcome": "NUMERICAL_NOT_QUALIFIED",
       "pre_release": {
         "all_failures": [],
         "outcome": "RECEIVING_HOLD_QUALIFIED"
       },
-      "reason": "SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD",
+      "reason": "ANGULAR_MOMENTUM_REFERENCE_MISMATCH",
       "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "subject": {
+        "bar_mass_kg": 20.0,
+        "body_mass_kg": 75.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 74.99999999999999,
+        "source": "nominal profile",
+        "stature_m": 1.75
+      },
       "system_step_residual_n_s": 0.002074438193065886
     },
     "hand_friction_0p6": {
       "all_failures": [],
-      "bar_angular_excess_n_m_s": 1.2327373407204265e-18,
+      "bar_angular_bound_residual_n_m_s": 2.024680266582279e-09,
+      "bar_angular_residual_n_m_s": 2.0246802675804887e-09,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 2.2811768190143007e-16,
       "bar_mass_kg": 20.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 2.024680266582279e-09,
+          "max_residual_to_bound_ratio": 0.1880107665378537,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.936840538270173e-07,
+          "max_residual_n_m_s": 2.0246802675804887e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.10800000000000008
+        },
         "bar_displacement_in_hand_m": 0.0011856126253800027,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 1.000013483475731,
-        "hand_support_ratio_mean": 1.000084787160225,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.9994739610731194,
+          "r": 0.9994739610731194
+        },
+        "hand_support_force_residual_ratio": 5.79443617638099e-14,
+        "hand_support_impulse_ratio": 1.0000848289913646,
+        "hand_support_moment_residual_ratio": 6.629171762502099e-10,
+        "hand_support_ratio_mean": 1.0000848289913067,
         "hand_support_ratio_min": 0.9985096090192118,
+        "hand_support_share": {
+          "l": 0.499104059130984,
+          "r": 0.5009807698603808
+        },
         "max_penetration_m": 0.00048363002784965366,
         "min_com_projection_margin_m": 0.03277233616321719,
         "min_cop_margin_m": 0.032336447240058935,
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
         "min_hand_contacts": 10,
+        "nongrasp_bar_contacts_max": 0,
         "over_capacity": 0,
-        "posture_saturation_samples": 0
+        "posture_saturation_samples": 0,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {},
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.2264745561745131,
+            "r": 0.22975843196969245
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 0.00016175075778599736,
+            "r": 0.00015960977167616514
+          },
+          "max_com_displacement_m": {
+            "l": 0.0010902831641775362,
+            "r": 0.0011856126253800027
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.002194050355928488,
+            "r": 0.0022733882492144575
+          },
+          "max_geodesic_deg": {
+            "l": 0.91053939194368,
+            "r": 0.8958691839435029
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 0.011956434785690482,
+            "r": 0.011920481483848257
+          },
+          "max_omega_rel_rad_s": {
+            "l": 0.04340957367159424,
+            "r": 0.042657092775186534
+          },
+          "max_tilt_deg": {
+            "l": 0.28697996182051094,
+            "r": 0.30597153626758467
+          },
+          "max_twist_deg": {
+            "l": 0.8641313121669146,
+            "r": 0.8419984138243682
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "QUALIFIED",
       "expectation_met": true,
+      "first_failure": null,
       "model_total_mass_kg": 94.99999999999999,
       "outcome": "RECEIVING_HOLD_QUALIFIED",
       "reason": "None",
       "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "subject": {
+        "bar_mass_kg": 20.0,
+        "body_mass_kg": 75.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 74.99999999999999,
+        "source": "nominal profile",
+        "stature_m": 1.75
+      },
       "system_step_residual_n_s": 6.620586033518638e-06
     },
     "nominal_0p3s_red_window": {
       "all_failures": [],
-      "bar_angular_excess_n_m_s": 0.0,
+      "bar_angular_bound_residual_n_m_s": 1.7343762272982e-09,
+      "bar_angular_residual_n_m_s": 1.7343762281939404e-09,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 1.698512811546858e-16,
       "bar_mass_kg": 20.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.018404909243866535,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 200,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
         "bar_displacement_in_hand_m": 0.00028063088699969746,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 1.0000384845675314,
-        "hand_support_ratio_mean": 1.0003497742044085,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.9950248756218906,
+          "r": 0.9950248756218906
+        },
+        "hand_support_force_residual_ratio": 5.432290565332472e-16,
+        "hand_support_impulse_ratio": 1.0003501482963588,
+        "hand_support_moment_residual_ratio": 5.528091699692794e-09,
+        "hand_support_ratio_mean": 1.0003501482963593,
         "hand_support_ratio_min": 0.9983341358509834,
+        "hand_support_share": {
+          "l": 0.4995867183614745,
+          "r": 0.500763429934884
+        },
         "max_penetration_m": 0.00047118345917259406,
         "min_com_projection_margin_m": 0.03277275419484993,
         "min_cop_margin_m": 0.03241437246237436,
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
         "min_hand_contacts": 10,
+        "nongrasp_bar_contacts_max": 0,
         "over_capacity": 0,
-        "posture_saturation_samples": 0
+        "posture_saturation_samples": 0,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {},
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.22767573417463743,
+            "r": 0.22871773556047897
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 2.2085282773014527e-05,
+            "r": 2.2120798016801178e-05
+          },
+          "max_com_displacement_m": {
+            "l": 0.0002739962043228473,
+            "r": 0.00028063088699969746
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.00020948094226765134,
+            "r": 0.00020400199766414462
+          },
+          "max_geodesic_deg": {
+            "l": 0.20105238514343848,
+            "r": 0.19505596067770367
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 0.012009311629927053,
+            "r": 0.011888240938214112
+          },
+          "max_omega_rel_rad_s": {
+            "l": 0.041799713483841865,
+            "r": 0.04089234496178834
+          },
+          "max_tilt_deg": {
+            "l": 0.06393682406327476,
+            "r": 0.0650919650483135
+          },
+          "max_twist_deg": {
+            "l": 0.19061516292739475,
+            "r": 0.18387457752342456
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "QUALIFIED",
       "expectation_met": true,
+      "first_failure": null,
       "model_total_mass_kg": 94.99999999999999,
       "outcome": "RECEIVING_HOLD_QUALIFIED",
       "reason": "None",
       "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "subject": {
+        "bar_mass_kg": 20.0,
+        "body_mass_kg": 75.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 74.99999999999999,
+        "source": "nominal profile",
+        "stature_m": 1.75
+      },
       "system_step_residual_n_s": 6.63613639477872e-06
     },
     "nominal_10s": {
       "all_failures": [],
-      "bar_angular_excess_n_m_s": 0.0,
+      "bar_angular_bound_residual_n_m_s": 1.778406066753735e-08,
+      "bar_angular_residual_n_m_s": 1.778406066745707e-08,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 2.8443688831380347e-16,
       "bar_mass_kg": 20.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.778406066753735e-08,
+          "max_residual_to_bound_ratio": 0.997729048208037,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 5.33669646936865e-06,
+          "max_residual_n_m_s": 1.778406066745707e-08,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 9900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 3.0119999999997793
+        },
         "bar_displacement_in_hand_m": 0.0013541644021785569,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 1.000001494749547,
-        "hand_support_ratio_mean": 1.0000111881292646,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.9998990001009999,
+          "r": 0.9998990001009999
+        },
+        "hand_support_force_residual_ratio": 1.2759465513526722e-14,
+        "hand_support_impulse_ratio": 1.0000111856122131,
+        "hand_support_moment_residual_ratio": 1.3189305266203778e-10,
+        "hand_support_ratio_mean": 1.0000111856122003,
         "hand_support_ratio_min": 0.9983341358509834,
+        "hand_support_share": {
+          "l": 0.4991267313771013,
+          "r": 0.5008844542351107
+        },
         "max_penetration_m": 0.0004888053250717197,
         "min_com_projection_margin_m": 0.03277275419484993,
         "min_cop_margin_m": 0.032333603231495874,
+        "min_grasp_active_contacts": 8,
+        "min_grasp_contacts": 8,
         "min_hand_contacts": 8,
+        "nongrasp_bar_contacts_max": 0,
         "over_capacity": 0,
-        "posture_saturation_samples": 0
+        "posture_saturation_samples": 0,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {},
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.22767573417463743,
+            "r": 0.22871773556047897
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 0.0005608281240438946,
+            "r": 0.0005596342541918434
+          },
+          "max_com_displacement_m": {
+            "l": 0.0012491785228203006,
+            "r": 0.0013541644021785569
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.003688703784152203,
+            "r": 0.0038888481234665025
+          },
+          "max_geodesic_deg": {
+            "l": 3.889375351317044,
+            "r": 3.8719443814583463
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 0.012009311629927053,
+            "r": 0.011888240938214112
+          },
+          "max_omega_rel_rad_s": {
+            "l": 0.041799713483841865,
+            "r": 0.04089234496178834
+          },
+          "max_tilt_deg": {
+            "l": 0.3953678098250941,
+            "r": 0.4265380197787658
+          },
+          "max_twist_deg": {
+            "l": 3.875440969065873,
+            "r": 3.8539964934574242
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "QUALIFIED",
       "expectation_met": true,
+      "first_failure": null,
       "model_total_mass_kg": 94.99999999999999,
       "outcome": "RECEIVING_HOLD_QUALIFIED",
       "reason": "None",
       "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "subject": {
+        "bar_mass_kg": 20.0,
+        "body_mass_kg": 75.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 74.99999999999999,
+        "source": "nominal profile",
+        "stature_m": 1.75
+      },
       "system_step_residual_n_s": 6.63613639477872e-06
     },
     "nominal_2s": {
       "all_failures": [],
-      "bar_angular_excess_n_m_s": 0.0,
+      "bar_angular_bound_residual_n_m_s": 1.7343762272982e-09,
+      "bar_angular_residual_n_m_s": 1.7343762281939404e-09,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 2.0058529261653737e-16,
       "bar_mass_kg": 20.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 1.7343762272982e-09,
+          "max_residual_to_bound_ratio": 0.0868238664855487,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 3.8223729546012693e-07,
+          "max_residual_n_m_s": 1.7343762281939404e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 0.1300000000000001
+        },
         "bar_displacement_in_hand_m": 0.001216027196877507,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 1.0000131669092183,
-        "hand_support_ratio_mean": 1.0000841166314942,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.9994739610731194,
+          "r": 0.9994739610731194
+        },
+        "hand_support_force_residual_ratio": 5.733442108548242e-14,
+        "hand_support_impulse_ratio": 1.0000841612774374,
+        "hand_support_moment_residual_ratio": 7.014820098016716e-10,
+        "hand_support_ratio_mean": 1.00008416127738,
         "hand_support_ratio_min": 0.9983341358509834,
+        "hand_support_share": {
+          "l": 0.499495785033942,
+          "r": 0.5005883762434956
+        },
         "max_penetration_m": 0.00048347901125338037,
         "min_com_projection_margin_m": 0.03277275419484993,
         "min_cop_margin_m": 0.032333603231495874,
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
         "min_hand_contacts": 10,
+        "nongrasp_bar_contacts_max": 0,
         "over_capacity": 0,
-        "posture_saturation_samples": 0
+        "posture_saturation_samples": 0,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {},
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.22767573417463743,
+            "r": 0.22871773556047897
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 0.00015542269708475041,
+            "r": 0.0001559436974110274
+          },
+          "max_com_displacement_m": {
+            "l": 0.0011690846349536098,
+            "r": 0.001216027196877507
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.0022246484206490686,
+            "r": 0.0022685563097183045
+          },
+          "max_geodesic_deg": {
+            "l": 0.8384123902582131,
+            "r": 0.8302885218828391
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 0.012009311629927053,
+            "r": 0.011888240938214112
+          },
+          "max_omega_rel_rad_s": {
+            "l": 0.041799713483841865,
+            "r": 0.04089234496178834
+          },
+          "max_tilt_deg": {
+            "l": 0.2996802785431185,
+            "r": 0.30934693519148676
+          },
+          "max_twist_deg": {
+            "l": 0.7830234153582771,
+            "r": 0.7705076645141786
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "QUALIFIED",
       "expectation_met": true,
+      "first_failure": null,
       "model_total_mass_kg": 94.99999999999999,
       "outcome": "RECEIVING_HOLD_QUALIFIED",
       "reason": "None",
       "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "subject": {
+        "bar_mass_kg": 20.0,
+        "body_mass_kg": 75.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 74.99999999999999,
+        "source": "nominal profile",
+        "stature_m": 1.75
+      },
       "system_step_residual_n_s": 6.63613639477872e-06
     },
     "pelvis_push_60N_100ms": {
       "all_failures": [],
-      "bar_angular_excess_n_m_s": 0.0,
+      "bar_angular_bound_residual_n_m_s": 3.0330262572092553e-09,
+      "bar_angular_residual_n_m_s": 3.0330262571786057e-09,
+      "bar_angular_tolerance_n_m_s": 1e-07,
       "bar_linear_residual_n_s": 2.27975251421272e-16,
       "bar_mass_kg": 20.0,
       "evidence": {
+        "bar_angular_bound": {
+          "code": "RIGID_BODY_ANGULAR_DISCRETE",
+          "excess_tolerance_n_m_s": 4.905e-08,
+          "max_excess_over_discretization_n_m_s": 0.0,
+          "max_residual_n_m_s": 3.0330262572092553e-09,
+          "max_residual_to_bound_ratio": 0.9999999570829928,
+          "outcome": "PASS"
+        },
+        "bar_angular_reference": {
+          "attitude_tolerance_rad": 5e-05,
+          "code": "RIGID_BODY_ANGULAR_REFERENCE",
+          "max_attitude_residual_rad": 2.407817400592364e-06,
+          "max_residual_n_m_s": 3.0330262571786057e-09,
+          "outcome": "PASS",
+          "reason": null,
+          "steps": 1900,
+          "substeps": 16,
+          "tolerance_n_m_s": 1e-07,
+          "worst_step_t_s": 1.0219999999999982
+        },
         "bar_displacement_in_hand_m": 0.001208652468272907,
         "contact_problems": 0,
         "floor_vertical_over_weight_mean": 0.9999986871710542,
-        "hand_support_ratio_mean": 1.0000355462007442,
+        "grasp_contract_problems": [],
+        "grasp_identity_problems": [],
+        "hand_active_frame_fraction": {
+          "l": 0.9994739610731194,
+          "r": 0.9994739610731194
+        },
+        "hand_support_force_residual_ratio": 5.4589688194439487e-14,
+        "hand_support_impulse_ratio": 1.0000354287339965,
+        "hand_support_moment_residual_ratio": 6.985810760898834e-10,
+        "hand_support_ratio_mean": 1.000035428733942,
         "hand_support_ratio_min": 0.975405338561437,
+        "hand_support_share": {
+          "l": 0.4994723718648111,
+          "r": 0.5005630568691891
+        },
         "max_penetration_m": 0.00048352276525000064,
         "min_com_projection_margin_m": 0.03277275419484993,
         "min_cop_margin_m": 0.032333603231495874,
+        "min_grasp_active_contacts": 10,
+        "min_grasp_contacts": 10,
         "min_hand_contacts": 10,
+        "nongrasp_bar_contacts_max": 0,
         "over_capacity": 0,
-        "posture_saturation_samples": 0
+        "posture_saturation_samples": 0,
+        "relative_bar_pose": {
+          "axisymmetric": true,
+          "first": {},
+          "initial_grip_axis_misalignment_deg": {
+            "l": 0.22767573417463743,
+            "r": 0.22871773556047897
+          },
+          "limits": {
+            "axial_slip_m": 0.002,
+            "contact_site_drift_m": 0.005,
+            "omega_rel_perp_rad_s": 0.2,
+            "tilt_deg": 2.0,
+            "twist_deg": null
+          },
+          "max_axial_slip_m": {
+            "l": 0.0001557454118159619,
+            "r": 0.00015626451325792217
+          },
+          "max_com_displacement_m": {
+            "l": 0.0011617079052727948,
+            "r": 0.001208652468272907
+          },
+          "max_contact_site_drift_m": {
+            "l": 0.002232515290551963,
+            "r": 0.0022778443386248536
+          },
+          "max_geodesic_deg": {
+            "l": 0.8476779268580642,
+            "r": 0.8394767078465649
+          },
+          "max_omega_rel_perp_rad_s": {
+            "l": 0.012009311629927053,
+            "r": 0.011888240938214112
+          },
+          "max_omega_rel_rad_s": {
+            "l": 0.041799713483841865,
+            "r": 0.04089234496178834
+          },
+          "max_tilt_deg": {
+            "l": 0.29878069100655613,
+            "r": 0.30845128332355043
+          },
+          "max_twist_deg": {
+            "l": 0.793275828653378,
+            "r": 0.7807544278484058
+          },
+          "twist_gated": false
+        }
       },
       "expectation": "QUALIFIED",
       "expectation_met": true,
+      "first_failure": null,
       "model_total_mass_kg": 94.99999999999999,
       "outcome": "RECEIVING_HOLD_QUALIFIED",
       "reason": "None",
       "static_verdict": "STATIC_EQUILIBRIUM_CERTIFIED",
+      "subject": {
+        "bar_mass_kg": 20.0,
+        "body_mass_kg": 75.0,
+        "mass_consistent": true,
+        "model_human_mass_kg": 74.99999999999999,
+        "source": "nominal profile",
+        "stature_m": 1.75
+      },
       "system_step_residual_n_s": 6.63613639477872e-06
     }
   },
@@ -384,8 +2831,9 @@
   ],
   "expectations_met": 12,
   "expectations_total": 12,
-  "final_verdict": "RECEIVING_HOLD_QUALIFIED",
+  "final_verdict": "OVERALL_DECLARED_SCOPE_QUALIFIED",
   "issue": "RES-624",
+  "quick": false,
   "receipt": {
     "branch": "work/RES-624-grasp-contact-recovery",
     "controller": {
@@ -397,12 +2845,16 @@
     "evaluator": {
       "identity": "biosyngen_benchmark.receiving_acceptance.evaluate_receiving",
       "sha256": {
-        "biosyngen_benchmark/receiving_acceptance.py": "184085aa46283fcd44546650455796158bb85d68e59c1aa062c94633a5d62971",
-        "biosyngen_benchmark/rigid_body_check.py": "035434534c8abd5ae3c07e21640905bceff863931e6f7878ce6c1f73c0a0cbf1",
+        "biosyngen_benchmark/failure_signature.py": "1ace5ee5b7a14890b71b20ffbf6544ef0b8b091b35f219c6bb8d82e01907692c",
+        "biosyngen_benchmark/grasp_contract.py": "49507a1f2427882e5fa0fa5a42b9616e3f5f15a0d07d3f769aba6e1c4f6d40de",
+        "biosyngen_benchmark/negative_signature.py": "efc4f1be7a458dea06a58a62f3f2ff896d556b9dad67215c15529fc9aa81585e",
+        "biosyngen_benchmark/qualification_scope.py": "bced6f8f047e7e1faa21c52fab9dabf6a811d2b71e3f9e8b5d35c746c89de4fc",
+        "biosyngen_benchmark/receiving_acceptance.py": "44fea11e17be5c1cce026c3424f6438fd362e50dbaaadfa94dff95d130cbbe60",
+        "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
         "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019"
       }
     },
-    "head": "2851de84bc21ddcf28b77d0b60562891d87eb622",
+    "head": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
     "machine": "AMD64",
     "models": {
       "anthropometry_70kg_1p70m": {
@@ -695,16 +3147,21 @@
       "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
       "biosyngen/spatial/model_v2.py": "4a0865035c24dd4be2d0cdff7c36ce55837a7aa70812cbc65606c43013cc0c7f",
       "biosyngen/spatial/plant_v2.py": "c3a321d6e6436926bde5f705831e4c11d360f879ee63fcea63edd86197b54001",
-      "biosyngen/spatial/receiving_grasp_v2.py": "e4f57b8bc5658468605c4fcd73aeceb887169744770d46cd8c5673870e191760",
+      "biosyngen/spatial/receiving_grasp_v2.py": "cf444e5d67816a1cbccab930e8a4c10e3a608758a84d8377e8675e94e78af985",
       "biosyngen/spatial/receiving_v2.py": "0a8014e1ee371d1416be413977e61f14fe84be21b49040081c9d9222a961dedc",
-      "biosyngen_benchmark/receiving_acceptance.py": "184085aa46283fcd44546650455796158bb85d68e59c1aa062c94633a5d62971",
-      "biosyngen_benchmark/rigid_body_check.py": "035434534c8abd5ae3c07e21640905bceff863931e6f7878ce6c1f73c0a0cbf1",
+      "biosyngen_benchmark/failure_signature.py": "1ace5ee5b7a14890b71b20ffbf6544ef0b8b091b35f219c6bb8d82e01907692c",
+      "biosyngen_benchmark/grasp_contract.py": "49507a1f2427882e5fa0fa5a42b9616e3f5f15a0d07d3f769aba6e1c4f6d40de",
+      "biosyngen_benchmark/negative_signature.py": "efc4f1be7a458dea06a58a62f3f2ff896d556b9dad67215c15529fc9aa81585e",
+      "biosyngen_benchmark/qualification_scope.py": "bced6f8f047e7e1faa21c52fab9dabf6a811d2b71e3f9e8b5d35c746c89de4fc",
+      "biosyngen_benchmark/receiving_acceptance.py": "44fea11e17be5c1cce026c3424f6438fd362e50dbaaadfa94dff95d130cbbe60",
+      "biosyngen_benchmark/rigid_body_check.py": "f3a46c5898784aa3696a0d74b913410101857e96fb44dfcec35c545e28b33e20",
       "biosyngen_benchmark/spatial_oracle.py": "7ea8daa5e3a0336061d3961327921687ad30426eb7a591d4084794af63154019",
       "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
+      "scripts/res624_adversarial_scenes.py": "9ed68e8162ece8b2ea4a510a72c87b26eca7c8e18df8e80e846f673322cf0539",
       "scripts/res624_anthropometric_diagnosis.py": "38edba00a44dfa5f40edc91600f0fbb4f27948f44fe2198ac8ec2e21ad5c8c79",
-      "scripts/res624_numerical_verification.py": "ca4a5f4adc28658ca37a765c1cbd2fe08a054a9e24166fecddeaab4953fc6381",
+      "scripts/res624_numerical_verification.py": "ea7c42cb2d5e82d5999407fc54a12fe144b4960a82831a4ccc0fe328723902d0",
       "scripts/res624_receiving_campaign.py": "4c95f9d9069aef549c7a810906b23cecfbac1a3855c32dba321bf25342a4e17f",
-      "scripts/res624_receiving_qualification.py": "a2ddfdd6b3191c5bd6c4fbdd5ef8e042bd61be3945e56753b2af69d6a072eef3",
+      "scripts/res624_receiving_qualification.py": "87cc4afec87ff575b36909e3bf6e4099f8e00c68688419beac1faf9b1015c8a0",
       "scripts/res624_red_canary.py": "51f92f9e2cacc04a4d0e6a014306037e17a950f48252d4eb620eb9f0d5f9238a"
     },
     "uncommitted_outside_evidence": [],
@@ -717,14 +3174,31 @@
     "refused": true,
     "static_verdict": "STATIC_GRASP_INFEASIBLE"
   },
+  "relative_pose_controls": {
+    "bar_shaft_twist_30deg_pose_control": {
+      "first": {},
+      "max_tilt_deg": {
+        "l": 0.2996802785431185,
+        "r": 0.30934693519148676
+      },
+      "max_twist_deg": {
+        "l": 30.782954340156635,
+        "r": 30.770434062065203
+      },
+      "note": "the unplated shaft/sleeve body is axisymmetric about its local y axis, so the relative-pose criterion does not gate a shaft roll; the forged 30 deg roll is additionally refused end-to-end because the reported roll is not driven by an exported torque (NUMERICAL/attitude inconsistency).",
+      "pose_within_bounds": true,
+      "twist_gated": false
+    }
+  },
   "required_qualified": [
     "nominal_0p3s_red_window",
     "nominal_2s",
     "nominal_10s"
   ],
   "scope": "declared Human V2 computational model; 20 kg unplated bar; static overhead POWER receiving hold, not a lift or catch",
+  "scope_statement": "declared scope qualified: the nominal 20 kg overhead receiving hold AND every preregistered required subject case (70 kg/1.70 m, 80 kg/1.80 m) pass. This is a model-scoped numerical result, not a population generalization or biological validation.",
   "source_dirty": false,
-  "source_sha": "2851de84bc21ddcf28b77d0b60562891d87eb622",
+  "source_sha": "7c6c20d85c8d3d3487e0d09e42b3c8d0103c60fa",
   "source_sha256": {
     "biosyngen/spatial/grasp_diagnostics.py": "5b3e789297e624eb9e2ca24c1d07e1a5a5015c9c666306bf06be608804a866b2",
     "biosyngen/spatial/grasp_mechanics.py": "65ebdaceedbfc900db5a403598b3b0f4bd45b05bfb475126b51260ece3efe172",
@@ -733,5 +3207,39 @@
     "biosyngen/spatial/receiving_v2.py": "0a8014e1ee371d1416be413977e61f14fe84be21b49040081c9d9222a961dedc",
     "scripts/res618_fullbody_qualification.py": "0bcd4e70558f6106121c4d23a4166fb672a6e5ecd2967abb82afa9f76a97a170",
     "scripts/res624_grasp_diagnosis.py": "e3aba138fa09e8fa5ce182f59dd819bd73a8f87d0fb831282e5f2ebf99557e64"
+  },
+  "verdicts": {
+    "anthropometric_generalization": {
+      "problems": [],
+      "qualified": true,
+      "required_cases": {
+        "anthropometry_70kg_1p70m": {
+          "body_mass_kg": 70.0,
+          "stature_m": 1.7
+        },
+        "anthropometry_80kg_1p80m": {
+          "body_mass_kg": 80.0,
+          "stature_m": 1.8
+        }
+      },
+      "verdict": "ANTHROPOMETRIC_GENERALIZATION_QUALIFIED"
+    },
+    "exploratory_cases": [],
+    "nominal": {
+      "problems": [],
+      "qualified": true,
+      "required_cases": [
+        "nominal_0p3s_red_window",
+        "nominal_2s",
+        "nominal_10s"
+      ],
+      "verdict": "NOMINAL_RECEIVING_HOLD_QUALIFIED"
+    },
+    "overall": {
+      "nominal_only": false,
+      "statement": "declared scope qualified: the nominal 20 kg overhead receiving hold AND every preregistered required subject case (70 kg/1.70 m, 80 kg/1.80 m) pass. This is a model-scoped numerical result, not a population generalization or biological validation.",
+      "verdict": "OVERALL_DECLARED_SCOPE_QUALIFIED"
+    },
+    "scope_statement": "declared scope qualified: the nominal 20 kg overhead receiving hold AND every preregistered required subject case (70 kg/1.70 m, 80 kg/1.80 m) pass. This is a model-scoped numerical result, not a population generalization or biological validation."
   }
 }
