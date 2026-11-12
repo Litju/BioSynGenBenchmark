@@ -92,7 +92,7 @@ def adversarial(frames, dt, verdict, nominal):
                                                           "hand_support_moment_residual_ratio",
                                                           "min_grasp_contacts", "min_grasp_active_contacts",
                                                           "grasp_identity_problems", "nongrasp_bar_contacts_max",
-                                                          "bar_angular_discretization")},
+                                                          "bar_angular_reference", "bar_angular_bound")},
                          first_failure=r.get("first_failure"))
         out[name]["signature"] = adversarial_signature(out[name])
     deleted = copy.deepcopy(frames)
@@ -141,7 +141,7 @@ def adversarial(frames, dt, verdict, nominal):
     run("reversed_hand_forces", "NUMERICAL_NOT_QUALIFIED", scenes.reverse_one_hand(frames, "l"))
     # Gate B relative bar pose: the COM can stay put while the bar tilts, slips
     # along its axis or the reported hand frame is wrong.
-    run("bar_tilt_10deg_zero_translation", "GRASP_SLIP", scenes.rotate_reported_bar_ramp(frames, tilt_deg=10.))
+    run("bar_tilt_10deg_zero_translation", "NUMERICAL_NOT_QUALIFIED", scenes.rotate_reported_bar_ramp(frames, tilt_deg=10.))
     run("bar_axial_slip_5mm", "GRASP_SLIP", scenes.translate_bar_axially(frames, .005))
     run("right_hand_frame_10deg_offset", "GRASP_SLIP", scenes.offset_hand_frame(frames, "r", 10., "x"))
     run("hand_frames_ramp_5deg", "GRASP_SLIP", scenes.ramp_hand_frames(frames, "r", 4., "z"))
@@ -160,13 +160,6 @@ def positive_controls(frames, dt, verdict):
         observed=r["outcome"], qualified=r["outcome"] == "RECEIVING_HOLD_QUALIFIED",
         support_ratio=ev.get("hand_support_impulse_ratio"), support_share=ev.get("hand_support_share"),
         note="asymmetric hand load sharing is physically admissible; only the bilateral minimum share is gated")
-    twist = scenes.rotate_reported_bar_ramp(frames, twist_deg=30.)
-    r = evaluate_receiving(twist, dt, verdict)
-    pose = r.get("evidence", {}).get("relative_bar_pose", {})
-    out["bar_shaft_twist_30deg"] = dict(
-        observed=r["outcome"], qualified=r["outcome"] == "RECEIVING_HOLD_QUALIFIED",
-        twist_deg=pose.get("max_twist_deg"), axisymmetric=pose.get("axisymmetric"), twist_gated=pose.get("twist_gated"),
-        note="the unplated shaft/sleeve body is axisymmetric, so rotation about its own shaft is permitted by the declared grip")
     small = scenes.small_legitimate_relative_motion(frames)
     r = evaluate_receiving(small, dt, verdict)
     pose = r.get("evidence", {}).get("relative_bar_pose", {})
@@ -175,6 +168,22 @@ def positive_controls(frames, dt, verdict):
         tilt_deg=pose.get("max_tilt_deg"), contact_site_drift_m=pose.get("max_contact_site_drift_m"),
         note="0.5 deg reported tilt and 0.5 mm hand-frame translation are inside the declared grip bounds")
     return out
+
+
+def relative_pose_controls(frames, dt, verdict):
+    """Pose-only controls: a shaft roll is permitted by the declared grip even though a *forged* roll is
+    refused end-to-end by the angular-velocity/attitude consistency check."""
+    from biosyngen_benchmark.grasp_contract import classify_frame
+    from biosyngen_benchmark.receiving_acceptance import relative_pose_check
+    window = [f for f in frames if f["t"] >= .1]
+    twist = [f for f in scenes.rotate_reported_bar_ramp(frames, twist_deg=30.) if f["t"] >= .1]
+    pose = relative_pose_check(twist, "barbell", [classify_frame(f) for f in twist])
+    return dict(bar_shaft_twist_30deg_pose_control=dict(
+        max_twist_deg=pose["max_twist_deg"], max_tilt_deg=pose["max_tilt_deg"], twist_gated=pose["twist_gated"],
+        first=pose["first"], pose_within_bounds=not pose["first"],
+        note="the unplated shaft/sleeve body is axisymmetric about its local y axis, so the relative-pose criterion "
+             "does not gate a shaft roll; the forged 30 deg roll is additionally refused end-to-end because the "
+             "reported roll is not driven by an exported torque (NUMERICAL/attitude inconsistency)."))
 
 
 def run(out, quick=False):
@@ -199,11 +208,13 @@ def run(out, quick=False):
                                         "hand_support_impulse_ratio", "hand_support_share",
                                         "hand_support_force_residual_ratio", "hand_support_moment_residual_ratio",
                                         "hand_active_frame_fraction", "nongrasp_bar_contacts_max",
-                                        "grasp_identity_problems", "grasp_contract_problems", "relative_bar_pose")},
+                                        "grasp_identity_problems", "grasp_contract_problems", "relative_bar_pose",
+                                        "bar_angular_reference", "bar_angular_bound")},
                      first_failure=r.get("first_failure"),
                      bar_linear_residual_n_s=r["evidence"].get("bar_newton_euler", {}).get("max_step_linear_residual_n_s"),
-                     bar_angular_residual_n_m_s=r["evidence"].get("bar_angular_discretization", {}).get("max_residual_n_m_s"),
-                     bar_angular_tolerance_n_m_s=r["evidence"].get("bar_angular_discretization", {}).get("tolerance_n_m_s"),
+                     bar_angular_residual_n_m_s=r["evidence"].get("bar_angular_reference", {}).get("max_residual_n_m_s"),
+                     bar_angular_bound_residual_n_m_s=r["evidence"].get("bar_angular_bound", {}).get("max_residual_n_m_s"),
+                     bar_angular_tolerance_n_m_s=r["evidence"].get("bar_angular_reference", {}).get("tolerance_n_m_s"),
                      system_step_residual_n_s=r["evidence"].get("system_newton_euler", {}).get("max_step_linear_residual_n_s"),
                      bar_mass_kg=next(b for b in frames[0]["bodies"] if b["name"] == "barbell")["mass"],
                      model_total_mass_kg=sum(b["mass"] for b in frames[0]["bodies"]))
@@ -236,6 +247,7 @@ def run(out, quick=False):
             nominal_frames = (frames, dt, static["verdict"])
     adv = adversarial(*nominal_frames, nominal)
     pos = positive_controls(*nominal_frames)
+    pose_controls = relative_pose_controls(*nominal_frames)
     required = [n for n in EXPECTED_QUALIFIED if n in results]
     red_refused = red_eval["outcome"] != "RECEIVING_HOLD_QUALIFIED" and red_static != "STATIC_EQUILIBRIUM_CERTIFIED"
     anthro = {n: results[n]["expectation_met"] for n in ANTHROPOMETRIC if n in results}
@@ -247,7 +259,8 @@ def run(out, quick=False):
                   "20 kg unplated bar; static overhead POWER receiving hold, not a lift or catch",
                   red_canary=dict(static_verdict=red_static, outcome=red_eval["outcome"], reason=str(red_eval.get("reason")),
                                   bar_drop_m=red_drop, refused=red_refused),
-                  cases=results, adversarial=adv, adversarial_positive=pos, required_qualified=required,
+                  cases=results, adversarial=adv, adversarial_positive=pos, relative_pose_controls=pose_controls,
+                  required_qualified=required,
                   expectations_met=sum(v["expectation_met"] for v in results.values()), expectations_total=len(results),
                   adversarial_refused=sum(a["refused"] for a in adv.values()), adversarial_total=len(adv),
                   adversarial_positive_qualified=sum(p["qualified"] for p in pos.values()), adversarial_positive_total=len(pos),

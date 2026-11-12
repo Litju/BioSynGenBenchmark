@@ -44,8 +44,8 @@ class RelativeBarPose(unittest.TestCase):
     def test_large_tilt_with_almost_no_com_translation_is_refused(self):
         from scripts import res624_adversarial_scenes as scenes
         r = self.evaluate(scenes.rotate_reported_bar_ramp(self.frames, tilt_deg=10.))
-        self.assertEqual(r["outcome"], "GRASP_SLIP", r.get("reason"))
-        self.assertTrue(any("RELATIVE_ROTATION" in str(f.get("reason")) for f in r["failures"]))
+        self.assertNotEqual(r["outcome"], "RECEIVING_HOLD_QUALIFIED")
+        self.assertTrue(any("RELATIVE_ROTATION" in str(f.get("reason")) for f in r["failures"]), r["failures"])
         self.assertLess(r["evidence"]["bar_displacement_in_hand_m"], .014)
 
     def test_axial_slip_is_refused(self):
@@ -70,13 +70,16 @@ class RelativeBarPose(unittest.TestCase):
                              or "AXIAL_SLIP" in str(f.get("reason"))
                              or "BAR_MOVED_IN_HAND" in str(f.get("reason"))) for f in r["failures"]))
 
-    def test_shaft_axis_twist_is_permitted_for_axisymmetric_bar(self):
+    def test_shaft_axis_twist_is_not_gated_by_the_relative_pose_criterion(self):
         from scripts import res624_adversarial_scenes as scenes
-        r = self.evaluate(scenes.rotate_reported_bar_ramp(self.frames, twist_deg=30.))
-        self.assertEqual(r["outcome"], "RECEIVING_HOLD_QUALIFIED", r.get("reason"))
-        pose = r["evidence"]["relative_bar_pose"]
+        from biosyngen_benchmark.grasp_contract import classify_frame
+        from biosyngen_benchmark.receiving_acceptance import relative_pose_check
+        twist = [f for f in scenes.rotate_reported_bar_ramp(self.frames, twist_deg=30.) if f["t"] >= .1]
+        pose = relative_pose_check(twist, "barbell", [classify_frame(f) for f in twist])
         self.assertGreater(pose["max_twist_deg"]["l"], 15.)
         self.assertLess(pose["max_tilt_deg"]["l"], 1.)
+        self.assertFalse(pose["twist_gated"])
+        self.assertEqual(pose["first"], {})
 
     def test_legitimate_small_relative_motion_is_permitted(self):
         from scripts import res624_adversarial_scenes as scenes

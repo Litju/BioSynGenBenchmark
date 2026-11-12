@@ -31,7 +31,7 @@ from biosyngen.spatial.model_v2 import HumanV2Spec
 from biosyngen.spatial.plant_v2 import HumanV2Plant
 from biosyngen.spatial.receiving_grasp_v2 import forward_receiving_hold, qualify_static
 from biosyngen_benchmark.receiving_acceptance import evaluate_receiving
-from biosyngen_benchmark.rigid_body_check import angular_discretization_check
+from biosyngen_benchmark.rigid_body_check import angular_discretization_check, angular_reference_check
 from biosyngen_benchmark.spatial_oracle import dynamic_balance, mass_properties
 from scripts.res624_grasp_diagnosis import CLAIMS, source_receipt
 from scripts.res624_receipt import full_receipt
@@ -148,6 +148,7 @@ def run(out):
         refine[f"{ts:g}"] = dict(evaluator=evaluate_receiving(ff, ts, ss["verdict"])["outcome"],
                                  metrics=frame_metrics(ff),
                                  bar_angular=angular_discretization_check(ff, ts),
+                                 bar_angular_reference=angular_reference_check([f for f in ff if f["t"] >= .1], ts),
                                  system_linear=dynamic_balance(ff, ts), energy=energy_ledger(ff, ts))
     d1 = traj_distance(runs[1e-3], runs[5e-4], 1, 2)
     d2 = traj_distance(runs[5e-4], runs[2.5e-4], 2, 4)
@@ -160,6 +161,7 @@ def run(out):
                   mass_inertia=masses, evaluator=verdict,
                   bar_linear=dynamic_balance(frames, dt, members={"barbell"}),
                   bar_angular=angular_discretization_check(frames, dt),
+                  bar_angular_reference=angular_reference_check([f for f in frames if f["t"] >= .1], dt),
                   system=dynamic_balance(frames, dt), contact_impulses=impulses(frames, dt),
                   energy=energy_ledger(frames, dt), deterministic_replay_bitwise=deterministic,
                   timestep_refinement=dict(runs=refine, bar_traj_max_diff_1ms_vs_0p5ms_m=d1,
@@ -175,6 +177,7 @@ def run(out):
                              "error) and stay below 1% of gross power flux at the declared dt=1 ms; the observed order is reported, "
                              "not assumed")
     checks = dict(mass_inertia=masses["outcome"] == "PASS", evaluator=verdict["outcome"] == "RECEIVING_HOLD_QUALIFIED",
+                  angular_reference=report["bar_angular_reference"]["outcome"] == "PASS",
                   deterministic=deterministic, refinement_all_qualified=all(r["evaluator"] == "RECEIVING_HOLD_QUALIFIED" for r in refine.values()),
                   refinement_converging=d2 < d1,
                   energy_residual_decreasing=en[0] > en[1] > en[2],

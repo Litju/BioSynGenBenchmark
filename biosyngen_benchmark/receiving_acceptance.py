@@ -82,12 +82,13 @@ Declared tolerances and their basis:
     the declared unplated shaft/sleeve body is axisymmetric, so a shaft roll is
     permitted by the declared grip rather than treated as slip. Angles use
     SO(3) geodesics with acos-on-trace wrapping, not Euler differences.
-  * Bar angular balance: the one-step residual about the moving bar COM may
-    not exceed the engine step's rigid-body discretization terms
-    dt|w x Iw| + |(I_k+1 - I_k) w| by more than 1e-6*W*dt*0.25 m
-    (rigid_body_check); it is applied after settling, where the measured
-    residual-to-bound ratio is 0.018 rather than ~1 during the impact
-    transient.
+  * Bar angular balance: an independent fourth-order Runge-Kutta reference
+    integrates the rigid-body attitude dynamics through each exported step
+    from the exported state, body inertia and loads, and its predicted world
+    angular momentum must match the exported one within 1e-7 N m s (nominal
+    window residual 1.6e-9; equivalent to detecting an unexported 1e-4 N m
+    torque over one millisecond step). The older derived discretization bound
+    is kept as a supplementary receipt but no longer gates.
   * Penetration <= 0.1 shaft radius (1.4 mm): beyond it the contact geometry no
     longer represents the declared rigid shaft/pad surfaces.
   * Slip bound = shaft radius (14 mm), as in Gate C.
@@ -100,7 +101,7 @@ import math
 import numpy as np
 
 from .grasp_contract import BAR_BODY, BILATERAL_MIN_SHARE, CONTRACT_VERSION, classify_frame
-from .rigid_body_check import angular_discretization_check
+from .rigid_body_check import angular_discretization_check, angular_reference_check
 from .spatial_oracle import WORLD, _hull, contact_admissibility, dynamic_balance, support_polygon
 
 SHAFT_RADIUS_M = .014
@@ -264,6 +265,10 @@ def _relative_pose(window, bar, ledgers):
     return out
 
 
+# Public alias for the pose-only audit controls (the evaluator uses the same function).
+relative_pose_check = _relative_pose
+
+
 def _support_balance(window, dt_s, bar, weight, ledgers, grip_half_width_m):
     """Integrate the hand-on-bar wrench against the bar's exact discrete balance.
 
@@ -389,18 +394,19 @@ def evaluate_receiving(frames, dt_s, static_verdict, *, bar="barbell", settle_s=
     bar_nE = dynamic_balance(frames, dt_s, members={bar}, about=frames[0]["bodies"][0]["com"])
     sys_nE = dynamic_balance(frames, dt_s, about=frames[0]["bodies"][0]["com"])
     lin_tol = 1e-6*weight*dt_s
-    bar_ang = angular_discretization_check(window, dt_s, bar)
-    bar_ang["tolerance_n_m_s"] = bar_ang["excess_tolerance_n_m_s"]
+    bar_ang = angular_reference_check(window, dt_s, bar)
+    bar_ang_bound = angular_discretization_check(window, dt_s, bar)
     sys_step_tol = 1e-4*total_weight*dt_s
     sys_cum_tol = 1e-6*total_weight*dt_s*(len(frames)-1)
-    evidence.update(bar_newton_euler=bar_nE, bar_angular_discretization=bar_ang, system_newton_euler=sys_nE,
+    evidence.update(bar_newton_euler=bar_nE, bar_angular_reference=bar_ang, bar_angular_bound=bar_ang_bound,
+                    system_newton_euler=sys_nE,
                     tolerances=dict(bar_linear_n_s=lin_tol, system_step_linear_n_s=sys_step_tol,
                                     system_cumulative_linear_n_s=sys_cum_tol,
                                     bar_angular_n_m_s=bar_ang["tolerance_n_m_s"]))
     if bar_nE["max_step_linear_residual_n_s"] > lin_tol:
         fail("NUMERICAL_NOT_QUALIFIED", "BAR_BALANCE_OPEN_UNDECLARED_LOAD")
     if bar_ang["outcome"] != "PASS":
-        fail("NUMERICAL_NOT_QUALIFIED", bar_ang.get("reason", "BAR_ANGULAR_DISCRETIZATION_MISMATCH"))
+        fail("NUMERICAL_NOT_QUALIFIED", bar_ang.get("reason", "ANGULAR_MOMENTUM_REFERENCE_MISMATCH"))
     if sys_nE["max_step_linear_residual_n_s"] > sys_step_tol or sys_nE["cumulative_linear_residual_n_s"] > sys_cum_tol:
         fail("NUMERICAL_NOT_QUALIFIED", "SYSTEM_BALANCE_OPEN_UNDECLARED_LOAD")
     # 2. contact admissibility.
