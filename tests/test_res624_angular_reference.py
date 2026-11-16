@@ -114,6 +114,36 @@ class AnalyticAngularOracle(unittest.TestCase):
         from biosyngen_benchmark.rigid_body_check import angular_reference_check
         return angular_reference_check(frames, .001, tolerance_n_m_s=tolerance)
 
+    def test_nonfinite_final_orientation_and_inertia_fail_closed(self):
+        from biosyngen_benchmark.rigid_body_check import angular_reference_check
+        from copy import deepcopy
+        frames = _frames(_trajectory(self.D, self.R0, self.W0, np.zeros(3)), self.D)
+        for label, corrupt in (
+            ("nan_orientation", lambda f: f[-1]["bar_frame"]["rotation"][0].__setitem__(0, float("nan"))),
+            ("nonorthogonal_orientation", lambda f: f[-1]["bar_frame"]["rotation"][0].__setitem__(0, 2.)),
+            ("nan_inertia", lambda f: f[-1]["bodies"][0]["inertia_world"][0].__setitem__(0, float("nan"))),
+            ("nan_velocity", lambda f: f[-1]["bodies"][0]["w"].__setitem__(0, float("nan"))),
+        ):
+            with self.subTest(case=label):
+                bad = deepcopy(frames)
+                corrupt(bad)
+                self.assertEqual(angular_reference_check(bad, .001)["outcome"], "REJECTED")
+        self.assertEqual(angular_reference_check(frames, float("nan"))["outcome"], "REJECTED")
+
+    def test_operational_error_envelope_still_detects_sub_micronewton_second_fault(self):
+        from biosyngen_benchmark.rigid_body_check import (
+            ANGULAR_REFERENCE_TOLERANCE_N_M_S, angular_reference_check)
+        from copy import deepcopy
+        self.assertEqual(ANGULAR_REFERENCE_TOLERANCE_N_M_S, 5e-7)
+        self.assertLess(ANGULAR_REFERENCE_TOLERANCE_N_M_S * 10, 7.43e-6)
+        frames = _frames(_trajectory(self.D, self.R0, self.W0, np.zeros(3)), self.D)
+        self.assertEqual(angular_reference_check(frames, .001)["outcome"], "PASS")
+        faulted = deepcopy(frames)
+        faulted[20]["bodies"][0]["w"][0] += 5e-5
+        result = angular_reference_check(faulted, .001)
+        self.assertEqual(result["outcome"], "REJECTED", result)
+        self.assertGreater(result["max_residual_n_m_s"], ANGULAR_REFERENCE_TOLERANCE_N_M_S)
+
     def test_torque_free_rotation_passes(self):
         frames = _frames(_trajectory(self.D, self.R0, self.W0, np.zeros(3)), self.D)
         r = self.run_check(frames)
