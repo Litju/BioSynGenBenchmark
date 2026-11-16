@@ -25,6 +25,8 @@ NUMERICAL_VERIFICATION_ONLY.
 """
 from __future__ import annotations
 
+import math
+
 REQUIRED_NOMINAL = ("nominal_0p3s_red_window", "nominal_2s", "nominal_10s")
 REQUIRED_ANTHROPOMETRIC = {
     "anthropometry_70kg_1p70m": dict(body_mass_kg=70.0, stature_m=1.70),
@@ -54,32 +56,51 @@ def is_negative(case):
     return expectation.startswith("REFUSED") or "pre-release" in expectation
 
 
-def evidence_problems(case):
-    """Independent evidence checks on a positive case: a relabelled pass cannot hide a weak hold."""
-    ev = case.get("evidence") or {}
-    problems = []
-    if ev.get("hand_support_impulse_ratio") is None or ev["hand_support_impulse_ratio"] < MIN_SUPPORT_RATIO:
-        problems.append("HAND_SUPPORT_RATIO_BELOW_NOMINAL")
-    if ev.get("min_grasp_active_contacts") is None or ev["min_grasp_active_contacts"] < MIN_ACTIVE_CONTACTS:
-        problems.append("INSUFFICIENT_ACTIVE_GRASP_CONTACTS")
-    if ev.get("bar_displacement_in_hand_m") is None or ev["bar_displacement_in_hand_m"] >= MAX_BAR_DISPLACEMENT_M:
-        problems.append("BAR_NOT_STABLE_IN_HAND")
-    if ev.get("max_penetration_m") is None or ev["max_penetration_m"] > MAX_COMPATIBLE_PENETRATION_M:
-        problems.append("PENETRATION_BEYOND_DECLARED_BOUND")
-    if ev.get("posture_saturation_samples") != 0:
-        problems.append("POSTURE_ACTUATOR_SATURATION")
-    if ev.get("contact_problems") != 0:
-        problems.append("CONTACT_INADMISSIBILITY_RECORDED")
-    if ev.get("grasp_identity_problems"):
-        problems.append("GRASP_IDENTITY_PROBLEMS_RECORDED")
-    pose = ev.get("relative_bar_pose") or {}
-    for side in ("l", "r"):
-        if (pose.get("max_tilt_deg") or {}).get(side, 0.) >= 2.:
-            problems.append(f"RELATIVE_TILT_{side.upper()}_BEYOND_GRIP")
-        if (pose.get("max_axial_slip_m") or {}).get(side, 0.) >= .002:
-            problems.append(f"AXIAL_SLIP_{side.upper()}_BEYOND_GRIP")
-    return problems
+def _finite_number(value):
+    """Only finite JSON numeric scalars are admissible for physical evidence."""
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return None
+    return float(value) if math.isfinite(value) else None
 
+
+def evidence_problems(case):
+    """Fail closed on missing, malformed or nonfinite positive-case evidence."""
+    ev = case.get("evidence")
+    if not isinstance(ev, dict):
+        return ["PHYSICAL_EVIDENCE_MISSING"]
+    problems = []
+    def quantity(key):
+        return _finite_number(ev.get(key))
+
+    support = quantity("hand_support_impulse_ratio")
+    if support is None or support < MIN_SUPPORT_RATIO:
+        problems.append("HAND_SUPPORT_RATIO_BELOW_NOMINAL")
+    contacts = quantity("min_grasp_active_contacts")
+    if contacts is None or contacts < MIN_ACTIVE_CONTACTS or not contacts.is_integer():
+        problems.append("INSUFFICIENT_ACTIVE_GRASP_CONTACTS")
+    displacement = quantity("bar_displacement_in_hand_m")
+    if displacement is None or displacement < 0 or displacement >= MAX_BAR_DISPLACEMENT_M:
+        problems.append("BAR_NOT_STABLE_IN_HAND")
+    penetration = quantity("max_penetration_m")
+    if penetration is None or penetration < 0 or penetration > MAX_COMPATIBLE_PENETRATION_M:
+        problems.append("PENETRATION_BEYOND_DECLARED_BOUND")
+    for key, problem in (("posture_saturation_samples", "POSTURE_ACTUATOR_SATURATION"),
+                         ("contact_problems", "CONTACT_INADMISSIBILITY_RECORDED")):
+        count = quantity(key)
+        if count is None or count != 0:
+            problems.append(problem)
+    identities = ev.get("grasp_identity_problems")
+    if not isinstance(identities, list) or identities:
+        problems.append("GRASP_IDENTITY_PROBLEMS_RECORDED")
+    pose = ev.get("relative_bar_pose")
+    for key, limit, prefix in (("max_tilt_deg", 2., "RELATIVE_TILT"),
+                               ("max_axial_slip_m", .002, "AXIAL_SLIP")):
+        values = pose.get(key) if isinstance(pose, dict) else None
+        for side in ("l", "r"):
+            value = _finite_number(values.get(side)) if isinstance(values, dict) else None
+            if value is None or value < 0 or value >= limit:
+                problems.append(f"{prefix}_{side.upper()}_BEYOND_GRIP")
+    return problems
 
 def case_problems(case, name):
     if not case:
@@ -100,21 +121,21 @@ def case_problems(case, name):
 
 
 def subject_problems(case, required):
-    subject = case.get("subject") or {}
-    problems = []
-    if not subject:
+    subject = case.get("subject")
+    if not isinstance(subject, dict) or not subject:
         return ["SUBJECT_METADATA_MISSING"]
-    if abs(float(subject.get("body_mass_kg", "nan"))-required["body_mass_kg"]) > 1e-9:
-        problems.append(f"SUBJECT_MASS={subject.get('body_mass_kg')}!=REQUIRED={required['body_mass_kg']}")
-    if abs(float(subject.get("stature_m", "nan"))-required["stature_m"]) > 1e-9:
-        problems.append(f"SUBJECT_STATURE={subject.get('stature_m')}!=REQUIRED={required['stature_m']}")
-    model_mass = subject.get("model_human_mass_kg")
-    if model_mass is None or abs(float(model_mass)-required["body_mass_kg"]) > MASS_TOLERANCE_KG:
-        problems.append(f"MODEL_HUMAN_MASS={model_mass}!=REQUIRED={required['body_mass_kg']}")
+    problems = []
+    for field, expected, tolerance, label in (
+        ("body_mass_kg", required["body_mass_kg"], 1e-9, "SUBJECT_MASS"),
+        ("stature_m", required["stature_m"], 1e-9, "SUBJECT_STATURE"),
+        ("model_human_mass_kg", required["body_mass_kg"], MASS_TOLERANCE_KG, "MODEL_HUMAN_MASS"),
+    ):
+        measured = _finite_number(subject.get(field))
+        if measured is None or abs(measured-expected) > tolerance:
+            problems.append(f"{label}={subject.get(field)}!=REQUIRED={expected}")
     if subject.get("mass_consistent") is not True:
         problems.append("SUBJECT_MASS_INCONSISTENT")
     return problems
-
 
 def qualify_scope(report, required_nominal=REQUIRED_NOMINAL, required_anthropometric=REQUIRED_ANTHROPOMETRIC):
     cases = report.get("cases") or {}
