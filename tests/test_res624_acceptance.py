@@ -76,5 +76,30 @@ class Acceptance(unittest.TestCase):
         self.assertEqual(self.evaluate(bad)["outcome"], "NUMERICAL_NOT_QUALIFIED")
 
 
+    def test_nonfinite_or_invalid_final_frame_and_time_are_refused(self):
+        import copy
+        from biosyngen_benchmark.receiving_acceptance import evaluate_receiving
+        def verify(mutate):
+            frames = copy.deepcopy(self.frames)
+            mutate(frames)
+            result = evaluate_receiving(frames, self.dt, self.static["verdict"])
+            self.assertEqual(result["outcome"], "NUMERICAL_NOT_QUALIFIED", result)
+        cases = [
+            lambda f: f[-1]["bar_frame"]["rotation"][0].__setitem__(0, float("nan")),
+            lambda f: f[-1]["hand_frames"]["l"]["rotation"][1].__setitem__(1, float("inf")),
+            lambda f: f[-1]["bar_frame"]["rotation"][0].__setitem__(0, 1.2),
+            lambda f: f[-1]["bar_frame"]["axis"].__setitem__(0, float("nan")),
+            lambda f: f[-1]["actuators"]["force"].__setitem__(0, float("nan")),
+            lambda f: f[-1]["actuators"]["capacity"].__setitem__(0, -1.),
+            lambda f: f[-1].__setitem__("t", f[-2]["t"]),
+            lambda f: f[-1].__setitem__("t", float("nan")),
+            lambda f: f[3]["gravity"].__setitem__(2, float("nan")),
+        ]
+        for index, mutate in enumerate(cases):
+            with self.subTest(case=index):
+                verify(mutate)
+
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -17,6 +17,28 @@ class WorkflowStructure(unittest.TestCase):
         self.assertIn("scripts.res624_red_canary", WORKFLOW)
         self.assertNotIn("python -m scripts.res618_fullbody_qualification", WORKFLOW)
 
+    def test_all_new_scientific_modules_are_mandatory_on_pinned_mujoco(self):
+        commands = [line for line in WORKFLOW.splitlines()
+                    if "run: python -m scripts.require_spatial_checks " in line]
+        self.assertEqual(len(commands), 1)
+        command = commands[0]
+        for name in (
+            "tests.test_res624_angular_reference",
+            "tests.test_res624_grasp_identity",
+            "tests.test_res624_relative_pose",
+            "tests.test_res624_scope",
+            "tests.test_res624_platform_negative",
+            "tests.test_res624_ci_separation",
+        ):
+            with self.subTest(module=name):
+                self.assertIn(name, command)
+        self.assertIn("mujoco==3.3.7 scipy==1.17.1 numpy==2.4.4", WORKFLOW)
+        from pathlib import Path
+        gate = Path("scripts/require_spatial_checks.py").read_text(encoding="utf-8")
+        self.assertIn("not result.skipped", gate)
+        self.assertIn("import mujoco", gate)
+        self.assertIn("import scipy", gate)
+
     def test_current_qualification_is_full_and_required(self):
         self.assertIn("scripts.res624_receiving_qualification --out", WORKFLOW)
         self.assertNotIn("--quick", WORKFLOW)

@@ -147,5 +147,48 @@ class ScopeVerdicts(unittest.TestCase):
         self.assertFalse(v["nominal"]["qualified"])
 
 
+    def test_missing_nonfinite_or_non_numeric_subject_values_fail_closed(self):
+        for field in ("body_mass_kg", "stature_m", "model_human_mass_kg"):
+            for invalid in ("MISSING", None, float("nan"), float("inf"), float("-inf"), True, "70.0"):
+                with self.subTest(field=field, invalid=str(invalid)):
+                    report = passing_report()
+                    subject = report["cases"][REQUIRED[0]]["subject"]
+                    if invalid == "MISSING":
+                        subject.pop(field)
+                    else:
+                        subject[field] = invalid
+                    v = qualify_scope(report)
+                    self.assertTrue(v["nominal"]["qualified"])
+                    self.assertFalse(v["anthropometric_generalization"]["qualified"])
+                    self.assertEqual(v["overall"]["verdict"], OVERALL_NOMINAL_ONLY)
+
+    def test_missing_nonfinite_or_malformed_physical_evidence_fails_closed(self):
+        fields = ("hand_support_impulse_ratio", "min_grasp_active_contacts",
+                  "bar_displacement_in_hand_m", "max_penetration_m",
+                  "posture_saturation_samples", "contact_problems")
+        for field in fields:
+            for invalid in ("MISSING", float("nan"), float("inf"), None):
+                with self.subTest(field=field, invalid=str(invalid)):
+                    report = passing_report()
+                    ev = report["cases"]["nominal_2s"]["evidence"]
+                    if invalid == "MISSING":
+                        ev.pop(field)
+                    else:
+                        ev[field] = invalid
+                    self.assertFalse(qualify_scope(report)["nominal"]["qualified"])
+
+    def test_missing_or_nonfinite_per_hand_pose_is_refused(self):
+        for key in ("max_tilt_deg", "max_axial_slip_m"):
+            for side in ("l", "r"):
+                for invalid in ("MISSING", float("nan"), float("inf"), None):
+                    report = passing_report()
+                    pose = report["cases"]["nominal_2s"]["evidence"]["relative_bar_pose"][key]
+                    if invalid == "MISSING":
+                        pose.pop(side)
+                    else:
+                        pose[side] = invalid
+                    with self.subTest(key=key, side=side, invalid=str(invalid)):
+                        self.assertFalse(qualify_scope(report)["nominal"]["qualified"])
+
 if __name__ == "__main__":
     unittest.main()

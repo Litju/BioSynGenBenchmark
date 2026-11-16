@@ -130,16 +130,100 @@ INITIAL_GRIP_ALIGNMENT_MAX_DEG = 5.0
 TWIST_MAX_DEG_NON_AXISYMMETRIC = 15.0
 
 
-def _finite_frames(frames):
+def _finite_frames(frames, dt_s):
+    """Reject malformed measurements before calculating any physics or max-residuals.
+
+    Check every frame, including the final state; a NaN in the last rotation
+    must not be silently masked by Python's max() or an inequality with NaN.
+    The declared regular output cadence is part of the numerical contract.
+    """
+    if not isinstance(frames, (list, tuple)) or len(frames) < 2:
+        return False
+    if not isinstance(dt_s, (int, float)) or not math.isfinite(dt_s) or dt_s <= 0:
+        return False
+
+    def vector(value, size):
+        try:
+            a = np.asarray(value, dtype=float)
+            return a.shape == (size,) and bool(np.isfinite(a).all())
+        except (TypeError, ValueError, OverflowError):
+            return False
+
+    def rotation(value):
+        try:
+            R = np.asarray(value, dtype=float)
+            return (R.shape == (3, 3) and bool(np.isfinite(R).all())
+                    and float(np.linalg.norm(R.T @ R - np.eye(3), ord="fro")) <= 1e-5
+                    and abs(float(np.linalg.det(R)) - 1.) <= 1e-5)
+        except (TypeError, ValueError, OverflowError, np.linalg.LinAlgError):
+            return False
+
+    previous_t = None
     for f in frames:
-        for b in f["bodies"]:
-            if not all(math.isfinite(v) for key in ("com", "v", "w") for v in b[key]):
+        if not isinstance(f, dict):
+            return False
+        t = f.get("t")
+        if not isinstance(t, (int, float)) or not math.isfinite(t):
+            return False
+        if previous_t is not None and (t <= previous_t
+                                      or abs((t-previous_t)-dt_s) > max(1e-9, 1e-5*dt_s)):
+            return False
+        previous_t = t
+        if not vector(f.get("gravity"), 3) or not f.get("bodies"):
+            return False
+        for body in f["bodies"]:
+            if (not isinstance(body, dict) or not isinstance(body.get("mass"), (int, float))
+                    or not math.isfinite(body["mass"]) or body["mass"] <= 0):
                 return False
-        for c in f["contacts"]:
-            if not all(math.isfinite(v) for v in c["force_on_body2"]):
+            if not all(vector(body.get(key), 3) for key in ("com", "v", "w")):
+                return False
+            try:
+                inertia = np.asarray(body["inertia_world"], dtype=float)
+                if inertia.shape != (3, 3) or not bool(np.isfinite(inertia).all()):
+                    return False
+            except (KeyError, TypeError, ValueError, OverflowError):
+                return False
+        bar_frame = f.get("bar_frame")
+        if not isinstance(bar_frame, dict) or not rotation(bar_frame.get("rotation")):
+            return False
+        if not vector(bar_frame.get("position"), 3) or not vector(bar_frame.get("axis"), 3):
+            return False
+        Rbar = np.asarray(bar_frame["rotation"], float)
+        if np.linalg.norm(np.asarray(bar_frame["axis"], float)-Rbar[:, 1]) > 1e-5:
+            return False
+        hand_frames = f.get("hand_frames")
+        if not isinstance(hand_frames, dict):
+            return False
+        for side in ("l", "r"):
+            hand = hand_frames.get(side)
+            if (not isinstance(hand, dict) or not rotation(hand.get("rotation"))
+                    or not vector(hand.get("position"), 3)):
+                return False
+        act = f.get("actuators")
+        if not isinstance(act, dict) or not isinstance(act.get("names"), (list, tuple)):
+            return False
+        names, forces, capacities = act["names"], act.get("force"), act.get("capacity")
+        if not names or not isinstance(forces, (list, tuple)) or not isinstance(capacities, (list, tuple)):
+            return False
+        if len(names) != len(forces) or len(names) != len(capacities):
+            return False
+        for force, capacity in zip(forces, capacities):
+            if (not isinstance(force, (int, float)) or not math.isfinite(force)
+                    or not isinstance(capacity, (int, float)) or not math.isfinite(capacity)
+                    or capacity <= 0):
+                return False
+        for contact in f.get("contacts", ()):
+            if (not vector(contact.get("point"), 3)
+                    or not vector(contact.get("normal"), 3)
+                    or not vector(contact.get("force_on_body2"), 3)):
+                return False
+            if any(not isinstance(contact.get(k), (int, float))
+                   or not math.isfinite(contact[k]) for k in ("dist", "friction")):
+                return False
+        for external in f.get("external", ()):
+            if not vector(external.get("point"), 3) or not vector(external.get("force"), 3):
                 return False
     return True
-
 
 def _hull_margin(points, xy):
     hull = _hull(points)
@@ -374,7 +458,7 @@ def evaluate_receiving(frames, dt_s, static_verdict, *, bar="barbell", settle_s=
     evidence = dict(frames=len(frames), dt_s=dt_s, window=[settle_s, end_s],
                     grasp_contract=CONTRACT_VERSION)
     window = [f for f in frames if settle_s <= f["t"] <= end_s]
-    if len(frames) < 2 or not window or not _finite_frames(frames):
+    if len(frames) < 2 or not window or not _finite_frames(frames, dt_s):
         return dict(outcome="NUMERICAL_NOT_QUALIFIED", reason="NONFINITE_OR_EMPTY", evidence=evidence)
     missing = sorted({k for f in window for k in ("hand_frames", "bar_frame") if k not in f})
     if missing:
